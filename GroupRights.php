@@ -1,0 +1,128 @@
+<?php
+/**
+ * 
+ * Part of Core..
+ * 
+ */
+require_once 'Pman.php';
+
+class Pman_Admin_GroupRights extends Pman
+{
+    function getAuth() {
+        parent::getAuth(); // load company!
+        $au = $this->getAuthUser();
+        if (!$au) {
+            $this->jerr("Not authenticated", array('authFailure' => true));
+        }
+        $this->authUser = $au;
+        return true;
+    }
+    
+    // perms - any table that can be modified by the user should be listed here..
+    // without it, our perms manager should deny writing via the web interface...
+    
+    // FOR PERMS - SEE THE DATAOBJECT!
+    
+    function get()
+    {
+        // must recieve a group..
+        if (!isset($_GET['group_id']) || (int)$_GET['group_id'] < 0) {
+            $this->jerr("NO GROUP");
+        }
+        if (!$this->hasPerm( 'Core.Groups','S')) { // listing groups..
+            $this->jerr("PERMISSION DENIED");
+        }
+         //   DB_DataObject::debugLevel(1);
+        $p = DB_DataObject::factory('Group_Rights');
+        $p->group_id = (int)$_GET['group_id'];
+        $p->find();
+        $cur = array();
+    
+        while ($p->fetch()) {
+            $cur[$p->rightname] = clone($p);
+        }
+        $e = -1;
+        $ar = array();
+        // echo "<PRE>"; print_r($p->defaultPermData() );
+        foreach($p->defaultPermData() as $k => $defdata) {
+            
+            if (empty($defdata[0])) { // no admin data available..
+                continue;
+            }
+            if (!isset($cur[$k])) {
+                // then there is no current access right for it..
+                //DB_DataObject::debugLevel(1);
+                $gr = DB_DataObject::factory('Group_Rights');
+                $gr->group_id = (int)$_GET['group_id'];
+                $gr->rightname = $k;
+                $gr->AccessMask = $defdata[1]; // set to defaults..
+                $gr->insert();
+                $cur[$k] = clone($gr);
+            }
+            
+            
+            $ar[] = array(
+                'id' => $cur[$k]->id * 1, //
+                'rightname' => $k,
+                'descript' => isset($defdata[2]) ? $defdata[2] : '' ,
+                'AccessMask' => $cur[$k]->AccessMask,
+                'FullMask' => $defdata[0],
+                'group_id' => (int)$_GET['group_id']
+            );
+                
+        }
+        $this->jdata($ar);
+        
+         
+    }
+    
+    
+    // post.. 
+    function post()
+    {
+        if (!isset($_POST['group_id']) || (int)$_POST['group_id'] < 0) {
+            $this->jerr("NO GROUP");
+        }
+        if (!$this->hasPerm( 'Core.Groups','E')) { // editing groups..
+            $this->jerr("PERMISSION DENIED");
+        }
+        
+        
+            
+        
+        
+        // add or update..
+        if (!empty($_POST['dataUpdate'])) {
+            foreach($_POST['dataUpdate'] as $id => $ac) {
+                $p = DB_DataObject::factory('Group_Rights');
+                $p->group_id = (int)$_POST['group_id'];
+                if (!$p->get($id)) {
+                    continue; // errro cond.
+                }
+                $po = clone($p);
+                $p->AccessMask = $ac;
+                $p->validate(); // ensure that the basic perms can not be removed
+                $p->update($po);
+            }
+        }
+        if (!empty($_POST['dataAdd'])) {
+            foreach($_POST['dataAdd'] as $perm => $ac) {
+                $p = DB_DataObject::factory('Group_Rights');
+                $p->group_id = (int)$_POST['group_id'];
+                $p->rightname = $perm;
+                $p->AccessMask = $ac;
+                $p->validate(); // ensure that the basic perms can not be removed
+                $p->insert();
+            }
+        }
+        $this->jok("done");
+        
+        
+        
+    }
+     
+    
+    
+    
+    
+}
