@@ -129,9 +129,9 @@ class Pman_Admin_Translations extends Pman
         require_once 'Services/JSON.php';
         $j = new Services_JSON();
         
-        
+        $ff = HTML_FlexyFramework::get();
         $trans = file_get_contents(
-            dirname(__FILE__) . '/../' . $module. "/compiled/_translation_.js");
+            $ff->rootDir . '/Pman/' . $module. "/compiled/_translation_.js");
         
         
         return (array) $j->decode('{'. $trans .'}');
@@ -197,7 +197,9 @@ class Pman_Admin_Translations extends Pman
     
     function getTransFilename($lang, $module)
     {
-        $fn = dirname(__FILE__).'/../../_translations_/'. $lang . '/'. $module.'.json';
+        
+        $ff = HTML_FlexyFramework::get();
+        $fn = $ff->rootDir .'/_translations_/'. $lang . '/'. $module.'.json';
         if (!file_exists(dirname($fn))) {
             
             /// create the direct
@@ -206,7 +208,7 @@ class Pman_Admin_Translations extends Pman
             umask($oldumask);  
             clearstatcache();
             if (!file_exists(dirname($fn))) {
-                $this->jerr("_translations_ directory does not exist in Pman folder");
+                $this->jerr("_translations_ directory does not exist in Pman folder - it needs to be editable");
             }
             
         }
@@ -218,6 +220,8 @@ class Pman_Admin_Translations extends Pman
     function loadOld($lang,$data)
     {
         // need the old for hinting..
+        
+        // this is ok - as it's inside this module.
         $old = (array) json_decode(file_get_contents(dirname(__FILE__).'/data/oldeng.js'));
         //print_r($old);
         // contains key/value of data..
@@ -253,8 +257,8 @@ class Pman_Admin_Translations extends Pman
     {
         $fn = $this->getTransFilename($lang, $module);
         file_put_contents($fn, json_encode($data));
-        
-        $base = dirname(__FILE__).'/../../_translations_' ;
+         $ff = HTML_FlexyFramework::get();
+        $base = $ff->rootDir.'/_translations_' ;
         $out = '';
         foreach(scandir($base) as $l) {
              
