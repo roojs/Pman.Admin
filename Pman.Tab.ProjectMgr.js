@@ -329,6 +329,7 @@ Pman.Tab.ProjectsMgr = {
     
     getTypes: function()
     {
+        return Pman.Dialog.Projects.getTypes();
         return [
             [  'U' , "Project (Unconfirmed)" ],
             [  'P' , "Project" ],
