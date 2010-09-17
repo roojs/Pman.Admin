@@ -63,6 +63,7 @@ Pman.Tab.AdminProjects = {
                 loadMask : true,
                 listeners : {
                     render: function() { 
+                    
                         _this.grid = this; 
                         _this.dialog = Pman.Dialog.CoreProject;
                         _this.filter =  'P,U';
