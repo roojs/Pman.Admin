@@ -38,7 +38,7 @@ Pman.Tab.ProjectsMgr = {
                 icon: Ext.rootURL + 'images/default/dd/drop-add.gif',
                 
                 handler : function() {
-                    Pman.Dialog.Projects.show( 
+                    Pman.Dialog.CoreProject.show( 
                         { 
                             id : 0
                         },
@@ -225,7 +225,7 @@ Pman.Tab.ProjectsMgr = {
         });
     
        
-        var _dialog = Pman.Dialog.Projects;
+        var _dialog = Pman.Dialog.CoreProject;
         tb.add(
             {
                 text: "Add",
