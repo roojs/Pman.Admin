@@ -64,7 +64,7 @@ Pman.Tab.AdminProjects = {
                 listeners : {
                     render: function() { 
                         _this.grid = this; 
-                        _this.dialog = Pman.Dialog.Projects;
+                        _this.dialog = Pman.Dialog.CoreProjects;
                         _this.filter =  'P,U';
                         _this.getTypes = function()
                         {
