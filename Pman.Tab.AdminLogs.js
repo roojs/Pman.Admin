@@ -11,7 +11,7 @@ Pman.on('beforeload', function()
         modKey : '999-Pman.Tab.AdminLogs',
         module : Pman.Tab.AdminLogs,
         region : 'center',
-        parent : false,
+        parent : Pman,
         name : "Logs",
         disabled : false, 
         permname: '' 
