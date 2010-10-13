@@ -8,7 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '990-Pman.Tab.AdminLogs',
+        modKey : '999-Pman.Tab.AdminLogs',
         module : Pman.Tab.AdminLogs,
         region : 'center',
         parent : false,
