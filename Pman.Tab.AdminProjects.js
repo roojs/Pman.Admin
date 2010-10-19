@@ -94,9 +94,9 @@ Pman.Tab.AdminProjects = {
                     },
                     rowdblclick: function (g, ri, e)
                     {
-                    
+                        
                         _this.dialog.show(g.getDataSource().getAt(ri).data, function() {
-                           _self.footer.onClick('refresh');
+                           g.footer.onClick('refresh');
                         });
                     }
                 },
