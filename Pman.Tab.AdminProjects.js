@@ -173,7 +173,7 @@ Pman.Tab.AdminProjects = {
                                 click: function()
                                         {
                                             _this.dialog.show( { id : 0 }, function() {
-                                                _this.grid.footer.onClick('first');
+                                                _this.grid.footer.onClick('refresh');
                                 
                                             }); 
                                 
@@ -196,7 +196,7 @@ Pman.Tab.AdminProjects = {
                                             }
                                             
                                             _this.dialog.show(s[0].data, function() {
-                                                _this.grid.footer.onClick('first');
+                                                _this.grid.footer.onClick('refresh');
                                                }); 
                                             
                                         }
