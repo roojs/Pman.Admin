@@ -3,7 +3,7 @@
   
         
 	"Admin_Tab"                 : [ "S",      "" , "View Admin Tab"] ,
-        "Logs"                 : [ "S",      "" , "View og of all events"] ;
+        "Logs"                 : [ "S",      "" , "View log of all events"] 
 	 
 }
       
