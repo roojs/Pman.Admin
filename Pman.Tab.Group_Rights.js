@@ -126,7 +126,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'group-rights-module',
                         header : "Module",
-                        dataIndex : 'AccessMask',
+                        dataIndex : 'rightname',
                         'sortable' : false,
                         'width' : 50,
                         renderer : function(v,x,r)
