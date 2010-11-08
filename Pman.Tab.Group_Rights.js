@@ -152,9 +152,7 @@ Pman.Tab.Group_Rights = {
                             switch(v) {
                         
                                  
-                                case   'Fax.Fax': return "Fax";
-                                case   'Fax.Fax_To_Company': return "Send Faxes To Companies";
-                                case   'Timesheet.Timesheet': return "Timesheet";
+                                 case   'Timesheet.Timesheet': return "Timesheet";
                                 
                                 case   'Admin.Admin_Tab':   return "Admin Tab";  
                                 case   'Core.Person': return "Person";
