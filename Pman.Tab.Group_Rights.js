@@ -152,8 +152,7 @@ Pman.Tab.Group_Rights = {
                             switch(v) {
                         
                                  
-                                 
-                                case   'Admin.Admin_Tab':   return "Admin Tab";  
+                                  
                                 case   'Core.Person': return "Person";
                                 case   'Core.Offices': return "Offices";
                                 case   'Core.Companies': return "Companies";
