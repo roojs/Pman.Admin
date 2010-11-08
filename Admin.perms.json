@@ -2,8 +2,8 @@
 {	
   
         
-	"Admin_Tab"                 : [ "S",      "" ] ,
-        "Logs"                 : [ "S",      "" ] 
+	"Admin_Tab"                 : [ "S",      "" , "View Admin Tab"] ,
+        "Logs"                 : [ "S",      "" , "View Log of all events"] 
 	 
 }
       
