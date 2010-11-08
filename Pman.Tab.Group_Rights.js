@@ -122,6 +122,19 @@ Pman.Tab.Group_Rights = {
                         'width' : 50,
                         renderer : Pman.ColModels.Group_RightsRenderer
                     },
+                    
+                    {
+                        'id' : 'group-rights-module',
+                        header : "Module",
+                        dataIndex : 'AccessMask',
+                        'sortable' : false,
+                        'width' : 50,
+                        renderer : function(v,x,r)
+                        {
+                            return String.format('{0}',v.split('.').unshift());
+                        }
+                    },
+                    
                     {
                         'id' : 'group_rights-rightname',
                         header : "Permission",
