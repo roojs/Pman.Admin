@@ -125,7 +125,7 @@ Pman.Dialog.AdminGenericName = {
                         {
                             // do some checks?
                              
-                            
+                             this.url = baseURL + '/Roo/' + _this.data._table;
                             _this.dialog.el.mask("Saving");
                             _this.form.doAction("submit");
                         
