@@ -45,7 +45,7 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
             fitContainer : true,
             fitToframe : true,
             region : 'center',
-            tableName : 'Company types',
+            tableName : 'Company Types',
             title : "core_company_type",
             grid : {
                 xtype: 'Grid',
