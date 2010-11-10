@@ -90,7 +90,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_company_type'); \n}\n        "
+                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_image_type'); \n}\n        "
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Delete",
