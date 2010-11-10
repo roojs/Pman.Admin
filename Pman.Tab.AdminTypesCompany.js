@@ -54,7 +54,7 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                     render : function() 
                     {
                         _this.grid = this; 
-                        //_this.dialog = Pman.Dialog.FILL_IN
+                       _this.dialog = Pman.Dialog.AdminGenericName;
                         if (_this.panel.active) {
                            this.footer.onClick('first');
                         }
