@@ -89,13 +89,13 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
                                     "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_image_type'); \n}\n        "
+                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_company_type'); \n}\n        "
                                     },
+                                    "cls": "x-btn-text-icon",
+                                    "text": "Delete",
+                                    "xtype": "Button",
+                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
                                     "|xns": "Roo.Toolbar"
                                 }
                             ]
