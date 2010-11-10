@@ -6,6 +6,7 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTypes.bjs",
     "items": [
         {
+            "background": true,
             "region": "center",
             "title": "System Types",
             "xtype": "NestedLayoutPanel",
