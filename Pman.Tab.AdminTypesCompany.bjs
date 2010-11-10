@@ -14,7 +14,7 @@
             "fitToframe": true,
             "region": "center",
             "tableName": "core_image_type",
-            "title": "",
+            "title": "Image Types",
             "xtype": "GridPanel",
             "|xns": "Roo",
             "items": [
