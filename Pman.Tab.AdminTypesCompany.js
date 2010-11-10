@@ -65,7 +65,7 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                         _this.dialog.show({
                              id : this.getDataSource().getAt(rowIndex).data.id,
                             _title : "Edit Company Type",
-                            _table : this.panel.tableName
+                            _table : _this.panel.tableName
                         }, function() {
                             _this.grid.footer.onClick('first');
                         }); 
