@@ -70,7 +70,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { \n        id : 0,\n        _title : \"Add Company Type\",\n        _table : _this.tableName\n     } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { \n        id : 0,\n        _title : \"Add Company Type\",\n        _table : _this.panel.tableName\n     } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Add",
