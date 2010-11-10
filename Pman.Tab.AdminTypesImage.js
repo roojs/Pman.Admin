@@ -151,15 +151,15 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Delete",
-                            cls : 'x-btn-text-icon',
-                            icon : rootURL + '/Pman/templates/images/trash.gif',
                             listeners : {
                                 click : function()
                                 {
                                      Pman.genericDelete(_this, 'core_company_type'); 
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Delete",
+                            icon : rootURL + '/Pman/templates/images/trash.gif'
                         }
                     ]
                 },
