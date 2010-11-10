@@ -19,9 +19,9 @@
                     "items": [
                         {
                             "*prop": "center",
+                            "tabPosition": "",
                             "xtype": "LayoutRegion",
-                            "|xns": "Roo",
-                            "listeners": {}
+                            "|xns": "Roo"
                         }
                     ]
                 }
