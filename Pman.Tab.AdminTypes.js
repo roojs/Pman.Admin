@@ -42,7 +42,7 @@ Pman.Tab.AdminTypes = new Roo.util.Observable({
                 center : {
                     xtype: 'LayoutRegion',
                     xns: Roo,
-                    tabPosition : ''
+                    tabPosition : 'top'
                 }
             }
         });
