@@ -8,11 +8,11 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminTypes',
+        modKey : '800-Pman.Tab.AdminTypes',
         module : Pman.Tab.AdminTypes,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "AdminTypes",
         disabled : false, 
         permname: '' 
     });
