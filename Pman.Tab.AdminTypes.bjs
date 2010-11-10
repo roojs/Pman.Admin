@@ -17,9 +17,9 @@
                     "items": [
                         {
                             "*prop": "center",
-                            "title": "System Types",
                             "xtype": "LayoutRegion",
-                            "|xns": "Roo"
+                            "|xns": "Roo",
+                            "listeners": {}
                         }
                     ]
                 }
