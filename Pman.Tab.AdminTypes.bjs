@@ -19,7 +19,7 @@
                     "items": [
                         {
                             "*prop": "center",
-                            "tabPosition": "",
+                            "tabPosition": "top",
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         }
