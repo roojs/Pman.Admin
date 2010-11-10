@@ -144,7 +144,7 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
                                     if (!_this.dialog) return;
                                     _this.dialog.show({
                                          id : s[0].data.id , 
-                                        _table : _this.tableName , 
+                                        _table : _this.panel.tableName , 
                                         _title : "Edit Image Type" 
                                         },function() {
                                         _this.grid.footer.onClick('first');
