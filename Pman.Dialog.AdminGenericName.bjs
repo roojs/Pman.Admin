@@ -40,7 +40,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "specialkey": "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        \n    }\n}"
+                                        "specialkey": "function (_self, e)\n{\n    if (e.getKey() == 13) {\n         _this.dialog.el.mask(\"Saving\");\n         _this.form.doAction(\"submit\");\n    }\n}"
                                     },
                                     "fieldLabel": "Name",
                                     "name": "name",
