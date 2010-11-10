@@ -119,8 +119,8 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
                                     if (!_this.dialog) return;
                                     _this.dialog.show( { 
                                         id : 0 , 
-                                        _table : _this.table , 
-                                        _title : "Add Company Type"
+                                        _table : _this.tableName , 
+                                        _title : "Add Image Type"
                                     } , function() {
                                         _this.grid.footer.onClick('first');
                                    }); 
