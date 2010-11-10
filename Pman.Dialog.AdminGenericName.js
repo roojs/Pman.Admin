@@ -34,7 +34,7 @@ Pman.Dialog.AdminGenericName = {
             collapsible : false,
             height : 120,
             resizable : false,
-            title : "Edit / Create core_company_type",
+            title : "Edit",
             width : 400,
             items : [
                 {
