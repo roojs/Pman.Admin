@@ -41,7 +41,7 @@
                                 {
                                     "fieldLabel": "Name",
                                     "name": "name",
-                                    "width": 230,
+                                    "width": 270,
                                     "xtype": "TextField",
                                     "|xns": "Roo.form"
                                 },
