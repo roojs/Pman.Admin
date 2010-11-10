@@ -43,7 +43,10 @@
                                     "name": "name",
                                     "width": 270,
                                     "xtype": "TextField",
-                                    "|xns": "Roo.form"
+                                    "|xns": "Roo.form",
+                                    "listeners": {
+                                        "specialkey": "function (_self, e)\n{\n\n}"
+                                    }
                                 },
                                 {
                                     "name": "id",
