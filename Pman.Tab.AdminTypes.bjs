@@ -7,10 +7,9 @@
     "items": [
         {
             "region": "center",
+            "title": "System Types",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
-            "title": "",
-            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
