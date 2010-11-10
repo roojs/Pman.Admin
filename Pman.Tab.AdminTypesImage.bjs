@@ -13,7 +13,7 @@
             "fitContainer": true,
             "fitToframe": true,
             "region": "center",
-            "tableName": "Company types",
+            "tableName": "Company Types",
             "title": "core_company_type",
             "xtype": "GridPanel",
             "|xns": "Roo",
