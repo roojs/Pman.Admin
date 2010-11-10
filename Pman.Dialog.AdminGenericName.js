@@ -94,7 +94,8 @@ Pman.Dialog.AdminGenericName = {
                                         specialkey : function (_self, e)
                                         {
                                             if (e.getKey() == 13) {
-                                                
+                                                 _this.dialog.el.mask("Saving");
+                                                 _this.form.doAction("submit");
                                             }
                                         }
                                     },
