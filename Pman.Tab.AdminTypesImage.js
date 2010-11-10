@@ -162,7 +162,7 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
                             listeners : {
                                 click : function()
                                 {
-                                     Pman.genericDelete(_this, 'core_company_type'); 
+                                     Pman.genericDelete(_this, 'core_image_type'); 
                                 }
                             },
                             cls : 'x-btn-text-icon',
