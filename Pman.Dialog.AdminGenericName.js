@@ -62,6 +62,7 @@ Pman.Dialog.AdminGenericName = {
                                     }
                                     if (action.type == 'load') {
                                         _this.dialog.el.unmask();
+                                        _this.form.findField('name').focus();
                                         return;
                                     }
                                     if (action.type =='submit') {
