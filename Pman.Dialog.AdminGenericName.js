@@ -50,7 +50,13 @@ Pman.Dialog.AdminGenericName = {
                                 {
                                     if (action.type == 'setdata') {
                                        //_this.dialog.el.mask("Loading");
-                                       //this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                                       
+                                       _this.dialog.setTitle(_this.data._title);
+                                       this.load({ 
+                                            method: 'GET', 
+                                            params: { '_id' : _this.data.id },
+                                            url : baseURL + '/Roo/' + _this.data._table
+                                        });
                                        return;
                                     }
                                     if (action.type == 'load') {
