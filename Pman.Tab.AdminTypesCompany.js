@@ -120,7 +120,7 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                                     _this.dialog.show( { 
                                         id : 0,
                                         _title : "Add Company Type",
-                                        _table : _this.table
+                                        _table : _this.tableName
                                      } , function() {
                                         _this.grid.footer.onClick('first');
                                    }); 
