@@ -9,6 +9,8 @@
             "region": "center",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
+            "title": "",
+            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
