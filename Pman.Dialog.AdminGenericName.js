@@ -32,7 +32,7 @@ Pman.Dialog.AdminGenericName = {
             xns: Roo,
             closable : false,
             collapsible : false,
-            height : 80,
+            height : 120,
             resizable : false,
             title : "Edit / Create core_company_type",
             width : 400,
