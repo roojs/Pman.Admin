@@ -36,6 +36,7 @@
                             "xtype": "Form",
                             "|url": "baseURL + '/Roo/core_company_type.php'",
                             "|xns": "Roo.form",
+                            "labelAlign": "",
                             "items": [
                                 {
                                     "fieldLabel": "Name",
