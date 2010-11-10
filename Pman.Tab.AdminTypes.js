@@ -33,6 +33,7 @@ Pman.Tab.AdminTypes = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
+            background : true,
             region : 'center',
             title : "System Types",
             layout : {
