@@ -19,6 +19,7 @@
                             "*prop": "center",
                             "xtype": "LayoutRegion",
                             "|xns": "Roo",
+                            "title": "",
                             "listeners": {}
                         }
                     ]
