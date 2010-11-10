@@ -40,7 +40,7 @@ Pman.Tab.AdminTypes = new Roo.util.Observable({
                 center : {
                     xtype: 'LayoutRegion',
                     xns: Roo,
-                    title : ""
+                    title : "System Types"
                 }
             }
         });
