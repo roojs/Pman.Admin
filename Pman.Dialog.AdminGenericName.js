@@ -81,10 +81,10 @@ Pman.Dialog.AdminGenericName = {
                                     _this.form= form;
                                 }
                             },
+                            labelAlign : 'right',
                             method : 'POST',
                             style : 'margin:10px;',
                             url : baseURL + '/Roo/core_company_type.php',
-                            labelAlign : '',
                             items : [
                                 {
                                     xtype: 'TextField',
