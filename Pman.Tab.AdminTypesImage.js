@@ -142,7 +142,11 @@ Pman.Tab.AdminTypesImage = new Roo.util.Observable({
                                         return;
                                     }
                                     if (!_this.dialog) return;
-                                    _this.dialog.show(s[0].data, function() {
+                                    _this.dialog.show({
+                                         id : s[0].data.id , 
+                                        _table : _this.table , 
+                                        _title : "Edit Company Type" 
+                                        },function() {
                                         _this.grid.footer.onClick('first');
                                     }); 
                                     
