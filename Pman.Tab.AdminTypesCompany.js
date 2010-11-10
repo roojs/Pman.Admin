@@ -78,7 +78,7 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                         xtype: 'HttpProxy',
                         xns: Roo.data,
                         method : 'GET',
-                        url : baseURL + '/Roo/core_image_type.php'
+                        url : baseURL + '/Roo/core_company_type.php'
                     },
                     reader : {
                         xtype: 'JsonReader',
