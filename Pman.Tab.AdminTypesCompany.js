@@ -113,18 +113,22 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Add",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
                             listeners : {
                                 click : function()
                                 {
                                     if (!_this.dialog) return;
-                                    _this.dialog.show( { id : 0 } , function() {
+                                    _this.dialog.show( { 
+                                        id : 0,
+                                        _title : "Add Company Type",
+                                        _table : _this.table
+                                     } , function() {
                                         _this.grid.footer.onClick('first');
                                    }); 
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Add",
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
                             xtype: 'Button',
