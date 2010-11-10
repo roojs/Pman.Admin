@@ -50,8 +50,6 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
-                autoExpandColumn : 'name',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
@@ -64,11 +62,17 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                     rowdblclick : function (_self, rowIndex, e)
                     {
                         if (!_this.dialog) return;
-                        _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
+                        _this.dialog.show({
+                             id : this.getDataSource().getAt(rowIndex).data.id,
+                            _title : "Edit Company Type",
+                            _table : this.panel.tableName
+                        }, function() {
                             _this.grid.footer.onClick('first');
                         }); 
                     }
                 },
+                autoExpandColumn : 'name',
+                loadMask : true,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
