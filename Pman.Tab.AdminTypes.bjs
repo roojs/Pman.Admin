@@ -17,9 +17,9 @@
                     "items": [
                         {
                             "*prop": "center",
-                            "titlebar": true,
                             "xtype": "LayoutRegion",
-                            "|xns": "Roo"
+                            "|xns": "Roo",
+                            "listeners": {}
                         }
                     ]
                 }
