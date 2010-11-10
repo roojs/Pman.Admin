@@ -92,7 +92,13 @@ Pman.Dialog.AdminGenericName = {
                                     xns: Roo.form,
                                     fieldLabel : 'Name',
                                     name : 'name',
-                                    width : 270
+                                    width : 270,
+                                    listeners : {
+                                        specialkey : function (_self, e)
+                                        {
+                                        
+                                        }
+                                    }
                                 },
                                 {
                                     xtype: 'Hidden',
