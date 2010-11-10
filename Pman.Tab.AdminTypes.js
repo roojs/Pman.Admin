@@ -34,6 +34,7 @@ Pman.Tab.AdminTypes = new Roo.util.Observable({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
+            title : "",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
