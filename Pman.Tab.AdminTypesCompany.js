@@ -33,12 +33,6 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'GridPanel',
             xns: Roo,
-            title : "core_image_type",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'core_image_type',
-            background : true,
-            region : 'center',
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -47,6 +41,12 @@ Pman.Tab.AdminTypesCompany = new Roo.util.Observable({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            region : 'center',
+            tableName : 'Image Types',
+            title : "core_image_type",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
