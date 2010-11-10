@@ -33,6 +33,7 @@ Pman.Dialog.AdminGenericName = {
             closable : false,
             collapsible : false,
             height : 120,
+            modal : true,
             resizable : false,
             title : "Edit",
             width : 400,
