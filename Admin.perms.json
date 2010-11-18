@@ -4,7 +4,9 @@
         
 	"Admin_Tab"            : [ "S",      "" , "View Admin Tab"] ,
         "Logs"                 : [ "S",      "" , "View log of all events"] ,
-	"Teams"                : [ "S",      "" , "View Team manager"] ,
-	"Companies"            : [ "S",      "" , "View Companies manager"] 
+	
+	"Teams"                : [ "S",      "" , "Admin Team manager"] ,
+	"Companies"            : [ "S",      "" , "Admin Companies manager"] ,
+	"Contacts"             : [ "S",      "" , "Admin Contacts manager"] 
 }
       
