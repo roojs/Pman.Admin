@@ -6,15 +6,16 @@ Pman.on('beforeload', function()
     //                case 1 : Pman.Tab.Projects.add(this.mainLayout, 'west'); break;
     
   
-    if (Pman.hasPerm('Core.Companies', 'E')) {
-        Pman.register({
-            modKey : '030-pman-tab-companies',
-            module : Pman.Tab.Companies,
-            region : 'center',
-            parent : Pman.Tab.Admin,
-            name : "Contact Companies Manager"
-        });
-    }
+    
+    Pman.register({
+        modKey : '030-pman-tab-companies',
+        module : Pman.Tab.Companies,
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Contact Companies Manager",
+         permname : 'Admin.Companies',
+    });
+
         
 });
 
