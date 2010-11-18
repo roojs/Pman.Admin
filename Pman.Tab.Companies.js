@@ -13,7 +13,7 @@ Pman.on('beforeload', function()
         region : 'center',
         parent : Pman.Tab.Admin,
         name : "Contact Companies Manager",
-         permname : 'Admin.Companies',
+        permname : 'Admin.Companies'
     });
 
         
