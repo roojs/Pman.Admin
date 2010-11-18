@@ -5,8 +5,7 @@
 // right - Permissions | Members..
 Pman.on('beforeload', function()
 {
-    //                case 1 : Pman.Tab.Projects.add(this.mainLayout, 'west'); break;
-    
+ 
  
     Pman.register({
         modKey : '020-pman-tab-staffmgr',
