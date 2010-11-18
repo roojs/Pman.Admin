@@ -26,7 +26,7 @@ Pman.on('beforeload', function()
 Pman.Tab.PersonStaff = new  Pman.Tab.PersonList({
     id : 'personstaff',
     type: 1,
-    permName : 'Admin.Teams', // or 'Core.Staff'
+    permName : 'Core.Staff', // or 'Core.Staff'
     getLeftSelections : function() {
         
         return Pman.Tab.Teams.grid ? Pman.Tab.Teams.grid.getSelectionModel().getSelections() : [];
