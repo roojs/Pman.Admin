@@ -4,6 +4,6 @@
         
 	"Admin_Tab"                 : [ "S",      "" , "View Admin Tab"] ,
         "Logs"                 : [ "S",      "" , "View log of all events"] 
-	 
+	"Teams"                : [ "S",      "" , "View Team manager"] 
 }
       
