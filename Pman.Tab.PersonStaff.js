@@ -13,7 +13,8 @@ Pman.on('beforeload', function()
         module : Pman.Tab.PersonStaff,
         region : 'center',
         parent : Pman.Tab.StaffMgr,
-        name : "Staff"
+        name : "Staff",
+        permname : 'Admin.Teams'
     });
    
     // where is this loaded into??? - by staffmgr - ** fix this...
