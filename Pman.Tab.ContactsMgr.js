@@ -18,7 +18,8 @@ Pman.on('beforeload', function()
         module : Pman.Tab.ContactsMgr,
         region : 'center',
         parent : Pman.Tab.Admin,
-        name : "Contacts Manager"
+        name : "Contacts Manager",
+        permname : 'Admin.Contacts',
     });
         
 });
