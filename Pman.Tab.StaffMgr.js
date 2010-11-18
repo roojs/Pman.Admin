@@ -7,15 +7,14 @@ Pman.on('beforeload', function()
 {
     //                case 1 : Pman.Tab.Projects.add(this.mainLayout, 'west'); break;
     
-    if (!Pman.hasPerm('Core.Staff', 'E')) {
-        return;
-    }   
+ 
     Pman.register({
         modKey : '020-pman-tab-staffmgr',
         module : Pman.Tab.StaffMgr,
         region : 'center',
         parent : Pman.Tab.Admin,
         name : "Staff Manager",
+        permname : 'Admin.Teams'
         finalize : function() {
             
             var _this = Pman.Tab.StaffMgr;
