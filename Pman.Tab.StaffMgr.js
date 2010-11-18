@@ -13,7 +13,7 @@ Pman.on('beforeload', function()
         region : 'center',
         parent : Pman.Tab.Admin,
         name : "Staff Manager",
-        permname : 'Admin.Teams'
+        permname : 'Admin.Teams',
         finalize : function() {
             
             var _this = Pman.Tab.StaffMgr;
