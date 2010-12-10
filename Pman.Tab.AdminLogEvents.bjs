@@ -6,16 +6,17 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
     "items": [
         {
-            "xtype": "GridPanel",
-            "title": "Events",
-            "fitToframe": true,
-            "fitContainer": true,
-            "tableName": "Events",
-            "background": true,
             "listeners": {
                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
             },
+            "background": true,
+            "fitContainer": true,
+            "fitToframe": true,
+            "tableName": "Events",
+            "title": "Events",
+            "xtype": "GridPanel",
             "|xns": "Roo",
+            "region": "",
             "items": [
                 {
                     "*prop": "grid",
