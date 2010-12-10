@@ -335,10 +335,30 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             listeners : {
                                 click : function (_self, e)
                                 {
+                                 
+                                    var params = {
+                                        'sort' : 'actwhen',
+                                        'dir' : 'DESC',
+                                        'start' : 0,
+                                        'limit' : 400,
+                                        person_id : _this.personSel.getValue(), 
+                                        'csvTitle[0]' : 'When',   'csvCols[0]' : 'event_when', 
+                                        'csvTitle[1]' : 'Staff',   'csvCols[1]' : 'person_name', 
+                                        'csvTitle[2]' : 'Action',   'csvCols[2]' : 'action', 
+                                        'csvTitle[4]' : 'Remarks',   'csvCols[4]' : 'remarks'
+                                        
+                                    }
+                                        
+                                    
+                                    var act = _this.actionSel.getValue();
+                                    if (act.length) {
+                                        params.action = act;
+                                    }
+                                    
+                                
                                     Pman.download({
                                         url : baseURL + '/Roo/Events.php',
-                                        params : {
-                                        }
+                                        params : params
                                         
                                     });
                                 }
