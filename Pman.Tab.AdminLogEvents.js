@@ -1,46 +1,45 @@
-//<script type="text/javascript"> 
-       
-// Auto generated file build Builder
+//<script type="text/javascript">
 
-            
-       
-// register the module first       
+// Auto generated file - created by app.Builder.js- do not edit directly (at present!)
+
+
+
+// register the module first
 Pman.on('beforeload', function()
 {
-
     Pman.register({
-        modKey : '000-pman_tab_adminlogevents',
+        modKey : '001-Pman.Tab.AdminLogEvents',
         module : Pman.Tab.AdminLogEvents,
         region : 'center',
-        parent : Pman.Tab.AdminLogs,
-        name : "Admin - Logs - Events"
+        parent : false,
+        name : "Admin - Logs - Events",
+        disabled : false, 
+        permname: '' 
     });
 });
 
-Pman.Tab.AdminLogEvents = {
-    
+Pman.Tab.AdminLogEvents = new Roo.util.Observable({
+
     panel : false,
     disabled : false,
     parentLayout:  false,
 
     add : function(parentLayout, region)
     {
-        
-        if (this.disabled) {
-            return;
-        }
+
         var _this = this;
         this.parentLayout = parentLayout;
-        
-        this.panel = this.parentLayout.addxtype({
-            xtype : 'GridPanel',
+
+        this.panel = parentLayout.addxtype({
+            xtype: 'GridPanel',
+            xns: Roo,
             title : "Events",
             fitToframe : true,
             fitContainer : true,
             tableName : 'Events',
             background : true,
             listeners : {
-                activate: function() {
+                activate : function() {
                     _this.panel = this;
                     if (_this.grid) {
                         _this.grid.footer.onClick('first');
@@ -48,11 +47,12 @@ Pman.Tab.AdminLogEvents = {
                 }
             },
             grid : {
-                xtype : 'Grid',
+                xtype: 'Grid',
+                xns: Roo.grid,
                 autoExpandColumn : 'remarks',
                 loadMask : true,
                 listeners : {
-                    render: function() { 
+                    render : function() { 
                         _this.grid = this; 
                         //_this.dialog = Pman.Dialog.FILL_IN
                         if (_this.panel.active) {
@@ -61,10 +61,11 @@ Pman.Tab.AdminLogEvents = {
                     }
                 },
                 dataSource : {
-                    xtype : 'Store',
-                    reader: Pman.Readers.Events,
+                    xtype: 'Store',
+                    xns: Roo.data,
+                    reader : Pman.Readers.Events,
                     listeners : {
-                        beforeload: function (_self, o)
+                        beforeload : function (_self, o)
                         {
                            if (! _this.personSel) {
                             return;
@@ -75,72 +76,38 @@ Pman.Tab.AdminLogEvents = {
                         }
                     },
                     remoteSort : true,
-                    sortInfo: { field: 'event_when', direction: 'DESC'},
+                    sortInfo : { field: 'event_when', direction: 'DESC'},
                     proxy : {
-                        xtype : 'HttpProxy',
+                        xtype: 'HttpProxy',
+                        xns: Roo.data,
                         method : 'GET',
-                        url: baseURL + '/Roo/Events.php'
+                        url : baseURL + '/Roo/Events.php'
                     }
                 },
-                colModel : [
-                    {
-                        header : 'When',
-                        width : 100,
-                        dataIndex : 'event_when',
-                        renderer: function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }
-                    },
-                    {
-                        header : 'Staff',
-                        width : 150,
-                        dataIndex : 'person_name',
-                        renderer: function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        header : 'Action',
-                        width : 100,
-                        dataIndex : 'action',
-                        renderer: function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        header : 'IP',
-                        width : 100,
-                        dataIndex : 'ipaddr',
-                        renderer: function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        header : 'Affected',
-                        width : 100,
-                        dataIndex : 'on_id',
-                        renderer: function(v, x, r) {                             return v ? String.format('{0}({1})', r.data.on_table, v)  : '';                         }
-                    },
-                    {
-                        header : 'Remarks',
-                        width : 300,
-                        dataIndex : 'remarks',
-                        renderer: function(v) { return String.format('{0}', v); }
-                    }
-                ],
                 footer : {
-                    xtype : 'PagingToolbar',
+                    xtype: 'PagingToolbar',
+                    xns: Roo,
                     pageSize : 25,
                     displayInfo : true,
-                    displayMsg : "Displaying Events  {0} - {1} of {2}",
-                    emptyMsg : "No Events found"
+                    displayMsg : 'Displaying Events  {0} - {1} of {2}',
+                    emptyMsg : 'No Events found'
                 },
                 toolbar : {
-                    xtype : 'Toolbar',
+                    xtype: 'Toolbar',
+                    xns: Roo,
                     items : [
                         {
-                            xtype : 'TextItem',
+                            xtype: 'TextItem',
                             xns: Roo.Toolbar,
                             text : "Show"
                         },
                         {
-                            fieldLabel : "Person ",
+                            xtype: 'ComboBox',
+                            xns: Roo.form,
+                            fieldLabel : 'Person ',
                             name : 'person_id_name',
                             qtip : "Select Person ",
                             emptyText : "Select Person ",
-                            xtype : 'ComboBox',
                             selectOnFocus : true,
                             allowBlank : true,
                             width : 150,
@@ -151,45 +118,146 @@ Pman.Tab.AdminLogEvents = {
                             typeAhead : true,
                             forceSelection : true,
                             triggerAction : 'all',
-                            tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}<\/b> <\/div>',
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
                             queryParam : 'query[name]',
                             loadingText : "Searching...",
                             minChars : 2,
                             pageSize : 20,
                             listeners : {
-                                select: function (combo, record, index)
+                                select : function (combo, record, index)
                                 {
                                   _this.grid.footer.onClick('first');
                                 },
-                                render: function (_self)
+                                render : function (_self)
                                 {
                                   _this.personSel = _self;
                                 }
                             },
                             store : {
-                                xtype : 'Store',
-                                reader: Pman.Readers.Person,
+                                xtype: 'Store',
+                                xns: Roo.data,
+                                reader : Pman.Readers.Person,
                                 listeners : {
-                                    beforeload: function (_self, o)
+                                    beforeload : function (_self, o)
                                     {
                                         o.params = o.params || {};
                                         o.company_id = Pman.Login.authUser.company_id;
                                     }
                                 },
                                 proxy : {
-                                    xtype : 'HttpProxy',
-                                    url: baseURL + '/Roo/Person.php',
+                                    xtype: 'HttpProxy',
+                                    xns: Roo.data,
+                                    url : baseURL + '/Roo/Person.php',
+                                    method : 'GET'
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'ComboBox',
+                            xns: Roo.form,
+                            fieldLabel : 'Person ',
+                            name : 'person_id_name',
+                            qtip : "Select Person ",
+                            emptyText : "Select Person ",
+                            selectOnFocus : true,
+                            allowBlank : true,
+                            width : 150,
+                            listWidth : 400,
+                            editable : false,
+                            displayField : 'name',
+                            valueField : 'id',
+                            typeAhead : true,
+                            forceSelection : true,
+                            triggerAction : 'all',
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
+                            queryParam : 'query[name]',
+                            loadingText : "Searching...",
+                            minChars : 2,
+                            pageSize : 20,
+                            listeners : {
+                                select : function (combo, record, index)
+                                {
+                                  _this.grid.footer.onClick('first');
+                                },
+                                render : function (_self)
+                                {
+                                  _this.personSel = _self;
+                                }
+                            },
+                            store : {
+                                xtype: 'Store',
+                                xns: Roo.data,
+                                reader : Pman.Readers.Person,
+                                listeners : {
+                                    beforeload : function (_self, o)
+                                    {
+                                        o.params = o.params || {};
+                                        o.company_id = Pman.Login.authUser.company_id;
+                                    }
+                                },
+                                proxy : {
+                                    xtype: 'HttpProxy',
+                                    xns: Roo.data,
+                                    url : baseURL + '/Roo/Person.php',
                                     method : 'GET'
                                 }
                             }
                         }
                     ]
-                }
-            },
-            region : 'center'
+                },
+                colModel : [
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'When',
+                        width : 100,
+                        dataIndex : 'event_when',
+                        renderer : function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'Staff',
+                        width : 150,
+                        dataIndex : 'person_name',
+                        renderer : function(v) { return String.format('{0}', v); }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'Action',
+                        width : 100,
+                        dataIndex : 'action',
+                        renderer : function(v) { return String.format('{0}', v); }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'IP',
+                        width : 100,
+                        dataIndex : 'ipaddr',
+                        renderer : function(v) { return String.format('{0}', v); }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'Affected',
+                        width : 100,
+                        dataIndex : 'on_id',
+                        renderer : function(v, x, r) {                             return v ? String.format('{0}({1})', r.data.on_table, v)  : '';                         }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        header : 'Remarks',
+                        width : 300,
+                        dataIndex : 'remarks',
+                        renderer : function(v) { return String.format('{0}', v); }
+                    }
+                ]
+            }
         });
+        this.layout = this.panel.layout;
 
-        
-        
     }
-}
+});
