@@ -33,11 +33,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'GridPanel',
             xns: Roo,
-            title : "Events",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'Events',
-            background : true,
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -46,6 +41,12 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            tableName : 'Events',
+            title : "Events",
+            region : '',
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
