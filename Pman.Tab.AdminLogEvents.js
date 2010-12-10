@@ -181,7 +181,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
                             triggerAction : 'all',
                             typeAhead : true,
-                            valueField : 'id',
+                            valueField : 'action',
                             width : 150,
                             store : {
                                 xtype: 'Store',
