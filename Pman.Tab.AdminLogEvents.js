@@ -141,7 +141,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                reader : Pman.Readers.Person,
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
@@ -149,6 +148,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         o.company_id = Pman.Login.authUser.company_id;
                                     }
                                 },
+                                reader : Pman.Readers.Person,
+                                sortInfo : '',
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
