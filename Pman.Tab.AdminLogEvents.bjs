@@ -150,6 +150,7 @@
                                             "*prop": "store",
                                             "xtype": "Store",
                                             "|xns": "Roo.data",
+                                            "sortInfo": "",
                                             "items": [
                                                 {
                                                     "*prop": "proxy",
