@@ -12,11 +12,11 @@
             "background": true,
             "fitContainer": true,
             "fitToframe": true,
+            "region": "center",
             "tableName": "Events",
             "title": "Events",
             "xtype": "GridPanel",
             "|xns": "Roo",
-            "region": "",
             "items": [
                 {
                     "*prop": "grid",
