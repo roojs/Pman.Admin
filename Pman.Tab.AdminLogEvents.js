@@ -356,7 +356,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     }
                                     
                                 
-                                    Pman.download({
+                                    new Pman.download({
                                         url : baseURL + '/Roo/Events.php',
                                         params : params
                                         
