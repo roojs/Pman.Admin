@@ -186,14 +186,19 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                reader : Pman.Readers.Person,
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
                                         o.params = o.params || {};
-                                        o.company_id = Pman.Login.authUser.company_id;
+                                        // staff can see all logs, other companies can only see their own.
+                                        if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
+                                            o.params.company_id = Pman.Login.authUser.company_id;
+                                        }
+                                        o.params._distinct = 'action';
+                                        o.params._columns ='action';
                                     }
                                 },
+                                reader : Pman.Readers.Person,
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
