@@ -8,10 +8,10 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminLogEvents',
+        modKey : '999-Pman.Tab.AdminLogEvents',
         module : Pman.Tab.AdminLogEvents,
         region : 'center',
-        parent : false,
+        parent : Pman.Tab.AdminLogs,
         name : "Admin - Logs - Events",
         disabled : false, 
         permname: '' 
