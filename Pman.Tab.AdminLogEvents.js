@@ -8,7 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '999-Pman.Tab.AdminLogEvents',
+        modKey : '001-Pman.Tab.AdminLogEvents',
         module : Pman.Tab.AdminLogEvents,
         region : 'center',
         parent : Pman.Tab.AdminLogs,
@@ -328,6 +328,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     ]
                                 }
                             }
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar
                         }
                     ]
                 },
