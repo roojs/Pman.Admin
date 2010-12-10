@@ -173,7 +173,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "click": "function (_self, e)\n{\n    Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : {\n        }\n        \n    });\n}"
+                                        "click": "function (_self, e)\n{\n \n    var params = {\n        'sort' : 'actwhen',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 400,\n        person_id : _this.personSel.getValue(), \n        'csvTitle[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitle[1]' : 'Staff',   'csvCols[1]' : 'person_name', \n        'csvTitle[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitle[4]' : 'Remarks',   'csvCols[4]' : 'remarks'\n        \n    }\n        \n    \n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    \n\n    Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params\n        \n    });\n}"
                                     },
                                     "text": "Download",
                                     "xtype": "Button",
