@@ -345,7 +345,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         'csvTitle[0]' : 'When',   'csvCols[0]' : 'event_when', 
                                         'csvTitle[1]' : 'Staff',   'csvCols[1]' : 'person_name', 
                                         'csvTitle[2]' : 'Action',   'csvCols[2]' : 'action', 
-                                        'csvTitle[4]' : 'Remarks',   'csvCols[4]' : 'remarks'
+                                        'csvTitle[3]' : 'Remarks',   'csvCols[3]' : 'remarks'
                                         
                                     }
                                         
