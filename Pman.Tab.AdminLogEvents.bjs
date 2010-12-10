@@ -148,7 +148,6 @@
                                             },
                                             "*prop": "store",
                                             "xtype": "Store",
-                                            "|reader": "Pman.Readers.Person",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
