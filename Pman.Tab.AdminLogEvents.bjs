@@ -28,13 +28,13 @@
                     "|xns": "Roo.grid",
                     "items": [
                         {
+                            "listeners": {
+                                "|beforeload": "function (_self, o)\n{\n   if (! _this.personSel) {\n    return;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        o.params.action = act;\n    }\n    \n}"
+                            },
                             "*prop": "dataSource",
+                            "remoteSort": true,
                             "xtype": "Store",
                             "|reader": "Pman.Readers.Events",
-                            "listeners": {
-                                "|beforeload": "function (_self, o)\n{\n   if (! _this.personSel) {\n    return;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    \n}"
-                            },
-                            "remoteSort": true,
                             "|sortInfo": "{ field: 'event_when', direction: 'DESC'}",
                             "|xns": "Roo.data",
                             "items": [
