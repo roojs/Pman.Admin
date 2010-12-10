@@ -337,7 +337,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                 {
                                  
                                     var params = {
-                                        'sort' : 'actwhen',
+                                        'sort' : 'event_when',
                                         'dir' : 'DESC',
                                         'start' : 0,
                                         'limit' : 400,
