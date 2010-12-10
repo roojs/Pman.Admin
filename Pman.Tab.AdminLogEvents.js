@@ -203,6 +203,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         o.params._columns ='action';
                                     }
                                 },
+                                sortInfo : '',
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
