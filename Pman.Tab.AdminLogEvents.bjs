@@ -172,12 +172,12 @@
                                     ]
                                 },
                                 {
+                                    "listeners": {
+                                        "click": "function (_self, e)\n{\n    Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : {\n        }\n        \n    });\n}"
+                                    },
                                     "text": "Download",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar",
-                                    "listeners": {
-                                        "click": "function (_self, e)\n{\n\n}"
-                                    }
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
