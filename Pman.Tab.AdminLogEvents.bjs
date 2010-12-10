@@ -172,8 +172,9 @@
                                     ]
                                 },
                                 {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Button"
+                                    "text": "Download",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
