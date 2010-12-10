@@ -198,7 +198,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         o.params._columns ='action';
                                     }
                                 },
-                                reader : Pman.Readers.Person,
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
