@@ -44,9 +44,9 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
             background : true,
             fitContainer : true,
             fitToframe : true,
+            region : 'center',
             tableName : 'Events',
             title : "Events",
-            region : '',
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
