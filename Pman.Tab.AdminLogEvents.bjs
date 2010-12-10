@@ -170,6 +170,10 @@
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Button"
                                 }
                             ]
                         },
@@ -238,5 +242,5 @@
         }
     ],
     "permname": "",
-    "modOrder": "999"
+    "modOrder": "001"
 }
