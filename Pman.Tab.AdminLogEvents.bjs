@@ -152,9 +152,9 @@
                                             "items": [
                                                 {
                                                     "*prop": "proxy",
-                                                    "xtype": "HttpProxy",
-                                                    "|url": "baseURL + '/Roo/Person.php'",
                                                     "method": "GET",
+                                                    "xtype": "HttpProxy",
+                                                    "|url": "baseURL + '/Roo/Events.php'",
                                                     "|xns": "Roo.data"
                                                 },
                                                 {
