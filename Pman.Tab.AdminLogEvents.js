@@ -332,13 +332,18 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Download",
                             listeners : {
                                 click : function (_self, e)
                                 {
-                                
+                                    Pman.download({
+                                        url : baseURL + '/Roo/Events.php',
+                                        params : {
+                                        }
+                                        
+                                    });
                                 }
-                            }
+                            },
+                            text : "Download"
                         }
                     ]
                 },
