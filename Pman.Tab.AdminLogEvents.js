@@ -201,8 +201,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
-                                    url : baseURL + '/Roo/Person.php',
-                                    method : 'GET'
+                                    method : 'GET',
+                                    url : baseURL + '/Roo/Events.php'
                                 },
                                 reader : {
                                     xtype: 'JsonReader',
