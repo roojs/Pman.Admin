@@ -124,7 +124,7 @@
                                     "allowBlank": true,
                                     "displayField": "action",
                                     "editable": false,
-                                    "emptyText": "Select Person ",
+                                    "emptyText": "Select Action",
                                     "fieldLabel": "Person ",
                                     "forceSelection": true,
                                     "listWidth": 400,
