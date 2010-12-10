@@ -63,7 +63,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
-                    reader : Pman.Readers.Events,
                     listeners : {
                         beforeload : function (_self, o)
                         {
@@ -72,10 +71,15 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             }
                             o.params = o.params || {};
                             o.params.person_id = _this.personSel.getValue();
+                            var act = _this.actionSel.getValue();
+                            if (act.length) {
+                                o.params.action = act;
+                            }
                             
                         }
                     },
                     remoteSort : true,
+                    reader : Pman.Readers.Events,
                     sortInfo : { field: 'event_when', direction: 'DESC'},
                     proxy : {
                         xtype: 'HttpProxy',
