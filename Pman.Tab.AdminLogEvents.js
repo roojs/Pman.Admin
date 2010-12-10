@@ -148,8 +148,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         o.company_id = Pman.Login.authUser.company_id;
                                     }
                                 },
-                                sortInfo : '{ field : \'name\' , direction : \'ASC\' }',
-                                reader : Pman.Readers.Person,
+                                sortInfo : { field : 'name' , direction : 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
