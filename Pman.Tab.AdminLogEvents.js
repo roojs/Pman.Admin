@@ -723,7 +723,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'event_when',
+                        dataIndex : 'id',
                         header : 'When',
                         width : 100,
                         renderer : function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }
