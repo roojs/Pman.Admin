@@ -202,14 +202,13 @@
                             "*prop": "colModel[]"
                         },
                         {
-                            "xtype": "ColumnModel",
+                            "*prop": "colModel[]",
+                            "dataIndex": "event_when",
                             "header": "When",
                             "width": 100,
-                            "dataIndex": "event_when",
+                            "xtype": "ColumnModel",
                             "|renderer": "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
-                            "listeners": {},
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "|xns": "Roo.grid"
                         },
                         {
                             "xtype": "ColumnModel",
