@@ -46,6 +46,7 @@ Pman.Tab.Companies = new Roo.util.Observable({
                 },
                 south : {
                     split:true,
+                    hidden : !Pman.hasPerm('Core.Office','S'),
                     title: "Offices",
                     autoScroll:true,
                     hideTabs: true,
