@@ -170,7 +170,9 @@ Pman.Tab.Companies = new Roo.util.Observable({
                    
                     cellclick : function(g, ri, ci ,e) {
                        
-                        Pman.Tab.Office.paging.onClick('refresh');
+                         if (Pman.Tab.Office.paging) {
+                                Pman.Tab.Office.paging.onClick('refresh');
+                            }
                           
                     },
                     rowdblclick : function(g, ri, e) {
@@ -237,8 +239,10 @@ Pman.Tab.Companies = new Roo.util.Observable({
                 }
             }
         );
+        if (Pman.hasPerm('Core.Office','S')) {
+                Pman.Tab.Office.add(this.innerLayout, 'south');
+        }
     
-        Pman.Tab.Office.add(this.innerLayout, 'south');
         //this.toolbar = tb;
         // add stuff to toolbar?
         this.innerLayout.endUpdate();
