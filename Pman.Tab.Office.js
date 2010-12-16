@@ -6,7 +6,7 @@ Pman.Tab.Office = {
     panel : false,
     add : function(parentLayout, region) {
         
-        if (!Pman.hasPerm('Core.Office')) {
+        if (!Pman.hasPerm('Core.Office','S')) {
             return;
         }
         
