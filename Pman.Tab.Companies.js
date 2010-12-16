@@ -89,7 +89,9 @@ Pman.Tab.Companies = new Roo.util.Observable({
                     listeners : {
                         load : function()
                         {
-                            Pman.Tab.Office.paging.onClick('refresh');
+                            if (Pman.Tab.Office.paging) {
+                                Pman.Tab.Office.paging.onClick('refresh');
+                            }
                         },
                         loadexception : Pman.loadException
                     },
