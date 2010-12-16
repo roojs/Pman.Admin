@@ -203,6 +203,16 @@
                         },
                         {
                             "xtype": "ColumnModel",
+                            "header": "When",
+                            "width": 100,
+                            "dataIndex": "event_when",
+                            "|renderer": "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
+                            "listeners": {},
+                            "|xns": "Roo.grid",
+                            "*prop": "colModel[]"
+                        },
+                        {
+                            "xtype": "ColumnModel",
                             "header": "Staff",
                             "width": 150,
                             "dataIndex": "person_name",
