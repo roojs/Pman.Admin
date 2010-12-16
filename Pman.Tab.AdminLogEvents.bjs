@@ -203,7 +203,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "event_when",
+                            "dataIndex": "id",
                             "header": "When",
                             "width": 100,
                             "xtype": "ColumnModel",
