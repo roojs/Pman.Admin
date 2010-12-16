@@ -204,7 +204,7 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "id",
-                            "header": "When",
+                            "header": "#id",
                             "width": 100,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
