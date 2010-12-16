@@ -6,6 +6,10 @@ Pman.Tab.Office = {
     panel : false,
     add : function(parentLayout, region) {
         
+        if (!Pman.hasPerm('Core.Office')) {
+            return;
+        }
+        
 
         if (this.panel) {
             parentLayout.getRegion(region).showPanel(this.panel);
