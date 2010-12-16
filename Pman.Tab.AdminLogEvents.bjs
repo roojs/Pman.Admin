@@ -207,8 +207,8 @@
                             "header": "#id",
                             "width": 100,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return v ; }",
-                            "|xns": "Roo.grid"
+                            "|xns": "Roo.grid",
+                            "listeners": {}
                         },
                         {
                             "xtype": "ColumnModel",
