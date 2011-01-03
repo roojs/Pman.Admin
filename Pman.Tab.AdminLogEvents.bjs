@@ -209,7 +209,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'ontable';\n    o.params._columns ='ontable';\n}"
+                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'on_table';\n    o.params._columns ='on_table';\n}"
                                             },
                                             "*prop": "store",
                                             "xtype": "Store",
