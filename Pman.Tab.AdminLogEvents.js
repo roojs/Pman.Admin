@@ -714,8 +714,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
                                             o.params.company_id = Pman.Login.authUser.company_id;
                                         }
-                                        o.params._distinct = 'action';
-                                        o.params._columns ='action';
+                                        o.params._distinct = 'ontable';
+                                        o.params._columns ='ontable';
                                     }
                                 },
                                 sortInfo : { field : 'action' , direction : 'ASC' },
