@@ -183,14 +183,6 @@
                                 },
                                 {
                                     "listeners": {
-                                        "click": "function (_self, e)\n{\n \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 400,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Remarks',   'csvCols[3]' : 'remarks'\n        \n    }\n        \n    \n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params,\n        newWindow: true\n        \n    });\n}"
-                                    },
-                                    "text": "Download",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
                                         "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
                                         "|render": "function (_self)\n{\n  _this.actionSel = _self;\n}"
                                     },
@@ -243,6 +235,14 @@
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    "listeners": {
+                                        "click": "function (_self, e)\n{\n \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 400,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Remarks',   'csvCols[3]' : 'remarks'\n        \n    }\n        \n    \n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params,\n        newWindow: true\n        \n    });\n}"
+                                    },
+                                    "text": "Download",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
