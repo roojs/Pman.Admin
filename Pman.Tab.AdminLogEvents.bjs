@@ -188,6 +188,61 @@
                                     "text": "Download",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "listeners": {
+                                        "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
+                                        "|render": "function (_self)\n{\n  _this.actionSel = _self;\n}"
+                                    },
+                                    "allowBlank": true,
+                                    "displayField": "action",
+                                    "editable": false,
+                                    "emptyText": "Select Action",
+                                    "forceSelection": true,
+                                    "listWidth": 300,
+                                    "loadingText": "Searching...",
+                                    "minChars": 2,
+                                    "name": "action",
+                                    "pageSize": 20,
+                                    "qtip": "Select Action",
+                                    "queryParam": "query[action]",
+                                    "selectOnFocus": true,
+                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{action}</b> </div>",
+                                    "triggerAction": "all",
+                                    "typeAhead": true,
+                                    "valueField": "action",
+                                    "width": 150,
+                                    "xtype": "ComboBox",
+                                    "|xns": "Roo.form",
+                                    "items": [
+                                        {
+                                            "listeners": {
+                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'action';\n    o.params._columns ='action';\n}"
+                                            },
+                                            "*prop": "store",
+                                            "|sortInfo": "{ field : 'action' , direction : 'ASC' }",
+                                            "xtype": "Store",
+                                            "|xns": "Roo.data",
+                                            "items": [
+                                                {
+                                                    "*prop": "proxy",
+                                                    "method": "GET",
+                                                    "xtype": "HttpProxy",
+                                                    "|url": "baseURL + '/Roo/Events.php'",
+                                                    "|xns": "Roo.data"
+                                                },
+                                                {
+                                                    "|xns": "Roo.data",
+                                                    "xtype": "JsonReader",
+                                                    "totalProperty": "total",
+                                                    "root": "data",
+                                                    "*prop": "reader",
+                                                    "id": "id",
+                                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]"
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         },
