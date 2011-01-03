@@ -209,11 +209,11 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'action';\n    o.params._columns ='action';\n}"
+                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'ontable';\n    o.params._columns ='ontable';\n}"
                                             },
                                             "*prop": "store",
-                                            "|sortInfo": "{ field : 'action' , direction : 'ASC' }",
                                             "xtype": "Store",
+                                            "|sortInfo": "{ field : 'action' , direction : 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
