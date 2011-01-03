@@ -76,6 +76,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             if (act.length) {
                                 o.params.action = act;
                             }
+                             act = _this.affectSel.getValue();
+                            if (act.length) {
+                                o.params.on_table = act;
+                            }
                             
                         }
                     },
