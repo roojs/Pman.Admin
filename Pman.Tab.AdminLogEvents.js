@@ -686,7 +686,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                 }
                             },
                             allowBlank : true,
-                            displayField : 'action',
+                            displayField : 'on_table',
                             editable : false,
                             emptyText : "Select Affects",
                             forceSelection : true,
