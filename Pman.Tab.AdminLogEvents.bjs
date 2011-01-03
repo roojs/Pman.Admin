@@ -213,7 +213,7 @@
                                             },
                                             "*prop": "store",
                                             "xtype": "Store",
-                                            "|sortInfo": "{ field : 'action' , direction : 'ASC' }",
+                                            "|sortInfo": "{ field : 'on_table' , direction : 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
