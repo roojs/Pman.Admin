@@ -95,11 +95,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             return 'x-dd-drop-ok-add'; 
                         //}
                     },
-                    dragdrop : function (_self, dd, targetId, e)
-                    {
-                       
-                                    
-                    },
                     enddrag : function (_self, dd, e)
                     {
                     
