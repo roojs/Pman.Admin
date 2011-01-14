@@ -165,7 +165,7 @@
                             ]
                         },
                         {
-                            "hidden": false,
+                            "hidden": true,
                             "*prop": "colModel[]",
                             "dataIndex": "project_id_code",
                             "header": "Project",
