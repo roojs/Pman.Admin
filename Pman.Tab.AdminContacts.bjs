@@ -111,6 +111,10 @@
                                 },
                                 {
                                     "|xns": "Roo.Toolbar",
+                                    "xtype": "TextItem"
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
                                     "xtype": "Separator"
                                 },
                                 {
