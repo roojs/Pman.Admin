@@ -40,7 +40,8 @@ Pman.Tab.ContactsMgr = new Roo.util.Observable({
                 xns: Roo,
                 west : {
                     xtype: 'LayoutRegion',
-                    xns: Roo
+                    xns: Roo,
+                    width : 250
                 },
                 center : {
                     xtype: 'LayoutRegion',
