@@ -102,6 +102,10 @@
                                                 {
                                                     "|xns": "Roo.menu",
                                                     "xtype": "Separator"
+                                                },
+                                                {
+                                                    "|xns": "Roo.menu",
+                                                    "xtype": "Item"
                                                 }
                                             ]
                                         }
