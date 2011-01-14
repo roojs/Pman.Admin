@@ -419,7 +419,13 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     pageSize : 25,
                     displayInfo : true,
                     displayMsg : 'Displaying Person{0} - {1} of {2}',
-                    emptyMsg : 'No Person found'
+                    emptyMsg : 'No Person found',
+                    items : [
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar
+                        }
+                    ]
                 },
                 toolbar : {
                     xtype: 'Toolbar',
