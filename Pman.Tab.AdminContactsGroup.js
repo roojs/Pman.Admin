@@ -203,7 +203,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         },
                         {
                             xtype: 'Item',
-                            xns: Roo.Toolbar,
+                            xns: Roo.menu,
                             listeners : {
                                 click : function()
                                 {
