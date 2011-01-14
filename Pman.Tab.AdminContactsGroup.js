@@ -68,8 +68,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     }
                 },
                 autoExpandColumn : 'name',
+                ddGroup : 'groupDD',
                 loadMask : true,
-                ddGroup : '',
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
