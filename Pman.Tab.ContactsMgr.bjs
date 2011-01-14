@@ -23,9 +23,10 @@
                             "|xns": "Roo"
                         },
                         {
-                            "|xns": "Roo",
+                            "*prop": "center",
+                            "tabPosition": "top",
                             "xtype": "LayoutRegion",
-                            "*prop": "center"
+                            "|xns": "Roo"
                         }
                     ]
                 }
