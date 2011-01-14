@@ -56,7 +56,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     {
                         _this.grid = this; 
                         if (!_this.dialog) {
-                            _this.dialog = x;
+                            _this.dialog = Pman.Dialog.PersonEdit;
                             
                         }
                         //_this.dialog = Pman.Dialog.FILL_IN
