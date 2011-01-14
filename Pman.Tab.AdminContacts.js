@@ -41,6 +41,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     }
                 }
             },
+            autoScroll : true,
             background : true,
             fitContainer : true,
             fitToframe : true,
