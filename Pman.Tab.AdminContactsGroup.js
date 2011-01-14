@@ -408,7 +408,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 return 'x-dd-drop-ok-add'; 
                             //}
                         }
-                    }
+                    },
+                     : ''
                 }
             }
         });
