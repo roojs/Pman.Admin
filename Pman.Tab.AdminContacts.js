@@ -462,7 +462,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 }
                             },
                             cls : 'x-btn-text-icon',
-                            text : "Add",
+                            text : "Bulk Add",
                             icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
