@@ -549,14 +549,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         width : 200,
                         dataIndex : 'remarks',
                         renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
-                        header : 'Passwd',
-                        width : 200,
-                        dataIndex : 'passwd',
-                        renderer : function(v) { return String.format('{0}', v); }
                     }
                 ]
             }
