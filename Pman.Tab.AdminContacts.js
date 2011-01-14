@@ -114,7 +114,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 var tms = Pman.Tab.ContactsGroup.grid.getSelectionModel().getSelected();
                                 
                                 if (!tms) {
-                                    return;
+                                    return false;
                                 }
                                 o.params['query[in_group]'] = tms.data.id;
                                 o.params['query[type]'] = 2; // group type..
