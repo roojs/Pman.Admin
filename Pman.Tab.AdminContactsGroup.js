@@ -68,7 +68,31 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     },
                     dragover : function (_self, dd, targetId, e)
                     {
-                    
+                        var t = Roo.lib.Event.getTarget(e); 
+                        var ri = _this.grid.view.findRowIndex(t);
+                        var rid  = false;
+                        if (ri !== false) {
+                            rid = _this.grid.getDataSource().getAt(ri).data;
+                        }
+                        
+                        var s = _this.grid.getSelectionModel().getSelections();
+                        
+                        var isFromGroup = s.length ? s[0].data.id > 0 : false;
+                        
+                        var isToGroup = rid && rid.id > 0;
+                        
+                        if (isFromGroup && isToGroup) {
+                            return this.dropNotAllowed; 
+                        }
+                        if (!isFromGroup && !isToGroup) {
+                            return this.dropNotAllowed; 
+                        }
+                        if (isFromGroup && !isToGroup) {
+                            return 'x-dd-drop-ok-sub'; 
+                        } 
+                        //if (!isFromGroup && isToGroup) {
+                            return 'x-dd-drop-ok-add'; 
+                        //}
                     }
                 },
                 autoExpandColumn : 'name',
