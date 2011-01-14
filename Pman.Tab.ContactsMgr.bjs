@@ -1,8 +1,8 @@
 {
     "id": "roo-file-169",
     "name": "Pman.Tab.ContactsMgr",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.Admin",
+    "title": "Pman.Tab.AdminContactsManager",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.ContactsMgr.bjs",
     "items": [
         {
@@ -34,6 +34,6 @@
             ]
         }
     ],
-    "permname": "",
+    "permname": "Core.Person",
     "modOrder": "001"
 }
