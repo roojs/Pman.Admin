@@ -111,12 +111,14 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             
                             
                             if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
-                                var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();
-                            
-                                if (tms.length) {
-                                    o.params['query[in_group]'] = tms[0].data.id;
-                                    o.params['query[type]'] = 2; // group type..
+                                var tms = Pman.Tab.ContactsGroup.grid.getSelectionModel().getSelected();
+                                
+                                if (!tms) {
+                                    return;
                                 }
+                                o.params['query[in_group]'] = tms.data.id;
+                                o.params['query[type]'] = 2; // group type..
+                                
                             }
                             //o.params['query[name]'] = _this.searchBox.getValue();
                           
