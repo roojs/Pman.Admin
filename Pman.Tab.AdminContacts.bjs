@@ -120,7 +120,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "render": "function (_self)\n{\n    _this.searchField = _self;\n}"
+                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}"
                                     },
                                     "xtype": "TextField",
                                     "|xns": "Roo.form"
