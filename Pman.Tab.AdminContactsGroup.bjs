@@ -26,7 +26,7 @@
                     "*prop": "grid",
                     "autoExpandColumn": "name",
                     "ddGroup": "groupDD",
-                    "enableDrag": true,
+                    "enableDrop": true,
                     "loadMask": true,
                     "xtype": "Grid",
                     "|xns": "Roo.grid",
