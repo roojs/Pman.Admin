@@ -129,6 +129,15 @@
                         },
                         {
                             "xtype": "ColumnModel",
+                            "header": "Email",
+                            "width": 200,
+                            "dataIndex": "email",
+                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                            "|xns": "Roo.grid",
+                            "*prop": "colModel[]"
+                        },
+                        {
+                            "xtype": "ColumnModel",
                             "header": "Phone",
                             "width": 200,
                             "dataIndex": "phone",
@@ -141,15 +150,6 @@
                             "header": "Fax",
                             "width": 200,
                             "dataIndex": "fax",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Email",
-                            "width": 200,
-                            "dataIndex": "email",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
                             "*prop": "colModel[]"
