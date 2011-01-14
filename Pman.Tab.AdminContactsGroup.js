@@ -356,7 +356,66 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     listeners : {
                         drop : function (source, e, data)
                         {
+                         Roo.log("DROP");
+                            var t = Roo.lib.Event.getTarget(e); 
+                            var ri = _this.grid.view.findRowIndex(t);
+                            var rid  = false;
+                            if (ri !== false) {
+                                rid = _this.grid.getDataSource().getAt(ri).data;
+                            }
+                            var s = _this.grid.getSelectionModel().getSelections();
+                              
+                            //console.log(data);
+                            var isFromGroup = s.length ? s[0].data.id > 0 : false;
                         
+                            var isToGroup = rid && rid.id > 0;
+                        
+                            if (isFromGroup && isToGroup) {
+                                return false;
+                            }
+                            if (!isFromGroup && !isToGroup) {
+                                return false;
+                            }
+                            var action = 'add';
+                            if (isFromGroup && !isToGroup) {
+                                action = 'sub';
+                                //return 'x-dd-drop-ok-sub'; 
+                            }
+                            // build a list of selections.
+                            var sels = [];
+                            for (var i=0; i < data.selections.length; i++) {
+                                sels.push(data.selections[i].data.id);
+                            }
+                        
+                            Pman.request({
+                                url: baseURL + '/Core/GroupMembers.php',
+                                params: {
+                                    action : action,
+                                    group_id: action =='add' ? rid.id : s[0].data.id,
+                                    type: _this.type,
+                                    user_ids : sels.join(',')
+                                    
+                                },  
+                                method: 'POST',  
+                                success : function(data) {
+                                    refreshPager();
+                                }, 
+                                
+                                failure: function() {
+                                    //Ext.get(document.body).unmask();
+                                    //if (cb) {
+                                    //    cb.call(false);
+                                    //}
+                                     
+                                }
+                            });
+                        
+                        
+                        
+                            //if (!isFromGroup && isToGroup) {
+                                //return 'x-dd-drop-ok-add'; 
+                            return true;
+                            //}
                         }
                     }
                 }
