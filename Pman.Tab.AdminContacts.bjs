@@ -17,6 +17,7 @@
             "title": "Person",
             "xtype": "GridPanel",
             "|xns": "Roo",
+            "autoScroll": true,
             "items": [
                 {
                     "listeners": {
