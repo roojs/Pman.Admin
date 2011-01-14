@@ -126,7 +126,7 @@
                                 {
                                     "listeners": {
                                         "render": "function (_self)\n{\n    _this.searchBox = _self;\n}",
-                                        "show": "function (_self)\n{\n\n}"
+                                        "show": "function (_self,e)\n{\n    if (e.getCharCode() != 13) {\n        return;\n    }\n    _this.grid.footer.onClick('first');\n}"
                                     },
                                     "xtype": "TextField",
                                     "|xns": "Roo.form"
