@@ -497,19 +497,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             text : "Search"
                         },
                         {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            listeners : {
-                                click : function (_self, e)
-                                {
-                                _this.searchBox.setValue('');
-                                    _this.grid.footer.onClick('first');
-                                }
-                            },
-                            cls : 'x-btn-icon',
-                            icon : rootURL + '/Pman/templates/images/edit-clear.gif'
-                        },
-                        {
                             xtype: 'TextField',
                             xns: Roo.form
                         },
@@ -524,6 +511,19 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             },
                             cls : 'x-btn-icon',
                             icon : rootURL + '/Pman/templates/images/search.gif'
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                click : function (_self, e)
+                                {
+                                _this.searchBox.setValue('');
+                                    _this.grid.footer.onClick('first');
+                                }
+                            },
+                            cls : 'x-btn-icon',
+                            icon : rootURL + '/Pman/templates/images/edit-clear.gif'
                         },
                         {
                             xtype: 'Fill',
