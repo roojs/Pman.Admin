@@ -264,7 +264,11 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         dataIndex : 'name',
                         renderer : function(v) { return String.format('{0}', v); }
                     }
-                ]
+                ],
+                view : {
+                    xtype: 'GridView',
+                    xns: Roo.grid
+                }
             }
         });
         this.layout = this.panel.layout;
