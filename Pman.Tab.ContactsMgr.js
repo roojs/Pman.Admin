@@ -10,11 +10,11 @@ Pman.on('beforeload', function()
     Pman.register({
         modKey : '001-Pman.Tab.ContactsMgr',
         module : Pman.Tab.ContactsMgr,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Pman.Tab.AdminContactsManager",
         disabled : false, 
-        permname: '' 
+        permname: 'Core.Person' 
     });
 });
 
