@@ -177,7 +177,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : ""
+                            text : "Manage Groups"
                         },
                         {
                             xtype: 'Button',
