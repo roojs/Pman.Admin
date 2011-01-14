@@ -74,14 +74,15 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
-                    remoteSort : true,
-                    sortInfo : { field : 'name', direction: 'ASC' },
                     listeners : {
-                        beforeload : function (_self, options)
+                        beforeload : function (_self, o)
                         {
-                        
+                            o.params = o.params || {};
+                            o.params.type =2;
                         }
                     },
+                    remoteSort : true,
+                    sortInfo : { field : 'name', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
