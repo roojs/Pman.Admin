@@ -240,13 +240,13 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                     {
                                         xtype: 'Item',
                                         xns: Roo.menu,
-                                        text : "Reload",
                                         listeners : {
                                             click : function (_self, e)
                                             {
-                                            
+                                              _this.grid.ds.load({});
                                             }
-                                        }
+                                        },
+                                        text : "Reload"
                                     }
                                 ]
                             }
