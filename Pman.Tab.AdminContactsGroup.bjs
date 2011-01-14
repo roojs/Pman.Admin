@@ -1,10 +1,10 @@
 {
     "id": "roo-file-171",
     "name": "Pman.Tab.AdminContactsGroup",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.AdminContactsManager",
+    "title": "Pman.Tab.AdminContactsGroup",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroup.bjs",
-    "items": false,
+    "items": [],
     "permname": "",
     "modOrder": "001"
 }
