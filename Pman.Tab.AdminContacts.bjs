@@ -110,10 +110,9 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "text": "",
                                     "xtype": "TextItem",
-                                    "|xns": "Roo.Toolbar",
-                                    "": "",
-                                    "listeners": {}
+                                    "|xns": "Roo.Toolbar"
                                 },
                                 {
                                     "|xns": "Roo.Toolbar",
