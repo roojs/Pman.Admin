@@ -598,7 +598,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 toggle : function (_self, pressed)
                                 {
                                    _this.grid.footer.onClick('first');
-                                   this.setText(pressed ? "Hide Removed" : "Show Removed");
+                                   this.setText(pressed ? "Hide Removed" : "Show Active");
                                    
                                    
                                 },
