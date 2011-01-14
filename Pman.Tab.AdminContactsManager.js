@@ -8,7 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminContactsManager',
+        modKey : '060-Pman.Tab.AdminContactsManager',
         module : Pman.Tab.AdminContactsManager,
         region : 'center',
         parent : Pman.Tab.Admin,
