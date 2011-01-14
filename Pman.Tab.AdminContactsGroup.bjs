@@ -67,19 +67,21 @@
                                         {
                                             "|xns": "Roo.menu",
                                             "xtype": "Menu",
-                                            "*prop": "menu"
+                                            "*prop": "menu",
+                                            "items": [
+                                                {
+                                                    "listeners": {
+                                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                                    },
+                                                    "cls": "x-btn-text-icon",
+                                                    "text": "Add",
+                                                    "xtype": "Item",
+                                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                                    "|xns": "Roo.menu"
+                                                }
+                                            ]
                                         }
                                     ]
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Add",
-                                    "xtype": "Item",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "|xns": "Roo.menu"
                                 },
                                 {
                                     "text": "Edit",
