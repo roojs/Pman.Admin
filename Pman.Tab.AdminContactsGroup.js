@@ -66,10 +66,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             _this.grid.footer.onClick('first');
                         }); 
                     },
-                    dragover : function (_self, dd, targetId, e)
-                    {
-                     
-                    },
                     enddrag : function (_self, dd, e)
                     {
                     
