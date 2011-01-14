@@ -85,7 +85,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    \n    Pman.Dialog.PersonEdit.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                        "|click": "function()\n{\n    \n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Add",
