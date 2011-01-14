@@ -232,6 +232,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                         cls : 'x-btn-text-icon',
                                         text : "Delete",
                                         icon : rootURL + '/Pman/templates/images/trash.gif'
+                                    },
+                                    {
+                                        xtype: 'Separator',
+                                        xns: Roo.menu
                                     }
                                 ]
                             }
