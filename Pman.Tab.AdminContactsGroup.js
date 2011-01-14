@@ -93,6 +93,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         //if (!isFromGroup && isToGroup) {
                             return 'x-dd-drop-ok-add'; 
                         //}
+                    },
+                    dragdrop : function (_self, dd, targetId, e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'name',
