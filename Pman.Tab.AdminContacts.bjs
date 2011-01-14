@@ -69,7 +69,9 @@
                                 {
                                     "enableToggle": true,
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
+                                    "|xns": "Roo.Toolbar",
+                                    "text": "",
+                                    "listeners": {}
                                 }
                             ]
                         },
