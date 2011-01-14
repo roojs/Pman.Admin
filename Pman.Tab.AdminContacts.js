@@ -425,7 +425,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             xtype: 'Button',
                             xns: Roo.Toolbar,
                             enableToggle : true,
-                            text : ""
+                            text : "Show Removed"
                         }
                     ]
                 },
