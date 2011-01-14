@@ -601,7 +601,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 },
                                 render : function (_self)
                                 {
-                                
+                                  _this.activeButton = _self;
                                 }
                             },
                             enableToggle : true,
