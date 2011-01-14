@@ -696,6 +696,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'email',
                         header : 'Email',
+                        sortable : true,
                         width : 200,
                         renderer : function(v) {
                            return (v.length && v.indexOf('@') > 0 ) ? 
