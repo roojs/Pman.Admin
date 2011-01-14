@@ -102,7 +102,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "project_id_name",
+                            "dataIndex": "project_id_code",
                             "header": "Project",
                             "width": 75,
                             "xtype": "ColumnModel",
