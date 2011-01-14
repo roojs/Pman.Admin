@@ -488,13 +488,13 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             icon : Roo.rootURL + 'images/default/tree/leaf.gif'
                         },
                         {
+                            xtype: 'Separator',
+                            xns: Roo.Toolbar
+                        },
+                        {
                             xtype: 'TextItem',
                             xns: Roo.Toolbar,
                             text : "Search"
-                        },
-                        {
-                            xtype: 'Separator',
-                            xns: Roo.Toolbar
                         },
                         {
                             xtype: 'TextField',
