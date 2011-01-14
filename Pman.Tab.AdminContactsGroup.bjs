@@ -23,7 +23,6 @@
                         "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n        _this.grid.ds.load({});\n    }\n}",
                         "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
                         "dragover": "function (_self, dd, targetId, e)\n{\n  Roo.log(\"dragover\");\n    var t = Roo.lib.Event.getTarget(e); \n    var ri = _this.grid.view.findRowIndex(t);\n    var rid  = false;\n    if (ri !== false) {\n        rid = _this.grid.getDataSource().getAt(ri).data;\n    }\n    \n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    var isFromGroup = s.length ? s[0].data.id > 0 : false;\n    \n    var isToGroup = rid && rid.id > 0;\n    \n    if (isFromGroup && isToGroup) {\n        return this.dropNotAllowed; \n    }\n    if (!isFromGroup && !isToGroup) {\n        return this.dropNotAllowed; \n    }\n    if (isFromGroup && !isToGroup) {\n        return 'x-dd-drop-ok-sub'; \n    } \n    //if (!isFromGroup && isToGroup) {\n        return 'x-dd-drop-ok-add'; \n    //}\n}",
-                        "dragdrop": "function (_self, dd, targetId, e)\n{\n   \n                \n}",
                         "enddrag": "function (_self, dd, e)\n{\n\n}"
                     },
                     "*prop": "grid",
