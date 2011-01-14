@@ -467,12 +467,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     emptyMsg : 'No Person found',
                     items : [
                         {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            enableToggle : true,
-                            text : "Show Removed"
-                        },
-                        {
                             xtype: 'TextItem',
                             xns: Roo.Toolbar,
                             text : "Drag person to add or remove from group"
@@ -591,6 +585,12 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            enableToggle : true,
+                            text : "Show Removed"
                         }
                     ]
                 },
