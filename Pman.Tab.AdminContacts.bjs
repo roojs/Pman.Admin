@@ -31,7 +31,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, o)\n{\n  \n    o.params['!company_id_comptype'] = 'OWNER';\n    o.params['query[search]'] = _this.searchBox.getValue();\n    if (Pman.Tab.ContactsGroup.grid) {\n        var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();\n    \n        if (tms.length) {\n            o.params['query[in_group]'] = tms[0].data.id;\n            o.params['query[type]'] = 2; // group type..\n        }\n    }\n    //o.params['query[name]'] = _this.searchBox.getValue();\n  \n    \n}"
+                                "beforeload": "function (_self, o)\n{\n  \n    o.params['!company_id_comptype'] = 'OWNER';\n    o.params['query[search]'] = _this.searchBox.getValue();\n    if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {\n        var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();\n    \n        if (tms.length) {\n            o.params['query[in_group]'] = tms[0].data.id;\n            o.params['query[type]'] = 2; // group type..\n        }\n    }\n    //o.params['query[name]'] = _this.searchBox.getValue();\n  \n    \n}"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,
