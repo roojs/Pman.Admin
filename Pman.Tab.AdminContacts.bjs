@@ -125,7 +125,8 @@
                                 },
                                 {
                                     "listeners": {
-                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}"
+                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}",
+                                        "show": "function (_self)\n{\n\n}"
                                     },
                                     "xtype": "TextField",
                                     "|xns": "Roo.form"
