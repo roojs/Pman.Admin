@@ -180,24 +180,26 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             text : "Manage Groups",
                             menu : {
                                 xtype: 'Menu',
-                                xns: Roo.menu
+                                xns: Roo.menu,
+                                items : [
+                                    {
+                                        xtype: 'Item',
+                                        xns: Roo.menu,
+                                        listeners : {
+                                            click : function()
+                                            {
+                                                if (!_this.dialog) return;
+                                                _this.dialog.show( { id : 0 } , function() {
+                                                    _this.grid.footer.onClick('first');
+                                               }); 
+                                            }
+                                        },
+                                        cls : 'x-btn-text-icon',
+                                        text : "Add",
+                                        icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
+                                    }
+                                ]
                             }
-                        },
-                        {
-                            xtype: 'Item',
-                            xns: Roo.menu,
-                            listeners : {
-                                click : function()
-                                {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
-                                }
-                            },
-                            cls : 'x-btn-text-icon',
-                            text : "Add",
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
                             xtype: 'Button',
