@@ -96,6 +96,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             o.params['!company_id_comptype'] = 'OWNER';
                             o.params['query[search]'] = _this.searchBox.getValue();
                             
+                            if (!_this.showActive) {return; false;}
+                            
+                            
+                            o.params.status = _this.showActive.toggled ? 1 : 0;
                             
                             if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
                                 var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();
