@@ -110,13 +110,13 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Separator"
+                                },
+                                {
                                     "text": "Search",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Separator"
                                 },
                                 {
                                     "|xns": "Roo.form",
