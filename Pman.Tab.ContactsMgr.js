@@ -34,7 +34,7 @@ Pman.Tab.ContactsMgr = new Roo.util.Observable({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
-            title : "",
+            title : "Contacts Manager",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
