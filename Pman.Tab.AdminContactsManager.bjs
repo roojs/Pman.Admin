@@ -1,10 +1,12 @@
 {
-    "id": "roo-file-169",
+    "id": "roo-file-7",
     "name": "Pman.Tab.AdminContactsManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminContactsManager",
+    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
     "items": [
         {
+            "background": true,
             "region": "center",
             "title": "Contacts Manager",
             "xtype": "NestedLayoutPanel",
