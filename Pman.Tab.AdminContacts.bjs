@@ -92,6 +92,10 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Separator"
+                                },
+                                {
                                     "listeners": {
                                         "|click": "function()\n{\n    // Pman.genericDelete(_this, 'Person'); \n}\n        "
                                     },
