@@ -94,7 +94,7 @@
                                         "|click": "function()\n{\n    \n    Pman.Dialog.PersonEdit.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
-                                    "text": "Add",
+                                    "text": "Bulk Add",
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
                                     "|xns": "Roo.Toolbar"
