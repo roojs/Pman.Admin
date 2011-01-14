@@ -501,6 +501,18 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             xns: Roo.form
                         },
                         {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                click : function (_self, e)
+                                {
+                                _this.grid.footer.onClick('first');
+                                }
+                            },
+                            cls : 'x-btn-icon',
+                            icon : rootURL + '/Pman/templates/images/search.gif'
+                        },
+                        {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
                         },
