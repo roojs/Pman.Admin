@@ -89,7 +89,7 @@
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Edit",
-                                    "xtype": "ITem",
+                                    "xtype": "Item",
                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
                                     "|xns": "Roo.Toolbar"
                                 },
