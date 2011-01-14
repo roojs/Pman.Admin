@@ -274,10 +274,31 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'name',
                         header : 'Name',
                         width : 200,
-                        dataIndex : 'name',
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v,x,r) { 
+                            if (r.data.id == -1) {
+                                return '<b>' + "Not in a Group" + '</b>';
+                            }
+                            if ((r.data.id == 0) && (_this.type == 0)) {
+                                return '<b>' + "All Staff (Default Permissions)" + '</b>';
+                            }
+                            if ((r.data.id == 0) && (_this.type == 2)) {
+                                return '<b>' + "Everybody" + '</b>';
+                            }
+                            if (r.data.id == 0) {
+                                return '<b>' + "All Staff" + '</b>';
+                            }
+                            if (v == 'Administrators') {
+                                return '<b>' + "Adminstrators" + '</b>';
+                            }
+                            if (r.data.leader) {
+                                return v + ' (' + r.data.leader_name + ')';
+                            }
+                            
+                            return v;
+                        }
                     }
                 ],
                 sm : {
