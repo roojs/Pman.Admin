@@ -119,8 +119,11 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "xtype": "TextField",
                                     "|xns": "Roo.form",
-                                    "xtype": "TextField"
+                                    "listeners": {
+                                        "render": "function (_self)\n{\n\n}"
+                                    }
                                 },
                                 {
                                     "listeners": {
