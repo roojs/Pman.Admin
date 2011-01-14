@@ -10,7 +10,7 @@ Pman.on('beforeload', function()
     Pman.register({
         modKey : '001-Pman.Tab.AdminContactsGroup',
         module : Pman.Tab.AdminContactsGroup,
-        region : 'west',
+        region : 'center',
         parent : Pman.Tab.AdminContactsManager,
         name : "Pman.Tab.AdminContactsGroup",
         disabled : false, 
@@ -408,6 +408,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         }
                     },
                     singleSelect : true
+                },
+                dragTarget : {
+                    xtype: 'DropTarget',
+                    xns: Roo.dd
                 }
             }
         });
