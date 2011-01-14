@@ -224,17 +224,17 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             }
                         },
                         {
-                            xtype: 'Button',
+                            xtype: 'Item',
                             xns: Roo.Toolbar,
-                            text : "Delete",
-                            cls : 'x-btn-text-icon',
-                            icon : rootURL + '/Pman/templates/images/trash.gif',
                             listeners : {
                                 click : function()
                                 {
                                      Pman.genericDelete(_this, 'Groups'); 
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Delete",
+                            icon : rootURL + '/Pman/templates/images/trash.gif'
                         }
                     ]
                 },
