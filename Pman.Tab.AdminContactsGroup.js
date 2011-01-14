@@ -79,6 +79,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         {
                             o.params = o.params || {};
                             o.params.type =2;
+                        },
+                        load : function (_self, records, options)
+                        {
+                        
                         }
                     },
                     remoteSort : true,
