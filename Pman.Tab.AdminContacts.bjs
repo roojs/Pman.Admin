@@ -110,7 +110,7 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
-                                    "text": "",
+                                    "text": "Search",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
                                 },
