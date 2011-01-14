@@ -170,14 +170,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         ]
                     }
                 },
-                footer : {
-                    xtype: 'PagingToolbar',
-                    xns: Roo,
-                    pageSize : 25,
-                    displayInfo : true,
-                    displayMsg : 'Displaying Groups{0} - {1} of {2}',
-                    emptyMsg : 'No Groups found'
-                },
                 toolbar : {
                     xtype: 'Toolbar',
                     xns: Roo,
