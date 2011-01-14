@@ -473,7 +473,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'company_id_comptype',
                         header : 'Type',
-                        width : 75,
+                        width : 50,
                         renderer : function(v,x,r) {
                             if (r.data.office_id) {
                                 return String.format('{0} - {1}', v, r.data.office_id_name); 
