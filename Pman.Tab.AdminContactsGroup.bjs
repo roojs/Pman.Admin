@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-171",
+    "id": "roo-file-9",
     "name": "Pman.Tab.AdminContactsGroup",
     "parent": "Pman.Tab.AdminContactsManager",
     "title": "Pman.Tab.AdminContactsGroup",
@@ -143,6 +143,11 @@
                             "singleSelect": true,
                             "xtype": "RowSelectionModel",
                             "|xns": "Roo.grid"
+                        },
+                        {
+                            "|xns": "Roo.dd",
+                            "xtype": "DropTarget",
+                            "*prop": "dragTarget"
                         }
                     ]
                 }
