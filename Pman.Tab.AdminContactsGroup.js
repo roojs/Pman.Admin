@@ -50,8 +50,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
-                autoExpandColumn : 'name',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
@@ -69,6 +67,9 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         }); 
                     }
                 },
+                autoExpandColumn : 'name',
+                loadMask : true,
+                ddGroup : '',
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
