@@ -444,9 +444,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Edit",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/tree/leaf.gif',
                             listeners : {
                                 click : function()
                                 {
@@ -455,13 +452,16 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                         Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
                                         return;
                                     }
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show(s[0].data, function() {
+                                  
+                                    Pman.Dialog.PersonEdit.dialog.show(s[0].data, function() {
                                         _this.grid.footer.onClick('first');
                                     }); 
                                     
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Edit",
+                            icon : Roo.rootURL + 'images/default/tree/leaf.gif'
                         },
                         {
                             xtype: 'Button',
