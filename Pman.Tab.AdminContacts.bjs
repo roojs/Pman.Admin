@@ -95,7 +95,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    \n    Pman.Dialog.PersonBulkAdd.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                        "|click": "function()\n{\n    \n    Pman.Dialog.PersonBulkAdd.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Bulk Add",
