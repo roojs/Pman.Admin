@@ -496,7 +496,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 click : function()
                                 {
                                     
-                                    Pman.Dialog.PersonEdit.dialog.show( { id : 0 } , function() {
+                                    _this.dialog.show( { id : 0 } , function() {
                                         _this.grid.footer.onClick('first');
                                    }); 
                                 }
