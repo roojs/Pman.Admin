@@ -430,7 +430,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         {
                             xtype: 'TextItem',
                             xns: Roo.Toolbar,
-                             : ''
+                            text : ""
                         }
                     ]
                 },
