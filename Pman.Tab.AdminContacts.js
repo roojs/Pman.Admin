@@ -619,9 +619,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        hidden : true,
                         dataIndex : 'project_id_code',
                         header : 'Project',
+                        hidden : true,
+                        sortable : true,
                         width : 75,
                         renderer : function(v,x,r) { 
                               return String.format('<span qtip="{0}">{1}</span>', 
