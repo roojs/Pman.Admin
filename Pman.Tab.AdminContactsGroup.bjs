@@ -62,7 +62,14 @@
                                 {
                                     "text": "Manage Groups",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
+                                    "|xns": "Roo.Toolbar",
+                                    "items": [
+                                        {
+                                            "|xns": "Roo.menu",
+                                            "xtype": "Menu",
+                                            "*prop": "menu"
+                                        }
+                                    ]
                                 },
                                 {
                                     "text": "Add",
