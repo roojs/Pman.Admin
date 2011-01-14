@@ -312,7 +312,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     },
                     singleSelect : true
                 },
-                dragTarget : {
+                dropTarget : {
                     xtype: 'DropTarget',
                     xns: Roo.dd,
                     listeners : {
