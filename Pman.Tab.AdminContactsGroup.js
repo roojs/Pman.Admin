@@ -184,7 +184,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             }
                         },
                         {
-                            xtype: 'Button',
+                            xtype: 'MenuItem',
                             xns: Roo.menu,
                             listeners : {
                                 click : function()
