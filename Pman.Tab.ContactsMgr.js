@@ -33,6 +33,7 @@ Pman.Tab.ContactsMgr = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
+            region : 'center',
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
