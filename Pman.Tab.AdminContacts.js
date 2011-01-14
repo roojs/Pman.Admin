@@ -623,7 +623,8 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                               return String.format('<span qtip="{0}">{1}</span>', 
                                             r.data.project_id_name,
                                             v);
-                         }
+                         },
+                         : false
                     },
                     {
                         xtype: 'ColumnModel',
