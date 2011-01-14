@@ -100,7 +100,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             if (!_this.activeButton) {return; false;}
                             
                             
-                            o.params.status = _this.activeButton.pressed ? 0 : 1;
+                            o.params.active = _this.activeButton.pressed ? 0 : 1;
                             
                             if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
                                 var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();
