@@ -25,10 +25,11 @@
                     },
                     "*prop": "grid",
                     "autoExpandColumn": "name",
+                    "enableDrag": true,
                     "loadMask": true,
                     "xtype": "Grid",
                     "|xns": "Roo.grid",
-                    "enableDrag": true,
+                    "ddGroup": "",
                     "items": [
                         {
                             "listeners": {
