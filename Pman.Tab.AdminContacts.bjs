@@ -119,15 +119,6 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
-                                    "listeners": {
-                                        "|click": "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "cls": "x-btn-icon",
-                                    "xtype": "Button",
-                                    "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
                                     "|xns": "Roo.form",
                                     "xtype": "TextField"
                                 },
@@ -138,6 +129,15 @@
                                     "cls": "x-btn-icon",
                                     "xtype": "Button",
                                     "|icon": "rootURL + '/Pman/templates/images/search.gif'",
+                                    "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "listeners": {
+                                        "|click": "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
+                                    },
+                                    "cls": "x-btn-icon",
+                                    "xtype": "Button",
+                                    "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
