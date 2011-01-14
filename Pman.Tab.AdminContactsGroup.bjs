@@ -104,10 +104,9 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
+                                                    "text": "Reload",
                                                     "xtype": "Item",
-                                                    "|xns": "Roo.menu",
-                                                    "text": "",
-                                                    "listeners": {}
+                                                    "|xns": "Roo.menu"
                                                 }
                                             ]
                                         }
