@@ -155,7 +155,7 @@
                                 {
                                     "listeners": {
                                         "toggle": "function (_self, pressed)\n{\n    _\n}",
-                                        "render": "function (_self)\n{\n\n}"
+                                        "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
                                     },
                                     "enableToggle": true,
                                     "text": "Show Removed",
