@@ -111,6 +111,15 @@
                         },
                         {
                             "xtype": "ColumnModel",
+                            "header": "Company",
+                            "width": 75,
+                            "dataIndex": "company_id",
+                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                            "|xns": "Roo.grid",
+                            "*prop": "colModel[]"
+                        },
+                        {
+                            "xtype": "ColumnModel",
                             "header": "Office",
                             "width": 75,
                             "dataIndex": "office_id",
@@ -150,15 +159,6 @@
                             "header": "Email",
                             "width": 200,
                             "dataIndex": "email",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Company",
-                            "width": 75,
-                            "dataIndex": "company_id",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
                             "*prop": "colModel[]"
