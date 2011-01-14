@@ -111,7 +111,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             
                             
                             if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
-                                var tms = Pman.Tab.ContactsGroup.grid.getSelectionModel().getSelected();
+                                var tms = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelected();
                                 
                                 if (!tms) {
                                     return false;
