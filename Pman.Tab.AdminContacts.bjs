@@ -110,6 +110,10 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Separator"
+                                },
+                                {
                                     "|xns": "Roo.form",
                                     "xtype": "TextField"
                                 },
