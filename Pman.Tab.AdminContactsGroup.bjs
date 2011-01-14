@@ -88,20 +88,20 @@
                                                     "xtype": "Item",
                                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
                                                     "|xns": "Roo.menu"
+                                                },
+                                                {
+                                                    "listeners": {
+                                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Groups'); \n}\n        "
+                                                    },
+                                                    "cls": "x-btn-text-icon",
+                                                    "text": "Delete",
+                                                    "xtype": "Item",
+                                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
+                                                    "|xns": "Roo.menu"
                                                 }
                                             ]
                                         }
                                     ]
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Groups'); \n}\n        "
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Delete",
-                                    "xtype": "Item",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
