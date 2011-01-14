@@ -11,7 +11,7 @@ Pman.on('beforeload', function()
         modKey : '001-Pman.Tab.AdminContacts',
         module : Pman.Tab.AdminContacts,
         region : 'center',
-        parent : Pman.Tab.AdminContacsManager,
+        parent : Pman.Tab.AdminContactsManager,
         name : "Pman.Tab.AdminContacts",
         disabled : false, 
         permname: 'Core.Person' 
