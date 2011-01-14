@@ -73,7 +73,7 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
-                                    "text": "",
+                                    "text": "Drag person to add or remove from group",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
                                 }
