@@ -145,12 +145,12 @@
                             "|xns": "Roo.grid"
                         },
                         {
-                            "*prop": "dragTarget",
-                            "xtype": "DropTarget",
-                            "|xns": "Roo.dd",
                             "listeners": {
                                 "drop": "function (source, e, data)\n{\n\n}"
-                            }
+                            },
+                            "*prop": "dragTarget",
+                            "xtype": "DropTarget",
+                            "|xns": "Roo.dd"
                         }
                     ]
                 }
