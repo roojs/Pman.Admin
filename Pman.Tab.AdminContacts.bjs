@@ -111,7 +111,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "company_id_name",
+                            "dataIndex": "company_id_comptype",
                             "header": "Company",
                             "width": 75,
                             "xtype": "ColumnModel",
