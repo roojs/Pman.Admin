@@ -601,7 +601,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         dataIndex : 'project_id_code',
                         header : 'Project',
                         width : 75,
-                        renderer : function(v) { 
+                        renderer : function(v,x,r) { 
                               return String.format('<span qtip="{0}">{1}</span>', 
                                             r.data.project_id_name,
                                             v);
