@@ -96,8 +96,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     },
                     dragdrop : function (_self, dd, targetId, e)
                     {
-                    Roo.log("DROP");
-                    var t = Roo.lib.Event.getTarget(e); 
+                        Roo.log("DROP");
+                        var t = Roo.lib.Event.getTarget(e); 
                                     var ri = _this.grid.view.findRowIndex(t);
                                     var rid  = false;
                                     if (ri !== false) {
