@@ -175,7 +175,7 @@
                             "header": "Project",
                             "width": 75,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                            "|renderer": "function(v) { \n      return String.format('<span qtip=\"{0}\">{1}</span>', \n                    r.data.project_id_name,\n                    v);\n }",
                             "|xns": "Roo.grid"
                         },
                         {
