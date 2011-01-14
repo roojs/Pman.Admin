@@ -158,6 +158,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                     return true;
                                     //}
                                     
+                    },
+                    enddrag : function (_self, dd, e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'name',
