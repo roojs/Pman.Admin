@@ -86,7 +86,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 if (!sm.getSelections().length) {
                                     sm.selectFirstRow();
                                 }
-                                Pman.Tab.AdminContactsPerson.grid.footer.onClick('first');
+                                Pman.Tab.AdminContacts.grid.footer.onClick('first');
                         }
                     },
                     remoteSort : true,
