@@ -91,6 +91,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             //o.params['query[name]'] = _this.searchBox.getValue();
                           
                             
+                        },
+                        update : function (_self, record, operation)
+                        {
+                        
                         }
                     },
                     remoteSort : true,
