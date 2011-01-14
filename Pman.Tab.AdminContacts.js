@@ -76,17 +76,18 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         beforeload : function (_self, o)
                         {
                           
-                            o.params['query[person_not_internal]'] = 1;
+                            o.params['!company_id_comptype'] = 'OWNER';
                             o.params['query[search]'] = _this.searchBox.getValue();
                             if (Pman.Tab.ContactsGroup.grid) {
                                 var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();
                             
                                 if (tms.length) {
                                     o.params['query[in_group]'] = tms[0].data.id;
+                                    o.params['query[type]'] = 2; // group type..
                                 }
                             }
                             //o.params['query[name]'] = _this.searchBox.getValue();
-                            o.params['query[type]'] = 2; // group type..
+                          
                             
                         }
                     },
