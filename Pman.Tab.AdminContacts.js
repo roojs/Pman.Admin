@@ -72,14 +72,26 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
-                    remoteSort : true,
-                    sortInfo : { field : 'name', direction: 'ASC' },
                     listeners : {
-                        beforeload : function (_self, options)
+                        beforeload : function (_self, o)
                         {
-                        
+                          
+                            o.params['query[person_not_internal]'] = 1;
+                            o.params['query[search]'] = _this.searchBox.getValue();
+                            if (Pman.Tab.ContactsGroup.grid) {
+                                var tms = Pman.Tab.ContactsGroup.grid.getLeftSelections();
+                            
+                                if (tms.length) {
+                                    o.params['query[in_group]'] = tms[0].data.id;
+                                }
+                            }
+                            //o.params['query[name]'] = _this.searchBox.getValue();
+                            o.params['query[type]'] = 2; // group type..
+                            
                         }
                     },
+                    remoteSort : true,
+                    sortInfo : { field : 'name', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
