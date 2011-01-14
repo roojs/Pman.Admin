@@ -239,7 +239,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                     },
                                     {
                                         xtype: 'Item',
-                                        xns: Roo.menu
+                                        xns: Roo.menu,
+                                        text : "Reload"
                                     }
                                 ]
                             }
