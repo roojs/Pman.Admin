@@ -6,8 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.ContactsMgr.bjs",
     "items": [
         {
-            "|xns": "Roo",
+            "region": "center",
             "xtype": "NestedLayoutPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "|xns": "Roo",
