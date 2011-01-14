@@ -154,7 +154,8 @@
                                 },
                                 {
                                     "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    _\n}"
+                                        "toggle": "function (_self, pressed)\n{\n    _\n}",
+                                        "render": "function (_self)\n{\n\n}"
                                     },
                                     "enableToggle": true,
                                     "text": "Show Removed",
