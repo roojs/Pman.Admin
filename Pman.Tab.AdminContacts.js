@@ -55,6 +55,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     render : function() 
                     {
                         _this.grid = this; 
+                        if (!_this.dialog) {
+                            _this.dialog = x;
+                            
+                        }
                         //_this.dialog = Pman.Dialog.FILL_IN
                         if (_this.panel.active) {
                            this.footer.onClick('first');
