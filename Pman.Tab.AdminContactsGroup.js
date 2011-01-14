@@ -202,11 +202,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             }
                         },
                         {
-                            xtype: 'Button',
+                            xtype: 'ITem',
                             xns: Roo.Toolbar,
-                            text : "Edit",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/tree/leaf.gif',
                             listeners : {
                                 click : function()
                                 {
@@ -221,7 +218,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                     }); 
                                     
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Edit",
+                            icon : Roo.rootURL + 'images/default/tree/leaf.gif'
                         },
                         {
                             xtype: 'Button',
