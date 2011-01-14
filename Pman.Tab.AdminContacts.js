@@ -131,6 +131,9 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 },
                                 success : function() {
                                     // do nothing
+                                    
+                                    _this.grid.ds.remove(record);
+                                    
                                 },
                                 failure : function() 
                                 {
