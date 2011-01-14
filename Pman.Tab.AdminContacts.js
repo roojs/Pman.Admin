@@ -616,7 +616,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        hidden : false,
+                        hidden : true,
                         dataIndex : 'project_id_code',
                         header : 'Project',
                         width : 75,
