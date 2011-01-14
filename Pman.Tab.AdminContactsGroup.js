@@ -236,6 +236,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                     {
                                         xtype: 'Separator',
                                         xns: Roo.menu
+                                    },
+                                    {
+                                        xtype: 'Item',
+                                        xns: Roo.menu
                                     }
                                 ]
                             }
