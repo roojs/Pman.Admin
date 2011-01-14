@@ -82,7 +82,11 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         },
                         load : function (_self, records, options)
                         {
-                        
+                            var sm = _this.grid.getSelectionModel();
+                                if (!sm.getSelections().length) {
+                                    sm.selectFirstRow();
+                                }
+                                Pman.Tab.AdminContactsPerson.grid.footer.onClick('first');
                         }
                     },
                     remoteSort : true,
