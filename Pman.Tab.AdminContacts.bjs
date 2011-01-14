@@ -64,7 +64,13 @@
                             "displayInfo": true,
                             "displayMsg": "Displaying Person{0} - {1} of {2}",
                             "emptyMsg": "No Person found",
-                            "|xns": "Roo"
+                            "|xns": "Roo",
+                            "items": [
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Button"
+                                }
+                            ]
                         },
                         {
                             "*prop": "toolbar",
