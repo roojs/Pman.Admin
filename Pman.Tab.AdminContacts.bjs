@@ -71,12 +71,6 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "enableToggle": true,
-                                    "text": "Show Removed",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
                                     "text": "Drag person to add or remove from group",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
@@ -156,6 +150,12 @@
                                 {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
+                                },
+                                {
+                                    "enableToggle": true,
+                                    "text": "Show Removed",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
