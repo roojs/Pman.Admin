@@ -113,7 +113,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "company_id_comptype",
                             "header": "Type",
-                            "width": 75,
+                            "width": 50,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v,x,r) {\n    if (r.data.office_id) {\n        return String.format('{0} - {1}', v, r.data.office_id_name); \n    } \n    return String.format('{0}', v); \n}",
                             "|xns": "Roo.grid"
