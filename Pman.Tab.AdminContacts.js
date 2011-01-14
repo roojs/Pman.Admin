@@ -508,6 +508,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 render : function (_self)
                                 {
                                     _this.searchBox = _self;
+                                },
+                                show : function (_self)
+                                {
+                                
                                 }
                             }
                         },
