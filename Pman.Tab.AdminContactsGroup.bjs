@@ -91,7 +91,7 @@
                                     "text": "Edit",
                                     "xtype": "Item",
                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                    "|xns": "Roo.Toolbar"
+                                    "|xns": "Roo.menu"
                                 },
                                 {
                                     "text": "Delete",
