@@ -156,7 +156,10 @@
                                     "enableToggle": true,
                                     "text": "Show Removed",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
+                                    "|xns": "Roo.Toolbar",
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n\n}"
+                                    }
                                 }
                             ]
                         },
