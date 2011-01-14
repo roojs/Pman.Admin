@@ -98,6 +98,10 @@
                                                     "xtype": "Item",
                                                     "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
                                                     "|xns": "Roo.menu"
+                                                },
+                                                {
+                                                    "|xns": "Roo.menu",
+                                                    "xtype": "Separator"
                                                 }
                                             ]
                                         }
