@@ -55,15 +55,6 @@
                             ]
                         },
                         {
-                            "*prop": "footer",
-                            "xtype": "PagingToolbar",
-                            "pageSize": 25,
-                            "displayInfo": true,
-                            "displayMsg": "Displaying Groups{0} - {1} of {2}",
-                            "emptyMsg": "No Groups found",
-                            "|xns": "Roo"
-                        },
-                        {
                             "*prop": "toolbar",
                             "xtype": "Toolbar",
                             "|xns": "Roo",
