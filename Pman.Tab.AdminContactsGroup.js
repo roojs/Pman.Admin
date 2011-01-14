@@ -65,6 +65,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
                             _this.grid.footer.onClick('first');
                         }); 
+                    },
+                    dragover : function (_self, dd, targetId, e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'name',
