@@ -71,6 +71,10 @@
                                     "text": "Show Removed",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "TextItem"
                                 }
                             ]
                         },
