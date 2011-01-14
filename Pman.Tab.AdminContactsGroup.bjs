@@ -33,7 +33,8 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.type =2;\n}"
+                                "beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.type =2;\n}",
+                                "load": "function (_self, records, options)\n{\n\n}"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,
