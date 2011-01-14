@@ -9,6 +9,7 @@
             "listeners": {
                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
             },
+            "autoScroll": true,
             "background": true,
             "fitContainer": true,
             "fitToframe": true,
@@ -17,7 +18,6 @@
             "title": "Person",
             "xtype": "GridPanel",
             "|xns": "Roo",
-            "autoScroll": true,
             "items": [
                 {
                     "listeners": {
