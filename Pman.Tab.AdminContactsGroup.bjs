@@ -94,13 +94,13 @@
                                     ]
                                 },
                                 {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
                                     "listeners": {
                                         "|click": "function()\n{\n     Pman.genericDelete(_this, 'Groups'); \n}\n        "
                                     },
+                                    "cls": "x-btn-text-icon",
+                                    "text": "Delete",
+                                    "xtype": "Item",
+                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
                                     "|xns": "Roo.Toolbar"
                                 }
                             ]
