@@ -477,7 +477,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 }
                             },
                             cls : 'x-btn-text-icon',
-                            text : "Delete",
+                            text : "Remove",
                             icon : rootURL + '/Pman/templates/images/trash.gif'
                         }
                     ]
