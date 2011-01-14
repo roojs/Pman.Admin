@@ -153,13 +153,13 @@
                                     "xtype": "Fill"
                                 },
                                 {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n    _\n}"
+                                    },
                                     "enableToggle": true,
                                     "text": "Show Removed",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar",
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n\n}"
-                                    }
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
