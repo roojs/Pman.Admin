@@ -675,10 +675,13 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'email',
                         header : 'Email',
                         width : 200,
-                        dataIndex : 'email',
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v) {
+                           return (v.length && v.indexOf('@') > 0 ) ? 
+                                            String.format('<a href="mailto:{0}">{0}</a>',v) : v;
+                         }
                     },
                     {
                         xtype: 'ColumnModel',
