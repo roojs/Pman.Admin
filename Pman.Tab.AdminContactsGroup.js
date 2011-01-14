@@ -385,7 +385,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         },
                         over : function (source, e, data)
                         {
-                         Roo.log("dragover");
+                            Roo.log("dragover");
                             var t = Roo.lib.Event.getTarget(e); 
                             var ri = _this.grid.view.findRowIndex(t);
                             var rid  = false;
