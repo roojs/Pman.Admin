@@ -129,18 +129,18 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Email",
+                            "header": "Phone",
                             "width": 200,
-                            "dataIndex": "email",
+                            "dataIndex": "phone",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
                             "*prop": "colModel[]"
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Phone",
+                            "header": "Email",
                             "width": 200,
-                            "dataIndex": "phone",
+                            "dataIndex": "email",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
                             "*prop": "colModel[]"
