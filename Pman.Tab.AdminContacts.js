@@ -509,9 +509,12 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 {
                                     _this.searchBox = _self;
                                 },
-                                show : function (_self)
+                                show : function (_self,e)
                                 {
-                                
+                                    if (e.getCharCode() != 13) {
+                                        return;
+                                    }
+                                    _this.grid.footer.onClick('first');
                                 }
                             }
                         },
