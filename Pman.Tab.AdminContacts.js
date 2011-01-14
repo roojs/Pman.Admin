@@ -471,6 +471,14 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        header : 'Company',
+                        width : 75,
+                        dataIndex : 'company_id',
+                        renderer : function(v) { return String.format('{0}', v); }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
                         header : 'Office',
                         width : 75,
                         dataIndex : 'office_id',
@@ -506,14 +514,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         header : 'Email',
                         width : 200,
                         dataIndex : 'email',
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
-                        header : 'Company',
-                        width : 75,
-                        dataIndex : 'company_id',
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
