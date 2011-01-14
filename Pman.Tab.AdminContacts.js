@@ -498,7 +498,13 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                         },
                         {
                             xtype: 'TextField',
-                            xns: Roo.form
+                            xns: Roo.form,
+                            listeners : {
+                                render : function (_self)
+                                {
+                                
+                                }
+                            }
                         },
                         {
                             xtype: 'Button',
