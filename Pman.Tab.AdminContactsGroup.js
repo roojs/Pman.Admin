@@ -282,7 +282,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                 ],
                 sm : {
                     xtype: 'RowSelectionModel',
-                    xns: Roo.grid
+                    xns: Roo.grid,
+                    singleSelect : true
                 }
             }
         });
