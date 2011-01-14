@@ -18,6 +18,7 @@
                     "items": [
                         {
                             "*prop": "west",
+                            "width": 250,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
