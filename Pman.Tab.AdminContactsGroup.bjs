@@ -133,9 +133,10 @@
                             "*prop": "colModel[]"
                         },
                         {
-                            "|xns": "Roo.grid",
+                            "*prop": "sm",
+                            "singleSelect": true,
                             "xtype": "RowSelectionModel",
-                            "*prop": "sm"
+                            "|xns": "Roo.grid"
                         }
                     ]
                 }
