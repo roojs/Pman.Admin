@@ -156,16 +156,6 @@
                                 {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    // Pman.genericDelete(_this, 'Person'); \n}\n        "
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Remove",
-                                    "xtype": "Button",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
