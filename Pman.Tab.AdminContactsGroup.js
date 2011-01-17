@@ -54,7 +54,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     render : function() 
                     {
                         _this.grid = this; 
-                        //_this.dialog = Pman.Dialog.FILL_IN
+                        _this.dialog = Pman.Dialog.Groups;
                         if (_this.panel.active) {
                             _this.grid.ds.load({});
                         }
