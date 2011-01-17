@@ -419,7 +419,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             }
                             if (isFromGroup && !isToGroup) {
                                 this.valid = 'ok-sub'; 
-                              
                                 return;
                             } 
                             //if (!isFromGroup && isToGroup) {
