@@ -381,7 +381,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         },
                         over : function (source, e, data)
                         {
-                            Roo.log("dragover");
+                           // Roo.log("dragover");
                             var t = Roo.lib.Event.getTarget(e); 
                             var ri = _this.grid.view.findRowIndex(t);
                             var rid  = false;
@@ -396,10 +396,12 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             var isToGroup = rid && rid.id > 0;
                             
                             if (isFromGroup && isToGroup) {
-                                return this.dropNotAllowed; 
+                                this.valid = false;
+                                return;
                             }
                             if (!isFromGroup && !isToGroup) {
-                                return this.dropNotAllowed; 
+                                this.valid = false;
+                                return  
                             }
                             if (isFromGroup && !isToGroup) {
                                 return 'x-dd-drop-ok-sub'; 
