@@ -381,13 +381,13 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         },
                         over : function (source, e, data)
                         {
-                             Roo.log("dragover");
+                            // Roo.log("dragover");
                              
-                            Roo.log(e);
+                            //Roo.log(e);
                             var t = Roo.lib.Event.getTarget(e); 
-                                 Roo.log(t);
+                               //  Roo.log(t);
                             var ri = _this.grid.view.findRowIndex(t);
-                                          Roo.log(ri);
+                              //            Roo.log(ri);
                             
                             var rid  = false;
                             if (ri !== false) {
@@ -400,26 +400,26 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             
                             var isToGroup = rid && rid.id > 0;
                             
-                            Roo.log("isToGroup:"  + isToGroup + ", isFromGroup" + isFromGroup);
+                        //    Roo.log("isToGroup:"  + isToGroup + ", isFromGroup" + isFromGroup);
                              
                             if (isFromGroup && isToGroup) {
                                 this.valid = false;
-                                Roo.log('not valid');
+                        //        Roo.log('not valid');
                                 return;
                             }
                             if (!isFromGroup && !isToGroup) {
                                 this.valid = false;
-                                Roo.log('not valid');
+                        //        Roo.log('not valid');
                                 return  
                             }
                             if (isFromGroup && !isToGroup) {
-                                this.valid = 'sub'; 
-                                Roo.log('sub');
+                                this.valid = 'ok-sub'; 
+                              
                                 return;
                             } 
                             //if (!isFromGroup && isToGroup) {
-                            this.valid = 'add';
-                            Roo.log('add'); 
+                            this.valid = 'ok-add';
+                        //    Roo.log('add'); 
                             //}
                         }
                     },
