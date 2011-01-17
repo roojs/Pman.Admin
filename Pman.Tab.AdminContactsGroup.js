@@ -361,8 +361,11 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 method: 'POST',  
                                 success : function(data) {
                                     //refreshPager();
+                                    // 
                                     // do we need to do anything??
-                                    Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                    if (isFromGroup) {
+                                        Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                    }
                                 }, 
                                 
                                 failure: function() {
