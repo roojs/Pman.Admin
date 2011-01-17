@@ -382,7 +382,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                         over : function (source, e, data)
                         {
                              Roo.log("dragover");
-                             Roo.log("dragover");
+                             
                                       Roo.log(e);
                             var t = Roo.lib.Event.getTarget(e); 
                                  Roo.log(t);
