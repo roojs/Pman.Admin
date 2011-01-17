@@ -404,10 +404,10 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 return  
                             }
                             if (isFromGroup && !isToGroup) {
-                                return 'x-dd-drop-ok-sub'; 
+                                this.valid = 'sub'; 
                             } 
                             //if (!isFromGroup && isToGroup) {
-                                return 'x-dd-drop-ok-add'; 
+                                this.valid = 'add'; 
                             //}
                         }
                     },
