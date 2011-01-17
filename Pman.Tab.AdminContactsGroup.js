@@ -360,7 +360,8 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 },  
                                 method: 'POST',  
                                 success : function(data) {
-                                    refreshPager();
+                                    //refreshPager();
+                                    // do we need to do anything??
                                 }, 
                                 
                                 failure: function() {
