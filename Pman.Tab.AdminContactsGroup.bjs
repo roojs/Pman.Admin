@@ -134,7 +134,7 @@
                         },
                         {
                             "listeners": {
-                                "afterselectionchange": "function (_self)\n{\n    Pman.Tab.AdminContacts.footer.onClick('first');\n}"
+                                "afterselectionchange": "function (_self)\n{\n    Pman.Tab.AdminContacts.grid.footer.onClick('first');\n}"
                             },
                             "*prop": "sm",
                             "singleSelect": true,
