@@ -67,7 +67,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             return;
                         }
                         _this.dialog.show( s.data, function() {
-                            _this.grid.footer.onClick('first');
+                            _this.ds.load({});
                         }); 
                     }
                 },
