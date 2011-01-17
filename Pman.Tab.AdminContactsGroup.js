@@ -407,7 +407,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 this.valid = 'sub'; 
                             } 
                             //if (!isFromGroup && isToGroup) {
-                                this.valid = 'add'; 
+                            this.valid = 'add'; 
                             //}
                         }
                     },
