@@ -62,7 +62,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     rowdblclick : function (_self, rowIndex, e)
                     {
                         if (!_this.dialog) return;
-                        var s = his.getDataSource().getAt(rowIndex);
+                        var s = this.getDataSource().getAt(rowIndex);
                         if (s.data.id < 1 ) {
                             return;
                         }
