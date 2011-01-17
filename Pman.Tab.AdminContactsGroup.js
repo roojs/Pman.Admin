@@ -318,7 +318,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     listeners : {
                         drop : function (source, e, data)
                         {
-                         Roo.log("DROP");
+                            // Roo.log("DROP");
                             var t = Roo.lib.Event.getTarget(e); 
                             var ri = _this.grid.view.findRowIndex(t);
                             var rid  = false;
@@ -331,12 +331,12 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                             var isFromGroup = s.length ? s[0].data.id > 0 : false;
                         
                             var isToGroup = rid && rid.id > 0;
-                        
+                            this.success = false;
                             if (isFromGroup && isToGroup) {
-                                return false;
+                                return;
                             }
                             if (!isFromGroup && !isToGroup) {
-                                return false;
+                                return;
                             }
                             var action = 'add';
                             if (isFromGroup && !isToGroup) {
@@ -372,11 +372,11 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                 }
                             });
                         
-                        
+                            this.success = true;
                         
                             //if (!isFromGroup && isToGroup) {
                                 //return 'x-dd-drop-ok-add'; 
-                            return true;
+                            return;
                             //}
                         },
                         over : function (source, e, data)
