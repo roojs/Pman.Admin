@@ -575,7 +575,9 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 },
                                 specialkey : function (_self, e)
                                 {
-                                
+                                  if (e.getKeyCode() == 13) {
+                                    _this.grid.footer.onClick('first');
+                                  }
                                 }
                             }
                         },
