@@ -226,6 +226,9 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                                                     Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
                                                     return;
                                                 }
+                                                if (s[0].data.id < 1 ) {
+                                                    return;
+                                                }
                                                 if (!_this.dialog) return;
                                                 _this.dialog.show(s[0].data, function() {
                                                      _this.grid.ds.load({});
