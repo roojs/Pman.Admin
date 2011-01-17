@@ -572,6 +572,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                         return;
                                     }
                                     _this.grid.footer.onClick('first');
+                                },
+                                specialkey : function (_self, e)
+                                {
+                                
                                 }
                             }
                         },
