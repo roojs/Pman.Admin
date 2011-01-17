@@ -397,17 +397,22 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                              Roo.log("isToGroup:"  + isToGroup + ", isFromGroup" + isFromGroup);
                             if (isFromGroup && isToGroup) {
                                 this.valid = false;
+                                Roo.log('not valid');
                                 return;
                             }
                             if (!isFromGroup && !isToGroup) {
                                 this.valid = false;
+                                Roo.log('not valid');
                                 return  
                             }
                             if (isFromGroup && !isToGroup) {
                                 this.valid = 'sub'; 
+                                Roo.log('sub');
+                                return;
                             } 
                             //if (!isFromGroup && isToGroup) {
-                            this.valid = 'add'; 
+                            this.valid = 'add';
+                            Roo.log('add'); 
                             //}
                         }
                     },
