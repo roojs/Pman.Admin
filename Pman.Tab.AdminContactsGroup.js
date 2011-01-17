@@ -307,7 +307,7 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     listeners : {
                         afterselectionchange : function (_self)
                         {
-                            Pman.Tab.AdminContacts.footer.onClick('first');
+                            Pman.Tab.AdminContacts.grid.footer.onClick('first');
                         }
                     },
                     singleSelect : true
