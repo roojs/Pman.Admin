@@ -77,7 +77,7 @@
                                             "items": [
                                                 {
                                                     "listeners": {
-                                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0,  } , function() {\n         _this.grid.ds.load({});\n   }); \n}\n"
+                                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0,  type: 2 } , function() {\n         _this.grid.ds.load({});\n   }); \n}\n"
                                                     },
                                                     "cls": "x-btn-text-icon",
                                                     "text": "Add",
