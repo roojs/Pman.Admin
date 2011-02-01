@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-7",
+    "id": "roo-file-8",
     "name": "Pman.Tab.AdminContactsManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminContactsManager",
@@ -11,6 +11,9 @@
             "title": "Contacts Manager",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
+            "listeners": {
+                "activate": "function (_self)\n{\n\n}"
+            },
             "items": [
                 {
                     "|xns": "Roo",
