@@ -33,14 +33,6 @@ Pman.Tab.AdminContactsManager = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
-            listeners : {
-                activate : function (_self)
-                {
-                    if (_this.title) {
-                        this.setTitle(_this.title);
-                    }
-                }
-            },
             background : true,
             region : 'center',
             title : "Contacts Manager",
