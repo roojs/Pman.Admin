@@ -36,6 +36,12 @@ Pman.Tab.AdminContactsManager = new Roo.util.Observable({
             background : true,
             region : 'center',
             title : "Contacts Manager",
+            listeners : {
+                activate : function (_self)
+                {
+                
+                }
+            },
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
