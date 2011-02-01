@@ -8,10 +8,9 @@
         {
             "background": true,
             "region": "center",
-            "title": "Contacts Manager",
+            "|title": "Contacts Manager",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
-            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
