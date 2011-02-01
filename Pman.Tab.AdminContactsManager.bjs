@@ -6,14 +6,12 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
     "items": [
         {
-            "listeners": {
-                "activate": "function (_self)\n{\n    if (_this.title) {\n        this.setTitle(_this.title);\n    }\n}"
-            },
             "background": true,
             "region": "center",
             "title": "Contacts Manager",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
+            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
