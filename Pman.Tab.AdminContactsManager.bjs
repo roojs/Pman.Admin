@@ -8,7 +8,7 @@
         {
             "background": true,
             "region": "center",
-            "|title": "Contacts Manager",
+            "|title": "(function() {\n    return _this.title || \"Contacts Manager\";\n})()",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
             "items": [
