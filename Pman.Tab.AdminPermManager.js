@@ -34,6 +34,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             title : "Permission Manager",
+            region : '',
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
