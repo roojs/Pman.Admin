@@ -468,25 +468,6 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                     displayMsg : 'Displaying Projects{0} - {1} of {2}',
                     emptyMsg : 'No Projects found'
                 },
-                toolbar : {
-                    xtype: 'Toolbar',
-                    xns: Roo,
-                    items : [
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            text : "Delete",
-                            cls : 'x-btn-text-icon',
-                            icon : rootURL + '/Pman/templates/images/trash.gif',
-                            listeners : {
-                                click : function()
-                                {
-                                     Pman.genericDelete(_this, 'Projects'); 
-                                }
-                            }
-                        }
-                    ]
-                },
                 colModel : [
                     {
                         xtype: 'ColumnModel',
