@@ -69,6 +69,10 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                         }); 
                     }
                 },
+                toolbar : {
+                    xtype: 'Toolbar',
+                    xns: Roo
+                },
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
