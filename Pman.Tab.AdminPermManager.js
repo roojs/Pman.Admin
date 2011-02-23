@@ -197,7 +197,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                     {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
-                                        text : ""
+                                        text : "Manage Groups"
                                     },
                                     {
                                         xtype: 'Button',
