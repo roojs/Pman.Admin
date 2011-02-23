@@ -81,14 +81,17 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                remoteSort : true,
-                                sortInfo : { field : 'name', direction: 'ASC' },
                                 listeners : {
                                     beforeload : function (_self, options)
                                     {
-                                    
+                                        options = options || {};
+                                        options.params = options.params || {};
+                                        options.params.limit = 9999;
+                                        
                                     }
                                 },
+                                remoteSort : true,
+                                sortInfo : { field : 'name', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
