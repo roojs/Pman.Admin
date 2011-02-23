@@ -325,7 +325,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                 listeners : {
                                     afterselectionchange : function (_self)
                                     {
-                                        Pman.Tab.AdminContacts.grid.footer.onClick('first');
+                                        Pman.Tab.AdminPermMembers.grid.footer.onClick('first');
                                     }
                                 },
                                 singleSelect : true
