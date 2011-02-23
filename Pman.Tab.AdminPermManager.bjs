@@ -20,9 +20,9 @@
                             "*prop": "center"
                         },
                         {
-                            "|xns": "Roo",
+                            "*prop": "west",
                             "xtype": "LayoutRegion",
-                            "*prop": "center"
+                            "|xns": "Roo"
                         }
                     ]
                 }
