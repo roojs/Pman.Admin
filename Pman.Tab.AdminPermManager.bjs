@@ -23,9 +23,9 @@
                         },
                         {
                             "*prop": "west",
+                            "width": 200,
                             "xtype": "LayoutRegion",
-                            "|xns": "Roo",
-                            "listeners": {}
+                            "|xns": "Roo"
                         },
                         {
                             "listeners": {
@@ -75,15 +75,6 @@
                                                     "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'type',\n        'type': 'int'\n    },\n    {\n        'name': 'leader',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_id',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_name',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_email',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_role',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_active',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'leader_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'leader_project_id',\n        'type': 'int'\n    }\n]"
                                                 }
                                             ]
-                                        },
-                                        {
-                                            "*prop": "footer",
-                                            "xtype": "PagingToolbar",
-                                            "pageSize": 25,
-                                            "displayInfo": true,
-                                            "displayMsg": "Displaying Groups{0} - {1} of {2}",
-                                            "emptyMsg": "No Groups found",
-                                            "|xns": "Roo"
                                         },
                                         {
                                             "*prop": "toolbar",
