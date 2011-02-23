@@ -475,22 +475,6 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Add",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-                            listeners : {
-                                click : function()
-                                {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
                             text : "Edit",
                             cls : 'x-btn-text-icon',
                             icon : Roo.rootURL + 'images/default/tree/leaf.gif',
@@ -529,17 +513,17 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Name',
-                        width : 200,
-                        dataIndex : 'name',
+                        dataIndex : 'is_member',
+                        header : 'Is member',
+                        width : 75,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'is_member',
-                        header : 'Is member',
-                        width : 75,
+                        header : 'Name',
+                        width : 200,
+                        dataIndex : 'name',
                         renderer : function(v) { return String.format('{0}', v); }
                     }
                 ]
