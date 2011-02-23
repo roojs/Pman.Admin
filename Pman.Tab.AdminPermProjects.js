@@ -75,7 +75,8 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                     items : [
                         {
                             xtype: 'Button',
-                            xns: Roo.Toolbar
+                            xns: Roo.Toolbar,
+                            enableToggle : true
                         }
                     ]
                 },
