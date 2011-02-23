@@ -117,7 +117,7 @@ Pman.Tab.AdminPermMembers = new Roo.util.Observable({
                                     return false;
                                 }
                                 o.params['query[in_group]'] = tms.data.id;
-                                o.params['query[type]'] = 2; // group type..
+                                o.params['query[type]'] = 0; // group type..
                                 
                             }
                             //o.params['query[name]'] = _this.searchBox.getValue();
