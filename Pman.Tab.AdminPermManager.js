@@ -87,6 +87,8 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                         options = options || {};
                                         options.params = options.params || {};
                                         options.params.limit = 9999;
+                                        options.type = 0;
+                                        
                                         
                                     }
                                 },
