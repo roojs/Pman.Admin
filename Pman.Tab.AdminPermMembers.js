@@ -98,7 +98,11 @@ Pman.Tab.AdminPermMembers = new Roo.util.Observable({
                         beforeload : function (_self, o)
                         {
                           
-                            o.params['!company_id_comptype'] = 'OWNER';
+                           // technically we may allow non-owner's to be in the group..
+                           // need to work out how that will work...
+                           // 
+                           
+                            //o.params['company_id_comptype'] = 'OWNER';
                             o.params['query[search]'] = _this.searchBox.getValue();
                             
                             if (!_this.activeButton) {return; false;}
