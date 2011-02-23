@@ -33,7 +33,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
-            title : "",
+            title : "Permission Manager",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
