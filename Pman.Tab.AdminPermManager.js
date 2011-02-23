@@ -96,10 +96,11 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                     load : function (_self, records, options)
                                     {
                                         var sm = _this.grid.getSelectionModel();
-                                            if (!sm.getSelections().length) {
-                                                sm.selectFirstRow();
-                                            }
-                                            Pman.Tab.AdminContacts.grid.footer.onClick('first');
+                                        if (!sm.getSelections().length) {
+                                            sm.selectFirstRow();
+                                        }
+                                        
+                                         //   Pman.Tab.AdminContacts.grid.footer.onClick('first');
                                     }
                                 },
                                 remoteSort : true,
