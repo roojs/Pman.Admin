@@ -382,7 +382,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                                 // 
                                                 // do we need to do anything??
                                                 if (isFromGroup) {
-                                                    Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                                    Pman.Tab.AdminPermMembers.grid.footer.onClick('refresh');
                                                 }
                                             }, 
                                             
