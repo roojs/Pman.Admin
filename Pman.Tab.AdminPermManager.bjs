@@ -25,7 +25,6 @@
                             "*prop": "west",
                             "xtype": "LayoutRegion",
                             "|xns": "Roo",
-                            "titlebar": true,
                             "listeners": {}
                         },
                         {
