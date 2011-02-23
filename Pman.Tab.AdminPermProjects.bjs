@@ -64,23 +64,6 @@
                             "|xns": "Roo"
                         },
                         {
-                            "*prop": "toolbar",
-                            "xtype": "Toolbar",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Projects'); \n}\n        "
-                                    },
-                                    "|xns": "Roo.Toolbar"
-                                }
-                            ]
-                        },
-                        {
                             "*prop": "colModel[]",
                             "dataIndex": "is_member",
                             "header": "Is member",
