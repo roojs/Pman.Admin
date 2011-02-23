@@ -1,8 +1,8 @@
 {
     "id": "roo-file-187",
     "name": "Pman.Tab.AdminPermProjects",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.AdminPermManager",
+    "title": "Pman.Tab.AdminPermProjects",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminPermProjects.bjs",
     "items": [
         {
