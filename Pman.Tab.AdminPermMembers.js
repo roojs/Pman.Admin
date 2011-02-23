@@ -105,13 +105,13 @@ Pman.Tab.AdminPermMembers = new Roo.util.Observable({
                             
                             
                             o.params.active = _this.activeButton.pressed ? 0 : 1;
-                            if (!Pman.Tab.AdminContactsGroup) { 
+                            if (!Pman.Tab.PermManager) { 
                                 return false;
                             }
                             
                             
-                            if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
-                                var tms = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelected();
+                            if (Pman.Tab.AdminPermManager && Pman.Tab.AdminPermManager.grid) {
+                                var tms = Pman.Tab.AdminPermManager.grid.getSelectionModel().getSelected();
                                 
                                 if (!tms) {
                                     return false;
