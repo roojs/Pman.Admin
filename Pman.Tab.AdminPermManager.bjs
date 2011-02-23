@@ -1,11 +1,12 @@
 {
-    "id": "roo-file-185",
+    "id": "roo-file-10",
     "name": "Pman.Tab.AdminPermManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminPermManager",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminPermManager.bjs",
     "items": [
         {
+            "background": true,
             "region": "center",
             "title": "Permission Manager",
             "xtype": "NestedLayoutPanel",
