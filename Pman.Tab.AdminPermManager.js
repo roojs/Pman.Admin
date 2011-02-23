@@ -287,7 +287,8 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                 },
                 west : {
                     xtype: 'LayoutRegion',
-                    xns: Roo
+                    xns: Roo,
+                    titlebar : true
                 }
             }
         });
