@@ -220,7 +220,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                                         click : function()
                                                         {
                                                             if (!_this.dialog) return;
-                                                            _this.dialog.show( { id : 0,  type: 2 } , function() {
+                                                            _this.dialog.show( { id : 0,  type: 0 } , function() {
                                                                  _this.grid.ds.load({});
                                                            }); 
                                                         }
