@@ -120,15 +120,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Open by",
-                            "width": 75,
-                            "dataIndex": "open_by",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Close date",
                             "width": 75,
                             "dataIndex": "close_date",
