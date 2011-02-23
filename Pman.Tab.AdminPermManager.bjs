@@ -85,10 +85,9 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
+                                                    "text": "Manage Groups",
                                                     "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar",
-                                                    "text": "",
-                                                    "listeners": {}
+                                                    "|xns": "Roo.Toolbar"
                                                 },
                                                 {
                                                     "text": "Add",
