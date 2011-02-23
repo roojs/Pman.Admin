@@ -40,7 +40,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                     xtype: 'LayoutRegion',
                     xns: Roo
                 },
-                center : {
+                west : {
                     xtype: 'LayoutRegion',
                     xns: Roo
                 }
