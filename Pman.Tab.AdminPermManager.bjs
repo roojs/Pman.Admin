@@ -6,10 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminPermManager.bjs",
     "items": [
         {
+            "title": "Permission Manager",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
-            "title": "",
-            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
