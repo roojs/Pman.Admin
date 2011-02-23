@@ -105,7 +105,7 @@ Pman.Tab.AdminPermMembers = new Roo.util.Observable({
                             
                             
                             o.params.active = _this.activeButton.pressed ? 0 : 1;
-                            if (!Pman.Tab.PermManager) { 
+                            if (!Pman.Tab.AdminPermManager) { 
                                 return false;
                             }
                             
