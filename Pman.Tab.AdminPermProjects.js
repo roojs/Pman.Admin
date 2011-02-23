@@ -538,7 +538,7 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'is_member',
-                        header : 'Agency',
+                        header : 'Is member',
                         width : 75,
                         renderer : function(v) { return String.format('{0}', v); }
                     }
