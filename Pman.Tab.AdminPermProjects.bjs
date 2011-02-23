@@ -111,15 +111,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Team",
-                            "width": 75,
-                            "dataIndex": "team_id",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "File location",
                             "width": 200,
                             "dataIndex": "file_location",
