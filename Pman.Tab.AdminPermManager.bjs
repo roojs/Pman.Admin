@@ -9,6 +9,8 @@
             "title": "Permission Manager",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
+            "region": "",
+            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
