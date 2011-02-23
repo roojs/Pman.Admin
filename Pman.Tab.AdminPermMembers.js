@@ -10,9 +10,9 @@ Pman.on('beforeload', function()
     Pman.register({
         modKey : '001-Pman.Tab.AdminPermMembers',
         module : Pman.Tab.AdminPermMembers,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.AdminPermManager,
+        name : "Pman.Tab.AdminPermMembers",
         disabled : false, 
         permname: '' 
     });
