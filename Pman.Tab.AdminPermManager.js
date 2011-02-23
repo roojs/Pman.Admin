@@ -91,7 +91,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                     beforeload : function (_self, o)
                                     {
                                         o.params = o.params || {};
-                                        o.params.type =2;
+                                        o.params.type =0;
                                     },
                                     load : function (_self, records, options)
                                     {
