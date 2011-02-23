@@ -30,6 +30,11 @@
                     "|xns": "Roo.grid",
                     "items": [
                         {
+                            "|xns": "Roo",
+                            "xtype": "Toolbar",
+                            "*prop": "toolbar"
+                        },
+                        {
                             "*prop": "dataSource",
                             "xtype": "Store",
                             "remoteSort": true,
