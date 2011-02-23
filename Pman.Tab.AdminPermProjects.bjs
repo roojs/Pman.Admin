@@ -35,14 +35,14 @@
                             "*prop": "toolbar",
                             "items": [
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Fill"
+                                },
+                                {
                                     "enableToggle": true,
                                     "text": "Hide Closed Projects",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Fill"
                                 }
                             ]
                         },
