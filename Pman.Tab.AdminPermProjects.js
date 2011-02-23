@@ -78,6 +78,10 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                             xns: Roo.Toolbar,
                             enableToggle : true,
                             text : "Hide Closed Projects"
+                        },
+                        {
+                            xtype: 'Fill',
+                            xns: Roo.Toolbar
                         }
                     ]
                 },
