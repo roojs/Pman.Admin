@@ -36,10 +36,9 @@
                             "items": [
                                 {
                                     "enableToggle": true,
+                                    "text": "hide Closed Projects",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar",
-                                    "text": "",
-                                    "listeners": {}
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
