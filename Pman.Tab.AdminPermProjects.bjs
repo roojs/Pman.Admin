@@ -35,8 +35,10 @@
                             "*prop": "toolbar",
                             "items": [
                                 {
+                                    "xtype": "Button",
                                     "|xns": "Roo.Toolbar",
-                                    "xtype": "Button"
+                                    "enableToggle": true,
+                                    "listeners": {}
                                 }
                             ]
                         },
