@@ -8,13 +8,13 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminPermManager',
+        modKey : '700-Pman.Tab.AdminPermManager',
         module : Pman.Tab.AdminPermManager,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Pman.Tab.AdminPermManager",
         disabled : false, 
-        permname: '' 
+        permname: 'Core.Groups' 
     });
 });
 
