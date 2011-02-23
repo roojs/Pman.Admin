@@ -99,7 +99,7 @@ Pman.Tab.AdminPermManager = new Roo.util.Observable({
                                         if (!sm.getSelections().length) {
                                             sm.selectFirstRow();
                                         }
-                                        
+                                        // should refresh righthand side grid..
                                          //   Pman.Tab.AdminContacts.grid.footer.onClick('first');
                                     }
                                 },
