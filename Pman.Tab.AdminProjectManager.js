@@ -695,6 +695,14 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
+                                    dataIndex : 'client_id_name',
+                                    header : 'Client',
+                                    width : 75,
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
                                     dataIndex : 'code',
                                     header : 'Code',
                                     width : 120,
@@ -706,14 +714,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     header : 'Name',
                                     width : 200,
                                     dataIndex : 'name',
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'client_id_name',
-                                    header : 'Client',
-                                    width : 75,
                                     renderer : function(v) { return String.format('{0}', v); }
                                 }
                             ],
