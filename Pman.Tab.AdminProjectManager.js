@@ -605,6 +605,10 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         },
                                         cls : 'x-btn-icon',
                                         icon : rootURL + '/Pman/templates/images/edit-clear.gif'
+                                    },
+                                    {
+                                        xtype: 'Separator',
+                                        xns: Roo.Toolbar
                                     }
                                 ]
                             },
