@@ -154,6 +154,10 @@
                                                 {
                                                     "|xns": "Roo.Toolbar",
                                                     "xtype": "Separator"
+                                                },
+                                                {
+                                                    "|xns": "Roo.Toolbar",
+                                                    "xtype": "Button"
                                                 }
                                             ]
                                         },
