@@ -78,8 +78,17 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             },
                             autoExpandColumn : 'name',
                             loadMask : true,
-                             : function() {
-                                
+                             : function(v)
+                            {
+                                var ar = this.getTypes();
+                                var ret = '';
+                                Roo.each(ar, function(a) {
+                                    if (a[0] == v) {
+                                        ret = a[1];
+                                        return false;
+                                    }
+                                });
+                                return ret;
                             },
                             dataSource : {
                                 xtype: 'Store',
