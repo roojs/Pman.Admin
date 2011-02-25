@@ -472,8 +472,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 }
                             },
                             enableToggle : true,
-                            text : "Other",
-                            toggleGroup : 'appm'
+                            text : "Other"
                         }
                     ]
                 },
