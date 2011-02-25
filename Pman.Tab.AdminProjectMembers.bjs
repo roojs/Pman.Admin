@@ -105,7 +105,8 @@
                                 },
                                 {
                                     "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'A';\n    }\n    _this.grid.footer.onClick('first');\n}"
+                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'A';\n    }\n    _this.grid.footer.onClick('first');\n}",
+                                        "render": "function (_self)\n{\n\n}"
                                     },
                                     "enableToggle": true,
                                     "text": "Members",
