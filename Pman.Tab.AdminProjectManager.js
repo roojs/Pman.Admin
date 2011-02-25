@@ -76,6 +76,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     }); 
                                 }
                             },
+                            filter : '',
                             autoExpandColumn : 'name',
                             loadMask : true,
                              : function() {
@@ -100,7 +101,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 });
                                 return ret;
                             },
-                             : '',
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
