@@ -707,15 +707,17 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     dataIndex : 'code',
                                     header : 'Code',
                                     width : 120,
-                                    renderer : function(v) { return String.format('{0}', v); }
+                                    renderer : function(v) { return String.format('{0}', v); },
+                                    sortable : true
                                 },
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
+                                    dataIndex : 'name',
                                     header : 'Name',
                                     width : 200,
-                                    dataIndex : 'name',
-                                    renderer : function(v) { return String.format('{0}', v); }
+                                    renderer : function(v) { return String.format('{0}', v); },
+                                    sortable : true
                                 }
                             ],
                             sm : {
