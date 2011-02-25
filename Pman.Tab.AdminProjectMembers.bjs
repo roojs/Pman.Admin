@@ -70,10 +70,9 @@
                             "items": [
                                 {
                                     "text": "Staff",
+                                    "toggleGroup": "appm",
                                     "xtype": "Button",
-                                    "|xns": "Roo.Toolbar",
-                                    "toggleGroup": "",
-                                    "listeners": {}
+                                    "|xns": "Roo.Toolbar"
                                 },
                                 {
                                     "text": "Edit",
