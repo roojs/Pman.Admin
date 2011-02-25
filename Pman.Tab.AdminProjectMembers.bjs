@@ -69,6 +69,7 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "enableToggle": true,
                                     "text": "Staff",
                                     "toggleGroup": "appm",
                                     "xtype": "Button",
