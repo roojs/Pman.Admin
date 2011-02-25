@@ -75,7 +75,6 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                     listeners : {
                         beforeload : function (_self, options)
                         {
-                            options.params.project_member_filtertype = this.filter;
                             options.params.project_member_filter = _this.memberFilter.pressed;
                             var pm = Pman.Tab.AdminProjectManager;
                             if (!pm || !pm.grid || !pm.grid.getSelectionModel().getSelected()) {
