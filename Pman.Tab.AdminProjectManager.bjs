@@ -124,6 +124,15 @@
                                         },
                                         {
                                             "xtype": "ColumnModel",
+                                            "header": "Type",
+                                            "width": 200,
+                                            "dataIndex": "type",
+                                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                                            "|xns": "Roo.grid",
+                                            "*prop": "colModel[]"
+                                        },
+                                        {
+                                            "xtype": "ColumnModel",
                                             "header": "Id",
                                             "width": 75,
                                             "dataIndex": "id",
@@ -172,15 +181,6 @@
                                             "header": "Active",
                                             "width": 75,
                                             "dataIndex": "active",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
-                                        },
-                                        {
-                                            "xtype": "ColumnModel",
-                                            "header": "Type",
-                                            "width": 200,
-                                            "dataIndex": "type",
                                             "|renderer": "function(v) { return String.format('{0}', v); }",
                                             "|xns": "Roo.grid",
                                             "*prop": "colModel[]"
