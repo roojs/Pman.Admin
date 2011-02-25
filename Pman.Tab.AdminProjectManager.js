@@ -8,13 +8,13 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminProjectManager',
+        modKey : '002-Pman.Tab.AdminProjectManager',
         module : Pman.Tab.AdminProjectManager,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Pman.Tab.AdminProjectManager",
         disabled : false, 
-        permname: '' 
+        permname: 'Core.Projects_All' 
     });
 });
 
