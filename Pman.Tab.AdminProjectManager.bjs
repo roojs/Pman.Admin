@@ -156,6 +156,10 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
+                                                    "|xns": "Roo.Toolbar",
+                                                    "xtype": "TextItem"
+                                                },
+                                                {
                                                     "text": "All",
                                                     "xtype": "Button",
                                                     "|xns": "Roo.Toolbar"
