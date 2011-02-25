@@ -6,11 +6,12 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
     "items": [
         {
+            "fitContainer": true,
             "region": "center",
             "title": "Projects",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
-            "fitContainer": true,
+            "fitToFrame": true,
             "listeners": {},
             "items": [
                 {
