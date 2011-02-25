@@ -409,15 +409,6 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            listeners : {
-                                click : function()
-                                {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
-                                }
-                            },
                             cls : 'x-btn-text-icon',
                             text : "Staff",
                             icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
