@@ -164,6 +164,7 @@
                                                     "listeners": {
                                                         "render": "function (_self)\n{\n    if (st) { _this.grid.filter = 'P,N,U'; } \n    _this.grid.footer.onClick('first');\n     \n}"
                                                     },
+                                                    "enableToggle": true,
                                                     "pressed": false,
                                                     "text": "All",
                                                     "toggleGroup": "pgrp",
