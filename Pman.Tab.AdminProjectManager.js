@@ -76,7 +76,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     }); 
                                 }
                             },
-                            filter : '',
+                            filter : 'P,U',
                             autoExpandColumn : 'name',
                             loadMask : true,
                              : function() {
