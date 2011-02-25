@@ -674,7 +674,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                 east : {
                     xtype: 'LayoutRegion',
                     xns: Roo,
-                    width : 0
+                    width : 300
                 }
             }
         });
