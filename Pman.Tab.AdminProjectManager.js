@@ -568,7 +568,9 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                             },
                                             specialkey : function (_self, e)
                                             {
-                                            
+                                                if(e.getKey() == 13) {
+                                                      _this.grid.footer.onClick('first');
+                                                }
                                             }
                                         }
                                     }
