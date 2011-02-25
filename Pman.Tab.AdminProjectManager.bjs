@@ -198,7 +198,7 @@
                                                 },
                                                 {
                                                     "listeners": {
-                                                        "toggle": "function (_self, pressed)\n{\n        if (st) { _this.grid.filter = 'X,C'; } \n                _this.grid.footer.onClick('first');\n        \n}"
+                                                        "toggle": "function (_self, st)\n{\n        if (st) { _this.grid.filter = 'X,C'; } \n                _this.grid.footer.onClick('first');\n        \n}"
                                                     },
                                                     "enableToggle": true,
                                                     "pressed": false,
