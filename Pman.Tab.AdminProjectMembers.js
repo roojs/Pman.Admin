@@ -486,7 +486,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'company_id_name',
                         header : 'Company',
-                        width : 75,
+                        width : 120,
                         renderer : function(v) { return String.format('{0}', v); }
                     }
                 ]
