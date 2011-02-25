@@ -199,7 +199,7 @@
                                                     },
                                                     "enableToggle": true,
                                                     "pressed": false,
-                                                    "text": "All",
+                                                    "text": "Closed",
                                                     "toggleGroup": "pgrp",
                                                     "xtype": "Button",
                                                     "|xns": "Roo.Toolbar"
