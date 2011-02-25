@@ -131,7 +131,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "is_member",
                             "header": "Member",
-                            "width": 75,
+                            "width": 60,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid"
