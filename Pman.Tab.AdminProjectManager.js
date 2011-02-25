@@ -78,6 +78,16 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             },
                             autoExpandColumn : 'name',
                             loadMask : true,
+                             : function() {
+                                return [
+                                    [  'U' , "Project (Unconfirmed)" ],
+                                    [  'P' , "Project" ],
+                                    [  'C' , "Project (Closed)" ],
+                                    [  'N' , "Non-Project" ],
+                                    [  'X' , "Non-Project (Closed)" ]
+                            
+                                ];
+                            },
                             typeToString : function(v)
                             {
                                 var ar = this.getTypes();
@@ -89,9 +99,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     }
                                 });
                                 return ret;
-                            },
-                             : function() {
-                                
                             },
                             dataSource : {
                                 xtype: 'Store',
