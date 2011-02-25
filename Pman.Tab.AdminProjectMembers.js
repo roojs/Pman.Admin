@@ -101,7 +101,6 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                             
                         }
                     },
-                    filter : 'S',
                     remoteSort : true,
                     sortInfo : { field : 'name', direction: 'ASC' },
                     proxy : {
