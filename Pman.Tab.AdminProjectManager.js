@@ -78,7 +78,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             },
                             autoExpandColumn : 'name',
                             loadMask : true,
-                             : function(v)
+                            typeToString : function(v)
                             {
                                 var ar = this.getTypes();
                                 var ret = '';
