@@ -194,13 +194,13 @@
                                                     "|xns": "Roo.Toolbar"
                                                 },
                                                 {
-                                                    "toggle": "function (_self)\n{\n    if (st) { _this.grid.filter = 'P,N,U'; } \n    _this.grid.footer.onClick('first');\n     \n}",
                                                     "enableToggle": true,
                                                     "pressed": false,
                                                     "text": "Closed",
                                                     "toggleGroup": "pgrp",
                                                     "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar"
+                                                    "|xns": "Roo.Toolbar",
+                                                    "listeners": {}
                                                 }
                                             ]
                                         },
