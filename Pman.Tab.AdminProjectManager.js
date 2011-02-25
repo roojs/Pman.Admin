@@ -619,7 +619,13 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
                                         text : "All",
-                                        toggleGroup : 'pgrp'
+                                        toggleGroup : 'pgrp',
+                                        listeners : {
+                                            render : function (_self)
+                                            {
+                                            
+                                            }
+                                        }
                                     }
                                 ]
                             },
