@@ -98,6 +98,10 @@
                                     "toggleGroup": "appm",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Fill"
                                 }
                             ]
                         },
