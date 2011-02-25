@@ -565,6 +565,10 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                             render : function (_self)
                                             {
                                                 _this.searchBox = _self;
+                                            },
+                                            specialkey : function (_self, e)
+                                            {
+                                            
                                             }
                                         }
                                     }
