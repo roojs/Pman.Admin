@@ -56,11 +56,11 @@
                         },
                         {
                             "*prop": "footer",
-                            "xtype": "PagingToolbar",
-                            "pageSize": 25,
                             "displayInfo": true,
-                            "displayMsg": "Displaying Person{0} - {1} of {2}",
+                            "displayMsg": " ",
                             "emptyMsg": "No Person found",
+                            "pageSize": 25,
+                            "xtype": "PagingToolbar",
                             "|xns": "Roo"
                         },
                         {
