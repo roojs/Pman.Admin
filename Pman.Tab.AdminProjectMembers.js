@@ -415,6 +415,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                     if (pressed) {
                                         _this.grid.filter = 'S';
                                     }
+                                    _this.grid.footer.onClick('first');
                                 }
                             },
                             enableToggle : true,
@@ -444,8 +445,9 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 toggle : function (_self, pressed)
                                 {
                                     if (pressed) {
-                                        _this.grid.filter = 'S';
+                                        _this.grid.filter = 'A';
                                     }
+                                    _this.grid.footer.onClick('first');
                                 }
                             },
                             enableToggle : true,
