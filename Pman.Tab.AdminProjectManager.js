@@ -100,6 +100,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 });
                                 return ret;
                             },
+                             : '',
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
