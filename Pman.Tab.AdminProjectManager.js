@@ -650,16 +650,18 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
+                                        listeners : {
+                                            toggle : function (_self)
+                                            {
+                                                if (st) { _this.grid.filter = 'N'; } 
+                                                _this.grid.footer.onClick('first');
+                                                 
+                                            }
+                                        },
                                         enableToggle : true,
                                         pressed : false,
                                         text : "Non-Projects",
-                                        toggleGroup : 'pgrp',
-                                        listeners : {
-                                            toggle : function (_self, pressed)
-                                            {
-                                            
-                                            }
-                                        }
+                                        toggleGroup : 'pgrp'
                                     },
                                     {
                                         xtype: 'Button',
