@@ -609,6 +609,10 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     {
                                         xtype: 'Separator',
                                         xns: Roo.Toolbar
+                                    },
+                                    {
+                                        xtype: 'Button',
+                                        xns: Roo.Toolbar
                                     }
                                 ]
                             },
