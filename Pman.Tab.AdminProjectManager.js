@@ -666,16 +666,18 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
-                                        enableToggle : true,
-                                        pressed : false,
-                                        text : "Closed",
-                                        toggleGroup : 'pgrp',
                                         listeners : {
                                             toggle : function (_self, pressed)
                                             {
-                                            
+                                                    if (st) { _this.grid.filter = 'X,C'; } 
+                                                            _this.grid.footer.onClick('first');
+                                                    
                                             }
-                                        }
+                                        },
+                                        enableToggle : true,
+                                        pressed : false,
+                                        text : "Closed",
+                                        toggleGroup : 'pgrp'
                                     }
                                 ]
                             },
