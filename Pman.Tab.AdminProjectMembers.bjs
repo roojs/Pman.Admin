@@ -33,12 +33,12 @@
                             "listeners": {
                                 "beforeload": "function (_self, options)\n{\n    options.params.project_member_filtertype = this.filter;\n    options.params.project_member_filter = _this.memberFilter.pressed;\n    \n}"
                             },
+                            "filter": "",
                             "*prop": "dataSource",
                             "remoteSort": true,
                             "xtype": "Store",
                             "|sortInfo": "{ field : 'name', direction: 'ASC' }",
                             "|xns": "Roo.data",
-                            "": "",
                             "items": [
                                 {
                                     "*prop": "proxy",
