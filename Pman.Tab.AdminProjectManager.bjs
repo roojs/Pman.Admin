@@ -1,8 +1,8 @@
 {
-    "id": "roo-file-188",
+    "id": "roo-file-10",
     "name": "Pman.Tab.AdminProjectManager",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.Admin",
+    "title": "Pman.Tab.AdminProjectManager",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
     "items": [
         {
@@ -167,6 +167,6 @@
             ]
         }
     ],
-    "permname": "",
-    "modOrder": "001"
+    "permname": "Core.Projects_All",
+    "modOrder": "002"
 }
