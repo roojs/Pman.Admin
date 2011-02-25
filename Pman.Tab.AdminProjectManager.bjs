@@ -213,7 +213,7 @@
                                             "*prop": "colModel[]",
                                             "dataIndex": "type",
                                             "header": "Type",
-                                            "width": 200,
+                                            "width": 70,
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return _this.grid.typeToString(v);}",
                                             "|xns": "Roo.grid"
