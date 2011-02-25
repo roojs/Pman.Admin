@@ -200,7 +200,9 @@
                                                     "toggleGroup": "pgrp",
                                                     "xtype": "Button",
                                                     "|xns": "Roo.Toolbar",
-                                                    "listeners": {}
+                                                    "listeners": {
+                                                        "toggle": "function (_self, pressed)\n{\n\n}"
+                                                    }
                                                 }
                                             ]
                                         },
