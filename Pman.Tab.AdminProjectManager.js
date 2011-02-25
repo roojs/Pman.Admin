@@ -714,7 +714,18 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     dataIndex : 'client_id',
                                     renderer : function(v) { return String.format('{0}', v); }
                                 }
-                            ]
+                            ],
+                            sm : {
+                                xtype: 'RowSelectionModel',
+                                xns: Roo.grid,
+                                singleSelect : true,
+                                listeners : {
+                                    afterselectionchange : function (_self)
+                                    {
+                                    
+                                    }
+                                }
+                            }
                         }
                     }
                 ],
