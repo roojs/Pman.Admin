@@ -35,6 +35,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
             xns: Roo,
             region : 'center',
             title : "Projects",
+            fitContainer : true,
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
