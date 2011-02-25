@@ -77,6 +77,24 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         {
                             options.params.project_member_filtertype = this.filter;
                             options.params.project_member_filter = _this.memberFilter.pressed;
+                            var pm = Pman.Tab.AdminProjectManager;
+                            if (!pm || !pm.grid || !pm.grid.getSelectionModel().getSelected()) {
+                                return false;
+                            }
+                            var sel = pm.grid.getSelectionModel().getSelected();
+                            switch(this.filter) {
+                                case 'S': // staff
+                                    options.params.company_id_comptype='OWNER';
+                                    options.params.project_member_of = sel.data.id;
+                                    break;
+                                case 'O': // owner..
+                                    options.params.company_id = sel.data.owner_id;
+                                    options.params.project_member_of = sel.data.id;
+                                case 'A': // owner..
+                                    options.params['!company_id'] = sel.data.owner_id;
+                                    options.params['!company_id_comptype'] ='OWNER';
+                                    options.params.project_member_of = sel.data.id;        
+                            }
                             
                         }
                     },
