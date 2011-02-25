@@ -156,8 +156,10 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
+                                                    "xtype": "Button",
                                                     "|xns": "Roo.Toolbar",
-                                                    "xtype": "Button"
+                                                    "text": "",
+                                                    "listeners": {}
                                                 }
                                             ]
                                         },
