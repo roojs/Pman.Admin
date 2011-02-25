@@ -397,10 +397,10 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                 footer : {
                     xtype: 'PagingToolbar',
                     xns: Roo,
-                    pageSize : 25,
                     displayInfo : true,
-                    displayMsg : 'Displaying Person{0} - {1} of {2}',
-                    emptyMsg : 'No Person found'
+                    displayMsg : ' ',
+                    emptyMsg : 'No Person found',
+                    pageSize : 25
                 },
                 toolbar : {
                     xtype: 'Toolbar',
