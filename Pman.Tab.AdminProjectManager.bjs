@@ -6,8 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "NestedLayoutPanel"
+            "region": "center",
+            "xtype": "NestedLayoutPanel",
+            "|xns": "Roo"
         }
     ],
     "permname": "",
