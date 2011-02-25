@@ -690,7 +690,8 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     dataIndex : 'type',
                                     header : 'Type',
                                     width : 70,
-                                    renderer : function(v) { return _this.grid.typeToString(v);}
+                                    renderer : function(v) { return _this.grid.typeToString(v);},
+                                    sortable : true
                                 },
                                 {
                                     xtype: 'ColumnModel',
