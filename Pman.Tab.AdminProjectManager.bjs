@@ -7,10 +7,9 @@
     "items": [
         {
             "region": "center",
+            "title": "Projects",
             "xtype": "NestedLayoutPanel",
-            "|xns": "Roo",
-            "title": "",
-            "listeners": {}
+            "|xns": "Roo"
         }
     ],
     "permname": "",
