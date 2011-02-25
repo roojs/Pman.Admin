@@ -121,8 +121,9 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
-                                                    "|xns": "Roo.Toolbar",
-                                                    "xtype": "TextItem"
+                                                    "text": "",
+                                                    "xtype": "TextItem",
+                                                    "|xns": "Roo.Toolbar"
                                                 },
                                                 {
                                                     "listeners": {
