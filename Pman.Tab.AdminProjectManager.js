@@ -79,7 +79,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             filter : 'P,U',
                             autoExpandColumn : 'name',
                             loadMask : true,
-                             : function() {
+                            getTypes : function() {
                                 return [
                                     [  'U' , "Project (Unconfirmed)" ],
                                     [  'P' , "Project" ],
