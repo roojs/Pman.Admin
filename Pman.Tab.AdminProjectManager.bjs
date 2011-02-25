@@ -216,7 +216,9 @@
                                             "width": 70,
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return _this.grid.typeToString(v);}",
-                                            "|xns": "Roo.grid"
+                                            "|xns": "Roo.grid",
+                                            "sortable": true,
+                                            "listeners": {}
                                         },
                                         {
                                             "*prop": "colModel[]",
