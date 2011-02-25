@@ -97,7 +97,8 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 case 'A': // not owner or staff..
                                     options.params['!company_id'] = sel.data.client_id;
                                     options.params['!company_id_comptype'] ='OWNER';
-                                    options.params.project_member_of = sel.data.id;        
+                                    options.params.project_member_of = sel.data.id;  
+                                    break;      
                             }
                             
                         }
