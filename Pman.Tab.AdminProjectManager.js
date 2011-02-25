@@ -33,7 +33,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
-            background : true,
+            background : false,
             fitContainer : true,
             fitToFrame : true,
             region : 'center',
