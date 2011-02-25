@@ -45,7 +45,9 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                         listeners : {
                             activate : function() {
                                 _this.panel = this;
-                                _this.dialog = Pman ? Pman.Dialog.CoreProject : false;
+                                try {
+                                    _this.dialog =  Pman.Dialog.CoreProject ; 
+                                } catch(e) {}
                                 if (_this.grid) {
                                     _this.grid.footer.onClick('first');
                                 }
