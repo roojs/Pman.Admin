@@ -476,9 +476,9 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Email',
-                        width : 200,
                         dataIndex : 'email',
+                        header : 'Email',
+                        width : 100,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
