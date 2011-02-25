@@ -243,13 +243,13 @@
                                             "*prop": "colModel[]"
                                         },
                                         {
+                                            "listeners": {
+                                                "afterselectionchange": "function (_self)\n{\n    // load project members.\n}"
+                                            },
                                             "*prop": "sm",
                                             "singleSelect": true,
                                             "xtype": "RowSelectionModel",
-                                            "|xns": "Roo.grid",
-                                            "listeners": {
-                                                "afterselectionchange": "function (_self)\n{\n\n}"
-                                            }
+                                            "|xns": "Roo.grid"
                                         }
                                     ]
                                 }
