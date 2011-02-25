@@ -481,13 +481,15 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         dataIndex : 'email',
                         header : 'Email',
                         width : 100,
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v) { return String.format('{0}', v); },
+                        sortable : true
                     },
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'company_id_name',
                         header : 'Company',
+                        sortable : true,
                         width : 120,
                         renderer : function(v) { return String.format('{0}', v); }
                     }
