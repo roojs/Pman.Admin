@@ -42,20 +42,21 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                     {
                         xtype: 'GridPanel',
                         xns: Roo,
-                        title : "Projects",
-                        fitToframe : true,
-                        fitContainer : true,
-                        tableName : 'Projects',
-                        background : true,
-                        region : 'center',
                         listeners : {
                             activate : function() {
                                 _this.panel = this;
+                                _this.dialog = Pman.Dialog.CoreProject;
                                 if (_this.grid) {
                                     _this.grid.footer.onClick('first');
                                 }
                             }
                         },
+                        background : true,
+                        fitContainer : true,
+                        fitToframe : true,
+                        region : 'center',
+                        tableName : 'Projects',
+                        title : "Projects",
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
