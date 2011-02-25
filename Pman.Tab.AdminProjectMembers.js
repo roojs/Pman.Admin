@@ -420,6 +420,21 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                             enableToggle : true,
                             text : "Staff",
                             toggleGroup : 'appm'
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                toggle : function (_self, pressed)
+                                {
+                                    if (pressed) {
+                                        _this.grid.filter = 'S';
+                                    }
+                                }
+                            },
+                            enableToggle : true,
+                            text : "Staff",
+                            toggleGroup : 'appm'
                         }
                     ]
                 },
