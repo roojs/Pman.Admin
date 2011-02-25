@@ -669,7 +669,13 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         enableToggle : true,
                                         pressed : false,
                                         text : "Closed",
-                                        toggleGroup : 'pgrp'
+                                        toggleGroup : 'pgrp',
+                                        listeners : {
+                                            toggle : function (_self, pressed)
+                                            {
+                                            
+                                            }
+                                        }
                                     }
                                 ]
                             },
