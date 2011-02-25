@@ -6,7 +6,7 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
     "items": [
         {
-            "background": true,
+            "background": false,
             "fitContainer": true,
             "fitToFrame": true,
             "region": "center",
