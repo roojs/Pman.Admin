@@ -644,7 +644,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         },
                                         enableToggle : true,
                                         pressed : false,
-                                        text : "All",
+                                        text : "Projects",
                                         toggleGroup : 'pgrp'
                                     },
                                     {
