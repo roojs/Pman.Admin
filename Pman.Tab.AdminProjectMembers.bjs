@@ -69,7 +69,6 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "cls": "x-btn-text-icon",
                                     "text": "Staff",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar",
