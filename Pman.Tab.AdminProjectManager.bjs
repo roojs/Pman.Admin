@@ -246,7 +246,10 @@
                                             "*prop": "sm",
                                             "singleSelect": true,
                                             "xtype": "RowSelectionModel",
-                                            "|xns": "Roo.grid"
+                                            "|xns": "Roo.grid",
+                                            "listeners": {
+                                                "afterselectionchange": "function (_self)\n{\n\n}"
+                                            }
                                         }
                                     ]
                                 }
