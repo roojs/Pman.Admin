@@ -59,8 +59,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'name',
-                            loadMask : true,
                             listeners : {
                                 render : function() 
                                 {
@@ -77,6 +75,11 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         _this.grid.footer.onClick('first');
                                     }); 
                                 }
+                            },
+                            autoExpandColumn : 'name',
+                            loadMask : true,
+                             : function() {
+                                
                             },
                             dataSource : {
                                 xtype: 'Store',
