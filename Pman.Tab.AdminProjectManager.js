@@ -553,6 +553,14 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                                 
                                             }
                                         }
+                                    },
+                                    {
+                                        xtype: 'Separator',
+                                        xns: Roo.Toolbar
+                                    },
+                                    {
+                                        xtype: 'TextField',
+                                        xns: Roo.form
                                     }
                                 ]
                             },
