@@ -29,7 +29,7 @@
                         },
                         {
                             "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    _this.dialog = Pman.Dialog.CoreProject;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.panel = this;\n    _this.dialog = Pman ? Pman.Dialog.CoreProject : false;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
                             "background": true,
                             "fitContainer": true,
