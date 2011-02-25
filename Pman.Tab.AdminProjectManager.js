@@ -81,14 +81,19 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                remoteSort : true,
-                                sortInfo : { field : 'name', direction: 'ASC' },
                                 listeners : {
                                     beforeload : function (_self, options)
                                     {
-                                    
+                                        if (!_this.searchBox) {
+                                            return false;
+                                        }  
+                                        o.params = o.params ? o.params : {};
+                                        o.params['query[project_search]'] = _this.searchBox.getValue();
+                                        o.params['query[project_filter]'] = _this.filter;
                                     }
                                 },
+                                remoteSort : true,
+                                sortInfo : { field : 'name', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
