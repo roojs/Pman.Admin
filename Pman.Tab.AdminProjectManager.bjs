@@ -156,11 +156,13 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
-                                                    "|xns": "Roo.Toolbar",
-                                                    "xtype": "TextItem"
+                                                    "text": "Show:",
+                                                    "xtype": "TextItem",
+                                                    "|xns": "Roo.Toolbar"
                                                 },
                                                 {
                                                     "text": "All",
+                                                    "toggleGroup": "pgrp",
                                                     "xtype": "Button",
                                                     "|xns": "Roo.Toolbar"
                                                 }
