@@ -87,6 +87,16 @@
                                     "toggleGroup": "appm",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n}"
+                                    },
+                                    "enableToggle": true,
+                                    "text": "Staff",
+                                    "toggleGroup": "appm",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
