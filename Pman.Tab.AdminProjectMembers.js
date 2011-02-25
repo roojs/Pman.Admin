@@ -469,6 +469,10 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                         _this.grid.filter = 'A';
                                     }
                                     _this.grid.footer.onClick('first');
+                                },
+                                render : function (_self)
+                                {
+                                
                                 }
                             },
                             enableToggle : true,
