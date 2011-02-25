@@ -73,6 +73,7 @@
                                         "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n    _this.grid.footer.onClick('first');\n}"
                                     },
                                     "enableToggle": true,
+                                    "pressed": true,
                                     "text": "Staff",
                                     "toggleGroup": "appm",
                                     "xtype": "Button",
