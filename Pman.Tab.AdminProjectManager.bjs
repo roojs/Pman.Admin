@@ -150,6 +150,10 @@
                                                     "xtype": "Button",
                                                     "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
                                                     "|xns": "Roo.Toolbar"
+                                                },
+                                                {
+                                                    "|xns": "Roo.Toolbar",
+                                                    "xtype": "Separator"
                                                 }
                                             ]
                                         },
