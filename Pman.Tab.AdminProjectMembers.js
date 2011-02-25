@@ -409,9 +409,6 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Add",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
                             listeners : {
                                 click : function()
                                 {
@@ -420,7 +417,10 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                         _this.grid.footer.onClick('first');
                                    }); 
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Staff",
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
                             xtype: 'Button',
