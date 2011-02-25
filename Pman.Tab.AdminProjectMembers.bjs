@@ -90,6 +90,16 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'A';\n    }\n    _this.grid.footer.onClick('first');\n}"
+                                    },
+                                    "enableToggle": true,
+                                    "text": "Other",
+                                    "toggleGroup": "appm",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
+                                },
+                                {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
                                 },
