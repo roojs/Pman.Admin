@@ -121,11 +121,11 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
-                                                    "xtype": "TextField",
-                                                    "|xns": "Roo.form",
                                                     "listeners": {
-                                                        "render": "function (_self)\n{\n\n}"
-                                                    }
+                                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}"
+                                                    },
+                                                    "xtype": "TextField",
+                                                    "|xns": "Roo.form"
                                                 }
                                             ]
                                         },
