@@ -50,7 +50,7 @@
                                     "autoExpandColumn": "name",
                                     "loadMask": true,
                                     "xtype": "Grid",
-                                    "|": "function() {\n    return [\n        [  'U' , \"Project (Unconfirmed)\" ],\n        [  'P' , \"Project\" ],\n        [  'C' , \"Project (Closed)\" ],\n        [  'N' , \"Non-Project\" ],\n        [  'X' , \"Non-Project (Closed)\" ]\n\n    ];\n}\n",
+                                    "|getTypes": "function() {\n    return [\n        [  'U' , \"Project (Unconfirmed)\" ],\n        [  'P' , \"Project\" ],\n        [  'C' , \"Project (Closed)\" ],\n        [  'N' , \"Non-Project\" ],\n        [  'X' , \"Non-Project (Closed)\" ]\n\n    ];\n}\n",
                                     "|typeToString": "function(v)\n{\n    var ar = this.getTypes();\n    var ret = '';\n    Roo.each(ar, function(a) {\n        if (a[0] == v) {\n            ret = a[1];\n            return false;\n        }\n    });\n    return ret;\n}\n",
                                     "|xns": "Roo.grid",
                                     "items": [
