@@ -121,7 +121,7 @@
                                                     "xtype": "Separator"
                                                 },
                                                 {
-                                                    "text": "",
+                                                    "text": "Search",
                                                     "xtype": "TextItem",
                                                     "|xns": "Roo.Toolbar"
                                                 },
