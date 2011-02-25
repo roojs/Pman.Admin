@@ -8,7 +8,9 @@
         {
             "region": "center",
             "xtype": "NestedLayoutPanel",
-            "|xns": "Roo"
+            "|xns": "Roo",
+            "title": "",
+            "listeners": {}
         }
     ],
     "permname": "",
