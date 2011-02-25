@@ -111,7 +111,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 xtype: 'Store',
                                 xns: Roo.data,
                                 listeners : {
-                                    beforeload : function (_self, options)
+                                    beforeload : function (_self, o)
                                     {
                                         if (!_this.searchBox) {
                                             return false;
