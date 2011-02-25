@@ -115,6 +115,14 @@
                                                         "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) return;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
                                                     },
                                                     "|xns": "Roo.Toolbar"
+                                                },
+                                                {
+                                                    "|xns": "Roo.Toolbar",
+                                                    "xtype": "Separator"
+                                                },
+                                                {
+                                                    "|xns": "Roo.form",
+                                                    "xtype": "TextField"
                                                 }
                                             ]
                                         },
