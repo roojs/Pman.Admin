@@ -653,7 +653,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         listeners : {
                                             render : function (_self)
                                             {
-                                                if (st) { _this.grid.filter = 'P,N,U'; } 
+                                                if (st) { _this.grid.filter = 'N'; } 
                                                 _this.grid.footer.onClick('first');
                                                  
                                             }
