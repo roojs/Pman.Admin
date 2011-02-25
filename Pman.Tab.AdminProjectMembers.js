@@ -465,9 +465,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                             listeners : {
                                 toggle : function (_self, pressed)
                                 {
-                                    if (pressed) {
-                                        _this.grid.filter = 'A';
-                                    }
+                                   
                                     _this.grid.footer.onClick('first');
                                 },
                                 render : function (_self)
