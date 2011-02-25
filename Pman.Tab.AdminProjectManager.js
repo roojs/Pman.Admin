@@ -506,10 +506,10 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                             footer : {
                                 xtype: 'PagingToolbar',
                                 xns: Roo,
-                                pageSize : 25,
                                 displayInfo : true,
-                                displayMsg : 'Displaying Projects{0} - {1} of {2}',
-                                emptyMsg : 'No Projects found'
+                                displayMsg : 'Displaying Projects {0} - {1} of {2}',
+                                emptyMsg : 'No Projects found',
+                                pageSize : 25
                             },
                             toolbar : {
                                 xtype: 'Toolbar',
