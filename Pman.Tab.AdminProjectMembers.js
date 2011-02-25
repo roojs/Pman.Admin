@@ -67,9 +67,9 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                         }); 
                     }
                 },
+                filter : 'S',
                 autoExpandColumn : 'name',
                 loadMask : true,
-                 : '',
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
