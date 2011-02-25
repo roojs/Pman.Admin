@@ -115,7 +115,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                         }  
                                         o.params = o.params ? o.params : {};
                                         o.params['query[project_search]'] = _this.searchBox.getValue();
-                                        o.params['query[project_filter]'] = _this.filter;
+                                        o.params['query[project_filter]'] = _this.grid.filter;
                                     }
                                 },
                                 remoteSort : true,
