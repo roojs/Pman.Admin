@@ -84,7 +84,9 @@ Pman.Tab.Admin = {
                 }));
 
         this.tab.on('activate', function() {
-            
+            try {
+                this.layout.showPanel(0)
+            } catch(e) { }
             
             //_this.layout.getRegion('center').showPanel(0);
             
