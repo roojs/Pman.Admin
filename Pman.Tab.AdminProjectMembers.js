@@ -80,7 +80,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 return false;
                             }
                             options.params['query[project_member_filter]'] = _this.memberBtn.pressed ? 1 :0;
-                            var pm = Pman.Tab.AdminProjectManager;
+                            var pm = Pman ? Pman.Tab.AdminProjectManager :false;
                             if (!pm || !pm.grid || !pm.grid.getSelectionModel().getSelected()) {
                                 return false;
                             }
