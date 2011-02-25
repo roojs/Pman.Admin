@@ -109,7 +109,6 @@
                                     },
                                     "enableToggle": true,
                                     "text": "Other",
-                                    "toggleGroup": "appm",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 }
