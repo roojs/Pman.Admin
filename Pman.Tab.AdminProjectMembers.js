@@ -72,14 +72,16 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
-                    remoteSort : true,
-                    sortInfo : { field : 'name', direction: 'ASC' },
                     listeners : {
                         beforeload : function (_self, options)
                         {
-                        
+                            options.params.project_member_filtertype = this.filter;
+                            options.params.project_member_filter = _this.memberFilter.pressed;
+                            
                         }
                     },
+                    remoteSort : true,
+                    sortInfo : { field : 'name', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
