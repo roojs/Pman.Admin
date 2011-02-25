@@ -80,7 +80,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n}"
+                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'O';\n    }\n    _this.grid.footer.onClick('first');\n}"
                                     },
                                     "enableToggle": true,
                                     "text": "Owners",
