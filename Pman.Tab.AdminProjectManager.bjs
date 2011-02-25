@@ -151,6 +151,15 @@
                                         },
                                         {
                                             "xtype": "ColumnModel",
+                                            "header": "Client",
+                                            "width": 75,
+                                            "dataIndex": "client_id",
+                                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                                            "|xns": "Roo.grid",
+                                            "*prop": "colModel[]"
+                                        },
+                                        {
+                                            "xtype": "ColumnModel",
                                             "header": "Remarks",
                                             "width": 200,
                                             "dataIndex": "remarks",
@@ -172,15 +181,6 @@
                                             "header": "Active",
                                             "width": 75,
                                             "dataIndex": "active",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
-                                        },
-                                        {
-                                            "xtype": "ColumnModel",
-                                            "header": "Client",
-                                            "width": 75,
-                                            "dataIndex": "client_id",
                                             "|renderer": "function(v) { return String.format('{0}', v); }",
                                             "|xns": "Roo.grid",
                                             "*prop": "colModel[]"
