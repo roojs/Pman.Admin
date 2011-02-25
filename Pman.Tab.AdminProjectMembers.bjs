@@ -93,7 +93,7 @@
                                         "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n}"
                                     },
                                     "enableToggle": true,
-                                    "text": "Staff",
+                                    "text": "Other",
                                     "toggleGroup": "appm",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
