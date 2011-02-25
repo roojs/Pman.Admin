@@ -560,7 +560,8 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     },
                                     {
                                         xtype: 'TextItem',
-                                        xns: Roo.Toolbar
+                                        xns: Roo.Toolbar,
+                                        text : ""
                                     },
                                     {
                                         xtype: 'TextField',
