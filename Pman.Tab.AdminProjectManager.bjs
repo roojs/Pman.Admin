@@ -56,7 +56,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "beforeload": "function (_self, options)\n{\n    if (!_this.searchBox) {\n        return false;\n    }  \n    o.params = o.params ? o.params : {};\n    o.params['query[project_search]'] = _this.searchBox.getValue();\n    o.params['query[project_filter]'] = _this.filter;\n}"
+                                                "beforeload": "function (_self, options)\n{\n    if (!_this.searchBox) {\n        return false;\n    }  \n    o.params = o.params ? o.params : {};\n    o.params['query[project_search]'] = _this.searchBox.getValue();\n    o.params['query[project_filter]'] = _this.grid.filter;\n}"
                                             },
                                             "*prop": "dataSource",
                                             "remoteSort": true,
