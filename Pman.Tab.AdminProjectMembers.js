@@ -472,7 +472,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 },
                                 render : function (_self)
                                 {
-                                
+                                    _this.memberBtn = _self;
                                 }
                             },
                             enableToggle : true,
