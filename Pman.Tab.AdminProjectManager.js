@@ -553,19 +553,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                                 
                                             }
                                         }
-                                    },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
-                                        text : "Delete",
-                                        cls : 'x-btn-text-icon',
-                                        icon : rootURL + '/Pman/templates/images/trash.gif',
-                                        listeners : {
-                                            click : function()
-                                            {
-                                                 Pman.genericDelete(_this, 'Projects'); 
-                                            }
-                                        }
                                     }
                                 ]
                             },
