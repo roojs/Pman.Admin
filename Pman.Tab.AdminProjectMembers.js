@@ -472,7 +472,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 }
                             },
                             enableToggle : true,
-                            text : "Other"
+                            text : "Members"
                         }
                     ]
                 },
