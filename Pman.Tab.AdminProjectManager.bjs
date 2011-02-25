@@ -123,7 +123,7 @@
                                                 {
                                                     "listeners": {
                                                         "render": "function (_self)\n{\n    _this.searchBox = _self;\n}",
-                                                        "specialkey": "function (_self, e)\n{\n\n}"
+                                                        "specialkey": "function (_self, e)\n{\n    if(e.getKey() == 13) {\n          _this.grid.footer.onClick('first');\n    }\n}"
                                                     },
                                                     "xtype": "TextField",
                                                     "|xns": "Roo.form"
