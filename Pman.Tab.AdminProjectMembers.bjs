@@ -72,7 +72,6 @@
                                     "cls": "x-btn-text-icon",
                                     "text": "Staff",
                                     "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
                                     "|xns": "Roo.Toolbar",
                                     "listeners": {}
                                 },
