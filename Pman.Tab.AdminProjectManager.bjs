@@ -49,8 +49,8 @@
                                     "autoExpandColumn": "name",
                                     "loadMask": true,
                                     "xtype": "Grid",
+                                    "|": "function(v)\n{\n    var ar = this.getTypes();\n    var ret = '';\n    Roo.each(ar, function(a) {\n        if (a[0] == v) {\n            ret = a[1];\n            return false;\n        }\n    });\n    return ret;\n}\n",
                                     "|xns": "Roo.grid",
-                                    "|": "function() {\n    \n}\n",
                                     "items": [
                                         {
                                             "listeners": {
