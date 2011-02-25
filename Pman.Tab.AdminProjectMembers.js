@@ -84,7 +84,7 @@ Pman.Tab.AdminProjectMembers = new Roo.util.Observable({
                                 return false;
                             }
                             var sel = pm.grid.getSelectionModel().getSelected();
-                            switch(this.filter) {
+                            switch(_this.grid.filter) {
                                 case 'S': // staff
                                     options.params.company_id_comptype='OWNER';
                                     options.params.project_member_of = sel.data.id;
