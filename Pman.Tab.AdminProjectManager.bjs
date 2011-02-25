@@ -28,17 +28,17 @@
                             "|xns": "Roo"
                         },
                         {
-                            "|xns": "Roo",
-                            "xtype": "GridPanel",
-                            "title": "Projects",
-                            "fitToframe": true,
-                            "fitContainer": true,
-                            "tableName": "Projects",
-                            "background": true,
-                            "region": "center",
                             "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.panel = this;\n    _this.dialog = Pman.Dialog.CoreProject;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
+                            "background": true,
+                            "fitContainer": true,
+                            "fitToframe": true,
+                            "region": "center",
+                            "tableName": "Projects",
+                            "title": "Projects",
+                            "xtype": "GridPanel",
+                            "|xns": "Roo",
                             "items": [
                                 {
                                     "listeners": {
