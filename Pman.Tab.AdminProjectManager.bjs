@@ -177,7 +177,7 @@
                                                     },
                                                     "enableToggle": true,
                                                     "pressed": false,
-                                                    "text": "All",
+                                                    "text": "Projects",
                                                     "toggleGroup": "pgrp",
                                                     "xtype": "Button",
                                                     "|xns": "Roo.Toolbar"
