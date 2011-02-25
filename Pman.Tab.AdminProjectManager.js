@@ -93,7 +93,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'name', direction: 'ASC' },
+                                sortInfo : { field : 'code', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
