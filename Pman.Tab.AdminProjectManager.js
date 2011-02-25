@@ -630,30 +630,6 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                     width : 75,
                                     dataIndex : 'close_date',
                                     renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Countries',
-                                    width : 200,
-                                    dataIndex : 'countries',
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Languages',
-                                    width : 200,
-                                    dataIndex : 'languages',
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Agency',
-                                    width : 75,
-                                    dataIndex : 'agency_id',
-                                    renderer : function(v) { return String.format('{0}', v); }
                                 }
                             ]
                         }
