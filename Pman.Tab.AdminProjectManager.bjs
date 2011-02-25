@@ -45,6 +45,7 @@
                                         "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
                                         "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
                                     },
+                                    "filter": "",
                                     "*prop": "grid",
                                     "autoExpandColumn": "name",
                                     "loadMask": true,
@@ -52,7 +53,6 @@
                                     "|": "function() {\n    return [\n        [  'U' , \"Project (Unconfirmed)\" ],\n        [  'P' , \"Project\" ],\n        [  'C' , \"Project (Closed)\" ],\n        [  'N' , \"Non-Project\" ],\n        [  'X' , \"Non-Project (Closed)\" ]\n\n    ];\n}\n",
                                     "|typeToString": "function(v)\n{\n    var ar = this.getTypes();\n    var ret = '';\n    Roo.each(ar, function(a) {\n        if (a[0] == v) {\n            ret = a[1];\n            return false;\n        }\n    });\n    return ret;\n}\n",
                                     "|xns": "Roo.grid",
-                                    "": "",
                                     "items": [
                                         {
                                             "listeners": {
