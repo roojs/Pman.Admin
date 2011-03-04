@@ -31,6 +31,7 @@ function Pman_Admin_Dump extends Pman {
         }
         
     }
+    var $deps = array(); // list of dependants
     
     function get($path, $args=array())
     {
