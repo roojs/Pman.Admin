@@ -62,7 +62,7 @@ class Pman_Admin_Dump extends Pman {
  
         echo "DEPS:";print_R($this->deps);
          foreach($this->deps as $s=>$status) {
-            if (isset($this->dumped[$s])) {
+            if (!empty($this->dumped[$s])) {
                 continue;
             }
             list($tbl, $key, $val) = explode(':', $s);
