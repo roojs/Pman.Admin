@@ -68,10 +68,10 @@ class Pman_Admin_Dump extends Pman {
     function dumpChildren($do)
     {
         $kid = $do->tableName() . ':' . $do->keys()[0];
-        if (isset($this->$childscanned[$kid])) {
+        if (isset($this->childscanned[$kid])) {
             return;
         }
-        $this->$childscanned[$kid] = true;
+        $this->childscanned[$kid] = true;
         
         
         global $_DB_DATAOBJECT;
