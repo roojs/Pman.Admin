@@ -53,7 +53,7 @@ class Pman_Admin_Dump extends Pman {
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], true);
         }
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').
+        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
         
         //print_r($args);
         //DB_DataObject::debugLevel(1);
