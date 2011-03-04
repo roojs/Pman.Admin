@@ -75,7 +75,8 @@ class Pman_Admin_Dump extends Pman {
                 if ($k != $tn) {
                     continue;
                 }
-                $this->children[implode(':', array($k, $v, $do->$tk))] = 1;
+                
+                $this->children[implode(':', array($tk, $v, $do->$v))] = 1;
                 
             }
             
