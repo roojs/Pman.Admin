@@ -84,7 +84,7 @@ class Pman_Admin_Dump extends Pman {
                 if ($k != $tn) {
                     continue;
                 }
-                $add = implode(':', array($tbl, $v, $do->$v));
+                $add = implode(':', array($tbl, $tk, $do->$v));
                 echo "ADD $tbl $tk=>$kv : $add\n";
                 $this->children[$add] = 1;
                 
