@@ -50,7 +50,7 @@ class Pman_Admin_Dump extends Pman {
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['val']);
-        $this->toInsert($x);
+        echo $this->toInsert($x);
         $this->dumpChildren($x);
         $this->dumpDeps();
     }
