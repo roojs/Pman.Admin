@@ -15,4 +15,18 @@
  * It should handle the following
  *
  * 
- *
+ */
+
+
+function Pman_Admin_Dump extends Pman {
+    
+    function getAuth()
+    {
+        if (!$this->cli) {
+            die("Access only permitted from cli");
+        }
+        
+    }
+    
+    
+}
