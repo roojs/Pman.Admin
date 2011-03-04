@@ -55,6 +55,10 @@ function Pman_Admin_Dump extends Pman {
         // for
         $leftq     = '';
         $rightq    = '';
+        
+        
+        $deplinks = $do->links();
+        
         foreach($do-items() as $k=>$v)
             if ($leftq) {
                 $leftq  .= ', ';
@@ -63,6 +67,10 @@ function Pman_Admin_Dump extends Pman {
             
             $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
             
+            if ($deplinks && !empty($deplinks[$k])) {
+                die("got deplink" . $deplinks[$k]);
+                
+            }
             
             
             
