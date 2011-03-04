@@ -106,7 +106,7 @@ class Pman_Admin_Dump extends Pman {
         foreach($this->$childfiles as $s=>$v) {
             
             fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
-            fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) \n" );
+            fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
         }
         fclose($this->fh);
         
