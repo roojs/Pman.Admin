@@ -107,12 +107,20 @@ class Pman_Admin_Dump extends Pman {
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
         $out[] = $target;
         $this->fh = fopen($target, 'w');
+        
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sh';
         $out[] = $target;
         $this->fh2 = fopen($target, 'w');
+        
+        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.restore.sh';
+        $out[] = $target;
+        $this->fh3 = fopen($target, 'w');
+        
+        
         foreach($this->childfiles as $s=>$v) {
             
             fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
+            fwrite($this->fh3,"cp " .  escapeshellarg($args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
             fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
         }
         fclose($this->fh);
