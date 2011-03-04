@@ -71,6 +71,7 @@ class Pman_Admin_Dump extends Pman {
         
         foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
             foreach ($links as $tk => $kv) {
+                var_dump($kv);
                 list($k,$v) = explode(':', $kv);
                 if ($k != $tn) {
                     continue;
