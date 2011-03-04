@@ -28,7 +28,7 @@ function Pman_Admin_Dump extends Pman {
         
     }
     
-    function get($path, $args)
+    function get($path, $args=array())
     {
         
         
