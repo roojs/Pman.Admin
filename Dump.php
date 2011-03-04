@@ -92,22 +92,22 @@ class Pman_Admin_Dump extends Pman {
             
             
             if ($v & DB_DATAOBJECT_STR) {
-                $rightq .= $this->_quote((string) (
+                $rightq .= $do->_quote((string) (
                         ($v & DB_DATAOBJECT_BOOL) ? 
                             // this is thanks to the braindead idea of postgres to 
                             // use t/f for boolean.
-                            (($this->$k === 'f') ? 0 : (int)(bool) $this->$k) :  
-                            $this->$k
+                            (($do->$k === 'f') ? 0 : (int)(bool) $do->$k) :  
+                            $do->$k
                     )) . " ";
                 continue;
             }
-            if (is_numeric($this->$k)) {
-                $rightq .=" {$this->$k} ";
+            if (is_numeric($do->$k)) {
+                $rightq .=" {$do->$k} ";
                 continue;
             }
-            $rightq .= ' ' . intval($this->$k) . ' ';
+            $rightq .= ' ' . intval($do->$k) . ' ';
         }
-        $table = ($quoteIdentifiers ? $DB->quoteIdentifier($this->__table)    : $this->__table);
+        $table = ($quoteIdentifiers ? $DB->quoteIdentifier($do->__table)    : $do->__table);
         return "INSERT INTO {$table} ($leftq) VALUES ($rightq);\n";
         
     }
