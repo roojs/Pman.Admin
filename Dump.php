@@ -66,7 +66,7 @@ class Pman_Admin_Dump extends Pman {
         }
         
         
-        
+        die("DONE CHILDREN");
         foreach($this->deps as $s=>$status) {
             if (isset($this->dumped[$s])) {
                 continue;
