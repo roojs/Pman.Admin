@@ -59,7 +59,7 @@ class Pman_Admin_Dump extends Pman {
         $this->dumpChildren($x);
         echo "CHILDREN:"
         print_r($this->dumped);
-        print_R($this->deps);
+         echo "DEPS:"print_R($this->deps);
         $this->dumpDeps();
         print_R($this->deps);
     }
