@@ -111,7 +111,7 @@ class Pman_Admin_Dump extends Pman {
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sh';
         $out[] = $target;
         $this->fh2 = fopen($target, 'w');
-        foreach($this->$childfiles as $s=>$v) {
+        foreach($this->childfiles as $s=>$v) {
             
             fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
             fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
@@ -120,7 +120,7 @@ class Pman_Admin_Dump extends Pman {
         
         
         
-        foreach($this->$childfiles as $s=>$v) {
+        foreach($this->childthumbs as $s=>$v) {
             foreach($v as $vv) { 
                 fwrite($this->fh2,"rm " . escapeshellarg($vv). "\n");
             }
