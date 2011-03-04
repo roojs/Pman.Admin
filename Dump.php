@@ -67,6 +67,7 @@ class Pman_Admin_Dump extends Pman {
         global $_DB_DATAOBJECT;
         $do->links();; //force load
         $tn = $do->tableName();
+        print_r($_DB_DATAOBJECT['LINKS']);
         foreach($_DB_DATAOBJECT['LINKS'] as $tbl => $links) {
             foreach ($links as $tk => $kv) {
                 list($k,$v) = explode(':', $kv);
