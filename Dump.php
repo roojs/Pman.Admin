@@ -27,7 +27,8 @@ class Pman_Admin_Dump extends Pman {
     
     function getAuth()
     {
-        if (!$this->cli) {
+        
+        if (!HTML_FlexyFramework::get()->cli) {
             die("Access only permitted from cli");
         }
         
