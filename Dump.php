@@ -69,7 +69,7 @@ class Pman_Admin_Dump extends Pman {
         print_r($this->childscanned);
  
         echo "DEPS:";print_R($this->deps);
-         foreach($this->deps as $s=>$status) {
+        foreach($this->deps as $s=>$status) {
             if (isset($this->dumped[$s])) {
                 continue;
             }
