@@ -65,7 +65,7 @@ class Pman_Admin_Dump extends Pman {
         while ($x->fetch()) {
         
         
-            echo $this->toInsert($x);
+            fwrite($this->fh, $this->toInsert($x));
             $this->dumpChildren($x);
             
         }
@@ -79,7 +79,7 @@ class Pman_Admin_Dump extends Pman {
             list($tbl, $key, $val) = explode(':', $s);
             $dd = DB_DataObject::factory($tbl);
             if ($dd->get($key,$val)) {
-                echo $this->toInsert($dd);
+                fwrite($this->fh, $this->toInsert($dd));
             }
         }
         echo "CHILDREN WILL BE DELETED:"; print_r($this->childscanned);
@@ -153,7 +153,7 @@ class Pman_Admin_Dump extends Pman {
             
         }
         foreach($todo as $dd) {
-            echo $this->toInsert($dd);
+            fwrite($this->fh, $this->toInsert($dd));
             $this->dumpChildren($dd);
         }
         
