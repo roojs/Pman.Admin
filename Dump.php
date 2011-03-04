@@ -123,9 +123,10 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
-        print_r($this->children);exit;
+       // print_r($this->children);exit;
         $ch = $this->children ;
         
+        $todo = array();
         foreach($ch as $s=>$status) {
             if ($this->children[$s]) {
                 continue;
@@ -139,13 +140,18 @@ class Pman_Admin_Dump extends Pman {
             $dd->find();
             
             while ($dd->fetch()) {
+                $todo [] = clone($dd);
                 // if we have dumped this already.. ignore it..
-                echo $this->toInsert($dd);
-                $this->dumpChildren($do);
+                
             }
             
             
         }
+        foreach($todo as $dd) {
+            echo $this->toInsert($dd);
+            $this->dumpChildren($dd);
+        }
+        
         
         
     }
