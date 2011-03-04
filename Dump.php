@@ -57,7 +57,7 @@ class Pman_Admin_Dump extends Pman {
         $x->get($args['col'], $args['val']);
         echo $this->toInsert($x);
         $this->dumpChildren($x);
-        echo "DUMPED:"
+        echo "CHILDREN:"
         print_r($this->dumped);
         $this->dumpDeps();
     }
