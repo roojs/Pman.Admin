@@ -38,18 +38,47 @@ function Pman_Admin_Dump extends Pman {
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['id']);
-        $this->out($x);
+        $this->toInsert($x);
         $this->dumpChildren($x);
         $this->dumpDeps();
     }
-    
-    function out($do)
+    /**
+     * toInsert - does not handle NULLS... 
+     */
+    function toInsert($do)
     {
         // for auto_inc column we need to use a 'set argument'...
-        
-        // for 
-        
-        
+        $items = $do->items();
+        $quoteIdentifiers  = !empty($_DB_DATAOBJECT['CONFIG']['quote_identifiers']);
+        // for
+        $leftq     = '';
+        $rightq    = '';
+        foreach($do-items() as $k=>$v)
+            if ($leftq) {
+                $leftq  .= ', ';
+                $rightq .= ', ';
+            }
+            
+            $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
+            
+            if ($v & DB_DATAOBJECT_STR) {
+                $rightq .= $this->_quote((string) (
+                        ($v & DB_DATAOBJECT_BOOL) ? 
+                            // this is thanks to the braindead idea of postgres to 
+                            // use t/f for boolean.
+                            (($this->$k === 'f') ? 0 : (int)(bool) $this->$k) :  
+                            $this->$k
+                    )) . " ";
+                continue;
+            }
+            if (is_numeric($this->$k)) {
+                $rightq .=" {$this->$k} ";
+                continue;
+            }
+            $rightq .= ' ' . intval($this->$k) . ' ';
+        }
+        $table = ($quoteIdentifiers ? $DB->quoteIdentifier($this->__table)    : $this->__table);
+        $ret = "INSERT INTO {$table} ($leftq) VALUES ($rightq);\n";
         
     }
     
