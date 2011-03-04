@@ -112,7 +112,7 @@ class Pman_Admin_Dump extends Pman {
             $this->children[$s] = 1;
             
             list($tbl, $key, $val) = explode(':', $s);
-            $dd = DB_DataObject::factory($b);
+            $dd = DB_DataObject::factory($tbl);
             $dd->$key = $val;
             $dd->find();
             
