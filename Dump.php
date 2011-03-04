@@ -6,8 +6,9 @@
  * The format will be an SQL file...
  *
  * usage:
- *    php index.php Pman/Admin/Dump Project.id=123
- *    php index.php Pman/Admin/Dump/DELETE Project.id=123 -- dumps and deletes.
+ *    php index.php Pman/Admin/Dump --table=Project --col=id --value=123 --delete=yes
+ *
+ *    Output??? Stdout..??
  *    
  * 
  *
