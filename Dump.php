@@ -114,7 +114,7 @@ class Pman_Admin_Dump extends Pman {
         $this->fh = fopen($target, 'w');
         foreach($this->childscanned as $s=>$v) {
             list($tbl, $key, $val) = explode(':', $s);
-            fwrite($this->fh, "DELETE FROM $tbl where $key = $val;\n"); // we assume id's and nice column names...
+            fwrite($this->fh, "DELETE FROM $tbl WHERE $key = $val;\n"); // we assume id's and nice column names...
              
         }
         fclose($this->fh);
