@@ -174,8 +174,7 @@ class Pman_Admin_Dump extends Pman {
                 $l = explode(':', $deplinks[$k]);
                 $this->deps[$deplinks[$k].':' . $do->$k];
                 
-                $this->deps[$l[0]][$l[1]][] = $do->$k;
-            }
+             }
             
             
             
