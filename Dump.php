@@ -116,8 +116,7 @@ class Pman_Admin_Dump extends Pman {
             while ($dd->fetch()) {
                 // if we have dumped this already.. ignore it..
                 echo $this->toInsert($dd);
-                $this
-                
+                $this->dumpChildren($do);
             }
             
             
