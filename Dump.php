@@ -22,7 +22,7 @@
  */
 
 
-function Pman_Admin_Dump extends Pman {
+class Pman_Admin_Dump extends Pman {
     
     function getAuth()
     {
