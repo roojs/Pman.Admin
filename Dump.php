@@ -44,9 +44,8 @@ class Pman_Admin_Dump extends Pman {
         $required = explode(',', 'table:,col:,val:');
         $arg_names = array_merge($required,  explode(',', 'delete::,dump-dir::'));
         print_r($arg_names);
-        $x = Console_Getopt::getopt($argv, '', $arg_names);
-        $args = getopt ( 'v::', $arg_names);
-        print_r($args);
+        $args = Console_Getopt::getopt($argv, '', $arg_names);
+         
         exit;
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
