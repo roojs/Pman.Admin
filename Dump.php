@@ -16,7 +16,9 @@
  *
  *
  *  Each ouput is simple insert statement..
- * 
+ *
+ *
+ *  TODO - handle Images table (or similar) where we use tablename=XXXX, tid=.... etc.. 
  *
  * 
  */
