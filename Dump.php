@@ -84,6 +84,7 @@ class Pman_Admin_Dump extends Pman {
             
             $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
             
+            // only handles numeric links..
             if ($v && $deplinks && !empty($deplinks[$k])) {
                 die("got deplink" . $deplinks[$k]);
                 $l = explode(':', $deplinks[$k]);
