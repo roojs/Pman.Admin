@@ -54,11 +54,19 @@ class Pman_Admin_Dump extends Pman {
         //DB_DataObject::debugLevel(1);
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
-        $x->get($args['col'], $args['val']);
+        $x->{$args['col']} = $args['val'];
+        
+        $x->find();
+        while ($x->fetch()) {
+        
+        
+        
+        
+        
         echo $this->toInsert($x);
         $this->dumpChildren($x);
         echo "CHILDREN WILL BE DELETED:";
-        print_r($this->dumped);
+        print_r($this->childscanned);
  
         echo "DEPS:";print_R($this->deps);
          foreach($this->deps as $s=>$status) {
