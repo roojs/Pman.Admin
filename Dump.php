@@ -85,7 +85,7 @@ class Pman_Admin_Dump extends Pman {
             $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
             
             // only handles numeric links..
-            if ($v && $deplinks && !empty($deplinks[$k])) {
+            if (is_numeric($do->$k) && $do->$k && $deplinks && !empty($deplinks[$k])) {
                 die("got deplink" . $deplinks[$k]);
                 $l = explode(':', $deplinks[$k]);
                 if (!isset($this->deps[$l[0]])) {
@@ -94,7 +94,7 @@ class Pman_Admin_Dump extends Pman {
                 if (!isset($this->deps[$l[0]][$l[1])) {
                     $this->deps[$l[0]][$l[1]] = array();
                 }
-                $this->deps[$l[0]][$l[1]][] = $v;
+                $this->deps[$l[0]][$l[1]][] = $do->$k;
             }
             
             
