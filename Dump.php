@@ -35,10 +35,10 @@ class Pman_Admin_Dump extends Pman {
     }
     var $deps = array(); // list of dependants
     
-    function get($path, $args=array())
+    function get($path )
     {
         print_r($_SERVER['argv']);exit;
-        
+        $ar = getopt ( '', array(' ] )
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['id']);
