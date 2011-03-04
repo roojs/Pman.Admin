@@ -12,14 +12,14 @@
  *    
  *     RESTORE FILES:
  *      {DATE}.sql - the recreate sql including all dependancies, run with mysql DB -f  < ....
- *      {DATE}.restore.sh - the recreate shell file to copy the images back.
+ *      {DATE}.restore.sh - shell script to recreate files that where removed (excluding thumgs)
  *      
  *     BACKUP
- *      {DATE}.copy.sh - backs up all the related files.
+ *      {DATE}.copy.sh - shell script that backs up all the related files.
  *      
  *     DESTROY
  *      {DATE}.delete.sql - the delete data sql.
- *      {DATE}.delete.sh - delete the files related to these records
+ *      {DATE}.delete.sh - shell script to delete the files related to these records
  
  *    
  *  Basically it has to output all the records and their dependants. (parent and children)
