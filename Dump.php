@@ -43,7 +43,7 @@ class Pman_Admin_Dump extends Pman {
         print_r($arg_names);
         $args = getopt ( '', $arg_names);
         print_r($args);
-        
+        exit;
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['val']);
