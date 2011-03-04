@@ -86,6 +86,27 @@ class Pman_Admin_Dump extends Pman {
                 fwrite($this->fh, $this->toInsert($dd));
             }
         }
+        
+        fclose($this->fh);
+        
+        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
+        $this->fh = fopen($target, 'w');
+        foreach($this->childscanned as $s=>$v) {
+            list($tbl, $key, $val) = explode(':', $s);
+            fwrite($this->fh, "DELETE FROM $tbl where $key = $val\n"); // we assume id's and nice column names...
+             
+        }
+        fclose($this->fh);
+        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
+        $this->fh = fopen($target, 'w');
+        foreach($this->$childfiles as $s=>$v) {
+            fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1])  );
+        }
+        
+        
+        
+        
+        
         echo "FILES TO COPY AND DELETE:"; print_r($this->childfiles);
         echo "FILES TO DELETE:"; print_r($this->childthumbs);
         exit;
