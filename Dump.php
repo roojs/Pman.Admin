@@ -151,12 +151,7 @@ class Pman_Admin_Dump extends Pman {
         
     }
     
-    function childrenToInsert()
-    {
-        
-        
-    }
-    
+ 
     var $dumped  = array();
     /**
      * toInsert - does not handle NULLS... 
