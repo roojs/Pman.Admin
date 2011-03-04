@@ -89,7 +89,8 @@ class Pman_Admin_Dump extends Pman {
     var $childscanned = array();
     function dumpChildren($do)
     {
-        $kid = $do->tableName() . ':' . array_shift($do->keys());
+        $kcol = array_shift($do->keys());
+        $kid = $do->tableName() . ':' . $kcol . ':' . $do->{$kcol};
         if (isset($this->childscanned[$kid])) {
             return;
         }
@@ -162,7 +163,8 @@ class Pman_Admin_Dump extends Pman {
      */
     function toInsert($do)
     {
-        $kid = $do->tableName() . ':' . array_shift($do->keys());
+         $kcol = array_shift($do->keys());
+        $kid = $do->tableName() . ':' . $kcol . ':' . $do->{$kcol};
         if (isset($this->dumped[$kid])) {
             return;
         }
