@@ -62,6 +62,16 @@ class Pman_Admin_Dump extends Pman {
         echo "DEPS:";print_R($this->deps);
         $this->dumpDeps();
         print_R($this->deps);
+        foreach($this->deps as $s=>$status) {
+            if (isset($this->dumped[$s])) {
+                continue;
+            }
+            list($tbl, $key, $val) = explode(':', $s);
+            $dd = DB_DataObject::factory($tbl);
+            $dd->get($key,$val);
+            $this->toInsert($dd);
+        }
+        
     }
     
     
