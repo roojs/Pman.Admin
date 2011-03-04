@@ -41,15 +41,15 @@ class Pman_Admin_Dump extends Pman {
         $required = explode(',', 'table,col,value');
         $arg_names = $required  + explode(',', 'delete,dump-dir');
         
-        $ar = getopt ( '', $arg_names);
+        $args = getopt ( '', $arg_names);
         foreach($required as $k) {
-            if (empty($ar[$k])) {
+            if (empty($args[$k])) {
                 die("Missing --$k\n");
             }
         }
         // since we are runnign in cli mode... we will be a bit wild and free with verification
-        $x = DB_DataObject::factory($ar['table']);
-        $x->get($args['col'], $args['id']);
+        $x = DB_DataObject::factory($args['table']);
+        $x->get($args['col'], $args['val']);
         $this->toInsert($x);
         $this->dumpChildren($x);
         $this->dumpDeps();
