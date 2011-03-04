@@ -88,6 +88,7 @@ class Pman_Admin_Dump extends Pman {
         }
         echo "FILES TO COPY AND DELETE:"; print_r($this->childfiles);
         echo "FILES TO DELETE:"; print_r($this->childthumbs);
+        exit;
         echo "CHILDREN WILL BE DELETED:"; print_r($this->childscanned);
         echo "DEPS:";print_R($this->deps);
             
