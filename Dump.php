@@ -64,6 +64,9 @@ class Pman_Admin_Dump extends Pman {
             $this->dumpChildren($x);
             
         }
+        
+        
+        
         foreach($this->deps as $s=>$status) {
             if (isset($this->dumped[$s])) {
                 continue;
