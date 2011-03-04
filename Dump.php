@@ -6,9 +6,9 @@
  * The format will be an SQL file...
  *
  * usage:
- *    php index.php  Admin/Dump --table=Project --col=id --value=123 --delete=yes --dump-dir=...
+ *    php index.php  Admin/Dump --table=Project --col=id --value=123 --dump-dir=/path to 
  *
- *    Output??? Stdout..??
+ *    outputs
  *    
  *  Basically it has to output all the records and their dependants. (parent and children)
  *
@@ -48,7 +48,7 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         array_shift($argv);
         
-        $required = explode(',', 'table=,col=,val=,dump-dir=,delete==');
+        $required = explode(',', 'table=,col=,val=,dump-dir=');
         
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt($argv, '', $required);
