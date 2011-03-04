@@ -123,7 +123,7 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
-        
+        print_r($this->children);exit;
         $ch = $this->children ;
         
         foreach($ch as $s=>$status) {
