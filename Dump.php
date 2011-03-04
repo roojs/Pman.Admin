@@ -104,7 +104,7 @@ class Pman_Admin_Dump extends Pman {
             $dd = DB_DataObject::factory($b);
             $dd->$key = $val;
             $dd->find();
-            $
+            
             while ($dd->fetch()) {
                 // if we have dumped this already.. ignore it..
                 
