@@ -188,7 +188,7 @@ class Pman_Admin_Dump extends Pman {
         if (isset($this->dumped[$kid])) {
             return;
         }
-        echo "DUMP: $kid\n";
+        //echo "DUMP: $kid\n";
         $this->dumped[$kid] = true;
         
         // for auto_inc column we need to use a 'set argument'...
