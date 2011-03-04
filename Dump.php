@@ -66,10 +66,7 @@ class Pman_Admin_Dump extends Pman {
     var $children = array(); // map of search->checked 
     function dumpChildren($do)
     {
-        $kid = $do->tableName() . ':' . $do->keys()[0];
-        if (isset($this->dumped[$kid])) {
-            return;
-        }
+       
         
         global $_DB_DATAOBJECT;
         $do->links();; //force load
@@ -112,7 +109,8 @@ class Pman_Admin_Dump extends Pman {
             
             while ($dd->fetch()) {
                 // if we have dumped this already.. ignore it..
-                
+                echo $this->toInsert($dd);
+                $this
                 
             }
             
