@@ -68,7 +68,7 @@ class Pman_Admin_Dump extends Pman {
         
         $x->find();
         while ($x->fetch()) {
-        
+        v
         
             fwrite($this->fh, $this->toInsert($x));
             $this->dumpChildren($x);
@@ -111,9 +111,11 @@ class Pman_Admin_Dump extends Pman {
         fclose($this->fh);
         
         
-        $this->fh = fopen($target, 'w');
+        
         foreach($this->$childfiles as $s=>$v) {
-            fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
+            foreach($v as $vv) { 
+                fwrite($this->fh2,"rm " . escapeshellarg($vv). "\n");
+            }
         }
         fclose($this->fh);
         
