@@ -54,7 +54,7 @@ class Pman_Admin_Dump extends Pman {
             mkdir($args['dump-dir'], true);
         }
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
-        
+        $this->fh = fopen($target,'w');
         //print_r($args);
         //DB_DataObject::debugLevel(1);
         // since we are runnign in cli mode... we will be a bit wild and free with verification
