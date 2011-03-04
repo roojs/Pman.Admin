@@ -18,7 +18,8 @@
  *  Each ouput is simple insert statement..
  *
  *
- *  TODO - handle Images table (or similar) where we use tablename=XXXX, tid=.... etc.. 
+ *  TODO - handle Images table (or similar) where we use tablename=XXXX, tid=.... etc..
+ *  
  *
  * 
  */
@@ -94,6 +95,8 @@ class Pman_Admin_Dump extends Pman {
     
     var $children = array(); // map of search->checked
     var $childscanned = array();
+    var $childfiles = array();
+    var $childthumbs = array();
     function dumpChildren($do)
     {
         $kcol = array_shift($do->keys());
@@ -103,6 +106,12 @@ class Pman_Admin_Dump extends Pman {
         }
         $this->childscanned[$kid] = true;
         
+        if (method_exists($do,'archivePaths')) {
+            $this->childfiles[$kid] = $do->archivePaths();
+        }
+        if (method_exists($do,'listThumbs')) {
+            $this->childthumbs[$kid] = $do->listThumbs();
+        }
         
         global $_DB_DATAOBJECT;
         $do->links();; //force load
