@@ -71,7 +71,7 @@ class Pman_Admin_Dump extends Pman {
         
         foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
             // hack.. - we should get rid of this hack..
-            if ($tbl == 'database_render') {
+            if ($tbl == 'database__render') {
                 continue;
             }
             foreach ($links as $tk => $kv) {
