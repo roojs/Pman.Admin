@@ -82,7 +82,7 @@ class Pman_Admin_Dump extends Pman {
                     continue;
                 }
                 
-                $this->children[implode(':', array($tk, $v, $do->$v))] = 1;
+                $this->children[implode(':', array($tbl, $v, $do->$v))] = 1;
                 
             }
             
