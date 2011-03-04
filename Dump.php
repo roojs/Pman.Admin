@@ -59,6 +59,7 @@ class Pman_Admin_Dump extends Pman {
         $this->dumpChildren($x);
         echo "CHILDREN WILL BE DELETED:";
         print_r($this->dumped);
+ 
         echo "DEPS:";print_R($this->deps);
          foreach($this->deps as $s=>$status) {
             if (isset($this->dumped[$s])) {
@@ -69,7 +70,7 @@ class Pman_Admin_Dump extends Pman {
             $dd->get($key,$val);
             $this->toInsert($dd);
         }
-        
+        exit;
     }
     
     
