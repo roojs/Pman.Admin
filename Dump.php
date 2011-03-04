@@ -70,7 +70,12 @@ class Pman_Admin_Dump extends Pman {
         
         
         foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
+            // hack.. - we should get rid of this hack..
+            if ($tbl == 'database_render') {
+                continue;
+            }
             foreach ($links as $tk => $kv) {
+                
                 var_dump($tbl);
                 list($k,$v) = explode(':', $kv);
                 if ($k != $tn) {
