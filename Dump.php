@@ -42,7 +42,7 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         
         $required = explode(',', 'table:,col:,val:');
-        $arg_names = $required;//  + explode(',', 'delete::,dump-dir::');
+        $arg_names = array_merge($required,  explode(',', 'delete::,dump-dir::'));
         print_r($arg_names);
         $x = Console_Getopt::getopt($argv, '', $arg_names);
         $args = getopt ( 'v::', $arg_names);
