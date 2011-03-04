@@ -71,8 +71,7 @@ class Pman_Admin_Dump extends Pman {
         $x->{$args['col']} = $args['val'];
         
         $x->find();
-        
-        $out = array();
+         
         while ($x->fetch()) {
         
             fwrite($this->fh, $this->toInsert($x));
