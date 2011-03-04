@@ -124,7 +124,7 @@ class Pman_Admin_Dump extends Pman {
             fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
         }
         fclose($this->fh);
-        
+        fclose($this->fh3); // restore does not need to bother with thumbnails.
         
         
         foreach($this->childthumbs as $s=>$v) {
