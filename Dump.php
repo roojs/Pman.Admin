@@ -67,8 +67,9 @@ class Pman_Admin_Dump extends Pman {
             }
             list($tbl, $key, $val) = explode(':', $s);
             $dd = DB_DataObject::factory($tbl);
-            $dd->get($key,$val);
-            echo $this->toInsert($dd);
+            if ($dd->get($key,$val)) {
+                echo $this->toInsert($dd);
+            }
         }
         exit;
     }
