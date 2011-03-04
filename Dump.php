@@ -128,6 +128,7 @@ class Pman_Admin_Dump extends Pman {
         fclose($this->fh2);
         echo "GENERATED FILES:";
         print_r($out);
+        
             
         exit;
     }
