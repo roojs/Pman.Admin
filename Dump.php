@@ -110,10 +110,16 @@ class Pman_Admin_Dump extends Pman {
         $this->childscanned[$kid] = true;
         
         if (method_exists($do,'archivePaths')) {
-            $this->childfiles[$kid] = $do->archivePaths();
+            $ct = $do->archivePaths();
+            if ($ct) {
+                $this->childfiles[$kid] = $ct;
+            }
         }
         if (method_exists($do,'listThumbs')) {
-            $this->childthumbs[$kid] = $do->listThumbs();
+            $ct = $do->listThumbs();
+            if($ct) {
+                $this->childthumbs[$kid] = $ct;
+            }
         }
         
         global $_DB_DATAOBJECT;
