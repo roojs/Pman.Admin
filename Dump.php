@@ -64,6 +64,7 @@ class Pman_Admin_Dump extends Pman {
     var $children = array();
     function dumpChildren($do)
     {
+        global $_DB_DATAOBJECT;
         $do->links();; //force load
         $tn = $do->tableName();
         foreach($_DB_DATAOBJECT['LINKS'] as $tbl => $links) {
