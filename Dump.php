@@ -60,9 +60,7 @@ class Pman_Admin_Dump extends Pman {
         echo "CHILDREN WILL BE DELETED:";
         print_r($this->dumped);
         echo "DEPS:";print_R($this->deps);
-        $this->dumpDeps();
-        print_R($this->deps);
-        foreach($this->deps as $s=>$status) {
+         foreach($this->deps as $s=>$status) {
             if (isset($this->dumped[$s])) {
                 continue;
             }
