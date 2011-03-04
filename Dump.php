@@ -48,7 +48,7 @@ class Pman_Admin_Dump extends Pman {
         $go = Console_Getopt::getopt($argv, '', $arg_names);
         $args = array();
         foreach($go[0] as $ar) {
-            $args[substr(2,$ar[0])] = $ar[1];
+            $args[substr($ar[0],2)] = $ar[1];
         }
         
         print_r($args);
