@@ -19,8 +19,12 @@
  *
  *
  *  TODO - handle Images table (or similar) where we use tablename=XXXX, tid=.... etc..
- *  
  *
+ *
+ *  INTERFACES :
+ *
+ *      DataObjects->archivePaths() - returns array ( sourcedirectory, remainder of path to dependant file )
+ *      DataObjects->listThumbs() - returns array ( list of full path to thumbnail urls. )
  * 
  */
 
