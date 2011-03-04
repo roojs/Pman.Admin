@@ -15,7 +15,7 @@
  *  Then when deleting it deletes record + children..
  *
  *
- *  
+ *  Each ouput is simple insert statement..
  * 
  *
  * 
