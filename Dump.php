@@ -91,7 +91,7 @@ class Pman_Admin_Dump extends Pman {
                 if (!isset($this->deps[$l[0]])) {
                     $this->deps[$l[0]] = array();
                 }
-                if (!isset($this->deps[$l[0]][$l[1])) {
+                if (!isset($this->deps[$l[0]][$l[1]])) {
                     $this->deps[$l[0]][$l[1]] = array();
                 }
                 $this->deps[$l[0]][$l[1]][] = $do->$k;
