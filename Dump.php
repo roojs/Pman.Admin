@@ -60,13 +60,8 @@ class Pman_Admin_Dump extends Pman {
         while ($x->fetch()) {
         
         
-        
-        
-            
             echo $this->toInsert($x);
             $this->dumpChildren($x);
-           
-     
             
         }
         foreach($this->deps as $s=>$status) {
