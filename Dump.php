@@ -172,9 +172,10 @@ class Pman_Admin_Dump extends Pman {
             if (is_numeric($do->$k) && $do->$k && $deplinks && !empty($deplinks[$k])) {
                // die("got deplink" . $deplinks[$k]);
                 $l = explode(':', $deplinks[$k]);
-                $this->deps[$deplinks[$k].':' . $do->$k];
+                $add = $deplinks[$k].':' . $do->$k;
                 
-             }
+                $this->deps[$add] = 0;
+            }
             
             
             
