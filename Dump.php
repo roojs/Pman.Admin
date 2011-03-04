@@ -28,5 +28,11 @@ function Pman_Admin_Dump extends Pman {
         
     }
     
+    function get()
+    {
+        
+        
+    }
+    
     
 }
