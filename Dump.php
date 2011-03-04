@@ -46,8 +46,8 @@ class Pman_Admin_Dump extends Pman {
         
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt($argv, '', $arg_names);
-        if (is_object(go)) {
-            die($arg_names->toString());
+        if (is_object($go)) {
+            die($go->toString());
         }
         $args = array();
         foreach($go[0] as $ar) {
