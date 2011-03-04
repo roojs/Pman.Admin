@@ -87,7 +87,7 @@ class Pman_Admin_Dump extends Pman {
             
             // only handles numeric links..
             if (is_numeric($do->$k) && $do->$k && $deplinks && !empty($deplinks[$k])) {
-                die("got deplink" . $deplinks[$k]);
+               // die("got deplink" . $deplinks[$k]);
                 $l = explode(':', $deplinks[$k]);
                 if (!isset($this->deps[$l[0]])) {
                     $this->deps[$l[0]] = array();
