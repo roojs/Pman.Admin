@@ -61,6 +61,9 @@ function Pman_Admin_Dump extends Pman {
             
             $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
             
+            
+            
+            
             if ($v & DB_DATAOBJECT_STR) {
                 $rightq .= $this->_quote((string) (
                         ($v & DB_DATAOBJECT_BOOL) ? 
