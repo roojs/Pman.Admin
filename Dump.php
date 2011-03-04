@@ -140,7 +140,7 @@ class Pman_Admin_Dump extends Pman {
      */
     function toInsert($do)
     {
-        $kid = $do->tableName() . ':' . array_shift($do->keys())
+        $kid = $do->tableName() . ':' . array_shift($do->keys());
         if (isset($this->dumped[$kid])) {
             return;
         }
