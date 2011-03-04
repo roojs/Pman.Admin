@@ -35,6 +35,8 @@ function Pman_Admin_Dump extends Pman {
     
     function get($path, $args=array())
     {
+        print_r($_SERVER['argv']);exit;
+        
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['id']);
