@@ -42,6 +42,7 @@ class Pman_Admin_Dump extends Pman {
         $arg_names = $required  + explode(',', 'delete,dump-dir');
         
         $args = getopt ( '', $arg_names);
+        print_r($args);
         foreach($required as $k) {
             if (empty($args[$k])) {
                 die("Missing --$k\n");
