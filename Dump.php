@@ -56,7 +56,7 @@ class Pman_Admin_Dump extends Pman {
             $args[substr($ar[0],2)] = $ar[1];
         }
         if (!file_exists($args['dump-dir'])) {
-            mkdir($args['dump-dir'], true);
+            mkdir($args['dump-dir'], 0777, true);
         }
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
         $this->fh = fopen($target,'w');
