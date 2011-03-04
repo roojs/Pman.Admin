@@ -62,23 +62,25 @@ class Pman_Admin_Dump extends Pman {
         
         
         
-        
-        echo $this->toInsert($x);
-        $this->dumpChildren($x);
-        echo "CHILDREN WILL BE DELETED:";
-        print_r($this->childscanned);
- 
-        echo "DEPS:";print_R($this->deps);
-        foreach($this->deps as $s=>$status) {
-            if (isset($this->dumped[$s])) {
-                continue;
-            }
-            list($tbl, $key, $val) = explode(':', $s);
-            $dd = DB_DataObject::factory($tbl);
-            if ($dd->get($key,$val)) {
-                echo $this->toInsert($dd);
+            
+            echo $this->toInsert($x);
+            $this->dumpChildren($x);
+           
+     
+            foreach($this->deps as $s=>$status) {
+                if (isset($this->dumped[$s])) {
+                    continue;
+                }
+                list($tbl, $key, $val) = explode(':', $s);
+                $dd = DB_DataObject::factory($tbl);
+                if ($dd->get($key,$val)) {
+                    echo $this->toInsert($dd);
+                }
             }
         }
+        echo "CHILDREN WILL BE DELETED:"; print_r($this->childscanned);
+        echo "DEPS:";print_R($this->deps);
+            
         exit;
     }
     
