@@ -117,7 +117,7 @@ class Pman_Admin_Dump extends Pman {
                 fwrite($this->fh2,"rm " . escapeshellarg($vv). "\n");
             }
         }
-        fclose($this->fh);
+        fclose($this->fh2);
         
         
         
