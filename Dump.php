@@ -91,6 +91,13 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
+        foreach($this->children as $s=>$status) {
+            if ($status) {
+                continue;
+            }
+            // flag it as being done, so we do not recurse..
+            
+        }
         
         
     }
