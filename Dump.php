@@ -58,7 +58,11 @@ class Pman_Admin_Dump extends Pman {
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
         }
+        
+        $out = array();
+        
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
+        $out[] = $target;
         $this->fh = fopen($target,'w');
         //print_r($args);
         //DB_DataObject::debugLevel(1);
@@ -67,6 +71,8 @@ class Pman_Admin_Dump extends Pman {
         $x->{$args['col']} = $args['val'];
         
         $x->find();
+        
+        $out = array();
         while ($x->fetch()) {
         
             fwrite($this->fh, $this->toInsert($x));
@@ -89,6 +95,7 @@ class Pman_Admin_Dump extends Pman {
         fclose($this->fh);
         
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
+        $out[] = $target;
         $this->fh = fopen($target, 'w');
         foreach($this->childscanned as $s=>$v) {
             list($tbl, $key, $val) = explode(':', $s);
@@ -99,8 +106,10 @@ class Pman_Admin_Dump extends Pman {
         
         
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
+        $out[] = $target;
         $this->fh = fopen($target, 'w');
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sh';
+        $out[] = $target;
         $this->fh2 = fopen($target, 'w');
         foreach($this->$childfiles as $s=>$v) {
             
@@ -117,15 +126,8 @@ class Pman_Admin_Dump extends Pman {
             }
         }
         fclose($this->fh2);
-        
-        
-        
-        
-        echo "FILES TO COPY AND DELETE:"; print_r($this->childfiles);
-        echo "FILES TO DELETE:"; print_r($this->childthumbs);
-        exit;
-        echo "CHILDREN WILL BE DELETED:"; print_r($this->childscanned);
-        echo "DEPS:";print_R($this->deps);
+        echo "GENERATED FILES:";
+        print_r($out);
             
         exit;
     }
