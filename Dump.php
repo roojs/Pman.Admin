@@ -61,6 +61,8 @@ class Pman_Admin_Dump extends Pman {
         print_r($this->deps);
         $this->dumpDeps();
     }
+    
+    
     var $children = array(); // map of search->checked 
     function dumpChildren($do)
     {
@@ -102,7 +104,7 @@ class Pman_Admin_Dump extends Pman {
             $dd = DB_DataObject::factory($b);
             $dd->$key = $val;
             $dd->find();
-            $kid = $dd->keys()[0];
+            $
             while ($dd->fetch()) {
                 // if we have dumped this already.. ignore it..
                 
@@ -114,12 +116,18 @@ class Pman_Admin_Dump extends Pman {
         
         
     }
-    
+    var $dumped  = array();
     /**
      * toInsert - does not handle NULLS... 
      */
     function toInsert($do)
     {
+        $kid = $do->tableName() . ':' . $do->keys()[0];
+        if (isset($this->dumped[$kid])) {
+            return;
+        }
+        $this->dumped[$kid] = true;
+        
         // for auto_inc column we need to use a 'set argument'...
         $items = $do->table();
         print_R($items);
