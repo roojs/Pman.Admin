@@ -43,11 +43,7 @@ class Pman_Admin_Dump extends Pman {
         
         $args = getopt ( '', $arg_names);
         print_r($args);
-        foreach($required as $k) {
-            if (empty($args[$k])) {
-                die("Missing --$k\n");
-            }
-        }
+        
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['val']);
