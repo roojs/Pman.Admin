@@ -89,7 +89,7 @@ class Pman_Admin_Dump extends Pman {
             //}
             foreach ($links as $tk => $kv) {
                 
-                var_dump($tbl);
+               // var_dump($tbl);
                 list($k,$v) = explode(':', $kv);
                 if ($k != $tn) {
                     continue;
