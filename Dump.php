@@ -56,7 +56,8 @@ class Pman_Admin_Dump extends Pman {
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['val']);
         echo $this->toInsert($x);
-        $this->dumpChildren($x);
+        //$this->dumpChildren($x);
+        print_r($this->deps);
         $this->dumpDeps();
     }
     /**
