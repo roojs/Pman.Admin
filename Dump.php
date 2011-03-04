@@ -74,6 +74,9 @@ class Pman_Admin_Dump extends Pman {
             if ($tbl == 'database__render') {
                 continue;
             }
+            //if ($tbl == $tn) { // skip same table 
+            //    continue;
+            //}
             foreach ($links as $tk => $kv) {
                 
                 var_dump($tbl);
