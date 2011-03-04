@@ -92,10 +92,21 @@ class Pman_Admin_Dump extends Pman {
             
         }
         foreach($this->children as $s=>$status) {
-            if ($status) {
+            if ($this->children[$s]) {
                 continue;
             }
             // flag it as being done, so we do not recurse..
+            $this->children[$s] = 1;
+            
+            list($tbl, $key, $val) = explode(':', $s);
+            $dd = DB_DataObject::factory($b);
+            $dd->$key = $val;
+            $dd->find();
+            while ($dd->fetch()) {
+                
+                
+            }
+            
             
         }
         
