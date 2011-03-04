@@ -43,11 +43,12 @@ class Pman_Admin_Dump extends Pman {
         
         $required = explode(',', 'table,col,val,dump-dir');
         $arg_names = array_merge($required,  explode(',', 'delete=='));
-        if (is_object($arg_names)) {
-            die($arg_names->toString());
-        }
+        
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt($argv, '', $arg_names);
+        if (is_object(go)) {
+            die($arg_names->toString());
+        }
         $args = array();
         foreach($go[0] as $ar) {
             $args[substr($ar[0],2)] = $ar[1];
