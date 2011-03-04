@@ -102,7 +102,7 @@ class Pman_Admin_Dump extends Pman {
             $rightq .= ' ' . intval($this->$k) . ' ';
         }
         $table = ($quoteIdentifiers ? $DB->quoteIdentifier($this->__table)    : $this->__table);
-        $ret = "INSERT INTO {$table} ($leftq) VALUES ($rightq);\n";
+        return "INSERT INTO {$table} ($leftq) VALUES ($rightq);\n";
         
     }
     
