@@ -21,6 +21,7 @@
  * 
  */
 
+require_once 'Pman.php';
 
 class Pman_Admin_Dump extends Pman {
     
