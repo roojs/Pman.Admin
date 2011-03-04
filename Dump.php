@@ -74,7 +74,7 @@ class Pman_Admin_Dump extends Pman {
         
         $deplinks = $do->links();
         
-        foreach($do->items() as $k=>$v)
+        foreach(  $items  as $k=>$v)
         {
             if ($leftq) {
                 $leftq  .= ', ';
