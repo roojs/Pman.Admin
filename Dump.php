@@ -61,7 +61,7 @@ class Pman_Admin_Dump extends Pman {
         print_r($this->deps);
         $this->dumpDeps();
     }
-    var $children = array();
+    var $children = array(); // map of search->checked 
     function dumpChildren($do)
     {
         global $_DB_DATAOBJECT;
