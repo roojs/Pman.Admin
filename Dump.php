@@ -6,9 +6,13 @@
  * The format will be an SQL file...
  *
  * usage:
- *    php index.php  Admin/Dump --table=Project --col=id --value=123 --dump-dir=/path to 
+ *    php index.php  Admin/Dump --table=Project --col=id --value=123 --dump-dir=/directory_to_put_sql+shell files
  *
- *    outputs
+ *    outputs list of generated files.
+ *      {DATE}.sql - the recreate sql including all dependancies, run with mysql DB -f  < ....
+ *      {DATE}.delete.sql - the delete data sql.
+ *      {DATE}.delete.sh - delete the files related to these records
+ *      {DATE}.restore.sh - the recreate shell file to copy the images back.
  *    
  *  Basically it has to output all the records and their dependants. (parent and children)
  *
