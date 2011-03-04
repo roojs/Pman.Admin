@@ -63,7 +63,19 @@ class Pman_Admin_Dump extends Pman {
     
     function dumpChildren($do)
     {
-        
+        $do->links();; //force load
+        $tn = $do->tableName();
+        foreach($_DB_DATAOBJECT['LINKS'] as $tbl => $links) {
+            foreach ($links as $kv) {
+                list($k,$v) = explode(':', $kv);
+                if ($k != $tn) {
+                    continue;
+                }
+                
+                
+            }
+            
+        }
         
     }
     
