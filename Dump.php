@@ -45,7 +45,7 @@ class Pman_Admin_Dump extends Pman {
         $arg_names = array_merge($required,  explode(',', 'delete::,dump-dir::'));
         print_r($arg_names);
         require_once 'Console/Getopt.php';
-        $arags = Console_Getopt::getopt($argv, '', $arg_names);
+        $args = Console_Getopt::getopt($argv, '', $arg_names);
         print_r($args);
         exit;
         // since we are runnign in cli mode... we will be a bit wild and free with verification
