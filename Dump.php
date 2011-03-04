@@ -60,6 +60,13 @@ class Pman_Admin_Dump extends Pman {
         print_r($this->deps);
         $this->dumpDeps();
     }
+    
+    function dumpChildren($do)
+    {
+        
+        
+    }
+    
     /**
      * toInsert - does not handle NULLS... 
      */
