@@ -68,7 +68,6 @@ class Pman_Admin_Dump extends Pman {
         
         $x->find();
         while ($x->fetch()) {
-        v
         
             fwrite($this->fh, $this->toInsert($x));
             $this->dumpChildren($x);
