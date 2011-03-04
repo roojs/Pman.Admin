@@ -101,7 +101,10 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
-        foreach($this->children as $s=>$status) {
+        
+        $ch = $this->children ;
+        
+        foreach($ch as $s=>$status) {
             if ($this->children[$s]) {
                 continue;
             }
