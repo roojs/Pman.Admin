@@ -50,6 +50,11 @@ class Pman_Admin_Dump extends Pman {
         foreach($go[0] as $ar) {
             $args[substr($ar[0],2)] = $ar[1];
         }
+        if (!file_exists($args['dump-dir'])) {
+            mkdir($args['dump-dir'], true);
+        }
+        $target = $args['dump-dir'] .'/'. date('Y-m-d').
+        
         //print_r($args);
         //DB_DataObject::debugLevel(1);
         // since we are runnign in cli mode... we will be a bit wild and free with verification
