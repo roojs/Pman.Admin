@@ -37,8 +37,7 @@ class Pman_Admin_Dump extends Pman {
     
     function get($path )
     {
-        
-        $required = explode(',', 'table:,col:,val:');
+          $required = explode(',', 'table:,col:,val:');
         $arg_names = $required;//  + explode(',', 'delete::,dump-dir::');
         print_r($arg_names);
         $args = getopt ( 'v::', $arg_names);
