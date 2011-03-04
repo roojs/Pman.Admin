@@ -51,6 +51,7 @@ class Pman_Admin_Dump extends Pman {
             $args[substr($ar[0],2)] = $ar[1];
         }
         print_r($args);
+        DB_DataObject::debugLevel(1);
         // since we are runnign in cli mode... we will be a bit wild and free with verification
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['val']);
