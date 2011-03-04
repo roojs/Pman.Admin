@@ -65,7 +65,7 @@ class Pman_Admin_Dump extends Pman {
     function toInsert($do)
     {
         // for auto_inc column we need to use a 'set argument'...
-        $items = $do->keys();
+        $items = $do->table();
         $quoteIdentifiers  = !empty($_DB_DATAOBJECT['CONFIG']['quote_identifiers']);
         // for
         $leftq     = '';
