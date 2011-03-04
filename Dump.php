@@ -38,7 +38,8 @@ function Pman_Admin_Dump extends Pman {
         $x = DB_DataObject::factory($args['table']);
         $x->get($args['col'], $args['id']);
         $this->out($x);
-        
+        $this->dumpChildren($x);
+        $this->dumpDeps();
     }
     
     function out($do)
