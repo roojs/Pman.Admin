@@ -337,7 +337,15 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         header : 'Seqid',
                         width : 75,
                         renderer : function(v) { return String.format('{0}', v); },
-                        sortable : true
+                        sortable : true,
+                        editor : {
+                            xtype: 'GridEditor',
+                            xns: Roo.grid,
+                            field : {
+                                xtype: 'TextField',
+                                xns: Roo.form
+                            }
+                        }
                     }
                 ]
             }
