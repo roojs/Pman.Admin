@@ -197,18 +197,23 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Add",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
                             listeners : {
                                 click : function()
                                 {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
+                                    
+                                    // if we do not have a selected type... - what should we show..?
+                                    var et = _this.etypeCombo.getValue()
+                                    var ds = _this.grid.getDataSource();
+                                
+                                    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });
+                                     
+                                     ds.insert(ds.data.length  , add);  
+                                     
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Add",
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
                             xtype: 'Button',
