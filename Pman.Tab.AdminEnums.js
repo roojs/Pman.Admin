@@ -206,9 +206,9 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                     var ds = _this.grid.getDataSource();
                                 
                                     var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });
-                                     
+                                     var r = ds.data.length;
                                     ds.insert(ds.data.length  , add);  
-                                     
+                                    _this.grid.startEditing(r, 1); // name... 
                                 }
                             },
                             cls : 'x-btn-text-icon',
