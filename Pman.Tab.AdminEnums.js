@@ -154,7 +154,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                     beforeload : function (_self, o){
                                         o.params = o.params || {};
                                         // set more here
-                                        o.params['query[_empty_etype]'] = 1;
+                                        o.params['query[empty_etype]'] = 1;
                                     }
                                 },
                                 remoteSort : true,
