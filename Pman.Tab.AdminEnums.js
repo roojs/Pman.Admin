@@ -139,7 +139,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             loadingText : "Searching...",
                             minChars : 2,
                             pageSize : 20,
-                            qtip : "Select core_enum",
+                            qtip : "Select type",
                             queryParam : 'query[name]',
                             selectOnFocus : true,
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
