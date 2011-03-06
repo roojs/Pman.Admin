@@ -344,7 +344,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             field : {
                                 xtype: 'NumberField',
                                 xns: Roo.form,
-                                minValue : 0
+                                minValue : -1000
                             }
                         }
                     }
