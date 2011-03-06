@@ -221,6 +221,7 @@
                                         {
                                             "*prop": "field",
                                             "allowDecimals": false,
+                                            "allowNegative": true,
                                             "decimalPrecision": 0,
                                             "xtype": "NumberField",
                                             "|xns": "Roo.form"
