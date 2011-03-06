@@ -138,7 +138,6 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             listWidth : 400,
                             loadingText : "Searching...",
                             minChars : 2,
-                            name : '',
                             pageSize : 20,
                             qtip : "Select core_enum",
                             queryParam : '',
