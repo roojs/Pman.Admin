@@ -28,6 +28,7 @@
                     "loadMask": true,
                     "xtype": "EditorGrid",
                     "|xns": "Roo.grid",
+                    "clicksToEdit": 0,
                     "items": [
                         {
                             "listeners": {
