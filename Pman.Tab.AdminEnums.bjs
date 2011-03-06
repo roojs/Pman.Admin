@@ -1,8 +1,8 @@
 {
     "id": "roo-file-121",
     "name": "Pman.Tab.AdminEnums",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.Admin",
+    "title": "Pman.Tab.AdminEnums",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
@@ -215,5 +215,5 @@
         }
     ],
     "permname": "",
-    "modOrder": "001"
+    "modOrder": "500"
 }
