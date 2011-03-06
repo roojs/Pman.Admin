@@ -214,6 +214,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             cls : 'x-btn-text-icon',
                             text : "Add",
                             icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
+                        },
+                        {
+                            xtype: 'Fill',
+                            xns: Roo.Toolbar
                         }
                     ]
                 },
