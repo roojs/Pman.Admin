@@ -150,7 +150,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 },
                                 select : function (combo, record, index)
                                 {
-                                
+                                    _this.grid.footer.onClick('first');
                                 }
                             },
                             alwaysQuery : true,
