@@ -219,9 +219,9 @@
                                     "*prop": "editor",
                                     "items": [
                                         {
-                                            "|xns": "Roo.form",
-                                            "xtype": "TextField",
-                                            "*prop": "field"
+                                            "*prop": "field",
+                                            "xtype": "NumberField",
+                                            "|xns": "Roo.form"
                                         }
                                     ]
                                 }
