@@ -69,6 +69,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     afteredit : function (e)
                     {
                        e.record.commit();     
+                    },
+                    cellclick : function (_self, rowIndex, columnIndex, e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'name',
