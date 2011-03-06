@@ -6,17 +6,17 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "GridPanel",
-            "title": "core_enum",
-            "fitToframe": true,
-            "fitContainer": true,
-            "tableName": "core_enum",
-            "background": true,
-            "region": "center",
             "listeners": {
                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
             },
+            "background": true,
+            "fitContainer": true,
+            "fitToframe": true,
+            "region": "center",
+            "tableName": "core_enum",
+            "title": "Enum options",
+            "xtype": "GridPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "*prop": "grid",
