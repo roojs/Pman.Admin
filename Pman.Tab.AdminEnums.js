@@ -130,6 +130,12 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         {
                             xtype: 'ComboBox',
                             xns: Roo.form,
+                            listeners : {
+                                render : function (_self)
+                                {
+                                    _this.etypeCombo = _self;
+                                }
+                            },
                             allowBlank : 'false',
                             editable : 'false',
                             emptyText : "Select type",
@@ -147,12 +153,6 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             typeAhead : true,
                             valueField : 'id',
                             width : 300,
-                            listeners : {
-                                render : function (_self)
-                                {
-                                
-                                }
-                            },
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
