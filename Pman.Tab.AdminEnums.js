@@ -68,7 +68,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     },
                     afteredit : function (e)
                     {
-                    
+                       e.record.commit();     
                     }
                 },
                 autoExpandColumn : 'name',
