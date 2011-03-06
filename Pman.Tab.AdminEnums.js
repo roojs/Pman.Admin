@@ -90,7 +90,11 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         },
                         update : function (_self, record, operation)
                         {
-                        
+                                if (operation != Roo.data.Record.COMMIT) {
+                                    return;
+                                }
+                                // got commit..
+                                
                         }
                     },
                     remoteSort : true,
