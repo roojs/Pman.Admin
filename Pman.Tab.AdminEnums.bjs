@@ -220,9 +220,9 @@
                                     "items": [
                                         {
                                             "*prop": "field",
-                                            "minValue": -1000,
                                             "xtype": "NumberField",
-                                            "|xns": "Roo.form"
+                                            "|xns": "Roo.form",
+                                            "listeners": {}
                                         }
                                     ]
                                 }
