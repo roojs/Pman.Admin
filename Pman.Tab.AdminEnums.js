@@ -150,6 +150,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 }
                             },
                             alwaysQuery : true,
+                            displayField : 'name',
                             editable : 'false',
                             emptyText : "Select type",
                             fieldLabel : 'core_enum',
@@ -166,7 +167,6 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             typeAhead : true,
                             valueField : 'name',
                             width : 300,
-                            displayField : '',
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
