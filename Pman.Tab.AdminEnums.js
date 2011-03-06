@@ -229,8 +229,26 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                     Roo.MessageBox.prompt ("Create a new Enum type",
                                         "Enter the name for a new enum type, " + 
                                         "this is only relivant if you  know how it is going to be used",
-                                        function(a,b) {
-                                            Roo.log(a,b);
+                                        function(btn,txt) {
+                                            if (btn != 'ok') {
+                                                return; 
+                                            }
+                                            new Pman.Request({
+                                                url : baseURL + '/Roo/Core_enum.php',
+                                                method : 'POST',
+                                                params : {
+                                                    etype : '',
+                                                    name : txt,
+                                                    active : 1
+                                                }, 
+                                                success : function() {
+                                                    Roo.MessageBox.alert("Created", "You can now select it from the type list on the left");
+                                                }
+                                            });
+                                                    
+                                            
+                                             
+                                             
                                         }
                                     ); 
                                          
