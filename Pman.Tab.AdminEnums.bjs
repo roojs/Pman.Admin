@@ -221,7 +221,9 @@
                                         {
                                             "*prop": "field",
                                             "xtype": "NumberField",
-                                            "|xns": "Roo.form"
+                                            "|xns": "Roo.form",
+                                            "minValue": 0,
+                                            "listeners": {}
                                         }
                                     ]
                                 }
