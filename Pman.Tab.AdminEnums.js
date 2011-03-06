@@ -48,10 +48,8 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
             tableName : 'core_enum',
             title : "Enum options",
             grid : {
-                xtype: 'Grid',
+                xtype: 'EditorGrid',
                 xns: Roo.grid,
-                autoExpandColumn : 'etype',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
@@ -69,6 +67,8 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         }); 
                     }
                 },
+                autoExpandColumn : 'etype',
+                loadMask : true,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
