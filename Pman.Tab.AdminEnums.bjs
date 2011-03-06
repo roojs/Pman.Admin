@@ -69,8 +69,10 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar",
-                                    "xtype": "TextItem"
+                                    "": "",
+                                    "listeners": {}
                                 },
                                 {
                                     "text": "Add",
