@@ -132,13 +132,13 @@
                                     ]
                                 },
                                 {
+                                    "listeners": {
+                                        "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue()\n    var ds = _this.grid.getDataSource();\n\n    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });\n     \n     ds.insert(ds.data.length  , add);  \n     \n}\n"
+                                    },
+                                    "cls": "x-btn-text-icon",
                                     "text": "Add",
                                     "xtype": "Button",
-                                    "cls": "x-btn-text-icon",
                                     "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
