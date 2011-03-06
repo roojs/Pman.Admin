@@ -342,7 +342,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             xtype: 'GridEditor',
                             xns: Roo.grid,
                             field : {
-                                xtype: 'TextField',
+                                xtype: 'NumberField',
                                 xns: Roo.form
                             }
                         }
