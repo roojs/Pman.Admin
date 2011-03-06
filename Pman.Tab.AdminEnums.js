@@ -8,11 +8,11 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminEnums',
+        modKey : '500-Pman.Tab.AdminEnums',
         module : Pman.Tab.AdminEnums,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Pman.Tab.AdminEnums",
         disabled : false, 
         permname: '' 
     });
