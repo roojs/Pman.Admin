@@ -345,6 +345,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 xtype: 'NumberField',
                                 xns: Roo.form,
                                 allowDecimals : false,
+                                allowNegative : true,
                                 decimalPrecision : 0
                             }
                         }
