@@ -69,6 +69,10 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "TextItem"
+                                },
+                                {
                                     "text": "Add",
                                     "xtype": "Button",
                                     "cls": "x-btn-text-icon",
