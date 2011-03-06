@@ -150,14 +150,15 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                remoteSort : true,
-                                sortInfo : { direction : 'ASC', field: 'id' },
                                 listeners : {
                                     beforeload : function (_self, o){
                                         o.params = o.params || {};
                                         // set more here
+                                        o.params['query[_empty_etype]'] = 1;
                                     }
                                 },
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'id' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
