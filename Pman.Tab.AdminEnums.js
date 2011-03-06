@@ -132,7 +132,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             xns: Roo.form,
                             allowBlank : 'false',
                             editable : 'false',
-                            emptyText : "Select core_enum",
+                            emptyText : "Select type",
                             fieldLabel : 'core_enum',
                             forceSelection : true,
                             listWidth : 400,
