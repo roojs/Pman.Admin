@@ -226,14 +226,16 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 click : function()
                                 {
                                     
-                                    // if we do not have a selected type... - what should we show..?
-                                    var et = _this.etypeCombo.getValue()
-                                    var ds = _this.grid.getDataSource();
+                                    Roo.MessageBox.prompt ("Create a new Enum type",
+                                        "Enter the name for a new enum type, " + 
+                                        "this is only relivant if you  know how it is going to be used",
+                                        function(a,b) {
+                                            Roo.log(a,b);
+                                        }
+                                    ); 
+                                         
+                                         
                                 
-                                    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });
-                                     var r = ds.data.length;
-                                    ds.insert(r  , add);  
-                                    _this.grid.startEditing(r, 1); // name... 
                                 }
                             },
                             cls : 'x-btn-text-icon',
