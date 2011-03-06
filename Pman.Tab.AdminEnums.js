@@ -123,6 +123,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     xns: Roo,
                     items : [
                         {
+                            xtype: 'TextItem',
+                            xns: Roo.Toolbar
+                        },
+                        {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
                             text : "Add",
