@@ -73,6 +73,17 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     cellclick : function (_self, rowIndex, columnIndex, e)
                     {
                     
+                            var di = this.colModel.getDataIndex(columnIndex);
+                            if (di != 'active') {
+                                return;
+                            }
+                             
+                            var rec = _this.grid.ds.getAt(rowIndex);
+                            
+                            rec.set('active', rec.data.active ? 0 : 1);
+                            rec.commit();
+                             
+                            
                     }
                 },
                 autoExpandColumn : 'name',
