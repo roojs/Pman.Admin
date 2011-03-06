@@ -87,6 +87,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             if (!options.params.etype.length) {
                                 return false;
                             }
+                        },
+                        update : function (_self, record, operation)
+                        {
+                        
                         }
                     },
                     remoteSort : true,
