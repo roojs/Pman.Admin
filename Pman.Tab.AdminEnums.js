@@ -218,6 +218,27 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                click : function()
+                                {
+                                    
+                                    // if we do not have a selected type... - what should we show..?
+                                    var et = _this.etypeCombo.getValue()
+                                    var ds = _this.grid.getDataSource();
+                                
+                                    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });
+                                     var r = ds.data.length;
+                                    ds.insert(r  , add);  
+                                    _this.grid.startEditing(r, 1); // name... 
+                                }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Add",
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         }
                     ]
                 },
