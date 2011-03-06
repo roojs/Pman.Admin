@@ -147,6 +147,12 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             typeAhead : true,
                             valueField : 'id',
                             width : 300,
+                            listeners : {
+                                render : function (_self)
+                                {
+                                
+                                }
+                            },
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
