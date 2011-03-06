@@ -79,7 +79,8 @@
                                 },
                                 {
                                     "listeners": {
-                                        "render": "function (_self)\n{\n    _this.etypeCombo = _self;\n}"
+                                        "render": "function (_self)\n{\n    _this.etypeCombo = _self;\n}",
+                                        "select": "function (combo, record, index)\n{\n\n}"
                                     },
                                     "alwaysQuery": true,
                                     "displayField": "name",
