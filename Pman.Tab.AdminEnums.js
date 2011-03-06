@@ -104,11 +104,11 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                     active : record.data.active,
                                     seqid : record.data.seqid
                                 }, 
-                                success : function(data) {
-                                    Roo.log(data);
+                                success : function(res) {
+                                    //Roo.log(data);
                                     // update the ID if it's not set..
                                     if (record.data.id * 1 < 1) {
-                                        record.set('id', data.id);
+                                        record.set('id', res.data.id);
                                     }
                                 }
                             });
