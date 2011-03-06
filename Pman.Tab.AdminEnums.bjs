@@ -221,10 +221,9 @@
                                         {
                                             "*prop": "field",
                                             "allowDecimals": false,
-                                            "xtype": "NumberField",
-                                            "|xns": "Roo.form",
                                             "decimalPrecision": 0,
-                                            "listeners": {}
+                                            "xtype": "NumberField",
+                                            "|xns": "Roo.form"
                                         }
                                     ]
                                 }
