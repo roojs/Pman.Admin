@@ -30,14 +30,14 @@
                     "|xns": "Roo.grid",
                     "items": [
                         {
+                            "listeners": {
+                                "beforeload": "function (_self, options)\n{\n    options.params.etype = _this.etypeCombo.getValue();\n    if (!options.params.etype.length) {\n        return false;\n    }\n}"
+                            },
                             "*prop": "dataSource",
                             "remoteSort": true,
                             "xtype": "Store",
                             "|sortInfo": "{ field : 'etype', direction: 'ASC' }",
                             "|xns": "Roo.data",
-                            "listeners": {
-                                "beforeload": "function (_self, options)\n{\n\n}"
-                            },
                             "items": [
                                 {
                                     "*prop": "proxy",
