@@ -160,15 +160,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Etype",
-                            "width": 200,
-                            "dataIndex": "etype",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Name",
                             "width": 200,
                             "dataIndex": "name",
