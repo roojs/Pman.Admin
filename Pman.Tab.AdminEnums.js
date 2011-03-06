@@ -65,6 +65,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
                             _this.grid.footer.onClick('first');
                         }); 
+                    },
+                    afteredit : function (e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'name',
