@@ -164,7 +164,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
                             triggerAction : 'all',
                             typeAhead : true,
-                            valueField : 'id',
+                            valueField : 'name',
                             width : 300,
                             store : {
                                 xtype: 'Store',
