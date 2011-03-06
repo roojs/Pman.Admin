@@ -94,7 +94,21 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 return;
                             }
                             // got commit..
-                            
+                            new Pman.Request({
+                                url : baseURL + '/Roo/Core_enum.php',
+                                method : 'POST',
+                                params : {
+                                    id : record.data.id,
+                                    etype : _this.etypeCombo.getValue(),
+                                    name : record.data.name,
+                                    active : record.data.active,
+                                    seqid : record.data.seqid
+                                }, 
+                                success : function(data) {
+                                    Roo.log(data);
+                                 
+                                }
+                            });
                             
                         }
                     },
