@@ -240,7 +240,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                     var et = _this.etypeCombo.getValue()
                                     var ds = _this.grid.getDataSource();
                                 
-                                    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });
+                                    var add = ds.reader.newRow({ id: 0, name : '', etype: et, active: 0, seqid: 0 });
                                      var r = ds.data.length;
                                     ds.insert(r  , add);  
                                     _this.grid.startEditing(r, 1); // name... 
