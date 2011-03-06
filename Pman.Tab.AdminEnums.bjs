@@ -140,6 +140,10 @@
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Fill"
                                 }
                             ]
                         },
