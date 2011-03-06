@@ -69,6 +69,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                 },
                 autoExpandColumn : 'name',
                 loadMask : true,
+                clicksToEdit : 0,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
