@@ -33,12 +33,6 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'GridPanel',
             xns: Roo,
-            title : "core_enum",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'core_enum',
-            background : true,
-            region : 'center',
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -47,6 +41,12 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            region : 'center',
+            tableName : 'core_enum',
+            title : "Enum options",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
