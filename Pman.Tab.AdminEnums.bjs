@@ -147,7 +147,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue()\n    var ds = _this.grid.getDataSource();\n\n    var add = ds.reader.newRow({ name : '', etype: et, active: 0, seqid: 0 });\n     var r = ds.data.length;\n    ds.insert(r  , add);  \n    _this.grid.startEditing(r, 1); // name... \n}\n"
+                                        "|click": "function()\n{\n    \n    Roo.MessageBox.prompt (\"Create a new Enum type\",\n        \"Enter the name for a new enum type, \" + \n        \"this is only relivant if you  know how it is going to be used\",\n        function(a,b) {\n            Roo.log(a,b);\n        }\n    ); \n         \n         \n\n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Add new type",
