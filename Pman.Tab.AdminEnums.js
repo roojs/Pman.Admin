@@ -75,6 +75,9 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     listeners : {
                         beforeload : function (_self, options)
                         {
+                            if (!_this.etypeCombo) {
+                                return false;
+                            }
                             options.params.etype = _this.etypeCombo.getValue();
                             if (!options.params.etype.length) {
                                 return false;
