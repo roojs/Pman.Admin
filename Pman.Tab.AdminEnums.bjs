@@ -220,10 +220,9 @@
                                     "items": [
                                         {
                                             "*prop": "field",
+                                            "allowDecimals": false,
                                             "xtype": "NumberField",
-                                            "|xns": "Roo.form",
-                                            "allowDecimals": true,
-                                            "listeners": {}
+                                            "|xns": "Roo.form"
                                         }
                                     ]
                                 }
