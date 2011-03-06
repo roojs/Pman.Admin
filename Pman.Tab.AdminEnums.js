@@ -72,14 +72,17 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
-                    remoteSort : true,
-                    sortInfo : { field : 'etype', direction: 'ASC' },
                     listeners : {
                         beforeload : function (_self, options)
                         {
-                        
+                            options.params.etype = _this.etypeCombo.getValue();
+                            if (!options.params.etype.length) {
+                                return false;
+                            }
                         }
                     },
+                    remoteSort : true,
+                    sortInfo : { field : 'etype', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
