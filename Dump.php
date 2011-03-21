@@ -399,7 +399,7 @@ class Pman_Admin_Dump extends Pman {
              
             $keys = $do->keys();
          
-            $do->whereAddIn($keys[0] , $ar, 'int');
+            $do->whereAddIn($keys[0] , array_keys($ar), 'int');
             $do->find();
             while ($do->fetch()) {
                 fwrite($fh,$this->toInsert($do));
