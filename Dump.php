@@ -91,7 +91,8 @@ class Pman_Admin_Dump extends Pman {
         $this->args = $args;
         $this->out = array();
         $this->discoverChildren($this->args['table'], $this->args['where'], true);
-
+        print_R($this->dscan);exit;
+        
         $this->discover($this->args['table'], $this->args['where'], true);
         print_r($this->dumps);
         exit;
@@ -291,7 +292,6 @@ class Pman_Admin_Dump extends Pman {
         // now iterate throught dependants. and scan them.
         
         
-        print_R($this->dscan);exit;
         foreach($this->dscan as $kv => $ids) {
             $ar = array();
             foreach($ids as $id => $checked) {
