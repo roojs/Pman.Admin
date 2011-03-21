@@ -365,13 +365,13 @@ class Pman_Admin_Dump extends Pman {
                 if ($archivePaths) {
                     $ct = $do->archivePaths();
                     if ($ct) {
-                        $this->childfiles[$tbl.':'. $do->{$key}] = $ct;
+                        $this->childfiles[] = $ct;
                     }
                 }
                 if ($listThumbs) {
                     $ct = $do->listThumbs();
                     if($ct) {
-                        $this->childthumbs[$kid] = $ct;
+                        $this->childthumbs[] = $ct;
                     }
                 }
             
