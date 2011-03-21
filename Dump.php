@@ -230,7 +230,9 @@ class Pman_Admin_Dump extends Pman {
             }
             return;
         }
-        
+        if (!$this->dumps[$table]) {
+            $this->dumps[$table] = array();
+        }
         $keys = $do->keys();
           
         if (is_array( $where)) {
