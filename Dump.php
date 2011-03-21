@@ -344,7 +344,9 @@ class Pman_Admin_Dump extends Pman {
     }
     function generateShell() {
         
-        
+        if (empty($this->childfiles)) {
+            return;
+        }
         $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
         $this->out[] = $target;
         $fh = fopen($target, 'w');
