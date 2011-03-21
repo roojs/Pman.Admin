@@ -358,6 +358,8 @@ class Pman_Admin_Dump extends Pman {
             $do->find();
             while ($do->fetch()) {
                 
+                
+                
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
         }
