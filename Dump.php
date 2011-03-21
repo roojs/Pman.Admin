@@ -171,7 +171,7 @@ class Pman_Admin_Dump extends Pman {
             
         }
         
-        print_
+        print_r($this->dumps);
         
         
         
