@@ -119,7 +119,7 @@ class Pman_Admin_Dump extends Pman {
         
     function discover()
     {
-        $x = DB_DataObject::factory($args['table']);
+        $x = DB_DataObject::factory($this->args['table']);
         
         
         $x->whereAdd($this->args['where']);
