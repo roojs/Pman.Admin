@@ -119,7 +119,6 @@ class Pman_Admin_Dump extends Pman {
         
     function discover($table, $where, $is_delete = false )
     {
-        $x = DB_DataObject::factory($this->args['table']);
         
         if (!isset($$this->dumps[$table])) {
             $this->dumps[$table] = array();
@@ -127,7 +126,10 @@ class Pman_Admin_Dump extends Pman {
         if ($is_delete && !isset($this->deletes[$table])) {
             $this->deletes[$table] = array();
         }
-        $x->whereAdd($this->args['where']);
+        
+        $x = DB_DataObject::factory($table);
+        
+        $x->whereAdd($where);
         // what we need
         // a) id's of elements in this table
         // b) columns which point to other tables..
