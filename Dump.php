@@ -115,7 +115,7 @@ class Pman_Admin_Dump extends Pman {
      
     var $deletes = array(); // TABLE => [key] => TRUE|FALSE
     var $dumps = array(); // TABLE => [key] => TRUE|FALSE - if it's been scanned..
-    
+    var $dscan = array(); // TABLE:COL => [value => TRUE|FALSE] - if its been scanned..
     /**
      * scan table for
      * a) what depends on it (eg. child elements) - which will be deleted.
@@ -262,7 +262,7 @@ class Pman_Admin_Dump extends Pman {
                     }
                     $add = implode(':', array($tbl, $tk));
                     //echo "ADD $tbl $tk=>$kv : $add\n";
-                    $children[$table][$add] = array();
+                    $children[$table][$add] = true;
                     
                 }
                 
@@ -273,11 +273,16 @@ class Pman_Admin_Dump extends Pman {
             return;
         }
         $do->find();
+        $key = $keys[0];
         while ($do->fetch()) {
-            foreach($children[$table] as $kv=>$cols)
-                $this->dscan[]
-            
-            
+            foreach($children[$table] as $kv=>$t) {
+                if (!isset($this->dscan[$add][$kv])) {
+                    $this->dscan[$add][$kv] = array();
+                }
+                if (!isset($this->dscan[$add][$kv][$do->$key])) {
+                    $this->dscan[$add][$kv][$do->$key]= 0; // unscanned.
+                }
+            }
         }
         
         print_R($children);exit;
