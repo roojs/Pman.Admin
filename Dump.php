@@ -327,51 +327,18 @@ class Pman_Admin_Dump extends Pman {
         
         
     }
-    
-    function oldStuff() {
-        
-       
-        
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
-        $out[] = $target;
-        $this->fh = fopen($target,'w');
-        //print_r($args);
-        //DB_DataObject::debugLevel(1);
-        // since we are runnign in cli mode... we will be a bit wild and free with verification
-        $x = DB_DataObject::factory($args['table']);
-        $x->{$args['col']} = $args['val'];
-        
-        $x->find();
-         
-        while ($x->fetch()) {
-        
-            fwrite($this->fh, $this->toInsert($x));
-            $this->dumpChildren($x);
-            
-        }
-        
-         
-        foreach($this->deps as $s=>$status) {
-            if (isset($this->dumped[$s])) {
-                continue;
-            }
-            list($tbl, $key, $val) = explode(':', $s);
-            $dd = DB_DataObject::factory($tbl);
-            if ($dd->get($key,$val)) {
-                fwrite($this->fh, $this->toInsert($dd));
-            }
-        }
-        
-        fclose($this->fh);
-    }
-    
+     
     function generateDelete() {  
         $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
         $this->out[] = $target;
         $fh = fopen($target, 'w');
-        foreach($this->childscanned as $s=>$v) {
-            list($tbl, $key, $val) = explode(':', $s);
-            fwrite($fh, "DELETE FROM $tbl WHERE $key = $val;\n"); // we assume id's and nice column names...
+        foreach($this->deletes as $tbl=>$ar) {
+            $do = DB_DataObject::factory($tbl);
+            $keys = $do->keys();
+            $key = $keys[0];
+            foreach($ar as $id => $deleted) {}
+                fwrite($fh, "DELETE FROM $tbl WHERE $key = $val;\n"); // we assume id's and nice column names...
+            }
              
         }
         fclose($fh);
