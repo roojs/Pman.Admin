@@ -415,8 +415,8 @@ class Pman_Admin_Dump extends Pman {
         $fs = 0;
         $done = array();
         foreach($this->childfiles as  $v) {
-            $source = $v[0].'/'.$v[1];
-            if (isset($done[$source)) {
+            
+            if (isset($done[$v[1]])) {
                 continue;
             }
             
