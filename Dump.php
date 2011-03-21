@@ -230,10 +230,10 @@ class Pman_Admin_Dump extends Pman {
             }
             return;
         }
-        if (!$this->dumps[$table]) {
+        if (!isset($this->dumps[$table])) {
             $this->dumps[$table] = array();
         }
-        if (!$this->deletes[$table]) {
+        if (!isset($this->deletes[$table])) {
             $this->deletes[$table] = array();
         }
         
