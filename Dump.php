@@ -374,7 +374,7 @@ class Pman_Admin_Dump extends Pman {
                         $this->childthumbs[] = $ct;
                     }
                 }
-            
+                $id = $do->$key;
                 
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
