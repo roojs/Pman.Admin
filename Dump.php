@@ -116,7 +116,7 @@ class Pman_Admin_Dump extends Pman {
             if (empty($ar)) { continue; }
             echo "   " .$tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
         }
-        echo "GENERATED FILES:";
+        echo "GENERATED FILES:\n";
         // summary
         echo "    ". implode("   \n", $this->out). "\n";
         
