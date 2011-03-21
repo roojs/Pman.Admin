@@ -381,7 +381,7 @@ class Pman_Admin_Dump extends Pman {
     }
     function generateShell() {
         
-        if (empty($this->childfiles) && empty($this->childthumbs) {
+        if (empty($this->childfiles) && empty($this->childthumbs)) {
             return;
         }
         $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
