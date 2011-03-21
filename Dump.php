@@ -96,9 +96,7 @@ class Pman_Admin_Dump extends Pman {
         //exit;
         
         $this->discover($this->args['table'], $this->args['where'], true);
-        print_r($this->dumps);
-        exit;
-        
+         
         
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
