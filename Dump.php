@@ -132,7 +132,7 @@ class Pman_Admin_Dump extends Pman {
         
         print_r($keys); exit;
         
-        $x->selectAdd()
+        $x->selectAdd();
         
         
         
