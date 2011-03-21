@@ -63,7 +63,7 @@ class Pman_Admin_Dump extends Pman {
         $required = explode(',', 'table=,col=,val=,dump-dir=');
         
         require_once 'Console/Getopt.php';
-        $go = Console_Getopt::getopt($argv, '', $required);
+        $go = Console_Getopt::getopt2($argv, '', $required);
         if (is_object($go)) {
             die($go->toString());
         }
