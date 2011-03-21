@@ -222,7 +222,24 @@ class Pman_Admin_Dump extends Pman {
     function discoverChildren($table, $where  )
     {
         global $_DB_DATAOBJECT;
-        $do = DB_DataObject::factory($table);
+         $x = DB_DataObject::factory($table);
+        if (PEAR::isError($do)) {
+            if (isset($this->dumps[$table])) {
+                unset($this->dumps[$table]); // links to non-existant tables..
+            }
+            return;
+        }
+        
+        $keys = $do->keys();
+          
+        if (is_array( $where)) {
+            $do->whereAddIn($keys[0] , $where, 'int');
+        } else {
+        
+            $do->whereAdd($where);
+        }
+        
+        
         // force load of linsk
         $do->links();
         foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
@@ -248,6 +265,7 @@ class Pman_Admin_Dump extends Pman {
             
         }
         
+        while ($do->fech)
         
         print_R($children);exit;
         
