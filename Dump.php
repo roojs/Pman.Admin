@@ -249,6 +249,7 @@ class Pman_Admin_Dump extends Pman {
             if (isset($this->dumps[$table])) {
                 unset($this->dumps[$table]); // links to non-existant tables..
             }
+            echo "SKIPPING invalid table $table\n";
             return;
         }
         if (!isset($this->dumps[$table])) {
