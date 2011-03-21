@@ -117,11 +117,16 @@ class Pman_Admin_Dump extends Pman {
      * b) what it depends on it (eg. parent elements) - which will be dumped..
      */
         
-    function discover()
+    function discover($table, $where, $is_delete = false )
     {
         $x = DB_DataObject::factory($this->args['table']);
         
-        
+        if (!isset($$this->dumps[$table])) {
+            $this->dumps[$table] = array();
+        }
+        if ($is_delete && !isset($this->deletes[$table])) {
+            $this->deletes[$table] = array();
+        }
         $x->whereAdd($this->args['where']);
         // what we need
         // a) id's of elements in this table
@@ -152,8 +157,12 @@ class Pman_Admin_Dump extends Pman {
                     continue;
                 }
                 // assume it's the key..
-                if (!isset($this->dumps[$keys[0]][$x->$k])) {
-                    $this->dumps[$keys[0]][$x->$k] = false; // not checked yet..
+                if (!isset($this->dumps[$table][$x->$k])) {
+                    $this->dumps[$table][$x->$k] = false; // not checked yet..
+                }
+                if ($is_delete) {
+                    
+                    
                 }
                 
                 
