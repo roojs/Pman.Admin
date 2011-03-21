@@ -172,23 +172,23 @@ class Pman_Admin_Dump extends Pman {
                         $this->dumps[$kv[0]] = array();
                     }
                     if (!isset($this->dumps[$kv[0]][$x->$k])) {
-                        $this->dumps[$kv[0]][$x->$k] = false; // not checked yet..
+                        $this->dumps[$kv[0]][$x->$k] = 0; // not checked yet..
                     }
                     continue;
                 }
                 // assume it's the key..
                 if (empty($this->dumps[$table][$x->$k])) {
-                    $this->dumps[$table][$x->$k] = true; // we have checked this one...
+                    $this->dumps[$table][$x->$k] = 1; // we have checked this one...
                 }
                 if ($is_delete) {
-                    $this->deletes[$table][$x->$k] = false; // not checked yet..
+                    $this->deletes[$table][$x->$k] = 0 ; // not checked yet..
                 }
                 
                 
             }
             
         }
-        print_R($this->dumps); 
+        //print_R($this->dumps); 
         // itterate through dumps to find what needs discovering
         foreach($this->dumps as $k=>$v) {
             $ar = array();
