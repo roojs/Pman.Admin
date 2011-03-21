@@ -233,6 +233,11 @@ class Pman_Admin_Dump extends Pman {
         if (!$this->dumps[$table]) {
             $this->dumps[$table] = array();
         }
+        if (!$this->deletes[$table]) {
+            $this->deletes[$table] = array();
+        }
+        
+        
         $keys = $do->keys();
           
         if (is_array( $where)) {
