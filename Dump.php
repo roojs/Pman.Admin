@@ -462,8 +462,7 @@ class Pman_Admin_Dump extends Pman {
         $rightq    = '';
         
         
-        $deplinks = $do->links();
-        
+         
         foreach(  $items  as $k=>$v)
         {
             if ($leftq) {
@@ -473,15 +472,7 @@ class Pman_Admin_Dump extends Pman {
             
             $leftq .= ($quoteIdentifiers ? ($DB->quoteIdentifier($k) . ' ')  : "$k ");
             
-            // only handles numeric links..
-            if (is_numeric($do->$k) && $do->$k && $deplinks && !empty($deplinks[$k])) {
-               // die("got deplink" . $deplinks[$k]);
-                $l = explode(':', $deplinks[$k]);
-                $add = $deplinks[$k].':' . $do->$k;
-                
-                $this->deps[$add] = 0;
-            }
-            
+             
             
             
             if ($v & DB_DATAOBJECT_STR) {
