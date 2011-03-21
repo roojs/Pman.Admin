@@ -449,7 +449,7 @@ class Pman_Admin_Dump extends Pman {
             while ($do->fetch()) {
                 fwrite($fh,$this->toInsert($do));
             }
-             
+             $do->free();
             
         }
         fclose($fh);
