@@ -345,11 +345,19 @@ class Pman_Admin_Dump extends Pman {
         $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
         $this->out[] = $target;
         $fh = fopen($target, 'w');
+        
+        
+        
         foreach($this->deletes as $tbl=>$ar) {
+            
             $do = DB_DataObject::factory($tbl);
+            $tbl = $do->tableName();
             $keys = $do->keys();
-            $key = $keys[0];
-            foreach($ar as $id => $deleted) { 
+         
+            $do->whereAddIn($keys[0] , array_keys($ar), 'int');
+            $do->find();
+            while ($do->fetch()) {
+                
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
         }
