@@ -408,8 +408,9 @@ class Pman_Admin_Dump extends Pman {
         $this->out[] = $target;
         $fh3 = fopen($target, 'w');
         
-        
+        $fs = 0;
         foreach($this->childfiles as  $v) {
+            $fs += filesize($v[0].'/'.$v[1])
             fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
             fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) ."\n" );
             
@@ -421,6 +422,7 @@ class Pman_Admin_Dump extends Pman {
         fclose($fh);
         fclose($fh3); // restore does not need to bother with thumbnails.
         
+        $this->fs = $fs;
         
         
         foreach($this->childthumbs as  $v) {
