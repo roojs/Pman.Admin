@@ -130,8 +130,8 @@ class Pman_Admin_Dump extends Pman {
     var $deletes = array(); // TABLE => [key] => TRUE|FALSE
     var $dumps = array(); // TABLE => [key] => TRUE|FALSE - if it's been scanned..
     var $dscan = array(); // TABLE:COL => [value => TRUE|FALSE] - if its been scanned..
-    var $childfiles = array(); //
-    var $childthumbs =
+    var $childfiles = array(); // array of [ 'subsource' , 'fulltarget' ]
+    var $childthumbs = array(); // array of [ 'filename', 'filename' ,......]
     /**
      * scan table for
      * a) what depends on it (eg. child elements) - which will be deleted.
