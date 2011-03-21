@@ -295,6 +295,7 @@ class Pman_Admin_Dump extends Pman {
                 }
                 
             }
+            print_R($children);
         }
         if (empty($children[$table])) {
             // BLANK deletes???
