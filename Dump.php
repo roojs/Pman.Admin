@@ -301,11 +301,11 @@ class Pman_Admin_Dump extends Pman {
             // BLANK deletes???
             return;
         }
-         DB_DataObject::debugLevel(1);
         $do->selectAdd();
         $key = $keys[0];
         $do->selectAdd($key);
         $do->find();
+        //DB_DataObject::debugLevel(0);
         while ($do->fetch()) {
             $this->dumps[$table][$do->$key] = 0;
             if (!isset($this->deletes[$table][$do->$key])) {
@@ -321,8 +321,8 @@ class Pman_Admin_Dump extends Pman {
                 }
             }
         }
-        exit;
-        
+         
+         
         // now iterate throught dependants. and scan them.
         
         
