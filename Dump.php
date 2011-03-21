@@ -109,7 +109,7 @@ class Pman_Admin_Dump extends Pman {
     }
      
     var $deletes = array(); // TABLE => [key] => TRUE|FALSE
-    var $dumps = array(); // TABLE => [key] => TRUE|FALSE
+    var $dumps = array(); // TABLE => [key] => TRUE|FALSE - if it's been scanned..
     
     /**
      * scan table for
@@ -139,6 +139,21 @@ class Pman_Admin_Dump extends Pman {
             foreach($cols as $k) {
                 if (empty($x->$k)) { // skip blanks.
                     continue;
+                }
+                if (isset($links[$k])) {
+                    // it's a sublink..
+                    $kv = explode(':', $links[$k]);
+                    if (!isset($this->dumps[$kv[0]])) {
+                        $this->dumps[$kv[0]] = array();
+                    }
+                    if (!isset($this->dumps[$kv[0]][$x->$k])) {
+                        $this->dumps[$kv[0]][$x->$k] = false; // not checked yet..
+                    }
+                    continue;
+                }
+                // assume it's the key..
+                if (!isset($this->dumps[$keys[0]][$x->$k])) {
+                    $this->dumps[$keys[0]][$x->$k] = false; // not checked yet..
                 }
                 
                 
