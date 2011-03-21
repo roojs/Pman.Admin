@@ -188,7 +188,7 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
-        //print_R($this->dumps); 
+         print_R($this->dumps); 
         // itterate through dumps to find what needs discovering
         foreach($this->dumps as $k=>$v) {
             $ar = array();
