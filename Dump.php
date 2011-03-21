@@ -301,7 +301,6 @@ class Pman_Admin_Dump extends Pman {
         }
         if (empty($children[$table])) {
             $children[$table] = array();
-        
         }
         $do->selectAdd();
         $key = $keys[0];
