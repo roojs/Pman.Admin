@@ -185,9 +185,10 @@ class Pman_Admin_Dump extends Pman {
                     $ar[] = $id;
                 }
             }
-            $this->discover($k, $ar,false)
-            
-            
+            if (count($ar)) {}
+                $this->discover($k, $ar,false);
+            }
+             
         }
         
         
