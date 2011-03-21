@@ -143,6 +143,7 @@ class Pman_Admin_Dump extends Pman {
     var $dscan = array(); // TABLE:COL => [value => TRUE|FALSE] - if its been scanned..
     var $childfiles = array(); // array of [ 'sourcedirectory' , 'subdirectory(s) and filename' ]
     var $childthumbs = array(); // array of [ 'filename', 'filename' ,......]
+    var $filesize = 0;
     /**
      * scan table for
      * a) what depends on it (eg. child elements) - which will be deleted.
