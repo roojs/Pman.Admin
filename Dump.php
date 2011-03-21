@@ -413,7 +413,13 @@ class Pman_Admin_Dump extends Pman {
         $fh3 = fopen($target, 'w');
         
         $fs = 0;
+        $done = array();
         foreach($this->childfiles as  $v) {
+            $source = $v[0].'/'.$v[1];
+            if (isset($done[$source)) {
+                continue;
+            }
+            
             $fs += filesize($v[0].'/'.$v[1]);
             fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
             fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) ."\n" );
