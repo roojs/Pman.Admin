@@ -235,7 +235,7 @@ class Pman_Admin_Dump extends Pman {
                 
                // var_dump($tbl);
                 list($k,$v) = explode(':', $kv);
-                if ($k != $tn) {
+                if ($k != $table) {
                     continue;
                 }
                 $add = implode(':', array($tbl, $tk, $do->$v));
