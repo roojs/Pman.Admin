@@ -130,7 +130,7 @@ class Pman_Admin_Dump extends Pman {
         if ($is_delete && !isset($this->deletes[$table])) {
             $this->deletes[$table] = array();
         }
-        DB_DataObject::debugLevel(1);
+        //DB_DataObject::debugLevel(1);
         $x = DB_DataObject::factory($table);
         if (PEAR::isError($x)) {
             if (isset($this->dumps[$table])) {
@@ -159,7 +159,7 @@ class Pman_Admin_Dump extends Pman {
         $x->selectAdd();
         $x->selectAdd('`'.  implode('`,`', $cols) . '`');
         $x->find();
-        DB_DataObject::debugLevel(0);
+        //DB_DataObject::debugLevel(0);
         while ($x->fetch()) {
             foreach($cols as $k) {
                 if (empty($x->$k)) { // skip blanks.
@@ -196,7 +196,6 @@ class Pman_Admin_Dump extends Pman {
         }
         
         
-         print_R($this->dumps); 
         // itterate through dumps to find what needs discovering
         foreach($this->dumps as $k=>$v) {
             $ar = array();
