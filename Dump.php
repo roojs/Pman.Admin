@@ -217,7 +217,7 @@ class Pman_Admin_Dump extends Pman {
     }
     
      
-    function discoverChildren($table, $where, $is_delete = false )
+    function discoverChildren($table, $where  )
     {
         
         $do = DB_DataObject::factory($table);
