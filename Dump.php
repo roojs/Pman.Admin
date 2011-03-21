@@ -120,7 +120,7 @@ class Pman_Admin_Dump extends Pman {
     function discover($table, $where, $is_delete = false )
     {
         
-        if (!isset($$this->dumps[$table])) {
+        if (!isset($this->dumps[$table])) {
             $this->dumps[$table] = array();
         }
         if ($is_delete && !isset($this->deletes[$table])) {
