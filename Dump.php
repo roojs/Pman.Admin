@@ -292,7 +292,10 @@ class Pman_Admin_Dump extends Pman {
         
         
         print_R($this->dscan);exit;
-        
+        foreach($this->dscan as $kv => $ids) {
+            
+            
+        }
         
         
         
