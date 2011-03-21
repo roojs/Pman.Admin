@@ -107,7 +107,7 @@ class Pman_Admin_Dump extends Pman {
         $this->generateShell();
            
         echo "GENERATED FILES:";
-        print_r($out);
+        print_r($this->out);
         exit;
         
       
