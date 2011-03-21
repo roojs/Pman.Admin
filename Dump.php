@@ -60,16 +60,15 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         array_shift($argv);
         
-       
+        $opts = explode(',', 'table==,col==,val==,dump-dir==');
         require_once 'Console/Getopt.php';
-        $go = Console_Getopt::getopt2($argv, '',  explode(',', 'table==,col==,val==,dump-dir=='));
+        $go = Console_Getopt::getopt2($argv, '', $opts );
         if (is_object($go)) {
             die($go->toString());
         }
         print_r($go);exit;
-        $args = array();
+        
         foreach($go[0] as $ar) {
-            
             $args[substr($ar[0],2)] = $ar[1];
         }
         if (!file_exists($args['dump-dir'])) {
