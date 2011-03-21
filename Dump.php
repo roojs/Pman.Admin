@@ -285,7 +285,7 @@ class Pman_Admin_Dump extends Pman {
             }
         }
         
-        print_R($children);exit;
+        print_R($this->dscan);exit;
         
         
         
