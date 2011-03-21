@@ -129,10 +129,22 @@ class Pman_Admin_Dump extends Pman {
         $links = $x->links();
         $cols = array_keys($links);
         $keys = $x->keys();
-        
+        $cols = array_push($cols, $key[0])
         print_r($keys); exit;
         
         $x->selectAdd();
+        $x->selectAdd('`'.  implode('`,`', $cols) . '`');
+        $x->find();
+        while ($x->fetch()) {
+            foreach($cols as $k) {
+                if (empty($x->$k)) { // skip blanks.
+                    continue;
+                }
+                
+                
+            }
+            
+        }
         
         
         
