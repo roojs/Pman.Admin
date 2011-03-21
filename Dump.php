@@ -417,14 +417,10 @@ class Pman_Admin_Dump extends Pman {
     function generateInsert()
     {
         $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.sql';
-        $out[] = $target;
+        $this->out[] = $target;
         $fh = fopen($target,'w');
          
-         
-            fwrite($this->fh, $this->toInsert($x));
-            $this->dumpChildren($x);
-            
-        }
+          
         
         
         foreach($this->dumps as $tbl => $ar) {
