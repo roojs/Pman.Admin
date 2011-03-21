@@ -132,7 +132,14 @@ class Pman_Admin_Dump extends Pman {
         }
         DB_DataObject::debugLevel(1);
         $x = DB_DataObject::factory($table);
-          $keys = $x->keys();
+        if (PEAR::isError($x)) {
+            if (isset($this->dumps[$table])) {
+                unset($this->dumps[$table]); // links to non-existant tables..
+            }
+            return;
+        }
+        
+        $keys = $x->keys();
           
         if (is_array( $where)) {
             $x->whereAddIn($keys[0] , $where, 'int');
