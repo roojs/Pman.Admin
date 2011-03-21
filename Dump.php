@@ -353,12 +353,26 @@ class Pman_Admin_Dump extends Pman {
             $do = DB_DataObject::factory($tbl);
             $tbl = $do->tableName();
             $keys = $do->keys();
-         
+            $key = $keys[0];
             $do->whereAddIn($keys[0] , array_keys($ar), 'int');
             $do->find();
+            $archivePaths = method_exists($do,'archivePaths');
+            $listThumbs = method_exists($do,'listThumbs');
             while ($do->fetch()) {
                 
-                
+                if ($archivePaths) {
+                    $ct = $do->archivePaths();
+                    if ($ct) {
+                        $this->childfiles[$tbl.':'. $do->{$key}] = $ct;
+                    }
+                }
+                if ($listThumbs) {
+                    $ct = $do->listThumbs();
+                    if($ct) {
+                        $this->childthumbs[$kid] = $ct;
+                    }
+                }
+            
                 
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
