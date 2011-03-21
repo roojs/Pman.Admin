@@ -429,7 +429,7 @@ class Pman_Admin_Dump extends Pman {
         $leftq     = '';
         $rightq    = '';
         
-        
+        $table = $do->tableName();
         
          
         foreach(  $items  as $k=>$v)
