@@ -90,7 +90,7 @@ class Pman_Admin_Dump extends Pman {
         
         $this->args = $args;
         $this->out = array();
-        $this->discover();
+        $this->discover($this->args['table'], $this->args['where']);
         
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
