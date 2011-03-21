@@ -67,7 +67,7 @@ class Pman_Admin_Dump extends Pman {
         if (is_object($go)) {
             die($go->toString());
         }
-         
+        print_r($go);exit;
         $args = array();
         foreach($go[0] as $ar) {
             
