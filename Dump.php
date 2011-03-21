@@ -321,7 +321,7 @@ class Pman_Admin_Dump extends Pman {
                 }
             }
         }
-        
+        exit;
         
         // now iterate throught dependants. and scan them.
         
