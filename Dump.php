@@ -68,7 +68,7 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         array_shift($argv);
         
-        $opts = explode(',', 'table==,where==,dump-dir==');
+        $opts = explode(',', 'table==,where==,dump-dir==,dump-dir=');
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt2($argv, '', $opts );
         if (is_object($go)) {
@@ -80,6 +80,9 @@ class Pman_Admin_Dump extends Pman {
         }
         $errs = array();
         foreach($opts as $req) {
+            if (substr($req,-2, 2) != '==') { // skip optional arguments
+                continue;
+            }
             if (empty($args[substr($req,0, -2)])) {
                 $errs[] = "--".substr($req,0, -2) . ' is required';
             }
