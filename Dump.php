@@ -415,6 +415,7 @@ class Pman_Admin_Dump extends Pman {
         
       
         $done = array();
+        $donedir  = array();
         foreach($this->childfiles as  $v) {
             
             if (isset($done[$v[1]])) {
@@ -425,10 +426,15 @@ class Pman_Admin_Dump extends Pman {
             
             $this->filesize += filesize($v[0].'/'.$v[1]);
             $this->filetotal++;
-            fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
+            $fdir = dirname($this->args['dump-dir'] .'/'.$v[1]);
+            if (!isset($donedir[$fdir])) { 
+                fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
+            }
             fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) ."\n" );
-            
-            fwrite($fh3,"mkdir -p " . escapeshellarg(dirname($v[0].'/'.$v[1])) ."\n" );
+            if (!isset($donedir[$fdir])) { 
+                fwrite($fh3,"mkdir -p " . escapeshellarg(dirname($v[0].'/'.$v[1])) ."\n" );
+            }
+            $donedir[$fdir] = true;
             fwrite($fh3,"cp " .  escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
             
             fwrite($fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
