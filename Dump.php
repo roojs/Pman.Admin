@@ -126,7 +126,7 @@ class Pman_Admin_Dump extends Pman {
         if ($is_delete && !isset($this->deletes[$table])) {
             $this->deletes[$table] = array();
         }
-        
+        DB_DataObject::debugLevel(1);
         $x = DB_DataObject::factory($table);
         
         $x->whereAdd($where);
