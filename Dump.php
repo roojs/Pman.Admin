@@ -460,8 +460,8 @@ class Pman_Admin_Dump extends Pman {
             }
             $rightq .= ' ' . intval($do->$k) . ' ';
         }
-        $table = ($quoteIdentifiers ? $DB->quoteIdentifier($do->__table)    : $do->__table);
-        return "INSERT INTO {$table} ($leftq) VALUES ($rightq);\n";
+        
+        return "INSERT INTO `{$table}` ($leftq) VALUES ($rightq);\n";
         
     }
     
