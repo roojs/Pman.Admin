@@ -414,6 +414,18 @@ class Pman_Admin_Dump extends Pman {
         fclose($fh2);
     }
      
+    function generateInsert()
+    {
+        foreach($this->dumps as $tbl => $ar) {
+            
+            
+            
+        }
+        
+        
+    }
+
+    
       
     /**
      * toInsert - does not handle NULLS... 
