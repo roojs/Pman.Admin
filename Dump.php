@@ -416,7 +416,31 @@ class Pman_Admin_Dump extends Pman {
      
     function generateInsert()
     {
+        $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.sql';
+        $out[] = $target;
+        $fh = fopen($target,'w');
+         
+         
+            fwrite($this->fh, $this->toInsert($x));
+            $this->dumpChildren($x);
+            
+        }
+        
+        
         foreach($this->dumps as $tbl => $ar) {
+            if (empty($ar)) {
+                continue;
+            }
+            $do = DB_DataObject::factory($table);
+             
+            $keys = $do->keys();
+         
+            $do->whereAddIn($keys[0] , $ar, 'int');
+            $do->find();
+            while ($do->fetch()) {
+                fwrite($fh,$this->toInsert($do));
+            }
+            
             
             
             
