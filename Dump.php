@@ -127,7 +127,11 @@ class Pman_Admin_Dump extends Pman {
         // a) id's of elements in this table
         // b) columns which point to other tables..
         $links = $x->links();
+        $cols = array_keys($links);
+        $x->selectAdd()
+        
         print_r($links); exit;
+        
         
         
         
