@@ -300,8 +300,8 @@ class Pman_Admin_Dump extends Pman {
             print_R($children);
         }
         if (empty($children[$table])) {
-            // BLANK deletes???
-            return;
+            $children[$table] = array();
+        
         }
         $do->selectAdd();
         $key = $keys[0];
@@ -313,7 +313,7 @@ class Pman_Admin_Dump extends Pman {
             if (!isset($this->deletes[$table][$do->$key])) {
                 $this->deletes[$table][$do->$key] = 0;
             }
-           
+           if (!empty($children[$table])) {
             foreach($children[$table] as $kv=>$t) {
                 if (!isset($this->dscan[$kv])) {
                     $this->dscan[$kv] = array();
