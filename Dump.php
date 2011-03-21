@@ -300,13 +300,16 @@ class Pman_Admin_Dump extends Pman {
                     $ar[] = $id;
                 }
             }
-            $kv = 
-            if (!empty($ar)) {
-                
+            
+            if (empty($ar)) {
+                continue;
                 
             }
+            list($k, $v) = explode(':', $kv);
+            $this->discoverChildren($k, $ar, $v);
             
         }
+        
         
         
         
