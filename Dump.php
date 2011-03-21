@@ -419,6 +419,7 @@ class Pman_Admin_Dump extends Pman {
             if (isset($done[$v[1]])) {
                 continue;
             }
+            $done[$v[1]] = true;
             
             $fs += filesize($v[0].'/'.$v[1]);
             fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
