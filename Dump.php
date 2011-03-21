@@ -288,7 +288,7 @@ class Pman_Admin_Dump extends Pman {
         while ($do->fetch()) {
             $this->dumps[$table][$do->id] = 0;
             if (!isset($this->deletes[$table][$do->$key])) {
-                $this->deletes[$table][$do->key] = 0;
+                $this->deletes[$table][$do->$key] = 0;
             }
            
             foreach($children[$table] as $kv=>$t) {
