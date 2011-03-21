@@ -276,7 +276,7 @@ class Pman_Admin_Dump extends Pman {
         $key = $keys[0];
         while ($do->fetch()) {
             foreach($children[$table] as $kv=>$t) {
-                if (!isset($this->dscan[$add][$kv])) {
+                if (!isset($this->dscan[$kv])) {
                     $this->dscan[$kv] = array();
                 }
                 if (!isset($this->dscan[$add][$kv][$do->$key])) {
