@@ -125,7 +125,7 @@ class Pman_Admin_Dump extends Pman {
             echo "   " .$tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
         }
         echo "FILES:"
-        echo "   Total : ". count($this->childfiles) . " using " . floor($this->filesize/1000000) . "Mb\n";
+        echo "   Total : " . count($this->childfiles) . " using " . floor($this->filesize/1000000) . "Mb\n";
         
         echo "GENERATED FILES:\n";
         // summary
