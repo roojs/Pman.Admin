@@ -181,9 +181,10 @@ class Pman_Admin_Dump extends Pman {
                 if (empty($this->dumps[$table][$x->$k])) {
                     $this->dumps[$table][$x->$k] = 1; // we have checked this one...
                 }
-                if ($is_delete) {
-                    $this->deletes[$table][$x->$k] = 0 ; // not checked yet..
-                }
+                //if ($is_delete && !isset($this->deletes[$table][$x->$k])) {
+                //    
+                //    $this->deletes[$table][$x->$k] = 0 ; // not checked yet..
+                //}
                 
                 
             }
@@ -246,6 +247,8 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
+        
+        
         print_R($children);exit;
         
         
