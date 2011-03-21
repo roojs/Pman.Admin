@@ -339,7 +339,6 @@ class Pman_Admin_Dump extends Pman {
             foreach($ar as $id => $deleted) {}
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
-             
         }
         fclose($fh);
     }
