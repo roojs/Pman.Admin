@@ -71,6 +71,16 @@ class Pman_Admin_Dump extends Pman {
         foreach($go[0] as $ar) {
             $args[substr($ar[0],2)] = $ar[1];
         }
+        $errs = array();
+        foreach($opts as $req) {
+            if (empty($args[substr($req,0, -2)])) {
+                $errs[] = "--".substr($req,0, -2) . ' is required';
+            }
+        }
+        if (!empty($errs)) {
+            die(print_R($errs,true));
+        }
+        
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
         }
