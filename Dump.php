@@ -107,9 +107,33 @@ class Pman_Admin_Dump extends Pman {
       
          
     }
-        
-        
      
+    var $deletes = array(); // TABLE => [key] => TRUE|FALSE
+    var $dumps = array(); // TABLE => [key] => TRUE|FALSE
+    
+    /**
+     * scan table for
+     * a) what depends on it (eg. child elements) - which will be deleted.
+     * b) what it depends on it (eg. parent elements) - which will be dumped..
+     */
+        
+    function discover()
+    {
+        $x = DB_DataObject::factory($args['table']);
+        
+        
+        $x->whereAdd($this->args['where']);
+        // what we need
+        // a) id's of elements in this table
+        // b) columns which point to other tables..
+        $links = $x->links();
+        print_r($links); exit;
+        
+        
+        
+        
+    }
+    function oldStuff() {
         
        
         
