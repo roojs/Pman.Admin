@@ -395,7 +395,7 @@ class Pman_Admin_Dump extends Pman {
             if (empty($ar)) {
                 continue;
             }
-            $do = DB_DataObject::factory($table);
+            $do = DB_DataObject::factory($tbl);
              
             $keys = $do->keys();
          
