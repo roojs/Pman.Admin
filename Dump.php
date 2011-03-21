@@ -130,7 +130,7 @@ class Pman_Admin_Dump extends Pman {
     var $deletes = array(); // TABLE => [key] => TRUE|FALSE
     var $dumps = array(); // TABLE => [key] => TRUE|FALSE - if it's been scanned..
     var $dscan = array(); // TABLE:COL => [value => TRUE|FALSE] - if its been scanned..
-    var $childfiles = array(); // array of [ 'sourcedirectory' , 'subdirectory with filename' ]
+    var $childfiles = array(); // array of [ 'sourcedirectory' , 'subdirectory(s) and filename' ]
     var $childthumbs = array(); // array of [ 'filename', 'filename' ,......]
     /**
      * scan table for
