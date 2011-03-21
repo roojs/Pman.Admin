@@ -336,7 +336,7 @@ class Pman_Admin_Dump extends Pman {
             $do = DB_DataObject::factory($tbl);
             $keys = $do->keys();
             $key = $keys[0];
-            foreach($ar as $id => $deleted) {}
+            foreach($ar as $id => $deleted) { 
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
         }
