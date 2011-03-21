@@ -118,7 +118,7 @@ class Pman_Admin_Dump extends Pman {
         }
         echo "GENERATED FILES:\n";
         // summary
-        echo "    ". implode("   \n", $this->out). "\n";
+        echo "    ". implode("\n    ", $this->out). "\n";
         
         
         exit;
