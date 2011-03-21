@@ -128,14 +128,20 @@ class Pman_Admin_Dump extends Pman {
         }
         //DB_DataObject::debugLevel(1);
         $x = DB_DataObject::factory($table);
+          $keys = $x->keys();
+          
+        if (is_array( $where)) {
+            $x->whereAddIn($keys[0] , $where, 'int');
+        } else {
         
-        $x->whereAdd($where);
+            $x->whereAdd($where);
+        }
         // what we need
         // a) id's of elements in this table
         // b) columns which point to other tables..
         $links = $x->links();
         $cols = array_keys($links);
-        $keys = $x->keys();
+      
          array_push($cols, $keys[0]);
          
         
@@ -170,6 +176,16 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
+        
+        // itterate through dumps to find what needs discovering
+        foreach($this->dumps as $k=>$v) {
+            $ar = 
+            
+            
+        }
+        
+        
+        
         
         print_r($this->dumps);
         exit;
