@@ -414,100 +414,11 @@ class Pman_Admin_Dump extends Pman {
         fclose($fh2);
     }
      
-    
-    
-    var $children = array(); // map of search->checked
-    var $childscanned = array();
-    var $childfiles = array();
-    var $childthumbs = array();
-    function dumpChildren($do)
-    {
-        $kcol = array_shift($do->keys());
-        $kid = $do->tableName() . ':' . $kcol . ':' . $do->{$kcol};
-        if (isset($this->childscanned[$kid])) {
-            return;
-        }
-        $this->childscanned[$kid] = true;
-        
-        if (method_exists($do,'archivePaths')) {
-            $ct = $do->archivePaths();
-            if ($ct) {
-                $this->childfiles[$kid] = $ct;
-            }
-        }
-        if (method_exists($do,'listThumbs')) {
-            $ct = $do->listThumbs();
-            if($ct) {
-                $this->childthumbs[$kid] = $ct;
-            }
-        }
-        
-        global $_DB_DATAOBJECT;
-        $do->links();; //force load
-        $tn = $do->tableName();
-        
-        
-        foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
-            // hack.. - we should get rid of this hack..
-            if ($tbl == 'database__render') {
-                continue;
-            }
-            //if ($tbl == $tn) { // skip same table 
-            //    continue;
-            //}
-            foreach ($links as $tk => $kv) {
-                
-               // var_dump($tbl);
-                list($k,$v) = explode(':', $kv);
-                if ($k != $tn) {
-                    continue;
-                }
-                $add = implode(':', array($tbl, $tk, $do->$v));
-                //echo "ADD $tbl $tk=>$kv : $add\n";
-                $this->children[$add] = 0;
-                
-            }
-            
-        }
-       // print_r($this->children);exit;
-        $ch = $this->children ;
-        
-        $todo = array();
-        foreach($ch as $s=>$status) {
-            if ($this->children[$s]) {
-                continue;
-            }
-            // flag it as being done, so we do not recurse..
-            $this->children[$s] = 1;
-            
-            list($tbl, $key, $val) = explode(':', $s);
-            $dd = DB_DataObject::factory($tbl);
-            $dd->$key = $val;
-            $dd->find();
-            
-            while ($dd->fetch()) {
-                $todo [] = clone($dd);
-                // if we have dumped this already.. ignore it..
-                
-            }
-            
-            
-        }
-        foreach($todo as $dd) {
-            fwrite($this->fh, $this->toInsert($dd));
-            $this->dumpChildren($dd);
-        }
-        
-        
-        
-    }
-    
- 
-    var $dumped  = array();
+      
     /**
      * toInsert - does not handle NULLS... 
      */
-    function toInsert($do)
+    function toInsert($do, $ar)
     {
          $kcol = array_shift($do->keys());
         $kid = $do->tableName() . ':' . $kcol . ':' . $do->{$kcol};
