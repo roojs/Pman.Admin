@@ -105,8 +105,19 @@ class Pman_Admin_Dump extends Pman {
         $this->generateInsert();
         $this->generateDelete();
         $this->generateShell();
-           
+
+        echo "DELETING";
+        foreach($this->deletes as $tbl => $ar) {
+            echo $table . ' -> ' . count(array_keys($ar) . "Records\n";
+        }
+        echo "DUMPING";
+        foreach($this->dumps $tbl => $ar) {
+            echo $table . ' -> ' . count(array_keys($ar) . "Records\n";
+        }
         echo "GENERATED FILES:";
+        // summary
+        
+        
         print_r($this->out);
         exit;
         
