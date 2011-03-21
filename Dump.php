@@ -277,10 +277,10 @@ class Pman_Admin_Dump extends Pman {
         while ($do->fetch()) {
             foreach($children[$table] as $kv=>$t) {
                 if (!isset($this->dscan[$add][$kv])) {
-                    $this->dscan[$add][$kv] = array();
+                    $this->dscan[$kv] = array();
                 }
                 if (!isset($this->dscan[$add][$kv][$do->$key])) {
-                    $this->dscan[$add][$kv][$do->$key]= 0; // unscanned.
+                    $this->dscan[$kv][$do->$key]= 0; // unscanned.
                 }
             }
         }
