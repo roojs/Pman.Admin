@@ -279,7 +279,7 @@ class Pman_Admin_Dump extends Pman {
                 if (!isset($this->dscan[$kv])) {
                     $this->dscan[$kv] = array();
                 }
-                if (!isset($this->dscan[$add][$kv][$do->$key])) {
+                if (!isset($this->dscan[$kv][$do->$key])) {
                     $this->dscan[$kv][$do->$key]= 0; // unscanned.
                 }
             }
