@@ -170,7 +170,7 @@ class Pman_Admin_Dump extends Pman {
                     continue;
                 }
                 // assume it's the key..
-                if (!isset($this->dumps[$table][$x->$k])) {
+                if (empty($this->dumps[$table][$x->$k])) {
                     $this->dumps[$table][$x->$k] = true; // we have checked this one...
                 }
                 if ($is_delete) {
