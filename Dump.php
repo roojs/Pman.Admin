@@ -90,7 +90,9 @@ class Pman_Admin_Dump extends Pman {
         if (!empty($errs)) {
             die(print_R($errs,true));
         }
-        
+        if (!empty($args['debug'])) {
+            DB_DataObject::debugLevel($args['debug']);
+        }
         $this->args = $args;
         $this->out = array();
         $this->discoverChildren($this->args['table'], $this->args['where'], true);
