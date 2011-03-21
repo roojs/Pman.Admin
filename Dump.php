@@ -222,7 +222,7 @@ class Pman_Admin_Dump extends Pman {
     function discoverChildren($table, $where  )
     {
         global $_DB_DATAOBJECT;
-         $x = DB_DataObject::factory($table);
+        $do = DB_DataObject::factory($table);
         if (PEAR::isError($do)) {
             if (isset($this->dumps[$table])) {
                 unset($this->dumps[$table]); // links to non-existant tables..
@@ -239,33 +239,45 @@ class Pman_Admin_Dump extends Pman {
             $do->whereAdd($where);
         }
         
+        static $children = array();
         
-        // force load of linsk
-        $do->links();
-        foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
-            // hack.. - we should get rid of this hack..
-            if ($tbl == 'database__render') {
-                continue;
-            }
-            //if ($tbl == $tn) { // skip same table 
-            //    continue;
-            //}
-            foreach ($links as $tk => $kv) {
-                
-               // var_dump($tbl);
-                list($k,$v) = explode(':', $kv);
-                if ($k != $table) {
+        if (!isset($children[$table])) { 
+            
+            // force load of linsk
+            $do->links();
+            foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
+                // hack.. - we should get rid of this hack..
+                if ($tbl == 'database__render') {
                     continue;
                 }
-                $add = implode(':', array($tbl, $tk));
-                //echo "ADD $tbl $tk=>$kv : $add\n";
-                $children[$add] = array();
+                //if ($tbl == $tn) { // skip same table 
+                //    continue;
+                //}
+                foreach ($links as $tk => $kv) {
+                    
+                   // var_dump($tbl);
+                    list($k,$v) = explode(':', $kv);
+                    if ($k != $table) {
+                        continue;
+                    }
+                    $add = implode(':', array($tbl, $tk));
+                    //echo "ADD $tbl $tk=>$kv : $add\n";
+                    $children[$table][$add] = array();
+                    
+                }
                 
             }
+        }
+        if (empty($children[$table])) {
+            // BLANK deletes???
+            return;
+        }
+        $do->find();
+        while ($do->fetch) {
+            
+            
             
         }
-        
-        while ($do->fech)
         
         print_R($children);exit;
         
