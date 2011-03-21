@@ -273,8 +273,9 @@ class Pman_Admin_Dump extends Pman {
             return;
         }
         $do->find();
-        while ($do->fetch) {
-            
+        while ($do->fetch()) {
+            foreach($children[$table] as $kv=>$cols)
+                $this->dscan[]
             
             
         }
