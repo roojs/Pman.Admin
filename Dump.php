@@ -106,13 +106,13 @@ class Pman_Admin_Dump extends Pman {
         $this->generateDelete();
         $this->generateShell();
 
-        echo "DELETING";
+        echo "DELETING:\n";
         foreach($this->deletes as $tbl => $ar) {
-            echo $tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
+            echo "   " .$tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
         }
-        echo "DUMPING";
+        echo "DUMPING:\n";
         foreach($this->dumps as $tbl => $ar) {
-            echo $tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
+            echo "   " .$tbl . ' -> ' . count(array_keys($ar)) . " Records\n";
         }
         echo "GENERATED FILES:";
         // summary
