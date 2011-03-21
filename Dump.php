@@ -37,6 +37,11 @@
  *
  *      DataObjects->archivePaths() - returns array ( sourcedirectory, remainder of path to dependant file )
  *      DataObjects->listThumbs() - returns array ( list of full path to thumbnail urls. )
+ *
+ *
+ *  DISCOVERY
+ *    
+ *
  * 
  */
 
@@ -52,7 +57,9 @@ class Pman_Admin_Dump extends Pman {
         }
         
     }
+    var $args = array();
     var $deps = array(); // list of dependants
+    var $out = array(); // list of created sql/shell scripts.
     
     function get($path )
     {
@@ -80,9 +87,23 @@ class Pman_Admin_Dump extends Pman {
             die(print_R($errs,true));
         }
         
+        $this->args = $args;
+        
+        $this->discover();
+        
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
         }
+         
+        $this->generateInsert();
+        $this->generateDelete();
+        $this->generateCopyFiles();
+        $this->generateDeleteFiles();
+        $this->generateRestoreFiles();
+    }
+        
+        
+     
         
         $out = array();
         
