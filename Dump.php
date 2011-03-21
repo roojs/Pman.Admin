@@ -272,7 +272,7 @@ class Pman_Admin_Dump extends Pman {
         static $children = array();
         
         if (!isset($children[$table])) { 
-            
+            $children[$table] = array();
             // force load of linsk
             $do->links();
             foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
@@ -299,9 +299,7 @@ class Pman_Admin_Dump extends Pman {
             }
             print_R($children);
         }
-        if (empty($children[$table])) {
-            $children[$table] = array();
-        }
+         
         $do->selectAdd();
         $key = $keys[0];
         $do->selectAdd($key);
