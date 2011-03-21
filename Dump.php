@@ -286,7 +286,7 @@ class Pman_Admin_Dump extends Pman {
         $do->selectAdd($key);
         $do->find();
         while ($do->fetch()) {
-            $this->dumps[$table][$do->id] = 0;
+            $this->dumps[$table][$do->$key] = 0;
             if (!isset($this->deletes[$table][$do->$key])) {
                 $this->deletes[$table][$do->$key] = 0;
             }
