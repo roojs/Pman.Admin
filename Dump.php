@@ -280,7 +280,7 @@ class Pman_Admin_Dump extends Pman {
             // BLANK deletes???
             return;
         }
-        
+        DB_DataObject::debugLevel(1);
         $do->selectAdd();
         $key = $keys[0];
         $do->selectAdd($key);
