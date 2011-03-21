@@ -242,7 +242,7 @@ class Pman_Admin_Dump extends Pman {
      
     function discoverChildren($table, $where, $col=false  )
     {
-        echo "discoverChildren:$table:". (is_array($where) ? implode(',', $where) : $where ). "\n";
+        echo "discoverChildren:$table:$col:". (is_array($where) ? implode(',', $where) : $where ). "\n";
         global $_DB_DATAOBJECT;
         $do = DB_DataObject::factory($table);
         if (PEAR::isError($do)) {
