@@ -273,8 +273,12 @@ class Pman_Admin_Dump extends Pman {
             // BLANK deletes???
             return;
         }
-        $do->find();
+        
+        $do->selectAdd();
         $key = $keys[0];
+        $do->selectAdd($key);
+        $do->find();
+        
         while ($do->fetch()) {
             $this->dumps[$table][$do->id] = 0;
             if (!isset($this->deletes[$table][$do->key])) {
