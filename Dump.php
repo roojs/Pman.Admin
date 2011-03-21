@@ -188,6 +188,14 @@ class Pman_Admin_Dump extends Pman {
             }
             
         }
+        // flag as checked if we where given an array.. - as some links might have been broken.
+        if (is_array($where)) {
+            foreach($where as $k) {
+                $this->dumps[$k] = 1;
+            }
+        }
+        
+        
          print_R($this->dumps); 
         // itterate through dumps to find what needs discovering
         foreach($this->dumps as $k=>$v) {
