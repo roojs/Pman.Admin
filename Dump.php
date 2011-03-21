@@ -417,7 +417,7 @@ class Pman_Admin_Dump extends Pman {
     /**
      * toInsert - does not handle NULLS... 
      */
-    function toInsert($do, $ar)
+    function toInsert($do)
     {
         $kcol = array_shift($do->keys());
          
