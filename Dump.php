@@ -144,6 +144,7 @@ class Pman_Admin_Dump extends Pman {
     var $childfiles = array(); // array of [ 'sourcedirectory' , 'subdirectory(s) and filename' ]
     var $childthumbs = array(); // array of [ 'filename', 'filename' ,......]
     var $filesize = 0; // size of files to be saved. (not total deletd..)
+    var $filetotal = 0; // number of distinct files to be saved (not total deleted)
     /**
      * scan table for
      * a) what depends on it (eg. child elements) - which will be deleted.
@@ -412,16 +413,18 @@ class Pman_Admin_Dump extends Pman {
         $this->out[] = $target;
         $fh3 = fopen($target, 'w');
         
-        $fs = 0;
+      
         $done = array();
         foreach($this->childfiles as  $v) {
             
             if (isset($done[$v[1]])) {
                 continue;
             }
+            
             $done[$v[1]] = true;
             
-            $fs += filesize($v[0].'/'.$v[1]);
+            $this->filesize += filesize($v[0].'/'.$v[1]);
+            $this->filetotal++;
             fwrite($fh,"mkdir -p " . escapeshellarg(dirname($this->args['dump-dir'] .'/'.$v[1])) ."\n" );
             fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) ."\n" );
             
@@ -432,8 +435,7 @@ class Pman_Admin_Dump extends Pman {
         }
         fclose($fh);
         fclose($fh3); // restore does not need to bother with thumbnails.
-        
-        $this->filesize = $fs;
+         ;
         
         
         foreach($this->childthumbs as  $v) {
