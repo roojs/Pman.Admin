@@ -91,7 +91,7 @@ class Pman_Admin_Dump extends Pman {
         $this->args = $args;
         $this->out = array();
         $this->discover($this->args['table'], $this->args['where'], true);
-        
+        $this->discoverChildren($this->args['table'], $this->args['where'], true);
         print_r($this->dumps);
         exit;
         
