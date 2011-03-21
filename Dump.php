@@ -64,6 +64,9 @@ class Pman_Admin_Dump extends Pman {
     
     function get($path )
     {
+        ini_set('memory_limit', '256M'); // we need alot of memory
+        set_time_limit(0);
+        
         $argv = $_SERVER['argv'];
         array_shift($argv);
         array_shift($argv);
