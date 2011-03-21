@@ -211,14 +211,45 @@ class Pman_Admin_Dump extends Pman {
         }
         
         
+         
         
         
-      
+    }
+    
+     
+    function discoverChildren($table, $where, $is_delete = false )
+    {
+        
+        $do = DB_DataObject::factory($table);
+        foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
+            // hack.. - we should get rid of this hack..
+            if ($tbl == 'database__render') {
+                continue;
+            }
+            //if ($tbl == $tn) { // skip same table 
+            //    continue;
+            //}
+            foreach ($links as $tk => $kv) {
+                
+               // var_dump($tbl);
+                list($k,$v) = explode(':', $kv);
+                if ($k != $tn) {
+                    continue;
+                }
+                $add = implode(':', array($tbl, $tk, $do->$v));
+                //echo "ADD $tbl $tk=>$kv : $add\n";
+                $children[$add] = 0;
+                
+            }
+            
+        }
+        print_R($children);exit;
         
         
         
         
     }
+    
     function oldStuff() {
         
        
