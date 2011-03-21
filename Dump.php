@@ -130,6 +130,8 @@ class Pman_Admin_Dump extends Pman {
     var $deletes = array(); // TABLE => [key] => TRUE|FALSE
     var $dumps = array(); // TABLE => [key] => TRUE|FALSE - if it's been scanned..
     var $dscan = array(); // TABLE:COL => [value => TRUE|FALSE] - if its been scanned..
+    var $childfiles = array(); //
+    var $childthumbs =
     /**
      * scan table for
      * a) what depends on it (eg. child elements) - which will be deleted.
@@ -397,7 +399,7 @@ class Pman_Admin_Dump extends Pman {
         $fh3 = fopen($target, 'w');
         
         
-        foreach($this->childfiles as $s=>$v) {
+        foreach($this->childfiles as  $v) {
             fwrite($fh,"mkdir -p " . escapeshellarg(dirname($args['dump-dir'] .'/'.$v[1])) ."\n" );
             fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
             
@@ -411,7 +413,7 @@ class Pman_Admin_Dump extends Pman {
         
         
         
-        foreach($this->childthumbs as $s=>$v) {
+        foreach($this->childthumbs as  $v) {
             foreach($v as $vv) { 
                 fwrite($fh2,"rm " . escapeshellarg($vv). "\n");
             }
