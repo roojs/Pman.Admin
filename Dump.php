@@ -88,7 +88,7 @@ class Pman_Admin_Dump extends Pman {
         }
         
         $this->args = $args;
-        
+        $this->out = array();
         $this->discover();
         
         if (!file_exists($args['dump-dir'])) {
@@ -97,15 +97,21 @@ class Pman_Admin_Dump extends Pman {
          
         $this->generateInsert();
         $this->generateDelete();
-        $this->generateCopyFiles();
-        $this->generateDeleteFiles();
-        $this->generateRestoreFiles();
+        $this->generateShell();
+           
+        echo "GENERATED FILES:";
+        print_r($out);
+        exit;
+        
+     
+    }
+         
     }
         
         
      
         
-        $out = array();
+       
         
         $target = $args['dump-dir'] .'/'. date('Y-m-d').'.sql';
         $out[] = $target;
@@ -138,63 +144,57 @@ class Pman_Admin_Dump extends Pman {
         }
         
         fclose($this->fh);
-        
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
-        $out[] = $target;
-        $this->fh = fopen($target, 'w');
+    }
+    
+    function generateDelete() {  
+        $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.delete.sql';
+        $this->out[] = $target;
+        $fh = fopen($target, 'w');
         foreach($this->childscanned as $s=>$v) {
             list($tbl, $key, $val) = explode(':', $s);
-            fwrite($this->fh, "DELETE FROM $tbl WHERE $key = $val;\n"); // we assume id's and nice column names...
+            fwrite($fh, "DELETE FROM $tbl WHERE $key = $val;\n"); // we assume id's and nice column names...
              
         }
-        fclose($this->fh);
+        fclose($fh);
+    }
+    function generateShell() {
         
         
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
-        $out[] = $target;
-        $this->fh = fopen($target, 'w');
+        $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.copy.sh';
+        $this->out[] = $target;
+        $fh = fopen($target, 'w');
         
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.delete.sh';
-        $out[] = $target;
-        $this->fh2 = fopen($target, 'w');
+        $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.delete.sh';
+        $this->out[] = $target;
+        $fh2 = fopen($target, 'w');
         
-        $target = $args['dump-dir'] .'/'. date('Y-m-d').'.restore.sh';
-        $out[] = $target;
-        $this->fh3 = fopen($target, 'w');
+        $target = $this->args['dump-dir'] .'/'. date('Y-m-d').'.restore.sh';
+        $this->out[] = $target;
+        $fh3 = fopen($target, 'w');
         
         
         foreach($this->childfiles as $s=>$v) {
-            fwrite($this->fh,"mkdir -p " . escapeshellarg(dirname($args['dump-dir'] .'/'.$v[1])) ."\n" );
-            fwrite($this->fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
+            fwrite($fh,"mkdir -p " . escapeshellarg(dirname($args['dump-dir'] .'/'.$v[1])) ."\n" );
+            fwrite($fh,"cp " . escapeshellarg($v[0].'/'.$v[1]) . ' ' . escapeshellarg($args['dump-dir'] .'/'.$v[1]) ."\n" );
             
-            fwrite($this->fh3,"mkdir -p " . escapeshellarg(dirname($v[0].'/'.$v[1])) ."\n" );
-            fwrite($this->fh3,"cp " .  escapeshellarg($args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
+            fwrite($fh3,"mkdir -p " . escapeshellarg(dirname($v[0].'/'.$v[1])) ."\n" );
+            fwrite($fh3,"cp " .  escapeshellarg($args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
             
-            fwrite($this->fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
+            fwrite($fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
         }
-        fclose($this->fh);
-        fclose($this->fh3); // restore does not need to bother with thumbnails.
+        fclose($fh);
+        fclose($fh3); // restore does not need to bother with thumbnails.
         
         
         
         foreach($this->childthumbs as $s=>$v) {
             foreach($v as $vv) { 
-                fwrite($this->fh2,"rm " . escapeshellarg($vv). "\n");
+                fwrite($fh2,"rm " . escapeshellarg($vv). "\n");
             }
         }
-        fclose($this->fh2);
-        echo "GENERATED FILES:";
-        print_r($out);
-        exit;
-        
-        echo "FILES TO COPY AND DELETE:"; print_r($this->childfiles);
-        echo "FILES TO DELETE:"; print_r($this->childthumbs);
-        exit;
-        echo "CHILDREN WILL BE DELETED:"; print_r($this->childscanned);
-        echo "DEPS:";print_R($this->deps);
-            
-        exit;
+        fclose($fh2);
     }
+     
     
     
     var $children = array(); // map of search->checked
