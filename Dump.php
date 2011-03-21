@@ -388,7 +388,7 @@ class Pman_Admin_Dump extends Pman {
         $this->out[] = $target;
         $fh = fopen($target,'w');
          
-          
+        print_r($this->dumps);exit;  
         
         
         foreach($this->dumps as $tbl => $ar) {
