@@ -219,8 +219,10 @@ class Pman_Admin_Dump extends Pman {
      
     function discoverChildren($table, $where  )
     {
-        
+        global $_DB_DATAOBJECT;
         $do = DB_DataObject::factory($table);
+        // force load of linsk
+        $do->links();
         foreach($_DB_DATAOBJECT['LINKS'][$do->database()] as $tbl => $links) {
             // hack.. - we should get rid of this hack..
             if ($tbl == 'database__render') {
