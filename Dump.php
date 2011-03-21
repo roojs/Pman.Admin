@@ -275,6 +275,8 @@ class Pman_Admin_Dump extends Pman {
         $do->find();
         $key = $keys[0];
         while ($do->fetch()) {
+            $this->dumps[$table][$do->id] = 0;
+            
             foreach($children[$table] as $kv=>$t) {
                 if (!isset($this->dscan[$kv])) {
                     $this->dscan[$kv] = array();
@@ -284,6 +286,10 @@ class Pman_Admin_Dump extends Pman {
                 }
             }
         }
+        
+        
+        // now iterate throught dependants. and scan them.
+        
         
         print_R($this->dscan);exit;
         
