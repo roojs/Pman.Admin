@@ -238,9 +238,9 @@ class Pman_Admin_Dump extends Pman {
                 if ($k != $table) {
                     continue;
                 }
-                $add = implode(':', array($tbl, $tk, $do->$v));
+                $add = implode(':', array($tbl, $tk));
                 //echo "ADD $tbl $tk=>$kv : $add\n";
-                $children[$add] = 0;
+                $children[$add] = array();
                 
             }
             
