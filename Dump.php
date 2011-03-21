@@ -90,7 +90,7 @@ class Pman_Admin_Dump extends Pman {
         
         $this->args = $args;
         $this->out = array();
-        $this->discover($this->args['table'], $this->args['where']);
+        $this->discover($this->args['table'], $this->args['where'], true);
         
         if (!file_exists($args['dump-dir'])) {
             mkdir($args['dump-dir'], 0777, true);
@@ -179,7 +179,13 @@ class Pman_Admin_Dump extends Pman {
         
         // itterate through dumps to find what needs discovering
         foreach($this->dumps as $k=>$v) {
-            $ar = 
+            $ar = array();
+            foreach($v as $id => $fetched) {
+                if (!$fetched) {
+                    $ar[] = $id;
+                }
+            }
+            $this->discover($k, $ar,false)
             
             
         }
