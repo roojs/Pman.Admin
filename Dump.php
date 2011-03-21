@@ -451,18 +451,12 @@ class Pman_Admin_Dump extends Pman {
      */
     function toInsert($do, $ar)
     {
-         $kcol = array_shift($do->keys());
-        $kid = $do->tableName() . ':' . $kcol . ':' . $do->{$kcol};
-        if (isset($this->dumped[$kid])) {
-            return;
-        }
-        //echo "DUMP: $kid\n";
-        $this->dumped[$kid] = true;
-        
+        $kcol = array_shift($do->keys());
+         
         // for auto_inc column we need to use a 'set argument'...
         $items = $do->table();
         //print_R($items);
-        $quoteIdentifiers  = !empty($_DB_DATAOBJECT['CONFIG']['quote_identifiers']);
+        $quoteIdentifiers  = true; //!empty($_DB_DATAOBJECT['CONFIG']['quote_identifiers']);
         // for
         $leftq     = '';
         $rightq    = '';
