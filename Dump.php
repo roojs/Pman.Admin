@@ -219,7 +219,7 @@ class Pman_Admin_Dump extends Pman {
     }
     
      
-    function discoverChildren($table, $where  )
+    function discoverChildren($table, $where, $col=false  )
     {
         global $_DB_DATAOBJECT;
         $do = DB_DataObject::factory($table);
@@ -233,7 +233,7 @@ class Pman_Admin_Dump extends Pman {
         $keys = $do->keys();
           
         if (is_array( $where)) {
-            $do->whereAddIn($keys[0] , $where, 'int');
+            $do->whereAddIn($col ? $col : $keys[0] , $where, 'int');
         } else {
         
             $do->whereAdd($where);
@@ -293,7 +293,18 @@ class Pman_Admin_Dump extends Pman {
         
         print_R($this->dscan);exit;
         foreach($this->dscan as $kv => $ids) {
-            
+            $ar = array();
+            foreach($ids as $id => $checked) {
+                if (!$checked) {
+                    $this->dscan[$kv][$id] = 1; // flag it as checked.
+                    $ar[] = $id;
+                }
+            }
+            $kv = 
+            if (!empty($ar)) {
+                
+                
+            }
             
         }
         
