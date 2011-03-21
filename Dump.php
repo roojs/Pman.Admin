@@ -320,7 +320,7 @@ class Pman_Admin_Dump extends Pman {
                 }
             }
         }
-         
+        $do->free();
          
         // now iterate throught dependants. and scan them.
         
@@ -383,6 +383,7 @@ class Pman_Admin_Dump extends Pman {
                 
                 fwrite($fh, "DELETE FROM `$tbl` WHERE `$key` = $id;\n"); // we assume id's and nice column names...
             }
+            $do->free();
         }
         fclose($fh);
     }
