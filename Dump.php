@@ -6,7 +6,8 @@
  * The format will be an SQL file...
  *
  * usage:
- *    php index.php  Admin/Dump --table=Project --col=id --value=123 --dump-dir=/directory_to_put_sql+shell files
+ *    php index.php  Admin/Dump --table=Project --where="id=123"
+ *              --dump-dir=/directory_to_put_sql+shell files
  *
  *    outputs list of generated files.
  *    
@@ -67,7 +68,7 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         array_shift($argv);
         
-        $opts = explode(',', 'table==,col==,val==,dump-dir==');
+        $opts = explode(',', 'table==,query==,dump-dir==');
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt2($argv, '', $opts );
         if (is_object($go)) {
@@ -103,8 +104,7 @@ class Pman_Admin_Dump extends Pman {
         print_r($out);
         exit;
         
-     
-    }
+      
          
     }
         
