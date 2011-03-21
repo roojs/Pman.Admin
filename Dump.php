@@ -128,9 +128,13 @@ class Pman_Admin_Dump extends Pman {
         // b) columns which point to other tables..
         $links = $x->links();
         $cols = array_keys($links);
+        $keys = $x->keys();
+        
+        print_r($keys); exit;
+        
         $x->selectAdd()
         
-        print_r($links); exit;
+        
         
         
         
