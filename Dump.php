@@ -435,8 +435,8 @@ class Pman_Admin_Dump extends Pman {
                 fwrite($fh3,"mkdir -p " . escapeshellarg(dirname($v[0].'/'.$v[1])) ."\n" );
             }
             $donedir[$fdir] = true;
-            fwrite($fh3,"cp " .  escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
             
+            fwrite($fh3,"cp " .  escapeshellarg($this->args['dump-dir'] .'/'.$v[1]) . ' ' . escapeshellarg($v[0].'/'.$v[1]) . "\n" );
             fwrite($fh2,"rm " . escapeshellarg($v[0].'/'.$v[1]) ."\n" );
         }
         fclose($fh);
