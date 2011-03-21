@@ -306,7 +306,7 @@ class Pman_Admin_Dump extends Pman {
         $do->selectAdd();
         $key = $keys[0];
         $do->selectAdd($key);
-        $do->find();
+        echo "GOT ". $do->find() ." results\n";
         //DB_DataObject::debugLevel(0);
         while ($do->fetch()) {
             $this->dumps[$table][$do->$key] = 0;
