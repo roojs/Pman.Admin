@@ -111,7 +111,7 @@ class Pman_Admin_Dump extends Pman {
             echo $table . ' -> ' . count(array_keys($ar)) . "Records\n";
         }
         echo "DUMPING";
-        foreach($this->dumps $tbl => $ar) {
+        foreach($this->dumps as $tbl => $ar) {
             echo $table . ' -> ' . count(array_keys($ar)) . "Records\n";
         }
         echo "GENERATED FILES:";
