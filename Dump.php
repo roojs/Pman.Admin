@@ -71,7 +71,7 @@ class Pman_Admin_Dump extends Pman {
         array_shift($argv);
         array_shift($argv);
         
-        $opts = explode(',', 'table==,where==,dump-dir==,dump-dir==,debug=');
+        $opts = explode(',', 'table==,where==,dump-dir==,debug=');
         require_once 'Console/Getopt.php';
         $go = Console_Getopt::getopt2($argv, '', $opts );
         if (is_object($go)) {
