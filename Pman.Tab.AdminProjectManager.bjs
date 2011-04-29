@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-10",
+    "id": "roo-file-40",
     "name": "Pman.Tab.AdminProjectManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminProjectManager",
@@ -9,10 +9,9 @@
             "fitContainer": true,
             "fitToFrame": true,
             "region": "center",
-            "title": "Projects",
+            "title": "Projects / Members",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
-            "listeners": {},
             "items": [
                 {
                     "|xns": "Roo",
