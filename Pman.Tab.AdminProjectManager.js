@@ -10,6 +10,7 @@ Pman.on('beforeload', function()
     Pman.register({
         modKey : '002-Pman.Tab.AdminProjectManager',
         module : Pman.Tab.AdminProjectManager,
+        moduleName : 'Pman.Tab.AdminProjectManager',
         region : 'center',
         parent : Pman.Tab.Admin,
         name : "Pman.Tab.AdminProjectManager",
@@ -36,7 +37,7 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
             fitContainer : true,
             fitToFrame : true,
             region : 'center',
-            title : "Projects",
+            title : "Projects / Members",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
