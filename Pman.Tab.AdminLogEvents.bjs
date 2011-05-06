@@ -275,14 +275,13 @@
                             "listeners": {}
                         },
                         {
-                            "xtype": "ColumnModel",
+                            "*prop": "colModel[]",
+                            "dataIndex": "person_name",
                             "header": "Staff",
                             "width": 150,
-                            "dataIndex": "person_name",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "listeners": {},
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "xtype": "ColumnModel",
+                            "|renderer": "function(v,x,r) { \n    return String.format('{0} &lt;{1}&gt;', v, r.data.person_email); \n}",
+                            "|xns": "Roo.grid"
                         },
                         {
                             "xtype": "ColumnModel",
