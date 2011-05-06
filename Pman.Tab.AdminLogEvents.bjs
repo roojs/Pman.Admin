@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-79",
+    "id": "roo-file-55",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -81,7 +81,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
+                                        "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n  \n}",
                                         "|render": "function (_self)\n{\n  _this.personSel = _self;\n}"
                                     },
                                     "allowBlank": true,
