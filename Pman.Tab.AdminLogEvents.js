@@ -256,7 +256,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             qtip : "Select Person ",
                             queryParam : 'query[name]',
                             selectOnFocus : true,
-                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> <{email}> </div>',
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> &lt;{email}&gt; </div>',
                             triggerAction : 'all',
                             typeAhead : true,
                             valueField : 'id',
