@@ -1030,7 +1030,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                         header : 'Staff',
                         width : 150,
                         renderer : function(v,x,r) { 
-                            return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', v, r.data.person_email); 
+                            return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', v, r.data.person_id_email); 
                         }
                     },
                     {
