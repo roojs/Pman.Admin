@@ -501,38 +501,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             listeners : {
                                 click : function()
                                 {
-                                    
-                                    _this.dialog.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
-                                }
-                            },
-                            cls : 'x-btn-text-icon',
-                            text : "Add",
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
-                        },
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            listeners : {
-                                click : function()
-                                {
-                                    
-                                    Pman.Dialog.PersonBulkAdd.show( { id : 0 } , function() {
-                                        _this.grid.footer.onClick('first');
-                                   }); 
-                                }
-                            },
-                            cls : 'x-btn-text-icon',
-                            text : "Bulk Add",
-                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
-                        },
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            listeners : {
-                                click : function()
-                                {
                                     var s = _this.grid.getSelectionModel().getSelections();
                                     if (!s.length || (s.length > 1))  {
                                         Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
