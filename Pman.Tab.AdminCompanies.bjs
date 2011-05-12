@@ -6,8 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
     "items": [
         {
-            "|xns": "Roo",
+            "title": "Companies",
             "xtype": "NestedLayoutPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "|xns": "Roo",
