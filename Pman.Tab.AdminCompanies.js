@@ -500,6 +500,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     xns: Roo.grid,
                                     dataIndex : 'code',
                                     header : 'Ref#',
+                                    sortable : true,
                                     width : 50,
                                     renderer : function(v) { return String.format('{0}', v); }
                                 },
