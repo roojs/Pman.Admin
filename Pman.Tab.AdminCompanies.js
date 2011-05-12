@@ -40,7 +40,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                     xtype: 'LayoutRegion',
                     xns: Roo
                 },
-                center : {
+                south : {
                     xtype: 'LayoutRegion',
                     xns: Roo
                 }
