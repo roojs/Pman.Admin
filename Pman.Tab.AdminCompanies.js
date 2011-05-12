@@ -94,7 +94,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'code', direction: 'ASC' },
+                                sortInfo : { field : 'name', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
