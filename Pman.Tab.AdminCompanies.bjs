@@ -190,15 +190,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Background color",
-                            "width": 200,
-                            "dataIndex": "background_color",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Comptype",
                             "width": 200,
                             "dataIndex": "comptype",
