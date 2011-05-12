@@ -91,6 +91,11 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                        try {
                                             Pman.Tab.AdminOffice.grid.footer.onClick('refresh');
                                         } catch (e) {}
+                                    },
+                                    beforeload : function (_self, o)
+                                    {
+                                       o.params = o.params || {};
+                                       o.params['query[name]'] = _this.searchBox.getValue();
                                     }
                                 },
                                 remoteSort : true,
