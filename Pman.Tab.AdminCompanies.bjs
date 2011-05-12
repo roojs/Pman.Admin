@@ -30,9 +30,12 @@
                     "|xns": "Roo.grid",
                     "items": [
                         {
+                            "listeners": {
+                                "load": "function (_self, records, options)\n{\n   try {\n        Pman.Tab.Office.grid.footer.onClick('refresh');\n    } catch (e) {}\n}"
+                            },
                             "*prop": "dataSource",
-                            "xtype": "Store",
                             "remoteSort": true,
+                            "xtype": "Store",
                             "|sortInfo": "{ field : 'code', direction: 'ASC' }",
                             "|xns": "Roo.data",
                             "items": [
