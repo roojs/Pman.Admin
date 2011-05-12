@@ -46,7 +46,7 @@
                                     "listeners": {
                                         "|render": "function() \n{\n    _this.grid = this; \n     _this.dialog = Pman.Dialog.Companies;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
                                         "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-                                        "rowclick": "function (_self, rowIndex, e)\n{\n  try { Pman.Tab.AdminOffice.paging.onClick('refresh'); } catch(e) {}\n}"
+                                        "rowclick": "function (_self, rowIndex, e)\n{\n  try { Pman.Tab.AdminOffice.grid.footer.onClick('refresh'); } catch(e) {}\n}"
                                     },
                                     "*prop": "grid",
                                     "autoExpandColumn": "name",
