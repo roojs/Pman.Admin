@@ -95,7 +95,9 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     beforeload : function (_self, o)
                                     {
                                        o.params = o.params || {};
-                                       o.params['query[name]'] = _this.searchBox.getValue();
+                                       if (_this.searchBox) {
+                                           o.params['query[name]'] = _this.searchBox.getValue();
+                                       }
                                     }
                                 },
                                 remoteSort : true,
