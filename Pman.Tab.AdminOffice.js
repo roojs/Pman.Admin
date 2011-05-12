@@ -76,7 +76,7 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                         beforeload : function (_self, o)
                         {
                             try {
-                                var sm = Pman.Tab.Companies.grid.getSelectionModel();
+                                var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();
                                 sm = sm.getSelected();
                                 if (!sm || !sm.data.id) {
                                     // mask??
