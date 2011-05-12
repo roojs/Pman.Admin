@@ -44,7 +44,7 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
             background : true,
             fitContainer : true,
             fitToframe : true,
-            region : 'center',
+            region : 'south',
             tableName : 'Office',
             title : "Offices / Departments / Sub-Companies",
             grid : {
