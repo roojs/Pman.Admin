@@ -77,6 +77,14 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
+                        listeners : {
+                            load : function (This, o, arg)
+                            {
+                                try {
+                                    Pman.Tab.Office.grid.footer.onClick('refresh');
+                                } catch (e) {}
+                            }
+                        },
                         method : 'GET',
                         url : baseURL + '/Roo/Companies.php'
                     },
