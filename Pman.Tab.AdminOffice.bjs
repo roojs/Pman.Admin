@@ -31,7 +31,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.Companies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n }"
+                                "beforeload": "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n }"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,
