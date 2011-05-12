@@ -190,27 +190,9 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Comptype",
-                            "width": 200,
-                            "dataIndex": "comptype",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Url",
                             "width": 200,
                             "dataIndex": "url",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Main office",
-                            "width": 75,
-                            "dataIndex": "main_office_id",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
                             "*prop": "colModel[]"
