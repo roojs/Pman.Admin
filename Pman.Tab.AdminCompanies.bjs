@@ -199,15 +199,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Updated by",
-                            "width": 75,
-                            "dataIndex": "updated_by",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Updated dt",
                             "width": 75,
                             "dataIndex": "updated_dt",
