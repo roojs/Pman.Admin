@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-0",
+    "id": "roo-file-2",
     "name": "Pman.Tab.AdminContacts",
     "parent": "Pman.Tab.AdminContactsManager",
     "title": "Pman.Tab.AdminContacts",
@@ -152,6 +152,16 @@
                                 {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
+                                },
+                                {
+                                    "listeners": {
+                                        "|click": "function()\n{\n    \n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                    },
+                                    "cls": "x-btn-text-icon",
+                                    "text": "Add",
+                                    "xtype": "Button",
+                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                    "|xns": "Roo.Toolbar"
                                 },
                                 {
                                     "listeners": {
