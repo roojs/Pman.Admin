@@ -6,17 +6,17 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminOffice.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "GridPanel",
-            "title": "Office",
-            "fitToframe": true,
-            "fitContainer": true,
-            "tableName": "Office",
-            "background": true,
-            "region": "center",
             "listeners": {
                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
             },
+            "background": true,
+            "fitContainer": true,
+            "fitToframe": true,
+            "region": "center",
+            "tableName": "Office",
+            "title": "Offices / Departments / Sub-Companies",
+            "xtype": "GridPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "*prop": "grid",
