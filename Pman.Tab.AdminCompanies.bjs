@@ -95,8 +95,11 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
-                                                    "|xns": "Roo.form",
-                                                    "xtype": "TextField"
+                                                    "listeners": {
+                                                        "show": "function (_self)\n{\n_this.searchBox = _self;\n}"
+                                                    },
+                                                    "xtype": "TextField",
+                                                    "|xns": "Roo.form"
                                                 },
                                                 {
                                                     "listeners": {
