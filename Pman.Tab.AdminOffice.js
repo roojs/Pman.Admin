@@ -33,12 +33,6 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'GridPanel',
             xns: Roo,
-            title : "Office",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'Office',
-            background : true,
-            region : 'center',
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -47,6 +41,12 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            region : 'center',
+            tableName : 'Office',
+            title : "Offices / Departments / Sub-Companies",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
