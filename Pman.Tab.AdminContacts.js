@@ -635,7 +635,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 }
                             },
                             cls : 'x-btn-text-icon',
-                            text : "Deleted",
+                            text : "Delete",
                             icon : Roo.rootURL + 'images/default/tree/leaf.gif'
                         }
                     ]
