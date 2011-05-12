@@ -199,15 +199,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Created by",
-                            "width": 75,
-                            "dataIndex": "created_by",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Created dt",
                             "width": 75,
                             "dataIndex": "created_dt",
