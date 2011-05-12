@@ -387,6 +387,10 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 xns: Roo,
                                 items : [
                                     {
+                                        xtype: 'Fill',
+                                        xns: Roo.Toolbar
+                                    },
+                                    {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
                                         text : "Add",
