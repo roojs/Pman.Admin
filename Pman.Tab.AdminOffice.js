@@ -338,9 +338,9 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Address',
-                        width : 200,
                         dataIndex : 'address',
+                        header : 'Address',
+                        width : 300,
                         renderer : function(v) { return String.format('{0}', v); }
                     }
                 ]
