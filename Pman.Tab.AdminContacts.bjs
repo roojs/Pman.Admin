@@ -164,7 +164,7 @@
                                         "|click": "function()\n{\n    Pman.genericDelete(this.grid, 'Person');\n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
-                                    "text": "Edit",
+                                    "text": "Deleted",
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
                                     "|xns": "Roo.Toolbar"
