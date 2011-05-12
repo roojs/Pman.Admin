@@ -71,9 +71,11 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 rowdblclick : function (_self, rowIndex, e)
                                 {
                                     if (!_this.dialog) return;
-                                    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
+                                    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
                                         _this.grid.footer.onClick('first');
                                     }); 
+                                    
+                                    
                                 },
                                 rowclick : function (_self, rowIndex, e)
                                 {
