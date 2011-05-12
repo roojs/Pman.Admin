@@ -23,6 +23,7 @@
                         },
                         {
                             "*prop": "south",
+                            "titlebar": true,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
