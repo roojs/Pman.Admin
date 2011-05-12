@@ -77,7 +77,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 },
                                 rowclick : function (_self, rowIndex, e)
                                 {
-                                  try { Pman.Tab.AdminOffice.paging.onClick('refresh'); } catch(e) {}
+                                  try { Pman.Tab.AdminOffice.grid.footer.onClick('refresh'); } catch(e) {}
                                 }
                             },
                             autoExpandColumn : 'name',
