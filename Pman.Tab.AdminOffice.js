@@ -303,6 +303,7 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'name',
                         header : 'Name / Department / Sub Comp.',
+                        sortable : true,
                         width : 200,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
