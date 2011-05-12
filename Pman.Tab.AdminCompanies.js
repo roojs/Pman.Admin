@@ -437,7 +437,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'comptype',
                         header : 'Comptype',
-                        width : 200,
+                        width : 90,
                         renderer : function (v,x ,r) {
                             return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
                         }
