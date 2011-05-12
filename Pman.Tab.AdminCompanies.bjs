@@ -99,7 +99,8 @@
                                             "items": [
                                                 {
                                                     "listeners": {
-                                                        "show": "function (_self)\n{\n_this.searchBox = _self;\n}"
+                                                        "show": "function (_self)\n{\n_this.searchBox = _self;\n}",
+                                                        "specialkey": "function (_self, e)\n{\n if (e.getKey() == 13) {\n     _this.grid.footer.onClick( 'first' );\n  }\n}"
                                                     },
                                                     "xtype": "TextField",
                                                     "|xns": "Roo.form"
