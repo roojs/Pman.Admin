@@ -624,25 +624,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             cls : 'x-btn-text-icon',
                             text : "Edit",
                             icon : Roo.rootURL + 'images/default/tree/leaf.gif'
-                        },
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            listeners : {
-                                toggle : function (_self, pressed)
-                                {
-                                   _this.grid.footer.onClick('first');
-                                   this.setText(pressed ? "Show Active" : "Show Removed");
-                                   
-                                   
-                                },
-                                render : function (_self)
-                                {
-                                  _this.activeButton = _self;
-                                }
-                            },
-                            enableToggle : true,
-                            text : "Show Removed"
                         }
                     ]
                 },
