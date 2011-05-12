@@ -180,6 +180,7 @@
                                             "*prop": "colModel[]",
                                             "dataIndex": "name",
                                             "header": "Name",
+                                            "sortable": true,
                                             "width": 200,
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v,x,r) {\n    return String.format(r.data.isOwner ? '<B>{0}</B>' : '{0}',v);    \n}",
