@@ -84,10 +84,6 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Separator"
-                                },
-                                {
                                     "text": "Search",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
