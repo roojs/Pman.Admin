@@ -158,16 +158,6 @@
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
                                     "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    Pman.genericDelete(this.grid, 'Person');\n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Delete",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
