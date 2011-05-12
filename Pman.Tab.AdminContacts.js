@@ -631,16 +631,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             listeners : {
                                 click : function()
                                 {
-                                    var s = _this.grid.getSelectionModel().getSelections();
-                                    if (!s.length || (s.length > 1))  {
-                                        Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                                        return;
-                                    }
-                                  
-                                    _this.dialog.show(s[0].data, function() {
-                                        _this.grid.footer.onClick('first');
-                                    }); 
-                                    
+                                    Pman.genericDelete(this.grid, 'Person');
                                 }
                             },
                             cls : 'x-btn-text-icon',
