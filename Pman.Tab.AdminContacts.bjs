@@ -158,6 +158,16 @@
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
                                     "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "text": "Delete",
+                                    "cls": "x-btn-text-icon",
+                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
+                                    "xtype": "Button",
+                                    "listeners": {
+                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Companies'); \n}\n        "
+                                    },
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
