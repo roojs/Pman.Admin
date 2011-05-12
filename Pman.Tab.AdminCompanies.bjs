@@ -53,7 +53,8 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "load": "function (_self, records, options)\n{\n   try {\n        Pman.Tab.AdminOffice.grid.footer.onClick('refresh');\n    } catch (e) {}\n}"
+                                                "load": "function (_self, records, options)\n{\n   try {\n        Pman.Tab.AdminOffice.grid.footer.onClick('refresh');\n    } catch (e) {}\n}",
+                                                "beforeload": "function (_self, o)\n{\n   o.params = o.params || {};\n   o.params['query[name]'] = _this.searchBox.getValue();\n}"
                                             },
                                             "*prop": "dataSource",
                                             "remoteSort": true,
