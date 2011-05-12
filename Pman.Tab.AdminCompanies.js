@@ -483,7 +483,11 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                         dataIndex : 'email',
                         header : 'Email',
                         width : 100,
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function (v) {
+                                return (v.length && v.indexOf('@') > 0 ) ? 
+                                    String.format('<a href="mailto:{0}">{0}</a>',v) : v;
+                                    
+                            }
                     },
                     {
                         xtype: 'ColumnModel',
