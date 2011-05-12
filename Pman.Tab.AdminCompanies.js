@@ -388,7 +388,13 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 items : [
                                     {
                                         xtype: 'TextField',
-                                        xns: Roo.form
+                                        xns: Roo.form,
+                                        listeners : {
+                                            show : function (_self)
+                                            {
+                                            _this.searchBox = _self;
+                                            }
+                                        }
                                     },
                                     {
                                         xtype: 'Button',
