@@ -37,9 +37,12 @@
                             "|xns": "Roo.data",
                             "items": [
                                 {
+                                    "listeners": {
+                                        "load": "function (This, o, arg)\n{\n    try {\n        Pman.Tab.Office.grid.footer.onClick('refresh');\n    } catch (e) {}\n}"
+                                    },
                                     "*prop": "proxy",
-                                    "xtype": "HttpProxy",
                                     "method": "GET",
+                                    "xtype": "HttpProxy",
                                     "|url": "baseURL + '/Roo/Companies.php'",
                                     "|xns": "Roo.data"
                                 },
