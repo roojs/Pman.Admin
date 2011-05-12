@@ -252,7 +252,7 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                                 {
                                     if (!_this.dialog) return;
                                     
-                                     var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;
+                                    var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;
                                     _dialog.show( { 
                                         id : 0 ,
                                         company_name : cdata.name,
@@ -263,7 +263,7 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                                         email  : cdata.email
                                     } , function() {
                                         _this.grid.footer.onClick('first');
-                                   }); 
+                                   });
                                 }
                             },
                             cls : 'x-btn-text-icon',
