@@ -38,7 +38,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "load": "function (This, o, arg)\n{\n    try {\n        Pman.Tab.Office.grid.footer.onClick('refresh');\n    } catch (e) {}\n}"
+                                        "load": "function (This, o, arg)\n{\n \n}"
                                     },
                                     "*prop": "proxy",
                                     "method": "GET",
