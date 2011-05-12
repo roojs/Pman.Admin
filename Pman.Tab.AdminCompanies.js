@@ -403,6 +403,12 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                             show : function (_self)
                                             {
                                             _this.searchBox = _self;
+                                            },
+                                            specialkey : function (_self, e)
+                                            {
+                                             if (e.getKey() == 13) {
+                                                 _this.grid.footer.onClick( 'first' );
+                                              }
                                             }
                                         }
                                     },
