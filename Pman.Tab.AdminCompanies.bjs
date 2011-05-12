@@ -6,6 +6,7 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
     "items": [
         {
+            "region": "center",
             "title": "Companies",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
