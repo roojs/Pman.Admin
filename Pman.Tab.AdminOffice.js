@@ -11,8 +11,8 @@ Pman.on('beforeload', function()
         modKey : '001-Pman.Tab.AdminOffice',
         module : Pman.Tab.AdminOffice,
         region : 'center',
-        parent : false,
-        name : "unnamed module",
+        parent : Pman.Tab.AdminCompanies,
+        name : "Pman.Tab.AdminOffice",
         disabled : false, 
         permname: '' 
     });
