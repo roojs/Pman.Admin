@@ -273,9 +273,6 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Edit",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/tree/leaf.gif',
                             listeners : {
                                 click : function()
                                 {
@@ -285,12 +282,16 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                                         return;
                                     }
                                     if (!_this.dialog) return;
+                                    s[0].data.company_name = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data.name;
                                     _this.dialog.show(s[0].data, function() {
                                         _this.grid.footer.onClick('first');
                                     }); 
                                     
                                 }
-                            }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Edit",
+                            icon : Roo.rootURL + 'images/default/tree/leaf.gif'
                         },
                         {
                             xtype: 'Button',
