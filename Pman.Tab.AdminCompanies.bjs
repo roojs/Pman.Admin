@@ -209,6 +209,7 @@
                                             "*prop": "colModel[]",
                                             "dataIndex": "email",
                                             "header": "Email",
+                                            "sortable": true,
                                             "width": 100,
                                             "xtype": "ColumnModel",
                                             "|renderer": " function (v) {\n        return (v.length && v.indexOf('@') > 0 ) ? \n            String.format('<a href=\"mailto:{0}\">{0}</a>',v) : v;\n            \n    }",
