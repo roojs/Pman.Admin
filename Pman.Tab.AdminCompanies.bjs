@@ -190,15 +190,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Email",
-                            "width": 200,
-                            "dataIndex": "email",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Id",
                             "width": 75,
                             "dataIndex": "id",
