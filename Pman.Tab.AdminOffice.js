@@ -50,13 +50,11 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
-                autoExpandColumn : 'name',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
                         _this.grid = this; 
-                        //_this.dialog = Pman.Dialog.FILL_IN
+                        _this.dialog =Pman.Dialog.Office;
                         if (_this.panel.active) {
                            this.footer.onClick('first');
                         }
@@ -69,6 +67,8 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                         }); 
                     }
                 },
+                autoExpandColumn : 'name',
+                loadMask : true,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
