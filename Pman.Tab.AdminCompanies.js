@@ -588,7 +588,8 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                 },
                 south : {
                     xtype: 'LayoutRegion',
-                    xns: Roo
+                    xns: Roo,
+                    titlebar : true
                 }
             }
         });
