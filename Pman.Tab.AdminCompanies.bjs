@@ -95,6 +95,10 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
+                                                    "|xns": "Roo.form",
+                                                    "xtype": "TextField"
+                                                },
+                                                {
                                                     "|xns": "Roo.Toolbar",
                                                     "xtype": "Fill"
                                                 },
