@@ -73,7 +73,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    \n     var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    \n    var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   });\n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Add",
