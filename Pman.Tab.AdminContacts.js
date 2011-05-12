@@ -624,6 +624,19 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             cls : 'x-btn-text-icon',
                             text : "Edit",
                             icon : Roo.rootURL + 'images/default/tree/leaf.gif'
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            text : "Delete",
+                            cls : 'x-btn-text-icon',
+                            icon : rootURL + '/Pman/templates/images/trash.gif',
+                            listeners : {
+                                click : function()
+                                {
+                                     Pman.genericDelete(_this, 'Companies'); 
+                                }
+                            }
                         }
                     ]
                 },
