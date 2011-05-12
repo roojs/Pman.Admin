@@ -1,8 +1,8 @@
 {
-    "id": "roo-file-137",
+    "id": "roo-file-8",
     "name": "Pman.Tab.AdminOffice",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.AdminCompanies",
+    "title": "Pman.Tab.AdminOffice",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminOffice.bjs",
     "items": [
         {
