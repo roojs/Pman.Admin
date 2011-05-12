@@ -589,6 +589,8 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                 south : {
                     xtype: 'LayoutRegion',
                     xns: Roo,
+                    height : 150,
+                    split : true,
                     titlebar : true
                 }
             }
