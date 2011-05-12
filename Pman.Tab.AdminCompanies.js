@@ -536,6 +536,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     xns: Roo.grid,
                                     dataIndex : 'email',
                                     header : 'Email',
+                                    sortable : true,
                                     width : 100,
                                     renderer : function (v) {
                                             return (v.length && v.indexOf('@') > 0 ) ? 
