@@ -404,7 +404,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                         listeners : {
                                             show : function (_self)
                                             {
-                                            _this.searchBox = _self;
+                                            
                                             },
                                             specialkey : function (_self, e)
                                             {
