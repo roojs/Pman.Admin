@@ -41,12 +41,6 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                     {
                         xtype: 'GridPanel',
                         xns: Roo,
-                        title : "Companies",
-                        fitToframe : true,
-                        fitContainer : true,
-                        tableName : 'Companies',
-                        background : true,
-                        region : 'center',
                         listeners : {
                             activate : function() {
                                 _this.panel = this;
@@ -55,6 +49,12 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 }
                             }
                         },
+                        background : true,
+                        fitContainer : true,
+                        fitToframe : true,
+                        region : 'center',
+                        tableName : 'Companies',
+                        title : "Companies",
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
