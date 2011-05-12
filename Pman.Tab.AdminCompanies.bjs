@@ -109,7 +109,8 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "comptype",
-                            "header": "Comptype",
+                            "header": "Type",
+                            "sortable": true,
                             "width": 90,
                             "xtype": "ColumnModel",
                             "|renderer": "function (v,x ,r) {\n    return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);\n}",
