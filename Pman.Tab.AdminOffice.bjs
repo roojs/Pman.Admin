@@ -21,7 +21,7 @@
                 {
                     "listeners": {
                         "|render": "function() \n{\n    _this.grid = this; \n    _this.dialog =Pman.Dialog.Office;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
+                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
                     },
                     "*prop": "grid",
                     "autoExpandColumn": "name",
@@ -31,7 +31,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n }"
+                                "beforeload": "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n    \n }"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,
