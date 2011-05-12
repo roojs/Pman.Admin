@@ -107,13 +107,13 @@
                             ]
                         },
                         {
-                            "xtype": "ColumnModel",
+                            "*prop": "colModel[]",
+                            "dataIndex": "comptype",
                             "header": "Comptype",
                             "width": 200,
-                            "dataIndex": "comptype",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "xtype": "ColumnModel",
+                            "|renderer": "function (v,x ,r) {\n    return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);\n}",
+                            "|xns": "Roo.grid"
                         },
                         {
                             "xtype": "ColumnModel",
