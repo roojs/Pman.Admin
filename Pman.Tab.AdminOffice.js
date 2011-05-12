@@ -72,6 +72,24 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
+                    listeners : {
+                        beforeload : function (_self, o)
+                        {
+                            try {
+                                var sm = Pman.Tab.Companies.grid.getSelectionModel();
+                                sm = sm.getSelected();
+                                if (!sm || !sm.data.id) {
+                                    // mask??
+                                    return false;
+                                }
+                                       
+                                o.params.company_id = sm.data.id ;
+                            } catch (e) {
+                                return false;
+                            }
+                            
+                         }
+                    },
                     remoteSort : true,
                     sortInfo : { field : 'name', direction: 'ASC' },
                     proxy : {
