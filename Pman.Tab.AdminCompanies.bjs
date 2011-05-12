@@ -199,15 +199,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Dispatch port",
-                            "width": 200,
-                            "dataIndex": "dispatch_port",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Country",
                             "width": 200,
                             "dataIndex": "country",
