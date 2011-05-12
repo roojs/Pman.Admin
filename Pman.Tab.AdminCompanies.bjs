@@ -99,6 +99,15 @@
                                                     "xtype": "TextField"
                                                 },
                                                 {
+                                                    "listeners": {
+                                                        "|click": "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+                                                    },
+                                                    "cls": "x-btn-icon",
+                                                    "xtype": "Button",
+                                                    "|icon": "rootURL + '/Pman/templates/images/search.gif'",
+                                                    "|xns": "Roo.Toolbar"
+                                                },
+                                                {
                                                     "|xns": "Roo.Toolbar",
                                                     "xtype": "Fill"
                                                 },
