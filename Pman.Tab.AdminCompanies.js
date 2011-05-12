@@ -80,9 +80,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                         listeners : {
                             load : function (This, o, arg)
                             {
-                                try {
-                                    Pman.Tab.Office.grid.footer.onClick('refresh');
-                                } catch (e) {}
+                             
                             }
                         },
                         method : 'GET',
