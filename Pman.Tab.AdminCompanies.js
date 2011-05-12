@@ -516,14 +516,6 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Id',
-                        width : 75,
-                        dataIndex : 'id',
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
                         header : 'IsOwner',
                         width : 75,
                         dataIndex : 'isOwner',
