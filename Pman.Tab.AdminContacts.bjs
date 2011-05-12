@@ -120,6 +120,16 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show Removed\");\n   \n   \n}",
+                                        "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
+                                    },
+                                    "enableToggle": true,
+                                    "text": "Show Removed",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
+                                },
+                                {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
                                 },
