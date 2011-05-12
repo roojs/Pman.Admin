@@ -88,7 +88,7 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     load : function (_self, records, options)
                                     {
                                        try {
-                                            Pman.Tab.Office.grid.footer.onClick('refresh');
+                                            Pman.Tab.AdminOffice.grid.footer.onClick('refresh');
                                         } catch (e) {}
                                     }
                                 },
