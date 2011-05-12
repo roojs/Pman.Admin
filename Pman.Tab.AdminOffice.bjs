@@ -72,13 +72,13 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "listeners": {
+                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    \n     var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+                                    },
+                                    "cls": "x-btn-text-icon",
                                     "text": "Add",
                                     "xtype": "Button",
-                                    "cls": "x-btn-text-icon",
                                     "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
