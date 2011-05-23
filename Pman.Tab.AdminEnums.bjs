@@ -164,7 +164,7 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "id",
-                            "header": "Id",
+                            "header": "Internal #",
                             "width": 75,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
