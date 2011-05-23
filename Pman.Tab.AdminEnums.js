@@ -46,7 +46,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
             fitToframe : true,
             region : 'center',
             tableName : 'core_enum',
-            title : "Enum options",
+            title : "Pulldown Options",
             grid : {
                 xtype: 'EditorGrid',
                 xns: Roo.grid,
