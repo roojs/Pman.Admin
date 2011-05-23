@@ -75,7 +75,7 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "text": "Show:",
+                                    "text": "Pulldown Name:",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
                                 },
