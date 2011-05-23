@@ -309,9 +309,9 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'id',
                         header : 'Id',
                         width : 75,
-                        dataIndex : 'id',
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
