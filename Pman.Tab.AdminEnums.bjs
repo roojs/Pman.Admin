@@ -14,7 +14,7 @@
             "fitToframe": true,
             "region": "center",
             "tableName": "core_enum",
-            "title": "Enum options",
+            "title": "Pulldown Options",
             "xtype": "GridPanel",
             "|xns": "Roo",
             "items": [
