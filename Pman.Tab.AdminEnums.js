@@ -194,7 +194,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                             alwaysQuery : true,
                             displayField : 'name',
                             editable : 'false',
-                            emptyText : "Select type",
+                            emptyText : "Select pulldown",
                             fieldLabel : 'core_enum',
                             forceSelection : true,
                             listWidth : 400,
