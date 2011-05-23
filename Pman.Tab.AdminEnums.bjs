@@ -154,7 +154,7 @@
                                         "|click": "function()\n{\n    \n    Roo.MessageBox.prompt (\"Create a new Enum type\",\n        \"Enter the name for a new enum type, \" + \n        \"this is only relivant if you  know how it is going to be used\",\n        function(btn,txt) {\n            if (btn != 'ok') {\n                return; \n            }\n            new Pman.Request({\n                url : baseURL + '/Roo/Core_enum.php',\n                method : 'POST',\n                params : {\n                    etype : '',\n                    name : txt,\n                    active : 1\n                }, \n                success : function() {\n                    Roo.MessageBox.alert(\"Created\", \"You can now select it from the type list on the left\");\n                }\n            });\n                    \n            \n             \n             \n        }\n    ); \n         \n         \n\n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
-                                    "text": "Add new type",
+                                    "text": "Add new pulldown list",
                                     "xtype": "Button",
                                     "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
                                     "|xns": "Roo.Toolbar"
