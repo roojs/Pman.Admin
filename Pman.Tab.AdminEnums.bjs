@@ -205,13 +205,12 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "seqid",
-                            "header": "Seqid",
+                            "header": "Order #",
+                            "sortable": true,
                             "width": 75,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
-                            "sortable": true,
-                            "listeners": {},
                             "items": [
                                 {
                                     "|xns": "Roo.grid",
