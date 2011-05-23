@@ -347,10 +347,10 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'seqid',
-                        header : 'Seqid',
+                        header : 'Order #',
+                        sortable : true,
                         width : 75,
                         renderer : function(v) { return String.format('{0}', v); },
-                        sortable : true,
                         editor : {
                             xtype: 'GridEditor',
                             xns: Roo.grid,
