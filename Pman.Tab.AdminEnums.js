@@ -176,7 +176,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                         {
                             xtype: 'TextItem',
                             xns: Roo.Toolbar,
-                            text : "Show:"
+                            text : "Pulldown Name:"
                         },
                         {
                             xtype: 'ComboBox',
