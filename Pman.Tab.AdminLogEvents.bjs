@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-55",
+    "id": "roo-file-50",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -313,14 +313,13 @@
                             "*prop": "colModel[]"
                         },
                         {
-                            "xtype": "ColumnModel",
+                            "*prop": "colModel[]",
+                            "dataIndex": "remarks",
                             "header": "Remarks",
                             "width": 300,
-                            "dataIndex": "remarks",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "listeners": {},
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "xtype": "ColumnModel",
+                            "|renderer": "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
+                            "|xns": "Roo.grid"
                         }
                     ]
                 }
