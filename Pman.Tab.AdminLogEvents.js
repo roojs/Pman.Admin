@@ -1060,10 +1060,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'remarks',
                         header : 'Remarks',
                         width : 300,
-                        dataIndex : 'remarks',
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v) { return String.format('<span qtip="{1}">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }
                     }
                 ]
             }
