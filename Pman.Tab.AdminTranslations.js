@@ -11,7 +11,7 @@ Pman.on('beforeload', function()
         modKey : '001-Pman.Tab.AdminTranslations',
         module : Pman.Tab.AdminTranslations,
         region : 'center',
-        parent : Pman.Admin,
+        parent : Pman.Tab.Admin,
         name : "Admin - Translations",
         disabled : false, 
         permname: '' 
