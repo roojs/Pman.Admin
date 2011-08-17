@@ -12,6 +12,7 @@
             "background": true,
             "fitContainer": true,
             "fitToframe": true,
+            "region": "center",
             "title": "Translate App",
             "xtype": "GridPanel",
             "|xns": "Roo",
