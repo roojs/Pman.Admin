@@ -1,7 +1,7 @@
 {
-    "id": "roo-file-33",
+    "id": "roo-file-11",
     "name": "Pman.Tab.AdminTranslations",
-    "parent": "",
+    "parent": "Pman.Admin",
     "title": "Admin - Translations",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
     "items": [
