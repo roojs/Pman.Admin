@@ -245,7 +245,7 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                                 {
                                     
                                     // if we do not have a selected type... - what should we show..?
-                                    var et = _this.etypeCombo.getValue()
+                                    var et = _this.etypeCombo.getValue();
                                     var ds = _this.grid.getDataSource();
                                 
                                     var add = ds.reader.newRow({ id: 0, name : '', etype: et, active: 0, seqid: 0 });
