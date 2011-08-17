@@ -8,7 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '001-Pman.Tab.AdminTranslations',
+        modKey : '950-Pman.Tab.AdminTranslations',
         module : Pman.Tab.AdminTranslations,
         region : 'center',
         parent : Pman.Tab.Admin,
