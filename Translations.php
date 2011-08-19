@@ -136,9 +136,9 @@ class Pman_Admin_Translations extends Pman
     function loadOriginalStrings($lang, $module)
     {
         // since this can handle errors better.!!?
-        
-        
-        $tfile = $this->moduleJavascriptFilesInfo($module)->translation_data;
+        $info = $this->moduleJavascriptFilesInfo($module);
+        print_r($info);
+        $tfile = $info->translation_data;
         
         if (empty($tfile) || !file_exists($tfile)) {
             return array();
