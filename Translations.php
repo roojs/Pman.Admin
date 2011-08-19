@@ -137,7 +137,7 @@ class Pman_Admin_Translations extends Pman
     {
         // since this can handle errors better.!!?
         $info = $this->moduleJavascriptFilesInfo($module);
-        print_r($info);
+        //print_r($info);
         $tfile =$info->translation_base . $info->translation_data;
         
         if (empty($tfile) || !file_exists($tfile)) {
