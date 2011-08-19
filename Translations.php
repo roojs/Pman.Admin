@@ -10,7 +10,8 @@
  *   input:       Pman::moduleJavascriptFilesInfo($MODULE)->translation_data
  * 
  * 
- * 
+ * see:
+ * Pman->modulesList()
  * 
  */
 
@@ -44,8 +45,9 @@ class Pman_Admin_Translations extends Pman
         if (empty($_REQUEST['lang']) || !preg_match('/^[A-Z_]+$/i', $_REQUEST['lang'])) {
             $this->jerr("NO LANG / INVALID LANG");
         }
-        $fm = HTML_FlexyFramework::get();
-        $enable = explode(',', $fm->enable);
+         
+        $enable = $this->moduleList();
+        
         if (empty($_REQUEST['module']) || !in_array($_REQUEST['module'], $enable)) {
             $this->jerr("NO MODULE / INVALID MODULE");
         }
