@@ -129,7 +129,7 @@ class Pman_Admin_Translations extends Pman
         $info = $this->moduleJavascriptFilesInfo($module);
         //print_r($info);
         $tfile =$info->basedir . '/'. $info->translation_data;
-         var_dump($tfile);
+         //var_dump($tfile);
         if (empty($tfile) || !file_exists($tfile)) {
             return array();
         }
