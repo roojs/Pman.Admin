@@ -3,7 +3,11 @@
 
 /**
  * Translation
- * - 
+ * - the latest version of this....
+ *
+ * Files:
+ *   output / current state:    ROOT/_translations_/MODULE.js
+ *   input:       Pman::moduleJavascriptFilesInfo($MODULE)->translation_data
  * 
  * 
  * 
