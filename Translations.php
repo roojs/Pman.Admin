@@ -136,15 +136,19 @@ class Pman_Admin_Translations extends Pman
     function loadOriginalStrings($lang, $module)
     {
         // since this can handle errors better.!!?
+        
+        
+        $tfile = $this->moduleJavascriptFilesInfo($module)->translation_data;
+        
+        if (empty($tfile) || !file_exists($tfile) {
+            return array();
+        }
+        
+        
         require_once 'Services/JSON.php';
         $j = new Services_JSON();
         
-        $ff = HTML_FlexyFramework::get();
-        $trans = file_get_contents(
-            $ff->rootDir . '/Pman/' . $module. "/compiled/_translation_.js");
-        
-        
-        return (array) $j->decode('{'. $trans .'}');
+        return (array) $j->decode('{'. file_get_contents($tfile).'}');
     }
     
      
