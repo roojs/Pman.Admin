@@ -140,7 +140,7 @@ class Pman_Admin_Translations extends Pman
         
         $tfile = $this->moduleJavascriptFilesInfo($module)->translation_data;
         
-        if (empty($tfile) || !file_exists($tfile) {
+        if (empty($tfile) || !file_exists($tfile)) {
             return array();
         }
         
