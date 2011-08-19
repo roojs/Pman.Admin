@@ -64,14 +64,7 @@ class Pman_Admin_Translations extends Pman
         
         $translated_data = $this->loadTranslate($lang, $module); // the 'database!'
         
-        
-        
-        // overlay translated..
-        if (empty($translated_data)) {
-            // try using old data!!!!
-            $translated_data = $this->loadOld($lang,$data); // phase out???
-                    
-        }
+         
         // covert data ready to send back..
         
         $ret = array();
@@ -226,42 +219,7 @@ class Pman_Admin_Translations extends Pman
     }
     
     
-  
-    function loadOld($lang,$data)
-    {
-        // need the old for hinting..
-        
-        // this is ok - as it's inside this module.
-        $old = (array) json_decode(file_get_contents(dirname(__FILE__).'/data/oldeng.js'));
-        //print_r($old);
-        // contains key/value of data..
-        $prefix = '_T["'.$lang .'"]=';
-        $trans = (array) json_decode(substr(file_get_contents(
-            dirname(__FILE__).'/data/lang.' . $lang . '.js'
-        ), strlen($prefix), -1));
-        
-       // echo '<PRE>';print_r($trans);
-        
-        $hints = array();
-        foreach($old as $k=>$v) {
-            if (isset($trans[$k]) && empty($hints[$v])) {
-                $hints[$v] = $trans[$k];
-            }
-        }
-        $translated_data = array();
-        foreach($data as $k=>$ar) {
-                foreach($ar as $tr=>$trv) {
-                $key = md5($k.'-'.$tr);
-                if (isset($hints[$tr])) {
-                    $translated_data[$key] = $hints[$tr];
-                }
-            }
-        }
-        // $this->writeTransMod($lang, $module, $translated_data);
-        //echo '<PRE>';print_r($hints);
-        return $translated_data;
-        
-    }
+   
     /**
      * Writes a file MODULE.js inside of _translations_
      *
