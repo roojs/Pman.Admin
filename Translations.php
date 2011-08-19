@@ -114,11 +114,7 @@ class Pman_Admin_Translations extends Pman
         
         
         $data = $this->loadTranslate($lang,$_REQUEST['module']);
-        if (empty($data)) {
-            // try using old data!!!!
-            $data = $this->loadOld($lang,$data); // phase out???
-                    
-        }
+        
         $data[$id] = $_REQUEST['txt'];
         
         
