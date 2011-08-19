@@ -266,6 +266,13 @@ class Pman_Admin_Translations extends Pman
         return $translated_data;
         
     }
+    /**
+     * Writes a file MODULE.js inside of _translations_
+     *
+     * this should contain all contents from all the language directroris for this
+     * module
+     *
+     */
     
     function writeTransMod($lang, $module, $data)
     {
