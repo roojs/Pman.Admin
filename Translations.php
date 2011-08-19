@@ -2,7 +2,7 @@
 
 
 /**
- * Translation
+ * Pman_Admin_Translation:
  * - the latest version of this....
  *
  * Files:
@@ -12,6 +12,8 @@
  * 
  * see:
  * Pman->modulesList()
+ *
+ * Note: at present the front end does not query this to get a list of modules..
  * 
  */
 
@@ -36,6 +38,7 @@ class Pman_Admin_Translations extends Pman
         return true;
     }
     
+    
     function get()
     {
         // load and parse json file containing all translations...
@@ -46,7 +49,7 @@ class Pman_Admin_Translations extends Pman
             $this->jerr("NO LANG / INVALID LANG");
         }
          
-        $enable = $this->moduleList();
+        $enable = $this->modulesList();
         
         if (empty($_REQUEST['module']) || !in_array($_REQUEST['module'], $enable)) {
             $this->jerr("NO MODULE / INVALID MODULE");
