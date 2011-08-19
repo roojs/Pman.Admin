@@ -276,6 +276,8 @@ class Pman_Admin_Translations extends Pman
     
     function writeTransMod($lang, $module, $data)
     {
+        
+        $this->jerr($data);
         $fn = $this->getTransFilename($lang, $module);
         file_put_contents($fn, json_encode($data));
          $ff = HTML_FlexyFramework::get();
