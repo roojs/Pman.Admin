@@ -52,6 +52,7 @@ class Pman_Admin_Translations extends Pman
             $this->jerr("NO MODULE / INVALID MODULE");
         }
         
+        
         $lang = $_REQUEST['lang'];
         $module = $_REQUEST['module'];
         
@@ -95,7 +96,7 @@ class Pman_Admin_Translations extends Pman
         
     }
     
-      function post() 
+    function post() 
     {
          
         $fm = HTML_FlexyFramework::get();
