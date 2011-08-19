@@ -65,7 +65,7 @@ class Pman_Admin_Translations extends Pman
         $translated_data = $this->loadTranslate($lang, $module); // the 'database!'
         
         
-        print_R($data);exit;
+        echo '<PRE>';print_R($data);exit;
         // covert data ready to send back..
         
         $ret = array();
