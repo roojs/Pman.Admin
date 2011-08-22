@@ -244,7 +244,7 @@ class Pman_Admin_Translations extends Pman
     
     function saveTranslateDB($lang, $module, $tfile, $tkey, $tval)
     {
-        $d = DB_DataObject('translations');
+        $d = DB_DataObject::factory('translations');
         $d->module = $module;
         $d->lang = $lang;
         $d->tfile = $tfile;
