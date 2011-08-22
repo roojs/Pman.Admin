@@ -283,9 +283,14 @@ class Pman_Admin_Translations extends Pman
     {
         print_R($data);
         
+        
         $fn = $this->getTransFilename($lang, $module);
-        file_put_contents($fn, json_encode($data));
-         $ff = HTML_FlexyFramework::get();
+        
+        $j = new Services_JSON();
+        
+        file_put_contents($fn, $j->stringify($data, null, 4));
+        
+        $ff = HTML_FlexyFramework::get();
         $base = $ff->rootDir.'/_translations_' ;
         $out = '';
         foreach(scandir($base) as $l) {
