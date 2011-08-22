@@ -209,10 +209,13 @@ class Pman_Admin_Translations extends Pman
         // no data is contained in the database, we should initialize it, if we can
         $info  = $this->moduleJavascriptFilesInfo($module);
         $fn = $info->module_dir.'/_translations_/'.$lang.'.js';
+        var_Dump($fn);
        
         if (!file_exists($fn)) {
             return $ret;
         }
+        
+        
         $default = (array) json_decode(file_get_contents($fn));
         foreach($default as $k=>$v) {
             if (isset($ret[$k])) {
