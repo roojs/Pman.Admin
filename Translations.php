@@ -218,7 +218,7 @@ class Pman_Admin_Translations extends Pman
         
         $default = (array) json_decode(file_get_contents($fn));
         
-        print_r($default);exit
+        print_r($default);exit;
         
         foreach($default as $k=>$v) {
             if (isset($ret[$k])) {
