@@ -218,7 +218,7 @@ class Pman_Admin_Translations extends Pman
         
         
         $default = (array) json_decode(file_get_contents($fn));
-        echo '<PRE>';print_r($default); print_r($this->originalKeys);exit;
+        //echo '<PRE>';print_r($default); print_r($this->originalKeys);exit;
         
         
         
