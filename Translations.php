@@ -212,6 +212,7 @@ class Pman_Admin_Translations extends Pman
         
        
         if (!file_exists($fn)) {
+            Die($fn ." does not exist?");
             return $ret;
         }
         
