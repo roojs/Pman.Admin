@@ -113,13 +113,15 @@ class Pman_Admin_Translations extends Pman
         //txt	é …ç›®
         list($lang,$id) = explode('/', $_REQUEST['id']);
         
-        $this->loadOriginalStrings();
+        $this->loadOriginalStrings($_REQUEST['module']);
         
         $data = $this->loadTranslateDB($lang,$_REQUEST['module']);
         
         $data[$id] = $_REQUEST['txt'];
         
         if (!isset($this->originalKeys[$id])) {
+            
+            
             $this->jerr("invalid key ?");
         }
         
