@@ -60,7 +60,12 @@ class Pman_Admin_Translations extends Pman
         $module = $_REQUEST['module'];
         
         
-        $data = $this->loadOriginalStrings($lang,$module); // what needs translating..
+         $this->loadOriginalStrings($lang,$module); // what needs translating..
+        
+        
+        
+        
+        
         
         $translated_data = $this->loadTranslateDB($lang, $module); // the 'database!'
         
@@ -69,7 +74,7 @@ class Pman_Admin_Translations extends Pman
         // covert data ready to send back..
         
         $ret = array();
-        foreach($data as $k=>$ar) {
+        foreach($this->original as $k=>$ar) {
             foreach($ar as $tr=>$trv) {
                 // $hint = isset($hints[$tr]) ? $hints[$tr] : '';
                 $key = md5($k.'-'.$tr);
@@ -137,8 +142,17 @@ class Pman_Admin_Translations extends Pman
         
         require_once 'Services/JSON.php';
         $j = new Services_JSON();
+        $this->original = $j->decode('{'. file_get_contents($tfile).'}');
+        $this->originalKeys = array();
         
-        return (array) $j->decode('{'. file_get_contents($tfile).'}');
+        // 
+        foreach($this->original as $k=>$ar) {
+            foreach($ar as $tr=>$trv) {
+                $key = md5($k.'-'.$tr);
+                $this->originalKeys[$key] = $trv;
+            }
+        }
+        
     }
     
      
