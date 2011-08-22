@@ -292,8 +292,8 @@ class Pman_Admin_Translations extends Pman
             if (!strlen($l) || $l[0] == '.' || !is_dir("$base/$l") || !file_exists("$base/$l/$module.json")) {
                 continue;
             }
-              
-            $out .= "_T.$l= Roo.apply( _T.$l || { }, " . file_get_contents("$base/$l/$module.json") . ");\n";
+            $jdata = json_decode(file_get_contents("$base/$l/$module.json") );
+            $out .= "_T.$l= Roo.apply( _T.$l || { }, " . json_encode($jdata) . ");\n";
         }
         //var_dump($out);
         if (strlen($out)) {
