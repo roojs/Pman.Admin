@@ -218,9 +218,7 @@ class Pman_Admin_Translations extends Pman
         
         
         $default = (array) json_decode(file_get_contents($fn));
-        
-        print_r($default);exit;
-        
+        echo '<PRE>';print_r($default); print_r($this->originalKeys);exit;
         foreach($default as $k=>$v) {
             if (isset($ret[$k])) {
                 continue; // skip database already holds a version of this translation.
@@ -235,7 +233,7 @@ class Pman_Admin_Translations extends Pman
             
             
         }
-        
+        )
         return $ret;
         
          
