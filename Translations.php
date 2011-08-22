@@ -195,7 +195,7 @@ class Pman_Admin_Translations extends Pman
     
     function loadTranslateDB($lang, $module)
     {
-        $d = DB_DataObject('translations');
+        $d = DB_DataObject::factory('translations');
         $d->module = $module;
         $d->lang = $lang;
         
