@@ -220,7 +220,7 @@ class Pman_Admin_Translations extends Pman
             }
             // it's current..
             $this->saveTranslateDB($lang, $module, $this->originalKeys[$k], $k, $v);
-
+            $ret[$k] = $v;
             
             
         }
