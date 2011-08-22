@@ -119,6 +119,9 @@ class Pman_Admin_Translations extends Pman
         
         $data[$id] = $_REQUEST['txt'];
         
+        $this->saveTranslateDB($lang,$_REQUEST['module'],$this->originalKeys[$id], $id, $_REQUEST['txt']);
+        
+        
         
         $this->writeTransMod($lang,$_REQUEST['module'], $data);
         // write merged file..
@@ -292,7 +295,7 @@ class Pman_Admin_Translations extends Pman
     
     function writeTransMod($lang, $module, $data)
     {
-        print_R($data);
+        //print_R($data);
         
         
         $fn = $this->getTransFilename($lang, $module);
