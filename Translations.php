@@ -120,7 +120,7 @@ class Pman_Admin_Translations extends Pman
         $data[$id] = $_REQUEST['txt'];
         
         if (!isset($this->originalKeys[$id])) {
-            $this->jerr("invalid key ?")
+            $this->jerr("invalid key ?");
         }
         
         $this->saveTranslateDB($lang,$_REQUEST['module'],$this->originalKeys[$id], $id, $_REQUEST['txt']);
