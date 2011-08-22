@@ -224,7 +224,7 @@ class Pman_Admin_Translations extends Pman
             
             
         }
-        
+        ksort($ret);
         return $ret;
         
          
