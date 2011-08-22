@@ -185,24 +185,29 @@ class Pman_Admin_Translations extends Pman
         
         if ($d->count()) {
             // since key includes file 
-            return $d->fetchAll('tkey','tval');    
+            $ret = $d->fetchAll('tkey','tval'); /// shoudl we include updates
         }
         // no data is contained in the database, we should initialize it, if we can
-        if ()
-        
-        
-        
-        $d->find();
-        
-        
-        while ($d->fetch()) {
-            if (!isset($ret[$d->tfile])) {
-                $ret[$d->tfile] = array( $d->tkey => $d->tval );
-                continue;
-            }
-            $ret[$d->tfile][$d->tkey] = $d->tval;
+        $info  = moduleJavascriptFilesInfo($module);
+        $fn = $info->module_dir.'/_translations_/'.$lang.'.js';
+        if (!file_exists($fn)) {
+            return $ret;
         }
+        $default = (array) json_decode(file_get_contents($fn));
+        foreach($default as $k=>$v) {
+            if (isset($ret[$k])) {
+                continue; // skip database already holds a version of this translation.
+            }
+            // is it relivant anymore..
+            
+            
+            
+            
+        }
+        
         return $ret;
+        
+         
     }
     
     function saveTranslateDB($lang, $module, $tfile, $tkey, $tval)
