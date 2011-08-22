@@ -205,7 +205,7 @@ class Pman_Admin_Translations extends Pman
             $ret = $d->fetchAll('tkey','tval'); /// shoudl we include updates
         }
         // no data is contained in the database, we should initialize it, if we can
-        $info  = moduleJavascriptFilesInfo($module);
+        $info  = $this->moduleJavascriptFilesInfo($module);
         $fn = $info->module_dir.'/_translations_/'.$lang.'.js';
         if (!file_exists($fn)) {
             return $ret;
