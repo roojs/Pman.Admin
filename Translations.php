@@ -234,7 +234,7 @@ class Pman_Admin_Translations extends Pman
     {
         $d = DB_DataObject::factory('translations');
         $d->module = $module;
-        $d->lang = $lang;
+        $d->tlang = $lang;
         $d->tfile = $tfile;
         $d->tkey = $tkey;
         if ($d->find(true)) {
