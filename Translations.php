@@ -233,7 +233,7 @@ class Pman_Admin_Translations extends Pman
             
             
         }
-        )
+        
         return $ret;
         
          
