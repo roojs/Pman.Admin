@@ -114,7 +114,7 @@ class Pman_Admin_Translations extends Pman
         list($lang,$id) = explode('/', $_REQUEST['id']);
         
         
-        $data = $this->loadTranslate($lang,$_REQUEST['module']);
+        $data = $this->loadTranslateDB($lang,$_REQUEST['module']);
         
         $data[$id] = $_REQUEST['txt'];
         
