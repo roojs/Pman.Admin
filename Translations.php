@@ -187,7 +187,7 @@ class Pman_Admin_Translations extends Pman
         //DB_DataObject::debugLevel(1);
         $d = DB_DataObject::factory('translations');
         $d->module = $module;
-        $d->lang = $lang;
+        $d->tlang = $lang;
         
         
         if ($d->count()) {
