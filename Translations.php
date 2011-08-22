@@ -103,9 +103,9 @@ class Pman_Admin_Translations extends Pman
     function post() 
     {
          
-        $fm = HTML_FlexyFramework::get();
-        $enable = explode(',',   $fm->enable);
-        if (empty($_REQUEST['module']) || !in_array($_REQUEST['module'], $enable)) {
+         
+        
+        if (empty($_REQUEST['module']) || !in_array($_REQUEST['module'], $this->modulesList())) {
             $this->jerr("NO MODULE / INVALID MODULE");
         }
         
