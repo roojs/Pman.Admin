@@ -62,7 +62,7 @@ class Pman_Admin_Translations extends Pman
         
         $data = $this->loadOriginalStrings($lang,$module); // what needs translating..
         
-        $translated_data = $this->loadTranslate($lang, $module); // the 'database!'
+        $translated_data = $this->loadTranslateDB($lang, $module); // the 'database!'
         
         
        // echo '<PRE>';print_R($data);exit;
@@ -147,6 +147,10 @@ class Pman_Admin_Translations extends Pman
     /**
      * 
      * Load the user translated strings.
+     * {root}/_translation_/{lang}/{module}.js
+     *
+     * 
+     *
      * 
      */
     function loadTranslate($lang, $module)
@@ -162,14 +166,35 @@ class Pman_Admin_Translations extends Pman
         return (array) json_decode(file_get_contents($fn));
         //$this->data = (array) $j->decode(substr(file_get_contents($this->fn), strlen($this->prefix), -1));
     }
-    
+    /***
+     *
+     * loadTranslateDB -
+     *
+     *
+     * @return key=>value list of translation_id=>tranlation.
+     *
+     *
+     */
     
     function loadTranslateDB($lang, $module)
     {
         $d = DB_DataObject('translations');
         $d->module = $module;
         $d->lang = $lang;
+        
+        
+        if ($d->count()) {
+            // since key includes file 
+            return $d->fetchAll('tkey','tval');    
+        }
+        // no data is contained in the database, we should initialize it, if we can
+        if ()
+        
+        
+        
         $d->find();
+        
+        
         while ($d->fetch()) {
             if (!isset($ret[$d->tfile])) {
                 $ret[$d->tfile] = array( $d->tkey => $d->tval );
