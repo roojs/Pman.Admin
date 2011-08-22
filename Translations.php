@@ -164,28 +164,7 @@ class Pman_Admin_Translations extends Pman
      
     
     
-    /**
-     * 
-     * Load the user translated strings.
-     * {root}/_translation_/{lang}/{module}.js
-     *
-     * 
-     *
-     * 
-     */
-    function loadTranslate($lang, $module)
-    {
-         
-        $fn = $this->getTransFilename($lang,$module);
-        
-         
-        if (!file_exists($fn)) {
-            return array();
-        }
-        
-        return (array) json_decode(file_get_contents($fn));
-        //$this->data = (array) $j->decode(substr(file_get_contents($this->fn), strlen($this->prefix), -1));
-    }
+   
     /***
      *
      * loadTranslateDB -
