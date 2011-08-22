@@ -62,7 +62,7 @@ class Pman_Admin_Translations extends Pman
         $module = $_REQUEST['module'];
         
         
-         $this->loadOriginalStrings($lang,$module); // what needs translating..
+         $this->loadOriginalStrings($module); // what needs translating..
         
         
         
@@ -140,7 +140,7 @@ class Pman_Admin_Translations extends Pman
      * load strings that need translating..
      */
     
-    function loadOriginalStrings($lang, $module)
+    function loadOriginalStrings($module)
     {
         // since this can handle errors better.!!?
         $info = $this->moduleJavascriptFilesInfo($module);
