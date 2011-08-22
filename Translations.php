@@ -26,6 +26,8 @@ class Pman_Admin_Translations extends Pman
     var $fn = '';
     var $data = array();
     
+    var $original = array() ; // filename => array( orig_string > orig_string)
+    var $originalKeys = array() ; // md5(filename-orig_string) => filename
     
     function getAuth()
     {
@@ -149,7 +151,7 @@ class Pman_Admin_Translations extends Pman
         foreach($this->original as $k=>$ar) {
             foreach($ar as $tr=>$trv) {
                 $key = md5($k.'-'.$tr);
-                $this->originalKeys[$key] = $trv;
+                $this->originalKeys[$key] = $k;
             }
         }
         
@@ -213,8 +215,12 @@ class Pman_Admin_Translations extends Pman
                 continue; // skip database already holds a version of this translation.
             }
             // is it relivant anymore..
-            
-            
+            if (!isset($this->originalKeys[$k])) {
+                continue;
+            }
+            // it's current..
+            $this->saveTranslateDB($lang, $module, $this->originalKeys[$k], $k, $v);
+
             
             
         }
