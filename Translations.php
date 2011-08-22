@@ -278,7 +278,7 @@ class Pman_Admin_Translations extends Pman
         
         
         $fn = $this->getTransFilename($lang, $module);
-        
+        require_once 'Services/JSON.php';
         $j = new Services_JSON();
         
         file_put_contents($fn, $j->stringify($data, null, 4));
