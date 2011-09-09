@@ -14,7 +14,7 @@ Pman.on('beforeload', function()
         parent : Pman.Tab.Admin,
         name : "Pman.Tab.AdminCompanies",
         disabled : false, 
-        permname: '' 
+        permname: 'Admin.Companies' 
     });
 });
 
@@ -393,8 +393,8 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                 xns: Roo,
                                 pageSize : 25,
                                 displayInfo : true,
-                                displayMsg : 'Displaying Companies{0} - {1} of {2}',
-                                emptyMsg : 'No Companies found'
+                                displayMsg : "Displaying Companies{0} - {1} of {2}",
+                                emptyMsg : "No Companies found"
                             },
                             toolbar : {
                                 xtype: 'Toolbar',
