@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-1",
+    "id": "roo-file-46",
     "name": "Pman.Tab.AdminCompanies",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminCompanies",
@@ -249,6 +249,6 @@
             ]
         }
     ],
-    "permname": "",
+    "permname": "Admin.Companies",
     "modOrder": "030"
 }
