@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-5",
+    "id": "roo-file-50",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
@@ -234,6 +234,6 @@
             ]
         }
     ],
-    "permname": "",
+    "permname": "Admin.Enums",
     "modOrder": "500"
 }
