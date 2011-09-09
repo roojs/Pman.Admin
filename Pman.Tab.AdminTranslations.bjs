@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-11",
+    "id": "roo-file-56",
     "name": "Pman.Tab.AdminTranslations",
     "parent": "Pman.Tab.Admin",
     "title": "Admin - Translations",
@@ -172,6 +172,6 @@
             ]
         }
     ],
-    "permname": "",
+    "permname": "Translations",
     "modOrder": "950"
 }
