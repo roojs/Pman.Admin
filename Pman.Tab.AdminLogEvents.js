@@ -14,7 +14,7 @@ Pman.on('beforeload', function()
         parent : Pman.Tab.AdminLogs,
         name : "Admin - Logs - Events",
         disabled : false, 
-        permname: '' 
+        permname: 'Admin.Logs' 
     });
 });
 
@@ -216,8 +216,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                     xns: Roo,
                     pageSize : 25,
                     displayInfo : true,
-                    displayMsg : 'Displaying Events  {0} - {1} of {2}',
-                    emptyMsg : 'No Events found'
+                    displayMsg : "Displaying Events  {0} - {1} of {2}",
+                    emptyMsg : "No Events found"
                 },
                 toolbar : {
                     xtype: 'Toolbar',
