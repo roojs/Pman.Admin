@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-50",
+    "id": "roo-file-51",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -326,6 +326,6 @@
             ]
         }
     ],
-    "permname": "",
+    "permname": "Admin.Logs",
     "modOrder": "001"
 }
