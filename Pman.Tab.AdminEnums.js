@@ -14,7 +14,7 @@ Pman.on('beforeload', function()
         parent : Pman.Tab.Admin,
         name : "Pman.Tab.AdminEnums",
         disabled : false, 
-        permname: '' 
+        permname: 'Admin.Enums' 
     });
 });
 
@@ -166,8 +166,8 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     xns: Roo,
                     pageSize : 25,
                     displayInfo : true,
-                    displayMsg : 'Displaying core_enum{0} - {1} of {2}',
-                    emptyMsg : 'No core_enum found'
+                    displayMsg : "Displaying core_enum{0} - {1} of {2}",
+                    emptyMsg : "No core_enum found"
                 },
                 toolbar : {
                     xtype: 'Toolbar',
