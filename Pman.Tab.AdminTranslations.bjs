@@ -172,6 +172,6 @@
             ]
         }
     ],
-    "permname": "Translations",
+    "permname": "Admin.Translations",
     "modOrder": "950"
 }
