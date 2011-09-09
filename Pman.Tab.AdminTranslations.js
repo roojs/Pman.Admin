@@ -14,7 +14,7 @@ Pman.on('beforeload', function()
         parent : Pman.Tab.Admin,
         name : "Admin - Translations",
         disabled : false, 
-        permname: '' 
+        permname: 'Translations' 
     });
 });
 
