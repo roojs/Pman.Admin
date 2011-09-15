@@ -58,8 +58,6 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                         grid : {
                             xtype: 'EditorGrid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'txt',
-                            loadMask : true,
                             listeners : {
                                 render : function() { 
                                     _this.grid = this; 
@@ -150,7 +148,9 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                     saveRec.defer(1000, _this, [ e.record ]);
                                 }
                             },
+                            autoExpandColumn : 'txt',
                             clicksToEdit : 1,
+                            loadMask : true,
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
