@@ -203,7 +203,7 @@
                                 {
                                     "listeners": {
                                         "|render": "function() \n{\n    _this.langgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.langpanel.active) {\n       this.ds.load({});\n    }\n}",
-                                        "afteredit": "function (e)\n{\n\n}"
+                                        "afteredit": "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        Ext.Ajax.request({\n            url : baseURL + '/Roo/I18n.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                lval : rec.get('lval')\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Ext.Msg.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
                                     },
                                     "*prop": "grid",
                                     "autoExpandColumn": "lval",
