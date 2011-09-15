@@ -9,7 +9,14 @@
             "region": "center",
             "title": "Translate App",
             "xtype": "NestedLayoutPanel",
-            "|xns": "Roo"
+            "|xns": "Roo",
+            "items": [
+                {
+                    "|xns": "Roo",
+                    "xtype": "BorderLayout",
+                    "*prop": "layout"
+                }
+            ]
         }
     ],
     "permname": "Admin.Translations",
