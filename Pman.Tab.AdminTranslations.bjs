@@ -21,6 +21,172 @@
                             "tabPosition": "top",
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
+                        },
+                        {
+                            "listeners": {
+                                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n       _this.grid.getDataSource().reload(); \n    }\n}"
+                            },
+                            "background": true,
+                            "fitContainer": true,
+                            "fitToframe": true,
+                            "region": "center",
+                            "title": "Translate App",
+                            "xtype": "GridPanel",
+                            "|xns": "Roo",
+                            "items": [
+                                {
+                                    "*prop": "grid",
+                                    "xtype": "EditorGrid",
+                                    "autoExpandColumn": "txt",
+                                    "loadMask": true,
+                                    "listeners": {
+                                        "|render": "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n      _this.grid.getDataSource().reload(); \n    }\n}",
+                                        "|beforeedit": "function(e) {\n    console.log('beforeedit');\n    //if (e.record.get('origtxt').indexOf('<') > -1) {\n                       // console.log(\"HTML EDITOR!!\");\n                     \n                    //    return false;\n                    //}\n                    if (e.record.get('txt').replace(/\\s+/, '').length) {\n                        return true;\n                    }\n                    if (e.record.get('suggest').length) {\n                        e.record.set('txt', e.record.get('suggest'));\n                    //    _this.saveRec(e.record);\n                        return;\n                    }\n                    \n                    \n                    \n                   \n                    var tl = e.record.get('id').split('/')[0];\n                  \n                    tl = (tl == 'zh_HK') ? 'zh-TW' : tl; \n                    tl = tl.replace('_', '-');\n                    var rec = e.record;\n                    \n                    \n                    \n                    Pman.gtranslate(e.record.get('origtxt'), 'en', tl, function(result) { \n                        if (typeof(result) == 'object') { //error\n                            return; \n                           }\n                        \n                        if (_this.grid.activeEditor) {\n                            _this.grid.activeEditor.setValue(result);\n                        } else {\n                            rec.set('txt',result);\n                            //_this.saveRec(rec);\n                        }\n\n                        //\n                        \n                        \n                        //console.log(result.translation);\n                    });\n                    \n                   \n                    \n                    return true;\n                } ",
+                                        "|afteredit": "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        Ext.Ajax.request({\n            url : baseURL + '/Admin/Translations.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                txt : rec.get('txt'),\n                lang :  _this.langCombo.getValue(),\n                module :  _this.modCombo.getValue()\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Ext.Msg.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
+                                    },
+                                    "clicksToEdit": 1,
+                                    "|xns": "Roo.grid",
+                                    "items": [
+                                        {
+                                            "*prop": "dataSource",
+                                            "xtype": "Store",
+                                            "|reader": "Pman.Readers.Category",
+                                            "listeners": {
+                                                "|beforeload": "function (_self, opts)\n{\n\n                        if (!_this.langCombo || !_this.langCombo.getValue().length) {\n                            return false;\n                        }\n                        if (!_this.modCombo || !_this.modCombo.getValue().length) {\n                            return false;\n                        }\n                        opts.params = {\n                            lang :  _this.langCombo.getValue(),\n                            module :  _this.modCombo.getValue()\n                        };\n}"
+                                            },
+                                            "|xns": "Roo.data",
+                                            "items": [
+                                                {
+                                                    "*prop": "proxy",
+                                                    "xtype": "HttpProxy",
+                                                    "method": "GET",
+                                                    "|url": "baseURL + '/Admin/Translations.php'",
+                                                    "listeners": {},
+                                                    "|xns": "Roo.data"
+                                                },
+                                                {
+                                                    "xtype": "JsonReader",
+                                                    "|xns": "Roo.data",
+                                                    "*prop": "reader",
+                                                    "root": "data",
+                                                    "totalProperty": "total",
+                                                    "id": "id",
+                                                    "|fields": "[                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ]",
+                                                    "listeners": {}
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "*prop": "toolbar",
+                                            "xtype": "Toolbar",
+                                            "listeners": {},
+                                            "|xns": "Roo",
+                                            "items": [
+                                                {
+                                                    "xtype": "ComboBox",
+                                                    "listeners": {
+                                                        "|render": "function (_self)\n{\n  _this.modCombo = _self;\n}",
+                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}"
+                                                    },
+                                                    "valueField": "module",
+                                                    "displayField": "module",
+                                                    "width": 200,
+                                                    "typeAhead": false,
+                                                    "editable": false,
+                                                    "mode": "local",
+                                                    "triggerAction": "all",
+                                                    "emptyText": "Select Module",
+                                                    "selectOnFocus": true,
+                                                    "|xns": "Roo.form",
+                                                    "items": [
+                                                        {
+                                                            "xtype": "SimpleStore",
+                                                            "|xns": "Roo.data",
+                                                            "*prop": "store",
+                                                            "listeners": {},
+                                                            "|fields": "['module']",
+                                                            "|data": "(function() {             var modlist = [];             Roo.each( AppModules.split(','), function(mod) {            \n         modlist.push( [ mod ] );             });             return modlist;         })()"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "xtype": "ComboBox",
+                                                    "listeners": {
+                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}",
+                                                        "|render": "function (_self)\n{\n  _this.langCombo=_self;\n}"
+                                                    },
+                                                    "valueField": "lang",
+                                                    "displayField": "ldisp",
+                                                    "width": 200,
+                                                    "typeAhead": false,
+                                                    "editable": false,
+                                                    "mode": "local",
+                                                    "triggerAction": "all",
+                                                    "emptyText": "Select Language",
+                                                    "selectOnFocus": true,
+                                                    "|xns": "Roo.form",
+                                                    "items": [
+                                                        {
+                                                            "xtype": "SimpleStore",
+                                                            "|xns": "Roo.data",
+                                                            "*prop": "store",
+                                                            "listeners": {},
+                                                            "|fields": "['lang', 'ldisp']",
+                                                            "|data": "[                                                [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ]                     ]"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "xtype": "ColumnModel",
+                                            "header": "Name",
+                                            "width": 150,
+                                            "dataIndex": "colname",
+                                            "|renderer": "function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style=\"color:'+c+'\";>' +r.get('tableid')+ ':' + v + '</div>';                                              }",
+                                            "listeners": {},
+                                            "|xns": "Roo.grid",
+                                            "*prop": "colModel[]"
+                                        },
+                                        {
+                                            "xtype": "ColumnModel",
+                                            "header": "Original",
+                                            "width": 300,
+                                            "dataIndex": "origtxt",
+                                            "|renderer": "function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style=\"color:' + c+ '\">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              }",
+                                            "listeners": {},
+                                            "|xns": "Roo.grid",
+                                            "*prop": "colModel[]"
+                                        },
+                                        {
+                                            "xtype": "ColumnModel",
+                                            "header": "Translated (Click to Edit)",
+                                            "width": 150,
+                                            "dataIndex": "txt",
+                                            "|renderer": "function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style=\"color:' + c+ '\">' + Ext.util.Format.htmlEncode(v) + '</div>';                     }",
+                                            "listeners": {},
+                                            "|xns": "Roo.grid",
+                                            "*prop": "colModel[]",
+                                            "items": [
+                                                {
+                                                    "xtype": "GridEditor",
+                                                    "*prop": "editor",
+                                                    "|xns": "Roo.grid",
+                                                    "listeners": {},
+                                                    "items": [
+                                                        {
+                                                            "xtype": "TextField",
+                                                            "*prop": "field",
+                                                            "|xns": "Roo.form",
+                                                            "listeners": {}
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
