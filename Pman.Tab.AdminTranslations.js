@@ -33,7 +33,8 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
-            region : 'center'
+            region : 'center',
+            title : "Translate App"
         });
         this.layout = this.panel.layout;
 
