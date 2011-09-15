@@ -413,19 +413,6 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                             fields : ['lang', 'ldisp'],
                                             data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ]
                                         }
-                                    },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
-                                        text : "Delete",
-                                        cls : 'x-btn-text-icon',
-                                        icon : rootURL + '/Pman/templates/images/trash.gif',
-                                        listeners : {
-                                            click : function()
-                                            {
-                                                 Pman.genericDelete(_this, 'i18n'); 
-                                            }
-                                        }
                                     }
                                 ]
                             },
