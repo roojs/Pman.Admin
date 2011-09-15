@@ -54,7 +54,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                         fitContainer : true,
                         fitToframe : true,
                         region : 'center',
-                        title : "Translate App",
+                        title : "Text in interface",
                         grid : {
                             xtype: 'EditorGrid',
                             xns: Roo.grid,
