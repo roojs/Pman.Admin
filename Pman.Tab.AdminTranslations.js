@@ -391,7 +391,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         listeners : {
                                             render : function (_self)
                                             {
-                                              _this.modCombo = _self;
+                                              _this.langtypeCombo = _self;
                                             },
                                             select : function (combo, record, index)
                                             {
