@@ -250,7 +250,7 @@
                                                         "|render": "function (_self)\n{\n  _this.langtypeCombo = _self;\n}",
                                                         "|select": "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
                                                     },
-                                                    "displayField": "module",
+                                                    "displayField": "lval",
                                                     "editable": false,
                                                     "emptyText": "Select Translation of",
                                                     "mode": "local",
