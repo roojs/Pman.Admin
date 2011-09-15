@@ -31,7 +31,7 @@
                             "fitContainer": true,
                             "fitToframe": true,
                             "region": "center",
-                            "title": "Translate App",
+                            "title": "Text in interface",
                             "xtype": "GridPanel",
                             "|xns": "Roo",
                             "items": [
