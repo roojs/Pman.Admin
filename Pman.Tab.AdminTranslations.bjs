@@ -219,7 +219,7 @@
                                             "*prop": "dataSource",
                                             "remoteSort": true,
                                             "xtype": "Store",
-                                            "|sortInfo": "{ field : 'ltype', direction: 'ASC' }",
+                                            "|sortInfo": "{ field : 'lkey', direction: 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
