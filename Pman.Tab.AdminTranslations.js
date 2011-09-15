@@ -421,8 +421,9 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
                                             data : [
-                                               [ 'l', 'Language Names' ]
-                                               [ 'c', 'Country Names' ]
+                                               [ 'l', 'Language Names' ],
+                                               [ 'c', 'Country Names' ],
+                                                [ 'm', 'Currency Names' ]
                                             ],
                                             fields : ['module']
                                         }
