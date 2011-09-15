@@ -311,7 +311,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                         tableName : 'i18n',
                         title : "i18n",
                         grid : {
-                            xtype: 'Grid',
+                            xtype: 'EditorGrid',
                             xns: Roo.grid,
                             listeners : {
                                 render : function() 
