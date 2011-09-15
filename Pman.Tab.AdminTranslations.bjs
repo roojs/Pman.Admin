@@ -214,7 +214,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "beforeload": "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = this.langtypeCombo.getValue();\n   options.params.inlang = this.langgridCombo.getValue();\n   options.params.limit = 9999;\n   \n}"
+                                                "beforeload": "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = _this.langtypeCombo.getValue();\n   options.params.inlang = _this.langgridCombo.getValue();\n   options.params.limit = 9999;\n   \n}"
                                             },
                                             "*prop": "dataSource",
                                             "remoteSort": true,
