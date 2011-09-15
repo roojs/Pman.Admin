@@ -324,7 +324,33 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                 },
                                 afteredit : function (e)
                                 {
+                                    var saveRec  = function(rec)
+                                    {
+                                        var g = _this.grid;
                                 
+                                        //g.getView().el.mask('Saving');
+                                        Ext.Ajax.request({
+                                            url : baseURL + '/Roo/I18n.php',
+                                            method: 'POST',
+                                            params : {
+                                                id : rec.get('id'),
+                                                lval : rec.get('lval')
+                                            },
+                                            success : function()
+                                            {
+                                                //g.getView().el.unmask();
+                                                //g.getDataSource().reload();
+                                            },
+                                            failure : function()
+                                            {
+                                                Ext.Msg.alert("Error", "There was a problem saving the data - try reloading");
+                                               // g.getView().el.unmask();
+                                            }
+                                            
+                                    });
+                                        };
+                                    
+                                    saveRec.defer(1000, _this, [ e.record ]);
                                 }
                             },
                             autoExpandColumn : 'lval',
