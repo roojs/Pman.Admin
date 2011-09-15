@@ -309,7 +309,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                         fitToframe : true,
                         region : 'center',
                         tableName : 'i18n',
-                        title : "i18n",
+                        title : "Languages and Countries",
                         grid : {
                             xtype: 'EditorGrid',
                             xns: Roo.grid,
