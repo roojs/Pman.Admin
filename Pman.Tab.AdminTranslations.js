@@ -408,7 +408,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         selectOnFocus : true,
                                         triggerAction : 'all',
                                         typeAhead : false,
-                                        valueField : 'module',
+                                        valueField : 'lkey',
                                         width : 200,
                                         store : {
                                             xtype: 'SimpleStore',
