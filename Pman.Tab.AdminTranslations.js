@@ -335,6 +335,16 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
+                                listeners : {
+                                    beforeload : function (_self, options)
+                                    {
+                                       options  =options ||  {};
+                                       options.params =options.params|| {};
+                                       options.params.ltype = this.langtypeCombo.getValue();
+                                       options.params.inlang = this.langCombo.getValue();
+                                       
+                                    }
+                                },
                                 remoteSort : true,
                                 sortInfo : { field : 'ltype', direction: 'ASC' },
                                 proxy : {
