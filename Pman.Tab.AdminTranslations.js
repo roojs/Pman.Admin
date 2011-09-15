@@ -410,7 +410,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         },
                                         displayField : 'module',
                                         editable : false,
-                                        emptyText : "Select Module",
+                                        emptyText : "Select Translation of",
                                         mode : 'local',
                                         selectOnFocus : true,
                                         triggerAction : 'all',
