@@ -196,7 +196,7 @@
                             "fitToframe": true,
                             "region": "center",
                             "tableName": "i18n",
-                            "title": "i18n",
+                            "title": "Languages and Countries",
                             "xtype": "GridPanel",
                             "|xns": "Roo",
                             "items": [
