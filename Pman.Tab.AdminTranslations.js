@@ -342,7 +342,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                        options.params =options.params|| {};
                                        options.params.ltype = _this.langtypeCombo.getValue();
                                        options.params.inlang = _this.langgridCombo.getValue();
-                                       
+                                       options.params['query[_with_en]'] = 1;
                                        if (!options.params.ltype.length || !options.params.inlang.length) {
                                            return false;
                                        }
