@@ -351,7 +351,49 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         };
                                     
                                     saveRec.defer(1000, _this, [ e.record ]);
-                                }
+                                },
+                                beforeedit : function(e) {
+                                    console.log('beforeedit');
+                                    //if (e.record.get('origtxt').indexOf('<') > -1) {
+                                                       // console.log("HTML EDITOR!!");
+                                             
+                                            //    return false;
+                                            //}
+                                            if (e.record.get('lval').replace(/\s+/, '').length) {
+                                                return true;
+                                            }
+                                            
+                                            
+                                            var tl = e.record.get('id').split('/')[0];
+                                          
+                                            tl = (tl == 'zh_HK') ? 'zh-TW' : tl; 
+                                            tl = tl.replace('_', '-');
+                                            var rec = e.record;
+                                            
+                                            
+                                            
+                                            Pman.gtranslate(e.record.get('lval_en'), 'en', tl, function(result) { 
+                                                if (typeof(result) == 'object') { //error
+                                                    return; 
+                                                   }
+                                                
+                                                if (_this.grid.activeEditor) {
+                                                    _this.grid.activeEditor.setValue(result);
+                                                } else {
+                                                    rec.set('lval',result);
+                                                    //_this.saveRec(rec);
+                                                }
+                                
+                                                //
+                                                
+                                                
+                                                //console.log(result.translation);
+                                            });
+                                            
+                                           
+                                            
+                                            return true;
+                                        }
                             },
                             autoExpandColumn : 'lval',
                             clicksToEdit : 1,
