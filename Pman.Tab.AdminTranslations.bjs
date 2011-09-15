@@ -213,9 +213,12 @@
                                     "|xns": "Roo.grid",
                                     "items": [
                                         {
+                                            "listeners": {
+                                                "beforeload": "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = this.langtypeCombo.getValue();\n   options.params.inlang = this.langCombo.getValue();\n   \n}"
+                                            },
                                             "*prop": "dataSource",
-                                            "xtype": "Store",
                                             "remoteSort": true,
+                                            "xtype": "Store",
                                             "|sortInfo": "{ field : 'ltype', direction: 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
