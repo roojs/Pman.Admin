@@ -307,15 +307,13 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'ltype',
-                            loadMask : true,
                             listeners : {
                                 render : function() 
                                 {
-                                    _this.grid = this; 
+                                    _this.langgrid = this; 
                                     //_this.dialog = Pman.Dialog.FILL_IN
-                                    if (_this.panel.active) {
-                                       this.footer.onClick('first');
+                                    if (_this.langpanel.active) {
+                                       this.ds.load({});
                                     }
                                 },
                                 rowdblclick : function (_self, rowIndex, e)
@@ -326,6 +324,8 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                     }); 
                                 }
                             },
+                            autoExpandColumn : 'ltype',
+                            loadMask : true,
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
