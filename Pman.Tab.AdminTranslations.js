@@ -322,13 +322,6 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                        this.ds.load({});
                                     }
                                 },
-                                rowdblclick : function (_self, rowIndex, e)
-                                {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
-                                        _this.grid.footer.onClick('first');
-                                    }); 
-                                },
                                 afteredit : function (e)
                                 {
                                 
