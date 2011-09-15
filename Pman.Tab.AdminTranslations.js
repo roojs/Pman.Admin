@@ -471,7 +471,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
-                                    dataIndex : 'inlang',
+                                    dataIndex : 'lval_en',
                                     header : 'English',
                                     width : 200,
                                     renderer : function(v) { return String.format('{0}', v); }
