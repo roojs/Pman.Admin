@@ -252,20 +252,20 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
-                                                    "xtype": "ComboBox",
                                                     "listeners": {
                                                         "|render": "function (_self)\n{\n  _this.modCombo = _self;\n}",
-                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}"
+                                                        "|select": "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
                                                     },
-                                                    "valueField": "module",
                                                     "displayField": "module",
-                                                    "width": 200,
-                                                    "typeAhead": false,
                                                     "editable": false,
-                                                    "mode": "local",
-                                                    "triggerAction": "all",
                                                     "emptyText": "Select Module",
+                                                    "mode": "local",
                                                     "selectOnFocus": true,
+                                                    "triggerAction": "all",
+                                                    "typeAhead": false,
+                                                    "valueField": "module",
+                                                    "width": 200,
+                                                    "xtype": "ComboBox",
                                                     "|xns": "Roo.form",
                                                     "items": [
                                                         {
