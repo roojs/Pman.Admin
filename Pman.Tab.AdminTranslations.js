@@ -363,7 +363,13 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                                 return true;
                                             }
                                             
-                                             
+                                            
+                                            var tl = _this.langgridCombo.getValue();
+                                          
+                                            tl = (tl == 'zh_HK') ? 'zh-TW' : tl; 
+                                            tl = tl.replace('_', '-');
+                                            var rec = e.record;
+                                            
                                             
                                             
                                             Pman.gtranslate(e.record.get('lval_en'), 'en', tl, function(result) { 
