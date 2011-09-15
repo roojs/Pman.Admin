@@ -342,6 +342,11 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                        options.params =options.params|| {};
                                        options.params.ltype = _this.langtypeCombo.getValue();
                                        options.params.inlang = _this.langgridCombo.getValue();
+                                       
+                                       if (!options.params.ltype.length || !options.params.inlang.length) {
+                                           return false;
+                                       }
+                                       
                                        options.params.limit = 9999;
                                        
                                     }
