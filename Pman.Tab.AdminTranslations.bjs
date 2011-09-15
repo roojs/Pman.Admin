@@ -207,6 +207,7 @@
                                     },
                                     "*prop": "grid",
                                     "autoExpandColumn": "lval",
+                                    "clicksToEdit": 1,
                                     "loadMask": true,
                                     "xtype": "EditorGrid",
                                     "|xns": "Roo.grid",
