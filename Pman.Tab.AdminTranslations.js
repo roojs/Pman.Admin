@@ -352,7 +352,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'ltype', direction: 'ASC' },
+                                sortInfo : { field : 'lkey', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
