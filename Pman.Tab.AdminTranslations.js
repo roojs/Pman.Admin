@@ -410,14 +410,10 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         store : {
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
-                                            data : (function() {             
-                                                    var modlist = [];             
-                                                    AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
-                                                    Roo.each( AppModules.split(','), function(mod) {            
-                                                             modlist.push( [ mod ] );            
-                                                  });             
-                                                  return modlist;
-                                               })(),
+                                            data : [
+                                               [ 'l', 'Language Names' ]
+                                               [ 'c', 'Country Names' ]
+                                            ],
                                             fields : ['module']
                                         }
                                     },
