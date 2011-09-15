@@ -103,7 +103,7 @@
                                                         {
                                                             "*prop": "store",
                                                             "xtype": "SimpleStore",
-                                                            "|data": "(function() {             \n        var modlist = [];             \n        AppModules = AppModules || [];        \n        Roo.each( AppModules.split(','), function(mod) {            \n                 modlist.push( [ mod ] );            \n      });             \n      return modlist;\n   })()",
+                                                            "|data": "(function() {             \n        var modlist = [];             \n        AppModules = typeof(AppModules) == 'undefined' ? [] : AppModules;\n        Roo.each( AppModules.split(','), function(mod) {            \n                 modlist.push( [ mod ] );            \n      });             \n      return modlist;\n   })()",
                                                             "|fields": "['module']",
                                                             "|xns": "Roo.data"
                                                         }
