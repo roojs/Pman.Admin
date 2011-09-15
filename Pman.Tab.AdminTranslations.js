@@ -391,7 +391,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         listeners : {
                                             select : function (combo, record, index)
                                             {
-                                              _this.grid.getDataSource().reload(); 
+                                              _this.langgrid.getDataSource().reload(); 
                                             },
                                             render : function (_self)
                                             {
