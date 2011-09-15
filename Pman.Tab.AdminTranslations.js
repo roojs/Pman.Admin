@@ -215,8 +215,14 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         store : {
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
-                                            data : (function() {             var modlist = [];             Roo.each( AppModules.split(','), function(mod) {            
-                                                     modlist.push( [ mod ] );             });             return modlist;         })(),
+                                            data : (function() {             
+                                                    var modlist = [];             
+                                                    AppModules = AppModules || [];        
+                                                    Roo.each( AppModules.split(','), function(mod) {            
+                                                             modlist.push( [ mod ] );            
+                                                  });             
+                                                  return modlist;
+                                               })(),
                                             fields : ['module']
                                         }
                                     },
