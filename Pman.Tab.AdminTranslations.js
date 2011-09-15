@@ -277,9 +277,9 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
+                                    dataIndex : 'txt',
                                     header : 'Translated (Click to Edit)',
                                     width : 150,
-                                    dataIndex : 'txt',
                                     renderer : function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:' + c+ '">' + Ext.util.Format.htmlEncode(v) + '</div>';                     },
                                     editor : {
                                         xtype: 'GridEditor',
