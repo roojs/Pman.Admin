@@ -277,16 +277,6 @@
                                                             "|data": "[                                                [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ]                     ]"
                                                         }
                                                     ]
-                                                },
-                                                {
-                                                    "text": "Delete",
-                                                    "cls": "x-btn-text-icon",
-                                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                                    "xtype": "Button",
-                                                    "listeners": {
-                                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'i18n'); \n}\n        "
-                                                    },
-                                                    "|xns": "Roo.Toolbar"
                                                 }
                                             ]
                                         },
