@@ -418,7 +418,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                                [ 'c', 'Country Names' ],
                                                 [ 'm', 'Currency Names' ]
                                             ],
-                                            fields : ['module']
+                                            fields : ['lkey','lval']
                                         }
                                     },
                                     {
