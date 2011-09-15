@@ -217,7 +217,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                             xns: Roo.data,
                                             data : (function() {             
                                                     var modlist = [];             
-                                                    AppModules = AppModules || [];        
+                                                    AppModules = typeof(AppModules) == 'undefined' ? [] : AppModules;
                                                     Roo.each( AppModules.split(','), function(mod) {            
                                                              modlist.push( [ mod ] );            
                                                   });             
