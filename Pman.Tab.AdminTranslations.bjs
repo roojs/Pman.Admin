@@ -190,17 +190,17 @@
                             ]
                         },
                         {
-                            "|xns": "Roo",
-                            "xtype": "GridPanel",
-                            "title": "i18n",
-                            "fitToframe": true,
-                            "fitContainer": true,
-                            "tableName": "i18n",
-                            "background": true,
-                            "region": "center",
                             "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.langpanel = this;\n    if (_this.langgrid) {\n        _this.langgrid.ds.load({});\n    }\n}"
                             },
+                            "background": true,
+                            "fitContainer": true,
+                            "fitToframe": true,
+                            "region": "center",
+                            "tableName": "i18n",
+                            "title": "i18n",
+                            "xtype": "GridPanel",
+                            "|xns": "Roo",
                             "items": [
                                 {
                                     "*prop": "grid",
