@@ -325,7 +325,23 @@
                                             "width": 200,
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid"
+                                            "|xns": "Roo.grid",
+                                            "items": [
+                                                {
+                                                    "xtype": "GridEditor",
+                                                    "*prop": "editor",
+                                                    "|xns": "Roo.grid",
+                                                    "listeners": {},
+                                                    "items": [
+                                                        {
+                                                            "xtype": "TextField",
+                                                            "*prop": "field",
+                                                            "|xns": "Roo.form",
+                                                            "listeners": {}
+                                                        }
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
