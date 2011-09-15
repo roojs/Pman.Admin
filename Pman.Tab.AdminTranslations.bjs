@@ -271,7 +271,7 @@
                                                         {
                                                             "*prop": "store",
                                                             "xtype": "SimpleStore",
-                                                            "|data": "(function() {             \n        var modlist = [];             \n        AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;\n        Roo.each( AppModules.split(','), function(mod) {            \n                 modlist.push( [ mod ] );            \n      });             \n      return modlist;\n   })()",
+                                                            "|data": "[\n   [ 'l', 'Language Names' ]\n   [ 'c', 'Country Names' ]\n]",
                                                             "|fields": "['module']",
                                                             "|xns": "Roo.data"
                                                         }
