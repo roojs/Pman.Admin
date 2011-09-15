@@ -101,12 +101,11 @@
                                                     "|xns": "Roo.form",
                                                     "items": [
                                                         {
-                                                            "xtype": "SimpleStore",
-                                                            "|xns": "Roo.data",
                                                             "*prop": "store",
-                                                            "listeners": {},
+                                                            "xtype": "SimpleStore",
+                                                            "|data": "(function() {             var modlist = [];             Roo.each( AppModules.split(','), function(mod) {            \n         modlist.push( [ mod ] );             });             return modlist;         })()",
                                                             "|fields": "['module']",
-                                                            "|data": "(function() {             var modlist = [];             Roo.each( AppModules.split(','), function(mod) {            \n         modlist.push( [ mod ] );             });             return modlist;         })()"
+                                                            "|xns": "Roo.data"
                                                         }
                                                     ]
                                                 },
