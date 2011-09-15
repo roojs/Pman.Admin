@@ -401,7 +401,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                               _this.langgrid.getDataSource().reload(); 
                                             }
                                         },
-                                        displayField : 'module',
+                                        displayField : 'lval',
                                         editable : false,
                                         emptyText : "Select Translation of",
                                         mode : 'local',
