@@ -266,7 +266,7 @@
                                                             "*prop": "store",
                                                             "xtype": "SimpleStore",
                                                             "|data": "[\n   [ 'l', 'Language Names' ],\n   [ 'c', 'Country Names' ],\n    [ 'm', 'Currency Names' ]\n]",
-                                                            "|fields": "['module']",
+                                                            "|fields": "['lkey','lval']",
                                                             "|xns": "Roo.data"
                                                         }
                                                     ]
