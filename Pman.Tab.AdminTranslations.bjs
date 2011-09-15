@@ -252,20 +252,20 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
-                                                    "xtype": "ComboBox",
                                                     "listeners": {
                                                         "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}",
-                                                        "|render": "function (_self)\n{\n  _this.langCombo=_self;\n}"
+                                                        "|render": "function (_self)\n{\n  _this.langgridCombo=_self;\n}"
                                                     },
-                                                    "valueField": "lang",
                                                     "displayField": "ldisp",
-                                                    "width": 200,
-                                                    "typeAhead": false,
                                                     "editable": false,
-                                                    "mode": "local",
-                                                    "triggerAction": "all",
                                                     "emptyText": "Select Language",
+                                                    "mode": "local",
                                                     "selectOnFocus": true,
+                                                    "triggerAction": "all",
+                                                    "typeAhead": false,
+                                                    "valueField": "lang",
+                                                    "width": 200,
+                                                    "xtype": "ComboBox",
                                                     "|xns": "Roo.form",
                                                     "items": [
                                                         {
