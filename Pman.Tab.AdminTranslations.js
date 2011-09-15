@@ -290,20 +290,20 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                     {
                         xtype: 'GridPanel',
                         xns: Roo,
-                        title : "i18n",
-                        fitToframe : true,
-                        fitContainer : true,
-                        tableName : 'i18n',
-                        background : true,
-                        region : 'center',
                         listeners : {
                             activate : function() {
-                                _this.panel = this;
-                                if (_this.grid) {
-                                    _this.grid.footer.onClick('first');
+                                _this.langpanel = this;
+                                if (_this.langgrid) {
+                                    _this.langgrid.ds.load({});
                                 }
                             }
                         },
+                        background : true,
+                        fitContainer : true,
+                        fitToframe : true,
+                        region : 'center',
+                        tableName : 'i18n',
+                        title : "i18n",
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
