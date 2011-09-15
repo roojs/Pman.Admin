@@ -331,6 +331,7 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                 }
                             },
                             autoExpandColumn : 'lval',
+                            clicksToEdit : 1,
                             loadMask : true,
                             dataSource : {
                                 xtype: 'Store',
