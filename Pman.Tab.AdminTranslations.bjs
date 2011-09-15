@@ -208,7 +208,7 @@
                                     "*prop": "grid",
                                     "autoExpandColumn": "lval",
                                     "loadMask": true,
-                                    "xtype": "Grid",
+                                    "xtype": "EditorGrid",
                                     "|xns": "Roo.grid",
                                     "items": [
                                         {
