@@ -395,18 +395,18 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                             },
                                             render : function (_self)
                                             {
-                                              _this.langCombo=_self;
+                                              _this.langgridCombo=_self;
                                             }
                                         },
-                                        valueField : 'lang',
                                         displayField : 'ldisp',
-                                        width : 200,
-                                        typeAhead : false,
                                         editable : false,
-                                        mode : 'local',
-                                        triggerAction : 'all',
                                         emptyText : "Select Language",
+                                        mode : 'local',
                                         selectOnFocus : true,
+                                        triggerAction : 'all',
+                                        typeAhead : false,
+                                        valueField : 'lang',
+                                        width : 200,
                                         store : {
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
