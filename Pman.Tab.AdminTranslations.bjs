@@ -328,13 +328,13 @@
                                             "|xns": "Roo.grid"
                                         },
                                         {
-                                            "xtype": "ColumnModel",
-                                            "header": "Lval",
-                                            "width": 200,
+                                            "*prop": "colModel[]",
                                             "dataIndex": "lval",
+                                            "header": "Translation",
+                                            "width": 200,
+                                            "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
+                                            "|xns": "Roo.grid"
                                         }
                                     ]
                                 }
