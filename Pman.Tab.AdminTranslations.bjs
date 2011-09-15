@@ -253,7 +253,7 @@
                                             "items": [
                                                 {
                                                     "listeners": {
-                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}",
+                                                        "|select": "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}",
                                                         "|render": "function (_self)\n{\n  _this.langgridCombo=_self;\n}"
                                                     },
                                                     "displayField": "ldisp",
