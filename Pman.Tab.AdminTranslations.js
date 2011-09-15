@@ -386,6 +386,35 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                 xns: Roo,
                                 items : [
                                     {
+                                        xtype: 'ComboBox',
+                                        xns: Roo.form,
+                                        listeners : {
+                                            select : function (combo, record, index)
+                                            {
+                                              _this.grid.getDataSource().reload(); 
+                                            },
+                                            render : function (_self)
+                                            {
+                                              _this.langCombo=_self;
+                                            }
+                                        },
+                                        valueField : 'lang',
+                                        displayField : 'ldisp',
+                                        width : 200,
+                                        typeAhead : false,
+                                        editable : false,
+                                        mode : 'local',
+                                        triggerAction : 'all',
+                                        emptyText : "Select Language",
+                                        selectOnFocus : true,
+                                        store : {
+                                            xtype: 'SimpleStore',
+                                            xns: Roo.data,
+                                            fields : ['lang', 'ldisp'],
+                                            data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ]
+                                        }
+                                    },
+                                    {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
                                         text : "Add",
