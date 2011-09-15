@@ -252,6 +252,33 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
+                                                    "xtype": "ComboBox",
+                                                    "listeners": {
+                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}",
+                                                        "|render": "function (_self)\n{\n  _this.langCombo=_self;\n}"
+                                                    },
+                                                    "valueField": "lang",
+                                                    "displayField": "ldisp",
+                                                    "width": 200,
+                                                    "typeAhead": false,
+                                                    "editable": false,
+                                                    "mode": "local",
+                                                    "triggerAction": "all",
+                                                    "emptyText": "Select Language",
+                                                    "selectOnFocus": true,
+                                                    "|xns": "Roo.form",
+                                                    "items": [
+                                                        {
+                                                            "xtype": "SimpleStore",
+                                                            "|xns": "Roo.data",
+                                                            "*prop": "store",
+                                                            "listeners": {},
+                                                            "|fields": "['lang', 'ldisp']",
+                                                            "|data": "[                                                [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ]                     ]"
+                                                        }
+                                                    ]
+                                                },
+                                                {
                                                     "text": "Add",
                                                     "xtype": "Button",
                                                     "cls": "x-btn-text-icon",
