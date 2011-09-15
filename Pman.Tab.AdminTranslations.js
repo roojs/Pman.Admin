@@ -389,6 +389,42 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                         xtype: 'ComboBox',
                                         xns: Roo.form,
                                         listeners : {
+                                            render : function (_self)
+                                            {
+                                              _this.modCombo = _self;
+                                            },
+                                            select : function (combo, record, index)
+                                            {
+                                              _this.grid.getDataSource().reload(); 
+                                            }
+                                        },
+                                        valueField : 'module',
+                                        displayField : 'module',
+                                        width : 200,
+                                        typeAhead : false,
+                                        editable : false,
+                                        mode : 'local',
+                                        triggerAction : 'all',
+                                        emptyText : "Select Module",
+                                        selectOnFocus : true,
+                                        store : {
+                                            xtype: 'SimpleStore',
+                                            xns: Roo.data,
+                                            data : (function() {             
+                                                    var modlist = [];             
+                                                    AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
+                                                    Roo.each( AppModules.split(','), function(mod) {            
+                                                             modlist.push( [ mod ] );            
+                                                  });             
+                                                  return modlist;
+                                               })(),
+                                            fields : ['module']
+                                        }
+                                    },
+                                    {
+                                        xtype: 'ComboBox',
+                                        xns: Roo.form,
+                                        listeners : {
                                             select : function (combo, record, index)
                                             {
                                               _this.langgrid.getDataSource().reload(); 
