@@ -320,7 +320,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "inlang",
+                                            "dataIndex": "lval_en",
                                             "header": "English",
                                             "width": 200,
                                             "xtype": "ColumnModel",
