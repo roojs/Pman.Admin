@@ -36,7 +36,7 @@ Pman.ColModels.Group_RightsRenderer =  function(v, c, r, ri, ci, st) {
             return '';
         }
         
-        return '<img class="x-grid-check-icon' + state + '" src="' + Ext.BLANK_IMAGE_URL + '"/>';
+        return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
         
         
 };
