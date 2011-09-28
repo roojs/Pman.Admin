@@ -29,11 +29,6 @@
                             "*prop": "center"
                         },
                         {
-                            "region": "south",
-                            "xtype": "ContentPanel",
-                            "|xns": "Roo"
-                        },
-                        {
                             "listeners": {
                                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
