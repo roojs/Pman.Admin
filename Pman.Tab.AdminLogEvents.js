@@ -1081,7 +1081,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             },
                                             render : function (_self)
                                             {
-                                              _this.groupCombo = _self;
+                                              _this.groupedCombo = _self;
                                             }
                                         },
                                         allowBlank : false,
