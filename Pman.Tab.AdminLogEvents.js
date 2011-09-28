@@ -1035,6 +1035,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             render : function (_self)
                                             {
                                               _this.dateFrom = _self;
+                                            },
+                                            change : function (_self, newValue, oldValue)
+                                            {
+                                              _this.grid.footer.onClick('first');
                                             }
                                         },
                                         format : 'Y-m-d'
