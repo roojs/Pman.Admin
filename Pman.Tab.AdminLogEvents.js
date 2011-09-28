@@ -1043,7 +1043,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         listeners : {
                                             render : function (_self)
                                             {
-                                              _this.dateFrom = _self;
+                                              _this.dateTo = _self;
                                             }
                                         },
                                         format : 'Y-m-d'

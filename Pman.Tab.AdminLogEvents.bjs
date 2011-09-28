@@ -297,7 +297,7 @@
                                                 },
                                                 {
                                                     "listeners": {
-                                                        "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}"
+                                                        "render": "function (_self)\n{\n  _this.dateTo = _self;\n}"
                                                     },
                                                     "format": "Y-m-d",
                                                     "xtype": "DateField",
