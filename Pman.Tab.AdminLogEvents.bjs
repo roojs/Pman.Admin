@@ -309,6 +309,9 @@
                                                     "|xns": "Roo.form"
                                                 },
                                                 {
+                                                    "listeners": {
+                                                        "select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+                                                    },
                                                     "allowBlank": false,
                                                     "displayField": "display",
                                                     "editable": false,

@@ -1061,6 +1061,12 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     {
                                         xtype: 'ComboBox',
                                         xns: Roo.form,
+                                        listeners : {
+                                            select : function (combo, record, index)
+                                            {
+                                              _this.grid.footer.onClick('first');
+                                            }
+                                        },
                                         allowBlank : false,
                                         displayField : 'display',
                                         editable : false,
