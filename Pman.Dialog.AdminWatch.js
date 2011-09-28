@@ -102,6 +102,7 @@ Pman.Dialog.AdminWatch = {
                                     displayField : 'on_table',
                                     editable : false,
                                     emptyText : "Select Affects",
+                                    fieldLabel : 'Table',
                                     forceSelection : true,
                                     listWidth : 300,
                                     loadingText : "Searching...",
