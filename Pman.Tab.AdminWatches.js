@@ -264,7 +264,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'on_table' , direction : 'ASC' },
+                                sortInfo : { field : 'ontable' , direction : 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,

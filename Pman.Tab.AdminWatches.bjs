@@ -109,7 +109,7 @@
                                             "*prop": "store",
                                             "remoteSort": true,
                                             "xtype": "Store",
-                                            "|sortInfo": "{ field : 'on_table' , direction : 'ASC' }",
+                                            "|sortInfo": "{ field : 'ontable' , direction : 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
