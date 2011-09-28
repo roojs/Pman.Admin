@@ -492,7 +492,7 @@ Pman.Dialog.AdminWatch = {
                                     alwaysQuery : true,
                                     displayField : 'title',
                                     editable : false,
-                                    fieldLabel : 'Country',
+                                    fieldLabel : 'Action',
                                     hiddenName : 'country',
                                     listWidth : 200,
                                     name : 'medium',
