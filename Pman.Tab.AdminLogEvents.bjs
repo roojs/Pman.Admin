@@ -318,9 +318,10 @@
                                                     "|xns": "Roo.form",
                                                     "items": [
                                                         {
-                                                            "|xns": "Roo.data",
+                                                            "*prop": "store",
+                                                            "data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
                                                             "xtype": "SimpleStore",
-                                                            "*prop": "store"
+                                                            "|xns": "Roo.data"
                                                         }
                                                     ]
                                                 }
