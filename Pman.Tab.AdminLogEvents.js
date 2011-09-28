@@ -268,7 +268,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                                 });
                                             }
                                         },
-                                        text : "Download"
+                                        text : "Download to Excel"
                                     }
                                 ]
                             },
