@@ -320,7 +320,7 @@ Pman.Dialog.AdminWatch = {
                                 {
                                     xtype: 'TextField',
                                     xns: Roo.form,
-                                    fieldLabel : 'Medium',
+                                    fieldLabel : 'Action',
                                     name : 'medium',
                                     width : 200
                                 },

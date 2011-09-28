@@ -162,11 +162,11 @@
                                     "xtype": "TextField"
                                 },
                                 {
-                                    "fieldLabel": "Medium",
+                                    "fieldLabel": "Action",
                                     "name": "medium",
                                     "width": 200,
-                                    "|xns": "Roo.form",
-                                    "xtype": "TextField"
+                                    "xtype": "TextField",
+                                    "|xns": "Roo.form"
                                 },
                                 {
                                     "fieldLabel": "Active",
