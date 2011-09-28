@@ -254,7 +254,7 @@ Pman.Dialog.AdminWatch = {
                                     }
                                 },
                                 {
-                                    xtype: 'TextField',
+                                    xtype: 'NumberField',
                                     xns: Roo.form,
                                     fieldLabel : 'Onid',
                                     name : 'onid',

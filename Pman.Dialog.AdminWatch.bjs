@@ -97,8 +97,8 @@
                                     "fieldLabel": "Onid",
                                     "name": "onid",
                                     "width": 75,
-                                    "|xns": "Roo.form",
-                                    "xtype": "TextField"
+                                    "xtype": "NumberField",
+                                    "|xns": "Roo.form"
                                 },
                                 {
                                     "|xns": "Roo.form",
