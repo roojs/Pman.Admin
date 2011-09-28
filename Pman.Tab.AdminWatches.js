@@ -305,7 +305,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
                                     method : 'GET',
-                                    url : baseURL + '/Roo/Events.php'
+                                    url : baseURL + '/Roo/Core_watch.php'
                                 },
                                 reader : {
                                     xtype: 'JsonReader',
