@@ -79,13 +79,6 @@ Pman.Dialog.AdminWatch = {
                             url : baseURL + '/Roo/core_watch.php',
                             items : [
                                 {
-                                    xtype: 'TextField',
-                                    xns: Roo.form,
-                                    fieldLabel : 'Ontable',
-                                    name : 'ontable',
-                                    width : 200
-                                },
-                                {
                                     xtype: 'ComboBox',
                                     xns: Roo.form,
                                     listeners : {

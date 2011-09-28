@@ -37,13 +37,6 @@
                             "|url": "baseURL + '/Roo/core_watch.php'",
                             "items": [
                                 {
-                                    "fieldLabel": "Ontable",
-                                    "name": "ontable",
-                                    "width": 200,
-                                    "|xns": "Roo.form",
-                                    "xtype": "TextField"
-                                },
-                                {
                                     "listeners": {
                                         "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
                                         "|render": "function (_self)\n{\n  _this.affectSel = _self;\n}"
