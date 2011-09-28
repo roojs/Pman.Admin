@@ -225,13 +225,6 @@
                                     "|xns": "Roo.form"
                                 },
                                 {
-                                    "fieldLabel": "Active",
-                                    "name": "active",
-                                    "width": 75,
-                                    "|xns": "Roo.form",
-                                    "xtype": "TextField"
-                                },
-                                {
                                     "name": "id",
                                     "|xns": "Roo.form",
                                     "xtype": "Hidden"

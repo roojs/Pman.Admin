@@ -499,13 +499,6 @@ Pman.Dialog.AdminWatch = {
                                     name : 'active'
                                 },
                                 {
-                                    xtype: 'TextField',
-                                    xns: Roo.form,
-                                    fieldLabel : 'Active',
-                                    name : 'active',
-                                    width : 75
-                                },
-                                {
                                     xtype: 'Hidden',
                                     xns: Roo.form,
                                     name : 'id'
