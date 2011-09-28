@@ -431,6 +431,10 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                     ]
                                 }
                             }
+                        },
+                        {
+                            xtype: 'Fill',
+                            xns: Roo.Toolbar
                         }
                     ]
                 },

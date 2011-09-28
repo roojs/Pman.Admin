@@ -158,6 +158,10 @@
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Fill"
                                 }
                             ]
                         },
