@@ -1056,6 +1056,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         editable : false,
                                         hiddenName : 'currency',
                                         listWidth : 100,
+                                        tpl : '<div class="x-grid-cell-text x-btn button"><b>{display}</b> </div>',
                                         triggerAction : 'all',
                                         value : "ug",
                                         valueField : 'val',
@@ -1063,7 +1064,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         store : {
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
-                                            fields : '[ \'val\', \'display\' ]',
+                                            fields : [ 'val', 'display' ],
                                             data : [ [ 'ug' , "Ungrouped"], [ 'gr', "Grouped" ]]
                                         }
                                     }

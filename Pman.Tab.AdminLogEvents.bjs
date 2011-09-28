@@ -319,8 +319,7 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "fields": "[ 'val', 'display' ]",
-                                                            "id": null,
+                                                            "|fields": "[ 'val', 'display' ]",
                                                             "xtype": "SimpleStore",
                                                             "|data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
                                                             "|xns": "Roo.data"
