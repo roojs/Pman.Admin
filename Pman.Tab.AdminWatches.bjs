@@ -158,10 +158,6 @@
                                             ]
                                         }
                                     ]
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "TextItem"
                                 }
                             ]
                         },
