@@ -19,6 +19,7 @@
                         {
                             "*prop": "south",
                             "height": 150,
+                            "split": true,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
