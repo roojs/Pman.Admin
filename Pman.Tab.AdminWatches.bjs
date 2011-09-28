@@ -97,7 +97,7 @@
                                     "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{ontable}</b> </div>",
                                     "triggerAction": "all",
                                     "typeAhead": true,
-                                    "valueField": "action",
+                                    "valueField": "ontable",
                                     "width": 150,
                                     "xtype": "ComboBox",
                                     "|xns": "Roo.form",
