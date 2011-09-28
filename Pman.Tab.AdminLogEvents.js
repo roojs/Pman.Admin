@@ -301,7 +301,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         emptyText : "Select Person ",
                                         fieldLabel : 'Person ',
                                         forceSelection : true,
-                                        listWidth : 400,
+                                        listWidth : 600,
                                         loadingText : "Searching...",
                                         minChars : 2,
                                         name : 'person_id_name',
