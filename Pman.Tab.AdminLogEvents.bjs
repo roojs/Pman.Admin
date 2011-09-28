@@ -319,8 +319,9 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "|data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
+                                                            "fields": "[ 'val', 'display' ]",
                                                             "xtype": "SimpleStore",
+                                                            "|data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
                                                             "|xns": "Roo.data"
                                                         }
                                                     ]
