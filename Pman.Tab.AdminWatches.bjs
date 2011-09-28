@@ -138,15 +138,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Event",
-                            "width": 200,
-                            "dataIndex": "event",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Medium",
                             "width": 200,
                             "dataIndex": "medium",
