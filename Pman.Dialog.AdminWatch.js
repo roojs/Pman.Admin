@@ -311,13 +311,6 @@ Pman.Dialog.AdminWatch = {
                                     }
                                 },
                                 {
-                                    xtype: 'TextField',
-                                    xns: Roo.form,
-                                    fieldLabel : 'Event',
-                                    name : 'event',
-                                    width : 200
-                                },
-                                {
                                     xtype: 'ComboBox',
                                     xns: Roo.form,
                                     listeners : {
