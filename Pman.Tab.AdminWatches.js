@@ -50,8 +50,6 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
-                autoExpandColumn : 'ontable',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
@@ -69,6 +67,8 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         }); 
                     }
                 },
+                autoExpandColumn : 'person_id_namne',
+                loadMask : true,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
