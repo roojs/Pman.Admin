@@ -203,19 +203,6 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                     xns: Roo,
                     items : [
                         {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
-                            text : "Delete",
-                            cls : 'x-btn-text-icon',
-                            icon : rootURL + '/Pman/templates/images/trash.gif',
-                            listeners : {
-                                click : function()
-                                {
-                                     Pman.genericDelete(_this, 'core_watch'); 
-                                }
-                            }
-                        },
-                        {
                             xtype: 'TextItem',
                             xns: Roo.Toolbar,
                             text : "Show"
