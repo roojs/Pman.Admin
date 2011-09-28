@@ -502,7 +502,7 @@ Pman.Dialog.AdminWatch = {
                                     store : {
                                         xtype: 'SimpleStore',
                                         xns: Roo.data,
-                                        fields : '[ \'val\' ]'
+                                        fields : [ 'val' ]
                                     }
                                 },
                                 {
