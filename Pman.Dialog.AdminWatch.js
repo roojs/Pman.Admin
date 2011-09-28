@@ -325,7 +325,7 @@ Pman.Dialog.AdminWatch = {
                                     },
                                     allowBlank : true,
                                     displayField : 'action',
-                                    editable : false,
+                                    editable : true,
                                     emptyText : "Select Action",
                                     fieldLabel : 'Match Event',
                                     forceSelection : false,
