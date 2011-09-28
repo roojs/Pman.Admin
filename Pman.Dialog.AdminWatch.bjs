@@ -229,8 +229,9 @@
                                     "items": [
                                         {
                                             "*prop": "store",
-                                            "|fields": "[ 'val' ]",
+                                            "|data": "",
                                             "xtype": "SimpleStore",
+                                            "|fields": "[ 'val' ]",
                                             "|xns": "Roo.data"
                                         }
                                     ]
