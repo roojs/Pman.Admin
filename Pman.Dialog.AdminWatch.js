@@ -498,7 +498,11 @@ Pman.Dialog.AdminWatch = {
                                     name : 'country_name',
                                     triggerAction : 'all',
                                     valueField : 'code',
-                                    width : 200
+                                    width : 200,
+                                    store : {
+                                        xtype: 'SimpleStore',
+                                        xns: Roo.data
+                                    }
                                 },
                                 {
                                     xtype: 'TextField',
