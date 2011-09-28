@@ -129,7 +129,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "person_id",
+                            "dataIndex": "person_id_name",
                             "header": "Who get's notified",
                             "width": 150,
                             "xtype": "ColumnModel",

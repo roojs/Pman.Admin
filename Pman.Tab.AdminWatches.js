@@ -283,7 +283,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'person_id',
+                        dataIndex : 'person_id_name',
                         header : 'Who get\'s notified',
                         width : 150,
                         renderer : function(v) { return String.format('{0}', v); }
