@@ -255,7 +255,8 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         },
                         {
                             xtype: 'TextItem',
-                            xns: Roo.Toolbar
+                            xns: Roo.Toolbar,
+                            text : ""
                         },
                         {
                             xtype: 'ComboBox',

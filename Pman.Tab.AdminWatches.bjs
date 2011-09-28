@@ -99,6 +99,7 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "text": "",
                                     "xtype": "TextItem",
                                     "|xns": "Roo.Toolbar"
                                 },
