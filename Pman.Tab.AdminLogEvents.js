@@ -1058,7 +1058,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         listWidth : 200,
                                         triggerAction : 'all',
                                         value : "ug",
-                                        valueField : 'code',
+                                        valueField : 'val',
                                         width : 100,
                                         store : {
                                             xtype: 'SimpleStore',
