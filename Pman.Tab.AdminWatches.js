@@ -285,7 +285,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'person_id',
                         header : 'Who get\'s notified',
-                        width : 75,
+                        width : 150,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
