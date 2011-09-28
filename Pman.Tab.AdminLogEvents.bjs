@@ -310,7 +310,8 @@
                                                 },
                                                 {
                                                     "listeners": {
-                                                        "select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+                                                        "select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
+                                                        "render": "function (_self)\n{\n  _this.groupCombo = _self;\n}"
                                                     },
                                                     "allowBlank": false,
                                                     "displayField": "display",

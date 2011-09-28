@@ -1065,6 +1065,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             select : function (combo, record, index)
                                             {
                                               _this.grid.footer.onClick('first');
+                                            },
+                                            render : function (_self)
+                                            {
+                                              _this.groupCombo = _self;
                                             }
                                         },
                                         allowBlank : false,
