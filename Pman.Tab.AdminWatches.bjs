@@ -99,8 +99,8 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "TextItem"
+                                    "xtype": "TextItem",
+                                    "|xns": "Roo.Toolbar"
                                 },
                                 {
                                     "listeners": {
