@@ -1025,6 +1025,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         xtype: 'TextItem',
                                         xns: Roo.Toolbar,
                                         text : "Date Range"
+                                    },
+                                    {
+                                        xtype: 'DateField',
+                                        xns: Roo.form
                                     }
                                 ]
                             },
