@@ -1060,34 +1060,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         name : 'currency_name',
                                         triggerAction : 'all',
                                         valueField : 'code',
-                                        width : 100,
-                                        store : {
-                                            xtype: 'Store',
-                                            xns: Roo.data,
-                                            proxy : {
-                                                xtype: 'HttpProxy',
-                                                xns: Roo.data,
-                                                method : 'GET',
-                                                url : baseURL + '/I18N/Currency.php'
-                                            },
-                                            reader : {
-                                                xtype: 'JsonReader',
-                                                xns: Roo.data,
-                                                id : 'code',
-                                                root : 'data',
-                                                totalProperty : 'total',
-                                                fields : [
-                                                    {
-                                                        'name': 'code',
-                                                        'type': 'string'
-                                                    },
-                                                    {
-                                                        'name': 'title',
-                                                        'type': 'string'
-                                                    }
-                                                ]
-                                            }
-                                        }
+                                        width : 100
                                     }
                                 ]
                             },

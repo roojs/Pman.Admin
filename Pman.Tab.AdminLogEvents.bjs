@@ -315,32 +315,7 @@
                                                     "valueField": "code",
                                                     "width": 100,
                                                     "xtype": "ComboBox",
-                                                    "|xns": "Roo.form",
-                                                    "items": [
-                                                        {
-                                                            "|xns": "Roo.data",
-                                                            "xtype": "Store",
-                                                            "*prop": "store",
-                                                            "items": [
-                                                                {
-                                                                    "*prop": "proxy",
-                                                                    "method": "GET",
-                                                                    "xtype": "HttpProxy",
-                                                                    "|url": "baseURL + '/I18N/Currency.php'",
-                                                                    "|xns": "Roo.data"
-                                                                },
-                                                                {
-                                                                    "*prop": "reader",
-                                                                    "id": "code",
-                                                                    "root": "data",
-                                                                    "totalProperty": "total",
-                                                                    "xtype": "JsonReader",
-                                                                    "|fields": "[\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'title',\n        'type': 'string'\n    }\n]",
-                                                                    "|xns": "Roo.data"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
+                                                    "|xns": "Roo.form"
                                                 }
                                             ]
                                         },
