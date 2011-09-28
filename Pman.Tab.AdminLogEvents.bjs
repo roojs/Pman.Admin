@@ -319,6 +319,7 @@
                                                         {
                                                             "*prop": "store",
                                                             "fields": "[ 'val', 'display' ]",
+                                                            "id": null,
                                                             "xtype": "SimpleStore",
                                                             "|data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
                                                             "|xns": "Roo.data"
