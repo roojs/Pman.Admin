@@ -496,7 +496,7 @@ Pman.Dialog.AdminWatch = {
                                     listWidth : 200,
                                     name : 'medium',
                                     triggerAction : 'all',
-                                    valueField : 'code',
+                                    valueField : 'val',
                                     width : 200,
                                     store : {
                                         xtype: 'SimpleStore',

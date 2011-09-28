@@ -220,7 +220,7 @@
                                     "listWidth": 200,
                                     "name": "medium",
                                     "triggerAction": "all",
-                                    "valueField": "code",
+                                    "valueField": "val",
                                     "width": 200,
                                     "xtype": "ComboBox",
                                     "|xns": "Roo.form",
