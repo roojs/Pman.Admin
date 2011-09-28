@@ -338,7 +338,7 @@ Pman.Dialog.AdminWatch = {
                                     listWidth : 300,
                                     loadingText : "Searching...",
                                     minChars : 2,
-                                    name : 'action',
+                                    name : 'event',
                                     pageSize : 20,
                                     qtip : "Select Action",
                                     queryParam : 'query[action]',
