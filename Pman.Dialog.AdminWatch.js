@@ -50,17 +50,17 @@ Pman.Dialog.AdminWatch = {
                                 {
                                     if (action.type == 'setdata') {
                                        //_this.dialog.el.mask("Loading");
-                                       //this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                                       if (_this.data.id) {
+                                           this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                                       }
                                        return;
                                     }
                                     if (action.type == 'load') {
-                                        _this.dialog.el.unmask();
-                                        return;
+                                         return;
                                     }
                                     if (action.type =='submit') {
                                     
-                                        _this.dialog.el.unmask();
-                                        _this.dialog.hide();
+                                            _this.dialog.hide();
                                     
                                          if (_this.callback) {
                                             _this.callback.call(_this, _this.form.getValues());
