@@ -103,8 +103,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
                                         act = _this.groupedCombo.getValue();
-                                        o.params['query[grouped'] = act;
-                                        if (o.params['query[grouped'] == 'gr') {
+                                        o.params['query[grouped]'] = act;
+                                        if (o.params['query[grouped]'] == 'gr') {
                                         
                                             if (!tbl.length) {
                                                 Roo.MessageBox.alert("Error", "Select a table to group results on");
