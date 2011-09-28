@@ -254,6 +254,10 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                             }
                         },
                         {
+                            xtype: 'TextItem',
+                            xns: Roo.Toolbar
+                        },
+                        {
                             xtype: 'ComboBox',
                             xns: Roo.form,
                             listeners : {
@@ -426,6 +430,10 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                     ]
                                 }
                             }
+                        },
+                        {
+                            xtype: 'TextItem',
+                            xns: Roo.Toolbar
                         }
                     ]
                 },

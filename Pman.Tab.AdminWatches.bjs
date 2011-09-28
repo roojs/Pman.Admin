@@ -99,6 +99,10 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "TextItem"
+                                },
+                                {
                                     "listeners": {
                                         "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
                                         "|render": "function (_self)\n{\n  _this.affectSel = _self;\n}"
@@ -153,6 +157,10 @@
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "TextItem"
                                 }
                             ]
                         },
