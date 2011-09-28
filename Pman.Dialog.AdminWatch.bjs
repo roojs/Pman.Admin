@@ -229,8 +229,9 @@
                                     "items": [
                                         {
                                             "*prop": "store",
-                                            "|data": "[ [ 'email' ], [ 'APPROVAL' ] ]",
+                                            "id": null,
                                             "xtype": "SimpleStore",
+                                            "|data": "[ [ 'email' ], [ 'APPROVAL' ] ]",
                                             "|fields": "[ 'val' ]",
                                             "|xns": "Roo.data"
                                         }
