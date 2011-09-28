@@ -233,7 +233,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                             qtip : "Select Action",
                             queryParam : 'query[on_table]',
                             selectOnFocus : true,
-                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{on_table}</b> </div>',
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{ontable}</b> </div>',
                             triggerAction : 'all',
                             typeAhead : true,
                             valueField : 'action',
