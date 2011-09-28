@@ -97,6 +97,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         if (act.format) {
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
+                                        /*
                                         act = _this.groupedCombo.getValue();
                                         o.params['query[grouped]'] = act;
                                         if (o.params['query[grouped]'] == 'gr') {
@@ -111,7 +112,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             
                                         }
                                         
-                                        
+                                        */
                                     
                                         
                                     }
