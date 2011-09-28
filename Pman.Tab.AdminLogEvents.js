@@ -1054,7 +1054,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         allowBlank : false,
                                         displayField : 'title',
                                         editable : false,
-                                        fieldLabel : 'Currency',
                                         hiddenName : 'currency',
                                         listWidth : 200,
                                         name : 'currency_name',
