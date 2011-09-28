@@ -269,7 +269,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'ontable',
                         header : 'Watch Table',
-                        width : 200,
+                        width : 150,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
