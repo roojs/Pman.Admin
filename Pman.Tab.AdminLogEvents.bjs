@@ -58,7 +58,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|beforeload": "function (_self, o)\n{\n   if (! _this.personSel) {\n    return;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        o.params.action = act;\n    }\n     act = _this.affectSel.getValue();\n    if (act.length) {\n        o.params.on_table = act;\n    }\n    \n}"
+                                                "|beforeload": "function (_self, o)\n{\n   if (! _this.personSel) {\n    return;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        o.params.action = act;\n    }\n     act = _this.affectSel.getValue();\n    if (act.length) {\n        o.params.on_table = act;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.length) {\n        o.params['query[from]'] = act;\n    }\n    act = _this.dateTo.getValue();\n    if (act.length) {\n        o.params['query[to]'] = act;\n    }\n    act = _this.groupedCombo.getValue();\n    if (act.length) {\n        o.params['query[grouped'] = act;\n    }\n\n    \n}"
                                             },
                                             "*prop": "dataSource",
                                             "remoteSort": true,
