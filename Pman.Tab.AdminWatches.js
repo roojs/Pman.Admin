@@ -41,6 +41,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                     }
                 }
             },
+            autoScroll : false,
             background : true,
             fitContainer : true,
             fitToframe : true,
