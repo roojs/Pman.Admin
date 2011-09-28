@@ -309,6 +309,7 @@
                                                     "editable": false,
                                                     "hiddenName": "currency",
                                                     "listWidth": 100,
+                                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{display}</b> </div>",
                                                     "triggerAction": "all",
                                                     "value": "ug",
                                                     "valueField": "val",
