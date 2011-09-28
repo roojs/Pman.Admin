@@ -319,7 +319,7 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
+                                                            "|data": "[ [ 'ug' , \"Ungrouped\"], [ 'gr', \"Grouped\" ]]",
                                                             "xtype": "SimpleStore",
                                                             "|xns": "Roo.data"
                                                         }

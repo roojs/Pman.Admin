@@ -1064,7 +1064,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         store : {
                                             xtype: 'SimpleStore',
                                             xns: Roo.data,
-                                            data : '[ [ \'ug\' , "Ungrouped"], [ \'gr\', "Grouped" ]]'
+                                            data : [ [ 'ug' , "Ungrouped"], [ 'gr', "Grouped" ]]
                                         }
                                     }
                                 ]
