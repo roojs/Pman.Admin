@@ -294,6 +294,14 @@
                                                     "format": "Y-m-d",
                                                     "xtype": "DateField",
                                                     "|xns": "Roo.form"
+                                                },
+                                                {
+                                                    "listeners": {
+                                                        "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}"
+                                                    },
+                                                    "format": "Y-m-d",
+                                                    "xtype": "DateField",
+                                                    "|xns": "Roo.form"
                                                 }
                                             ]
                                         },
