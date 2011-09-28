@@ -895,6 +895,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                                     o.params._columns ='on_table';
                                                 }
                                             },
+                                            remoteSort : true,
                                             sortInfo : { field : 'on_table' , direction : 'ASC' },
                                             proxy : {
                                                 xtype: 'HttpProxy',
