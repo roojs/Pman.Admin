@@ -212,7 +212,7 @@
                                     ]
                                 },
                                 {
-                                    "allowBlank": false,
+                                    "allowBlank": true,
                                     "alwaysQuery": true,
                                     "displayField": "val",
                                     "editable": false,
