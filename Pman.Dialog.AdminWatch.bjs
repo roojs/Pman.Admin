@@ -229,7 +229,7 @@
                                     "items": [
                                         {
                                             "*prop": "store",
-                                            "|data": "",
+                                            "|data": "[ [ 'email' ], [ 'APPROVAL' ] ]",
                                             "xtype": "SimpleStore",
                                             "|fields": "[ 'val' ]",
                                             "|xns": "Roo.data"

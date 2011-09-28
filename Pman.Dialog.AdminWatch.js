@@ -502,6 +502,7 @@ Pman.Dialog.AdminWatch = {
                                     store : {
                                         xtype: 'SimpleStore',
                                         xns: Roo.data,
+                                        data : [ [ 'email' ], [ 'APPROVAL' ] ],
                                         fields : [ 'val' ]
                                     }
                                 },
