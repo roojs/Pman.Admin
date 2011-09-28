@@ -490,7 +490,7 @@ Pman.Dialog.AdminWatch = {
                                     xns: Roo.form,
                                     allowBlank : false,
                                     alwaysQuery : true,
-                                    displayField : 'title',
+                                    displayField : 'val',
                                     editable : false,
                                     fieldLabel : 'Action',
                                     listWidth : 200,
