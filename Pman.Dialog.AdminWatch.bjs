@@ -234,13 +234,6 @@
                                     ]
                                 },
                                 {
-                                    "fieldLabel": "Action",
-                                    "name": "medium",
-                                    "width": 200,
-                                    "xtype": "TextField",
-                                    "|xns": "Roo.form"
-                                },
-                                {
                                     "fieldLabel": "Active?",
                                     "name": "active",
                                     "xtype": "Checkbox",
