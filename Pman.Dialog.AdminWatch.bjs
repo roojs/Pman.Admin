@@ -219,6 +219,7 @@
                                     "|xns": "Roo.form"
                                 },
                                 {
+                                    "fieldLabel": "Active?",
                                     "name": "active",
                                     "xtype": "Checkbox",
                                     "|xns": "Roo.form"

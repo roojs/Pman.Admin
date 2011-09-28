@@ -495,6 +495,7 @@ Pman.Dialog.AdminWatch = {
                                 {
                                     xtype: 'Checkbox',
                                     xns: Roo.form,
+                                    fieldLabel : 'Active?',
                                     name : 'active'
                                 },
                                 {
