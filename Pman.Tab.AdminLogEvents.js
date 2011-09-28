@@ -90,9 +90,9 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         if (act.length) {
                                             o.params.action = act;
                                         }
-                                         act = _this.affectSel.getValue();
-                                        if (act.length) {
-                                            o.params.on_table = act;
+                                        var tbl = _this.affectSel.getValue();
+                                        if (tbl.length) {
+                                            o.params.on_table = tbl;
                                         }
                                         act = _this.dateFrom.getValue();
                                         if (act.format) {
@@ -103,9 +103,20 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
                                         act = _this.groupedCombo.getValue();
-                                        if (act.length) {
-                                            o.params['query[grouped'] = act;
+                                        o.params['query[grouped'] = act;
+                                        if (o.params['query[grouped'] == 'gr') {
+                                        
+                                            if (!tbl.length) {
+                                                Roo.MessageBox.alert("Error", "Select a table to group results on");
+                                                return false;
+                                            }
+                                    //        o.params['_columns']  = 
+                                            o.params['_distinct'] = 'on_id';
+                                            
+                                            
                                         }
+                                        
+                                        
                                     
                                         
                                     }
