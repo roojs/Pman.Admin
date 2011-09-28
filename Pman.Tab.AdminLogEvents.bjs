@@ -315,7 +315,14 @@
                                                     "valueField": "code",
                                                     "width": 100,
                                                     "xtype": "ComboBox",
-                                                    "|xns": "Roo.form"
+                                                    "|xns": "Roo.form",
+                                                    "items": [
+                                                        {
+                                                            "|xns": "Roo.data",
+                                                            "xtype": "SimpleStore",
+                                                            "*prop": "store"
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         },
