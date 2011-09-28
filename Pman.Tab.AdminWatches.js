@@ -67,7 +67,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         }); 
                     }
                 },
-                autoExpandColumn : 'person_id_namne',
+                autoExpandColumn : 'person_id_name',
                 loadMask : true,
                 dataSource : {
                     xtype: 'Store',
