@@ -30,9 +30,12 @@
                     "|xns": "Roo.grid",
                     "items": [
                         {
+                            "listeners": {
+                                "beforeload": "function (_self, options)\n{\n        var val = _this.affectSel.getValue();\n        if (val.length) {\n            options.params.ontable = val;\n        }\n        \n}"
+                            },
                             "*prop": "dataSource",
-                            "xtype": "Store",
                             "remoteSort": true,
+                            "xtype": "Store",
                             "|sortInfo": "{ field : 'ontable', direction: 'ASC' }",
                             "|xns": "Roo.data",
                             "items": [

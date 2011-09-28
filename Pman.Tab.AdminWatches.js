@@ -72,6 +72,16 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
+                    listeners : {
+                        beforeload : function (_self, options)
+                        {
+                                var val = _this.affectSel.getValue();
+                                if (val.length) {
+                                    options.params.ontable = val;
+                                }
+                                
+                        }
+                    },
                     remoteSort : true,
                     sortInfo : { field : 'ontable', direction: 'ASC' },
                     proxy : {
