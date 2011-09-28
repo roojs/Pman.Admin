@@ -1047,6 +1047,47 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d'
+                                    },
+                                    {
+                                        xtype: 'ComboBox',
+                                        xns: Roo.form,
+                                        allowBlank : false,
+                                        displayField : 'title',
+                                        editable : false,
+                                        fieldLabel : 'Currency',
+                                        hiddenName : 'currency',
+                                        listWidth : 200,
+                                        name : 'currency_name',
+                                        triggerAction : 'all',
+                                        valueField : 'code',
+                                        width : 150,
+                                        store : {
+                                            xtype: 'Store',
+                                            xns: Roo.data,
+                                            proxy : {
+                                                xtype: 'HttpProxy',
+                                                xns: Roo.data,
+                                                method : 'GET',
+                                                url : baseURL + '/I18N/Currency.php'
+                                            },
+                                            reader : {
+                                                xtype: 'JsonReader',
+                                                xns: Roo.data,
+                                                id : 'code',
+                                                root : 'data',
+                                                totalProperty : 'total',
+                                                fields : [
+                                                    {
+                                                        'name': 'code',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'title',
+                                                        'type': 'string'
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
                                 ]
                             },
