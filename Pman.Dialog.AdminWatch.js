@@ -278,7 +278,7 @@ Pman.Dialog.AdminWatch = {
                                     qtip : "Select Person",
                                     queryParam : 'query[name]',
                                     selectOnFocus : true,
-                                    tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
+                                    tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> ({company_id_name}) &lt;{email}&gt;</div>',
                                     triggerAction : 'all',
                                     typeAhead : true,
                                     valueField : 'id',
