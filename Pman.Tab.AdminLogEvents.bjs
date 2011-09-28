@@ -17,13 +17,6 @@
                     "*prop": "layout",
                     "items": [
                         {
-                            "*prop": "south",
-                            "height": 150,
-                            "split": true,
-                            "xtype": "LayoutRegion",
-                            "|xns": "Roo"
-                        },
-                        {
                             "|xns": "Roo",
                             "xtype": "LayoutRegion",
                             "*prop": "center"
