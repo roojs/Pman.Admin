@@ -95,7 +95,7 @@
                                 },
                                 {
                                     "fieldLabel": "Onid",
-                                    "name": "onid",
+                                    "name": "Id",
                                     "width": 75,
                                     "xtype": "NumberField",
                                     "|xns": "Roo.form"
