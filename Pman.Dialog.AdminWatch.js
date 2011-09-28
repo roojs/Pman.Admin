@@ -498,34 +498,7 @@ Pman.Dialog.AdminWatch = {
                                     name : 'country_name',
                                     triggerAction : 'all',
                                     valueField : 'code',
-                                    width : 200,
-                                    store : {
-                                        xtype: 'Store',
-                                        xns: Roo.data,
-                                        proxy : {
-                                            xtype: 'HttpProxy',
-                                            xns: Roo.data,
-                                            method : 'GET',
-                                            url : baseURL + '/I18N/Country.php'
-                                        },
-                                        reader : {
-                                            xtype: 'JsonReader',
-                                            xns: Roo.data,
-                                            id : 'code',
-                                            root : 'data',
-                                            totalProperty : 'total',
-                                            fields : [
-                                                {
-                                                    'name': 'code',
-                                                    'type': 'string'
-                                                },
-                                                {
-                                                    'name': 'title',
-                                                    'type': 'string'
-                                                }
-                                            ]
-                                        }
-                                    }
+                                    width : 200
                                 },
                                 {
                                     xtype: 'TextField',
