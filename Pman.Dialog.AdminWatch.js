@@ -270,7 +270,7 @@ Pman.Dialog.AdminWatch = {
                                     fieldLabel : 'Notify Who',
                                     forceSelection : true,
                                     hiddenName : 'person_id',
-                                    listWidth : 400,
+                                    listWidth : 500,
                                     loadingText : "Searching...",
                                     minChars : 2,
                                     name : 'person_id_name',
