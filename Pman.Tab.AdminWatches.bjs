@@ -1,10 +1,10 @@
 {
     "id": "roo-file-169",
     "name": "Pman.Tab.AdminWatches",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.Admin",
+    "title": "Pman.Tab.AdminWatches",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatches.bjs",
-    "items": false,
+    "items": [],
     "permname": "",
-    "modOrder": "001"
+    "modOrder": "860"
 }
