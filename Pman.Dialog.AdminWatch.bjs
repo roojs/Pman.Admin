@@ -213,7 +213,6 @@
                                 },
                                 {
                                     "allowBlank": true,
-                                    "alwaysQuery": true,
                                     "displayField": "val",
                                     "editable": false,
                                     "fieldLabel": "Action",

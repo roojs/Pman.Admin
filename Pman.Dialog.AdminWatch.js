@@ -489,7 +489,6 @@ Pman.Dialog.AdminWatch = {
                                     xtype: 'ComboBox',
                                     xns: Roo.form,
                                     allowBlank : true,
-                                    alwaysQuery : true,
                                     displayField : 'val',
                                     editable : false,
                                     fieldLabel : 'Action',
