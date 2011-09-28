@@ -495,7 +495,7 @@ Pman.Dialog.AdminWatch = {
                                     fieldLabel : 'Country',
                                     hiddenName : 'country',
                                     listWidth : 200,
-                                    name : 'country_name',
+                                    name : 'medium',
                                     triggerAction : 'all',
                                     valueField : 'code',
                                     width : 200,

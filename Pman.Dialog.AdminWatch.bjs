@@ -219,13 +219,12 @@
                                     "fieldLabel": "Country",
                                     "hiddenName": "country",
                                     "listWidth": 200,
-                                    "name": "country_name",
+                                    "name": "medium",
                                     "triggerAction": "all",
                                     "valueField": "code",
                                     "width": 200,
                                     "xtype": "ComboBox",
                                     "|xns": "Roo.form",
-                                    "listeners": {},
                                     "items": [
                                         {
                                             "*prop": "store",
