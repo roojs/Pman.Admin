@@ -9,6 +9,7 @@
             "closable": false,
             "collapsible": false,
             "height": 230,
+            "modal": true,
             "resizable": false,
             "title": "Edit / Create core_watch",
             "width": 500,
