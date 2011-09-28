@@ -128,13 +128,13 @@
                             "|xns": "Roo.grid"
                         },
                         {
-                            "xtype": "ColumnModel",
-                            "header": "Person",
-                            "width": 75,
+                            "*prop": "colModel[]",
                             "dataIndex": "person_id",
+                            "header": "Who get's notified",
+                            "width": 75,
+                            "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "|xns": "Roo.grid"
                         },
                         {
                             "xtype": "ColumnModel",
