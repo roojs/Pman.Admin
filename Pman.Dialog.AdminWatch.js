@@ -101,7 +101,7 @@ Pman.Dialog.AdminWatch = {
                                     allowBlank : true,
                                     displayField : 'on_table',
                                     editable : false,
-                                    emptyText : "Select Affects",
+                                    emptyText : "Select Table",
                                     fieldLabel : 'Table',
                                     forceSelection : true,
                                     listWidth : 300,
