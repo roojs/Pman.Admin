@@ -305,11 +305,10 @@
                                                 },
                                                 {
                                                     "allowBlank": false,
-                                                    "displayField": "title",
+                                                    "displayField": "display",
                                                     "editable": false,
                                                     "hiddenName": "currency",
                                                     "listWidth": 200,
-                                                    "name": "currency_name",
                                                     "triggerAction": "all",
                                                     "value": "ug",
                                                     "valueField": "code",
