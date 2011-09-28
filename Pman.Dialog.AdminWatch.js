@@ -35,7 +35,7 @@ Pman.Dialog.AdminWatch = {
             height : 230,
             resizable : false,
             title : "Edit / Create core_watch",
-            width : 400,
+            width : 500,
             items : [
                 {
                     xtype: 'ContentPanel',
