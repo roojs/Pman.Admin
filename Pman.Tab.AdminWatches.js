@@ -275,9 +275,9 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Onid',
-                        width : 75,
                         dataIndex : 'onid',
+                        header : 'Watch ID',
+                        width : 75,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {

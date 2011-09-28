@@ -119,13 +119,13 @@
                             "|xns": "Roo.grid"
                         },
                         {
-                            "xtype": "ColumnModel",
-                            "header": "Onid",
-                            "width": 75,
+                            "*prop": "colModel[]",
                             "dataIndex": "onid",
+                            "header": "Watch ID",
+                            "width": 75,
+                            "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "|xns": "Roo.grid"
                         },
                         {
                             "xtype": "ColumnModel",
