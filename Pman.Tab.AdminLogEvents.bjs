@@ -281,6 +281,12 @@
                                                             ]
                                                         }
                                                     ]
+                                                },
+                                                {
+                                                    "xtype": "TextItem",
+                                                    "|xns": "Roo.Toolbar",
+                                                    "text": "Show",
+                                                    "listeners": {}
                                                 }
                                             ]
                                         },
