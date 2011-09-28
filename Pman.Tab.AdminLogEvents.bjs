@@ -313,7 +313,7 @@
                                                     "name": "currency_name",
                                                     "triggerAction": "all",
                                                     "valueField": "code",
-                                                    "width": 150,
+                                                    "width": 100,
                                                     "xtype": "ComboBox",
                                                     "|xns": "Roo.form",
                                                     "items": [
