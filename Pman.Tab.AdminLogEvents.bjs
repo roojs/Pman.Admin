@@ -283,10 +283,9 @@
                                                     ]
                                                 },
                                                 {
+                                                    "text": "Date Range",
                                                     "xtype": "TextItem",
-                                                    "|xns": "Roo.Toolbar",
-                                                    "text": "Show",
-                                                    "listeners": {}
+                                                    "|xns": "Roo.Toolbar"
                                                 }
                                             ]
                                         },
