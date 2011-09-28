@@ -494,7 +494,8 @@ Pman.Dialog.AdminWatch = {
                                 },
                                 {
                                     xtype: 'Checkbox',
-                                    xns: Roo.form
+                                    xns: Roo.form,
+                                    name : 'active'
                                 },
                                 {
                                     xtype: 'TextField',
