@@ -229,7 +229,6 @@
                                     "items": [
                                         {
                                             "*prop": "store",
-                                            "id": null,
                                             "xtype": "SimpleStore",
                                             "|data": "[ [ 'email' ], [ 'APPROVAL' ] ]",
                                             "|fields": "[ 'val' ]",
