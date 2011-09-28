@@ -1076,36 +1076,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d'
-                                    },
-                                    {
-                                        xtype: 'ComboBox',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            select : function (combo, record, index)
-                                            {
-                                              _this.grid.footer.onClick('first');
-                                            },
-                                            render : function (_self)
-                                            {
-                                              _this.groupedCombo = _self;
-                                            }
-                                        },
-                                        allowBlank : false,
-                                        displayField : 'display',
-                                        editable : false,
-                                        hiddenName : 'currency',
-                                        listWidth : 100,
-                                        tpl : '<div class="x-grid-cell-text x-btn button"><b>{display}</b> </div>',
-                                        triggerAction : 'all',
-                                        value : "ug",
-                                        valueField : 'val',
-                                        width : 100,
-                                        store : {
-                                            xtype: 'SimpleStore',
-                                            xns: Roo.data,
-                                            fields : [ 'val', 'display' ],
-                                            data : [ [ 'ug' , "Ungrouped"], [ 'gr', "Grouped" ]]
-                                        }
                                     }
                                 ]
                             },
