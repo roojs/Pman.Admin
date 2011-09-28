@@ -435,6 +435,22 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            text : "Add",
+                            cls : 'x-btn-text-icon',
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+                            listeners : {
+                                click : function()
+                                {
+                                    if (!_this.dialog) return;
+                                    _this.dialog.show( { id : 0 } , function() {
+                                        _this.grid.footer.onClick('first');
+                                   }); 
+                                }
+                            }
                         }
                     ]
                 },
