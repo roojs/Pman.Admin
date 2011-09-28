@@ -288,8 +288,9 @@
                                                     "|xns": "Roo.Toolbar"
                                                 },
                                                 {
-                                                    "|xns": "Roo.form",
-                                                    "xtype": "DateField"
+                                                    "format": "Y-m-d",
+                                                    "xtype": "DateField",
+                                                    "|xns": "Roo.form"
                                                 }
                                             ]
                                         },
