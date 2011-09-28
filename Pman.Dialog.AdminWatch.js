@@ -545,7 +545,7 @@ Pman.Dialog.AdminWatch = {
                             // do some checks?
                              
                             
-                            _this.dialog.el.mask("Saving");
+                         
                             _this.form.doAction("submit");
                         
                         }
