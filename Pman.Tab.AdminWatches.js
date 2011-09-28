@@ -231,7 +231,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                 }
                             },
                             allowBlank : true,
-                            displayField : 'on_table',
+                            displayField : 'ontable',
                             editable : false,
                             emptyText : "Select Affects",
                             forceSelection : true,
