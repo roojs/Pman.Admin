@@ -247,7 +247,7 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{ontable}</b> </div>',
                             triggerAction : 'all',
                             typeAhead : true,
-                            valueField : 'ontable',
+                            valueField : 'on_\table',
                             width : 150,
                             store : {
                                 xtype: 'Store',
