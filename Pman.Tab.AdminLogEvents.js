@@ -274,10 +274,22 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                                     'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        
                                                 }
                                                     
-                                                
+                                                o.params.person_id = _this.personSel.getValue();
                                                 var act = _this.actionSel.getValue();
                                                 if (act.length) {
-                                                    params.action = act;
+                                                    o.params.action = act;
+                                                }
+                                                var tbl = _this.affectSel.getValue();
+                                                if (tbl.length) {
+                                                    o.params.on_table = tbl;
+                                                }
+                                                act = _this.dateFrom.getValue();
+                                                if (act.format) {
+                                                    o.params['query[from]'] = act.format('Y-m-d');
+                                                }
+                                                act = _this.dateTo.getValue();
+                                                if (act.format) {
+                                                    o.params['query[to]'] = act.format('Y-m-d');
                                                 }
                                                 
                                             
