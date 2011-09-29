@@ -264,7 +264,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                                     'sort' : 'event_when',
                                                     'dir' : 'DESC',
                                                     'start' : 0,
-                                                    'limit' : 400,
+                                                    'limit' : 900,
                                                     person_id : _this.personSel.getValue(), 
                                                     'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', 
                                                     'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', 
