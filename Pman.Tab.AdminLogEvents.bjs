@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-52",
+    "id": "roo-file-53",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -85,7 +85,7 @@
                                             "items": [
                                                 {
                                                     "listeners": {
-                                                        "click": "function (_self, e)\n{\n \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 400,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Remarks',   'csvCols[3]' : 'remarks'\n        \n    }\n        \n    \n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params,\n        newWindow: true\n        \n    });\n}"
+                                                        "click": "function (_self, e)\n{\n \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 400,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,\n        'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_type',\n        'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        \n    }\n        \n    \n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params,\n        newWindow: true\n        \n    });\n}"
                                                     },
                                                     "text": "Download to Excel",
                                                     "xtype": "Button",
