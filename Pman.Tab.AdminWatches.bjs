@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-169",
+    "id": "roo-file-58",
     "name": "Pman.Tab.AdminWatches",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminWatches",
@@ -117,7 +117,7 @@
                                                     "*prop": "proxy",
                                                     "method": "GET",
                                                     "xtype": "HttpProxy",
-                                                    "|url": "baseURL + '/Roo/Core_watch.php'",
+                                                    "|url": "baseURL + '/Roo/Events.php'",
                                                     "|xns": "Roo.data"
                                                 },
                                                 {
