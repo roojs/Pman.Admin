@@ -83,7 +83,7 @@
                                         "|render": "function (_self)\n{\n  _this.affectSel = _self;\n}"
                                     },
                                     "allowBlank": true,
-                                    "displayField": "ontable",
+                                    "displayField": "on_table",
                                     "editable": false,
                                     "emptyText": "Select Table",
                                     "forceSelection": true,
