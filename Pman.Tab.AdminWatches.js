@@ -260,8 +260,8 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                                         if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
                                             o.params.company_id = Pman.Login.authUser.company_id;
                                         }
-                                        o.params._distinct = 'ontable';
-                                        o.params._columns ='ontable';
+                                        o.params._distinct = 'on_table';
+                                        o.params._columns ='on_table';
                                     }
                                 },
                                 remoteSort : true,
