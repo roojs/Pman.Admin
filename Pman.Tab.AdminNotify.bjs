@@ -69,8 +69,9 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Button"
+                                    "enableToggle": true,
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
