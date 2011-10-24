@@ -66,19 +66,7 @@
                         {
                             "*prop": "toolbar",
                             "xtype": "Toolbar",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_notify'); \n}\n        "
-                                    },
-                                    "|xns": "Roo.Toolbar"
-                                }
-                            ]
+                            "|xns": "Roo"
                         },
                         {
                             "xtype": "ColumnModel",
