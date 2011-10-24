@@ -1,7 +1,7 @@
 {
-    "id": "roo-file-58",
+    "id": "roo-file-98",
     "name": "Pman.Tab.AdminWatches",
-    "parent": "Pman.Tab.Admin",
+    "parent": "Pman.Tab.AdminWatchNotify",
     "title": "Pman.Tab.AdminWatches",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatches.bjs",
     "items": [

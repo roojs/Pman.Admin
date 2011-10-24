@@ -8,10 +8,11 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
+        part :  ["Admin","Watches"],
         modKey : '860-Pman.Tab.AdminWatches',
         module : Pman.Tab.AdminWatches,
         region : 'center',
-        parent : Pman.Tab.Admin,
+        parent : Pman.Tab.AdminWatchNotify,
         name : "Pman.Tab.AdminWatches",
         disabled : false, 
         permname: '' 
