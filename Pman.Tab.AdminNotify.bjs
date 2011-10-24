@@ -70,6 +70,7 @@
                             "items": [
                                 {
                                     "enableToggle": true,
+                                    "text": "Show Completed",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 }
