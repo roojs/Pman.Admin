@@ -557,14 +557,14 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                remoteSort : true,
-                                sortInfo : { direction : 'ASC', field: 'id' },
                                 listeners : {
                                     beforeload : function (_self, o){
                                         o.params = o.params || {};
                                         // set more here
                                     }
                                 },
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'name' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
