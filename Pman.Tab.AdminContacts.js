@@ -8,6 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
+        part :  ["Admin","Contacts"],
         modKey : '001-Pman.Tab.AdminContacts',
         module : Pman.Tab.AdminContacts,
         region : 'center',
@@ -103,6 +104,10 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             
                             if (!_this.activeButton) {return; false;}
                             
+                             if (_this.companyCombo &&   _this.companyCombo.getValue()) {
+                                o.params.company_id =   _this.companyCombo.getValue();
+                            }
+                            
                             
                             o.params.active = _this.activeButton.pressed ? 0 : 1;
                             if (!Pman.Tab.AdminContactsGroup) { 
@@ -122,7 +127,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             }
                             //o.params['query[name]'] = _this.searchBox.getValue();
                           
-                            
                         },
                         update : function (_self, record, operation)
                         {
@@ -481,8 +485,8 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     xns: Roo,
                     pageSize : 25,
                     displayInfo : true,
-                    displayMsg : 'Displaying Person{0} - {1} of {2}',
-                    emptyMsg : 'No Person found',
+                    displayMsg : "Displaying Person{0} - {1} of {2}",
+                    emptyMsg : "No Person found",
                     items : [
                         {
                             xtype: 'TextItem',
@@ -520,6 +524,60 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                   if (e.getKey() == 13) {
                                     _this.grid.footer.onClick('first');
                                   }
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'ComboBox',
+                            xns: Roo.form,
+                            listeners : {
+                                render : function (_self)
+                                {
+                                  _this.companyCombo = _self;
+                                }
+                            },
+                            displayField : 'name',
+                            editable : true,
+                            emptyText : "Select Company",
+                            forceSelection : true,
+                            hiddenName : 'company_id',
+                            listWidth : 400,
+                            loadingText : "Searching...",
+                            minChars : 2,
+                            name : 'company_name',
+                            pageSize : 20,
+                            qtip : "Select Companies",
+                            queryParam : 'query[name]',
+                            selectOnFocus : true,
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
+                            triggerAction : 'all',
+                            typeAhead : true,
+                            valueField : 'id',
+                            width : 150,
+                            store : {
+                                xtype: 'Store',
+                                xns: Roo.data,
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'id' },
+                                listeners : {
+                                    beforeload : function (_self, o){
+                                        o.params = o.params || {};
+                                        // set more here
+                                    }
+                                },
+                                proxy : {
+                                    xtype: 'HttpProxy',
+                                    xns: Roo.data,
+                                    method : 'GET',
+                                    url : baseURL + '/Roo/Companies.php'
+                                },
+                                reader : {
+                                    xtype: 'JsonReader',
+                                    xns: Roo.data,
+                                    id : 'id',
+                                    root : 'data',
+                                    totalProperty : 'total',
+                                    fields : [{"name":"id","type":"int"},{"name":"code","type":"string"}]
                                 }
                             }
                         },
