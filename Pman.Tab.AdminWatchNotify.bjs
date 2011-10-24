@@ -6,8 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
     "items": [
         {
-            "|xns": "Roo",
+            "title": "Watch/Notifications",
             "xtype": "NestedLayoutPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "|xns": "Roo",
