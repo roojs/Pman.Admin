@@ -34,7 +34,7 @@ Pman.Tab.AdminWatchNotify = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
-            title : "Watch/Notifications",
+            title : "Notifications",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
