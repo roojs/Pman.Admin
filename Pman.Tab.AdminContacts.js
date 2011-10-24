@@ -537,7 +537,7 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                                 },
                                 select : function (combo, record, index)
                                 {
-                                   _this.grid.footer.onClick.defer(300,_this.grid.footer,'first');
+                                   _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );
                                 }
                             },
                             displayField : 'name',
