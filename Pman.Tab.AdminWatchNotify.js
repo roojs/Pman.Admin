@@ -42,7 +42,8 @@ Pman.Tab.AdminWatchNotify = new Roo.util.Observable({
                 xns: Roo,
                 center : {
                     xtype: 'LayoutRegion',
-                    xns: Roo
+                    xns: Roo,
+                    tabPosition : 'top'
                 }
             }
         });
