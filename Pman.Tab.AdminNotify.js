@@ -34,12 +34,6 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'GridPanel',
             xns: Roo,
-            title : "core_notify",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'core_notify',
-            background : true,
-            region : 'center',
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -48,6 +42,12 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            region : 'center',
+            tableName : 'core_notify',
+            title : "Notifications",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
