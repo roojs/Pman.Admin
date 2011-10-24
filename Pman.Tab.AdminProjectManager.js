@@ -8,9 +8,9 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
+        part :  ["Admin","ProjectManager"],
         modKey : '002-Pman.Tab.AdminProjectManager',
         module : Pman.Tab.AdminProjectManager,
-        moduleName : 'Pman.Tab.AdminProjectManager',
         region : 'center',
         parent : Pman.Tab.Admin,
         name : "Pman.Tab.AdminProjectManager",
@@ -77,13 +77,13 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 rowdblclick : function (_self, rowIndex, e)
                                 {
                                     if (!_this.dialog) return;
-                                    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
+                                    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
                                         _this.grid.footer.onClick('first');
                                     }); 
                                 }
                             },
-                            filter : 'P,U',
                             autoExpandColumn : 'name',
+                            filter : 'P,U',
                             loadMask : true,
                             getTypes : function() {
                                 return [
@@ -513,8 +513,8 @@ Pman.Tab.AdminProjectManager = new Roo.util.Observable({
                                 xtype: 'PagingToolbar',
                                 xns: Roo,
                                 displayInfo : true,
-                                displayMsg : 'Displaying Projects {0} - {1} of {2}',
-                                emptyMsg : 'No Projects found',
+                                displayMsg : "Displaying Projects {0} - {1} of {2}",
+                                emptyMsg : "No Projects found",
                                 pageSize : 25
                             },
                             toolbar : {
