@@ -73,6 +73,14 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
+                    listeners : {
+                        beforeload : function (_self, options)
+                        {
+                            if (!_this.toggleBtn.pressed) {
+                                options.params['!event_id'] = 0;
+                            }
+                        }
+                    },
                     remoteSort : true,
                     sortInfo : { field : 'act_when', direction: 'DESC' },
                     proxy : {
