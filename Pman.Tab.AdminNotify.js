@@ -283,7 +283,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                         xns: Roo.grid,
                         dataIndex : 'person_id_name',
                         header : 'Who to notify',
-                        width : 75,
+                        width : 200,
                         renderer : function(v,x,r) {
                              return String.format('{0} <u>&lt;{1}&lt;</u>', v, r.data.email); 
                          }
