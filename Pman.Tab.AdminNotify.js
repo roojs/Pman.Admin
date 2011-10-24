@@ -74,7 +74,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     xtype: 'Store',
                     xns: Roo.data,
                     remoteSort : true,
-                    sortInfo : { field : 'ontable', direction: 'ASC' },
+                    sortInfo : { field : 'act_when', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,

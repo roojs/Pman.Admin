@@ -31,9 +31,9 @@
                     "items": [
                         {
                             "*prop": "dataSource",
-                            "xtype": "Store",
                             "remoteSort": true,
-                            "|sortInfo": "{ field : 'ontable', direction: 'ASC' }",
+                            "xtype": "Store",
+                            "|sortInfo": "{ field : 'act_when', direction: 'ASC' }",
                             "|xns": "Roo.data",
                             "items": [
                                 {
