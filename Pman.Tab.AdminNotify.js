@@ -252,6 +252,10 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                                 render : function (_self)
                                 {
                                     _this.toggleBtn = _self;
+                                },
+                                toggle : function (_self, pressed)
+                                {
+                                    _this.setText(pressed ? "Hide Completed" : "Show Completed");
                                 }
                             },
                             enableToggle : true,
