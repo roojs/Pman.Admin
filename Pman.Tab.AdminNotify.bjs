@@ -69,6 +69,9 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "listeners": {
+                                        "render": "function (_self)\n{\n    _this.toggleBtn = _self;\n}"
+                                    },
                                     "enableToggle": true,
                                     "text": "Show Completed",
                                     "xtype": "Button",

@@ -248,6 +248,12 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
+                            listeners : {
+                                render : function (_self)
+                                {
+                                    _this.toggleBtn = _self;
+                                }
+                            },
                             enableToggle : true,
                             text : "Show Completed"
                         }
