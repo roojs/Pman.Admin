@@ -270,7 +270,12 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                         header : 'Sent',
                         sortable : true,
                         width : 100,
-                        renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
+                        renderer : function(v,x,r) {
+                            if (r.data.event_id *1 == 0) {
+                                return '';
+                            }
+                             return String.format('{0}', v ? v.format('d/M/Y') : '');
+                          }
                     },
                     {
                         xtype: 'ColumnModel',
