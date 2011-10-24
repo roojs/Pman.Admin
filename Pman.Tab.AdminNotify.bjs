@@ -31,7 +31,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, options)\n{\n    if (!_this.toggleBtn.pressed) {\n        options.params['!event_id'] = 0;\n    }\n}"
+                                "beforeload": "function (_self, options)\n{\n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    }\n}"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,

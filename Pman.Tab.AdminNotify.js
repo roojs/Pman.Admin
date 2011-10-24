@@ -77,7 +77,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                         beforeload : function (_self, options)
                         {
                             if (!_this.toggleBtn.pressed) {
-                                options.params['!event_id'] = 0;
+                                options.params['event_id'] = 0;
                             }
                         }
                     },
