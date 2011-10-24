@@ -257,9 +257,9 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Act when',
-                        width : 75,
                         dataIndex : 'act_when',
+                        header : 'Act when',
+                        width : 100,
                         renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
                     },
                     {
