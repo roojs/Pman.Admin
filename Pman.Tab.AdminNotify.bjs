@@ -78,15 +78,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Id",
-                            "width": 75,
-                            "dataIndex": "id",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Act when",
                             "width": 75,
                             "dataIndex": "act_when",
