@@ -299,9 +299,9 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'event_id',
                         header : 'Event',
                         width : 75,
-                        dataIndex : 'event_id',
                         renderer : function(v) { return String.format('{0}', v); }
                     }
                 ]
