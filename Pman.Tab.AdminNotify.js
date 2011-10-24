@@ -11,9 +11,9 @@ Pman.on('beforeload', function()
         part :  ["Admin","Notify"],
         modKey : '001-Pman.Tab.AdminNotify',
         module : Pman.Tab.AdminNotify,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.AdminWatchNotify,
+        name : "Pman.Tab.AdminNotify",
         disabled : false, 
         permname: '' 
     });
