@@ -6,6 +6,8 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
     "items": [
         {
+            "background": true,
+            "region": "center",
             "title": "Notifications",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
