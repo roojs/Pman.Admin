@@ -9,11 +9,11 @@ Pman.on('beforeload', function()
 {
     Pman.register({
         part :  ["Admin","WatchNotify"],
-        modKey : '001-Pman.Tab.AdminWatchNotify',
+        modKey : '860-Pman.Tab.AdminWatchNotify',
         module : Pman.Tab.AdminWatchNotify,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.Admin,
+        name : "Notifications",
         disabled : false, 
         permname: '' 
     });
