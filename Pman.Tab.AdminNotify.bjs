@@ -86,22 +86,13 @@
                             "*prop": "colModel[]"
                         },
                         {
-                            "xtype": "ColumnModel",
-                            "header": "Onid",
-                            "width": 75,
-                            "dataIndex": "onid",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
+                            "*prop": "colModel[]",
+                            "dataIndex": "ontable",
                             "header": "Ontable",
                             "width": 200,
-                            "dataIndex": "ontable",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
+                            "xtype": "ColumnModel",
+                            "|renderer": "function(v,x,r) { return String.format('{0}:{1}', v,r.data.onid); }",
+                            "|xns": "Roo.grid"
                         },
                         {
                             "*prop": "colModel[]",

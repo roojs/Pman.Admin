@@ -265,18 +265,10 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Onid',
-                        width : 75,
-                        dataIndex : 'onid',
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
+                        dataIndex : 'ontable',
                         header : 'Ontable',
                         width : 200,
-                        dataIndex : 'ontable',
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v,x,r) { return String.format('{0}:{1}', v,r.data.onid); }
                     },
                     {
                         xtype: 'ColumnModel',
