@@ -263,7 +263,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                                 },
                                 toggle : function (_self, pressed)
                                 {
-                                    _this.setText(pressed ? "Hide Completed" : "Show Completed");
+                                    this.setText(pressed ? "Hide Completed" : "Show Completed");
                                     _this.grid.footer.onClick('first');
                                 }
                             },
