@@ -125,7 +125,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "event_id_remarks",
                             "header": "Event",
-                            "width": 75,
+                            "width": 200,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid"
