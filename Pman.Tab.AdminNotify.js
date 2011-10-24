@@ -243,7 +243,13 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                 },
                 toolbar : {
                     xtype: 'Toolbar',
-                    xns: Roo
+                    xns: Roo,
+                    items : [
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar
+                        }
+                    ]
                 },
                 colModel : [
                     {
