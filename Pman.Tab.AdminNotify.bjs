@@ -14,7 +14,7 @@
             "fitToframe": true,
             "region": "center",
             "tableName": "core_notify",
-            "title": "Notifications",
+            "title": "Current Notifications",
             "xtype": "GridPanel",
             "|xns": "Roo",
             "items": [

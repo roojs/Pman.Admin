@@ -47,7 +47,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
             fitToframe : true,
             region : 'center',
             tableName : 'core_notify',
-            title : "Notifications",
+            title : "Current Notifications",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
