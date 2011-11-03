@@ -46,7 +46,7 @@ Pman.Tab.AdminContactsManager = new Roo.util.Observable({
                     xtype: 'LayoutRegion',
                     xns: Roo,
                     split : true,
-                    width : 251
+                    width : 250
                 },
                 center : {
                     xtype: 'LayoutRegion',
