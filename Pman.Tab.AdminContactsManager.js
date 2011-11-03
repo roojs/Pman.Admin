@@ -8,6 +8,7 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
+        part :  ["Admin","ContactsManager"],
         modKey : '060-Pman.Tab.AdminContactsManager',
         module : Pman.Tab.AdminContactsManager,
         region : 'center',
@@ -45,7 +46,7 @@ Pman.Tab.AdminContactsManager = new Roo.util.Observable({
                     xtype: 'LayoutRegion',
                     xns: Roo,
                     split : true,
-                    width : 250
+                    width : 251
                 },
                 center : {
                     xtype: 'LayoutRegion',

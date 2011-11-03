@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-8",
+    "id": "roo-file-118",
     "name": "Pman.Tab.AdminContactsManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminContactsManager",
@@ -20,7 +20,7 @@
                         {
                             "*prop": "west",
                             "split": true,
-                            "width": 250,
+                            "width": 251,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
