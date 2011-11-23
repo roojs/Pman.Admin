@@ -192,6 +192,7 @@ class Pman_Admin_Translations extends Pman
         $d->tlang = $lang;
         
         $ret = array();
+        
         if ($d->count()) {
             // since key includes file 
             $ret = $d->fetchAll('tkey','tval'); /// shoudl we include updates
