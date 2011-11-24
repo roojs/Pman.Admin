@@ -1264,6 +1264,148 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                                     }
                                                 ]
                                             }
+                                        },
+                                        store : {
+                                            xtype: 'Store',
+                                            xns: Roo.data,
+                                            listeners : {
+                                                beforeload : function (_self, o)
+                                                {
+                                                    o.params = o.params || {};
+                                                    // staff can see all logs, other companies can only see their own.
+                                                    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
+                                                        o.params.company_id = Pman.Login.authUser.company_id;
+                                                    }
+                                                    o.params._distinct = 'action';
+                                                    o.params._columns ='action';
+                                                }
+                                            },
+                                            remoteSort : true,
+                                            sortInfo : { field : 'action' , direction : 'ASC' },
+                                            proxy : {
+                                                xtype: 'HttpProxy',
+                                                xns: Roo.data,
+                                                method : 'GET',
+                                                url : baseURL + '/Roo/Events.php'
+                                            },
+                                            reader : {
+                                                xtype: 'JsonReader',
+                                                xns: Roo.data,
+                                                totalProperty : 'total',
+                                                root : 'data',
+                                                id : 'id',
+                                                fields : [
+                                                    {
+                                                        'name': 'id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_name',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'event_when',
+                                                        'type': 'date',
+                                                        'dateFormat': 'Y-m-d'
+                                                    },
+                                                    {
+                                                        'name': 'action',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'ipaddr',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'on_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'on_table',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'remarks',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_office_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_name',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_phone',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_fax',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_email',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_company_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_role',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_active',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_remarks',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_passwd',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_owner_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_lang',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_no_reset_sent',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_action_type',
+                                                        'type': 'string'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_project_id',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_deleted_by',
+                                                        'type': 'int'
+                                                    },
+                                                    {
+                                                        'name': 'person_id_deleted_dt',
+                                                        'type': 'date'
+                                                    }
+                                                ]
+                                            }
                                         }
                                     }
                                 ]
