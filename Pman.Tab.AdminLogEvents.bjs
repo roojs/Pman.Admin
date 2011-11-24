@@ -299,7 +299,7 @@
                                                 {
                                                     "listeners": {
                                                         "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
-                                                        "|render": "function (_self)\n{\n  _this.actionSel = _self;\n}"
+                                                        "|render": "function (_self)\n{\n  _this.viewType = _self;\n}"
                                                     },
                                                     "allowBlank": true,
                                                     "displayField": "action",
