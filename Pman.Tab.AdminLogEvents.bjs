@@ -295,38 +295,6 @@
                                                     "format": "Y-m-d",
                                                     "xtype": "DateField",
                                                     "|xns": "Roo.form"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
-                                                        "|render": "function (_self)\n{\n  _this.viewtype = _self;\n}"
-                                                    },
-                                                    "allowBlank": false,
-                                                    "displayField": "display",
-                                                    "editable": false,
-                                                    "forceSelection": true,
-                                                    "listWidth": 150,
-                                                    "loadingText": "Searching...",
-                                                    "name": "action",
-                                                    "qtip": "Select Action",
-                                                    "selectOnFocus": true,
-                                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{display}</b> </div>",
-                                                    "triggerAction": "all",
-                                                    "value": "summary",
-                                                    "valueField": "val",
-                                                    "width": 120,
-                                                    "xtype": "ComboBox",
-                                                    "|xns": "Roo.form",
-                                                    "items": [
-                                                        {
-                                                            "*prop": "store",
-                                                            "isLocal": true,
-                                                            "xtype": "SimpleStore",
-                                                            "|data": "[ [ 'detailed', \"Detailed View\" ] , [ 'summary', \"Summary View\"] ]",
-                                                            "|fields": "[ 'val', 'display']",
-                                                            "|xns": "Roo.data"
-                                                        }
-                                                    ]
                                                 }
                                             ]
                                         },

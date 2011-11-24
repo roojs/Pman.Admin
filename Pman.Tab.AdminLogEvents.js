@@ -1093,41 +1093,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d'
-                                    },
-                                    {
-                                        xtype: 'ComboBox',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            select : function (combo, record, index)
-                                            {
-                                              _this.grid.footer.onClick('first');
-                                            },
-                                            render : function (_self)
-                                            {
-                                              _this.viewtype = _self;
-                                            }
-                                        },
-                                        allowBlank : false,
-                                        displayField : 'display',
-                                        editable : false,
-                                        forceSelection : true,
-                                        listWidth : 150,
-                                        loadingText : "Searching...",
-                                        name : 'action',
-                                        qtip : "Select Action",
-                                        selectOnFocus : true,
-                                        tpl : '<div class="x-grid-cell-text x-btn button"><b>{display}</b> </div>',
-                                        triggerAction : 'all',
-                                        value : "summary",
-                                        valueField : 'val',
-                                        width : 120,
-                                        store : {
-                                            xtype: 'SimpleStore',
-                                            xns: Roo.data,
-                                            isLocal : true,
-                                            data : [ [ 'detailed', "Detailed View" ] , [ 'summary', "Summary View"] ],
-                                            fields : [ 'val', 'display']
-                                        }
                                     }
                                 ]
                             },
