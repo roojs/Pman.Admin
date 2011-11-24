@@ -324,7 +324,7 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "fields": "[ 'val', 'disp']",
+                                                            "|fields": "[ 'val', 'disp']",
                                                             "id": null,
                                                             "xtype": "SimpleStore",
                                                             "|data": "[ [ 'detailed', \"Detailed\" ] , 'summary', \"Summary\"] ]",
