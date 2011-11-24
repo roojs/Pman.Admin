@@ -324,8 +324,8 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "|data": "[ [ 'detailed', \"Detailed\" ] , 'summary', \"Summary\"] ]",
                                                             "xtype": "SimpleStore",
+                                                            "|data": "[ [ 'detailed', \"Detailed\" ] , 'summary', \"Summary\"] ]",
                                                             "|xns": "Roo.data"
                                                         }
                                                     ]
