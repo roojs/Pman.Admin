@@ -1115,7 +1115,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         loadingText : "Searching...",
                                         minChars : 2,
                                         name : 'action',
-                                        pageSize : 20,
                                         qtip : "Select Action",
                                         queryParam : 'query[action]',
                                         selectOnFocus : true,
