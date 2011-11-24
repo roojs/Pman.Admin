@@ -1105,7 +1105,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                               _this.viewType = _self;
                                             }
                                         },
-                                        allowBlank : true,
+                                        allowBlank : false,
                                         displayField : 'display',
                                         editable : false,
                                         emptyText : "Select Action",
