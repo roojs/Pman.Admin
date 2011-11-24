@@ -1108,7 +1108,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         allowBlank : false,
                                         displayField : 'display',
                                         editable : false,
-                                        emptyText : "Select Action",
                                         forceSelection : true,
                                         listWidth : 300,
                                         loadingText : "Searching...",
