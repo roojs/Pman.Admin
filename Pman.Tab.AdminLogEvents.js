@@ -1127,7 +1127,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             xns: Roo.data,
                                             isLocal : true,
                                             data : [ [ 'detailed', "Detailed" ] , 'summary', "Summary"] ],
-                                            fields : [ 'val', 'disp']
+                                            fields : [ 'val', 'display']
                                         }
                                     }
                                 ]
