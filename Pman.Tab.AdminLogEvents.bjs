@@ -325,7 +325,7 @@
                                                             "*prop": "store",
                                                             "isLocal": true,
                                                             "xtype": "SimpleStore",
-                                                            "|data": "[ [ 'detailed', \"Detailed\" ] , 'summary', \"Summary\"] ]",
+                                                            "|data": "[ [ 'detailed', \"Detailed\" ] , [ 'summary', \"Summary\"] ]",
                                                             "|fields": "[ 'val', 'display']",
                                                             "|xns": "Roo.data"
                                                         }
