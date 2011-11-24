@@ -345,7 +345,6 @@
                                             "header": "#id",
                                             "width": 100,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function (v,x,r) {\n    if (r.json.nmod) {\n        return nmod;\n    }\n    return v;\n};",
                                             "|xns": "Roo.grid"
                                         },
                                         {
