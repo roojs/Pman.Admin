@@ -324,10 +324,10 @@
                                                     "items": [
                                                         {
                                                             "*prop": "store",
-                                                            "|fields": "[ 'val', 'disp']",
-                                                            "id": null,
+                                                            "isLocal": true,
                                                             "xtype": "SimpleStore",
                                                             "|data": "[ [ 'detailed', \"Detailed\" ] , 'summary', \"Summary\"] ]",
+                                                            "|fields": "[ 'val', 'disp']",
                                                             "|xns": "Roo.data"
                                                         }
                                                     ]
