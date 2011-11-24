@@ -1104,7 +1104,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             },
                                             render : function (_self)
                                             {
-                                              _this.viewType = _self;
+                                              _this.viewtype = _self;
                                             }
                                         },
                                         allowBlank : false,
