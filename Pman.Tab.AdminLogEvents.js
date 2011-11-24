@@ -1145,7 +1145,13 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     xns: Roo.grid,
                                     dataIndex : 'id',
                                     header : '#id',
-                                    width : 100
+                                    width : 100,
+                                    renderer : function (v,x,r) {
+                                        if (r.json.nmod) {
+                                            return nmod;
+                                        }
+                                        return v;
+                                    };
                                 },
                                 {
                                     xtype: 'ColumnModel',
