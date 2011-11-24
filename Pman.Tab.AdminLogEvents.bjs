@@ -302,7 +302,7 @@
                                                         "|render": "function (_self)\n{\n  _this.viewType = _self;\n}"
                                                     },
                                                     "allowBlank": true,
-                                                    "displayField": "action",
+                                                    "displayField": "display",
                                                     "editable": false,
                                                     "emptyText": "Select Action",
                                                     "forceSelection": true,
