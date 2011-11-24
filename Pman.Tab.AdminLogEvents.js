@@ -1180,7 +1180,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     header : 'Affected',
                                     width : 100,
                                     renderer : function(v, x, r) {                     
-                                                return v ? String.format('{0}({1})', r.data.on_table, v)  : '';  
+                                                return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  
                                        }
                                 },
                                 {

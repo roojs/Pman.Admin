@@ -382,7 +382,7 @@
                                             "header": "Affected",
                                             "width": 100,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', r.data.on_table, v)  : '';  \n   }",
+                                            "|renderer": "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
                                             "|xns": "Roo.grid"
                                         },
                                         {
