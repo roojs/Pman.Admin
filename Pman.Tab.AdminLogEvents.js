@@ -98,7 +98,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                         if (act.format) {
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
-                                        o.params['query[viewtype]'] = _this.viewtype.getValue();
+                                     
                                         
                                         /*
                                         act = _this.groupedCombo.getValue();
