@@ -336,7 +336,7 @@
                                             "header": "When",
                                             "width": 100,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
+                                            "|renderer": "function(v) { return v.json.event_when_d ? v.json.event_when_d : (v ? v.dateFormat('d/m/Y H:i') : ''); }",
                                             "|xns": "Roo.grid"
                                         },
                                         {
