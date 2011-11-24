@@ -315,7 +315,7 @@
                                                     "triggerAction": "all",
                                                     "value": "summary",
                                                     "valueField": "val",
-                                                    "width": 150,
+                                                    "width": 120,
                                                     "xtype": "ComboBox",
                                                     "|xns": "Roo.form",
                                                     "items": [
