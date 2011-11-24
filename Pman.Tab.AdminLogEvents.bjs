@@ -378,7 +378,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "on_id",
+                                            "dataIndex": "on_table",
                                             "header": "Affected",
                                             "width": 100,
                                             "xtype": "ColumnModel",
