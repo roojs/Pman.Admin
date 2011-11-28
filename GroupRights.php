@@ -55,7 +55,7 @@ class Pman_Admin_GroupRights extends Pman
                 $gr = DB_DataObject::factory('Group_Rights');
                 $gr->group_id = (int)$_GET['group_id'];
                 $gr->rightname = $k;
-                $gr->AccessMask = $defdata[1]; // set to defaults..
+                $gr->accessmask = $defdata[1]; // set to defaults..
                 $gr->insert();
                 $cur[$k] = clone($gr);
             }
@@ -65,7 +65,7 @@ class Pman_Admin_GroupRights extends Pman
                 'id' => $cur[$k]->id * 1, //
                 'rightname' => $k,
                 'descript' => isset($defdata[2]) ? $defdata[2] : '' ,
-                'AccessMask' => $cur[$k]->AccessMask,
+                'accessmask' => $cur[$k]->accessmask,
                 'FullMask' => $defdata[0],
                 'group_id' => (int)$_GET['group_id']
             );
@@ -100,7 +100,7 @@ class Pman_Admin_GroupRights extends Pman
                     continue; // errro cond.
                 }
                 $po = clone($p);
-                $p->AccessMask = $ac;
+                $p->accessmask = $ac;
                 $p->validate(); // ensure that the basic perms can not be removed
                 $p->update($po);
             }
@@ -110,7 +110,7 @@ class Pman_Admin_GroupRights extends Pman
                 $p = DB_DataObject::factory('Group_Rights');
                 $p->group_id = (int)$_POST['group_id'];
                 $p->rightname = $perm;
-                $p->AccessMask = $ac;
+                $p->accessmask = $ac;
                 $p->validate(); // ensure that the basic perms can not be removed
                 $p->insert();
             }
