@@ -117,7 +117,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'aa',
                         header : "[All]",
-                        dataIndex : 'AccessMask',
+                        dataIndex : 'accessmask',
                         'sortable' : false,
                         'width' : 50,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -164,7 +164,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'am-a',
                         header : "Add",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 50,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -172,7 +172,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'am-e',
                         header : "Edit",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 50,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -180,7 +180,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'am-d',
                         header : "Delete",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 50,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -188,7 +188,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'am-s', // S
                         header : "List/View",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 90,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -197,7 +197,7 @@ Pman.Tab.Group_Rights = {
                      {
                         'id' : 'am-p',
                         header : "Print / Export",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 100,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -205,7 +205,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'AM-I',
                         header : "Import",
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 50,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -214,7 +214,7 @@ Pman.Tab.Group_Rights = {
                     {
                         'id' : 'AM-M',
                         'header' : 'Admin mode',
-                        'dataIndex' : 'AccessMask',
+                        'dataIndex' : 'accessmask',
                         'width' : 100,
                         'sortable' : false,
                         renderer : Pman.ColModels.Group_RightsRenderer
@@ -241,9 +241,9 @@ Pman.Tab.Group_Rights = {
                         var fm = g.getDataSource().getAt(ri).json.FullMask;
                         
                         if (h.substring(0,2) == 'aa') {
-                            var old = g.getDataSource().getAt(ri).data.AccessMask;
+                            var old = g.getDataSource().getAt(ri).data.accessmask;
                             
-                            g.getDataSource().getAt(ri).set('AccessMask',
+                            g.getDataSource().getAt(ri).set('accessmask',
                                 old == fm ? "" : fm );
                             return;
                         }
@@ -282,9 +282,9 @@ Pman.Tab.Group_Rights = {
                         
                         
                         // get existing value..
-                        var conf = toKV(g.getDataSource().getAt(ri).data.AccessMask);
+                        var conf = toKV(g.getDataSource().getAt(ri).data.accessmask);
                         conf[c] = !conf[c];
-                        g.getDataSource().getAt(ri).set('AccessMask',toStr(conf));
+                        g.getDataSource().getAt(ri).set('accessmask',toStr(conf));
                     }
                     
                 }
@@ -324,7 +324,7 @@ Pman.Tab.Group_Rights = {
                             if (!r.dirty) {
                                 return;
                             }
-                            data[r.data.id > -1 ? 'dataUpdate['+r.data.id+']' : 'dataAdd['+r.data.rightname+']'] = r.data.AccessMask;
+                            data[r.data.id > -1 ? 'dataUpdate['+r.data.id+']' : 'dataAdd['+r.data.rightname+']'] = r.data.accessmask;
                             
                     });
                     
