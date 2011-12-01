@@ -93,7 +93,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             this.viewPanel.setContent("Nothing Selected");
                                             return;
                                         }
-                                        var id = this.getSelected().rec.data.id;
+                                        var id = this.getSelected().data.id;
                                         this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
                                         
                                     }
