@@ -28,6 +28,9 @@
                             "|xns": "Roo"
                         },
                         {
+                            "listeners": {
+                                "render": "function (_self)\n{\n  _this.viewPanel = _self;\n}"
+                            },
                             "region": "south",
                             "xtype": "ContentPanel",
                             "|xns": "Roo"
