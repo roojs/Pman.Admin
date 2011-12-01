@@ -76,6 +76,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     }
                                 }
                             },
+                            sm : {
+                                xtype: 'RowSelectionModel',
+                                xns: Roo.grid
+                            },
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
