@@ -50,6 +50,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             }
                         },
                         autoScroll : true,
+                        fitToFrame : true,
                         region : 'south'
                     },
                     {

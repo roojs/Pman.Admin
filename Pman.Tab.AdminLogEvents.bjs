@@ -33,6 +33,7 @@
                                 "render": "function (_self)\n{\n  _this.viewPanel = _self;\n}"
                             },
                             "autoScroll": true,
+                            "fitToFrame": true,
                             "region": "south",
                             "xtype": "ContentPanel",
                             "|xns": "Roo"
