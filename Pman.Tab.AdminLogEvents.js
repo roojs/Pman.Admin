@@ -1197,6 +1197,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                 south : {
                     xtype: 'LayoutRegion',
                     xns: Roo,
+                    autoScroll : true,
                     height : 100
                 }
             }

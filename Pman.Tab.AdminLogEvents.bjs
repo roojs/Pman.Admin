@@ -23,6 +23,7 @@
                         },
                         {
                             "*prop": "south",
+                            "autoScroll": true,
                             "height": 100,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
