@@ -94,7 +94,7 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                             return;
                                         }
                                         var id = this.getSelected().data.id;
-                                        this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
+                                        _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
                                         
                                     }
                                 },
