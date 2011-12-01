@@ -60,7 +60,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "afterselectionchange": "function (_self)\n{\n    // load detail log in _this.viewPanel;\n}"
+                                                "afterselectionchange": "function (_self)\n{\n    // load detail log in _this.viewPanel;\n    if (!this.getSelected()) {\n        this.viewPanel.setContent(\"Nothing Selected\");\n        return;\n    }\n    var id = this.getSelected().rec.data.id;\n    this.viewPanel.load( { url : baseURL + \"/Admin/EventView/\" + id + \".html\" });\n    \n}"
                                             },
                                             "*prop": "sm",
                                             "singleSelect": true,

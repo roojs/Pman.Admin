@@ -89,6 +89,13 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     afterselectionchange : function (_self)
                                     {
                                         // load detail log in _this.viewPanel;
+                                        if (!this.getSelected()) {
+                                            this.viewPanel.setContent("Nothing Selected");
+                                            return;
+                                        }
+                                        var id = this.getSelected().rec.data.id;
+                                        this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
+                                        
                                     }
                                 },
                                 singleSelect : true
