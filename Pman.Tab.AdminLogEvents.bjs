@@ -371,6 +371,11 @@
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
                                             "|xns": "Roo.grid"
+                                        },
+                                        {
+                                            "|xns": "Roo.grid",
+                                            "xtype": "RowSelectionModel",
+                                            "*prop": "sm"
                                         }
                                     ]
                                 }
