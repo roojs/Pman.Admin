@@ -24,6 +24,17 @@ class Pman_Admin_EventView extends Pman
         $ev->get($id);
         
         // verify if not admin, then they should 
+        $g = DB_DataObject::Factory('Group_Members');
+        $grps = $g->listGroupMembership($this->authUser);
+       //var_dump($grps);
+        $isAdmin = $g->inAdmin;
+        
+        if (!$isAdmin && $ev->person_id != $this->authUser->id) {
+            $this->jerrAuth();
+        }
+        
+        
+        
         
         
     }
