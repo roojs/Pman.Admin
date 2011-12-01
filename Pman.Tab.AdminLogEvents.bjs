@@ -23,6 +23,7 @@
                         },
                         {
                             "*prop": "south",
+                            "height": 50,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
