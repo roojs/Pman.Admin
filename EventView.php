@@ -46,31 +46,23 @@ class Pman_Admin_EventView extends Pman
                 echo "{$d->name} SET TO: " . htmlspecialchars($d->newvalue) . "<br/>\n";
             }
         }
-        $fn =  date('/Y/m/d/'). $ev->id . ".php";strtotime($ev->event_when);
+        echo "<HR><H2>Posted Data:</H2>";
+        $fn =  
         
-        $eid = $e->insert();
-        
-        $wa = DB_DataObject::factory('core_watch');
-        $wa->notifyEvent($e); // trigger any actions..
         
         
         $ff  = HTML_FlexyFramework::get();
         if (empty($ff->Pman['event_log_dir'])) {
-            return $e;
+            echo "not available (not configured)";
+            exit;
         }
-        $file = $ff->Pman['event_log_dir']. date('/Y/m/d/'). $eid . ".php";
-        if (!file_exists(dirname($file))) {
-            mkdir(dirname($file),0700,true);
+        $file = $ff->Pman['event_log_dir']. date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php";
+        if (!file_exists($file)) {
+            echo "not available (missing file)";
+            exit;
         }
-        file_put_contents($file, var_export(array(
-            'REQUEST_URI' => empty($_SERVER['REQUEST_URI']) ? 'cli' : $_SERVER['REQUEST_URI'],
-            'GET' => empty($_GET) ? array() : $_GET,
-            'POST' => empty($_POST) ? array() : $_POST,
-        ), true));
-         
-        
-        if (file_exists())
-        
+        echo '<PRE>' . htmlspecialchars(file_get_contents($file)) . '</PRE>';
+        exit;
         
     }
     
