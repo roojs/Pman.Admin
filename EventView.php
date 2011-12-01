@@ -41,11 +41,10 @@ class Pman_Admin_EventView extends Pman
             echo "<H2>Changed Data:</H2>";
             $d->event_id = $id;
             foreach($d->fetchAll() as $d) {
-                
-                
-                
+                echo "{$d->name} SET TO: " . htmlspecialchars($d->newvalue) . "<br/>\n";
             }
-        
+        }
+        if (file_exists())
         
         
     }
