@@ -28,6 +28,10 @@
                             "|xns": "Roo"
                         },
                         {
+                            "|xns": "Roo",
+                            "xtype": "ContentPanel"
+                        },
+                        {
                             "listeners": {
                                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },

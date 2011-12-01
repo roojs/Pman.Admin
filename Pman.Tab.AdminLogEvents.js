@@ -41,6 +41,10 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                 xns: Roo,
                 items : [
                     {
+                        xtype: 'ContentPanel',
+                        xns: Roo
+                    },
+                    {
                         xtype: 'GridPanel',
                         xns: Roo,
                         listeners : {
