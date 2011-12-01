@@ -56,6 +56,9 @@
                                     "|xns": "Roo.grid",
                                     "items": [
                                         {
+                                            "listeners": {
+                                                "afterselectionchange": "function (_self)\n{\n    // load detail log in _this.viewPanel;\n}"
+                                            },
                                             "*prop": "sm",
                                             "singleSelect": true,
                                             "xtype": "RowSelectionModel",

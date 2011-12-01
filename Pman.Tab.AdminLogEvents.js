@@ -79,6 +79,12 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                             sm : {
                                 xtype: 'RowSelectionModel',
                                 xns: Roo.grid,
+                                listeners : {
+                                    afterselectionchange : function (_self)
+                                    {
+                                        // load detail log in _this.viewPanel;
+                                    }
+                                },
                                 singleSelect : true
                             },
                             dataSource : {
