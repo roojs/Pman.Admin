@@ -28,8 +28,9 @@
                             "|xns": "Roo"
                         },
                         {
-                            "|xns": "Roo",
-                            "xtype": "ContentPanel"
+                            "region": "south'",
+                            "xtype": "ContentPanel",
+                            "|xns": "Roo"
                         },
                         {
                             "listeners": {
