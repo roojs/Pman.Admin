@@ -33,7 +33,18 @@ class Pman_Admin_EventView extends Pman
             $this->jerrAuth();
         }
         
-        
+        // we have 2 bits of data available at present:
+        // core_event_audit
+        // the event file..
+        $d= DB_DataObject::factory('core_event_audit');
+        if (is_a($d,'DB_DataObject')) {
+            echo "<H2>Changed Data:</H2>";
+            $d->event_id = $id;
+            foreach($d->fetchAll() as $d) {
+                
+                
+                
+            }
         
         
         
