@@ -22,6 +22,11 @@
                             "*prop": "center"
                         },
                         {
+                            "|xns": "Roo",
+                            "xtype": "LayoutRegion",
+                            "*prop": "center"
+                        },
+                        {
                             "listeners": {
                                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
