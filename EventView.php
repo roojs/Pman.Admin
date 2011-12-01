@@ -21,7 +21,9 @@ class Pman_Admin_EventView extends Pman
     function get($id)
     {
         $ev = DB_DataObject::Factory('Events');
-        $ev->get($id);
+        if (!$ev->get((int)$id)) {
+            $this->jerr("invalid id");
+        }
         
         // verify if not admin, then they should 
         $g = DB_DataObject::Factory('Group_Members');
@@ -39,11 +41,34 @@ class Pman_Admin_EventView extends Pman
         $d= DB_DataObject::factory('core_event_audit');
         if (is_a($d,'DB_DataObject')) {
             echo "<H2>Changed Data:</H2>";
-            $d->event_id = $id;
+            $d->event_id = $ev->id;
             foreach($d->fetchAll() as $d) {
                 echo "{$d->name} SET TO: " . htmlspecialchars($d->newvalue) . "<br/>\n";
             }
         }
+        $fn =  date('/Y/m/d/'). $ev->id . ".php";strtotime($ev->event_when);
+        
+        $eid = $e->insert();
+        
+        $wa = DB_DataObject::factory('core_watch');
+        $wa->notifyEvent($e); // trigger any actions..
+        
+        
+        $ff  = HTML_FlexyFramework::get();
+        if (empty($ff->Pman['event_log_dir'])) {
+            return $e;
+        }
+        $file = $ff->Pman['event_log_dir']. date('/Y/m/d/'). $eid . ".php";
+        if (!file_exists(dirname($file))) {
+            mkdir(dirname($file),0700,true);
+        }
+        file_put_contents($file, var_export(array(
+            'REQUEST_URI' => empty($_SERVER['REQUEST_URI']) ? 'cli' : $_SERVER['REQUEST_URI'],
+            'GET' => empty($_GET) ? array() : $_GET,
+            'POST' => empty($_POST) ? array() : $_POST,
+        ), true));
+         
+        
         if (file_exists())
         
         
