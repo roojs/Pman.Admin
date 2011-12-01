@@ -28,7 +28,7 @@
                             "|xns": "Roo"
                         },
                         {
-                            "region": "south'",
+                            "region": "south",
                             "xtype": "ContentPanel",
                             "|xns": "Roo"
                         },
