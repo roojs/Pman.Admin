@@ -37,7 +37,7 @@ Pman.Tab.AdminLogs = new Roo.util.Observable({
             listeners : {
                 activate : function (_self)
                 {
-                    var cr = this.layout.getRegion('center')
+                    var cr = this.layout.getRegion('center');
                     if (cr) {
                         cr.showPanel(cr.activePanel);
                     }
