@@ -8,7 +8,8 @@
 Pman.on('beforeload', function()
 {
     Pman.register({
-        modKey : '999-Pman.Tab.AdminLogs',
+        part :  ["Admin","Logs"],
+        modKey : '001-Pman.Tab.AdminLogs',
         module : Pman.Tab.AdminLogs,
         region : 'center',
         parent : Pman,
@@ -33,6 +34,15 @@ Pman.Tab.AdminLogs = new Roo.util.Observable({
         this.panel = parentLayout.addxtype({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
+            listeners : {
+                activate : function (_self)
+                {
+                    var cr = this.layout.getRegion('center')
+                    if (cr) {
+                        cr.showPanel(cr.activePanel);
+                    }
+                }
+            },
             background : true,
             fitToFrame : true,
             region : 'center',

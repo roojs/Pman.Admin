@@ -1,21 +1,25 @@
 {
-    "id": "roo-file-1",
+    "id": "roo-file-132",
     "name": "Pman.Tab.AdminLogs",
     "parent": "Pman",
     "title": "Logs",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogs.bjs",
     "items": [
         {
-            "xtype": "NestedLayoutPanel",
+            "listeners": {
+                "activate": "function (_self)\n{\n    var cr = this.layout.getRegion('center')\n    if (cr) {\n        cr.showPanel(cr.activePanel);\n    }\n}"
+            },
             "background": true,
             "fitToFrame": true,
             "region": "center",
-            "listeners": {},
             "title": "Logs",
+            "xtype": "NestedLayoutPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "*prop": "layout",
                     "xtype": "BorderLayout",
+                    "|xns": "Roo",
                     "items": [
                         {
                             "xtype": "LayoutRegion",
@@ -25,12 +29,11 @@
                             "tabPosition": "top",
                             "|xns": "Roo"
                         }
-                    ],
-                    "|xns": "Roo"
+                    ]
                 }
-            ],
-            "|xns": "Roo"
+            ]
         }
     ],
-    "permname": ""
+    "permname": "",
+    "modOrder": "001"
 }
