@@ -41,12 +41,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                     {
                         xtype: 'GridPanel',
                         xns: Roo,
-                        title : "Events",
-                        fitToframe : true,
-                        fitContainer : true,
-                        tableName : 'Events',
-                        background : true,
-                        region : 'center',
                         listeners : {
                             activate : function() {
                                 _this.panel = this;
@@ -55,6 +49,12 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 }
                             }
                         },
+                        background : true,
+                        fitContainer : true,
+                        fitToframe : true,
+                        region : 'west',
+                        tableName : 'Events',
+                        title : "Events",
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
