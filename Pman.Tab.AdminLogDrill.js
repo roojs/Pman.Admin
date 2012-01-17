@@ -267,7 +267,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                               _this.dategrid.ds.load({});
                                             }
                                         },
-                                        format : 'Y-m-d'
+                                        format : 'Y-m-d',
+                                        value : (function() { d = new Date(); d.add(Date.MONTH, 1) ; return d.format('Y-m-01'); })()
                                     }
                                 ]
                             },
