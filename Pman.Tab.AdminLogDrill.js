@@ -87,7 +87,14 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         }
                                         o.params = o.params || {};
                                          
-                                     
+                                        var act = _this.actionSel.getValue();
+                                        if (act.length) {
+                                            o.params.action = act;
+                                        }
+                                        var tbl = _this.affectSel.getValue();
+                                        if (tbl.length) {
+                                            o.params.on_table = tbl;
+                                        }
                                         act = _this.dateFrom.getValue();
                                         if (act.format) {
                                             o.params['query[from]'] = act.format('Y-m-d');
@@ -97,14 +104,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
                                         
-                                          var act = _this.actionSel.getValue();
-                                        if (act.length) {
-                                            o.params.action = act;
-                                        }
-                                        var tbl = _this.affectSel.getValue();
-                                        if (tbl.length) {
-                                            o.params.on_table = tbl;
-                                        }
+                                        
                                         
                                         o.params['query[person_sum]'] = 1;
                                         o.params._columns = 'person_id,person_id_name,person_id_email,qty';
