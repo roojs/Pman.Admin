@@ -863,6 +863,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     xns: Roo.grid,
                                     dataIndex : 'on_table',
                                     header : 'Table',
+                                    sortable : true,
                                     width : 200,
                                     renderer : function(v) { return String.format('{0}', v); }
                                 },
