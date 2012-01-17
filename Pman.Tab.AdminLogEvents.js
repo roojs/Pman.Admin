@@ -72,8 +72,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'remarks',
-                            loadMask : true,
                             listeners : {
                                 render : function() { 
                                     _this.grid = this; 
@@ -83,6 +81,8 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     }
                                 }
                             },
+                            autoExpandColumn : 'remarks',
+                            loadMask : true,
                             sm : {
                                 xtype: 'RowSelectionModel',
                                 xns: Roo.grid,
