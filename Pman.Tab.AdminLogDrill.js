@@ -1581,14 +1581,12 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'person_name',
-                            loadMask : true,
                             listeners : {
                                 render : function() 
                                 {
-                                    _this.grid = this; 
+                                    _this.evgrid = this; 
                                     //_this.dialog = Pman.Dialog.FILL_IN
-                                    if (_this.panel.active) {
+                                    if (_this.evpanel.active) {
                                        this.footer.onClick('first');
                                     }
                                 },
@@ -1600,6 +1598,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     }); 
                                 }
                             },
+                            autoExpandColumn : 'person_name',
+                            loadMask : true,
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
