@@ -325,7 +325,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "table_action",
+                                            "dataIndex": "on_table",
                                             "header": "Table",
                                             "width": 200,
                                             "xtype": "ColumnModel",
