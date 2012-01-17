@@ -16,6 +16,7 @@
                     "items": [
                         {
                             "*prop": "west",
+                            "split": true,
                             "width": 200,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
