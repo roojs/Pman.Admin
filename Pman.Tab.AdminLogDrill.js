@@ -272,6 +272,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     xns: Roo.grid,
                                     dataIndex : 'person_id_name',
                                     header : 'Person name',
+                                    sortable : true,
                                     width : 200,
                                     renderer : function(v,x,r) {
                                          return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', v, r.data.person_id_email); 
