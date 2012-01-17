@@ -344,7 +344,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             _this.tablepanel.view.el.mask("Select a person");
                                             return false;
                                         }
-                                        _this.tablepanel.view.el.el.unask();
+                                        _this.tablepanel.view.el.unask();
                                      
                                         o.params = o.params || {};
                                          
