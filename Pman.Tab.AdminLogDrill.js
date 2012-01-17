@@ -230,6 +230,21 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         listeners : {
                                             render : function (_self)
                                             {
+                                              _this.dateTo = _self;
+                                            },
+                                            change : function (_self, newValue, oldValue)
+                                            {
+                                              _this.grid.footer.onClick('first');
+                                            }
+                                        },
+                                        format : 'Y-m-d'
+                                    },
+                                    {
+                                        xtype: 'DateField',
+                                        xns: Roo.form,
+                                        listeners : {
+                                            render : function (_self)
+                                            {
                                               _this.dateFrom = _self;
                                             },
                                             change : function (_self, newValue, oldValue)
@@ -985,41 +1000,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                                 ]
                                             }
                                         }
-                                    },
-                                    {
-                                        xtype: 'TextItem',
-                                        xns: Roo.Toolbar,
-                                        text : "Date Range"
-                                    },
-                                    {
-                                        xtype: 'DateField',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            render : function (_self)
-                                            {
-                                              _this.dateFrom = _self;
-                                            },
-                                            change : function (_self, newValue, oldValue)
-                                            {
-                                              _this.grid.footer.onClick('first');
-                                            }
-                                        },
-                                        format : 'Y-m-d'
-                                    },
-                                    {
-                                        xtype: 'DateField',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            render : function (_self)
-                                            {
-                                              _this.dateTo = _self;
-                                            },
-                                            change : function (_self, newValue, oldValue)
-                                            {
-                                              _this.grid.footer.onClick('first');
-                                            }
-                                        },
-                                        format : 'Y-m-d'
                                     }
                                 ]
                             },
