@@ -161,7 +161,7 @@
                                 {
                                     "listeners": {
                                         "|render": "function() \n{\n    _this.tablegrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.tablepanel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                                        "rowclick": "function (_self, rowIndex, e)\n{\n    _this.detailgrid.footer.onClick('first');\n}"
+                                        "rowclick": "function (_self, rowIndex, e)\n{\n    _this.detailgrid.footer.onClick('first');\n    _this.panel.layout.getRegion('east').getActivePanel().grid.footer.onClick('first');\n}"
                                     },
                                     "*prop": "grid",
                                     "autoExpandColumn": "person_name",
