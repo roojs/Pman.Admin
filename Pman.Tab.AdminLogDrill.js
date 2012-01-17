@@ -35,6 +35,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
+            title : "Event Drilldown",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
