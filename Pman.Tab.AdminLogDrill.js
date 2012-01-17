@@ -339,7 +339,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                          return;
                                         }
                                         
-                                        var s = _this.dategrid.sm.getSelected();
+                                        var s = _this.dategrid.selModel.getSelected();
                                         if (!s) {
                                             this.grid.el.mask("Select a person");
                                             return false;
