@@ -923,50 +923,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                listeners : {
-                                    beforeload : function (_self, o)
-                                    {
-                                         if (! _this.dategrid) {
-                                             return;
-                                        }
-                                        
-                                        o.params = o.params || {};
-                                        
-                                        var s = _this.dategrid.selModel.getSelected();
-                                        if (!s) {
-                                            _this.detailgrid.view.el.mask("Select a person");
-                                            return false;
-                                        }
-                                        
-                                        o.params.person_id = s.data.person_id;    
-                                        
-                                        var s = _this.tablegrid.selModel.getSelected();
-                                        if (!s) {
-                                            _this.detailgrid.view.el.mask("Select a table");
-                                            return false;
-                                        }
-                                        o.params.person_id = s.data.on_table;        
-                                        
-                                        _this.detailgrid.view.el.unmask();
-                                     
-                                    
-                                         
-                                     
-                                        act = _this.dateFrom.getValue();
-                                        if (act.format) {
-                                            o.params['query[from]'] = act.format('Y-m-d');
-                                        }
-                                        act = _this.dateTo.getValue();
-                                        if (act.format) {
-                                            o.params['query[to]'] = act.format('Y-m-d');
-                                        }
-                                    
-                                        //o.params['query[table_d]'] = 1;
-                                        //o.params._columns = 'on_table,qty,uqty';
-                                    
-                                        
-                                    }
-                                },
                                 remoteSort : true,
                                 sortInfo : { field : 'person_name', direction: 'ASC' },
                                 proxy : {
