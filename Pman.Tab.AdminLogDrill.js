@@ -297,7 +297,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             activate : function() {
                                 _this.tablepanel = this;
                                 if (_this.tablegrid) {
-                                    _this.tablegrid.footer.onClick('first');
+                                //    _this.tablegrid.footer.onClick('first');
                                 }
                             }
                         },
