@@ -267,21 +267,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d'
-                                    },
-                                    {
-                                        xtype: 'DateField',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            render : function (_self)
-                                            {
-                                              _this.dateFrom = _self;
-                                            },
-                                            change : function (_self, newValue, oldValue)
-                                            {
-                                              _this.dategrid.ds.load({});
-                                            }
-                                        },
-                                        format : 'Y-m-d'
                                     }
                                 ]
                             },

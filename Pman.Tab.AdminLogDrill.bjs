@@ -115,15 +115,6 @@
                                                     "format": "Y-m-d",
                                                     "xtype": "DateField",
                                                     "|xns": "Roo.form"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}",
-                                                        "change": "function (_self, newValue, oldValue)\n{\n  _this.dategrid.ds.load({});\n}"
-                                                    },
-                                                    "format": "Y-m-d",
-                                                    "xtype": "DateField",
-                                                    "|xns": "Roo.form"
                                                 }
                                             ]
                                         },
