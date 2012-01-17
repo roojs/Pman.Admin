@@ -61,7 +61,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "beforeload": "function (_self, o)\n{\n    if (! _this.dateFrom) {\n     return;\n    }\n    o.params = o.params || {};\n     \n \n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        o.params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        o.params['query[to]'] = act.format('Y-m-d');\n    }\n    o.params['query[person_sum]'] = 1;\n    o.params._columns = 'person_id_name,person_id_email,qty';\n    o.params.limit = 999;\n \n}"
+                                                "beforeload": "function (_self, o)\n{\n    if (! _this.dateFrom) {\n     return;\n    }\n    o.params = o.params || {};\n     \n \n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        o.params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        o.params['query[to]'] = act.format('Y-m-d');\n    }\n    o.params['query[person_sum]'] = 1;\n    o.params._columns = 'person_id,person_id_name,person_id_email,qty';\n    o.params.limit = 999;\n \n}"
                                             },
                                             "*prop": "dataSource",
                                             "remoteSort": true,
