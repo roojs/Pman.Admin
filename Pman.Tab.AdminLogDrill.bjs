@@ -123,7 +123,7 @@
                                             "header": "Person name",
                                             "width": 200,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                                            "|renderer": "function(v,x,r) {\n     return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', v, r.data.person_id_email); \n }",
                                             "|xns": "Roo.grid"
                                         },
                                         {

@@ -272,7 +272,9 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     dataIndex : 'person_id_name',
                                     header : 'Person name',
                                     width : 200,
-                                    renderer : function(v) { return String.format('{0}', v); }
+                                    renderer : function(v,x,r) {
+                                         return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', v, r.data.person_id_email); 
+                                     }
                                 },
                                 {
                                     xtype: 'ColumnModel',
