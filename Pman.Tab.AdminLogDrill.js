@@ -36,7 +36,19 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
             xns: Roo,
             layout : {
                 xtype: 'BorderLayout',
-                xns: Roo
+                xns: Roo,
+                center : {
+                    xtype: 'LayoutRegion',
+                    xns: Roo
+                },
+                center : {
+                    xtype: 'LayoutRegion',
+                    xns: Roo
+                },
+                center : {
+                    xtype: 'LayoutRegion',
+                    xns: Roo
+                }
             }
         });
         this.layout = this.panel.layout;
