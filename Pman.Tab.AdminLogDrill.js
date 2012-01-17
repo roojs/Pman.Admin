@@ -510,7 +510,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         listeners : {
                                             select : function (combo, record, index)
                                             {
-                                              _this.grid.footer.onClick('first');
+                                               _this.dategrid.ds.load({});
                                             },
                                             render : function (_self)
                                             {
