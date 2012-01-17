@@ -1176,6 +1176,279 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 }
                             ]
                         }
+                    },
+                    {
+                        xtype: 'GridPanel',
+                        xns: Roo,
+                        listeners : {
+                            activate : function() {
+                                _this.detailpanel = this;
+                                if (_this.detailgrid) {
+                                    _this.detailgrid.footer.onClick('first');
+                                }
+                            }
+                        },
+                        background : true,
+                        fitContainer : true,
+                        fitToframe : true,
+                        region : 'east',
+                        tableName : 'Events',
+                        title : "Events",
+                        grid : {
+                            xtype: 'Grid',
+                            xns: Roo.grid,
+                            listeners : {
+                                render : function() 
+                                {
+                                    _this.detailgrid = this; 
+                                    //_this.dialog = Pman.Dialog.FILL_IN
+                                    if (_this.detailpanel.active) {
+                                       this.footer.onClick('first');
+                                    }
+                                }
+                            },
+                            autoExpandColumn : 'person_name',
+                            loadMask : true,
+                            dataSource : {
+                                xtype: 'Store',
+                                xns: Roo.data,
+                                listeners : {
+                                    beforeload : function (_self, o)
+                                    {
+                                         if (! _this.dategrid) {
+                                             return false;
+                                        }
+                                        
+                                        o.params = o.params || {};
+                                        
+                                        var s = _this.dategrid.selModel.getSelected();
+                                        if (!s) {
+                                            _this.detailgrid.view.el.mask("Select a person");
+                                            return false;
+                                        }
+                                        
+                                        o.params.person_id = s.data.person_id;    
+                                        
+                                        var s = _this.tablegrid.selModel.getSelected();
+                                        if (!s) {
+                                            _this.detailgrid.view.el.mask("Select a table");
+                                            return false;
+                                        }
+                                        o.params.on_table = s.data.on_table;        
+                                        
+                                        _this.detailgrid.view.el.unmask();
+                                     
+                                        var act = _this.actionSel.getValue();
+                                        if (act.length) {
+                                            o.params.action = act;
+                                        }
+                                        var tbl = _this.affectSel.getValue();
+                                        if (tbl.length) {
+                                            o.params.on_table = tbl;
+                                        }
+                                         
+                                     
+                                        act = _this.dateFrom.getValue();
+                                        if (act.format) {
+                                            o.params['query[from]'] = act.format('Y-m-d');
+                                        }
+                                        act = _this.dateTo.getValue();
+                                        if (act.format) {
+                                            o.params['query[to]'] = act.format('Y-m-d');
+                                        }
+                                    
+                                        //o.params['query[table_d]'] = 1;
+                                        //o.params._columns = 'on_table,qty,uqty';
+                                    
+                                        
+                                    }
+                                },
+                                remoteSort : true,
+                                sortInfo : { field : 'person_name', direction: 'ASC' },
+                                proxy : {
+                                    xtype: 'HttpProxy',
+                                    xns: Roo.data,
+                                    method : 'GET',
+                                    url : baseURL + '/Roo/Events.php'
+                                },
+                                reader : {
+                                    xtype: 'JsonReader',
+                                    xns: Roo.data,
+                                    totalProperty : 'total',
+                                    root : 'data',
+                                    id : 'id',
+                                    fields : [
+                                        {
+                                            'name': 'id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_name',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'event_when',
+                                            'type': 'date',
+                                            'dateFormat': 'Y-m-d'
+                                        },
+                                        {
+                                            'name': 'action',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'ipaddr',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'on_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'on_table',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'remarks',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_office_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_name',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_phone',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_fax',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_email',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_company_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_role',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_active',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_remarks',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_passwd',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_owner_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_lang',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_no_reset_sent',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_action_type',
+                                            'type': 'string'
+                                        },
+                                        {
+                                            'name': 'person_id_project_id',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_deleted_by',
+                                            'type': 'int'
+                                        },
+                                        {
+                                            'name': 'person_id_deleted_dt',
+                                            'type': 'date'
+                                        }
+                                    ]
+                                }
+                            },
+                            footer : {
+                                xtype: 'PagingToolbar',
+                                xns: Roo,
+                                pageSize : 25,
+                                displayInfo : true,
+                                displayMsg : "Displaying Events{0} - {1} of {2}",
+                                emptyMsg : "No Events found"
+                            },
+                            colModel : [
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    dataIndex : 'id',
+                                    header : 'Id',
+                                    width : 50,
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    header : 'Event when',
+                                    width : 75,
+                                    dataIndex : 'event_when',
+                                    renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    dataIndex : 'action',
+                                    header : 'Action',
+                                    width : 50,
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    dataIndex : 'ipaddr',
+                                    header : 'Ipaddr',
+                                    width : 100,
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    dataIndex : 'on_id',
+                                    header : '#ID',
+                                    width : 75,
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    header : 'Remarks',
+                                    width : 200,
+                                    dataIndex : 'remarks',
+                                    renderer : function(v) { return String.format('{0}', v); }
+                                }
+                            ]
+                        }
                     }
                 ],
                 west : {
