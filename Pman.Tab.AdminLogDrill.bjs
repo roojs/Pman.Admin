@@ -312,7 +312,7 @@
                         },
                         {
                             "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.tablepanel = this;\n    if (_this.tablegrid) {\n        _this.tablegrid.footer.onClick('first');\n    }\n}"
                             },
                             "background": true,
                             "fitContainer": true,
