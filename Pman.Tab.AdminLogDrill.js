@@ -68,6 +68,10 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     if (_this.panel.active) {
                                        this.ds.load({});
                                     }
+                                },
+                                rowclick : function (_self, rowIndex, e)
+                                {
+                                
                                 }
                             },
                             autoExpandColumn : 'person_name',
