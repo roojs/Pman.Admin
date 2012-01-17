@@ -1406,14 +1406,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     header : 'Event when',
                                     width : 75,
                                     renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Remarks',
-                                    width : 200,
-                                    dataIndex : 'remarks',
-                                    renderer : function(v) { return String.format('{0}', v); }
                                 }
                             ]
                         }
