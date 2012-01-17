@@ -19,7 +19,7 @@
                         {
                             "*prop": "west",
                             "split": true,
-                            "width": 300,
+                            "width": 270,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
                         },
