@@ -107,33 +107,6 @@
                                         },
                                         {
                                             "xtype": "ColumnModel",
-                                            "header": "Action",
-                                            "width": 200,
-                                            "dataIndex": "action",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
-                                        },
-                                        {
-                                            "xtype": "ColumnModel",
-                                            "header": "Ipaddr",
-                                            "width": 200,
-                                            "dataIndex": "ipaddr",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
-                                        },
-                                        {
-                                            "xtype": "ColumnModel",
-                                            "header": "On",
-                                            "width": 75,
-                                            "dataIndex": "on_id",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "*prop": "colModel[]"
-                                        },
-                                        {
-                                            "xtype": "ColumnModel",
                                             "header": "On table",
                                             "width": 200,
                                             "dataIndex": "on_table",
