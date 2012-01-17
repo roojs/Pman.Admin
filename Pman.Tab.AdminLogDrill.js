@@ -1028,7 +1028,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                     xtype: 'LayoutRegion',
                     xns: Roo,
                     split : true,
-                    width : 200
+                    width : 250
                 },
                 center : {
                     xtype: 'LayoutRegion',
