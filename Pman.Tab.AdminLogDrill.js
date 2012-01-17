@@ -60,15 +60,13 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         grid : {
                             xtype: 'Grid',
                             xns: Roo.grid,
-                            autoExpandColumn : 'person_name',
-                            loadMask : true,
                             listeners : {
                                 render : function() 
                                 {
                                     _this.grid = this; 
                                     //_this.dialog = Pman.Dialog.FILL_IN
                                     if (_this.panel.active) {
-                                       this.footer.onClick('first');
+                                       this.ds.load({});
                                     }
                                 },
                                 rowdblclick : function (_self, rowIndex, e)
@@ -79,6 +77,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     }); 
                                 }
                             },
+                            autoExpandColumn : 'person_name',
+                            loadMask : true,
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
