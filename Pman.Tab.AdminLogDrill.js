@@ -71,7 +71,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 },
                                 rowclick : function (_self, rowIndex, e)
                                 {
-                                
+                                    _this.tablegrid.footer.onClick('first');
                                 }
                             },
                             autoExpandColumn : 'person_name',
