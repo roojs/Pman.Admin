@@ -332,6 +332,19 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
+                                listeners : {
+                                    beforeload : function (_self, o)
+                                    {
+                                        var s = _this.dategrid.sm.getSelected()
+                                        if (!s) {
+                                            this.grid.el.mask("Select a person");
+                                            return false;
+                                        }
+                                        this.grid.el.unask();
+                                        
+                                        
+                                    }
+                                },
                                 remoteSort : true,
                                 sortInfo : { field : 'person_name', direction: 'ASC' },
                                 proxy : {
