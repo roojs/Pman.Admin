@@ -480,7 +480,7 @@
                         },
                         {
                             "listeners": {
-                                "|activate": "function() {\n    _this.detailpanel = this;\n    if (_this.detailgrid) {\n        _this.detailgrid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.daypanel = this;\n    if (_this.daygrid) {\n        _this.daygrid.footer.onClick('first');\n    }\n}"
                             },
                             "background": true,
                             "fitContainer": true,

@@ -1182,9 +1182,9 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         xns: Roo,
                         listeners : {
                             activate : function() {
-                                _this.detailpanel = this;
-                                if (_this.detailgrid) {
-                                    _this.detailgrid.footer.onClick('first');
+                                _this.daypanel = this;
+                                if (_this.daygrid) {
+                                    _this.daygrid.footer.onClick('first');
                                 }
                             }
                         },
