@@ -368,7 +368,7 @@
                             "fitToframe": true,
                             "region": "east",
                             "tableName": "Events",
-                            "title": "Events",
+                            "title": "Detail",
                             "xtype": "GridPanel",
                             "|xns": "Roo",
                             "items": [
