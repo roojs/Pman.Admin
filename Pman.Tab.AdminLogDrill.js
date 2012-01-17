@@ -73,7 +73,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 {
                                     if (!_this.dialog) return;
                                     _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
-                                        _this.grid.footer.onClick('first');
+                                        //_this.grid.footer.onClick('first');
                                     }); 
                                 }
                             },
