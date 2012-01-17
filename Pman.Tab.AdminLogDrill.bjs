@@ -103,6 +103,15 @@
                                                     "|xns": "Roo.Toolbar"
                                                 },
                                                 {
+                                                    "listeners": {
+                                                        "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}",
+                                                        "change": "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
+                                                    },
+                                                    "format": "Y-m-d",
+                                                    "xtype": "DateField",
+                                                    "|xns": "Roo.form"
+                                                },
+                                                {
                                                     "xtype": "TextItem",
                                                     "|xns": "Roo.Toolbar",
                                                     "text": "Show",
