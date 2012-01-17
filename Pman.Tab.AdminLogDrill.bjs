@@ -4,7 +4,19 @@
     "parent": "",
     "title": "",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogDrill.bjs",
-    "items": false,
+    "items": [
+        {
+            "|xns": "Roo",
+            "xtype": "NestedLayoutPanel",
+            "items": [
+                {
+                    "|xns": "Roo",
+                    "xtype": "BorderLayout",
+                    "*prop": "layout"
+                }
+            ]
+        }
+    ],
     "permname": "",
     "modOrder": "001"
 }
