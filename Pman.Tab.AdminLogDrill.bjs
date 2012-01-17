@@ -92,11 +92,6 @@
                                             "|xns": "Roo"
                                         },
                                         {
-                                            "*prop": "toolbar",
-                                            "xtype": "Toolbar",
-                                            "|xns": "Roo"
-                                        },
-                                        {
                                             "xtype": "ColumnModel",
                                             "header": "Person name",
                                             "width": 200,

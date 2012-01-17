@@ -215,10 +215,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 displayMsg : "Displaying Events{0} - {1} of {2}",
                                 emptyMsg : "No Events found"
                             },
-                            toolbar : {
-                                xtype: 'Toolbar',
-                                xns: Roo
-                            },
                             colModel : [
                                 {
                                     xtype: 'ColumnModel',
