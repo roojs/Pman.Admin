@@ -104,8 +104,8 @@
                                                         "change": "function (_self, newValue, oldValue)\n{\n  _this.dategrid.ds.load({});\n}"
                                                     },
                                                     "format": "Y-m-d",
-                                                    "|value": "(function() { d = new Date(); return d.format('Y-m-01'); })()",
                                                     "xtype": "DateField",
+                                                    "|value": "(function() { var d = new Date(); return d.format('Y-m-01'); })()",
                                                     "|xns": "Roo.form"
                                                 },
                                                 {

@@ -252,7 +252,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d',
-                                        value : (function() { d = new Date(); return d.format('Y-m-01'); })()
+                                        value : (function() { var d = new Date(); return d.format('Y-m-01'); })()
                                     },
                                     {
                                         xtype: 'DateField',
