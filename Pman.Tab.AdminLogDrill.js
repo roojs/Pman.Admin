@@ -360,7 +360,14 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         _this.tablegrid.view.el.unmask();
                                      
                                         o.params = o.params || {};
-                                         
+                                        var act = _this.actionSel.getValue();
+                                        if (act.length) {
+                                            o.params.action = act;
+                                        }
+                                        var tbl = _this.affectSel.getValue();
+                                        if (tbl.length) {
+                                            o.params.on_table = tbl;
+                                        }
                                      
                                         act = _this.dateFrom.getValue();
                                         if (act.format) {
