@@ -1588,7 +1588,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         background : true,
                         fitContainer : true,
                         fitToframe : true,
-                        region : 'center',
+                        region : 'east',
                         tableName : 'Events',
                         title : "Events",
                         grid : {

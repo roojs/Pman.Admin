@@ -525,7 +525,7 @@
                             "background": true,
                             "fitContainer": true,
                             "fitToframe": true,
-                            "region": "center",
+                            "region": "east",
                             "tableName": "Events",
                             "title": "Events",
                             "xtype": "GridPanel",
