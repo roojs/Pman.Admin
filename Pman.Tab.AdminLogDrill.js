@@ -341,10 +341,10 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         
                                         var s = _this.dategrid.selModel.getSelected();
                                         if (!s) {
-                                            this.grid.view.el.mask("Select a person");
+                                            _this.tablepanel.view.el.mask("Select a person");
                                             return false;
                                         }
-                                        this.grid.el.unask();
+                                        _this.tablepanel.view.el.el.unask();
                                      
                                         o.params = o.params || {};
                                          
