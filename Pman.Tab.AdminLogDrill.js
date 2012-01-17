@@ -268,7 +268,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             }
                                         },
                                         format : 'Y-m-d',
-                                        value : (function() { d = new Date(); d.add(Date.MONTH, 1) ; return d.format('Y-m-01'); })()
+                                        value : (function() { d = new Date();d =  d.add(Date.MONTH, 1) ; return d.format('Y-m-01'); })()
                                     }
                                 ]
                             },
