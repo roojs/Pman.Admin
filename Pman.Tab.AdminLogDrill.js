@@ -12,7 +12,7 @@ Pman.on('beforeload', function()
         modKey : '003-Pman.Tab.AdminLogDrill',
         module : Pman.Tab.AdminLogDrill,
         region : 'center',
-        parent : Pman.Tab.AdminLog,
+        parent : Pman.Tab.AdminLogs,
         name : "Pman.Tab.AdminLogDrill",
         disabled : false, 
         permname: '' 

@@ -1,7 +1,7 @@
 {
     "id": "roo-file-265",
     "name": "Pman.Tab.AdminLogDrill",
-    "parent": "Pman.Tab.AdminLog",
+    "parent": "Pman.Tab.AdminLogs",
     "title": "Pman.Tab.AdminLogDrill",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogDrill.bjs",
     "items": [
