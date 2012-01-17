@@ -248,7 +248,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             },
                                             change : function (_self, newValue, oldValue)
                                             {
-                                              _this.grid.footer.onClick('first');
+                                              _this.dategrid.footer.onClick('first');
                                             }
                                         },
                                         format : 'Y-m-d'
