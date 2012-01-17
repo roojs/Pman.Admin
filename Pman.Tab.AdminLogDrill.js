@@ -335,13 +335,31 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
+                                         if (! _this.dateFrom) {
+                                         return;
+                                        }
+                                        
                                         var s = _this.dategrid.sm.getSelected()
                                         if (!s) {
                                             this.grid.el.mask("Select a person");
                                             return false;
                                         }
                                         this.grid.el.unask();
-                                        
+                                     
+                                        o.params = o.params || {};
+                                         
+                                     
+                                        act = _this.dateFrom.getValue();
+                                        if (act.format) {
+                                            o.params['query[from]'] = act.format('Y-m-d');
+                                        }
+                                        act = _this.dateTo.getValue();
+                                        if (act.format) {
+                                            o.params['query[to]'] = act.format('Y-m-d');
+                                        }
+                                        o.params['query[person_sum]'] = 1;
+                                        o.params._columns = 'person_id_name,person_id_email,qty';
+                                        o.params.limit = 999;
                                         
                                     }
                                 },
