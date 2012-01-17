@@ -1200,9 +1200,9 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             listeners : {
                                 render : function() 
                                 {
-                                    _this.detailgrid = this; 
+                                    _this.daygrid = this; 
                                     //_this.dialog = Pman.Dialog.FILL_IN
-                                    if (_this.detailpanel.active) {
+                                    if (_this.daypanel.active) {
                                        this.footer.onClick('first');
                                     }
                                 }
