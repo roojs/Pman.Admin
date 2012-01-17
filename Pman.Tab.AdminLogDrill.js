@@ -369,7 +369,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'person_name', direction: 'ASC' },
+                                sortInfo : { field : 'on_table', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
