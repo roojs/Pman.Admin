@@ -1566,9 +1566,9 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         xns: Roo,
                         listeners : {
                             activate : function() {
-                                _this.panel = this;
-                                if (_this.grid) {
-                                    _this.grid.footer.onClick('first');
+                                _this.evpanel = this;
+                                if (_this.evgrid) {
+                                    _this.evgrid.footer.onClick('first');
                                 }
                             }
                         },

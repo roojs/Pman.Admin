@@ -512,7 +512,7 @@
                         },
                         {
                             "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate": "function() {\n    _this.evpanel = this;\n    if (_this.evgrid) {\n        _this.evgrid.footer.onClick('first');\n    }\n}"
                             },
                             "background": true,
                             "fitContainer": true,
