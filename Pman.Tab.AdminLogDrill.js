@@ -9,11 +9,11 @@ Pman.on('beforeload', function()
 {
     Pman.register({
         part :  ["Admin","LogDrill"],
-        modKey : '001-Pman.Tab.AdminLogDrill',
+        modKey : '003-Pman.Tab.AdminLogDrill',
         module : Pman.Tab.AdminLogDrill,
-        region : '',
-        parent : false,
-        name : "unnamed module",
+        region : 'center',
+        parent : Pman.Tab.AdminLog,
+        name : "Pman.Tab.AdminLogDrill",
         disabled : false, 
         permname: '' 
     });
