@@ -110,7 +110,7 @@
                                                 {
                                                     "listeners": {
                                                         "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}",
-                                                        "change": "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
+                                                        "change": "function (_self, newValue, oldValue)\n{\n  _this.dategrid.ds.load({});\n}"
                                                     },
                                                     "format": "Y-m-d",
                                                     "xtype": "DateField",
