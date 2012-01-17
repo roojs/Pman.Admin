@@ -87,11 +87,11 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         }
                                         o.params = o.params || {};
                                          
-                                        var act = _this.actionSel.getValue();
+                                        var act = _this.actionSel ? _this.actionSel.getValue() : '';
                                         if (act.length) {
                                             o.params.action = act;
                                         }
-                                        var tbl = _this.affectSel.getValue();
+                                        var tbl = _this.affectSel ? _this.affectSel.getValue() : '';
                                         if (tbl.length) {
                                             o.params.on_table = tbl;
                                         }
