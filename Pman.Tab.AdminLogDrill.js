@@ -76,7 +76,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 xtype: 'Store',
                                 xns: Roo.data,
                                 listeners : {
-                                    beforeload : function (_self, options)
+                                    beforeload : function (_self, o)
                                     {
                                         if (! _this.dateFrom) {
                                          return;
