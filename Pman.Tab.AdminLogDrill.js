@@ -942,7 +942,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             _this.detailgrid.view.el.mask("Select a table");
                                             return false;
                                         }
-                                        o.params.person_id = s.data.on_table;        
+                                        o.params.on_table = s.data.on_table;        
                                         
                                         _this.detailgrid.view.el.unmask();
                                      
