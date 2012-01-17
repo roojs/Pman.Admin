@@ -363,7 +363,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         }
                                         o.params.person_id = s.data.person_id;
                                         o.params['query[table_sum]'] = 1;
-                                        o.params._columns = 'ontable,qty,uqty';
+                                        o.params._columns = 'on_table,qty,uqty';
                                     
                                         
                                     }
