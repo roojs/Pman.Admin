@@ -46,8 +46,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                         listeners : {
                             activate : function() {
                                 _this.panel = this;
-                                if (_this.grid) {
-                                    _this.grid.footer.onClick('first');
+                                if (_this.dategrid) {
+                                    _this.dategrid.ds.load({});
                                 }
                             }
                         },
