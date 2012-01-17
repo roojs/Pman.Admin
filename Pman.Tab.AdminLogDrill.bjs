@@ -498,7 +498,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "Table / Action",
+                                            "dataIndex": "table_action",
                                             "header": "Person name",
                                             "width": 200,
                                             "xtype": "ColumnModel",
