@@ -357,9 +357,10 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         if (act.format) {
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
+                                        o.params.person_id = s.data.person_id;
                                         o.params['query[table_sum]'] = 1;
                                         o.params._columns = 'ontable,qty,uqty';
-                                        o.params.limit = 999;
+                                    
                                         
                                     }
                                 },
