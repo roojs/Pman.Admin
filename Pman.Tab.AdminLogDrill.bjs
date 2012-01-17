@@ -50,7 +50,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|render": "function() \n{\n    _this.dgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.ds.load({});\n    }\n}",
+                                        "|render": "function() \n{\n    _this.dategrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.ds.load({});\n    }\n}",
                                         "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
                                     },
                                     "*prop": "grid",
