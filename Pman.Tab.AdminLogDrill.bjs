@@ -27,6 +27,7 @@
                         },
                         {
                             "*prop": "east",
+                            "split": true,
                             "width": 400,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"
