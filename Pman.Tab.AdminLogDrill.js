@@ -927,7 +927,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     beforeload : function (_self, o)
                                     {
                                          if (! _this.dategrid) {
-                                             return;
+                                             return false;
                                         }
                                         
                                         o.params = o.params || {};
