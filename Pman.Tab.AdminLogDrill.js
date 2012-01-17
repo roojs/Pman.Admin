@@ -965,7 +965,14 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         
                                         _this.detailgrid.view.el.unmask();
                                      
-                                    
+                                        var act = _this.actionSel.getValue();
+                                        if (act.length) {
+                                            o.params.action = act;
+                                        }
+                                        var tbl = _this.affectSel.getValue();
+                                        if (tbl.length) {
+                                            o.params.on_table = tbl;
+                                        }
                                          
                                      
                                         act = _this.dateFrom.getValue();
