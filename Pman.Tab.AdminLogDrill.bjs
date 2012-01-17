@@ -98,6 +98,11 @@
                                             "|xns": "Roo",
                                             "items": [
                                                 {
+                                                    "text": "Date Range",
+                                                    "xtype": "TextItem",
+                                                    "|xns": "Roo.Toolbar"
+                                                },
+                                                {
                                                     "xtype": "TextItem",
                                                     "|xns": "Roo.Toolbar",
                                                     "text": "Show",

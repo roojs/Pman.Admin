@@ -222,6 +222,11 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     {
                                         xtype: 'TextItem',
                                         xns: Roo.Toolbar,
+                                        text : "Date Range"
+                                    },
+                                    {
+                                        xtype: 'TextItem',
+                                        xns: Roo.Toolbar,
                                         text : "Show"
                                     },
                                     {
