@@ -334,7 +334,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "qty",
+                                            "dataIndex": "uqty",
                                             "header": "#Affected",
                                             "width": 70,
                                             "xtype": "ColumnModel",
