@@ -1257,8 +1257,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             o.params['query[to]'] = act.format('Y-m-d');
                                         }
                                     
-                                        //o.params['query[table_d]'] = 1;
-                                        //o.params._columns = 'on_table,qty,uqty';
+                                        o.params['query[day_sum]'] = 1;
+                                        o.params._columns = 'onday,qty,uqty';
                                     
                                         
                                     }
