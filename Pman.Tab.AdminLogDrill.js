@@ -75,6 +75,26 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
+                                listeners : {
+                                    beforeload : function (_self, options)
+                                    {
+                                        if (! _this.dateFrom) {
+                                         return;
+                                        }
+                                        o.params = o.params || {};
+                                         
+                                     
+                                        act = _this.dateFrom.getValue();
+                                        if (act.format) {
+                                            o.params['query[from]'] = act.format('Y-m-d');
+                                        }
+                                        act = _this.dateTo.getValue();
+                                        if (act.format) {
+                                            o.params['query[to]'] = act.format('Y-m-d');
+                                        }
+                                     
+                                    }
+                                },
                                 remoteSort : true,
                                 sortInfo : { field : 'person_name', direction: 'ASC' },
                                 proxy : {

@@ -59,9 +59,12 @@
                                     "|xns": "Roo.grid",
                                     "items": [
                                         {
+                                            "listeners": {
+                                                "beforeload": "function (_self, options)\n{\n    if (! _this.dateFrom) {\n     return;\n    }\n    o.params = o.params || {};\n     \n \n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        o.params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        o.params['query[to]'] = act.format('Y-m-d');\n    }\n \n}"
+                                            },
                                             "*prop": "dataSource",
-                                            "xtype": "Store",
                                             "remoteSort": true,
+                                            "xtype": "Store",
                                             "|sortInfo": "{ field : 'person_name', direction: 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
