@@ -337,6 +337,7 @@
                                             "*prop": "colModel[]",
                                             "dataIndex": "uqty",
                                             "header": "#Affected",
+                                            "sortable": true,
                                             "width": 70,
                                             "xtype": "ColumnModel",
                                             "|renderer": "function(v) { return String.format('{0}', v); }",
