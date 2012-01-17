@@ -1755,7 +1755,14 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                             },
                             toolbar : {
                                 xtype: 'Toolbar',
-                                xns: Roo
+                                xns: Roo,
+                                items : [
+                                    {
+                                        xtype: 'TextItem',
+                                        xns: Roo.Toolbar,
+                                        text : "Show"
+                                    }
+                                ]
                             },
                             colModel : [
                                 {

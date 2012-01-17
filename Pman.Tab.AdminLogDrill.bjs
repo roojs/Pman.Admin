@@ -582,7 +582,15 @@
                                             "*prop": "toolbar",
                                             "xtype": "Toolbar",
                                             "listeners": {},
-                                            "|xns": "Roo"
+                                            "|xns": "Roo",
+                                            "items": [
+                                                {
+                                                    "xtype": "TextItem",
+                                                    "|xns": "Roo.Toolbar",
+                                                    "text": "Show",
+                                                    "listeners": {}
+                                                }
+                                            ]
                                         },
                                         {
                                             "*prop": "colModel[]",
