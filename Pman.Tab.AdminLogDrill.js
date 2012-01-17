@@ -209,14 +209,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     ]
                                 }
                             },
-                            footer : {
-                                xtype: 'PagingToolbar',
-                                xns: Roo,
-                                pageSize : 25,
-                                displayInfo : true,
-                                displayMsg : "Displaying Events{0} - {1} of {2}",
-                                emptyMsg : "No Events found"
-                            },
                             toolbar : {
                                 xtype: 'Toolbar',
                                 xns: Roo,

@@ -85,15 +85,6 @@
                                             ]
                                         },
                                         {
-                                            "*prop": "footer",
-                                            "xtype": "PagingToolbar",
-                                            "pageSize": 25,
-                                            "displayInfo": true,
-                                            "displayMsg": "Displaying Events{0} - {1} of {2}",
-                                            "emptyMsg": "No Events found",
-                                            "|xns": "Roo"
-                                        },
-                                        {
                                             "*prop": "toolbar",
                                             "xtype": "Toolbar",
                                             "listeners": {},
