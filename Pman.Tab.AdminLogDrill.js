@@ -1187,9 +1187,9 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
-                                    header : 'Ipaddr',
-                                    width : 200,
                                     dataIndex : 'ipaddr',
+                                    header : 'Ipaddr',
+                                    width : 100,
                                     renderer : function(v) { return String.format('{0}', v); }
                                 },
                                 {
