@@ -89,7 +89,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                             return;
                                         }
                                         
-                                        this.tablegrid.ds.removeAll();
+                                        _this.tablegrid.ds.removeAll();
                                         
                                         o.params = o.params || {};
                                          
