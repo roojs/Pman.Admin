@@ -91,7 +91,12 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                         if (_this.tablegrid) {
                                             _this.tablegrid.ds.removeAll();
                                         }
-                                        
+                                         try {
+                                             _this.panel.layout.getRegion('east').getActivePanel().grid.ds.removeAll();
+                                             
+                                        } catch (e) {
+                                            // do nothing..
+                                        }
                                         o.params = o.params || {};
                                          
                                         var act = _this.actionSel ? _this.actionSel.getValue() : '';
