@@ -368,8 +368,8 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                          if (! _this.dategrid) {
                                          return;
                                         }
-                                        if (_this.detailpanel && _this.detailpanel.ds) {
-                                            _this.detailpanel.ds.removeAll();
+                                        if (_this.detailgrid) {
+                                            _this.detailgrid.ds.removeAll();
                                         }
                                         
                                         var s = _this.dategrid.selModel.getSelected();
