@@ -83,8 +83,10 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
+                                        
+                                        
                                         if (! _this.dateFrom) {
-                                         return;
+                                            return;
                                         }
                                         o.params = o.params || {};
                                          
