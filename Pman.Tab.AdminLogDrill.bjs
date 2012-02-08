@@ -344,7 +344,7 @@
                                             "sortable": true,
                                             "width": 200,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                                            "|renderer": "function(v) { \n    if (!v.length) {\n        return \"Login / Logout / Errors\";\n    }\n    return String.format('{0}', v); \n}",
                                             "|xns": "Roo.grid"
                                         },
                                         {

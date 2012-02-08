@@ -901,7 +901,12 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                     header : 'Table',
                                     sortable : true,
                                     width : 200,
-                                    renderer : function(v) { return String.format('{0}', v); }
+                                    renderer : function(v) { 
+                                        if (!v.length) {
+                                            return "Login / Logout / Errors";
+                                        }
+                                        return String.format('{0}', v); 
+                                    }
                                 },
                                 {
                                     xtype: 'ColumnModel',
