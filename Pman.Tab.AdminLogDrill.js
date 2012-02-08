@@ -368,8 +368,11 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                          if (! _this.dategrid) {
                                          return;
                                         }
-                                        if (_this.detailgrid) {
-                                            _this.detailgrid.ds.removeAll();
+                                        try {
+                                             _this.panel.layout.getRegion('east').getActivePanel().grid.ds.removeAll();
+                                             
+                                        } catch (e) {
+                                            // do nothing..
                                         }
                                         
                                         var s = _this.dategrid.selModel.getSelected();
