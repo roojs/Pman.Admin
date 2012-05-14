@@ -342,7 +342,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "person_id_name",
+                                            "dataIndex": "person_table_name",
                                             "header": "Staff",
                                             "width": 150,
                                             "xtype": "ColumnModel",
