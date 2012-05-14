@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-121",
+    "id": "roo-file-136",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -77,7 +77,6 @@
                                             "*prop": "dataSource",
                                             "remoteSort": true,
                                             "xtype": "Store",
-                                            "|reader": "Pman.Readers.Events",
                                             "|sortInfo": "{ field: 'event_when', direction: 'DESC'}",
                                             "|xns": "Roo.data",
                                             "items": [

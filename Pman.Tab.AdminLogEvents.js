@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","LogEvents"],
-        modKey : '001-Pman.Tab.AdminLogEvents',
-        module : Pman.Tab.AdminLogEvents,
-        region : 'center',
-        parent : Pman.Tab.AdminLogs,
-        name : "Admin - Logs - Events",
-        disabled : false, 
-        permname: 'Admin.Logs' 
-    });
-});
-
-Pman.Tab.AdminLogEvents = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminLogEvents = new Roo.XComponent({
+    part     :  ["Admin","LogEvents"],
+    order    : '001-Pman.Tab.AdminLogEvents',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminLogs',
+    name     : "Admin - Logs - Events",
+    disabled : false, 
+    permname : 'Admin.Logs', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
@@ -151,7 +134,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                                     }
                                 },
                                 remoteSort : true,
-                                reader : Pman.Readers.Events,
                                 sortInfo : { field: 'event_when', direction: 'DESC'},
                                 reader : {
                                     xtype: 'JsonReader',
@@ -1202,8 +1184,6 @@ Pman.Tab.AdminLogEvents = new Roo.util.Observable({
                     split : true
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
