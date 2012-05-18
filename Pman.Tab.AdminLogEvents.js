@@ -272,7 +272,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
                                         listeners : {
-                                            click : function (_self, e)
+                                            click : function (_self, o)
                                             {
                                              
                                                 var params = {
