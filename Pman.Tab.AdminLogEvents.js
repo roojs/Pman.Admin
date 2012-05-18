@@ -272,9 +272,9 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
                                         listeners : {
-                                            click : function (_self, o)
+                                            click : function (_self, e)
                                             {
-                                             
+                                                
                                                 var params = {
                                                     'sort' : 'event_when',
                                                     'dir' : 'DESC',
@@ -289,22 +289,22 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                     'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        
                                                 }
                                                     
-                                                o.params.person_id = _this.personSel.getValue();
+                                                params.person_id = _this.personSel.getValue();
                                                 var act = _this.actionSel.getValue();
                                                 if (act.length) {
-                                                    o.params.action = act;
+                                                    params.action = act;
                                                 }
                                                 var tbl = _this.affectSel.getValue();
                                                 if (tbl.length) {
-                                                    o.params.on_table = tbl;
+                                                    params.on_table = tbl;
                                                 }
                                                 act = _this.dateFrom.getValue();
                                                 if (act.format) {
-                                                    o.params['query[from]'] = act.format('Y-m-d');
+                                                    params['query[from]'] = act.format('Y-m-d');
                                                 }
                                                 act = _this.dateTo.getValue();
                                                 if (act.format) {
-                                                    o.params['query[to]'] = act.format('Y-m-d');
+                                                    params['query[to]'] = act.format('Y-m-d');
                                                 }
                                                 
                                             
