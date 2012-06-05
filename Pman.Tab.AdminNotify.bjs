@@ -118,7 +118,7 @@
                             "header": "Who to notify",
                             "width": 200,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) {\n     return String.format('{0} <u>&lt;{1}&lt;</u>', v, r.data.email); \n }",
+                            "|renderer": "function(v,x,r) {\n     return String.format('{0} <u>&lt;{1}&lt;</u>', v, r.data.person_id_email); \n }",
                             "|xns": "Roo.grid"
                         },
                         {

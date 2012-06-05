@@ -294,7 +294,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         header : 'Who to notify',
                         width : 200,
                         renderer : function(v,x,r) {
-                             return String.format('{0} <u>&lt;{1}&lt;</u>', v, r.data.email); 
+                             return String.format('{0} <u>&lt;{1}&lt;</u>', v, r.data.person_id_email); 
                          }
                     },
                     {
