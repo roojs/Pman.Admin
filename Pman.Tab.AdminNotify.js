@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","Notify"],
-        modKey : '001-Pman.Tab.AdminNotify',
-        module : Pman.Tab.AdminNotify,
-        region : 'center',
-        parent : Pman.Tab.AdminWatchNotify,
-        name : "Pman.Tab.AdminNotify",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminNotify = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminNotify = new Roo.XComponent({
+    part     :  ["Admin","Notify"],
+    order    : '001-Pman.Tab.AdminNotify',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminWatchNotify',
+    name     : "Pman.Tab.AdminNotify",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -280,7 +263,7 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                         header : 'Act when',
                         sortable : true,
                         width : 100,
-                        renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
+                        renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); }
                     },
                     {
                         xtype: 'ColumnModel',
@@ -332,8 +315,6 @@ Pman.Tab.AdminNotify = new Roo.util.Observable({
                     }
                 ]
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
