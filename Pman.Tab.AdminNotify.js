@@ -276,7 +276,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             if (r.data.event_id *1 == 0) {
                                 return '';
                             }
-                             return String.format('{0}', v ? v.format('d/M/Y') : '');
+                             return String.format('{0}', v ? v.format('d/M/Y H:i:s') : '');
                           }
                     },
                     {
