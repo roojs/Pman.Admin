@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","WatchNotify"],
-        modKey : '860-Pman.Tab.AdminWatchNotify',
-        module : Pman.Tab.AdminWatchNotify,
-        region : 'center',
-        parent : Pman.Tab.Admin,
-        name : "Notifications",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminWatchNotify = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminWatchNotify = new Roo.XComponent({
+    part     :  ["Admin","WatchNotify"],
+    order    : '860-Pman.Tab.AdminWatchNotify',
+    region   : 'center',
+    parent   : 'Pman.Tab.Admin',
+    name     : "Notifications",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             background : true,
@@ -46,8 +29,6 @@ Pman.Tab.AdminWatchNotify = new Roo.util.Observable({
                     tabPosition : 'top'
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
