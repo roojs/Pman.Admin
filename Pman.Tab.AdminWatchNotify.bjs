@@ -8,7 +8,7 @@
         {
             "background": true,
             "region": "center",
-            "title": "Notifications ",
+            "title": "Notifications",
             "xtype": "NestedLayoutPanel",
             "|xns": "Roo",
             "items": [
