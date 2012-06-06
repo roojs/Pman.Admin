@@ -23,6 +23,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     if (_this.grid) {
                         _this.grid.footer.onClick('first');
                     }
+                    
                 }
             },
             background : true,
