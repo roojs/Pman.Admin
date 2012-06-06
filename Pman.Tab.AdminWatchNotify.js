@@ -19,7 +19,7 @@ Pman.Tab.AdminWatchNotify = new Roo.XComponent({
             xns: Roo,
             background : true,
             region : 'center',
-            title : "Notifications",
+            title : "Notifications ",
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
