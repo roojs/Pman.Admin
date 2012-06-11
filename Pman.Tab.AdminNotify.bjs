@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-189",
+    "id": "roo-file-141",
     "name": "Pman.Tab.AdminNotify",
     "parent": "Pman.Tab.AdminWatchNotify",
     "title": "Pman.Tab.AdminNotify",
@@ -82,6 +82,16 @@
                                     "|xns": "Roo.Toolbar"
                                 }
                             ]
+                        },
+                        {
+                            "*prop": "colModel[]",
+                            "dataIndex": "act_when",
+                            "header": "Act when",
+                            "sortable": true,
+                            "width": 100,
+                            "xtype": "ColumnModel",
+                            "|renderer": "function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); }",
+                            "|xns": "Roo.grid"
                         },
                         {
                             "*prop": "colModel[]",
