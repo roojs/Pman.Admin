@@ -264,7 +264,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         header : 'id#',
                         sortable : true,
                         width : 50,
-                        renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); }
+                        renderer : function(v) { return String.format('{0}', v ); }
                     },
                     {
                         xtype: 'ColumnModel',
