@@ -183,7 +183,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show Removed\");\n   \n   \n}",
+                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show No Company\");\n   \n   \n}",
                                         "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
                                     },
                                     "enableToggle": true,
