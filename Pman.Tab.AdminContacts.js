@@ -82,7 +82,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                         beforeload : function (_self, o)
                         {
                             if(_this.active_company_button){
-                                o.params['company_id'] = 0;
+                                o.params.company_id = 0;
                             }else{
                                 o.params['!company_id_comptype'] = 'OWNER';
                             }
