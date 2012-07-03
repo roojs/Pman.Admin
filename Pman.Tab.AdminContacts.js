@@ -625,7 +625,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 },
                                 render : function (_self)
                                 {
-                                  _this.activeButton = _self;
+                                  _this.active_company_button = _self;
                                 }
                             },
                             enableToggle : true,
