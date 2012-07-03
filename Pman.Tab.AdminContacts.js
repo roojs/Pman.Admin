@@ -81,8 +81,9 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                     listeners : {
                         beforeload : function (_self, o)
                         {
-                            
-                            o.params['!company_id_comptype'] = 'OWNER';
+                            if(!_this.active_company_button.pressed){
+                                o.params['!company_id_comptype'] = 'OWNER';
+                            }
                             
                             o.params['query[search]'] = _this.searchBox.getValue();
                             
