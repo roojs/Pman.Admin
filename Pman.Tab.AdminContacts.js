@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","Contacts"],
-        modKey : '001-Pman.Tab.AdminContacts',
-        module : Pman.Tab.AdminContacts,
-        region : 'center',
-        parent : Pman.Tab.AdminContactsManager,
-        name : "Pman.Tab.AdminContacts",
-        disabled : false, 
-        permname: 'Core.Person' 
-    });
-});
-
-Pman.Tab.AdminContacts = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminContacts = new Roo.XComponent({
+    part     :  ["Admin","Contacts"],
+    order    : '001-Pman.Tab.AdminContacts',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminContactsManager',
+    name     : "Pman.Tab.AdminContacts",
+    disabled : false, 
+    permname : 'Core.Person', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -630,6 +613,25 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                             text : "Show Removed"
                         },
                         {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                toggle : function (_self, pressed)
+                                {
+                                   _this.grid.footer.onClick('first');
+                                   this.setText(pressed ? "Show Active" : "Show Removed");
+                                   
+                                   
+                                },
+                                render : function (_self)
+                                {
+                                  _this.activeButton = _self;
+                                }
+                            },
+                            enableToggle : true,
+                            text : "Show Removed"
+                        },
+                        {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
                         },
@@ -805,8 +807,6 @@ Pman.Tab.AdminContacts = new Roo.util.Observable({
                     }
                 ]
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });

@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-88",
+    "id": "roo-file-97",
     "name": "Pman.Tab.AdminContacts",
     "parent": "Pman.Tab.AdminContactsManager",
     "title": "Pman.Tab.AdminContacts",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
     "items": [
         {
             "listeners": {
@@ -169,6 +169,16 @@
                                     "cls": "x-btn-icon",
                                     "xtype": "Button",
                                     "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
+                                    "|xns": "Roo.Toolbar"
+                                },
+                                {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show Removed\");\n   \n   \n}",
+                                        "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
+                                    },
+                                    "enableToggle": true,
+                                    "text": "Show Removed",
+                                    "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
