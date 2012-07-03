@@ -629,7 +629,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 }
                             },
                             enableToggle : true,
-                            text : "Show Removed"
+                            text : "Show No Company"
                         },
                         {
                             xtype: 'Fill',

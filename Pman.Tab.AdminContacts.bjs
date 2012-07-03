@@ -187,7 +187,7 @@
                                         "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
                                     },
                                     "enableToggle": true,
-                                    "text": "Show Removed",
+                                    "text": "Show No Company",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 },
