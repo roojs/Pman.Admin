@@ -624,7 +624,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 toggle : function (_self, pressed)
                                 {
                                    _this.grid.footer.onClick('first');
-                                   this.setText(pressed ? "Show Active" : "Show No Company");
+                                   this.setText(pressed ? "Show Company" : "Show No Company");
                                    
                                    
                                 },
