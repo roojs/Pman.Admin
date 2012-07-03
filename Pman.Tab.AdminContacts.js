@@ -94,6 +94,10 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                             
                             
                             o.params.active = _this.activeButton.pressed ? 0 : 1;
+                            
+                            if(_this.active_company_button.pressed){
+                                o.params.company_id = 0;
+                            }
                             if (!Pman.Tab.AdminContactsGroup) { 
                                 return false;
                             }
