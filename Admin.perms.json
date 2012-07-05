@@ -9,6 +9,8 @@
 	"Companies"            : [ "S",      "" , "Admin Companies manager"] ,
 	"Contacts"             : [ "S",      "" , "Admin Contacts manager"] ,
     "Translations"         : [ "S",      "" , "Translations manager"] ,
-    "Enums"                 : [ "S",      "" , "Pulldown options manager"] 
+    "Enums"                 : [ "S",      "" , "Pulldown options manager"]
+    "ProjectManager"       : [ "S",      "" , "Project Manager Tab"]
+    
 }
       
