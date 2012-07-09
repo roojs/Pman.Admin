@@ -14,6 +14,11 @@
             "items": [
                 {
                     "|xns": "Roo",
+                    "xtype": "Toolbar",
+                    "*prop": "toolbar"
+                },
+                {
+                    "|xns": "Roo",
                     "xtype": "BorderLayout",
                     "*prop": "layout",
                     "items": [

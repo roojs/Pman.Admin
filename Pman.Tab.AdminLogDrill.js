@@ -20,6 +20,10 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
             background : true,
             region : 'center',
             title : "Event Drilldown",
+            toolbar : {
+                xtype: 'Toolbar',
+                xns: Roo
+            },
             layout : {
                 xtype: 'BorderLayout',
                 xns: Roo,
