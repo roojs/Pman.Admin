@@ -320,7 +320,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                                 }
                             }
                         },
-                        background : true,
+                        background : false,
                         fitContainer : true,
                         fitToframe : true,
                         region : 'center',

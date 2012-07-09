@@ -160,7 +160,7 @@
                             "listeners": {
                                 "|activate": "function() {\n    _this.tablepanel = this;\n    if (_this.tablegrid) {\n        _this.tablegrid.footer.onClick('first');\n    }\n}"
                             },
-                            "background": true,
+                            "background": false,
                             "fitContainer": true,
                             "fitToframe": true,
                             "region": "center",
