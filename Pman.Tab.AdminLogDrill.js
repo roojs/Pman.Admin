@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","LogDrill"],
-        modKey : '003-Pman.Tab.AdminLogDrill',
-        module : Pman.Tab.AdminLogDrill,
-        region : 'center',
-        parent : Pman.Tab.AdminLogs,
-        name : "Pman.Tab.AdminLogDrill",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminLogDrill = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminLogDrill = new Roo.XComponent({
+    part     :  ["Admin","LogDrill"],
+    order    : '003-Pman.Tab.AdminLogDrill',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminLogs',
+    name     : "Pman.Tab.AdminLogDrill",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             background : true,
@@ -52,7 +35,7 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                                 }
                             }
                         },
-                        background : true,
+                        background : false,
                         fitContainer : true,
                         fitToframe : true,
                         region : 'west',
@@ -1480,8 +1463,6 @@ Pman.Tab.AdminLogDrill = new Roo.util.Observable({
                     width : 600
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });

@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-132",
+    "id": "roo-file-144",
     "name": "Pman.Tab.AdminLogDrill",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Pman.Tab.AdminLogDrill",
@@ -41,7 +41,7 @@
                             "listeners": {
                                 "|activate": "function() {\n    _this.datepanel = this;\n    if (_this.dategrid) {\n        _this.dategrid.ds.load({});\n    }\n}"
                             },
-                            "background": true,
+                            "background": false,
                             "fitContainer": true,
                             "fitToframe": true,
                             "region": "west",
