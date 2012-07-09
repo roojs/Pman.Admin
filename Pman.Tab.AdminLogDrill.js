@@ -22,7 +22,14 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
             title : "Event Drilldown",
             toolbar : {
                 xtype: 'Toolbar',
-                xns: Roo
+                xns: Roo,
+                items : [
+                    {
+                        xtype: 'TextItem',
+                        xns: Roo.Toolbar,
+                        text : "Date Range"
+                    }
+                ]
             },
             layout : {
                 xtype: 'BorderLayout',

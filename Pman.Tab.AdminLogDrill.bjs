@@ -15,7 +15,14 @@
                 {
                     "|xns": "Roo",
                     "xtype": "Toolbar",
-                    "*prop": "toolbar"
+                    "*prop": "toolbar",
+                    "items": [
+                        {
+                            "text": "Date Range",
+                            "xtype": "TextItem",
+                            "|xns": "Roo.Toolbar"
+                        }
+                    ]
                 },
                 {
                     "|xns": "Roo",
