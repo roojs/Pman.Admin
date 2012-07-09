@@ -276,49 +276,6 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                                     ]
                                 }
                             },
-                            toolbar : {
-                                xtype: 'Toolbar',
-                                xns: Roo,
-                                items : [
-                                    {
-                                        xtype: 'TextItem',
-                                        xns: Roo.Toolbar,
-                                        text : "Date Range"
-                                    },
-                                    {
-                                        xtype: 'DateField',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            render : function (_self)
-                                            {
-                                              _this.dateFrom = _self;
-                                            },
-                                            change : function (_self, newValue, oldValue)
-                                            {
-                                              _this.dategrid.ds.load({});
-                                            }
-                                        },
-                                        format : 'Y-m-d',
-                                        value : (function() { var d = new Date(); return d.format('Y-m-01'); })()
-                                    },
-                                    {
-                                        xtype: 'DateField',
-                                        xns: Roo.form,
-                                        listeners : {
-                                            render : function (_self)
-                                            {
-                                              _this.dateTo = _self;
-                                            },
-                                            change : function (_self, newValue, oldValue)
-                                            {
-                                              _this.dategrid.ds.load({});
-                                            }
-                                        },
-                                        format : 'Y-m-d',
-                                        value : (function() { var d = new Date();d =  d.add(Date.MONTH, 1) ; return d.format('Y-m-01'); })()
-                                    }
-                                ]
-                            },
                             colModel : [
                                 {
                                     xtype: 'ColumnModel',
