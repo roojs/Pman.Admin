@@ -21,6 +21,26 @@
                             "text": "Date Range",
                             "xtype": "TextItem",
                             "|xns": "Roo.Toolbar"
+                        },
+                        {
+                            "listeners": {
+                                "render": "function (_self)\n{\n  _this.dateFrom = _self;\n}",
+                                "change": "function (_self, newValue, oldValue)\n{\n  _this.dategrid.ds.load({});\n}"
+                            },
+                            "format": "Y-m-d",
+                            "xtype": "DateField",
+                            "|value": "(function() { var d = new Date(); return d.format('Y-m-01'); })()",
+                            "|xns": "Roo.form"
+                        },
+                        {
+                            "listeners": {
+                                "render": "function (_self)\n{\n  _this.dateTo = _self;\n}",
+                                "change": "function (_self, newValue, oldValue)\n{\n  _this.dategrid.ds.load({});\n}"
+                            },
+                            "format": "Y-m-d",
+                            "|value": "(function() { var d = new Date();d =  d.add(Date.MONTH, 1) ; return d.format('Y-m-01'); })()",
+                            "xtype": "DateField",
+                            "|xns": "Roo.form"
                         }
                     ]
                 },
