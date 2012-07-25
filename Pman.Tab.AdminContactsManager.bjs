@@ -1,15 +1,15 @@
 {
-    "id": "roo-file-118",
+    "id": "roo-file-93",
     "name": "Pman.Tab.AdminContactsManager",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminContactsManager",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
     "items": [
         {
             "background": true,
             "region": "center",
-            "|title": "(function() {\n    return _this.title || \"Contacts Manager\";\n})()",
             "xtype": "NestedLayoutPanel",
+            "|title": "(function() {\n    return _this.title || \"Contacts Manager\";\n})()",
             "|xns": "Roo",
             "items": [
                 {
