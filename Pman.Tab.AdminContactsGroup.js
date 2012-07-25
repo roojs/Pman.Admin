@@ -2,35 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        modKey : '001-Pman.Tab.AdminContactsGroup',
-        module : Pman.Tab.AdminContactsGroup,
-        region : 'center',
-        parent : Pman.Tab.AdminContactsManager,
-        name : "Pman.Tab.AdminContactsGroup",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminContactsGroup = new Roo.XComponent({
+    part     :  ["Admin","ContactsGroup"],
+    order    : '001-Pman.Tab.AdminContactsGroup',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminContactsManager',
+    name     : "Pman.Tab.AdminContactsGroup",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -437,8 +421,6 @@ Pman.Tab.AdminContactsGroup = new Roo.util.Observable({
                     ddGroup : 'groupDD'
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
