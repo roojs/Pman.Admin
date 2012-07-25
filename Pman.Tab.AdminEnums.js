@@ -2,35 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        modKey : '500-Pman.Tab.AdminEnums',
-        module : Pman.Tab.AdminEnums,
-        region : 'center',
-        parent : Pman.Tab.Admin,
-        name : "Pman.Tab.AdminEnums",
-        disabled : false, 
-        permname: 'Admin.Enums' 
-    });
-});
-
-Pman.Tab.AdminEnums = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminEnums = new Roo.XComponent({
+    part     :  ["Admin","Enums"],
+    order    : '500-Pman.Tab.AdminEnums',
+    region   : 'center',
+    parent   : 'Pman.Tab.Admin',
+    name     : "Pman.Tab.AdminEnums",
+    disabled : false, 
+    permname : 'Admin.Enums', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -365,8 +349,6 @@ Pman.Tab.AdminEnums = new Roo.util.Observable({
                     }
                 ]
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
