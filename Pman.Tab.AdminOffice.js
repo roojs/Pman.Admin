@@ -2,35 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        modKey : '001-Pman.Tab.AdminOffice',
-        module : Pman.Tab.AdminOffice,
-        region : 'center',
-        parent : Pman.Tab.AdminCompanies,
-        name : "Pman.Tab.AdminOffice",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminOffice = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminOffice = new Roo.XComponent({
+    part     :  ["Admin","Office"],
+    order    : '001-Pman.Tab.AdminOffice',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminCompanies',
+    name     : "Pman.Tab.AdminOffice",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -238,8 +222,8 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                     xns: Roo,
                     pageSize : 25,
                     displayInfo : true,
-                    displayMsg : 'Displaying Office{0} - {1} of {2}',
-                    emptyMsg : 'No Office found'
+                    displayMsg : "Displaying Office{0} - {1} of {2}",
+                    emptyMsg : "No Office found"
                 },
                 toolbar : {
                     xtype: 'Toolbar',
@@ -357,8 +341,6 @@ Pman.Tab.AdminOffice = new Roo.util.Observable({
                     }
                 ]
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
