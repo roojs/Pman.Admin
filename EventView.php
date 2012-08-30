@@ -26,7 +26,7 @@ class Pman_Admin_EventView extends Pman
         }
         
         // verify if not admin, then they should 
-        $g = DB_DataObject::Factory('Group_Members');
+        $g = DB_DataObject::Factory('group_members');
         $grps = $g->listGroupMembership($this->authUser);
        //var_dump($grps);
         $isAdmin = $g->inAdmin;
