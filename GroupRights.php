@@ -33,7 +33,7 @@ class Pman_Admin_GroupRights extends Pman
             $this->jerr("PERMISSION DENIED");
         }
          //   DB_DataObject::debugLevel(1);
-        $p = DB_DataObject::factory('Group_Rights');
+        $p = DB_DataObject::factory('group_rights');
         $p->group_id = (int)$_GET['group_id'];
         $p->find();
         $cur = array();
@@ -52,7 +52,7 @@ class Pman_Admin_GroupRights extends Pman
             if (!isset($cur[$k])) {
                 // then there is no current access right for it..
                 //DB_DataObject::debugLevel(1);
-                $gr = DB_DataObject::factory('Group_Rights');
+                $gr = DB_DataObject::factory('group_rights');
                 $gr->group_id = (int)$_GET['group_id'];
                 $gr->rightname = $k;
                 $gr->accessmask = $defdata[1]; // set to defaults..
@@ -94,7 +94,7 @@ class Pman_Admin_GroupRights extends Pman
         // add or update..
         if (!empty($_POST['dataUpdate'])) {
             foreach($_POST['dataUpdate'] as $id => $ac) {
-                $p = DB_DataObject::factory('Group_Rights');
+                $p = DB_DataObject::factory('group_rights');
                 $p->group_id = (int)$_POST['group_id'];
                 if (!$p->get($id)) {
                     continue; // errro cond.
@@ -107,7 +107,7 @@ class Pman_Admin_GroupRights extends Pman
         }
         if (!empty($_POST['dataAdd'])) {
             foreach($_POST['dataAdd'] as $perm => $ac) {
-                $p = DB_DataObject::factory('Group_Rights');
+                $p = DB_DataObject::factory('group_rights');
                 $p->group_id = (int)$_POST['group_id'];
                 $p->rightname = $perm;
                 $p->accessmask = $ac;
