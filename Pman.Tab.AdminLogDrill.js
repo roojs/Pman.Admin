@@ -498,7 +498,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { field : 'person_name', direction: 'ASC' },
+                                sortInfo : { field : 'person_id_name', direction: 'ASC' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,

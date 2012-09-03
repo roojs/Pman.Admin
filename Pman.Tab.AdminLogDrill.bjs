@@ -212,7 +212,7 @@
                                             "*prop": "dataSource",
                                             "remoteSort": true,
                                             "xtype": "Store",
-                                            "|sortInfo": "{ field : 'person_name', direction: 'ASC' }",
+                                            "|sortInfo": "{ field : 'person_id_name', direction: 'ASC' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {
