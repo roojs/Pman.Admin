@@ -56,7 +56,16 @@ class Pman_Admin_EventView extends Pman
             echo "not available (not configured)";
             exit;
         }
-        $file = $ff->Pman['event_log_dir']. date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php";
+        if (function_exists('posix_getpwuid')) {
+            $uinfo = posix_getpwuid( posix_getuid () ); 
+         
+            $user = $uinfo['name'];
+        } else {
+            $user = getenv('USERNAME'); // windows.
+        }
+         
+        
+        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php";
         if (!file_exists($file)) {
             echo "not available (missing file) $file";
             exit;
