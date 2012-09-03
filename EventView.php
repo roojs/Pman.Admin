@@ -58,7 +58,7 @@ class Pman_Admin_EventView extends Pman
         }
         $file = $ff->Pman['event_log_dir']. date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php";
         if (!file_exists($file)) {
-            echo "not available (missing file)";
+            echo "not available (missing file) $file";
             exit;
         }
         echo '<PRE>' . htmlspecialchars(file_get_contents($file)) . '</PRE>';
