@@ -259,7 +259,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "name",
+                            "dataIndex": "rightname",
                             "header": "Permission",
                             "sortable": true,
                             "width": 200,
