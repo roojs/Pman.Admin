@@ -17,7 +17,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
         return {
             xtype: 'GridPanel',
             xns: Roo,
-            region : 'center',
+            region : 'right',
             title : "Rights",
             grid : {
                 xtype: 'EditorGrid',
