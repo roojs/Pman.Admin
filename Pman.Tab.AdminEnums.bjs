@@ -25,7 +25,7 @@
                         "cellclick": "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}"
                     },
                     "*prop": "grid",
-                    "autoExpandColumn": "name",
+                    "autoExpandColumn": "display_name",
                     "clicksToEdit": 1,
                     "loadMask": true,
                     "xtype": "EditorGrid",
