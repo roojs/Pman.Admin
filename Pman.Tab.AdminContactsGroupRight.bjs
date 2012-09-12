@@ -4,14 +4,7 @@
     "parent": "Pman.Tab.AdminContactsManager",
     "title": "",
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
-    "items": [
-        {
-            "region": "east",
-            "title": "Rights",
-            "xtype": "GridPanel",
-            "|xns": "Roo"
-        }
-    ],
+    "items": [],
     "permname": "",
     "modOrder": "001"
 }
