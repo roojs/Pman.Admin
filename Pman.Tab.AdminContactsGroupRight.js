@@ -16,7 +16,8 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
         var MODULE = this;
         return {
             xtype: 'GridPanel',
-            xns: Roo
+            xns: Roo,
+            region : ''
         };
     }
 });

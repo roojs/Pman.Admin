@@ -6,8 +6,9 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "GridPanel"
+            "region": "",
+            "xtype": "GridPanel",
+            "|xns": "Roo"
         }
     ],
     "permname": "",
