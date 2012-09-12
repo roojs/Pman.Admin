@@ -723,8 +723,8 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xns: Roo.grid,
                         dataIndex : 'rightname',
                         header : 'Permission',
-                        sortable : true,
-                        width : 200,
+                        sortable : false,
+                        width : 300,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
