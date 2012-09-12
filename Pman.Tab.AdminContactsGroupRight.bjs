@@ -254,7 +254,7 @@
                             "sortable": false,
                             "width": 150,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v) {\n    return String.format('<span qtip=\"{1}\">{0}</span>', v.split('.').shift(), v);\n}",
+                            "|renderer": "function(v,x,r) {\n    return String.format('<span qtip=\"{1}\">{0}</span>', v.split('.').shift(), v);\n}",
                             "|xns": "Roo.grid"
                         },
                         {
