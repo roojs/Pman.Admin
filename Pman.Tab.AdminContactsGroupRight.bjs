@@ -264,7 +264,7 @@
                             "sortable": false,
                             "width": 300,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v)\n{\n    if (r.json.descript && r.json.descript.length) {\n        return String.format('{0}',r.json.descript);\n    }\n    \n    return '???' + v;\n}",
+                            "|renderer": "function(v,x,r)\n{\n    if (r.json.descript && r.json.descript.length) {\n        return String.format('{0}',r.json.descript);\n    }\n    \n    return '???' + v;\n}",
                             "|xns": "Roo.grid"
                         },
                         {
