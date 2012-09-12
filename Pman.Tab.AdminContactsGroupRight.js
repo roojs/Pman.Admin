@@ -713,7 +713,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         sortable : false,
                         width : 150,
                         renderer : function(v,x,r) {
-                            return String.format('<span qtip="{1}">{0}</span>', v.split('.').shift(), v);
+                        //    return String.format('<span qtip="{1}">{0}</span>', v.split('.').shift(), v);
                         }
                     },
                     {
