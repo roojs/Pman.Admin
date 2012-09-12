@@ -239,17 +239,6 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "project_id_code",
-                            "header": "Project",
-                            "hidden": true,
-                            "sortable": true,
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) { \n      return String.format('<span qtip=\"{0}\">{1}</span>', \n                    r.data.project_id_name,\n                    v);\n }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
                             "dataIndex": "company_id_comptype",
                             "header": "Type",
                             "sortable": true,
