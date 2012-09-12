@@ -241,7 +241,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                              display_name : '', 
                                              name : '', 
                                              etype: et, 
-                                             active: 0, seqid: 0
+                                             active: 1, 
+                                             seqid: 0
                                       });
                                      var r = ds.data.length;
                                     ds.insert(r  , add);  
