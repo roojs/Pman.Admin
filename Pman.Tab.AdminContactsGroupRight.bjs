@@ -6,7 +6,7 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
     "items": [
         {
-            "region": "",
+            "region": "center",
             "xtype": "GridPanel",
             "|xns": "Roo"
         }
