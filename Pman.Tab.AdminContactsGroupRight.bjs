@@ -260,7 +260,7 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "name",
-                            "header": "Name",
+                            "header": "Permission",
                             "sortable": true,
                             "width": 200,
                             "xtype": "ColumnModel",
