@@ -244,7 +244,7 @@
                             "sortable": false,
                             "width": 50,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) {\n\n    state = (v == fm) ? '-checked' : '';\n\n    \n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n}",
+                            "|renderer": "function(v,x,r) {\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n}",
                             "|xns": "Roo.grid"
                         },
                         {
