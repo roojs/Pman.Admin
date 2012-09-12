@@ -31,7 +31,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
             fitToframe : true,
             region : 'center',
             tableName : 'Person',
-            title : "Person",
+            title : "Rights",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,

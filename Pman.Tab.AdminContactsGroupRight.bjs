@@ -15,7 +15,7 @@
             "fitToframe": true,
             "region": "center",
             "tableName": "Person",
-            "title": "Person",
+            "title": "Rights",
             "xtype": "GridPanel",
             "|xns": "Roo",
             "items": [
