@@ -18,23 +18,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
             xtype: 'GridPanel',
             xns: Roo,
             region : 'east',
-            title : "Rights",
-            grid : {
-                xtype: 'EditorGrid',
-                xns: Roo.grid,
-                ds : {
-                    xtype: 'Store',
-                    xns: Roo.data,
-                    proxy : {
-                        xtype: 'HttpProxy',
-                        xns: Roo.data
-                    },
-                    reader : {
-                        xtype: 'JsonReader',
-                        xns: Roo.data
-                    }
-                }
-            }
+            title : "Rights"
         };
     }
 });

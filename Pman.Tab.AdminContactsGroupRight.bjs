@@ -9,33 +9,7 @@
             "region": "east",
             "title": "Rights",
             "xtype": "GridPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo.grid",
-                    "xtype": "EditorGrid",
-                    "*prop": "grid",
-                    "items": [
-                        {
-                            "|xns": "Roo.data",
-                            "xtype": "Store",
-                            "*prop": "ds",
-                            "items": [
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "HttpProxy",
-                                    "*prop": "proxy"
-                                },
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "JsonReader",
-                                    "*prop": "reader"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+            "|xns": "Roo"
         }
     ],
     "permname": "",
