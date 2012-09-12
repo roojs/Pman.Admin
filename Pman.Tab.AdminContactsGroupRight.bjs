@@ -249,7 +249,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "company_id_name",
+                            "dataIndex": "rightname",
                             "header": "Module",
                             "sortable": true,
                             "width": 150,
