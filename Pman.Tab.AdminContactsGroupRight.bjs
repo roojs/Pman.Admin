@@ -251,7 +251,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "rightname",
                             "header": "Module",
-                            "sortable": true,
+                            "sortable": false,
                             "width": 150,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v,x,r) {\n    return String.format('<span qtip=\"{1}\">{0}</span>', v.split('.').shift(), v);\n}",
