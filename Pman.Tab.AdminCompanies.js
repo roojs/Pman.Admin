@@ -2,35 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        modKey : '030-Pman.Tab.AdminCompanies',
-        module : Pman.Tab.AdminCompanies,
-        region : 'center',
-        parent : Pman.Tab.Admin,
-        name : "Pman.Tab.AdminCompanies",
-        disabled : false, 
-        permname: 'Admin.Companies' 
-    });
-});
-
-Pman.Tab.AdminCompanies = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminCompanies = new Roo.XComponent({
+    part     :  ["Admin","Companies"],
+    order    : '030-Pman.Tab.AdminCompanies',
+    region   : 'center',
+    parent   : 'Pman.Tab.Admin',
+    name     : "Pman.Tab.AdminCompanies",
+    disabled : false, 
+    permname : 'Admin.Companies', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
@@ -511,7 +495,8 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                                     sortable : true,
                                     width : 90,
                                     renderer : function (v,x ,r) {
-                                        return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
+                                        //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
+                                        return v;
                                     }
                                 },
                                 {
@@ -596,8 +581,6 @@ Pman.Tab.AdminCompanies = new Roo.util.Observable({
                     titlebar : true
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });

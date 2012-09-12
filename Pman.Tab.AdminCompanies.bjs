@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-46",
+    "id": "roo-file-117",
     "name": "Pman.Tab.AdminCompanies",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminCompanies",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
     "items": [
         {
             "region": "center",
@@ -170,7 +170,7 @@
                                             "sortable": true,
                                             "width": 90,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function (v,x ,r) {\n    return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);\n}",
+                                            "|renderer": "function (v,x ,r) {\n    //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);\n    return v;\n}",
                                             "|xns": "Roo.grid"
                                         },
                                         {
