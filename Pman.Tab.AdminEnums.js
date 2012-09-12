@@ -94,7 +94,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                     etype : _this.etypeCombo.getValue(),
                                     name : record.data.name,
                                     active : record.data.active,
-                                    seqid : record.data.seqid
+                                    seqid : record.data.seqid,
+                                    display_name : record.data.display_name
                                 }, 
                                 success : function(res) {
                                     //Roo.log(data);
