@@ -194,13 +194,13 @@
                             ]
                         },
                         {
-                            "xtype": "ColumnModel",
-                            "header": "Name",
+                            "*prop": "colModel[]",
+                            "dataIndex": "display_name",
+                            "header": "Display Name",
                             "width": 200,
-                            "dataIndex": "name",
+                            "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid",
-                            "*prop": "colModel[]",
                             "items": [
                                 {
                                     "|xns": "Roo.grid",

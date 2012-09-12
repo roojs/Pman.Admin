@@ -317,9 +317,9 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Name',
+                        dataIndex : 'display_name',
+                        header : 'Display Name',
                         width : 200,
-                        dataIndex : 'name',
                         renderer : function(v) { return String.format('{0}', v); },
                         editor : {
                             xtype: 'GridEditor',
