@@ -239,7 +239,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "company_id_comptype",
+                            "dataIndex": "accessmask",
                             "header": "Type",
                             "sortable": true,
                             "width": 50,
