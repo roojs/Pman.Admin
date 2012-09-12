@@ -9,14 +9,7 @@
             "region": "east",
             "title": "Rights",
             "xtype": "GridPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo.grid",
-                    "xtype": "EditorGrid",
-                    "*prop": "grid"
-                }
-            ]
+            "|xns": "Roo"
         }
     ],
     "permname": "",
