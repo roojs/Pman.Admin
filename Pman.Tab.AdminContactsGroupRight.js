@@ -719,7 +719,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'rightname',
+                        dataIndex : 'descript',
                         header : 'Permission',
                         sortable : false,
                         width : 300,
