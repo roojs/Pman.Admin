@@ -153,7 +153,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xtype: 'HttpProxy',
                         xns: Roo.data,
                         method : 'GET',
-                        url : baseURL + '/Roo/Person.php'
+                        url : baseURL + '/Admin/GroupRights.php'
                     },
                     reader : {
                         xtype: 'JsonReader',
