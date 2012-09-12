@@ -701,7 +701,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         width : 50,
                         renderer : function(v,x,r) {
                         
-                            state = v == fm ? '-checked' : '';
+                            state = (v == fm) ? '-checked' : '';
                         
                             
                             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
