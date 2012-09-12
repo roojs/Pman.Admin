@@ -697,7 +697,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xns: Roo.grid,
                         dataIndex : 'accessmask',
                         header : 'All',
-                        sortable : true,
+                        sortable : false,
                         width : 50,
                         renderer : function(v,x,r) {
                             if (r.data.office_id) {
