@@ -81,40 +81,21 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     listeners : {
                         beforeload : function (_self, o)
                         {
-                            if(!_this.active_company_button.pressed){
-                                o.params['!company_id_comptype'] = 'OWNER';
+                            if (!o.params) {
+                                o.params = {}
                             }
-                            
-                            o.params['query[search]'] = _this.searchBox.getValue();
-                            
-                            if (!_this.activeButton) {return; false;}
-                            
-                            if (_this.companyCombo &&   _this.companyCombo.getValue()) {
-                                o.params.company_id =   _this.companyCombo.getValue();
+                            var s = Pman.Tab.Groups.grid.getSelectionModel().getSelections();
+                            if (!s.length) {
+                                o.params.group_id = -1;
+                            } else {
+                                o.params.group_id = s[0].data.id;
                             }
-                            
-                            
-                            o.params.active = _this.activeButton.pressed ? 0 : 1;
-                            
-                            if(_this.active_company_button.pressed){
-                                o.params.company_id = 0;
-                            }
-                            if (!Pman.Tab.AdminContactsGroup) { 
+                            if (o.params.group_id < 0) {
+                                _this.grid.getView().el.mask("You can not set permissions for that group");
                                 return false;
                             }
-                            
-                            
-                            if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
-                                var tms = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelected();
-                                
-                                if (!tms) {
-                                    return false;
-                                }
-                                o.params['query[in_group]'] = tms.data.id;
-                                o.params['query[type]'] = 2; // group type..
-                                
-                            }
-                            //o.params['query[name]'] = _this.searchBox.getValue();
+                            _this.grid.getView().el.unmask();
+                            return true;
                           
                         },
                         update : function (_self, record, operation)
