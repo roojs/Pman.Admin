@@ -6,7 +6,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
     part     :  ["Admin","ContactsGroupRight"],
     order    : '001-Pman.Tab.AdminContactsGroupRight',
     region   : 'center',
-    parent   : 'Pman.Tab.GroupMgr',
+    parent   : 'Pman.Tab.AdminContactsManager',
     name     : "unnamed module",
     disabled : false, 
     permname : '', 
