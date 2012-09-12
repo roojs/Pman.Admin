@@ -240,7 +240,7 @@
                         {
                             "*prop": "colModel[]",
                             "dataIndex": "accessmask",
-                            "header": "Type",
+                            "header": "All",
                             "sortable": true,
                             "width": 50,
                             "xtype": "ColumnModel",
