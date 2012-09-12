@@ -4,7 +4,12 @@
     "parent": "Pman.Tab.GroupMgr",
     "title": "",
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
-    "items": [],
+    "items": [
+        {
+            "|xns": "Roo",
+            "xtype": "GridPanel"
+        }
+    ],
     "permname": "",
     "modOrder": "001"
 }
