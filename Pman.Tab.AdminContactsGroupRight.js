@@ -737,42 +737,6 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'role',
-                        header : 'Role',
-                        width : 100,
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
-                        dataIndex : 'phone',
-                        header : 'Phone',
-                        width : 100,
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
-                        dataIndex : 'fax',
-                        header : 'Fax',
-                        width : 100,
-                        renderer : function(v) { return String.format('{0}', v); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
-                        dataIndex : 'email',
-                        header : 'Email',
-                        sortable : true,
-                        width : 200,
-                        renderer : function(v) {
-                           return (v.length && v.indexOf('@') > 0 ) ? 
-                                            String.format('<a href="mailto:{0}">{0}</a>',v) : v;
-                         }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
                         dataIndex : 'active',
                         header : 'Active',
                         width : 75,
