@@ -72,7 +72,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             if(k == 'AA'){
                                 var fm = rec.data.FullMask.split('');
                                 Roo.each(fm, function(e){
-                                    rec.set(i+'_'+k, rec.data[i+'_'+e] ? 0 : 1);
+                                    rec.set(i+'_'+e, rec.data[i+'_'+e] ? 0 : 1);
                                 });
                             }else{
                                 rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
