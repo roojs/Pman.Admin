@@ -59,7 +59,8 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     {
                     
                             var di = this.colModel.getDataIndex(columnIndex);
-                            if (di != 'accessmask') {
+                            di.split('_').pop();
+                            if (di[0] != 'accessmask') {
                                 return;
                             }
                              
