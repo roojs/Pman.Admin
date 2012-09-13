@@ -296,7 +296,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "active",
+                            "dataIndex": "accessmask_S",
                             "header": "List/View",
                             "width": 75,
                             "xtype": "ColumnModel",
