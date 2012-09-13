@@ -63,7 +63,8 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             if (di[0] != 'accessmask') {
                                 return;
                             }
-                             
+                            Roo.log(di);
+                            Roo.log(di);
                             var rec = _this.grid.ds.getAt(rowIndex);
                             
                             rec.set('active', rec.data.active ? 0 : 1);
