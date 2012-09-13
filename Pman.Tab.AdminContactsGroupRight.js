@@ -135,7 +135,8 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         },
                         load : function (_self, records, options)
                         {
-                            Roo.log('loading');
+                            Roo.log(records);
+                            Roo.log(options);
                         }
                     },
                     remoteSort : true,
