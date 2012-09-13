@@ -57,7 +57,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     },
                     cellclick : function (_self, rowIndex, columnIndex, e)
                     {
-                    
+                            _this.dataUpdate = _this_dataUpdate || {};
                             var di = this.colModel.getDataIndex(columnIndex);
                             var i = di.split('_').shift();
                             var k = di.split('_').pop();
