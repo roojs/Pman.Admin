@@ -71,7 +71,6 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             
                     }
                 },
-                autoExpandColumn : 'name',
                 ddGroup : 'groupDD',
                 enableDrag : true,
                 loadMask : true,
