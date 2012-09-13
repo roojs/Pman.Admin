@@ -749,7 +749,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'active',
-                        header : 'Active',
+                        header : 'Edit',
                         width : 75,
                         renderer : function(v) {  
                             var state = v> 0 ?  '-checked' : '';
@@ -762,7 +762,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'active',
-                        header : 'Active',
+                        header : 'Delete',
                         width : 75,
                         renderer : function(v) {  
                             var state = v> 0 ?  '-checked' : '';
