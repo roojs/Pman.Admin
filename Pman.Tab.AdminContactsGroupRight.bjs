@@ -305,7 +305,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "active",
+                            "dataIndex": "accessmask_P",
                             "header": "Print/Export",
                             "width": 75,
                             "xtype": "ColumnModel",

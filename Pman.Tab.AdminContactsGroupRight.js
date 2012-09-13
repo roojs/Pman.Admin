@@ -787,7 +787,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'active',
+                        dataIndex : 'accessmask_P',
                         header : 'Print/Export',
                         width : 75,
                         renderer : function(v) {  
