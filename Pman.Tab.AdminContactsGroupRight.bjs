@@ -269,7 +269,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "active",
+                            "dataIndex": "accessmask_A",
                             "header": "Add",
                             "width": 75,
                             "xtype": "ColumnModel",
