@@ -217,11 +217,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                     new Pman.Request({
                                         url : baseURL + '/Roo/GroupRights.php',
                                         method :'POST',
-                                        params : {
-                                            id : record.data.id,
-                                            active: record.data.active
-                                            
-                                        },
+                                        params : _this.dataUpdate,
                                         success : function() {
                                             // do nothing
                                             
