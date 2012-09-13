@@ -132,6 +132,15 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                     });
                                 }
                             });
+                        },
+                        load : function (_self, records, options)
+                        {
+                            Roo.each(records, function(e){
+                                var k = e.data.accessmask.split('');
+                                Roo.each(k, function(ee){
+                                    e.data.set('accessmask_'+ee, 1);
+                                });
+                            });
                         }
                     },
                     remoteSort : true,
