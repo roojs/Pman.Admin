@@ -757,6 +757,45 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
                                         
                          }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        dataIndex : 'active',
+                        header : 'Active',
+                        width : 75,
+                        renderer : function(v) {  
+                            var state = v> 0 ?  '-checked' : '';
+                        
+                            return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                                        
+                         }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        dataIndex : 'active',
+                        header : 'Active',
+                        width : 75,
+                        renderer : function(v) {  
+                            var state = v> 0 ?  '-checked' : '';
+                        
+                            return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                                        
+                         }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        dataIndex : 'active',
+                        header : 'Active',
+                        width : 75,
+                        renderer : function(v) {  
+                            var state = v> 0 ?  '-checked' : '';
+                        
+                            return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                                        
+                         }
                     }
                 ]
             }
