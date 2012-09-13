@@ -67,7 +67,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             var rec = _this.grid.ds.getAt(rowIndex);
                             
                             rec.set('active', rec.data.active ? 0 : 1);
-                            rec.commit();
+                            //rec.commit();
                              
                             
                     }
