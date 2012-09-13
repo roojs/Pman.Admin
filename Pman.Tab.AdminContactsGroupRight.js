@@ -73,7 +73,9 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                 });
                             } 
                             rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
+                            Roo.log(rec);
                             _this.dataUpdate[rec.data.id] = rec.data.accessmask;
+                    
                             //rec.commit();
                              
                             
