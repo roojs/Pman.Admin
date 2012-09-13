@@ -36,7 +36,7 @@
                             "listeners": {
                                 "beforeload": "function (_self, o)\n{\n    if (!o.params) {\n        o.params = {}\n    }\n    var s = Pman.Tab.Groups.grid.getSelectionModel().getSelections();\n    if (!s.length) {\n        o.params.group_id = -1;\n    } else {\n        o.params.group_id = s[0].data.id;\n    }\n    if (o.params.group_id < 0) {\n        _this.grid.getView().el.mask(\"You can not set permissions for that group\");\n        return false;\n    }\n    _this.grid.getView().el.unmask();\n    return true;\n  \n}",
                                 "update": "function (_self, record, operation)\n{\n    if (operation != 'commit') {\n        return;\n    }\n    // only used to change active status.\n    \n    new Pman.Request({\n        url : baseURL + '/Roo/GroupRights.php',\n        method :'POST',\n        params : {\n            id : record.data.id,\n            active: record.data.active\n            \n        },\n        success : function() {\n            // do nothing\n            \n            _this.grid.ds.remove(record);\n            \n        },\n        failure : function() \n        {\n            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {\n                _this.grid.footer.onClick('first');\n            });\n        }\n    });\n}",
-                                "load": "function (_self, records, options)\n{\n    Roo.log(records);\n    Roo.log(options);\n}"
+                                "load": "function (_self, records, options)\n{\n    Roo.log(records);\n    Roo.log(_self);\n}"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,
