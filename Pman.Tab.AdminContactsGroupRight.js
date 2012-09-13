@@ -142,312 +142,32 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     reader : {
                         xtype: 'JsonReader',
                         xns: Roo.data,
-                        totalProperty : 'total',
-                        root : 'data',
                         id : 'id',
+                        root : 'data',
+                        totalProperty : 'total',
                         fields : [
                             {
                                 'name': 'id',
                                 'type': 'int'
                             },
                             {
-                                'name': 'office_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'name',
+                                'name': 'rightname',
                                 'type': 'string'
                             },
                             {
-                                'name': 'phone',
+                                'name': 'descript',
                                 'type': 'string'
                             },
                             {
-                                'name': 'fax',
+                                'name': 'accessmask',
                                 'type': 'string'
                             },
                             {
-                                'name': 'email',
+                                'name': 'FullMask',
                                 'type': 'string'
                             },
                             {
-                                'name': 'company_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'role',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'active',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'remarks',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'passwd',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'lang',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'no_reset_sent',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'action_type',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'office_id_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'office_id_company_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'office_id_name',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'office_id_address',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'office_id_phone',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'office_id_fax',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'office_id_email',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'office_id_role',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_code',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_name',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_remarks',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_owner_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_address',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_tel',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_fax',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_email',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_isOwner',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_logo_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_background_color',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_comptype',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_url',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'company_id_main_office_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_created_by',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_created_dt',
-                                'type': 'date'
-                            },
-                            {
-                                'name': 'company_id_updated_by',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'company_id_updated_dt',
-                                'type': 'date'
-                            },
-                            {
-                                'name': 'company_id_passwd',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_name',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_remarks',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_owner_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_code',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_active',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_type',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_client_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_team_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_file_location',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_open_date',
-                                'type': 'date'
-                            },
-                            {
-                                'name': 'project_id_open_by',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'project_id_close_date',
-                                'type': 'date'
-                            },
-                            {
-                                'name': 'project_id_countries',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_languages',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'project_id_agency_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_office_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_name',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_phone',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_fax',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_email',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_company_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_role',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_active',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_remarks',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_passwd',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_owner_id',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_lang',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_no_reset_sent',
-                                'type': 'int'
-                            },
-                            {
-                                'name': 'owner_id_action_type',
-                                'type': 'string'
-                            },
-                            {
-                                'name': 'owner_id_project_id',
+                                'name': 'group_id',
                                 'type': 'int'
                             }
                         ]
