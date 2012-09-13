@@ -351,7 +351,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                 },  
                                 method: 'POST',  
                                 success : function(res) {
-                                    var data = res.data;
+                                    var data = res.data
                                     //refreshPager();
                                     // 
                                     // do we need to do anything??
