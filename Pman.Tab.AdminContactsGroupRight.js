@@ -69,11 +69,14 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             var rec = _this.grid.ds.getAt(rowIndex);
                             Roo.log(di);
                             Roo.log(rec.data.FullMask);
-                            var fm = rec.data.FullMask.split('');
-                            Roo.each(rec.data.FullMask, function(){
+                            if(k == 'AA'){
+                                var fm = rec.data.FullMask.split('');
+                                Roo.each(fm, function(e){
+                                    rec.set(i+'_'+k, rec.data[i+'_'+e] ? 0 : 1);
+                                });
+                            }else{
                                 rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
-                            });
-                            rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
+                            }
                             //rec.commit();
                              
                             
