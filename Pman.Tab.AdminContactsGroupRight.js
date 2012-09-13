@@ -109,7 +109,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             // only used to change active status.
                             
                             new Pman.Request({
-                                url : baseURL + '/Roo/Person.php',
+                                url : baseURL + '/Roo/GroupRights.php',
                                 method :'POST',
                                 params : {
                                     id : record.data.id,
