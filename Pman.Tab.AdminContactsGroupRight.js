@@ -736,7 +736,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'active',
-                        header : 'Active',
+                        header : 'Add',
                         width : 75,
                         renderer : function(v) {  
                             var state = v> 0 ?  '-checked' : '';
