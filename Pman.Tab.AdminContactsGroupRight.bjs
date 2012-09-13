@@ -196,26 +196,6 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    \n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Add",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    \n    Pman.Dialog.PersonBulkAdd.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Bulk Add",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
                                         "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n  \n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
