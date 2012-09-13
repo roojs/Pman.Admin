@@ -725,11 +725,9 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         width : 300,
                         renderer : function(v,x,r)
                         {
-                            if (r.json.descript && r.json.descript.length) {
-                                return String.format('{0}',r.json.descript);
-                            }
                             
-                            return '???' + v;
+                            
+                            return v;
                         }
                     },
                     {
