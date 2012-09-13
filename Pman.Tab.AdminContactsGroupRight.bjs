@@ -278,7 +278,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "active",
+                            "dataIndex": "accessmask_E",
                             "header": "Edit",
                             "width": 75,
                             "xtype": "ColumnModel",
