@@ -165,7 +165,7 @@
                             "sortable": false,
                             "width": 50,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) {\n    var k = r.data.accesmask.split('');\n    Roo.each(k, function(e){\n        \n    });\n    Roo.log(this);\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n}",
+                            "|renderer": "function(v,x,r) {\n    /*var k = r.data.accesmask.split('');\n    Roo.each(k, function(e){\n        \n    });*/\n    Roo.log(this);\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n}",
                             "|xns": "Roo.grid"
                         },
                         {
