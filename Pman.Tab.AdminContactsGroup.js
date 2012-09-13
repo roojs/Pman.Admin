@@ -340,7 +340,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                 sels.push(data.selections[i].data.id);
                             }
                         
-                            Pman.request({
+                            new Pman.Request({
                                 url: baseURL + '/Core/GroupMembers.php',
                                 params: {
                                     action : action,
@@ -350,7 +350,8 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                     
                                 },  
                                 method: 'POST',  
-                                success : function(data) {
+                                success : function(res) {
+                                    var data = res.data;
                                     //refreshPager();
                                     // 
                                     // do we need to do anything??
