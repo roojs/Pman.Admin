@@ -141,7 +141,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                     e.set('accessmask_'+ee, 1);
                                 });
                                 if(e.data.accessmask == e.data.FullMask){
-                                    e.set('accessmask_AA');
+                                    e.set('accessmask_AA', 1);
                                 }
                             });
                         }
