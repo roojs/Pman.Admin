@@ -138,9 +138,11 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             Roo.each(records, function(e){
                                 var k = e.data.accessmask.split('');
                                 Roo.each(k, function(ee){
-                                    
                                     e.set('accessmask_'+ee, 1);
                                 });
+                                if(e.data.accessmask == e.data.FullMask){
+                                    e.set('accessmask_AA');
+                                }
                             });
                         }
                     },
