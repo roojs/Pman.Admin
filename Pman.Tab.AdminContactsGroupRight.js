@@ -221,7 +221,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                         success : function() {
                                             // do nothing
                                             
-                                            _this.grid.ds.remove(record);
+                                            //_this.grid.ds.remove(record);
                                             
                                         },
                                         failure : function() 
