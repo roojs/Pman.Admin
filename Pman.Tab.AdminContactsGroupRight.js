@@ -72,7 +72,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                 });
                             } 
                             rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
-                            
+                            _this.dataUpdate[rec.data.id] = rec.data.accessmask;
                             //rec.commit();
                              
                             
@@ -208,94 +208,36 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                     xns: Roo,
                     items : [
                         {
-                            xtype: 'TextItem',
+                            xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Search"
-                        },
-                        {
-                            xtype: 'TextField',
-                            xns: Roo.form,
                             listeners : {
-                                render : function (_self)
+                                click : function (_self, e)
                                 {
-                                    _this.searchBox = _self;
-                                },
-                                show : function (_self,e)
-                                {
-                                    if (e.getCharCode() != 13) {
-                                        return;
-                                    }
-                                    _this.grid.footer.onClick('first');
-                                },
-                                specialkey : function (_self, e)
-                                {
-                                  if (e.getKey() == 13) {
-                                    _this.grid.footer.onClick('first');
-                                  }
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'ComboBox',
-                            xns: Roo.form,
-                            listeners : {
-                                render : function (_self)
-                                {
-                                  _this.companyCombo = _self;
-                                },
-                                select : function (combo, record, index)
-                                {
-                                   _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );
+                                    
+                                    new Pman.Request({
+                                        url : baseURL + '/Roo/GroupRights.php',
+                                        method :'POST',
+                                        params : {
+                                            id : record.data.id,
+                                            active: record.data.active
+                                            
+                                        },
+                                        success : function() {
+                                            // do nothing
+                                            
+                                            _this.grid.ds.remove(record);
+                                            
+                                        },
+                                        failure : function() 
+                                        {
+                                            Roo.MessageBox.alert("Error", "saving failed", function() {
+                                                _this.grid.footer.onClick('first');
+                                            });
+                                        }
+                                    });
                                 }
                             },
-                            displayField : 'name',
-                            editable : true,
-                            emptyText : "Select Company",
-                            forceSelection : true,
-                            hiddenName : 'company_id',
-                            listWidth : 400,
-                            loadingText : "Searching...",
-                            minChars : 2,
-                            name : 'company_name',
-                            pageSize : 20,
-                            qtip : "Select Companies",
-                            queryParam : 'query[name]',
-                            selectOnFocus : true,
-                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
-                            triggerAction : 'all',
-                            typeAhead : true,
-                            valueField : 'id',
-                            width : 150,
-                            store : {
-                                xtype: 'Store',
-                                xns: Roo.data,
-                                listeners : {
-                                    beforeload : function (_self, o){
-                                        o.params = o.params || {};
-                                        // set more here
-                                    }
-                                },
-                                remoteSort : true,
-                                sortInfo : { direction : 'ASC', field: 'name' },
-                                proxy : {
-                                    xtype: 'HttpProxy',
-                                    xns: Roo.data,
-                                    method : 'GET',
-                                    url : baseURL + '/Roo/Companies.php'
-                                },
-                                reader : {
-                                    xtype: 'JsonReader',
-                                    xns: Roo.data,
-                                    id : 'id',
-                                    root : 'data',
-                                    totalProperty : 'total',
-                                    fields : [{"name":"id","type":"int"},{"name":"code","type":"string"}]
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'Fill',
-                            xns: Roo.Toolbar
+                            text : "Save"
                         }
                     ]
                 },

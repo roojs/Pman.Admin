@@ -23,7 +23,7 @@
                     "listeners": {
                         "|render": "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
                         "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-                        "cellclick": "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        var i = di.split('_').shift();\n        var k = di.split('_').pop();\n        if (i != 'accessmask') {\n            return;\n        }\n        var rec = _this.grid.ds.getAt(rowIndex);\n        if(k == 'AA'){\n            var fm = rec.data.FullMask.split('');\n            Roo.each(fm, function(e){\n                rec.set(i+'_'+e, rec.data[i+'_'+k] ? 0 : 1);\n            });\n        } \n        rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);\n        \n        //rec.commit();\n         \n        \n}"
+                        "cellclick": "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        var i = di.split('_').shift();\n        var k = di.split('_').pop();\n        if (i != 'accessmask') {\n            return;\n        }\n        var rec = _this.grid.ds.getAt(rowIndex);\n        if(k == 'AA'){\n            var fm = rec.data.FullMask.split('');\n            Roo.each(fm, function(e){\n                rec.set(i+'_'+e, rec.data[i+'_'+k] ? 0 : 1);\n            });\n        } \n        rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);\n        _this.dataUpdate[rec.data.id] = rec.data.accessmask;\n        //rec.commit();\n         \n        \n}"
                     },
                     "*prop": "grid",
                     "ddGroup": "groupDD",
@@ -84,78 +84,12 @@
                             "|xns": "Roo",
                             "items": [
                                 {
-                                    "text": "Search",
-                                    "xtype": "TextItem",
+                                    "listeners": {
+                                        "click": "function (_self, e)\n{\n    \n    new Pman.Request({\n        url : baseURL + '/Roo/GroupRights.php',\n        method :'POST',\n        params : {\n            id : record.data.id,\n            active: record.data.active\n            \n        },\n        success : function() {\n            // do nothing\n            \n            _this.grid.ds.remove(record);\n            \n        },\n        failure : function() \n        {\n            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {\n                _this.grid.footer.onClick('first');\n            });\n        }\n    });\n}"
+                                    },
+                                    "text": "Save",
+                                    "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}",
-                                        "show": "function (_self,e)\n{\n    if (e.getCharCode() != 13) {\n        return;\n    }\n    _this.grid.footer.onClick('first');\n}",
-                                        "specialkey": "function (_self, e)\n{\n  if (e.getKey() == 13) {\n    _this.grid.footer.onClick('first');\n  }\n}"
-                                    },
-                                    "xtype": "TextField",
-                                    "|xns": "Roo.form"
-                                },
-                                {
-                                    "listeners": {
-                                        "render": "function (_self)\n{\n  _this.companyCombo = _self;\n}",
-                                        "select": "function (combo, record, index)\n{\n   _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );\n}"
-                                    },
-                                    "displayField": "name",
-                                    "editable": true,
-                                    "emptyText": "Select Company",
-                                    "forceSelection": true,
-                                    "hiddenName": "company_id",
-                                    "listWidth": 400,
-                                    "loadingText": "Searching...",
-                                    "minChars": 2,
-                                    "name": "company_name",
-                                    "pageSize": 20,
-                                    "qtip": "Select Companies",
-                                    "queryParam": "query[name]",
-                                    "selectOnFocus": true,
-                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
-                                    "triggerAction": "all",
-                                    "typeAhead": true,
-                                    "valueField": "id",
-                                    "width": 150,
-                                    "xtype": "ComboBox",
-                                    "|xns": "Roo.form",
-                                    "items": [
-                                        {
-                                            "listeners": {
-                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n}\n"
-                                            },
-                                            "*prop": "store",
-                                            "remoteSort": true,
-                                            "xtype": "Store",
-                                            "|sortInfo": "{ direction : 'ASC', field: 'name' }",
-                                            "|xns": "Roo.data",
-                                            "items": [
-                                                {
-                                                    "*prop": "proxy",
-                                                    "xtype": "HttpProxy",
-                                                    "method": "GET",
-                                                    "|xns": "Roo.data",
-                                                    "|url": "baseURL + '/Roo/Companies.php'"
-                                                },
-                                                {
-                                                    "*prop": "reader",
-                                                    "xtype": "JsonReader",
-                                                    "|xns": "Roo.data",
-                                                    "id": "id",
-                                                    "root": "data",
-                                                    "totalProperty": "total",
-                                                    "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"code\",\"type\":\"string\"}]"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Fill"
                                 }
                             ]
                         },
