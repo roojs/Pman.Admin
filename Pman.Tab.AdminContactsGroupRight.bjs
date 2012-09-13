@@ -153,66 +153,8 @@
                                     ]
                                 },
                                 {
-                                    "listeners": {
-                                        "|click": "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "cls": "x-btn-icon",
-                                    "xtype": "Button",
-                                    "|icon": "rootURL + '/Pman/templates/images/search.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "cls": "x-btn-icon",
-                                    "xtype": "Button",
-                                    "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show Removed\");\n   \n   \n}",
-                                        "render": "function (_self)\n{\n  _this.activeButton = _self;\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "text": "Show Removed",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Company\" : \"Show No Company\");\n   \n   \n}",
-                                        "render": "function (_self)\n{\n  _this.active_company_button = _self;\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "text": "Show No Company",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n  \n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Edit",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Person'); \n}\n        "
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Delete",
-                                    "xtype": "Button",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "|xns": "Roo.Toolbar"
                                 }
                             ]
                         },
