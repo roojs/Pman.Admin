@@ -132,7 +132,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         }
                     },
                     remoteSort : true,
-                    sortInfo : { field : 'name', direction: 'ASC' },
+                    sortInfo : { field : 'id', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
