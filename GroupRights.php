@@ -33,7 +33,7 @@ class Pman_Admin_GroupRights extends Pman
             $this->jerr("PERMISSION DENIED");
         }
         
-        $g = DB_DataObject::Factory('group');
+        $g = DB_DataObject::Factory('groups');
         if (!$g->get($_GET['group_id'])) {
             $this->jerr("group is invalid");
         }
