@@ -91,7 +91,7 @@ class Pman_Admin_GroupRights extends Pman
     // post.. 
     function post()
     {
-        if (!isset($_POST['group_id']) || (int)$_POST['group_id'] < 1) {
+        if (!isset($_POST['group_id']) || (int)$_POST['group_id'] < 0) {
             $this->jerr("NO GROUP");
         }
         if (!$this->hasPerm( 'Core.Groups','E')) { // editing groups..
