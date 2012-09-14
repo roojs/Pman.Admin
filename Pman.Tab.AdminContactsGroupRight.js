@@ -234,7 +234,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                 click : function (_self, e)
                                 {
                                     
-                                    var params = { group_id : 1 };
+                                    var params = { group_id : _this.group_id };
                                     for(var i in _this.dataUpdate) {
                                         params['dataUpdate[' + i + ']'] = _this.dataUpdate[i];
                                     }
