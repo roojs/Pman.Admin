@@ -94,7 +94,9 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             if (!o.params) {
                                 o.params = {}
                             }
+                                _this.group_id = 0;
                             var s = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelections();
+                        
                             if (!s.length) {
                                 o.params.group_id = -1;
                             } else {
@@ -104,6 +106,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                 _this.grid.getView().el.mask("You can not set permissions for that group");
                                 return false;
                             }
+                            _this.group_id = id;    
                             _this.grid.getView().el.unmask();
                             return true;
                           
