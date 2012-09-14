@@ -143,7 +143,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             var full = 'ADEPS'.split('');
                             
                             Roo.each(records, function(e){
-                                _this.dataUpdate[e.id] = e.accessmask;
+                                _this.dataUpdate[e.id] = e.data.accessmask;
                             
                                 var k = e.data.accessmask.split('');
                                 var rm = e.data.FullMask.split('');
