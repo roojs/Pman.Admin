@@ -48,13 +48,6 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                            this.footer.onClick('first');
                         }
                     },
-                    rowdblclick : function (_self, rowIndex, e)
-                    {
-                        if (!_this.dialog) return;
-                        _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
-                            _this.grid.footer.onClick('first');
-                        }); 
-                    },
                     cellclick : function (_self, rowIndex, columnIndex, e)
                     {
                             _this.dataUpdate = typeof(_this.dataUpdate) =='undefined' ?  {} : _this.dataUpdate;
