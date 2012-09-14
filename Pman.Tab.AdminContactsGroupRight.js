@@ -357,6 +357,10 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         header : 'List/View',
                         width : 75,
                         renderer : function(v) {  
+                            
+                            if (v < 0) {
+                                return '';
+                            }
                             var state = v> 0 ?  '-checked' : '';
                         
                             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
@@ -371,6 +375,10 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         width : 75,
                         renderer : function(v,x,r) {  
                             
+                            
+                            if (v < 0) {
+                                return '';
+                            }
                             var state = v> 0 ?  '-checked' : '';
                         
                             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';

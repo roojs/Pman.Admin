@@ -156,7 +156,7 @@
                             "header": "List/View",
                             "width": 75,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
+                            "|renderer": "function(v) {  \n    \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
                             "|xns": "Roo.grid"
                         },
                         {
@@ -165,7 +165,7 @@
                             "header": "Print/Export",
                             "width": 75,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) {  \n    \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
+                            "|renderer": "function(v,x,r) {  \n    \n    \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
                             "|xns": "Roo.grid"
                         }
                     ]
