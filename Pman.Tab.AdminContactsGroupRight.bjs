@@ -85,7 +85,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "click": "function (_self, e)\n{\n    \n    var params = {};\n    for(var i in _this.dataUpdate) {\n        params['dataUpdate[' + i + ']'] = _this.dataUpdate[i];\n    }\n    //Roo.log(params);return;\n    \n    new Pman.Request({\n        url : baseURL + '/Admin/GroupRights.php',\n        method :'POST',\n        params : params,\n        success : function() {\n            // do nothing\n            \n            //_this.grid.ds.remove(record);\n            \n        },\n        failure : function() \n        {\n            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {\n                _this.grid.footer.onClick('first');\n            });\n        }\n    });\n}"
+                                        "click": "function (_self, e)\n{\n    \n    var params = { group_id : 1 };\n    for(var i in _this.dataUpdate) {\n        params['dataUpdate[' + i + ']'] = _this.dataUpdate[i];\n    }\n    //Roo.log(params);return;\n    \n    new Pman.Request({\n        url : baseURL + '/Admin/GroupRights.php',\n        method :'POST',\n        params : params,\n        success : function() {\n            // do nothing\n            \n            //_this.grid.ds.remove(record);\n            \n        },\n        failure : function() \n        {\n            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {\n                _this.grid.footer.onClick('first');\n            });\n        }\n    });\n}"
                                     },
                                     "text": "Save",
                                     "xtype": "Button",
