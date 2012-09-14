@@ -59,16 +59,27 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                 return;
                             }
                             var rec = _this.grid.ds.getAt(rowIndex);
+                            var fm = rec.data.FullMask.split('');        
                             if(k == 'AA'){
-                                var fm = rec.data.FullMask.split('');
+                    
                                 Roo.each(fm, function(e){
                                     rec.set(i+'_'+e, rec.data[i+'_'+k] ? 0 : 1);
                                 });
                             } 
                             rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);
+                            
+                            var newmask = '';
+                            Roo.each(fm, function(e) {
+                                if (rec.data[i+'_'+e] === 1) {
+                            
+                                    newmask += e;
+                                }
+                            
+                            });        
+                            
                             //rec.data.accessmask = rec.data.accessmask + rec
                             //Roo.log(rec);
-                            _this.dataUpdate[rec.data.id] = rec.data.accessmask;
+                            _this.dataUpdate[rec.data.id] = newmask;
                     
                             //rec.commit();
                              
