@@ -108,6 +108,7 @@ class Pman_Admin_GroupRights extends Pman
                 $p = DB_DataObject::factory('group_rights');
                 $p->group_id = (int)$_POST['group_id'];
                 if (!$p->get($id)) {
+                    $this->jerr("could not find gid:{$p->group_id} and $id");
                     continue; // errro cond.
                 }
                 $po = clone($p);
