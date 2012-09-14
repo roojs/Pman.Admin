@@ -298,7 +298,10 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                     listeners : {
                         afterselectionchange : function (_self)
                         {
-                            Pman.Tab.AdminContacts.grid.footer.onClick('first');
+                        //    Pman.Tab.AdminContacts.grid.footer.onClick('first');
+                            var c = Pman.Tab.AdminContactsManager.layout.getRegion('center');
+                            c.getActivePanel().grid.footer.onClick('first');
+                            
                         }
                     },
                     singleSelect : true

@@ -134,7 +134,7 @@
                         },
                         {
                             "listeners": {
-                                "afterselectionchange": "function (_self)\n{\n    Pman.Tab.AdminContacts.grid.footer.onClick('first');\n}"
+                                "afterselectionchange": "function (_self)\n{\n//    Pman.Tab.AdminContacts.grid.footer.onClick('first');\n    var c = Pman.Tab.AdminContactsManager.layout.getRegion('center');\n    c.getActivePanel().grid.footer.onClick('first');\n    \n}"
                             },
                             "*prop": "sm",
                             "singleSelect": true,
