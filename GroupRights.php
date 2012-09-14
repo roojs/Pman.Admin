@@ -42,7 +42,7 @@ class Pman_Admin_GroupRights extends Pman
         if (!$g->get($_GET['group_id'])) {
             $this->jerr("group is invalid");
         }
-        print_r($g);
+        //print_r($g);
          //   DB_DataObject::debugLevel(1);
         $p = DB_DataObject::factory('group_rights');
         $p->group_id = (int)$_GET['group_id'];
