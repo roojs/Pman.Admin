@@ -66,7 +66,7 @@ class Pman_Admin_GroupRights extends Pman
                 $gr = DB_DataObject::factory('group_rights');
                 $gr->group_id = (int)$_GET['group_id'];
                 $gr->rightname = $k;
-                $gr->accessmask = $defdata[1]; // set to defaults..
+                $gr->accessmask = $g->type == 2 ? '' : $defdata[1]; // set to defaults.. unless it's a contact group.
                 $gr->insert();
                 $cur[$k] = clone($gr);
             }
