@@ -105,6 +105,7 @@ class Pman_Admin_GroupRights extends Pman
         // add or update..
         if (!empty($_POST['dataUpdate'])) {
             foreach($_POST['dataUpdate'] as $id => $ac) {
+                $id  = (int)$id;
                 $p = DB_DataObject::factory('group_rights');
                 $p->group_id = (int)$_POST['group_id'];
                 if (!$p->get($id)) {
