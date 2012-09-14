@@ -140,14 +140,23 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                         load : function (_self, records, options)
                         {
                             _this.dataUpdate = {};
+                            var fmask = 'ADEPS'.split('');
+                            
                             Roo.each(records, function(e){
                                 _this.dataUpdate[e.id] = e.accessmask;
                             
                                 var k = e.data.accessmask.split('');
+                                var rm = e.data.FullMask.split('');
                                 
-                                Roo.each(k, function(ee){
-                                    e.set('accessmask_'+ee, 1);
+                                Roo.each(full, function(ee){
+                                    if (rm.indexOf(ee) < 0) {
+                                        e.set('accessmask_'+ee, -1);          
+                                        return;
+                                    }
+                                    
+                                    e.set('accessmask_'+ee, (k.indexOf(ee) < 0) ? 0 : 1);
                                 });
+                                
                                 if(e.data.accessmask == e.data.FullMask){
                                     e.set('accessmask_AA', 1);
                                 }
