@@ -235,7 +235,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                                     for(var i in _this.dataUpdate) {
                                         params['dataUpdate[' + i + ']'] = _this.dataUpdate[i];
                                     }
-                                    Roo.log(params);return;
+                                    //Roo.log(params);return;
                                     
                                     new Pman.Request({
                                         url : baseURL + '/GroupRights.php',
