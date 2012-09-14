@@ -15,7 +15,7 @@ class Pman_Admin_GroupRights extends Pman
             $this->jerr("Not authenticated", array('authFailure' => true));
         }
         
-        if ($au->company_id_comptype !='OWNER') {
+        if ($au->company()->comptype !='OWNER') {
             $this->jerr("Error", "only company owners can manage groups");
         }
         
