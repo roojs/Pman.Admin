@@ -94,7 +94,7 @@ Pman.Tab.AdminContactsGroupRight = new Roo.XComponent({
                             if (!o.params) {
                                 o.params = {}
                             }
-                            var s = Pman.Tab.Groups.grid.getSelectionModel().getSelections();
+                            var s = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelections();
                             if (!s.length) {
                                 o.params.group_id = -1;
                             } else {
