@@ -90,8 +90,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
+                                       
+                                       
+                                       
                                        if (! _this.personSel) {
-                                        return;
+                                        return false;
                                         }
                                         o.params = o.params || {};
                                         o.params.person_id = _this.personSel.getValue();
