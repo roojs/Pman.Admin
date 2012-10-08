@@ -90,7 +90,9 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 listeners : {
                                     beforeload : function (_self, o)
                                     {
-                                       
+                                        if (!Pman.buildCompleted) {
+                                            return false;
+                                        }
                                        
                                        
                                        if (! _this.personSel) {
