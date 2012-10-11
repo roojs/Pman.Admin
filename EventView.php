@@ -48,32 +48,8 @@ class Pman_Admin_EventView extends Pman
             }
         }
         echo "<HR><H2>Posted Data:</H2>";
-        $fn =  
+        //$fn =  
         
-        
-        
-        $ff  = HTML_FlexyFramework::get();
-        if (empty($ff->Pman['event_log_dir'])) {
-            echo "not available (not configured)";
-            exit;
-        }
-        if (function_exists('posix_getpwuid')) {
-            $uinfo = posix_getpwuid( posix_getuid () ); 
-         
-            $user = $uinfo['name'];
-        } else {
-            $user = getenv('USERNAME'); // windows.
-        }
-         
-        
-        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".json"; 
-        if (!file_exists($file)) {
-            echo "not available (missing file) $file";
-            exit;
-        }
-        echo '<PRE>' . htmlspecialchars(file_get_contents($file)) . '</PRE>';
-        
-        echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         exit;
         
     }
