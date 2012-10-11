@@ -66,7 +66,7 @@ class Pman_Admin_EventView extends Pman
         }
          
         
-        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".file_.json";
+        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".json"; 
         if (!file_exists($file)) {
             echo "not available (missing file) $file";
             exit;
