@@ -98,5 +98,32 @@ class Pman_Admin_EventView extends Pman
         
     }
     
+    function readImage(){
+        $url= str_replace('.jpg','',$url);
+        $bits = explode('/', $url);
+        
+        $opts = PEAR::getStaticProperty('Hebe','options');
+         
+        if ( $bits[0] != 'members') {
+            $bits[1] = $bits[0] . '/'.$bits[1];
+            $bits[0] = 'members';
+        }
+        
+        if (!isset($opts[$bits[0].'_photo_dir'])) {
+            echo "NO OPT SET?";
+            exit;
+        }
+        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
+         
+        if (!file_exists($file)) {
+            echo "NO FILE? $file";
+            exit;
+        }
+        
+        header ('Content-Type: image/jpeg');
+        $fh = fopen($file,'r');
+        echo fread($fh,filesize($file));
+    }
+    
     
 }
