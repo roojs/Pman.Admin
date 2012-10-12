@@ -82,11 +82,11 @@ class Pman_Admin_EventView extends Pman
         $path = $ff->baseURL. "/Images/Thumb/150/{$ev->on_id}";
         foreach($filesJ->FILES as $f){
             $ip = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
-            $img = getimagesize($ip);
+            //$img = getimagesize($ip);
 //            header("Content-type: image/jpeg");
             //readfile($ip);
 //            addslashes($ip);
-            echo "<img src=\"$path\" />";
+            echo "<img src=\"{$this->readImage($ip)}\" />";
             //$path = $ff->baseURL. "Images/Thumb/150/$ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
             //echo '<img src="'.$path.'" />';
             print_r($ip);
@@ -98,7 +98,7 @@ class Pman_Admin_EventView extends Pman
         
     }
     
-    function readImage(){
+    function readImage($ip){
         $url= str_replace('.jpg','',$url);
         $bits = explode('/', $url);
         
@@ -115,7 +115,7 @@ class Pman_Admin_EventView extends Pman
         }
         $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
          
-        if (!file_exists($file)) {
+        if (!file_exists($ip)) {
             echo "NO FILE? $file";
             exit;
         }
