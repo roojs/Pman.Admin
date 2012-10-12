@@ -81,7 +81,8 @@ class Pman_Admin_EventView extends Pman
         
         foreach($filesJ->FILES as $f){
             $ip = $ff->baseURL."/image/events/". $f->tmp_name;
-            echo "<img src=\"{$ip}\" width=\"150\"/>";
+            echo '<img src="'.{$ip}.'" width="150"/>'';
+                    
         }
         
         
