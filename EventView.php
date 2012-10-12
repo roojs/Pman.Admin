@@ -81,7 +81,7 @@ class Pman_Admin_EventView extends Pman
         // should be change to event dir
         $path = $ff->baseURL. "/Images/Thumb/150/{$ev->on_id}";
         foreach($filesJ->FILES as $f){
-            $ip = "/image/events/". $f->tmp_name;
+            $ip = $ff-baseURL."/image/events/". $f->tmp_name;
             //$img = getimagesize($ip);
 //            header("Content-type: image/jpeg");
             //readfile($ip);
