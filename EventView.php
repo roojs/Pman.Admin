@@ -81,7 +81,7 @@ class Pman_Admin_EventView extends Pman
                 
         foreach($filesJ->FILES as $f){
             $path = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
-            echo '<img src="'.$path.'" />';
+            echo '<img src="'.htmlspecialchars(file_get_contents($path)).'" />';
             //print_r($f);
         }
         
