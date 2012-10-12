@@ -88,7 +88,7 @@ class Pman_Admin_EventView extends Pman
             echo "<img src=\"$path\" alt=\"getimagesize() example\" />";
             //$path = $ff->baseURL. "Images/Thumb/150/$ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
             //echo '<img src="'.$path.'" />';
-            print_r($ev->on_id);
+            //print_r($ev->on_id);
         }
         
         
