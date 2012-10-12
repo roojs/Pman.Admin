@@ -77,6 +77,8 @@ class Pman_Admin_EventView extends Pman
         
         echo '<br /><PRE>Images Preview';
         
+        
+        
         exit;
         
     }
