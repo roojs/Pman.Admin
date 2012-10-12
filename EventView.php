@@ -77,7 +77,11 @@ class Pman_Admin_EventView extends Pman
         
         $filesJ = json_decode(file_get_contents($file));
         echo '<br /><PRE>Images Preview</PRE>';
-        print_r($filesJ);
+        
+        foreach($filesJ->FILES as $f){
+            print_r($f);
+        }
+        
         
         
         exit;
