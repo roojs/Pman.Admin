@@ -80,7 +80,7 @@ class Pman_Admin_EventView extends Pman
         
         
         foreach($filesJ->FILES as $f){
-            $ip = $ff->baseURL."/image/events/". $f->tmp_name;
+            $ip = $ff->baseURL."/Images/events/". $f->tmp_name;
             echo '<a href="'.$ip.'/download" ><img src="'.$ip.'" width="150"/></a>';
                     
         }
