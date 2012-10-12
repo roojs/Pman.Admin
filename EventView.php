@@ -75,7 +75,7 @@ class Pman_Admin_EventView extends Pman
         
         echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         
-        echo '<br /><PRE>Images Preview';
+        echo '<br /><PRE>Images Preview</PRE>';
         
         
         
