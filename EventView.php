@@ -82,8 +82,8 @@ class Pman_Admin_EventView extends Pman
         foreach($filesJ->FILES as $f){
             $ip = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
             $img = getimagesize($ip);
-            //header("Content-type: image/jpeg");
-            //readfile($ip);
+            header("Content-type: image/jpeg");
+            readfile($ip);
 //            addslashes($ip);
             //echo "<img src=\"".readfile($ip)."\" $attr alt=\"getimagesize() example\" />";
             //$path = $ff->baseURL. "Images/Thumb/150/$ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $f->tmp_name;
