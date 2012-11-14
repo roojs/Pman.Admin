@@ -95,7 +95,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "method",
+                            "dataIndex": "evtype",
                             "header": "Method",
                             "sortable": true,
                             "width": 100,
