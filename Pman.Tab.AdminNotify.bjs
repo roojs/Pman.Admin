@@ -95,8 +95,8 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "act_when",
-                            "header": "Act when",
+                            "dataIndex": "method_id_name",
+                            "header": "Method",
                             "sortable": true,
                             "width": 100,
                             "xtype": "ColumnModel",

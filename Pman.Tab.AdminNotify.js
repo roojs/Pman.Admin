@@ -269,8 +269,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        dataIndex : 'act_when',
-                        header : 'Act when',
+                        dataIndex : 'method_id_name',
+                        header : 'Method',
                         sortable : true,
                         width : 100,
                         renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); }
