@@ -95,7 +95,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "method_id_name",
+                            "dataIndex": "method",
                             "header": "Method",
                             "sortable": true,
                             "width": 100,
