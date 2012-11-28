@@ -44,6 +44,7 @@ Pman.Tab.Group_Members = new  Pman.Tab.PersonList({
         o.params['query[type]'] = this.type; // group type..
         o.params['query[person_internal_only_all]'] = 1;
         o.params['query[person_inactive]'] = this.showInActive ? 0  : 1;
+        o.params.company_id_comptype = 'OWNER';
         
     },
     
