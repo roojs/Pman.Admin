@@ -34,8 +34,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
-                autoExpandColumn : 'tz',
-                loadMask : true,
                 listeners : {
                     render : function() 
                     {
@@ -53,6 +51,8 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                         }); 
                     }
                 },
+                autoExpandColumn : 'person_id_name',
+                loadMask : true,
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
