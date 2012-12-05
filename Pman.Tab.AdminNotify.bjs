@@ -73,7 +73,7 @@
                             "items": [
                                 {
                                     "allowBlank": false,
-                                    "displayField": "",
+                                    "displayField": "person_id_name",
                                     "editable": false,
                                     "emptyText": "Select person",
                                     "forceSelection": true,

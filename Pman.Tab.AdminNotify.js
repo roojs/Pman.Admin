@@ -241,7 +241,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             xtype: 'ComboBox',
                             xns: Roo.form,
                             allowBlank : false,
-                            displayField : '',
+                            displayField : 'person_id_name',
                             editable : false,
                             emptyText : "Select person",
                             forceSelection : true,
