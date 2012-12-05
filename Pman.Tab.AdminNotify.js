@@ -238,6 +238,10 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     xns: Roo,
                     items : [
                         {
+                            xtype: 'Fill',
+                            xns: Roo.Toolbar
+                        },
+                        {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
                             listeners : {

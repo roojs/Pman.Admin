@@ -72,6 +72,10 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Fill"
+                                },
+                                {
                                     "listeners": {
                                         "render": "function (_self)\n{\n    _this.toggleBtn = _self;\n}",
                                         "toggle": "function (_self, pressed)\n{\n    this.setText(pressed ? \"Hide Completed\" : \"Show Completed\");\n    _this.grid.footer.onClick('first');\n}"
