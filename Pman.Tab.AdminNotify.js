@@ -240,9 +240,9 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         {
                             xtype: 'ComboBox',
                             xns: Roo.form,
-                            allowBlank : false,
+                            allowBlank : true,
                             displayField : 'person_id_name',
-                            editable : false,
+                            editable : true,
                             emptyText : "Select person",
                             forceSelection : true,
                             hiddenName : 'id',
@@ -256,7 +256,6 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             selectOnFocus : true,
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{person_id_name}</b> {person_id_email}</div>',
                             triggerAction : 'all',
-                            typeAhead : true,
                             valueField : 'person_id',
                             width : 300,
                             store : {
