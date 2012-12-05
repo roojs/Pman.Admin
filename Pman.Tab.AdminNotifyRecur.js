@@ -242,17 +242,17 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Tz',
-                        width : 200,
                         dataIndex : 'tz',
+                        header : 'Tz',
+                        width : 50,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Freq',
-                        width : 200,
                         dataIndex : 'freq',
+                        header : 'Freq',
+                        width : 100,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
