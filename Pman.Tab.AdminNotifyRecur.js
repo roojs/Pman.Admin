@@ -208,9 +208,9 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'person_id_name',
                         header : 'Person',
                         width : 75,
-                        dataIndex : 'person_id',
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
