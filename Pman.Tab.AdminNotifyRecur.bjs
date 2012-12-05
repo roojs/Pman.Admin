@@ -1,10 +1,10 @@
 {
     "id": "roo-file-361",
     "name": "Pman.Tab.AdminNotifyRecur",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.AdminWatchNotify",
+    "title": "Pman.Tab.AdminNotifyRecur",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotifyRecur.bjs",
-    "items": false,
+    "items": [],
     "permname": "",
-    "modOrder": "001"
+    "modOrder": "800"
 }
