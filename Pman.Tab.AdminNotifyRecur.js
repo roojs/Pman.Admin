@@ -234,14 +234,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Updated dt',
-                        width : 75,
-                        dataIndex : 'updated_dt',
-                        renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }
-                    },
-                    {
-                        xtype: 'ColumnModel',
-                        xns: Roo.grid,
                         header : 'Last applied dt',
                         width : 75,
                         dataIndex : 'last_applied_dt',
