@@ -257,7 +257,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{person_id_name}</b> {person_id_email}</div>',
                             triggerAction : 'all',
                             typeAhead : true,
-                            valueField : 'id',
+                            valueField : 'person_id',
                             width : 300,
                             store : {
                                 xtype: 'Store',
