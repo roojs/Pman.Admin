@@ -262,14 +262,14 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             store : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                remoteSort : true,
-                                sortInfo : { direction : 'ASC', field: 'id' },
                                 listeners : {
                                     beforeload : function (_self, o){
                                         o.params = o.params || {};
                                         // set more here
                                     }
                                 },
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'id' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
