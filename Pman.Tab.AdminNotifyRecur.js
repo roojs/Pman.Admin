@@ -258,9 +258,9 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
-                        header : 'Freq day',
-                        width : 200,
                         dataIndex : 'freq_day',
+                        header : 'Freq day',
+                        width : 100,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
@@ -275,7 +275,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'onid',
-                        header : 'Onid',
+                        header : 'Affects',
                         width : 75,
                         renderer : function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); }
                     },
