@@ -57,7 +57,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     xtype: 'Store',
                     xns: Roo.data,
                     remoteSort : true,
-                    sortInfo : { field : 'tz', direction: 'ASC' },
+                    sortInfo : { field : 'person_id_name', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
