@@ -252,7 +252,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             name : 'name',
                             pageSize : 20,
                             qtip : "Select core_notify",
-                            queryParam : 'query[person_name]',
+                            queryParam : 'query[person_id_name]',
                             selectOnFocus : true,
                             tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
                             triggerAction : 'all',
