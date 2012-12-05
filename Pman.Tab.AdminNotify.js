@@ -245,7 +245,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             editable : false,
                             emptyText : "Select person",
                             forceSelection : true,
-                            hiddenName : '',
+                            hiddenName : 'id',
                             listWidth : 400,
                             loadingText : "Searching...",
                             minChars : 2,
