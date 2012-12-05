@@ -155,7 +155,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                         header : 'Person',
                         width : 75,
                         renderer : function(v,x,r) { 
-                            return String.format('{0} <a href="mailto:{1}">{1}</a>', v,r.data.person_id.email); 
+                            return String.format('{0} <a href="mailto:{1}">{1}</a>', v,r.data.person_id_email); 
                         }
                     },
                     {
