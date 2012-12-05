@@ -96,7 +96,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n}\n"
+                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id,person_id_name';\n    o.params._columns='person_id,person_id_name';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
                                             },
                                             "*prop": "store",
                                             "remoteSort": true,
