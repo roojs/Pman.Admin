@@ -265,7 +265,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                                 listeners : {
                                     beforeload : function (_self, o){
                                         o.params = o.params || {};
-                                        o.params._distinct='person_id,person_id_name,person_id_email';
+                                        o.params._distinct='person_id';
                                         o.params._columns='person_id,person_id_name,person_id_email';
                                         o.params['!person_id_name'] = '';
                                         
