@@ -192,15 +192,6 @@
                         },
                         {
                             "xtype": "ColumnModel",
-                            "header": "Last event",
-                            "width": 75,
-                            "dataIndex": "last_event_id",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
                             "header": "Method",
                             "width": 200,
                             "dataIndex": "method",
