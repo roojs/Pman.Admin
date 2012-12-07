@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-149",
+    "id": "roo-file-146",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
             "listeners": {
@@ -107,7 +107,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['query[empty_etype]'] = 1;\n}\n"
+                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['query[empty_etype]'] = 1; \n}\n"
                                             },
                                             "*prop": "store",
                                             "remoteSort": true,
