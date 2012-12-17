@@ -516,7 +516,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
                                     sortable : true,
                                     width : 200,
                                     renderer : function(v,x,r) {
-                                        return String.format(r.data.isOwner ? '<B>{0}</B>' : '{0}',v);    
+                                        return String.format(r.data.comptype == 'OWNER' ? '<B>{0}</B>' : '{0}',v);    
                                     }
                                 },
                                 {
