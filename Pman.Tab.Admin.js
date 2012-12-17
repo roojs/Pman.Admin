@@ -9,7 +9,7 @@ Pman.on('beforeload', function()
 {
     
     // only the system admin company can see this!!
-    if (Pman.Login.authUser.company_id_isOwner * 1 < 1) {
+    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
         return;
     }
     Pman.register({
