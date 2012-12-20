@@ -1132,7 +1132,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
-                                    dataIndex : 'person_table_name',
+                                    dataIndex : 'person_id_name',
                                     header : 'Staff',
                                     width : 150,
                                     renderer : function(v,x,r) { 

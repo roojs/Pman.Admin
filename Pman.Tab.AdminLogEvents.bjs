@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-152",
+    "id": "roo-file-156",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
@@ -342,7 +342,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "person_table_name",
+                                            "dataIndex": "person_id_name",
                                             "header": "Staff",
                                             "width": 150,
                                             "xtype": "ColumnModel",
