@@ -1137,8 +1137,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                     width : 150,
                                     renderer : function(v,x,r) { 
                                         
-                                        var email = r.data.person_table_email ? r.data.person_table_email : r.data.person_id_email;
-                                        var name  = r.data.person_table_name ? r.data.person_table_name : r.data.person_id_name;    
+                                        var email = r.data.person_id_email; // ? r.data.person_id_email : r.data.person_id_email;
+                                        var name  = r.data.person_id_name; // ? r.data.person_id_name : r.data.person_id_name;    
                                         return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', 
                                             name, email); 
                                     }
