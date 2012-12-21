@@ -159,8 +159,8 @@
                                                                 "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.company_id = Pman.Login.authUser.company_id;\n}"
                                                             },
                                                             "*prop": "store",
-                                                            "|sortInfo": "{ field : 'name' , direction : 'ASC' }",
                                                             "xtype": "Store",
+                                                            "|sortInfo": "{ field : 'name' , direction : 'ASC' }",
                                                             "|xns": "Roo.data",
                                                             "items": [
                                                                 {
