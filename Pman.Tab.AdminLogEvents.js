@@ -69,6 +69,19 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                             sm : {
                                 xtype: 'RowSelectionModel',
                                 xns: Roo.grid,
+                                listeners : {
+                                    afterselectionchange : function (_self)
+                                    {
+                                        // load detail log in _this.viewPanel;
+                                        if (!this.getSelected()) {
+                                            this.viewPanel.setContent("Nothing Selected");
+                                            return;
+                                        }
+                                        var id = this.getSelected().data.id;
+                                        _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
+                                        
+                                    }
+                                },
                                 singleSelect : true
                             },
                             dataSource : {
