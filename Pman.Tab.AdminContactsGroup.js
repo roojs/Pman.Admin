@@ -349,7 +349,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                     action : action,
                                     group_id: action =='add' ? rid.id : s[0].data.id,
                                     type: _this.type,
-                                    user_ids : sels.join(',')
+                                    id : sels.join(',')
                                     
                                 },  
                                 method: 'POST',  
