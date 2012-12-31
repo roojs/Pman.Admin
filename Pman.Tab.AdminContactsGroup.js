@@ -349,19 +349,19 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                     action : action,
                                     group_id: action =='add' ? rid.id : s[0].data.id,
                                     type: _this.type,
-                                    id : sels.join(',')
+                                    user_ids : sels.join(',')
                                     
                                 },  
                                 method: 'POST',  
                                 success : function(res) {
-                                    Roo.log(res);
-                                   // var data = res.data
+                                    
+                                    var data = res.data
                                     //refreshPager();
                                     // 
                                     // do we need to do anything??
-                                   // if (isFromGroup) {
-                                   //     Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
-                                   // }
+                                    if (isFromGroup) {
+                                        Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                    }
                                 }, 
                                 
                                 failure: function() {
