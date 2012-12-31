@@ -354,13 +354,14 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                                 },  
                                 method: 'POST',  
                                 success : function(res) {
-                                    var data = res.data
+                                    Roo.log(res);
+                                   // var data = res.data
                                     //refreshPager();
                                     // 
                                     // do we need to do anything??
-                                    if (isFromGroup) {
-                                        Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
-                                    }
+                                   // if (isFromGroup) {
+                                   //     Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                   // }
                                 }, 
                                 
                                 failure: function() {
