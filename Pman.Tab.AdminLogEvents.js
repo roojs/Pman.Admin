@@ -350,7 +350,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         },
                                         allowBlank : true,
                                         displayField : 'name',
-                                        editable : true,
+                                        editable : false,
                                         emptyText : "Select Person ",
                                         fieldLabel : 'Person ',
                                         forceSelection : true,
