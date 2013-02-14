@@ -3,14 +3,15 @@
   
         
 	"Admin_Tab"            : [ "S",      "" , "View Admin Tab"] ,
-    "Logs"                 : [ "S",      "" , "View log of all events"] ,
+	"Logs"                 : [ "S",      "" , "View log of all events"] ,
 	
 	"Teams"                : [ "S",      "" , "Admin Team manager"] ,
 	"Companies"            : [ "S",      "" , "Admin Companies manager"] ,
 	"Contacts"             : [ "S",      "" , "Admin Contacts manager"] ,
-    "Translations"         : [ "S",      "" , "Translations manager"] ,
-    "Enums"                 : [ "S",      "" , "Pulldown options manager"],
-    "ProjectManager"       : [ "S",      "" , "Project Manager Tab"]
+	"Translations"         : [ "S",      "" , "Translations manager"] ,
+	"Enums"                 : [ "S",      "" , "Pulldown options manager"],
+	"ProjectManager"       : [ "S",      "" , "Project Manager Tab"],
+	"Iptables"		: [ "S",     "", "Login triggers firewall opening"]
     
 }
       
