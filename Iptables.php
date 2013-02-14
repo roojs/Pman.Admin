@@ -45,7 +45,7 @@ class Pman_Admin_Iptables extends Pman {
                 break;   
         }
         $ips = $e->fetchAll('ipaddr');
-        
+        print_r($ips);exit;
         
          
 
