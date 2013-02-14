@@ -50,6 +50,9 @@ require_once 'Pman.php';
 
 class Pman_Admin_Dump extends Pman {
     
+    static $cli_desc = "Dump database ?/ needs more info...";
+    
+    
     function getAuth()
     {
         

@@ -50,6 +50,9 @@ require_once 'Pman.php';
 
 class Pman_Admin_Export extends Pman_Admin_Dump {
     
+     static $cli_desc = "Dump database and related files so it could be restored later..";
+    
+    
     function getAuth()
     {
         
