@@ -36,8 +36,14 @@ class Pman_Admin_Iptables extends Pman {
         $e->selectAdd('distinct(ipaddr) as ipaddr');
         $e->person_table = DB_DataObject::factory('person')->tableName();
         $e->whereAddIn('person_id', $peps, 'int');
-        print_r($e->getDatabaseConnection());exit;
-        $e->whereAddIn("event_when > NOW() - INTERVAL '1 DAY'");
+        switch( $e->getDatabaseConnection()->dbtype) {
+            case 'mysql':
+                $e->whereAdd("event_when > NOW() - INTERVAL 1 DAY");
+                break;
+            case 'pgsql':
+                $e->whereAdd("event_when > NOW() - INTERVAL '1 DAY'");
+                break;   
+        }
         $ips = $e->fetchAll('ipaddr');
         
         
