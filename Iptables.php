@@ -11,8 +11,10 @@ class Pman_Admin_Iptables extends Pman {
     
     function getAuth()
     {
-        print_r($this);exit;
-    }
+        if (!$this->bootLoader->cli) {
+            die("cli only");
+        }
+        }
     function get()
     {
         // find IP's that have been used to log in.
