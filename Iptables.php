@@ -25,9 +25,13 @@ class Pman_Admin_Iptables extends Pman {
         $gr = DB_DataObject::factory('group_rights');
         $grps = $gr->groupsWithRights('Admin.Iptables', 'S');
         
+        $gr = DB_DataObject::factory('groups');
+        $gr->get('name', 'Adminstrators');
+        
+        
         $gm = DB_DataObject::factory('group_members');
         $gm->whereAddIn('group_id', $grps, 'int');
-         $gm->selectAdd();
+        $gm->selectAdd();
         $gm->selectAdd('distinct(person_id) as person_id');
         $peps = $gm->fetchAll('person_id');
         
