@@ -22,8 +22,13 @@ class Pman_Admin_Iptables extends Pman {
         // if it's different - apply it...
         
         // need to get a list of users who have Admin.Iptables rights..
+        $gr = DB_DataObject::factory('group_rights');
+        $grps = $gr->groupWithRights('Admin.Iptables', 'S');
         
-        
+        $gm = DB_DataObject::factory('group_members');
+        $gm->whereAddIn('group_id', $grps, 'int');
+        $gm->selectAdd('distinct(person_id) as person_id');
+        $peps = $gm->fetchAll('person_id');
         
         $e = DB_DataObject::factory('Events');
         $e->action = 'LOGIN';
