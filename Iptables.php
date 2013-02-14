@@ -20,6 +20,11 @@ class Pman_Admin_Iptables extends Pman {
         // find IP's that have been used to log in.
         // dump them to the iptables file.
         // if it's different - apply it...
+        
+        // need to get a list of users who have Admin.Iptables rights..
+        
+        
+        
         $e = DB_DataObject::factory('Events');
         $e->action = 'LOGIN';
         $e->selectAdd();
