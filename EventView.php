@@ -84,10 +84,9 @@ class Pman_Admin_EventView extends Pman
         echo '<br /><PRE>Images Preview</PRE>';
         
         
-        foreach($filesJ->FILES as $f){
+        foreach($filesJ->FILES as $k=>$f){
             $ip = $ff->baseURL."/Images/events/". $f->tmp_name;
-            echo '<a href="'.$ip.'/download" ><img src="'.$ip.'" width="150"/></a>';
-                    
+            echo '<a href="'.$ip.'/download" > . htmlspecialchars( $k . ' ' . $f->name ) . '</a><br/>';
         }
         
         
