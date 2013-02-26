@@ -48,8 +48,6 @@ class Pman_Admin_EventView extends Pman
             }
         }
         echo "<HR><H2>Posted Data:</H2>";
-       
-        
         
         $ff  = HTML_FlexyFramework::get();
         if (empty($ff->Pman['event_log_dir'])) {
@@ -69,8 +67,7 @@ class Pman_Admin_EventView extends Pman
             echo '<PRE>' . htmlspecialchars(file_get_contents($file)). '</PRE>';
             
         } 
-         
-        
+          
         $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".json"; 
         if (!file_exists($file)) {
             echo "not available (missing file) $file";
