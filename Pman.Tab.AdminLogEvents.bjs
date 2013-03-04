@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-165",
+    "id": "roo-file-159",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
+    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
     "items": [
         {
             "region": "center",
@@ -162,6 +162,7 @@
                                                                 "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.company_id = Pman.Login.authUser.company_id;\n}"
                                                             },
                                                             "*prop": "store",
+                                                            "remoteSort": true,
                                                             "xtype": "Store",
                                                             "|sortInfo": "{ field : 'name' , direction : 'ASC' }",
                                                             "|xns": "Roo.data",

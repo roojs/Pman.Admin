@@ -377,6 +377,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                     o.company_id = Pman.Login.authUser.company_id;
                                                 }
                                             },
+                                            remoteSort : true,
                                             sortInfo : { field : 'name' , direction : 'ASC' },
                                             proxy : {
                                                 xtype: 'HttpProxy',
