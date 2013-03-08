@@ -193,7 +193,6 @@
                                 },
                                 {
                                     "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Company\" : \"Show No Company\");\n   \n   \n}",
                                         "render": "function (_self)\n{\n  _this.active_company_button = _self;\n}"
                                     },
                                     "enableToggle": true,
