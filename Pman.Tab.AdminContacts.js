@@ -640,13 +640,6 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            listeners : {
-                                render : function (_self)
-                                {
-                                  _this.active_company_button = _self;
-                                }
-                            },
-                            enableToggle : true,
                             text : "Switch to Selected User"
                         },
                         {
