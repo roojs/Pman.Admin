@@ -192,6 +192,16 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "listeners": {
+                                        "toggle": "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Company\" : \"Show No Company\");\n   \n   \n}",
+                                        "render": "function (_self)\n{\n  _this.active_company_button = _self;\n}"
+                                    },
+                                    "enableToggle": true,
+                                    "text": "Show No Company",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
+                                },
+                                {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
                                 },

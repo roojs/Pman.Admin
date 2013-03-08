@@ -638,6 +638,25 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                             text : "Show No Company"
                         },
                         {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                toggle : function (_self, pressed)
+                                {
+                                   _this.grid.footer.onClick('first');
+                                   this.setText(pressed ? "Show Company" : "Show No Company");
+                                   
+                                   
+                                },
+                                render : function (_self)
+                                {
+                                  _this.active_company_button = _self;
+                                }
+                            },
+                            enableToggle : true,
+                            text : "Show No Company"
+                        },
+                        {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
                         },
