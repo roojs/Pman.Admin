@@ -654,7 +654,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 }
                             },
                             enableToggle : true,
-                            text : "Switch User"
+                            text : "Switch to Selected User"
                         },
                         {
                             xtype: 'Fill',

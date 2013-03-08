@@ -197,7 +197,7 @@
                                         "render": "function (_self)\n{\n  _this.active_company_button = _self;\n}"
                                     },
                                     "enableToggle": true,
-                                    "text": "Switch User",
+                                    "text": "Switch to Selected User",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 },
