@@ -192,6 +192,9 @@
                                     "|xns": "Roo.Toolbar"
                                 },
                                 {
+                                    "listeners": {
+                                        "click": "function (_self, e)\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if(s.length != 1){\n        Roo.MessageBox.alert(\"Error\", \"Select a Person\");\n        return;\n    }\n    \n    new Pman.Request({\n        url : baseURL + '/Login.php',\n        method : 'GET',\n        params : {\n            'switch' : s[0].data.id\n        },\n        success : function (){\n            document.location = baseURL + '?ts=' + Math.random();\n        },\n        failure : function (d){\n            Roo.log(d);\n            Roo.MessageBox.alert(\"Error\", d);\n        }\n    });\n}"
+                                    },
                                     "text": "Switch to Selected User",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"

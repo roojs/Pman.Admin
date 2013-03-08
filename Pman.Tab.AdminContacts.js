@@ -640,6 +640,31 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
+                            listeners : {
+                                click : function (_self, e)
+                                {
+                                    var s = _this.grid.getSelectionModel().getSelections();
+                                    if(s.length != 1){
+                                        Roo.MessageBox.alert("Error", "Select a Person");
+                                        return;
+                                    }
+                                    
+                                    new Pman.Request({
+                                        url : baseURL + '/Login.php',
+                                        method : 'GET',
+                                        params : {
+                                            'switch' : s[0].data.id
+                                        },
+                                        success : function (){
+                                            document.location = baseURL + '?ts=' + Math.random();
+                                        },
+                                        failure : function (d){
+                                            Roo.log(d);
+                                            Roo.MessageBox.alert("Error", d);
+                                        }
+                                    });
+                                }
+                            },
                             text : "Switch to Selected User"
                         },
                         {
