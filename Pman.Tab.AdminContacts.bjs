@@ -197,7 +197,7 @@
                                         "render": "function (_self)\n{\n  _this.active_company_button = _self;\n}"
                                     },
                                     "enableToggle": true,
-                                    "text": "Show No Company",
+                                    "text": "Switch User",
                                     "xtype": "Button",
                                     "|xns": "Roo.Toolbar"
                                 },
