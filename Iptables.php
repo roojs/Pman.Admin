@@ -94,7 +94,8 @@ class Pman_Admin_Iptables extends Pman {
             $ips[] = '';
             
         }
-
+        $this-output();
+        exit;
 
     }
     function output()
