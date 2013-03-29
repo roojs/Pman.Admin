@@ -111,7 +111,7 @@ class Pman_Admin_Iptables extends Pman {
         $e->selectAdd();
         $e->selectAdd(" 
             distinct(ipaddr) as ipaddr
-            max(event_when) + $interval as expires
+            max(event_when) as last_event_when
                      
         ");
         $e->person_table = DB_DataObject::factory('person')->tableName();
@@ -120,7 +120,7 @@ class Pman_Admin_Iptables extends Pman {
         $e->whereAdd("event_when > NOW() - $interval");
                 
        
-        $ips = $e->fetchAll('ipaddr','expires');
+        $ips = $e->fetchAll('ipaddr','last_event_when');
 
         require_once 'System.php';
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
@@ -233,9 +233,16 @@ class Pman_Admin_Iptables extends Pman {
         
           
          
-        foreach($this->ips as $ip=>$expires) {
+        foreach($this->ips as $ip=>$last_event_when) {
+            
+            $expires = strlen($last_event_when) ?
+                date('Y-m-d H:i:s', strtotime($last_event_when . ' + 1 DAY'))
+                : '';
+                
             $comment = strlen($expires) ?
-                    ('--comment ' . escapeshellarg(json_encode(array('expires'=>$expires))) ) :
+                    ('--comment ' . escapeshellarg(json_encode(array(
+                            'expires'=>$expires
+                        ))) ) :
                     '';
 
             
