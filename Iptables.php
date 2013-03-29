@@ -335,8 +335,11 @@ class Pman_Admin_Iptables extends Pman {
     function createBase()
     {
         
-        $iptables = System::which('iptables');
-        if (!$iptables) {
+         require_once 'System.php';
+        
+        $iptables = System::which('iptables', '/sbin/iptables');
+        
+         if (!$iptables || !file_exists($iptables)) {
             $this->jerr("iptables could not be found.");
         }
         
