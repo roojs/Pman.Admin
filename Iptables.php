@@ -106,29 +106,29 @@ class Pman_Admin_Iptables extends Pman {
     }
     function output()
     {
-      // this should have been set up already..
-      //-A INPUT -p udp -m udp --dport 5432 -j postgres
-    //-A INPUT -p tcp -m tcp --dport 5432 -j postgres
-      
-      
-        $out = "
- iptables -F postgres;       
-
-";
-
+       
+       
+       // this should have been set up already..
+       // in the base firewall code.
+       
+        
+       //-A INPUT -p udp -m udp --dport 5432 -j postgres
+       //-A INPUT -p tcp -m tcp --dport 5432 -j postgres
+        require_once 'System.php';
+        
+        $iptables = System::which('iptables');
+        $this->exec("$iptables -F postgres");
+         
         foreach($this->ips as $ip) {
-            $out .= "-A postgres -s {$ip}/32 -j ACCEPT\n";
+            $this->exec("$iptables} -A postgres -s {$ip}/32 -j ACCEPT");
         }
-        $out .= '
--A postgres -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
--A postgres -j DROP
-COMMIT
-';
-        
-
-        return $out;
+        $this->exec($iptables. ' -A postgres -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4');
+        $this->exec("$iptables -A postgres -j DROP");  
 
         
+    }
+    function exec($cmd) {
+        `$cmd`;
     }
     
 }
