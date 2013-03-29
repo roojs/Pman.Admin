@@ -97,6 +97,7 @@ class Pman_Admin_Iptables extends Pman {
         }
         $fn = tempnam(ini_get('session.save-path'), 'firewallconf');
         file_put_contents($fn, $this->output());
+        echo file_get_contents($fn);
         //`/sbin/iptables-restore < $fn`;
 
         exit;
