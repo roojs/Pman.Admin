@@ -117,6 +117,7 @@ class Pman_Admin_Iptables extends Pman {
         }
 
         $if = $this->exec($ifconfig);
+        
          
         foreach(explode("\n", $if) as $l) {
             //var_dump($l);
