@@ -216,6 +216,9 @@ class Pman_Admin_Iptables extends Pman {
         if (!$iptables) {
             $this->jerr("iptables could not be found.");
         }
+        
+        
+        
         $this->exec("{$iptables} -F postgres"); // flush old
         $this->exec("{$iptables} -N postgres");  // create new..
         
