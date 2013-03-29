@@ -50,16 +50,16 @@ class Pman_Admin_Iptables extends Pman {
         
         // monitor file
         
+        $mf = $this->monitorFile();
         
-        
-        $fe = file_exists('/tmp/run_pman_admin_iptables');
+        $fe = file_exists($mf);
         if (empty($opt)) {
             if (!$fe) {
                 exit;
             }
         }
         if ($fe) {
-            unlink('/tmp/run_pman_admin_iptables');
+            unlink($mf);
         }
         
         // find IP's that have been used to log in.
