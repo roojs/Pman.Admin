@@ -149,19 +149,23 @@ class Pman_Admin_Iptables extends Pman {
         
         //-A INPUT -p udp -m udp --dport 5432 -j postgres
         //-A INPUT -p tcp -m tcp --dport 5432 -j postgres
+        $tn = 'postgres_'.$ev->database();
+         
+        
+        
         require_once 'System.php';
         
         $iptables = System::which('iptables');
         if (!$iptables) {
             $this->jerr("iptables could not be found.");
         }
-        $this->exec("{$iptables} -F postgres"); // flush old
-         $this->exec("{$iptables} -N postgres");  // create new..
+        $this->exec("{$iptables} -F $tn"); // flush old
+         $this->exec("{$iptables} -N $tn");  // create new..
         foreach($this->ips as $ip) {
-            $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT");
+            $this->exec("{$iptables} -A $tn -s {$ip}/32 -j ACCEPT");
         }
-        $this->exec($iptables. ' -A postgres -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4');
-        $this->exec("$iptables -A postgres -j DROP");  
+        $this->exec($iptables. ' -A $tn -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4');
+        $this->exec("$iptables -A $tn -j DROP");  
 
         
     }
