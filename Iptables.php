@@ -197,7 +197,7 @@ class Pman_Admin_Iptables extends Pman {
             foreach($head as $k=>$v) {
                 $row[$v] = $ar[$k];
             }
-            print_r($row);
+            //print_r($row);
             
             if ($row['target'] != 'INPUT') {
                 continue;
@@ -218,6 +218,8 @@ class Pman_Admin_Iptables extends Pman {
             $lastrulenum = $row['num'];
             
         }
+        
+        print_r($old);
         exit;
         //--comment
         
