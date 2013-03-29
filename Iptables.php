@@ -179,7 +179,8 @@ class Pman_Admin_Iptables extends Pman {
        
         $remove = array();
         $old = array();
-       
+        $head = false;
+        
         foreach(explode("\n", $res) as $i => $line) {
             if ($i == 1) {
                 $head = preg_split('/\s+/', $line);
@@ -222,6 +223,7 @@ class Pman_Admin_Iptables extends Pman {
             $lastrulenum = $row['num'];
             
         }
+        if (empty($head))
         
          print_r($old);
         //--comment
