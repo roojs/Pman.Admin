@@ -223,7 +223,10 @@ class Pman_Admin_Iptables extends Pman {
             $lastrulenum = $row['num'];
             
         }
-        if (empty($head))
+        if (empty($head)) {
+            // then there was no chain.
+            $this->createBase();
+        }
         
          print_r($old);
         //--comment
