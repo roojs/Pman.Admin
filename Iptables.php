@@ -201,6 +201,8 @@ class Pman_Admin_Iptables extends Pman {
             }
             $old[ $row['source'] ] = $row;
             
+            $lastrulenum = $row['num'];
+            
         }
         exit;
         //--comment
