@@ -14,6 +14,12 @@
  *
  *
  *
+ *
+ *
+ 
+ 
+ *
+ *
  */
 
 require_once 'Pman.php';
@@ -29,9 +35,23 @@ class Pman_Admin_Iptables extends Pman {
         if (!$this->bootLoader->cli) {
             die("cli only");
         }
-     }
+    }
+    
+    function monitorFile()
+    {
+        $ev = DB_DataObject::Factory('Events');
+        $db = $ev->database();
+        
+        return '/tmp/run_pman_admin_iptables-'.$db;
+    }
+    
     function get($opt = '')
     {
+        
+        // monitor file
+        
+        
+        
         $fe = file_exists('/tmp/run_pman_admin_iptables');
         if (empty($opt)) {
             if (!$fe) {
@@ -106,6 +126,11 @@ class Pman_Admin_Iptables extends Pman {
             
         }
         $this->ips = $ips;
+        $cache = ini_get('session.save-path') . '/pman_admin_iptables.cache';
+        
+        
+        
+        
         $fn = tempnam(ini_get('session.save-path'), 'firewallconf');
         file_put_contents($fn, $this->output());
         echo file_get_contents($fn);
