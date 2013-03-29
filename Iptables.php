@@ -122,6 +122,7 @@ class Pman_Admin_Iptables extends Pman {
        
         $ips = $e->fetchAll('ipaddr','expires');
 
+        require_once 'System.php';
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
         $ifconfig = System::which('ifconfig');
         
