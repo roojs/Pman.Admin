@@ -229,6 +229,11 @@ class Pman_Admin_Iptables extends Pman {
           
          
         foreach($this->ips as $ip=>$expires) {
+            $comment = strlen($expires) ?
+                    escapeshellarg(json_encode(array('expires'=>$expires))))  :
+                    '';
+
+            
             $old = isset($cur[$ip]) ? $cur[$ip] : false;
             if ($old) {
                 if (strtotime($expires) <= strtotime($old['expires'])) {
@@ -250,7 +255,7 @@ class Pman_Admin_Iptables extends Pman {
             }
             
             $this->exec("{$iptables} -I postgres {$lastrulenum} -s {$ip}/32 -j ACCEPT --comment ".
-                    escapeshellarg(json_encode(array('expires'=>$expires))));
+                    
             
                                    
         }
