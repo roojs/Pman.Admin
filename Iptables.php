@@ -128,7 +128,9 @@ class Pman_Admin_Iptables extends Pman {
         
     }
     function exec($cmd) {
-        `$cmd`;
+        echo "$cmd\n";
+        echo `$cmd`;
+        echo "\n";
     }
     
 }
