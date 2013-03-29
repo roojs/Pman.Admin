@@ -94,7 +94,7 @@ class Pman_Admin_Iptables extends Pman {
             $ips[] = '';
             
         }
-        $this-output();
+        file_put_contents('/tmp/firewall.conf', $this-output());
         exit;
 
     }
