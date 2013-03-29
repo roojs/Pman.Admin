@@ -169,6 +169,7 @@ class Pman_Admin_Iptables extends Pman {
             foreach($head as $k=>$v) {
                 $row[$v] = $ar[$k];
             }
+            print_r($row);
             
         }
         exit;
