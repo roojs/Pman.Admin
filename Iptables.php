@@ -231,7 +231,7 @@ class Pman_Admin_Iptables extends Pman {
             $this->createBase();
         }
         
-        print_r($cur);
+        //print_r($cur);
         //--comment
         
           
