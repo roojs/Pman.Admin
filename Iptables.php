@@ -1,5 +1,20 @@
 <?php
-
+/***
+ * how this might work..
+ *
+ * a) login - if it's a new IP not seen that day
+ * --> touch /tmp/run_pman_admin_iptables
+ *
+ * cron every minute... ?? << could do some kind of IPC?!?
+ *
+ * if file exists -> run this code.
+ *
+ * This code finds all the IP's used in the last 24 hours.
+ * and opens the firew all for them.
+ *
+ *
+ *
+ */
 
 require_once 'Pman.php';
 
@@ -20,9 +35,9 @@ class Pman_Admin_Iptables extends Pman {
         // find IP's that have been used to log in.
         // dump them to the iptables file.
         // if it's different - apply it...
-        //DB_DataObject::debugLevel(1);
+        DB_DataObject::debugLevel(1);
         // need to get a list of users who have Admin.Iptables rights..
-        $gr = DB_DataObject::factory('group_rights');
+        /*$gr = DB_DataObject::factory('group_rights');
         $grps = $gr->groupsWithRights('Admin.Iptables', 'S');
         
         $gr = DB_DataObject::factory('groups');
@@ -34,6 +49,14 @@ class Pman_Admin_Iptables extends Pman {
         $gm->selectAdd();
         $gm->selectAdd('distinct(user_id) as user_id');
         $peps = $gm->fetchAll('user_id');
+        
+        
+        */
+        $p = DB_DataObject::Factory('Person');
+        $p->autoJoin();
+        $p->whereAdd("company_id_comptype = 'OWNER'");
+        $peps = $p->fetchAll('id');
+        
         
         $e = DB_DataObject::factory('Events');
         $e->action = 'LOGIN';
