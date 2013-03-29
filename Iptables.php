@@ -92,8 +92,7 @@ class Pman_Admin_Iptables extends Pman {
             }
             $match = array();
             preg_match('/\s*inet addr:([0-9.]+)\s+/', $l, $match);
-            print_R($match);exit;
-            $ips[] = '';
+             $ips[] = $match[1];
             
         }
         $fn = tempnam(ini_get('session.save-path'), 'firewallconf');
