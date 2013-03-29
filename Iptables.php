@@ -94,6 +94,7 @@ class Pman_Admin_Iptables extends Pman {
         
         $peps = $p->fetchAll('id');
         
+        
         switch( $e->getDatabaseConnection()->phptype) {
             case 'mysql':
                 $interval = "INTERVAL 1 DAY";
