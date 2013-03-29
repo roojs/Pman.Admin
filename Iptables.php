@@ -152,6 +152,75 @@ class Pman_Admin_Iptables extends Pman {
         exit;
 
     }
+    
+    function readTable($chain)
+    {
+        
+         require_once 'System.php';
+        
+        $iptables = System::which('iptables');
+        
+         if (!$iptables) {
+            $this->jerr("iptables could not be found.");
+        }
+        // this should have been set up already..
+        // in the base firewall code.
+       
+        $res = $this->exec("{$iptables} -L {$chain} -v -n --line-numbers");   
+        
+        
+        
+        $lastrulenum = 1;
+       
+        $remove = array();
+        $cur = array();
+        $head = false;
+        
+        foreach(explode("\n", $res) as $i => $line) {
+            if ($i == 1) {
+                $head = preg_split('/\s+/', $line);
+                $head[10] = 'comments';
+            }
+            if ($i < 2) {
+                continue;
+            }
+            
+            $ar = preg_split('/\s+/', $line);
+            if (count($ar) < 3) {
+                continue;
+            }
+            $ar[10] = implode(' ',array_slice($ar, 10));
+            $row = array();
+            foreach($head as $k=>$v) {
+                $row[$v] = $ar[$k];
+            }
+           // print_r($row);
+            //var_dump($row['target']);
+             
+            
+            // got input rules now..
+            if (!empty($row['comments'])) {
+                
+                $row['comments'] = preg_replace('#^/\*#', '', trim($row['comments']) );
+                $row['comments'] = preg_replace('#\*/$#', '', $row['comments'] );
+                foreach((array)json_decode($row['comments']) as $k=>$v) {
+                    $row[$k] = $v;
+                }
+            }
+            $rows[] = $row;
+                          
+             
+        }
+        if (empty($head)) {
+            return false;
+        }
+        
+        return  $rows;
+    
+    }
+    
+    
+    
     function updateTables()
     {
        
