@@ -113,8 +113,8 @@ class Pman_Admin_Iptables extends Pman {
         ");
         $e->person_table = DB_DataObject::factory('person')->tableName();
         $e->whereAddIn('person_id', $peps, 'int');
-        $e->groupBy('event_when');
-         $e->whereAdd("event_when > NOW() - $interval");
+        $e->groupBy('ipaddr');
+        $e->whereAdd("event_when > NOW() - $interval");
                 
        
         $ips = $e->fetchAll('ipaddr');
