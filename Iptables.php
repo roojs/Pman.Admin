@@ -235,7 +235,7 @@ class Pman_Admin_Iptables extends Pman {
          
         foreach($this->ips as $ip=>$expires) {
             $comment = strlen($expires) ?
-                    ('--comment ' . escapeshellarg(json_encode(array('expires'=>$expires))) ) :
+                    (' -m comment --comment ' . escapeshellarg(json_encode(array('expires'=>$expires))) ) :
                     '';
 
             
