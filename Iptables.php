@@ -178,6 +178,7 @@ class Pman_Admin_Iptables extends Pman {
         $lastrulenum = 1;
        
         $remove = array();
+        $old = array();
        
         foreach(explode("\n", $res) as $i => $line) {
             if ($i == 1) {
