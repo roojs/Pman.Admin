@@ -110,10 +110,13 @@ class Pman_Admin_Iptables extends Pman {
         $ips = $e->fetchAll('ipaddr');
 
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
+        $ifconfig = System::which('ifconfig');
+        
+        if (!$ifconfig) {
+            $this->jerr("ifconfig could not be found.");
+        }
 
-
-        // local ips..
-        $if = `/sbin/ifconfig`;
+        $if = `$ifconfig`;
         
         foreach(explode("\n", $if) as $l) {
             //var_dump($l);
