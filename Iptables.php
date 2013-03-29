@@ -155,6 +155,7 @@ class Pman_Admin_Iptables extends Pman {
         foreach(explode("\n", $res) as $i => $line) {
             if ($i == 1) {
                 $head = preg_split('/\s+/', $line);
+                $head[10] = 'comments';
             }
             if ($i < 2) {
                 continue;
