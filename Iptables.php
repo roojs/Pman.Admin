@@ -200,7 +200,7 @@ class Pman_Admin_Iptables extends Pman {
             }
             print_r($row);
             
-            if ($row['target'] != 'INPUT') {
+            if ($row['target'] != 'ACCEPT') {
                 continue;
             }
             // got input rules now..
