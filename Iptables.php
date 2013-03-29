@@ -189,6 +189,7 @@ class Pman_Admin_Iptables extends Pman {
                     $remove[ $row['source'] ] = $row;
                 }
             }
+            $old[ $row['source'] ] = $row;
             
         }
         exit;
