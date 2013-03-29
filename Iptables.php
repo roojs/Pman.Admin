@@ -172,6 +172,12 @@ class Pman_Admin_Iptables extends Pman {
             }
             print_r($row);
             
+            if ($row['target'] != 'INPUT') {
+                continue;
+            }
+            // got input rules now..
+            
+            
         }
         exit;
         //--comment
