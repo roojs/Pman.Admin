@@ -124,9 +124,9 @@ class Pman_Admin_Iptables extends Pman {
 
         require_once 'System.php';
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
-        $ifconfig = System::which('ifconfig');
+        $ifconfig = System::which('ifconfig','/sbin/ifconfig');
         
-        if (!$ifconfig) {
+        if (!$ifconfig || !file_exists($ifconfig)) {
             $this->jerr("ifconfig could not be found.");
         }
 
@@ -156,7 +156,7 @@ class Pman_Admin_Iptables extends Pman {
     function readChain($chain)
     {
         
-         require_once 'System.php';
+        require_once 'System.php';
         
         $iptables = System::which('iptables', '/sbin/iptables');
         
