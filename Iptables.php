@@ -147,8 +147,14 @@ class Pman_Admin_Iptables extends Pman {
        // in the base firewall code.
        
         
-        //-A INPUT -p udp -m udp --dport 5432 -j postgres
-        //-A INPUT -p tcp -m tcp --dport 5432 -j postgres
+        // -A INPUT -p udp -m udp --dport 5432 -j postgres
+        // -A INPUT -p tcp -m tcp --dport 5432 -j postgres
+        
+        
+         /sbin/iptables -L postgres -v -n --line-numbers
+        
+        //--comment
+        
           
         
         
@@ -161,9 +167,22 @@ class Pman_Admin_Iptables extends Pman {
         $this->exec("{$iptables} -F postgres"); // flush old
         $this->exec("{$iptables} -N postgres");  // create new..
         
-        foreach($this->ips as $ip) {
-            $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT");
+        foreach($this->ips as $ip=>$expires) {
+            $old = isset($cur[$ip]) ? $cur[$ip] : false;
+            if ($old) {
+                if (strtotime($expires) <= strtotime($old['expires'])) {
+                    // expires time is the same..
+                    //?? make sure it's not flagged for removal..
+                    continue;
+                }
+            }
+            
+            
+            
+            $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT --comment ". esca'{expires:"");
         }
+        
+        
         $this->exec($iptables. ' -A postgres -m limit --limit 2/min -j LOG '.
                         '--log-prefix "IPTables-Dropped: " --log-level 4');
         $this->exec("$iptables -A postgres -j DROP");  
