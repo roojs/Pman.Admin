@@ -117,7 +117,7 @@ class Pman_Admin_Iptables extends Pman {
         $e->whereAdd("event_when > NOW() - $interval");
                 
        
-        $ips = $e->fetchAll('ipaddr');
+        $ips = $e->fetchAll('ipaddr','expires');
 
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
         $ifconfig = System::which('ifconfig');
