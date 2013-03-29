@@ -153,7 +153,7 @@ class Pman_Admin_Iptables extends Pman {
 
     }
     
-    function readTable($chain)
+    function readChain($chain)
     {
         
          require_once 'System.php';
