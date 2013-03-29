@@ -161,7 +161,14 @@ class Pman_Admin_Iptables extends Pman {
             }
             
             $ar = preg_split('/\s+/', $line);
-            print_r($ar);
+            if (count($ar) < 3) {
+                continue;
+            }
+            $row = array();
+            foreach($head as $k=>$v) {
+                $row[$v] = $ar[$k];
+                
+            }
         }
         exit;
         //--comment
