@@ -178,7 +178,7 @@ class Pman_Admin_Iptables extends Pman {
         $lastrulenum = 1;
        
         $remove = array();
-        $old = array();
+        $cur = array();
         $head = false;
         
         foreach(explode("\n", $res) as $i => $line) {
@@ -218,7 +218,7 @@ class Pman_Admin_Iptables extends Pman {
                 }
             }
             
-            $old[ $row['source'] ] = $row;
+            $cur[ $row['source'] ] = $row;
             
             $lastrulenum = $row['num'];
             
@@ -228,7 +228,7 @@ class Pman_Admin_Iptables extends Pman {
             $this->createBase();
         }
         
-        print_r($old);
+        print_r($cur);
         //--comment
         
           
