@@ -30,8 +30,15 @@ class Pman_Admin_Iptables extends Pman {
             die("cli only");
         }
      }
-    function get()
+    function get($opt = '')
     {
+        
+        if (empty($opt)) {
+            if (!file_exists('/tmp/run_pman_admin_iptables')) {
+                exit;
+            }
+        }
+        
         // find IP's that have been used to log in.
         // dump them to the iptables file.
         // if it's different - apply it...
