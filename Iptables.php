@@ -102,24 +102,20 @@ class Pman_Admin_Iptables extends Pman {
             default:
                 die("database NOT SUPPORTED?!");
         }
+        
         $e = DB_DataObject::factory('Events');
         $e->action = 'LOGIN';
         $e->selectAdd();
-        $e->selectAdd('
-            distinct(ipaddr) as ipaddr,
-            (SELECT max(event_when) + INTERVAL 1 )
+        $e->selectAdd(" 
+            distinct(ipaddr) as ipaddr
+             max(event_when) + $interval as expires)
                     
-        ');
+        ");
         $e->person_table = DB_DataObject::factory('person')->tableName();
         $e->whereAddIn('person_id', $peps, 'int');
-        switch( $e->getDatabaseConnection()->phptype) {
-            case 'mysql':
-                $e->whereAdd("event_when > NOW() - INTERVAL 1 DAY");
-                break;
-            case 'pgsql':
-                $e->whereAdd("event_when > NOW() - INTERVAL '1 DAY'");
-                break;   
-        }
+         $e->whereAdd("event_when > NOW() - $interval");
+                
+       
         $ips = $e->fetchAll('ipaddr');
 
         //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
