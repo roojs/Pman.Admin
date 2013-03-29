@@ -84,8 +84,9 @@ class Pman_Admin_Iptables extends Pman {
 
         // local ips..
         $if = `/sbin/ifconfig`;
-        print_r($if);
+        
         foreach(explode("\n", $if) as $l) {
+            var_dump($l);
             if (!preg_match('/inet addr/', $l)) {
                 continue;
             }
