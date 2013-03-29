@@ -57,6 +57,9 @@ class Pman_Admin_Iptables extends Pman {
         $p = DB_DataObject::Factory('Person');
         $p->autoJoin();
         $p->whereAdd("join_company_id_id.comptype = 'OWNER'");
+        $p->selectAdd();
+        $p->selectAdd("{$p->tableName()}.id as  id");
+        
         $peps = $p->fetchAll('id');
         
         
