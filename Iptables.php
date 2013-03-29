@@ -181,7 +181,11 @@ class Pman_Admin_Iptables extends Pman {
                     $row[$k] = $v;
                 }
             }
-            
+            if (!empty($row['expires'])) {
+                if (strtotime($row['expires']) < time()) {
+                    $remove[ $row['source'] ] = $row;
+                }
+            }
             
         }
         exit;
