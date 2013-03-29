@@ -247,6 +247,10 @@ class Pman_Admin_Iptables extends Pman {
             $this->exec("{$iptables} -A INPUT -p tcp -m udp --dport 5432 -j postgres");
         }
         
+        
+         $rows = $this->readChain('postgres');
+       
+        
         // -A INPUT -p udp -m udp --dport 5432 -j postgres
         // -A INPUT -p tcp -m tcp --dport 5432 -j postgres
         
