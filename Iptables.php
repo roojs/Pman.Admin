@@ -90,7 +90,7 @@ class Pman_Admin_Iptables extends Pman {
                 continue;
             }
             $match = array();
-            preg_match('\s*inet addr:([0-9.]+)\s+'. $l, $match);
+            preg_match('/\s*inet addr:([0-9.]+)\s+/'. $l, $match);
             print_R($match);exit;
             $ips[] = '';
             
