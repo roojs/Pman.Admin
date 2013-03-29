@@ -251,6 +251,7 @@ class Pman_Admin_Iptables extends Pman {
         $rows = $this->readChain('postgres');
         if ($rows === false) {
             $this->createBase();
+            $rows = array();
         }
          
         $lastrulenum = 1;
