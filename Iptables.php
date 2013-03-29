@@ -177,9 +177,15 @@ class Pman_Admin_Iptables extends Pman {
                 }
             }
             
+            if ($old) {
+                $this->exec("{$iptables} -R postgres {$old['num']}  -s {$ip}/32 -j ACCEPT --comment ".
+                    escapeshellarg(json_encode(array('expires'=>$expires))
+             
+            }
             
-            
-            $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT --comment ". esca'{expires:"");
+            $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT --comment ".
+                    escapeshellarg(json_encode(array('expires'=>$expires))
+                                   
         }
         
         
