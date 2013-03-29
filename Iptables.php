@@ -156,7 +156,7 @@ class Pman_Admin_Iptables extends Pman {
         // /sbin/iptables -L postgres -v -n --line-numbers
         
         $res = $this->exec("{$iptables} -L postgres -v -n --line-numbers");   
-        var _dump($es);
+        var _dump($res);
         foreach(explode("\n", $res) as $line) {
             $ar = preg_split('/\s+/', $line);
             print_r($ar);
