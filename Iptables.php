@@ -142,7 +142,9 @@ class Pman_Admin_Iptables extends Pman {
     function output()
     {
        
-       
+        require_once 'System.php';
+        
+        $iptables = System::which('iptables');
        // this should have been set up already..
        // in the base firewall code.
        
@@ -158,9 +160,7 @@ class Pman_Admin_Iptables extends Pman {
           
         
         
-        require_once 'System.php';
-        
-        $iptables = System::which('iptables');
+       
         if (!$iptables) {
             $this->jerr("iptables could not be found.");
         }
