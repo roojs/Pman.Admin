@@ -145,15 +145,15 @@ class Pman_Admin_Iptables extends Pman {
         require_once 'System.php';
         
         $iptables = System::which('iptables');
-       // this should have been set up already..
-       // in the base firewall code.
+        // this should have been set up already..
+        // in the base firewall code.
        
         
         // -A INPUT -p udp -m udp --dport 5432 -j postgres
         // -A INPUT -p tcp -m tcp --dport 5432 -j postgres
         
         
-         /sbin/iptables -L postgres -v -n --line-numbers
+        // /sbin/iptables -L postgres -v -n --line-numbers
         
         //--comment
         
