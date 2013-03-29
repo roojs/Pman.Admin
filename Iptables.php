@@ -32,11 +32,14 @@ class Pman_Admin_Iptables extends Pman {
      }
     function get($opt = '')
     {
-        
+        $fe = file_exists('/tmp/run_pman_admin_iptables');
         if (empty($opt)) {
-            if (!file_exists('/tmp/run_pman_admin_iptables')) {
+            if (!$fe) {
                 exit;
             }
+        }
+        if ($fe) {
+            unlink('/tmp/run_pman_admin_iptables');
         }
         
         // find IP's that have been used to log in.
