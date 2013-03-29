@@ -32,6 +32,8 @@ class Pman_Admin_Iptables extends Pman {
     
     function getAuth()
     {
+        // add locking here..
+        
         if (!$this->bootLoader->cli) {
             die("cli only");
         }
