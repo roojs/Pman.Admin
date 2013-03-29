@@ -79,6 +79,22 @@ class Pman_Admin_Iptables extends Pman {
         }
         $ips = $e->fetchAll('ipaddr');
 
+        //inet addr:202.67.151.28  Bcast:202.67.151.255  Mask:255.255.255.0
+
+
+        // local ips..
+        $if = `/sbin/ifconfig`;
+        foreach(explode("\n", $if) as $l) {
+            if (!preg_match('/inet addr/', $l)) {
+                continue;
+            }
+            $match = array();
+            preg_match('\s*inet addr:([0-9.]+)\s+'. $l, $match);
+            print_R($match);exit;
+            $ips[] = '';
+            
+        }
+
 
     }
     function output()
@@ -97,19 +113,16 @@ class Pman_Admin_Iptables extends Pman {
         foreach($this->ips as $ip) {
             $out .= "-A postgres -s {$ip}/32 -j ACCEPT\n";
         }
-
--A postgres -s 202.81.255.1/32 -j ACCEPT 
--A postgres -s 202.156.125.202/32 -j ACCEPT
--A postgres -s 127.0.0.1/32 -j ACCEPT
-
+        $out .= "
 -A postgres -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
 -A postgres -j DROP
 COMMIT
+";
+        
+
+
 # Completed on Sun Feb  3 17:14:43 2013
 
-        
-        print_r($ips);exit;
-        
          
 
         
