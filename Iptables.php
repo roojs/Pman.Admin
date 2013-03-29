@@ -116,8 +116,8 @@ class Pman_Admin_Iptables extends Pman {
             $this->jerr("ifconfig could not be found.");
         }
 
-        $if = `$ifconfig`;
-        
+        $if = $this->exec($ifconfig);
+         
         foreach(explode("\n", $if) as $l) {
             //var_dump($l);
             if (!preg_match('/inet addr/', $l)) {
