@@ -243,10 +243,7 @@ class Pman_Admin_Iptables extends Pman {
         }
         
         
-        $this->exec($iptables. ' -A postgres -m limit --limit 2/min -j LOG '.
-                        '--log-prefix "IPTables-Dropped: " --log-level 4');
-        $this->exec("$iptables -A postgres -j DROP");  
-
+  
         
     }
     
