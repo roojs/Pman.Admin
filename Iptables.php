@@ -276,7 +276,8 @@ class Pman_Admin_Iptables extends Pman {
             
         }
         
-        
+        $this->exec("{$iptables} -L postgres -v -n --line-numbers");   
+       
   
         
     }
