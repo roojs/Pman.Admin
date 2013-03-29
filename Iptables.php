@@ -199,16 +199,18 @@ class Pman_Admin_Iptables extends Pman {
                 $row[$v] = $ar[$k];
             }
            // print_r($row);
-            
+            var_dump($row['target'])''
             if ($row['target'] != 'ACCEPT') {
                 continue;
             }
+            
             // got input rules now..
             if (!empty($row['comment'])) {
                 foreach((array)json_decode($row['comment']) as $k=>$v) {
                     $row[$k] = $v;
                 }
             }
+            
             if (!empty($row['expires'])) {
                 if (strtotime($row['expires']) < time()) {
                     $remove[ $row['source'] ] = $row;
