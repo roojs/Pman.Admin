@@ -173,19 +173,30 @@ class Pman_Admin_Iptables extends Pman {
                 if (strtotime($expires) <= strtotime($old['expires'])) {
                     // expires time is the same..
                     //?? make sure it's not flagged for removal..
+                    
                     continue;
                 }
             }
             
             if ($old) {
                 $this->exec("{$iptables} -R postgres {$old['num']} -s {$ip}/32 -j ACCEPT --comment ".
-                    escapeshellarg(json_encode(array('expires'=>$expires))
+                    escapeshellarg(json_encode(array('expires'=>$expires));
+                
+                if (isset($remove[$ip])) {
+                    unset($remove[$ip]);
+                }
                 continue;
             }
             
             $this->exec("{$iptables} -I postgres {$lastrulenum} -s {$ip}/32 -j ACCEPT --comment ".
                     escapeshellarg(json_encode(array('expires'=>$expires))
+            
                                    
+        }
+        
+        // remove rules that need deleting..
+        foreach($remove as $r) {
+            
         }
         
         
