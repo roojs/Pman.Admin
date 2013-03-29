@@ -241,6 +241,9 @@ class Pman_Admin_Iptables extends Pman {
             
             $old = isset($cur[$ip]) ? $cur[$ip] : false;
             if ($old) {
+                if (empty($old['expires'])) {
+                    continue;
+                }
                 if (strtotime($expires) <= strtotime($old['expires'])) {
                     // expires time is the same..
                     //?? make sure it's not flagged for removal..
