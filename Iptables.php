@@ -161,6 +161,8 @@ class Pman_Admin_Iptables extends Pman {
         $res = $this->exec("{$iptables} -L postgres -v -n --line-numbers");   
        
        
+        $lastrulenum = 1;
+       
         $remove = array();
        
         foreach(explode("\n", $res) as $i => $line) {
