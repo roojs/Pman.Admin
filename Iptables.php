@@ -92,11 +92,24 @@ class Pman_Admin_Iptables extends Pman {
         
         $peps = $p->fetchAll('id');
         
-        
+        switch( $e->getDatabaseConnection()->phptype) {
+            case 'mysql':
+                $interval = "INTERVAL 1 DAY";
+                break;
+            case 'pgsql':
+                $interval = " INTERVAL '1 DAY'";
+                break;
+            default:
+                die("database NOT SUPPORTED?!");
+        }
         $e = DB_DataObject::factory('Events');
         $e->action = 'LOGIN';
         $e->selectAdd();
-        $e->selectAdd('distinct(ipaddr) as ipaddr');
+        $e->selectAdd('
+            distinct(ipaddr) as ipaddr,
+            (SELECT max(event_when) + INTERVAL 1 )
+                    
+        ');
         $e->person_table = DB_DataObject::factory('person')->tableName();
         $e->whereAddIn('person_id', $peps, 'int');
         switch( $e->getDatabaseConnection()->phptype) {
