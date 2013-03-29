@@ -286,7 +286,9 @@ class Pman_Admin_Iptables extends Pman {
         
         
         
-        $this->exec("{$iptables} -F postgres"); // flush old
+        //$this->exec("{$iptables} -F postgres"); // flush old
+        $this->exec("{$iptables} -X postgres"); // flush old
+        
         $this->exec("{$iptables} -N postgres");  // create new..
         
         $this->exec($iptables. ' -A postgres -m limit --limit 2/min -j LOG '.
