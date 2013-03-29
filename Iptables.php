@@ -117,6 +117,9 @@ class Pman_Admin_Iptables extends Pman {
         require_once 'System.php';
         
         $iptables = System::which('iptables');
+        if (!$iptables) {
+            $this->jerr("iptables could not be found.");
+        }
         $this->exec("$iptables -F postgres");
          
         foreach($this->ips as $ip) {
