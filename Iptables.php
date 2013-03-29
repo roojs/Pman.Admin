@@ -117,7 +117,7 @@ class Pman_Admin_Iptables extends Pman {
         foreach($this->ips as $ip) {
             $out .= "-A postgres -s {$ip}/32 -j ACCEPT\n";
         }
-        $out .= ''
+        $out .= '
 -A postgres -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
 -A postgres -j DROP
 COMMIT
