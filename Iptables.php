@@ -84,6 +84,7 @@ class Pman_Admin_Iptables extends Pman {
 
         // local ips..
         $if = `/sbin/ifconfig`;
+        print_r($if);
         foreach(explode("\n", $if) as $l) {
             if (!preg_match('/inet addr/', $l)) {
                 continue;
@@ -124,10 +125,7 @@ COMMIT
 ';
         
 
-
-# Completed on Sun Feb  3 17:14:43 2013
-
-         
+ 
 
         
     }
