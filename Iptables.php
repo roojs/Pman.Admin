@@ -234,6 +234,18 @@ class Pman_Admin_Iptables extends Pman {
         // this should have been set up already..
         // in the base firewall code.
        
+       
+        $rows = $this->readChain('INPUT');
+        $gotpg = false;
+        foreach($rows as $r) {
+            if ($r['target'] == 'postgres') {
+                $gotpg = true;
+            }
+        }
+        if (!$gotpg) {
+            $this->exec("{$iptables} -A INPUT -p udp -m udp --dport 5432 -j postgres");
+            $this->exec("{$iptables} -A INPUT -p tcp -m udp --dport 5432 -j postgres");
+        }
         
         // -A INPUT -p udp -m udp --dport 5432 -j postgres
         // -A INPUT -p tcp -m tcp --dport 5432 -j postgres
