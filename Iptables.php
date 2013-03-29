@@ -207,6 +207,9 @@ class Pman_Admin_Iptables extends Pman {
             
             // got input rules now..
             if (!empty($row['comment'])) {
+                
+                $row['comment'] = preg_replace('#^/\*#', '', trim($row['comment']) );
+                $row['comment'] = preg_replace('#\*/$#', '', $row['comment'] );
                 foreach((array)json_decode($row['comment']) as $k=>$v) {
                     $row[$k] = $v;
                 }
