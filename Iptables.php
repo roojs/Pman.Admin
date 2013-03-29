@@ -136,7 +136,7 @@ class Pman_Admin_Iptables extends Pman {
             }
             $match = array();
             preg_match('/\s*inet addr:([0-9.]+)\s+/', $l, $match);
-             $ips[] = $match[1];
+            $ips[$match[1]] = ''; // no expiry...
             
         }
         $this->ips = $ips;
