@@ -161,7 +161,7 @@ class Pman_Admin_Iptables extends Pman {
             $ar = preg_split('/\s+/', $line);
             print_r($ar);
         }
-        
+        exit;
         //--comment
         
           
