@@ -176,6 +176,11 @@ class Pman_Admin_Iptables extends Pman {
                 continue;
             }
             // got input rules now..
+            if (!empty($row['comment'])) {
+                foreach((array)json_decode($row['comment']) as $k=>$v) {
+                    $row[$k] = $v;
+                }
+            }
             
             
         }
