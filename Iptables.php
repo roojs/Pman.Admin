@@ -223,8 +223,7 @@ class Pman_Admin_Iptables extends Pman {
             
         }
         
-        print_r($old);
-        exit;
+         
         //--comment
         
           
