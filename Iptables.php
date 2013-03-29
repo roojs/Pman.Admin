@@ -252,53 +252,21 @@ class Pman_Admin_Iptables extends Pman {
         if ($rows === false) {
             $this->createBase();
         }
-        
-        
-        // /sbin/iptables -L postgres -v -n --line-numbers
-        
-        $res = $this->exec("{$iptables} -L postgres -v -n --line-numbers");   
-       
-       
+         
         $lastrulenum = 1;
        
         $remove = array();
         $cur = array();
-        $head = false;
-        
-        foreach(explode("\n", $res) as $i => $line) {
-            if ($i == 1) {
-                $head = preg_split('/\s+/', $line);
-                $head[10] = 'comments';
-            }
-            if ($i < 2) {
-                continue;
-            }
-            
-            $ar = preg_split('/\s+/', $line);
-            if (count($ar) < 3) {
-                continue;
-            }
-            $ar[10] = implode(' ',array_slice($ar, 10));
-            $row = array();
-            foreach($head as $k=>$v) {
-                $row[$v] = $ar[$k];
-            }
+         
+        foreach($rows as $row) {
+             
            // print_r($row);
             //var_dump($row['target']);
             if ($row['target'] != 'ACCEPT') {
                 continue;
             }
             
-            // got input rules now..
-            if (!empty($row['comments'])) {
-                
-                $row['comments'] = preg_replace('#^/\*#', '', trim($row['comments']) );
-                $row['comments'] = preg_replace('#\*/$#', '', $row['comments'] );
-                foreach((array)json_decode($row['comments']) as $k=>$v) {
-                    $row[$k] = $v;
-                }
-            }
-            
+             
             if (!empty($row['expires'])) {
                 if (strtotime($row['expires']) < time()) {
                     $remove[ $row['source'] ] = $row;
@@ -310,10 +278,7 @@ class Pman_Admin_Iptables extends Pman {
             $lastrulenum = $row['num'];
             
         }
-        if (empty($head)) {
-            // then there was no chain.
-            $this->createBase();
-        }
+         
         
         //print_r($cur);
         //--comment
