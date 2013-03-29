@@ -120,7 +120,7 @@ class Pman_Admin_Iptables extends Pman {
         if (!$iptables) {
             $this->jerr("iptables could not be found.");
         }
-        $this->exec("$iptables -F postgres");
+        $this->exec("{$iptables} -F postgres");
          
         foreach($this->ips as $ip) {
             $this->exec("{$iptables} -A postgres -s {$ip}/32 -j ACCEPT");
