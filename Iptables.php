@@ -128,18 +128,13 @@ class Pman_Admin_Iptables extends Pman {
         $this->ips = $ips;
         $cache = ini_get('session.save-path') . '/pman_admin_iptables.cache';
         
+        $this->updateTables();
         
-        
-        
-        $fn = tempnam(ini_get('session.save-path'), 'firewallconf');
-        file_put_contents($fn, $this->output());
-        echo file_get_contents($fn);
-        //`/sbin/iptables-restore < $fn`;
-
+         
         exit;
 
     }
-    function output()
+    function updateTables()
     {
        
         require_once 'System.php';
