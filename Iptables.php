@@ -140,6 +140,10 @@ class Pman_Admin_Iptables extends Pman {
         require_once 'System.php';
         
         $iptables = System::which('iptables');
+        
+         if (!$iptables) {
+            $this->jerr("iptables could not be found.");
+        }
         // this should have been set up already..
         // in the base firewall code.
        
@@ -196,15 +200,7 @@ class Pman_Admin_Iptables extends Pman {
         //--comment
         
           
-        
-        
-       
-        if (!$iptables) {
-            $this->jerr("iptables could not be found.");
-        }
-        $this->exec("{$iptables} -F postgres"); // flush old
-        $this->exec("{$iptables} -N postgres");  // create new..
-        
+         
         foreach($this->ips as $ip=>$expires) {
             $old = isset($cur[$ip]) ? $cur[$ip] : false;
             if ($old) {
