@@ -199,7 +199,7 @@ class Pman_Admin_Iptables extends Pman {
                 $row[$v] = $ar[$k];
             }
            // print_r($row);
-            var_dump($row['target'])''
+            var_dump($row['target']);
             if ($row['target'] != 'ACCEPT') {
                 continue;
             }
