@@ -164,11 +164,12 @@ class Pman_Admin_Iptables extends Pman {
             if (count($ar) < 3) {
                 continue;
             }
+            $ar[10] = array_slice($ar, 10);
             $row = array();
             foreach($head as $k=>$v) {
                 $row[$v] = $ar[$k];
-                
             }
+            
         }
         exit;
         //--comment
