@@ -195,7 +195,8 @@ class Pman_Admin_Iptables extends Pman {
         }
         
         // remove rules that need deleting..
-        foreach($remove as $r) {
+        foreach($remove as $ip => $r) {
+            $this->exec("{$iptables} -d postgres {$r['num']} ");
             
         }
         
