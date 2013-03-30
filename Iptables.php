@@ -323,9 +323,7 @@ class Pman_Admin_Iptables extends Pman {
         foreach($remove as $ip => $r) {
             
             $this->removeIp($ip);
-            
-            
-           //$this->exec("{$iptables} -D postgres {$r['num']} ");
+             
             
         }
         
@@ -337,7 +335,7 @@ class Pman_Admin_Iptables extends Pman {
     
     function removeIp($ip)
     {
-        // we need to scan the list each time, as the order get's renumbbered when we remove wone...
+        // we need to scan the list each time, as the order get's renumbered when we remove wone...
         $ar = $this->readChain('postgres');
         foreach($ar as $row) {
             if ($row['target'] != 'ACCEPT') {
