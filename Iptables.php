@@ -156,12 +156,16 @@ class Pman_Admin_Iptables extends Pman {
     function readChain($chain)
     {
         
-        require_once 'System.php';
+        static $iptables;
         
-        $iptables = System::which('iptables', '/sbin/iptables');
-        
-         if (!$iptables || !file_exists($iptables)) {
-            $this->jerr("iptables could not be found.");
+        if (!$iptables) {
+            require_once 'System.php';
+            
+            $iptables = System::which('iptables', '/sbin/iptables');
+            
+            if (!$iptables || !file_exists($iptables)) {
+                $this->jerr("iptables could not be found.");
+            }
         }
         // this should have been set up already..
         // in the base firewall code.
@@ -223,12 +227,16 @@ class Pman_Admin_Iptables extends Pman {
     
     function updateTables()
     {
-        require_once 'System.php';
+        static $iptables;
         
-        $iptables = System::which('iptables', '/sbin/iptables');
-        
-         if (!$iptables || !file_exists($iptables)) {
-            $this->jerr("iptables could not be found.");
+        if (!$iptables) {
+            require_once 'System.php';
+            
+            $iptables = System::which('iptables', '/sbin/iptables');
+            
+            if (!$iptables || !file_exists($iptables)) {
+                $this->jerr("iptables could not be found.");
+            }
         }
         // this should have been set up already..
         // in the base firewall code.
