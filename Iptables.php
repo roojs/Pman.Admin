@@ -335,6 +335,17 @@ class Pman_Admin_Iptables extends Pman {
     
     function removeIp($ip)
     {
+        static $iptables;
+        
+        if (!$iptables) {
+            require_once 'System.php';
+            
+            $iptables = System::which('iptables', '/sbin/iptables');
+            
+            if (!$iptables || !file_exists($iptables)) {
+                $this->jerr("iptables could not be found.");
+            }
+        }    
         // we need to scan the list each time, as the order get's renumbered when we remove wone...
         $ar = $this->readChain('postgres');
         foreach($ar as $row) {
