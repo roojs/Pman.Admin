@@ -12,6 +12,5 @@
 	"Enums"                 : [ "S",      "" , "Pulldown options manager"],
 	"ProjectManager"       : [ "S",      "" , "Project Manager Tab"],
 	"Iptables"		: [ "S",     "", "Login triggers firewall opening"]
-    
 }
       

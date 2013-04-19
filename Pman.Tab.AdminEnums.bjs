@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-146",
+    "id": "roo-file-41",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
+    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
             "listeners": {
@@ -44,8 +44,8 @@
                             "items": [
                                 {
                                     "*prop": "proxy",
-                                    "xtype": "HttpProxy",
                                     "method": "GET",
+                                    "xtype": "HttpProxy",
                                     "|url": "baseURL + '/Roo/core_enum.php'",
                                     "|xns": "Roo.data"
                                 },
