@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-170",
+    "id": "roo-file-151",
     "name": "Pman.Dialog.AdminWatch",
     "parent": "",
     "title": "",
@@ -228,7 +228,7 @@
                                         {
                                             "*prop": "store",
                                             "xtype": "SimpleStore",
-                                            "|data": "[ [ 'email' ], [ 'APPROVAL' ] ]",
+                                            "|data": "[ [ 'email' ], [ 'APPROVAL' ], ['ENDOFDAYMAIL'] ]",
                                             "|fields": "[ 'val' ]",
                                             "|xns": "Roo.data"
                                         }
