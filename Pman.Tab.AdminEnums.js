@@ -269,10 +269,13 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                         return;
                                     }
                                     var sc = _this.grid.getSelectionModel().getSelectedCell();
-                                    if (!sc) {
+                                    Roo.log(sc);
+                                    var ds = _this.grid.ds.getAt(sc[0]);
+                                    if (!ds) {
                                         Roo.MessageBox.alert("Error", "Select enum");
                                         return;
                                     }
+                                    
                                     
                                     
                                     Roo.log(ds);
