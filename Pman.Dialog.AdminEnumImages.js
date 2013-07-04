@@ -311,7 +311,13 @@ Pman.Dialog.AdminEnumImages = {
             center : {
                 xtype: 'LayoutRegion',
                 xns: Roo
-            }
+            },
+            buttons : [
+                {
+                    xtype: 'Button',
+                    xns: Roo
+                }
+            ]
         });
     }
 };

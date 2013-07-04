@@ -149,6 +149,11 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "|xns": "Roo",
+                    "xtype": "Button",
+                    "*prop": "buttons[]"
                 }
             ]
         }
