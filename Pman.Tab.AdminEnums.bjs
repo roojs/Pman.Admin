@@ -172,7 +172,7 @@
                         },
                         {
                             "*prop": "colModel[]",
-                            "dataIndex": "id",
+                            "dataIndex": "images_id_id",
                             "header": "Image",
                             "width": 75,
                             "xtype": "ColumnModel",
