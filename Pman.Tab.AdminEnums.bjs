@@ -147,7 +147,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue();\n    \n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n    var ds = _this.grid.getSelectionModel().getSelected();\n    \n    Roo.log(ds);\n    //Pman.Dialog.AdminEnumImages.show({onid:ds.id});\n    \n}\n"
+                                        "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue();\n    \n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n    var ds = _this.grid.getSelectionModel().getSelected();\n    if (!ds) {\n        Roo.MessageBox.alert(\"Error\", \"Select enum\");\n        return;\n    }\n    Roo.log(ds);\n    //Pman.Dialog.AdminEnumImages.show({onid:ds.id});\n    \n}\n"
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Add Images",
