@@ -8,7 +8,7 @@
         {
             "height": 600,
             "modal": true,
-            "title": "Images",
+            "title": "Add / Edit Images",
             "width": 900,
             "xtype": "LayoutDialog",
             "|xns": "Roo",

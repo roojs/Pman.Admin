@@ -32,7 +32,7 @@ Pman.Dialog.AdminEnumImages = {
             xns: Roo,
             height : 600,
             modal : true,
-            title : "Images",
+            title : "Add / Edit Images",
             width : 900,
             items : [
                 {
