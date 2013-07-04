@@ -316,6 +316,10 @@ Pman.Dialog.AdminEnumImages = {
                 {
                     xtype: 'Button',
                     xns: Roo
+                },
+                {
+                    xtype: 'Button',
+                    xns: Roo
                 }
             ]
         });
