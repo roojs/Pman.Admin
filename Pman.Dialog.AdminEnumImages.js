@@ -61,15 +61,13 @@ Pman.Dialog.AdminEnumImages = {
                     grid : {
                         xtype: 'Grid',
                         xns: Roo.grid,
-                        autoExpandColumn : 'title',
-                        loadMask : true,
                         listeners : {
                             render : function() { 
                                 _this.grid = this; 
                                 //_this.dialog = Pman.Dialog.FILL_IN
-                                if (_this.panel.active) {
-                                   this.footer.onClick('first');
-                                }
+                                //if (_this.panel.active) {
+                                //   this.footer.onClick('first');
+                                //}
                             },
                             rowdblclick : function (_self, rowIndex, e)
                             {
@@ -80,6 +78,8 @@ Pman.Dialog.AdminEnumImages = {
                                            }); 
                             }
                         },
+                        autoExpandColumn : 'title',
+                        loadMask : true,
                         dataSource : {
                             xtype: 'Store',
                             xns: Roo.data,
