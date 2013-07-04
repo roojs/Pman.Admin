@@ -8,6 +8,7 @@
         {
             "height": 600,
             "modal": true,
+            "title": "Images",
             "width": 900,
             "xtype": "LayoutDialog",
             "|xns": "Roo",
