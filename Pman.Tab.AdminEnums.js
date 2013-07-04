@@ -268,7 +268,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                         Roo.MessageBox.alert("Error", "Select a pulldown");
                                         return;
                                     }
-                                    Pman.Dialog.AdminEnumImages.show({onid:ds.id});
+                                    Roo.log(ds);
+                                    //Pman.Dialog.AdminEnumImages.show({onid:ds.id});
                                     
                                 }
                             },
