@@ -146,7 +146,7 @@
                                     "header": "Details",
                                     "width": 100,
                                     "xtype": "ColumnModel",
-                                    "|renderer": "function(v,x,r) {\n     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n     var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n      return String.format(\n          'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n          '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          '<br/><b>{3}</b><br/>{4}</i>', \n          window.location.host, surl, svurl,\n           v, r.json.descript); \n     \n    }",
+                                    "|renderer": "function(v,x,r) {\n//     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n  //   var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n    //  return String.format(\n      //    'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n        //  '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          //'<br/><b>{3}</b><br/>{4}</i>', \n         // window.location.host, surl, svurl,\n          // v, r.json.descript); \n     \n    }",
                                     "|xns": "Roo.grid"
                                 }
                             ]

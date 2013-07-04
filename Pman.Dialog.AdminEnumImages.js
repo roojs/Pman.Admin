@@ -291,14 +291,14 @@ Pman.Dialog.AdminEnumImages = {
                                 header : 'Details',
                                 width : 100,
                                 renderer : function(v,x,r) {
-                                     var surl = r.json.url.replace(/\/release.php\/Images\//, '/i/').replace(/\/([0-9]+)\/.*$/, '/$1');;
-                                     var svurl = r.json.url_view.replace(/\/release.php\/Images\//, '/i/').replace(/\/([0-9]+)\/.*$/, '/$1');;
-                                      return String.format(
-                                          'Download Url : <a href="http://{0}{1}" target="_new">http://{0}{1}</a>' + 
-                                          '<br/>View Url : <a href="http://{0}{2}" target="_new">http://{0}{2}</a>' + 
-                                          '<br/><b>{3}</b><br/>{4}</i>', 
-                                          window.location.host, surl, svurl,
-                                           v, r.json.descript); 
+                                //     var surl = r.json.url.replace(/\/release.php\/Images\//, '/i/').replace(/\/([0-9]+)\/.*$/, '/$1');;
+                                  //   var svurl = r.json.url_view.replace(/\/release.php\/Images\//, '/i/').replace(/\/([0-9]+)\/.*$/, '/$1');;
+                                    //  return String.format(
+                                      //    'Download Url : <a href="http://{0}{1}" target="_new">http://{0}{1}</a>' + 
+                                        //  '<br/>View Url : <a href="http://{0}{2}" target="_new">http://{0}{2}</a>' + 
+                                          //'<br/><b>{3}</b><br/>{4}</i>', 
+                                         // window.location.host, surl, svurl,
+                                          // v, r.json.descript); 
                                      
                                     }
                             }
