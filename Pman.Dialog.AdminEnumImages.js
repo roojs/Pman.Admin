@@ -85,7 +85,7 @@ Pman.Dialog.AdminEnumImages = {
                                   //   o.params.imgtype = 'PressRelease';
                                     
                                     o.params = o.params|| {};
-                                    
+                                    Roo.log(_this);
                                     
                                 },
                                 load : function (_self, records, options)
