@@ -157,6 +157,9 @@
                     "|xns": "Roo"
                 },
                 {
+                    "listeners": {
+                        "click": "function (_self, e)\n{\n\n}"
+                    },
                     "*prop": "buttons[]",
                     "text": "OK",
                     "xtype": "Button",
