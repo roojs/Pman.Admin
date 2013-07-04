@@ -263,11 +263,13 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                     
                                     // if we do not have a selected type... - what should we show..?
                                     var et = _this.etypeCombo.getValue();
-                                    var ds = _this.grid.getSelectionModel().getSelected();
+                                    
                                     if (!et) {
                                         Roo.MessageBox.alert("Error", "Select a pulldown");
                                         return;
                                     }
+                                    var ds = _this.grid.getSelectionModel().getSelected();
+                                    
                                     Roo.log(ds);
                                     //Pman.Dialog.AdminEnumImages.show({onid:ds.id});
                                     
