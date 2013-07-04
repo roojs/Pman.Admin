@@ -46,10 +46,10 @@ Pman.Dialog.AdminEnumImages = {
                             }
                         }
                     },
-                    region : 'center',
-                    background : true,
+                    background : false,
                     fitContainer : true,
                     fitToframe : true,
+                    region : 'center',
                     tableName : 'Images',
                     title : "Images",
                     grid : {
