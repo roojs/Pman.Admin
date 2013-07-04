@@ -31,7 +31,7 @@ Pman.Dialog.AdminEnumImages = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 600,
-            width : 0,
+            width : 900,
             items : [
                 {
                     xtype: 'GridPanel',
