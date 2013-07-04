@@ -157,9 +157,10 @@
                     "|xns": "Roo"
                 },
                 {
-                    "|xns": "Roo",
+                    "*prop": "buttons[]",
+                    "text": "OK",
                     "xtype": "Button",
-                    "*prop": "buttons[]"
+                    "|xns": "Roo"
                 }
             ]
         }

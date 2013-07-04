@@ -320,7 +320,8 @@ Pman.Dialog.AdminEnumImages = {
                 },
                 {
                     xtype: 'Button',
-                    xns: Roo
+                    xns: Roo,
+                    text : "OK"
                 }
             ]
         });
