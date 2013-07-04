@@ -6,6 +6,9 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminEnumImages.bjs",
     "items": [
         {
+            "listeners": {
+                "show": "function (_self)\n{\n    _this.grid\n}"
+            },
             "height": 500,
             "modal": true,
             "title": "Add / Edit Images",
