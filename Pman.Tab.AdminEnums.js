@@ -316,7 +316,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                         dataIndex : 'id',
                         header : 'Image',
                         width : 75,
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v,x,r) { return String.format('<img src="{0}/Images/Thumb/100/{1}/{2}" width="100">', baseURL, v, r.data.filename); }
                     },
                     {
                         xtype: 'ColumnModel',
