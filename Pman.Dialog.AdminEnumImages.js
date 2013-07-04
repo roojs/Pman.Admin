@@ -33,7 +33,7 @@ Pman.Dialog.AdminEnumImages = {
             listeners : {
                 show : function (_self)
                 {
-                    _this.grid
+                    _this.grid.footer.onClick('first');
                 }
             },
             height : 500,
