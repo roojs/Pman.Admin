@@ -13,6 +13,138 @@
                     "|xns": "Roo",
                     "xtype": "LayoutRegion",
                     "*prop": "center"
+                },
+                {
+                    "listeners": {
+                        "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                    },
+                    "region": "center",
+                    "background": true,
+                    "fitContainer": true,
+                    "fitToframe": true,
+                    "tableName": "Images",
+                    "title": "Images",
+                    "xtype": "GridPanel",
+                    "|xns": "Roo",
+                    "items": [
+                        {
+                            "*prop": "grid",
+                            "xtype": "Grid",
+                            "autoExpandColumn": "title",
+                            "loadMask": true,
+                            "listeners": {
+                                "|render": "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
+                                "|rowdblclick": "function (_self, rowIndex, e)\n{\n  \n   var s =  _self.getDataSource().getAt(rowIndex);\n     Pman.Dialog.PressReleaseImage.show(s.data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n}"
+                            },
+                            "|xns": "Roo.grid",
+                            "items": [
+                                {
+                                    "listeners": {
+                                        "|beforeload": "function (_self, o)\n{\n    o.params.ontable = 'Companies';\n    o.params['query[imagesize]'] = '150x150';\n    o.params['query[imageBaseURL]'] = rootURL + '/release.php';\n      \n    var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n  //   o.params.imgtype = 'PressRelease';\n    o.params.onid = sel ? sel.data.id : 0;\n    if (!o.params.onid) {\n         if (!_this.isBuilder) {\n           _this.panel.el.mask('select company');\n        }\n         return false;\n    }\n    \n    \n}",
+                                        "|load": "function (_self, records, options)\n{\n _this.panel.el.unmask();\n}"
+                                    },
+                                    "*prop": "dataSource",
+                                    "remoteSort": true,
+                                    "xtype": "Store",
+                                    "|sortInfo": "{ field: 'created' , direction: 'DESC' }",
+                                    "|xns": "Roo.data",
+                                    "items": [
+                                        {
+                                            "*prop": "reader",
+                                            "id": "id",
+                                            "root": "data",
+                                            "totalProperty": "total",
+                                            "xtype": "JsonReader",
+                                            "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'filename',\n        'type': 'string'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'mimetype',\n        'type': 'string'\n    },\n    {\n        'name': 'width',\n        'type': 'int'\n    },\n    {\n        'name': 'height',\n        'type': 'int'\n    },\n    {\n        'name': 'filesize',\n        'type': 'int'\n    },\n    {\n        'name': 'displayorder',\n        'type': 'int'\n    },\n    {\n        'name': 'language',\n        'type': 'string'\n    },\n    {\n        'name': 'parent_image_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created',\n        'type': 'date',\n        'dateFormat' : 'Y-m-d H:i:s'\n    },\n    {\n        'name': 'imgtype',\n        'type': 'string'\n    },\n    {\n        'name': 'linkurl',\n        'type': 'string'\n    },\n    {\n        'name': 'descript',\n        'type': 'string'\n    },\n    {\n        'name': 'title',\n        'type': 'string'\n    }\n]",
+                                            "|xns": "Roo.data"
+                                        },
+                                        {
+                                            "*prop": "proxy",
+                                            "xtype": "HttpProxy",
+                                            "method": "GET",
+                                            "|url": "baseURL + '/Roo/Images.php'",
+                                            "|xns": "Roo.data"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "footer",
+                                    "xtype": "PagingToolbar",
+                                    "pageSize": 25,
+                                    "displayInfo": true,
+                                    "displayMsg": "Displaying Images  {0} - {1} of {2}",
+                                    "emptyMsg": "No Images found",
+                                    "|xns": "Roo"
+                                },
+                                {
+                                    "*prop": "toolbar",
+                                    "xtype": "Toolbar",
+                                    "|xns": "Roo",
+                                    "items": [
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n        {\n            \n      var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n     \n    Pman.Dialog.Image.show( {\n       id : 0, \n        ontable: 'Companies', \n         onid: sel.data.id,\n    imgtype : 'PressRelease'\n     }, \n    function(data) {\n                if (!data) { return; } \n     Pman.Dialog.PressReleaseImage.show( data, function() {\n                  _this.grid.footer.onClick('first');\n\n            }); \n                }); \n\n        }\n        "
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Add",
+                                            "xtype": "Button",
+                                            "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                            "|xns": "Roo.Toolbar"
+                                        },
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s || s.length != 1) {\n        Roo.MessageBox.alert(\"Error\", \"Select a single image to edit\");\n       return;\n     }\n     var data = _this.grid.getDataSource().getById(s[0].data.id).data;\n    \n             Pman.Dialog.PressReleaseImage.show(data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n            \n        }\n        "
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Edit",
+                                            "xtype": "Button",
+                                            "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
+                                            "|xns": "Roo"
+                                        },
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n        {\n        Pman.genericDelete(_this, 'Images'); \n        }\n        "
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Delete",
+                                            "xtype": "Button",
+                                            "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
+                                            "|xns": "Roo.Toolbar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "xtype": "ColumnModel",
+                                    "header": "Created",
+                                    "width": 100,
+                                    "dataIndex": "created",
+                                    "|renderer": "function(v,x,r) {\n       return String.format('{0}<br/><i>{1}</i><br/>{2}<br/><i>{3}x{4}</i>',\n            v.format('d/M/Y'), r.data.mimetype, r.data.filename,\n    r.data.width, r.data.height\n    ); \n}\n     ",
+                                    "listeners": {},
+                                    "sortable": true,
+                                    "|xns": "Roo.grid",
+                                    "*prop": "colModel[]"
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "id",
+                                    "header": "Image",
+                                    "width": 100,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v,x,r) { return String.format('<img src=\"{0}/Images/Thumb/100/{1}/{2}\" width=\"100\">', baseURL, v, r.data.filename); }",
+                                    "|xns": "Roo.grid"
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "title",
+                                    "header": "Details",
+                                    "width": 100,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v,x,r) {\n     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n     var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n      return String.format(\n          'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n          '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          '<br/><b>{3}</b><br/>{4}</i>', \n          window.location.host, surl, svurl,\n           v, r.json.descript); \n     \n    }",
+                                    "|xns": "Roo.grid"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
