@@ -7,7 +7,14 @@
     "items": [
         {
             "|xns": "Roo",
-            "xtype": "LayoutDialog"
+            "xtype": "LayoutDialog",
+            "items": [
+                {
+                    "|xns": "Roo",
+                    "xtype": "LayoutRegion",
+                    "*prop": "center"
+                }
+            ]
         }
     ],
     "permname": "",

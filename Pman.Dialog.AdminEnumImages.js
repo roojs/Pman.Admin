@@ -29,7 +29,11 @@ Pman.Dialog.AdminEnumImages = {
         var _this = this;
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
-            xns: Roo
+            xns: Roo,
+            center : {
+                xtype: 'LayoutRegion',
+                xns: Roo
+            }
         });
     }
 };
