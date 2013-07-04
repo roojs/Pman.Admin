@@ -313,6 +313,14 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     {
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
+                        dataIndex : 'id',
+                        header : 'Internal #',
+                        width : 75,
+                        renderer : function(v) { return String.format('{0}', v); }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
                         header : 'Name',
                         width : 200,
                         dataIndex : 'name',

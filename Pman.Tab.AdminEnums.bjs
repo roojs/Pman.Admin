@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-41",
+    "id": "roo-file-221",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
-    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
             "listeners": {
@@ -160,6 +160,15 @@
                                     "|xns": "Roo.Toolbar"
                                 }
                             ]
+                        },
+                        {
+                            "*prop": "colModel[]",
+                            "dataIndex": "id",
+                            "header": "Internal #",
+                            "width": 75,
+                            "xtype": "ColumnModel",
+                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                            "|xns": "Roo.grid"
                         },
                         {
                             "*prop": "colModel[]",
