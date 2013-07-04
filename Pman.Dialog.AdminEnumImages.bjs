@@ -44,7 +44,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|beforeload": "function (_self, o)\n{\n    //o.params.ontable = 'Companies';\n    \n  //   o.params.imgtype = 'PressRelease';\n    \n    o.params = o.params|| {};\n    Roo.log(_this);\n    \n}",
+                                        "|beforeload": "function (_self, o)\n{\n    //o.params.ontable = 'Companies';\n    \n  //   o.params.imgtype = 'PressRelease';\n    \n    o.params = o.params || {};\n    Roo.log(_this);\n    \n}",
                                         "|load": "function (_self, records, options)\n{\n _this.panel.el.unmask();\n}"
                                     },
                                     "*prop": "dataSource",
