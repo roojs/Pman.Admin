@@ -30,7 +30,7 @@ Pman.Dialog.AdminEnumImages = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
-            height : 600,
+            height : 500,
             modal : true,
             title : "Add / Edit Images",
             width : 900,

@@ -6,7 +6,7 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminEnumImages.bjs",
     "items": [
         {
-            "height": 600,
+            "height": 500,
             "modal": true,
             "title": "Add / Edit Images",
             "width": 900,
