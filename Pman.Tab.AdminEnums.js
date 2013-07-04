@@ -276,10 +276,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                         return;
                                     }
                                     
-                                    
-                                    
                                     Roo.log(ds);
-                                    //Pman.Dialog.AdminEnumImages.show({onid:ds.id});
+                                    Pman.Dialog.AdminEnumImages.show({onid:ds.data.id});
                                     
                                 }
                             },
