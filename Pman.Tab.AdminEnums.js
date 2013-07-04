@@ -255,6 +255,38 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
+                                click : function()
+                                {
+                                    
+                                    // if we do not have a selected type... - what should we show..?
+                                    var et = _this.etypeCombo.getValue();
+                                    var ds = _this.grid.getDataSource();
+                                    if (!et) {
+                                        Roo.MessageBox.alert("Error", "Select a pulldown");
+                                        return;
+                                    }
+                                
+                                    var add = ds.reader.newRow({    
+                                             id: 0, 
+                                             display_name : '', 
+                                             name : '', 
+                                             etype: et, 
+                                             active: 1, 
+                                             seqid: 0
+                                      });
+                                     var r = ds.data.length;
+                                    ds.insert(r  , add);  
+                                    _this.grid.startEditing(r, 1); // name... 
+                                }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Add Value",
+                            icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
+                        },
+                        {
                             xtype: 'Fill',
                             xns: Roo.Toolbar
                         },
