@@ -44,7 +44,7 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "|beforeload": "function (_self, o)\n{\n    o.params.ontable = 'Companies';\n    o.params['query[imagesize]'] = '150x150';\n    o.params['query[imageBaseURL]'] = rootURL + '/release.php';\n      \n    var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n  //   o.params.imgtype = 'PressRelease';\n    o.params.onid = sel ? sel.data.id : 0;\n    if (!o.params.onid) {\n         if (!_this.isBuilder) {\n           _this.panel.el.mask('select company');\n        }\n         return false;\n    }\n    \n    \n}",
+                                        "|beforeload": "function (_self, o)\n{\n    //o.params.ontable = 'Companies';\n    \n  //   o.params.imgtype = 'PressRelease';\n    \n    \n    \n    \n}",
                                         "|load": "function (_self, records, options)\n{\n _this.panel.el.unmask();\n}"
                                     },
                                     "*prop": "dataSource",

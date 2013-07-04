@@ -80,19 +80,11 @@ Pman.Dialog.AdminEnumImages = {
                             listeners : {
                                 beforeload : function (_self, o)
                                 {
-                                    o.params.ontable = 'Companies';
-                                    o.params['query[imagesize]'] = '150x150';
-                                    o.params['query[imageBaseURL]'] = rootURL + '/release.php';
-                                      
-                                    var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false
+                                    //o.params.ontable = 'Companies';
+                                    
                                   //   o.params.imgtype = 'PressRelease';
-                                    o.params.onid = sel ? sel.data.id : 0;
-                                    if (!o.params.onid) {
-                                         if (!_this.isBuilder) {
-                                           _this.panel.el.mask('select company');
-                                        }
-                                         return false;
-                                    }
+                                    
+                                    
                                     
                                     
                                 },
