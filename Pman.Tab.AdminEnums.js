@@ -283,7 +283,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                 }
                             },
                             cls : 'x-btn-text-icon',
-                            text : "Add Value",
+                            text : "Add Images",
                             icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                         },
                         {
