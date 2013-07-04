@@ -316,6 +316,13 @@ Pman.Dialog.AdminEnumImages = {
                 {
                     xtype: 'Button',
                     xns: Roo,
+                    listeners : {
+                        click : function (_self, e)
+                        {
+                            _this.dialog.hide();
+                            _this.callback(true);
+                        }
+                    },
                     text : "Cancel"
                 },
                 {
