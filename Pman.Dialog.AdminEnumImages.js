@@ -331,7 +331,8 @@ Pman.Dialog.AdminEnumImages = {
                     listeners : {
                         click : function (_self, e)
                         {
-                        
+                            _this.dialog.hide();
+                            _this.callback(true);
                         }
                     },
                     text : "OK"

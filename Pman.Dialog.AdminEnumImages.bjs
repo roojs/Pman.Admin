@@ -161,7 +161,7 @@
                 },
                 {
                     "listeners": {
-                        "click": "function (_self, e)\n{\n\n}"
+                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n    _this.callback(true);\n}"
                     },
                     "*prop": "buttons[]",
                     "text": "OK",
