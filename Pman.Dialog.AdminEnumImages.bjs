@@ -7,6 +7,7 @@
     "items": [
         {
             "height": 600,
+            "modal": true,
             "width": 900,
             "xtype": "LayoutDialog",
             "|xns": "Roo",

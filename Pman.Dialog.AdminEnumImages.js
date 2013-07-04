@@ -31,6 +31,7 @@ Pman.Dialog.AdminEnumImages = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 600,
+            modal : true,
             width : 900,
             items : [
                 {
