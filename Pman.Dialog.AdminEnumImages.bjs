@@ -158,16 +158,7 @@
                         "click": "function (_self, e)\n{\n    _this.dialog.hide();\n    _this.callback(true);\n}"
                     },
                     "*prop": "buttons[]",
-                    "text": "Cancel",
-                    "xtype": "Button",
-                    "|xns": "Roo"
-                },
-                {
-                    "listeners": {
-                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n    _this.callback(true);\n}"
-                    },
-                    "*prop": "buttons[]",
-                    "text": "CLOSE",
+                    "text": "Close",
                     "xtype": "Button",
                     "|xns": "Roo"
                 }
