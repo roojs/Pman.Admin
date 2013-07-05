@@ -212,7 +212,7 @@ Pman.Dialog.AdminEnumImages = {
                                                 imgtype : ''
                                             }, function(data){
                                                 if (!data) { return; } 
-                                                _this
+                                                _this.grid.footer.onClick('first');
                                             }); 
                                         
                                         }

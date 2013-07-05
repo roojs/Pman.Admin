@@ -90,7 +90,7 @@
                                     "items": [
                                         {
                                             "listeners": {
-                                                "|click": "function()\n{\n            \n    //var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n     \n    Pman.Dialog.Image.show({\n        id : 0, \n        ontable: 'core_enum',\n        onid: _this.data.onid,\n        imgtype : ''\n    }, function(data){\n        if (!data) { return; } \n        _this\n    }); \n\n}       "
+                                                "|click": "function()\n{\n            \n    //var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n     \n    Pman.Dialog.Image.show({\n        id : 0, \n        ontable: 'core_enum',\n        onid: _this.data.onid,\n        imgtype : ''\n    }, function(data){\n        if (!data) { return; } \n        _this.grid.footer.onClick('first');\n    }); \n\n}       "
                                             },
                                             "cls": "x-btn-text-icon",
                                             "text": "Add",
