@@ -286,7 +286,7 @@ Pman.Dialog.AdminEnumImages = {
                                 xtype: 'ColumnModel',
                                 xns: Roo.grid,
                                 dataIndex : 'title',
-                                header : 'Details',
+                                header : 'Title',
                                 width : 100,
                                 renderer : function(v,x,r) {
                                 //     var surl = r.json.url.replace(/\/release.php\/Images\//, '/i/').replace(/\/([0-9]+)\/.*$/, '/$1');;
