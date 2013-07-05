@@ -201,25 +201,21 @@ Pman.Dialog.AdminEnumImages = {
                                     xns: Roo.Toolbar,
                                     listeners : {
                                         click : function()
-                                                {
+                                        {
                                                     
-                                              var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false
+                                            //var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false
                                              
-                                            Pman.Dialog.Image.show( {
-                                               id : 0, 
-                                                ontable: 'Companies', 
-                                                 onid: sel.data.id,
-                                            imgtype : 'PressRelease'
-                                             }, 
-                                            function(data) {
-                                                        if (!data) { return; } 
-                                             Pman.Dialog.PressReleaseImage.show( data, function() {
-                                                          _this.grid.footer.onClick('first');
+                                            Pman.Dialog.Image.show({
+                                                id : 0, 
+                                                ontable: 'core_enum',
+                                                onid: _this.data.onid,
+                                                imgtype : ''
+                                            }, function(data){
+                                                if (!data) { return; } 
+                                                 
+                                            }); 
                                         
-                                                    }); 
-                                                        }); 
-                                        
-                                                }
+                                        }
                                     },
                                     cls : 'x-btn-text-icon',
                                     text : "Add",
