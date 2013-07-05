@@ -91,6 +91,8 @@ Pman.Dialog.AdminEnumImages = {
                                   //   o.params.imgtype = 'PressRelease';
                                     
                                     o.params = o.params || {};
+                                    o.params.onid = _this.data.onid;
+                                    o.params.ontable = 'core_enum';
                                     Roo.log(_this);
                                     
                                 },
