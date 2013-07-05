@@ -331,7 +331,7 @@ Pman.Dialog.AdminEnumImages = {
                             _this.callback(true);
                         }
                     },
-                    text : "OK"
+                    text : "CLOSE"
                 }
             ]
         });
