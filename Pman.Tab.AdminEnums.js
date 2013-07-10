@@ -56,7 +56,6 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             return;
                         }
                         
-                        
                         if (di != 'active') {
                             return;
                         }
