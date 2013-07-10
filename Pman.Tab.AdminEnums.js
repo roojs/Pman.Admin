@@ -50,19 +50,19 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     cellclick : function (_self, rowIndex, columnIndex, e)
                     {
                     
-                            var di = this.colModel.getDataIndex(columnIndex);
-                            if (di != 'active') {
-                                return;
-                            }
-                            
-                            var rec = _this.grid.ds.getAt(rowIndex);
-                            
-                            if(di == name && rec.data.is_system_enum*1 == 1){
-                                return;
-                            }
-                            
-                            rec.set('active', rec.data.active ? 0 : 1);
-                            rec.commit();
+                        var di = this.colModel.getDataIndex(columnIndex);
+                        if (di != 'active') {
+                            return;
+                        }
+                        
+                        var rec = _this.grid.ds.getAt(rowIndex);
+                        
+                        if(di == name && rec.data.is_system_enum*1 == 1){
+                            return;
+                        }
+                        
+                        rec.set('active', rec.data.active ? 0 : 1);
+                        rec.commit();
                              
                             
                     }
