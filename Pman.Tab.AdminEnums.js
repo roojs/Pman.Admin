@@ -70,6 +70,10 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                         
                              
                             
+                    },
+                    beforeedit : function (e)
+                    {
+                    
                     }
                 },
                 autoExpandColumn : 'display_name',
