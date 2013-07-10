@@ -64,7 +64,13 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     },
                     beforeedit : function (e)
                     {
-                    
+                        var di = this.colModel.getDataIndex(columnIndex);
+                        var rec = _this.grid.ds.getAt(rowIndex);
+                        Roo.log(di)
+                        Roo.log(rec);
+                        if(di == 'name' && rec.data.is_system_enum*1 == 1){
+                            return;
+                        }
                     }
                 },
                 autoExpandColumn : 'display_name',
