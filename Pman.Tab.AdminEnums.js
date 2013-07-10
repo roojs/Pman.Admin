@@ -61,7 +61,6 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                 return;
                             }
                             
-                            
                             rec.set('active', rec.data.active ? 0 : 1);
                             rec.commit();
                              
