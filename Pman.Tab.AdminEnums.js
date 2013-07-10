@@ -54,8 +54,13 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             if (di != 'active') {
                                 return;
                             }
-                             
+                            
                             var rec = _this.grid.ds.getAt(rowIndex);
+                            
+                            if(di == name && rec.data.is_system_enum*1 == 1){
+                                return;
+                            }
+                            
                             
                             rec.set('active', rec.data.active ? 0 : 1);
                             rec.commit();
