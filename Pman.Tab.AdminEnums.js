@@ -66,7 +66,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     {
                         Roo.log(e);
                         if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
-                            return;
+                            return false;
                         }
                     }
                 },
