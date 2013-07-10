@@ -62,8 +62,9 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                              
                             
                     },
-                    beforeedit : function (e)
+                    beforeedit : function (_self, rowIndex, columnIndex, e)
                     {
+                        
                         var di = this.colModel.getDataIndex(columnIndex);
                         var rec = _this.grid.ds.getAt(rowIndex);
                         Roo.log(di)
