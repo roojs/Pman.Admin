@@ -64,8 +64,8 @@ class Pman_Admin_Translations extends Pman
         
          $this->loadOriginalStrings($module); // what needs translating..
         
-        
-        
+        $ff = $this->bootLoader;
+        empty($ff->Pman['public_cache_dir']) ?
         
         
         
