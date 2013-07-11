@@ -65,7 +65,9 @@ class Pman_Admin_Translations extends Pman
          $this->loadOriginalStrings($module); // what needs translating..
         
         $ff = $this->bootLoader;
-        empty($ff->Pman['public_cache_dir']) ?
+        if (empty($ff->Pman['public_cache_dir'])) {
+            $this->jerr("public_cache_dir has not been set up");
+        }
         
         
         
