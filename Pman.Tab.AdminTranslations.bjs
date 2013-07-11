@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-56",
+    "id": "roo-file-167",
     "name": "Pman.Tab.AdminTranslations",
     "parent": "Pman.Tab.Admin",
     "title": "Admin - Translations",
@@ -49,12 +49,13 @@
                                     "|xns": "Roo.grid",
                                     "items": [
                                         {
+                                            "listeners": {
+                                                "|beforeload": "function (_self, opts)\n{\n\n                        if (!_this.langCombo || !_this.langCombo.getValue().length) {\n                            return false;\n                        }\n                        if (!_this.modCombo || !_this.modCombo.getValue().length) {\n                            return false;\n                        }\n                        opts.params = {\n                            lang :  _this.langCombo.getValue(),\n                            module :  _this.modCombo.getValue()\n                        };\n}",
+                                                "loadexception": "function (rv, ret, load, jsonData)\n{\n    Roo.log([rv, ret, load, jsonData]);\n}"
+                                            },
                                             "*prop": "dataSource",
                                             "xtype": "Store",
                                             "|reader": "Pman.Readers.Category",
-                                            "listeners": {
-                                                "|beforeload": "function (_self, opts)\n{\n\n                        if (!_this.langCombo || !_this.langCombo.getValue().length) {\n                            return false;\n                        }\n                        if (!_this.modCombo || !_this.modCombo.getValue().length) {\n                            return false;\n                        }\n                        opts.params = {\n                            lang :  _this.langCombo.getValue(),\n                            module :  _this.modCombo.getValue()\n                        };\n}"
-                                            },
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {

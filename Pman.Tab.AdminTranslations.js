@@ -2,35 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        modKey : '950-Pman.Tab.AdminTranslations',
-        module : Pman.Tab.AdminTranslations,
-        region : 'center',
-        parent : Pman.Tab.Admin,
-        name : "Admin - Translations",
-        disabled : false, 
-        permname: 'Admin.Translations' 
-    });
-});
-
-Pman.Tab.AdminTranslations = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminTranslations = new Roo.XComponent({
+    part     :  ["Admin","Translations"],
+    order    : '950-Pman.Tab.AdminTranslations',
+    region   : 'center',
+    parent   : 'Pman.Tab.Admin',
+    name     : "Admin - Translations",
+    disabled : false, 
+    permname : 'Admin.Translations', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'NestedLayoutPanel',
             xns: Roo,
             region : 'center',
@@ -154,7 +138,6 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                             dataSource : {
                                 xtype: 'Store',
                                 xns: Roo.data,
-                                reader : Pman.Readers.Category,
                                 listeners : {
                                     beforeload : function (_self, opts)
                                     {
@@ -169,8 +152,13 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                                                                 lang :  _this.langCombo.getValue(),
                                                                 module :  _this.modCombo.getValue()
                                                             };
+                                    },
+                                    loadexception : function (rv, ret, load, jsonData)
+                                    {
+                                        Roo.log([rv, ret, load, jsonData]);
                                     }
                                 },
+                                reader : Pman.Readers.Category,
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
@@ -567,8 +555,6 @@ Pman.Tab.AdminTranslations = new Roo.util.Observable({
                     tabPosition : 'top'
                 }
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
