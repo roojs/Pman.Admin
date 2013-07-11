@@ -153,9 +153,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                                                 module :  _this.modCombo.getValue()
                                                             };
                                     },
-                                    loadexception : function (rv, ret, load, jsonData)
+                                    loadexception : function (self, ret, load, jsonData)
                                     {
-                                        Roo.log([rv, ret, load, jsonData]);
+                                        Roo.MessageBox.alert("Error", jsonData);
                                     }
                                 },
                                 reader : Pman.Readers.Category,
