@@ -399,7 +399,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         dataIndex : 'event_id_remarks',
                         header : 'Event',
                         width : 300,
-                        renderer : function(v) { return String.format('{0}', v); }
+                        renderer : function(v) { return String.format('<span qtip="{0}">{0}</span>', v); }
                     }
                 ]
             }
