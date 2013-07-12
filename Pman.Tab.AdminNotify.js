@@ -297,6 +297,19 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             xtype: 'Button',
                             xns: Roo.Toolbar,
                             listeners : {
+                                click : function()
+                                        {
+                                        Pman.genericDelete(_this, 'Ris_partner_type'); 
+                                        }
+                            },
+                            cls : 'x-btn-text-icon',
+                            text : "Delete",
+                            icon : rootURL + '/Pman/templates/images/trash.gif'
+                        },
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar,
+                            listeners : {
                                 render : function (_self)
                                 {
                                     _this.toggleBtn = _self;

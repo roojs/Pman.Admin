@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-157",
+    "id": "roo-file-162",
     "name": "Pman.Tab.AdminNotify",
     "parent": "Pman.Tab.AdminWatchNotify",
     "title": "Pman.Tab.AdminNotify",
@@ -126,6 +126,16 @@
                                 {
                                     "|xns": "Roo.Toolbar",
                                     "xtype": "Fill"
+                                },
+                                {
+                                    "listeners": {
+                                        "|click": "function()\n        {\n        Pman.genericDelete(_this, 'Ris_partner_type'); \n        }\n        "
+                                    },
+                                    "cls": "x-btn-text-icon",
+                                    "text": "Delete",
+                                    "xtype": "Button",
+                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
+                                    "|xns": "Roo.Toolbar"
                                 },
                                 {
                                     "listeners": {
