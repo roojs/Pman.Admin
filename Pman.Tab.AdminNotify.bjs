@@ -129,7 +129,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "|click": "function()\n        {\n        Pman.genericDelete(_this, 'Ris_partner_type'); \n        }\n        "
+                                        "|click": "function()\n        {\n        Pman.genericDelete(_this, 'core_notify'); \n        }\n        "
                                     },
                                     "cls": "x-btn-text-icon",
                                     "text": "Delete",

@@ -299,7 +299,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             listeners : {
                                 click : function()
                                         {
-                                        Pman.genericDelete(_this, 'Ris_partner_type'); 
+                                        Pman.genericDelete(_this, 'core_notify'); 
                                         }
                             },
                             cls : 'x-btn-text-icon',
