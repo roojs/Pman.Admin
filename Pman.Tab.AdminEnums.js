@@ -162,7 +162,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     items : [
                         {
                             xtype: 'Button',
-                            xns: Roo.Toolbar
+                            xns: Roo.Toolbar,
+                            text : "Download"
                         }
                     ]
                 },
