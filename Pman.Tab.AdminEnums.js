@@ -158,7 +158,13 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                     pageSize : 25,
                     displayInfo : true,
                     displayMsg : "Displaying core_enum{0} - {1} of {2}",
-                    emptyMsg : "No core_enum found"
+                    emptyMsg : "No core_enum found",
+                    items : [
+                        {
+                            xtype: 'Button',
+                            xns: Roo.Toolbar
+                        }
+                    ]
                 },
                 toolbar : {
                     xtype: 'Toolbar',

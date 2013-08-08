@@ -68,7 +68,13 @@
                             "displayInfo": true,
                             "displayMsg": "Displaying core_enum{0} - {1} of {2}",
                             "emptyMsg": "No core_enum found",
-                            "|xns": "Roo"
+                            "|xns": "Roo",
+                            "items": [
+                                {
+                                    "|xns": "Roo.Toolbar",
+                                    "xtype": "Button"
+                                }
+                            ]
                         },
                         {
                             "*prop": "toolbar",
