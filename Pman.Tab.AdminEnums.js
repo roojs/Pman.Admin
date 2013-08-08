@@ -163,6 +163,15 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
+                            listeners : {
+                                click : function (_self, e)
+                                {
+                                    new Pman.Download({
+                                        grid : _this.grid
+                                    });
+                                    Roo.MessageBox.alert("Downloading", "File is downloading");
+                                }
+                            },
                             text : "Download"
                         }
                     ]
