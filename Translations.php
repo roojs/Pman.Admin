@@ -46,7 +46,7 @@ class Pman_Admin_Translations extends Pman
         
         if (!empty($module)) {
             $this->init();
-            DB_DataObject::debugLevel(1);
+            //DB_DataObject::debugLevel(1);
             require_once 'Services/JSON.php';
             $d = DB_DataObject::factory('translations');
             $d->module = $module;
