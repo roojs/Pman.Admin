@@ -144,7 +144,7 @@
                                                 },
                                                 {
                                                     "listeners": {
-                                                        "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid: _this.grid,\n    \n    });\n}"
+                                                        "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid: _this.grid\n    \n    });\n}"
                                                     },
                                                     "text": "Download",
                                                     "xtype": "Button",

@@ -289,7 +289,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                             click : function (_self, e)
                                             {
                                                 new Pman.Download({
-                                                    grid: _this.grid,
+                                                    grid: _this.grid
                                                 
                                                 });
                                             }
