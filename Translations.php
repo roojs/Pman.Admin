@@ -47,7 +47,7 @@ class Pman_Admin_Translations extends Pman
         if (!empty($module)) {
             $this->init();
             
-            
+           
             $d = DB_DataObject::factory('translations');
             $d->module = $module;
             $d->selectAdd();
