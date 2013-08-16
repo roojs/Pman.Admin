@@ -279,7 +279,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         }
                                     },
                                     {
-                                        xtype: 'Spacer',
+                                        xtype: 'Fill',
                                         xns: Roo.Toolbar
                                     },
                                     {

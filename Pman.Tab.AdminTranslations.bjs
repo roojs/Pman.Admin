@@ -140,7 +140,7 @@
                                                 },
                                                 {
                                                     "|xns": "Roo.Toolbar",
-                                                    "xtype": "Spacer"
+                                                    "xtype": "Fill"
                                                 },
                                                 {
                                                     "listeners": {
