@@ -130,6 +130,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         };
                                     
                                     saveRec.defer(1000, _this, [ e.record ]);
+                                },
+                                celldblclick : function (_self, rowIndex, columnIndex, e)
+                                {
+                                    var di  = this.colModel.config[columnIndex].dataIndex;
+                                    if (di != 'reset_tx') {
+                                        return;
+                                    }
                                 }
                             },
                             autoExpandColumn : 'txt',
