@@ -265,8 +265,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
-                                    dataIndex : 'colname',
-                                    header : 'Name',
+                                    dataIndex : 'reset_tx',
+                                    header : 'Reset',
                                     width : 50,
                                     renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              }
                                 },
