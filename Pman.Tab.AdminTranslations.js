@@ -106,7 +106,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         var g = _this.grid;
                                 
                                         //g.getView().el.mask('Saving');
-                                        new Roo.Request({
+                                        new Pman.Request({
                                             url : baseURL + '/Admin/Translations.php',
                                             method: 'POST',
                                             params : {
