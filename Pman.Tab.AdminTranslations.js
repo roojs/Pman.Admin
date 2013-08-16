@@ -284,7 +284,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     },
                                     {
                                         xtype: 'Button',
-                                        xns: Roo.Toolbar
+                                        xns: Roo.Toolbar,
+                                        text : "Download"
                                     }
                                 ]
                             },
