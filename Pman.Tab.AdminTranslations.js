@@ -304,7 +304,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     header : 'Reset',
                                     width : 50,
                                     renderer : function(v,x,r) {    
-                                        return '[x]';
+                                        return  '<img src="' + rootURL + '/Pman/templates/images/edit-clear.gif' + '" width="16" height="16">';
                                     }
                                 },
                                 {

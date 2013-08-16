@@ -166,7 +166,7 @@
                                             "header": "Reset",
                                             "width": 50,
                                             "xtype": "ColumnModel",
-                                            "|renderer": "function(v,x,r) {    \n    return '[x]';\n}",
+                                            "|renderer": "function(v,x,r) {    \n    return  '<img src=\"' + rootURL + '/Pman/templates/images/edit-clear.gif' + '\" width=\"16\" height=\"16\">';\n}",
                                             "|xns": "Roo.grid"
                                         },
                                         {
