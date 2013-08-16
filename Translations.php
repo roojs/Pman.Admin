@@ -55,7 +55,7 @@ class Pman_Admin_Translations extends Pman
             $langs= $d->fetchAll('tlang');
             foreach($langs as $lang) {
                 // output the translations strings file..
-                list($module, $lang) = explode('/',$path);
+                
                     
                 $this->loadOriginalStrings($module);
                 
