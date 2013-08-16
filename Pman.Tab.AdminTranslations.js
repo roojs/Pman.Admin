@@ -285,6 +285,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     {
                                         xtype: 'Button',
                                         xns: Roo.Toolbar,
+                                        listeners : {
+                                            click : function (_self, e)
+                                            {
+                                                new Pman.Download({
+                                                    grid: _this.grid,
+                                                
+                                                });
+                                            }
+                                        },
                                         text : "Download"
                                     }
                                 ]
