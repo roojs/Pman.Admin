@@ -154,6 +154,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         {
                                             //g.getView().el.unmask();
                                             //g.getDataSource().reload();
+                                            rec.set('txt', '');
                                         },
                                         failure : function()
                                         {
