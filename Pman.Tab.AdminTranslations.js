@@ -277,6 +277,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                             fields : ['lang', 'ldisp'],
                                             data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ]
                                         }
+                                    },
+                                    {
+                                        xtype: 'Spacer',
+                                        xns: Roo.Toolbar
                                     }
                                 ]
                             },
