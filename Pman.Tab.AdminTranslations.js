@@ -140,28 +140,27 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     rec = this.ds.getAt(rowIndex);
                                     
                                       var g = _this.grid;
-                                
-                                        //g.getView().el.mask('Saving');
-                                        new Roo.Request({
-                                            url : baseURL + '/Admin/Translations.php',
-                                            method: 'POST',
-                                            params : {
-                                                id : rec.get('id'),
-                                                txt : '',
-                                                lang :  _this.langCombo.getValue(),
-                                                module :  _this.modCombo.getValue()
-                                            },
-                                            success : function()
-                                            {
-                                                //g.getView().el.unmask();
-                                                //g.getDataSource().reload();
-                                            },
-                                            failure : function()
-                                            {
-                                                Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
-                                               // g.getView().el.unmask();
-                                            }
-                                            
+                                 
+                                    new Pman.Request({
+                                        url : baseURL + '/Admin/Translations.php',
+                                        method: 'POST',
+                                        params : {
+                                            id : rec.get('id'),
+                                            txt : '',
+                                            lang :  _this.langCombo.getValue(),
+                                            module :  _this.modCombo.getValue()
+                                        },
+                                        success : function()
+                                        {
+                                            //g.getView().el.unmask();
+                                            //g.getDataSource().reload();
+                                        },
+                                        failure : function()
+                                        {
+                                            Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
+                                           // g.getView().el.unmask();
+                                        }
+                                        
                                     });
                                        
                                     
