@@ -45,6 +45,7 @@ class Pman_Admin_Translations extends Pman
     {
         
         if (!empty($path)) {
+            $this->init();
             // output the translations strings file..
             list($module, $lang) = explode('/',$path);
                 
