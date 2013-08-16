@@ -265,6 +265,14 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                 {
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
+                                    dataIndex : 'colname',
+                                    header : 'Name',
+                                    width : 50,
+                                    renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
                                     dataIndex : 'txt',
                                     header : 'Translated (Click to Edit)',
                                     width : 150,
@@ -277,14 +285,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                             xns: Roo.form
                                         }
                                     }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Name',
-                                    width : 150,
-                                    dataIndex : 'colname',
-                                    renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              }
                                 }
                             ]
                         }
