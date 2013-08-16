@@ -209,7 +209,7 @@ class Pman_Admin_Translations extends Pman
         $d = DB_DataObject::factory('translations');
         $d->module = $module;
         $d->tlang = $lang;
-        
+        $d->whereAdd('LENGTH(tval) > 0');
         $ret = array();
         
         if ($d->count()) {
@@ -240,6 +240,7 @@ class Pman_Admin_Translations extends Pman
             if (!isset($this->originalKeys[$k])) {
                 continue;
             }
+            
             // it's current..
             $this->saveTranslateDB($lang, $module, $this->originalKeys[$k], $k, $v);
             $ret[$k] = $v;
