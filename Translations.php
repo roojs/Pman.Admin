@@ -41,21 +41,30 @@ class Pman_Admin_Translations extends Pman
     }
     
     
-    function get($path)
+    function get($module)
     {
         
-        if (!empty($path)) {
+        if (!empty($module)) {
             $this->init();
-            // output the translations strings file..
-            list($module, $lang) = explode('/',$path);
+            
+            
+            $d = DB_DataObject::factory('translations');
+            $d->module = $module;
+            $d->selectAdd();
+            $d->selectAdd('distinct(tlang) as tlang');
+            $langs= $d->fetchAll('tlang');
+            foreach($langs as $lang) {
+                // output the translations strings file..
+                list($module, $lang) = explode('/',$path);
+                    
+                $this->loadOriginalStrings($module);
                 
-            $this->loadOriginalStrings($module);
-            
-            $data = $this->loadTranslateDB($lang,$module);
-            
-            $j = new Services_JSON();
-    
-            echo $j->stringify($data, null, 4);
+                $data = $this->loadTranslateDB($lang,$module);
+                
+                $j = new Services_JSON();
+                echo "_T.{$lang}= Roo.apply( _T.{$lang} || { }, " .  $j->stringify($data, null, 4) . ");\n";
+                
+            }
             exit;
             
         }
