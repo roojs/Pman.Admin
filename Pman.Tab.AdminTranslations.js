@@ -122,7 +122,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                             },
                                             failure : function()
                                             {
-                                                Ext.Msg.alert("Error", "There was a problem saving the data - try reloading");
+                                                Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
                                                // g.getView().el.unmask();
                                             }
                                             
