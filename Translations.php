@@ -41,8 +41,24 @@ class Pman_Admin_Translations extends Pman
     }
     
     
-    function get()
+    function get($path)
     {
+        
+        if (!empty($path)) {
+            // output the translations strings file..
+            list($module, $lang) = explode('/',$path);
+                
+            $this->loadOriginalStrings($module);
+            
+            $data = $this->loadTranslateDB($lang,$module);
+            
+            $j = new Services_JSON();
+    
+            echo $j->stringify($data, null, 4);
+            exit;
+            
+        }
+        
         // load and parse json file containing all translations...
         if (isset($_REQUEST['id'])) {
             return $this->post();
@@ -312,6 +328,6 @@ class Pman_Admin_Translations extends Pman
         //$this->writeTrans($lang);
     }
      
-    
+     
     
 }
