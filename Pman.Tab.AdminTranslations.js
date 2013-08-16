@@ -281,6 +281,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     {
                                         xtype: 'Spacer',
                                         xns: Roo.Toolbar
+                                    },
+                                    {
+                                        xtype: 'Button',
+                                        xns: Roo.Toolbar
                                     }
                                 ]
                             },

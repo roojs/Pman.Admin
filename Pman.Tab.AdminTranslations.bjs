@@ -141,6 +141,10 @@
                                                 {
                                                     "|xns": "Roo.Toolbar",
                                                     "xtype": "Spacer"
+                                                },
+                                                {
+                                                    "|xns": "Roo.Toolbar",
+                                                    "xtype": "Button"
                                                 }
                                             ]
                                         },
