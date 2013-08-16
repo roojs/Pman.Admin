@@ -52,6 +52,7 @@ class Pman_Admin_Translations extends Pman
             $d->module = $module;
             $d->selectAdd();
             $d->selectAdd('distinct(tlang) as tlang');
+            header('Content-type: text/javascript');
             $langs= $d->fetchAll('tlang');
             foreach($langs as $lang) {
                 // output the translations strings file..
