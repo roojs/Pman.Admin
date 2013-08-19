@@ -19,7 +19,7 @@
 
 require_once 'Pman/Admin/Translations.php';
 
-class Pman_Admin_Translations extends Pman_Admin_Translations 
+class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations 
 {
     
     var $prefix = '';
