@@ -21,7 +21,6 @@ require_once 'Pman/Admin/Translations.php';
 
 class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations 
 {
-    
      
     function getAuth()
     {
