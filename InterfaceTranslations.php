@@ -22,13 +22,7 @@ require_once 'Pman/Admin/Translations.php';
 class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations 
 {
     
-    var $prefix = '';
-    var $fn = '';
-    var $data = array();
-    
-    var $original = array() ; // filename => array( orig_string > orig_string)
-    var $originalKeys = array() ; // md5(filename-orig_string) => filename
-    
+     
     function getAuth()
     {
         
