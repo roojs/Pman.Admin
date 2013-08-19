@@ -53,7 +53,7 @@ class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations
             $data = $this->loadTranslateDB($lang,$module);
             
             $j = new Services_JSON();
-            echo "_T.{$lang}= Roo.apply( _T.{$lang} || { }, " .  $j->stringify($data, null, 4) . ");\n";
+            echo "_T = _T || {} ; _T.{$lang}= Roo.apply( _T.{$lang} || { }, " .  $j->stringify($data, null, 4) . ");\n";
             
         }
         exit;
