@@ -207,7 +207,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             listWidth : 400,
                             loadingText : "Searching...",
                             minChars : 2,
-                            pageSize : 20,
+                            pageSize : 50,
                             qtip : "Select type",
                             queryParam : 'query[name]',
                             selectOnFocus : true,
