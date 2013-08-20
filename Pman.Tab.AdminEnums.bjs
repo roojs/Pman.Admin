@@ -123,7 +123,7 @@
                                             "*prop": "store",
                                             "remoteSort": true,
                                             "xtype": "Store",
-                                            "|sortInfo": "{ direction : 'ASC', field: 'id' }",
+                                            "|sortInfo": "{ direction : 'ASC', field: 'display_name' }",
                                             "|xns": "Roo.data",
                                             "items": [
                                                 {

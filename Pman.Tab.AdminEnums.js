@@ -227,7 +227,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                     }
                                 },
                                 remoteSort : true,
-                                sortInfo : { direction : 'ASC', field: 'id' },
+                                sortInfo : { direction : 'ASC', field: 'display_name' },
                                 proxy : {
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
