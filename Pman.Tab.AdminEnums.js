@@ -211,7 +211,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             qtip : "Select type",
                             queryParam : 'query[name]',
                             selectOnFocus : true,
-                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{name}</b> </div>',
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{display_name}</b>{name} </div>',
                             triggerAction : 'all',
                             typeAhead : false,
                             valueField : 'name',

@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-158",
+    "id": "roo-file-162",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
@@ -108,7 +108,7 @@
                                     "qtip": "Select type",
                                     "queryParam": "query[name]",
                                     "selectOnFocus": true,
-                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b>{name} </div>",
                                     "triggerAction": "all",
                                     "typeAhead": false,
                                     "valueField": "name",
