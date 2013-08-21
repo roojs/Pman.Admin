@@ -315,8 +315,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             
                                                 new Pman.download({
                                                     url : baseURL + '/Roo/Events.php',
-                                                    params : params,
-                                                    newWindow: true
+                                                    params : params //,
+                                                    //newWindow: true
                                                     
                                                 });
                                             }
