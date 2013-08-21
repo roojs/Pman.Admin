@@ -311,12 +311,13 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 if (act.format) {
                                                     params['query[to]'] = act.format('Y-m-d');
                                                 }
+                                                params.limit = 9999;
                                                 
                                             
                                                 new Pman.download({
                                                     url : baseURL + '/Roo/Events.php',
-                                                    params : params //,
-                                                    //newWindow: true
+                                                    params : params ,
+                                                    newWindow: true
                                                     
                                                 });
                                             }
