@@ -375,7 +375,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 beforeload : function (_self, o)
                                                 {
                                                     o.params = o.params || {};
-                                                    o.company_id = Pman.Login.authUser.company_id;
+                                                    o.params.company_id = Pman.Login.authUser.company_id;
                                                 }
                                             },
                                             remoteSort : true,

@@ -159,7 +159,7 @@
                                                     "items": [
                                                         {
                                                             "listeners": {
-                                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.company_id = Pman.Login.authUser.company_id;\n}"
+                                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.company_id = Pman.Login.authUser.company_id;\n}"
                                                             },
                                                             "*prop": "store",
                                                             "remoteSort": true,
