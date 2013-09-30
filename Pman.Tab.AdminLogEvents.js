@@ -384,7 +384,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 xtype: 'HttpProxy',
                                                 xns: Roo.data,
                                                 method : 'GET',
-                                                url : baseURL + '/Roo/Events.php'
+                                                url : baseURL + '/Roo/Person.php'
                                             },
                                             reader : {
                                                 xtype: 'JsonReader',
