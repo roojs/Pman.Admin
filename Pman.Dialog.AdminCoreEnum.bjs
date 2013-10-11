@@ -6,8 +6,10 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
     "items": [
         {
-            "|xns": "Roo",
+            "height": 300,
+            "width": 0,
             "xtype": "LayoutDialog",
+            "|xns": "Roo",
             "items": [
                 {
                     "|xns": "Roo",

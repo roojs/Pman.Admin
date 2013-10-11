@@ -30,6 +30,8 @@ Pman.Dialog.AdminCoreEnum = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
+            height : 300,
+            width : 0,
             items : [
                 {
                     xtype: 'GridPanel',
