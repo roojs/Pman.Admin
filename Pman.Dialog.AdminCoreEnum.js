@@ -458,7 +458,11 @@ Pman.Dialog.AdminCoreEnum = {
                         ]
                     }
                 }
-            ]
+            ],
+            center : {
+                xtype: 'LayoutRegion',
+                xns: Roo
+            }
         });
     }
 };
