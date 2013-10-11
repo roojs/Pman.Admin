@@ -30,7 +30,7 @@ Pman.Dialog.AdminCoreEnum = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
-            height : 300,
+            height : 400,
             title : "Pulldown Options",
             width : 500,
             items : [

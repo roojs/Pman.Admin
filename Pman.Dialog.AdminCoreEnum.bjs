@@ -6,7 +6,7 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
     "items": [
         {
-            "height": 300,
+            "height": 400,
             "title": "Pulldown Options",
             "width": 500,
             "xtype": "LayoutDialog",
