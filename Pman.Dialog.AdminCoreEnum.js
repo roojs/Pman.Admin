@@ -31,6 +31,7 @@ Pman.Dialog.AdminCoreEnum = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 300,
+            title : "Pulldown Options",
             width : 500,
             items : [
                 {
