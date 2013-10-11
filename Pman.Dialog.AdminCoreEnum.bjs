@@ -21,8 +21,8 @@
                         "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                     },
                     "background": false,
-                    "fitContainer": true,
-                    "fitToframe": true,
+                    "fitContainer": false,
+                    "fitToframe": false,
                     "region": "center",
                     "tableName": "core_enum",
                     "title": "Pulldown Options",
