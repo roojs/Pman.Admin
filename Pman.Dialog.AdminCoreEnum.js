@@ -44,7 +44,7 @@ Pman.Dialog.AdminCoreEnum = {
                             }
                         }
                     },
-                    background : true,
+                    background : false,
                     fitContainer : true,
                     fitToframe : true,
                     region : 'center',
