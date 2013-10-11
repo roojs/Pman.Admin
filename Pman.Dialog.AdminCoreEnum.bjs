@@ -8,7 +8,7 @@
         {
             "height": 400,
             "title": "Pulldown Options",
-            "width": 500,
+            "width": 950,
             "xtype": "LayoutDialog",
             "|xns": "Roo",
             "items": [

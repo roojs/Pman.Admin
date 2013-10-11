@@ -32,7 +32,7 @@ Pman.Dialog.AdminCoreEnum = {
             xns: Roo,
             height : 400,
             title : "Pulldown Options",
-            width : 500,
+            width : 950,
             items : [
                 {
                     xtype: 'GridPanel',
