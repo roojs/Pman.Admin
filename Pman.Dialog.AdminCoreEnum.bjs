@@ -4,7 +4,295 @@
     "parent": "",
     "title": "",
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
-    "items": false,
+    "items": [
+        {
+            "|xns": "Roo",
+            "xtype": "LayoutDialog",
+            "items": [
+                {
+                    "listeners": {
+                        "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                    },
+                    "background": true,
+                    "fitContainer": true,
+                    "fitToframe": true,
+                    "region": "center",
+                    "tableName": "core_enum",
+                    "title": "Pulldown Options",
+                    "xtype": "GridPanel",
+                    "|xns": "Roo",
+                    "items": [
+                        {
+                            "listeners": {
+                                "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
+                                "afteredit": "function (e)\n{\n   e.record.commit();     \n}",
+                                "cellclick": "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}",
+                                "beforeedit": "function (e)\n{\n    if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){\n        return false;\n    }\n}"
+                            },
+                            "*prop": "grid",
+                            "autoExpandColumn": "display_name",
+                            "clicksToEdit": 1,
+                            "loadMask": true,
+                            "xtype": "EditorGrid",
+                            "|xns": "Roo.grid",
+                            "items": [
+                                {
+                                    "listeners": {
+                                        "beforeload": "function (_self, options)\n{\n    if (!_this.etypeCombo) {\n        return false;\n    }\n    options.params.etype = _this.etypeCombo.getValue();\n    if (!options.params.etype.length) {\n        return false;\n    }\n}",
+                                        "update": "function (_self, record, operation)\n{\n    if (operation != Roo.data.Record.COMMIT) {\n        return;\n    }\n    // got commit..\n    new Pman.Request({\n        url : baseURL + '/Roo/Core_enum.php',\n        method : 'POST',\n        params : {\n            id : record.data.id,\n            etype : _this.etypeCombo.getValue(),\n            name : record.data.name,\n            active : record.data.active,\n            seqid : record.data.seqid,\n            display_name : record.data.display_name\n        }, \n        success : function(res) {\n            //Roo.log(data);\n            // update the ID if it's not set..\n            if (record.data.id * 1 < 1) {\n                record.set('id', res.data.id);\n            }\n        }\n    });\n    \n}"
+                                    },
+                                    "*prop": "dataSource",
+                                    "remoteSort": true,
+                                    "xtype": "Store",
+                                    "|sortInfo": "{ field : 'etype', direction: 'ASC' }",
+                                    "|xns": "Roo.data",
+                                    "items": [
+                                        {
+                                            "*prop": "proxy",
+                                            "method": "GET",
+                                            "xtype": "HttpProxy",
+                                            "|url": "baseURL + '/Roo/core_enum.php'",
+                                            "|xns": "Roo.data"
+                                        },
+                                        {
+                                            "|xns": "Roo.data",
+                                            "xtype": "JsonReader",
+                                            "totalProperty": "total",
+                                            "root": "data",
+                                            "*prop": "reader",
+                                            "id": "id",
+                                            "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'etype',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'seqid',\n        'type': 'int'\n    }\n]"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "footer",
+                                    "xtype": "PagingToolbar",
+                                    "pageSize": 25,
+                                    "displayInfo": true,
+                                    "displayMsg": "Displaying core_enum{0} - {1} of {2}",
+                                    "emptyMsg": "No core_enum found",
+                                    "|xns": "Roo",
+                                    "items": [
+                                        {
+                                            "listeners": {
+                                                "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid : _this.grid\n    });\n    Roo.MessageBox.alert(\"Downloading\", \"File is downloading\");\n}"
+                                            },
+                                            "text": "Download",
+                                            "xtype": "Button",
+                                            "|xns": "Roo.Toolbar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "toolbar",
+                                    "xtype": "Toolbar",
+                                    "|xns": "Roo",
+                                    "items": [
+                                        {
+                                            "text": "Pulldown Name:",
+                                            "xtype": "TextItem",
+                                            "|xns": "Roo.Toolbar"
+                                        },
+                                        {
+                                            "listeners": {
+                                                "render": "function (_self)\n{\n    _this.etypeCombo = _self;\n}",
+                                                "select": "function (combo, record, index)\n{\n    _this.grid.footer.onClick('first');\n}"
+                                            },
+                                            "alwaysQuery": true,
+                                            "displayField": "name",
+                                            "editable": "false",
+                                            "emptyText": "Select pulldown",
+                                            "fieldLabel": "core_enum",
+                                            "forceSelection": true,
+                                            "listWidth": 400,
+                                            "loadingText": "Searching...",
+                                            "minChars": 2,
+                                            "pageSize": 50,
+                                            "qtip": "Select type",
+                                            "queryParam": "query[name]",
+                                            "selectOnFocus": true,
+                                            "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> - {name} </div>",
+                                            "triggerAction": "all",
+                                            "typeAhead": false,
+                                            "valueField": "name",
+                                            "width": 300,
+                                            "xtype": "ComboBox",
+                                            "|xns": "Roo.form",
+                                            "items": [
+                                                {
+                                                    "listeners": {
+                                                        "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['query[empty_etype]'] = 1; \n}\n"
+                                                    },
+                                                    "*prop": "store",
+                                                    "remoteSort": true,
+                                                    "xtype": "Store",
+                                                    "|sortInfo": "{ direction : 'ASC', field: 'display_name' }",
+                                                    "|xns": "Roo.data",
+                                                    "items": [
+                                                        {
+                                                            "*prop": "proxy",
+                                                            "xtype": "HttpProxy",
+                                                            "method": "GET",
+                                                            "|xns": "Roo.data",
+                                                            "|url": "baseURL + '/Roo/core_enum.php'"
+                                                        },
+                                                        {
+                                                            "*prop": "reader",
+                                                            "xtype": "JsonReader",
+                                                            "|xns": "Roo.data",
+                                                            "id": "id",
+                                                            "root": "data",
+                                                            "totalProperty": "total",
+                                                            "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"etype\",\"type\":\"string\"}]"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue();\n    var ds = _this.grid.getDataSource();\n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n\n    var add = ds.reader.newRow({    \n             id: 0, \n             display_name : '', \n             name : '', \n             etype: et, \n             active: 1, \n             seqid: 0\n      });\n     var r = ds.data.length;\n    ds.insert(r  , add);  \n    _this.grid.startEditing(r, 1); // name... \n}\n"
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Add Value",
+                                            "xtype": "Button",
+                                            "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                            "|xns": "Roo.Toolbar"
+                                        },
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue();\n    \n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n    var sc = _this.grid.getSelectionModel().getSelectedCell();\n    Roo.log(sc);\n    var ds = _this.grid.ds.getAt(sc[0]);\n    if (!ds) {\n        Roo.MessageBox.alert(\"Error\", \"Select enum\");\n        return;\n    }\n    \n    Roo.log(ds);\n    Pman.Dialog.AdminEnumImages.show({onid:ds.data.id}, function(){\n        _this.grid.footer.onClick('first');\n    });\n    \n}\n"
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Add Images",
+                                            "xtype": "Button",
+                                            "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                            "|xns": "Roo.Toolbar"
+                                        },
+                                        {
+                                            "|xns": "Roo.Toolbar",
+                                            "xtype": "Fill"
+                                        },
+                                        {
+                                            "listeners": {
+                                                "|click": "function()\n{\n    \n    Roo.MessageBox.prompt (\"Create a new Enum type\",\n        \"Enter the name for a new enum type, \" + \n        \"this is only relivant if you  know how it is going to be used\",\n        function(btn,txt) {\n            if (btn != 'ok') {\n                return; \n            }\n            new Pman.Request({\n                url : baseURL + '/Roo/Core_enum.php',\n                method : 'POST',\n                params : {\n                    etype : '',\n                    name : txt,\n                    active : 1\n                }, \n                success : function() {\n                    Roo.MessageBox.alert(\"Created\", \"You can now select it from the type list on the left\");\n                }\n            });\n                    \n            \n             \n             \n        }\n    ); \n         \n         \n\n}\n"
+                                            },
+                                            "cls": "x-btn-text-icon",
+                                            "text": "Add new pulldown list",
+                                            "xtype": "Button",
+                                            "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+                                            "|xns": "Roo.Toolbar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "id",
+                                    "header": "Internal #",
+                                    "width": 75,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v) { return String.format('{0}', v); }",
+                                    "|xns": "Roo.grid"
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "images_id_id",
+                                    "header": "Image",
+                                    "width": 75,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v,x,r) { return String.format('<img src=\"{0}/Images/Thumb/25/{1}/{2}\" width=\"25\" height=\"25\">', baseURL, v, r.data.images_id_filename); }",
+                                    "|xns": "Roo.grid"
+                                },
+                                {
+                                    "xtype": "ColumnModel",
+                                    "header": "Name",
+                                    "width": 200,
+                                    "dataIndex": "name",
+                                    "|renderer": "function(v) { return String.format('{0}', v); }",
+                                    "|xns": "Roo.grid",
+                                    "*prop": "colModel[]",
+                                    "items": [
+                                        {
+                                            "|xns": "Roo.grid",
+                                            "xtype": "GridEditor",
+                                            "*prop": "editor",
+                                            "items": [
+                                                {
+                                                    "|xns": "Roo.form",
+                                                    "xtype": "TextField",
+                                                    "*prop": "field"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "display_name",
+                                    "header": "Display Name",
+                                    "width": 200,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v) { return String.format('{0}', v); }",
+                                    "|xns": "Roo.grid",
+                                    "items": [
+                                        {
+                                            "|xns": "Roo.grid",
+                                            "xtype": "GridEditor",
+                                            "*prop": "editor",
+                                            "items": [
+                                                {
+                                                    "|xns": "Roo.form",
+                                                    "xtype": "TextField",
+                                                    "*prop": "field"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "active",
+                                    "header": "Active",
+                                    "width": 75,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
+                                    "|xns": "Roo.grid"
+                                },
+                                {
+                                    "*prop": "colModel[]",
+                                    "dataIndex": "seqid",
+                                    "header": "Order #",
+                                    "sortable": true,
+                                    "width": 75,
+                                    "xtype": "ColumnModel",
+                                    "|renderer": "function(v) { return String.format('{0}', v); }",
+                                    "|xns": "Roo.grid",
+                                    "items": [
+                                        {
+                                            "|xns": "Roo.grid",
+                                            "xtype": "GridEditor",
+                                            "*prop": "editor",
+                                            "items": [
+                                                {
+                                                    "*prop": "field",
+                                                    "allowDecimals": false,
+                                                    "allowNegative": true,
+                                                    "decimalPrecision": 0,
+                                                    "xtype": "NumberField",
+                                                    "|xns": "Roo.form"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "permname": "",
     "modOrder": "001"
 }
