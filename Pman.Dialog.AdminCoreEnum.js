@@ -31,7 +31,7 @@ Pman.Dialog.AdminCoreEnum = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 300,
-            width : 0,
+            width : 500,
             items : [
                 {
                     xtype: 'GridPanel',
