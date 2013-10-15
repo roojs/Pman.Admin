@@ -122,6 +122,11 @@ Pman.Dialog.AdminCoreEnum = {
                                     if (operation != Roo.data.Record.COMMIT) {
                                         return;
                                     }
+                                    
+                                    var name = record.data.name;
+                                    if (typeof(_this.data._hide_name) != 'undefined') {
+                                        name =  record.data.display_name;
+                                    }
                                     // got commit..
                                     new Pman.Request({
                                         url : baseURL + '/Roo/Core_enum.php',
