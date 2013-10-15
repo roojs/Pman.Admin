@@ -348,6 +348,7 @@ Pman.Dialog.AdminCoreEnum = {
                             if (_this.callback) {
                                _this.callback(rec.data);
                            }
+                           _this.dialog.hide();
                         }
                     },
                     text : "OK"

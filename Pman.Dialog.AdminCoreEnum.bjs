@@ -212,7 +212,7 @@
                 },
                 {
                     "listeners": {
-                        "click": "function (_self, e)\n{\n    var sel = _this.grid.selModel.getSelectedCell();\n    if (!sel) {\n        Roo.MesssageBox.alert(\"Error\", \"Select an item\");\n        return;\n    }\n    var rec = _this.grid.getAt(sel[0]);\n    if (_this.callback) {\n       _this.callback(rec.data);\n   }\n}"
+                        "click": "function (_self, e)\n{\n    var sel = _this.grid.selModel.getSelectedCell();\n    if (!sel) {\n        Roo.MesssageBox.alert(\"Error\", \"Select an item\");\n        return;\n    }\n    var rec = _this.grid.getAt(sel[0]);\n    if (_this.callback) {\n       _this.callback(rec.data);\n   }\n   _this.dialog.hide();\n}"
                     },
                     "*prop": "buttons[]",
                     "text": "OK",
