@@ -115,7 +115,7 @@ Pman.Dialog.AdminCoreEnum = {
                                         method : 'POST',
                                         params : {
                                             id : record.data.id,
-                                            etype : _this.etypeCombo.getValue(),
+                                            etype : _this.data.etype,
                                             name : record.data.name,
                                             active : record.data.active,
                                             seqid : record.data.seqid,
