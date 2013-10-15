@@ -192,7 +192,7 @@ Pman.Dialog.AdminCoreEnum = {
                                         {
                                             
                                             // if we do not have a selected type... - what should we show..?
-                                            var et = _this.etypeCombo.getValue();
+                                            var et = _this.data.etype;
                                             var ds = _this.grid.getDataSource();
                                             if (!et) {
                                                 Roo.MessageBox.alert("Error", "Select a pulldown");
