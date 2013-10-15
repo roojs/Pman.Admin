@@ -350,7 +350,7 @@ Pman.Dialog.AdminCoreEnum = {
                             
                         
                             if (_this.callback) {
-                                var rec = _this.grid.getAt(sel[0]);
+                                var rec = _this.grid.ds.getAt(sel[0]);
                                _this.callback(rec.data);
                            }
                            _this.dialog.hide();
