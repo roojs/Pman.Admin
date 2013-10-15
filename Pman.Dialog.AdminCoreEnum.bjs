@@ -12,6 +12,7 @@
             "closable": false,
             "height": 400,
             "modal": true,
+            "resizable": false,
             "title": "Pulldown Options",
             "width": 950,
             "xtype": "LayoutDialog",
