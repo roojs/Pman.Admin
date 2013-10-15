@@ -30,6 +30,19 @@ Pman.Dialog.AdminCoreEnum = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
+            listeners : {
+                show : function (_self)
+                {
+                    var name_hidden = false;
+                
+                    if (typeof(_this.data._hide_name) != 'undefined') {
+                        name_hidden = true;
+                    
+                    }
+                    
+                 _this.grid.colModel.setHidden(1,name_hidden);
+                }
+            },
             height : 400,
             title : "Pulldown Options",
             width : 950,
