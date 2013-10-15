@@ -281,82 +281,8 @@ Pman.Dialog.AdminCoreEnum = {
                                     icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                                 },
                                 {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
-                                    listeners : {
-                                        click : function()
-                                        {
-                                            
-                                            // if we do not have a selected type... - what should we show..?
-                                            var et = _this.etypeCombo.getValue();
-                                            
-                                            if (!et) {
-                                                Roo.MessageBox.alert("Error", "Select a pulldown");
-                                                return;
-                                            }
-                                            var sc = _this.grid.getSelectionModel().getSelectedCell();
-                                            Roo.log(sc);
-                                            var ds = _this.grid.ds.getAt(sc[0]);
-                                            if (!ds) {
-                                                Roo.MessageBox.alert("Error", "Select enum");
-                                                return;
-                                            }
-                                            
-                                            Roo.log(ds);
-                                            Pman.Dialog.AdminEnumImages.show({onid:ds.data.id}, function(){
-                                                _this.grid.footer.onClick('first');
-                                            });
-                                            
-                                        }
-                                    },
-                                    cls : 'x-btn-text-icon',
-                                    text : "Add Images",
-                                    icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
-                                },
-                                {
                                     xtype: 'Fill',
                                     xns: Roo.Toolbar
-                                },
-                                {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
-                                    listeners : {
-                                        click : function()
-                                        {
-                                            
-                                            Roo.MessageBox.prompt ("Create a new Enum type",
-                                                "Enter the name for a new enum type, " + 
-                                                "this is only relivant if you  know how it is going to be used",
-                                                function(btn,txt) {
-                                                    if (btn != 'ok') {
-                                                        return; 
-                                                    }
-                                                    new Pman.Request({
-                                                        url : baseURL + '/Roo/Core_enum.php',
-                                                        method : 'POST',
-                                                        params : {
-                                                            etype : '',
-                                                            name : txt,
-                                                            active : 1
-                                                        }, 
-                                                        success : function() {
-                                                            Roo.MessageBox.alert("Created", "You can now select it from the type list on the left");
-                                                        }
-                                                    });
-                                                            
-                                                    
-                                                     
-                                                     
-                                                }
-                                            ); 
-                                                 
-                                                 
-                                        
-                                        }
-                                    },
-                                    cls : 'x-btn-text-icon',
-                                    text : "Add new pulldown list",
-                                    icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
                                 }
                             ]
                         },
