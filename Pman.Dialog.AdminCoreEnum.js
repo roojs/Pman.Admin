@@ -178,23 +178,7 @@ Pman.Dialog.AdminCoreEnum = {
                             pageSize : 25,
                             displayInfo : true,
                             displayMsg : "Displaying core_enum{0} - {1} of {2}",
-                            emptyMsg : "No core_enum found",
-                            items : [
-                                {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
-                                    listeners : {
-                                        click : function (_self, e)
-                                        {
-                                            new Pman.Download({
-                                                grid : _this.grid
-                                            });
-                                            Roo.MessageBox.alert("Downloading", "File is downloading");
-                                        }
-                                    },
-                                    text : "Download"
-                                }
-                            ]
+                            emptyMsg : "No core_enum found"
                         },
                         toolbar : {
                             xtype: 'Toolbar',

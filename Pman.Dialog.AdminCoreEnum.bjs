@@ -80,17 +80,7 @@
                                     "displayInfo": true,
                                     "displayMsg": "Displaying core_enum{0} - {1} of {2}",
                                     "emptyMsg": "No core_enum found",
-                                    "|xns": "Roo",
-                                    "items": [
-                                        {
-                                            "listeners": {
-                                                "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid : _this.grid\n    });\n    Roo.MessageBox.alert(\"Downloading\", \"File is downloading\");\n}"
-                                            },
-                                            "text": "Download",
-                                            "xtype": "Button",
-                                            "|xns": "Roo.Toolbar"
-                                        }
-                                    ]
+                                    "|xns": "Roo"
                                 },
                                 {
                                     "*prop": "toolbar",
