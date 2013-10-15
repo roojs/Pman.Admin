@@ -336,6 +336,20 @@ Pman.Dialog.AdminCoreEnum = {
                 {
                     xtype: 'Button',
                     xns: Roo,
+                    listeners : {
+                        click : function (_self, e)
+                        {
+                            var sel = _this.grid.selModel.getSelectedCell();
+                            if (!sel) {
+                                Roo.MesssageBox.alert("Error", "Select an item");
+                                return;
+                            }
+                            var rec = _this.grid.getAt(sel[0]);
+                            if (_this.callback) {
+                               _this.callback(rec.data);
+                           }
+                        }
+                    },
                     text : "OK"
                 }
             ]
