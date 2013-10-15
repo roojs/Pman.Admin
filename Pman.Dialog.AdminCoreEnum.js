@@ -41,6 +41,7 @@ Pman.Dialog.AdminCoreEnum = {
                     }
                     
                   _this.grid.colModel.setHidden(1,name_hidden);
+                    _this.grid.footer.onClick('first');
                 }
             },
             height : 400,
