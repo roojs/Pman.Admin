@@ -203,6 +203,12 @@
                     "text": "OK",
                     "xtype": "Button",
                     "|xns": "Roo"
+                },
+                {
+                    "*prop": "buttons[]",
+                    "text": "OK",
+                    "xtype": "Button",
+                    "|xns": "Roo"
                 }
             ]
         }
