@@ -98,10 +98,8 @@ Pman.Dialog.AdminCoreEnum = {
                             listeners : {
                                 beforeload : function (_self, options)
                                 {
-                                    if (!_this.etypeCombo) {
-                                        return false;
-                                    }
-                                    options.params.etype = _this.etypeCombo.getValue();
+                                
+                                    options.params.etype = _this.data.etype;
                                     if (!options.params.etype.length) {
                                         return false;
                                     }
