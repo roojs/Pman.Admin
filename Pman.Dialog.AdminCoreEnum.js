@@ -347,8 +347,10 @@ Pman.Dialog.AdminCoreEnum = {
                                 Roo.MessageBox.alert("Error", "Select an item");
                                 return;
                             }
-                            var rec = _this.grid.getAt(sel[0]);
+                            
+                        
                             if (_this.callback) {
+                                var rec = _this.grid.getAt(sel[0]);
                                _this.callback(rec.data);
                            }
                            _this.dialog.hide();
