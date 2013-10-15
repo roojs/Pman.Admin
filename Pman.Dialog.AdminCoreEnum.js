@@ -344,7 +344,7 @@ Pman.Dialog.AdminCoreEnum = {
                         {
                             var sel = _this.grid.selModel.getSelectedCell();
                             if (!sel) {
-                                Roo.MesssageBox.alert("Error", "Select an item");
+                                Roo.MessageBox.alert("Error", "Select an item");
                                 return;
                             }
                             var rec = _this.grid.getAt(sel[0]);
