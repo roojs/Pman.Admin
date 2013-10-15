@@ -88,67 +88,6 @@
                                     "|xns": "Roo",
                                     "items": [
                                         {
-                                            "text": "Pulldown Name:",
-                                            "xtype": "TextItem",
-                                            "|xns": "Roo.Toolbar"
-                                        },
-                                        {
-                                            "listeners": {
-                                                "render": "function (_self)\n{\n    _this.etypeCombo = _self;\n}",
-                                                "select": "function (combo, record, index)\n{\n    _this.grid.footer.onClick('first');\n}"
-                                            },
-                                            "alwaysQuery": true,
-                                            "displayField": "name",
-                                            "editable": "false",
-                                            "emptyText": "Select pulldown",
-                                            "fieldLabel": "core_enum",
-                                            "forceSelection": true,
-                                            "listWidth": 400,
-                                            "loadingText": "Searching...",
-                                            "minChars": 2,
-                                            "pageSize": 50,
-                                            "qtip": "Select type",
-                                            "queryParam": "query[name]",
-                                            "selectOnFocus": true,
-                                            "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> - {name} </div>",
-                                            "triggerAction": "all",
-                                            "typeAhead": false,
-                                            "valueField": "name",
-                                            "width": 300,
-                                            "xtype": "ComboBox",
-                                            "|xns": "Roo.form",
-                                            "items": [
-                                                {
-                                                    "listeners": {
-                                                        "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['query[empty_etype]'] = 1; \n}\n"
-                                                    },
-                                                    "*prop": "store",
-                                                    "remoteSort": true,
-                                                    "xtype": "Store",
-                                                    "|sortInfo": "{ direction : 'ASC', field: 'display_name' }",
-                                                    "|xns": "Roo.data",
-                                                    "items": [
-                                                        {
-                                                            "*prop": "proxy",
-                                                            "xtype": "HttpProxy",
-                                                            "method": "GET",
-                                                            "|xns": "Roo.data",
-                                                            "|url": "baseURL + '/Roo/core_enum.php'"
-                                                        },
-                                                        {
-                                                            "*prop": "reader",
-                                                            "xtype": "JsonReader",
-                                                            "|xns": "Roo.data",
-                                                            "id": "id",
-                                                            "root": "data",
-                                                            "totalProperty": "total",
-                                                            "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"etype\",\"type\":\"string\"}]"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
                                             "listeners": {
                                                 "|click": "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.etypeCombo.getValue();\n    var ds = _this.grid.getDataSource();\n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n\n    var add = ds.reader.newRow({    \n             id: 0, \n             display_name : '', \n             name : '', \n             etype: et, \n             active: 1, \n             seqid: 0\n      });\n     var r = ds.data.length;\n    ds.insert(r  , add);  \n    _this.grid.startEditing(r, 1); // name... \n}\n"
                                             },
