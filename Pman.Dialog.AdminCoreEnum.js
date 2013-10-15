@@ -44,6 +44,7 @@ Pman.Dialog.AdminCoreEnum = {
                     _this.grid.footer.onClick('first');
                 }
             },
+            closable : false,
             height : 400,
             modal : true,
             title : "Pulldown Options",

@@ -9,6 +9,7 @@
             "listeners": {
                 "show": "function (_self)\n{\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n  _this.grid.colModel.setHidden(1,name_hidden);\n    _this.grid.footer.onClick('first');\n}"
             },
+            "closable": false,
             "height": 400,
             "modal": true,
             "title": "Pulldown Options",
