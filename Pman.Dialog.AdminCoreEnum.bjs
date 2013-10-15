@@ -200,7 +200,7 @@
                 },
                 {
                     "*prop": "buttons[]",
-                    "text": "OK",
+                    "text": "Cancel",
                     "xtype": "Button",
                     "|xns": "Roo"
                 },

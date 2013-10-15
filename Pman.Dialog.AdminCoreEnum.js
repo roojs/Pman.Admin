@@ -308,7 +308,7 @@ Pman.Dialog.AdminCoreEnum = {
                 {
                     xtype: 'Button',
                     xns: Roo,
-                    text : "OK"
+                    text : "Cancel"
                 },
                 {
                     xtype: 'Button',
