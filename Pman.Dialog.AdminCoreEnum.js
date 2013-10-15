@@ -45,6 +45,7 @@ Pman.Dialog.AdminCoreEnum = {
                 }
             },
             height : 400,
+            modal : true,
             title : "Pulldown Options",
             width : 950,
             items : [
