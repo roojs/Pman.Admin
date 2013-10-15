@@ -46,8 +46,8 @@ Pman.Dialog.AdminCoreEnum = {
                         }
                     },
                     background : false,
-                    fitContainer : false,
-                    fitToframe : false,
+                    fitContainer : true,
+                    fitToframe : true,
                     region : 'center',
                     tableName : 'core_enum',
                     title : "Pulldown Options",

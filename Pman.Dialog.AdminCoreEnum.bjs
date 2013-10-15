@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-313",
+    "id": "roo-file-180",
     "name": "Pman.Dialog.AdminCoreEnum",
     "parent": "",
     "title": "",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
+    "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
     "items": [
         {
             "height": 400,
@@ -22,8 +22,8 @@
                         "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                     },
                     "background": false,
-                    "fitContainer": false,
-                    "fitToframe": false,
+                    "fitContainer": true,
+                    "fitToframe": true,
                     "region": "center",
                     "tableName": "core_enum",
                     "title": "Pulldown Options",
