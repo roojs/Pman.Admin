@@ -7,7 +7,7 @@
     "items": [
         {
             "listeners": {
-                "show": "function (_self)\n{\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n _this.grid.colModel.setHidden(1,name_hidden);\n}"
+                "show": "function (_self)\n{\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n  _this.grid.colModel.setHidden(1,name_hidden);\n}"
             },
             "height": 400,
             "title": "Pulldown Options",
