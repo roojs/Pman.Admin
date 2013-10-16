@@ -126,7 +126,7 @@ Pman.Dialog.AdminCoreEnum = {
                                     if (operation != Roo.data.Record.COMMIT) {
                                         return;
                                     }
-                                    
+                                    Roo.log(record);
                                 
                                     if (typeof(_this.data._hide_name) != 'undefined') {
                                         record.set('name', record.data.display_name);
