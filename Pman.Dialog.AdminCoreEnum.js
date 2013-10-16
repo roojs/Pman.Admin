@@ -102,11 +102,13 @@ Pman.Dialog.AdminCoreEnum = {
                             beforeedit : function (e)
                             {
                                 Roo.log('before edit?');
+                                Roo.log(e);
                                 // force fill in of name first.. (Except when it's hidden)
                                 if (typeof(_this.data._hide_name) != 'undefined') { 
                                     if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){
                                         return ;
                                     }
+                                    
                                 }
                                 
                                 if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
