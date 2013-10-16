@@ -127,9 +127,9 @@ Pman.Dialog.AdminCoreEnum = {
                                         return;
                                     }
                                     
-                                    var name = record.data.name;
+                                
                                     if (typeof(_this.data._hide_name) != 'undefined') {
-                                        name =  record.data.display_name;
+                                        record.set('name', record.data.display_name);
                                     }
                                     // got commit..
                                     new Pman.Request({
@@ -138,7 +138,7 @@ Pman.Dialog.AdminCoreEnum = {
                                         params : {
                                             id : record.data.id,
                                             etype : _this.data.etype,
-                                            name :  name,
+                                            name :  record.data.name,
                                             active : record.data.active,
                                             seqid : record.data.seqid,
                                             display_name : record.data.display_name
