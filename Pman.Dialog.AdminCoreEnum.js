@@ -244,9 +244,11 @@ Pman.Dialog.AdminCoreEnum = {
                                              var r = ds.data.length;
                                             ds.insert(r  , add);  
                                             
-                                            
-                                            
-                                           // _this.grid.startEditing(r, 1); // name... 
+                                            var ec = 1;
+                                            if (typeof(_this.data._hide_name) != 'undefined') { 
+                                                ec =2;
+                                            }
+                                            _this.grid.startEditing(r, ec); // name... 
                                         }
                                     },
                                     cls : 'x-btn-text-icon',
