@@ -103,7 +103,11 @@ Pman.Dialog.AdminCoreEnum = {
                             {
                                 
                                 // force fill in of name first..
-                                
+                                if (typeof(_this.data._hide_name) != 'undefined') { 
+                                    if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){
+                                        return true;
+                                    }
+                                }
                                 
                                 if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
                                     return false;
