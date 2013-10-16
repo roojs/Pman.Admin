@@ -244,6 +244,9 @@ Pman.Dialog.AdminCoreEnum = {
                                               });
                                              var r = ds.data.length;
                                             ds.insert(r  , add);  
+                                            
+                                            
+                                            
                                             _this.grid.startEditing(r, 1); // name... 
                                         }
                                     },
