@@ -138,7 +138,7 @@ Pman.Dialog.AdminCoreEnum = {
                                         params : {
                                             id : record.data.id,
                                             etype : _this.data.etype,
-                                            name : record.data.name,
+                                            name :  name,
                                             active : record.data.active,
                                             seqid : record.data.seqid,
                                             display_name : record.data.display_name
