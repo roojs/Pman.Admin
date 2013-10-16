@@ -108,7 +108,7 @@ Pman.Dialog.AdminCoreEnum = {
                                     if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){
                                         return ;
                                     }
-                                    
+                             
                                 }
                                 
                                 if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
