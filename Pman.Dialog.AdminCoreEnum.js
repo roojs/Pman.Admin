@@ -110,6 +110,7 @@ Pman.Dialog.AdminCoreEnum = {
                                 }
                                 
                                 if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
+                                    Roo.log("block name?");
                                     return false;
                                 }
                             }
