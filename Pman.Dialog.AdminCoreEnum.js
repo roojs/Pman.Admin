@@ -101,6 +101,10 @@ Pman.Dialog.AdminCoreEnum = {
                             },
                             beforeedit : function (e)
                             {
+                                
+                                // force fill in of name first..
+                                
+                                
                                 if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
                                     return false;
                                 }
