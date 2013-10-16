@@ -82,7 +82,7 @@ Pman.Dialog.AdminCoreEnum = {
                             },
                             afteredit : function (e)
                             {
-                               (function() {  e.record.commit(); }).defer(100);
+                             //  (function() {  e.record.commit(); }).defer(100);
                             },
                             cellclick : function (_self, rowIndex, columnIndex, e)
                             {
