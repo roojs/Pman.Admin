@@ -247,7 +247,7 @@ Pman.Dialog.AdminCoreEnum = {
                                             
                                             
                                             
-                                            _this.grid.startEditing(r, 1); // name... 
+                                           // _this.grid.startEditing(r, 1); // name... 
                                         }
                                     },
                                     cls : 'x-btn-text-icon',
