@@ -131,6 +131,10 @@ Pman.Dialog.AdminCoreEnum = {
                                     if (typeof(_this.data._hide_name) != 'undefined') {
                                         record.set('name', record.data.display_name);
                                     }
+                                    if (!record.data.name.length) {
+                                        return;
+                                    }
+                                    
                                     // got commit..
                                     new Pman.Request({
                                         url : baseURL + '/Roo/Core_enum.php',
