@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-147",
+    "id": "roo-file-195",
     "name": "Pman.Tab.AdminLogDrill",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Pman.Tab.AdminLogDrill",
@@ -81,6 +81,7 @@
                                         {
                                             "*prop": "proxy",
                                             "method": "GET",
+                                            "timeout": 50000,
                                             "xtype": "HttpProxy",
                                             "|url": "baseURL + '/Roo/Events.php'",
                                             "|xns": "Roo.data"
@@ -137,6 +138,7 @@
                                         {
                                             "*prop": "proxy",
                                             "method": "GET",
+                                            "timeout": 60000,
                                             "xtype": "HttpProxy",
                                             "|url": "baseURL + '/Roo/Events.php'",
                                             "|xns": "Roo.data"

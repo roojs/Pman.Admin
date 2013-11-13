@@ -113,6 +113,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                                 xtype: 'HttpProxy',
                                 xns: Roo.data,
                                 method : 'GET',
+                                timeout : 50000,
                                 url : baseURL + '/Roo/Events.php'
                             },
                             reader : {
@@ -287,6 +288,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                                 xtype: 'HttpProxy',
                                 xns: Roo.data,
                                 method : 'GET',
+                                timeout : 60000,
                                 url : baseURL + '/Roo/Events.php'
                             },
                             reader : {
