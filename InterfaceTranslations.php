@@ -36,7 +36,7 @@ class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations
             $this->jerr("no module selected");
         }
         $this->init();
-        //DB_DataObject::debugLevel(1);
+         DB_DataObject::debugLevel(1);
         require_once 'Services/JSON.php';
         $d = DB_DataObject::factory('translations');
         $d->module = $module;
