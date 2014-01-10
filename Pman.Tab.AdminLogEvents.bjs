@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-222",
+    "id": "roo-file-206",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
-    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
     "items": [
         {
             "region": "center",
@@ -194,7 +194,7 @@
                                                     },
                                                     "allowBlank": true,
                                                     "displayField": "action",
-                                                    "editable": false,
+                                                    "editable": true,
                                                     "emptyText": "Select Action",
                                                     "forceSelection": true,
                                                     "listWidth": 300,
