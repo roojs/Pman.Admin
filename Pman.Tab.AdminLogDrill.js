@@ -76,7 +76,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
                         },
                         allowBlank : true,
                         displayField : 'action',
-                        editable : false,
+                        editable : true,
                         emptyText : "Select Action",
                         forceSelection : true,
                         listWidth : 300,
