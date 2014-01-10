@@ -919,7 +919,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         },
                                         allowBlank : true,
                                         displayField : 'on_table',
-                                        editable : false,
+                                        editable : true,
                                         emptyText : "Select Affects",
                                         forceSelection : true,
                                         listWidth : 300,
