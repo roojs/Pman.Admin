@@ -180,13 +180,34 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             listeners : {
                                 click : function (_self, e)
                                 {
-                                    new Pman.Download({
-                                        grid : _this.grid
-                                    });
-                                    Roo.MessageBox.alert("Downloading", "File is downloading");
+                                   Pman.Dialog.Image.show(
+                                       {
+                                            _url : baseURL+'/Xtuple/Import/Products',
+                                        
+                                       },
+                                       function (data) {
+                                            var msg = [];
+                                           
+                                            if (data.updated) {
+                                                msg.push("Updated " + data.updated + " Products(s)");
+                                            }            
+                                            if (data.inserted) {
+                                                msg.push("Added " + data.inserted + " Products(s)");
+                                            }
+                                            if (data.skipped) {
+                                                msg.push("Skipped " + data.skipped);
+                                            }
+                                            
+                                            if (!msg.length) {
+                                                msg.push("No data changed");
+                                            }
+                                            Roo.MessageBox.alert("Notice", msg.join("\n"));
+                                
+                                       }
+                                   );
                                 }
                             },
-                            text : "Download"
+                            text : "Upload new products and costs"
                         }
                     ]
                 },
