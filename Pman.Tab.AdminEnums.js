@@ -192,8 +192,8 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                             _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})
                                         
                                        },
-                                       function (data) {
-                                            
+                                       function () {
+                                            _this.grid.footer.onClick('first');
                                        }
                                    );
                                 }
