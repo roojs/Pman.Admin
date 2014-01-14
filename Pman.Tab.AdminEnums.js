@@ -183,7 +183,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                     var etype = _this.etypeCombo.getValue();
                                     
                                     if(!etype.length){
-                                        Roo.MessageBox('Error', 'Please select a pulldown');
+                                        Roo.MessageBox.alter('Error', 'Please select a pulldown');
                                         return;
                                     }
                                     
