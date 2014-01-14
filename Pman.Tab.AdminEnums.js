@@ -182,27 +182,11 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                 {
                                    Pman.Dialog.Image.show(
                                        {
-                                            _url : baseURL+'/Xtuple/Import/Products',
+                                            _url : baseURL+'/Xtuple/Import/Enum',
                                         
                                        },
                                        function (data) {
-                                            var msg = [];
-                                           
-                                            if (data.updated) {
-                                                msg.push("Updated " + data.updated + " Products(s)");
-                                            }            
-                                            if (data.inserted) {
-                                                msg.push("Added " + data.inserted + " Products(s)");
-                                            }
-                                            if (data.skipped) {
-                                                msg.push("Skipped " + data.skipped);
-                                            }
                                             
-                                            if (!msg.length) {
-                                                msg.push("No data changed");
-                                            }
-                                            Roo.MessageBox.alert("Notice", msg.join("\n"));
-                                
                                        }
                                    );
                                 }

@@ -80,7 +80,7 @@
                                 },
                                 {
                                     "listeners": {
-                                        "click": "function (_self, e)\n{\n   Pman.Dialog.Image.show(\n       {\n            _url : baseURL+'/Xtuple/Import/Products',\n        \n       },\n       function (data) {\n            var msg = [];\n           \n            if (data.updated) {\n                msg.push(\"Updated \" + data.updated + \" Products(s)\");\n            }            \n            if (data.inserted) {\n                msg.push(\"Added \" + data.inserted + \" Products(s)\");\n            }\n            if (data.skipped) {\n                msg.push(\"Skipped \" + data.skipped);\n            }\n            \n            if (!msg.length) {\n                msg.push(\"No data changed\");\n            }\n            Roo.MessageBox.alert(\"Notice\", msg.join(\"\\n\"));\n\n       }\n   );\n}"
+                                        "click": "function (_self, e)\n{\n   Pman.Dialog.Image.show(\n       {\n            _url : baseURL+'/Xtuple/Import/Enum',\n        \n       },\n       function (data) {\n            \n       }\n   );\n}"
                                     },
                                     "text": "Upload Value",
                                     "xtype": "Button",
