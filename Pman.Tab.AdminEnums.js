@@ -207,7 +207,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                    );
                                 }
                             },
-                            text : "Upload new products and costs"
+                            text : "Upload Value"
                         }
                     ]
                 },
