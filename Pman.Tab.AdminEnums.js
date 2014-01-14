@@ -180,8 +180,14 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             listeners : {
                                 click : function (_self, e)
                                 {
-                                
-                                   Pman.Dialog.Image.show(
+                                    var etype = _this.etypeCombo.getValue();
+                                    
+                                    if(!etype.length){
+                                        Roo.MessageBox('Error', 'Please select a pulldown');
+                                        return;
+                                    }
+                                    
+                                    Pman.Dialog.Image.show(
                                        {
                                             _url : baseURL+'/Xtuple/Import/Enum',
                                         
