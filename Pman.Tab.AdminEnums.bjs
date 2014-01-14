@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-162",
+    "id": "roo-file-221",
     "name": "Pman.Tab.AdminEnums",
     "parent": "Pman.Tab.Admin",
     "title": "Pman.Tab.AdminEnums",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
+    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminEnums.bjs",
     "items": [
         {
             "listeners": {
@@ -70,6 +70,14 @@
                             "emptyMsg": "No core_enum found",
                             "|xns": "Roo",
                             "items": [
+                                {
+                                    "listeners": {
+                                        "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid : _this.grid\n    });\n    Roo.MessageBox.alert(\"Downloading\", \"File is downloading\");\n}"
+                                    },
+                                    "text": "Download",
+                                    "xtype": "Button",
+                                    "|xns": "Roo.Toolbar"
+                                },
                                 {
                                     "listeners": {
                                         "click": "function (_self, e)\n{\n    new Pman.Download({\n        grid : _this.grid\n    });\n    Roo.MessageBox.alert(\"Downloading\", \"File is downloading\");\n}"
