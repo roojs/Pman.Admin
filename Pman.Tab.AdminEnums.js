@@ -180,6 +180,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                             listeners : {
                                 click : function (_self, e)
                                 {
+                                
                                    Pman.Dialog.Image.show(
                                        {
                                             _url : baseURL+'/Xtuple/Import/Enum',
