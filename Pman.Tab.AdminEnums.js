@@ -189,7 +189,7 @@ Pman.Tab.AdminEnums = new Roo.XComponent({
                                     
                                     Pman.Dialog.Image.show(
                                        {
-                                            _url : baseURL+'/Xtuple/Import/Enum',
+                                            _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})
                                         
                                        },
                                        function (data) {
