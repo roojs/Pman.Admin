@@ -380,7 +380,17 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         xns: Roo.grid,
                         dataIndex : 'person_id_name',
                         header : 'Who to notify',
-                        width : 200,
+                        width : 100,
+                        renderer : function(v,x,r) {
+                             return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data.person_id_email); 
+                         }
+                    },
+                    {
+                        xtype: 'ColumnModel',
+                        xns: Roo.grid,
+                        dataIndex : 'trigger_event_id',
+                        header : 'Triggered by',
+                        width : 100,
                         renderer : function(v,x,r) {
                              return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data.person_id_email); 
                          }
