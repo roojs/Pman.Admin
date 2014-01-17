@@ -392,7 +392,12 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         header : 'Triggered by',
                         width : 100,
                         renderer : function(v,x,r) {
-                             return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data.person_id_email); 
+                             return String.format(
+                                    '{0} : {1} {2}', 
+                                    r.data.trigger_event_id_on_table, 
+                                    r.data.trigger_event_id_on_id, 
+                                    r.data.trigger_event_id_remarks
+                                ); 
                          }
                     },
                     {

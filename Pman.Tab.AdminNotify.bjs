@@ -213,7 +213,7 @@
                             "header": "Triggered by",
                             "width": 100,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) {\n     return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data.person_id_email); \n }",
+                            "|renderer": "function(v,x,r) {\n     return String.format(\n            '{0} : {1} {2}', \n            r.data.trigger_event_id_on_table, \n            r.data.trigger_event_id_on_id, \n            r.data.trigger_event_id_remarks\n        ); \n }",
                             "|xns": "Roo.grid"
                         },
                         {
