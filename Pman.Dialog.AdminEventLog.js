@@ -36,12 +36,6 @@ Pman.Dialog.AdminEventLog = {
                 {
                     xtype: 'GridPanel',
                     xns: Roo,
-                    title : "Events",
-                    fitToframe : true,
-                    fitContainer : true,
-                    tableName : 'Events',
-                    background : true,
-                    region : 'center',
                     listeners : {
                         activate : function() {
                             _this.panel = this;
@@ -50,6 +44,12 @@ Pman.Dialog.AdminEventLog = {
                             }
                         }
                     },
+                    background : false,
+                    fitContainer : true,
+                    fitToframe : true,
+                    region : 'center',
+                    tableName : 'Events',
+                    title : "Events",
                     grid : {
                         xtype: 'Grid',
                         xns: Roo.grid,

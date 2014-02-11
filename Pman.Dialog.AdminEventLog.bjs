@@ -17,17 +17,17 @@
                     "*prop": "center"
                 },
                 {
-                    "|xns": "Roo",
-                    "xtype": "GridPanel",
-                    "title": "Events",
-                    "fitToframe": true,
-                    "fitContainer": true,
-                    "tableName": "Events",
-                    "background": true,
-                    "region": "center",
                     "listeners": {
                         "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                     },
+                    "background": false,
+                    "fitContainer": true,
+                    "fitToframe": true,
+                    "region": "center",
+                    "tableName": "Events",
+                    "title": "Events",
+                    "xtype": "GridPanel",
+                    "|xns": "Roo",
                     "items": [
                         {
                             "*prop": "grid",
