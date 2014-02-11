@@ -6,6 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEventLog.bjs",
     "items": [
         {
+            "listeners": {
+                "show": "function (_self)\n{\n    _this.grid.onClick('first');\n}"
+            },
             "height": 500,
             "title": "Event history",
             "width": 800,

@@ -30,6 +30,12 @@ Pman.Dialog.AdminEventLog = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
+            listeners : {
+                show : function (_self)
+                {
+                    _this.grid.onClick('first');
+                }
+            },
             height : 500,
             title : "Event history",
             width : 800,
