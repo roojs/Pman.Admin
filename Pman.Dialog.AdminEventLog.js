@@ -284,7 +284,8 @@ Pman.Dialog.AdminEventLog = {
             buttons : [
                 {
                     xtype: 'Button',
-                    xns: Roo
+                    xns: Roo,
+                    text : "Close"
                 }
             ]
         });

@@ -127,9 +127,10 @@
                     ]
                 },
                 {
-                    "|xns": "Roo",
+                    "*prop": "buttons[]",
+                    "text": "Close",
                     "xtype": "Button",
-                    "*prop": "buttons[]"
+                    "|xns": "Roo"
                 }
             ]
         }
