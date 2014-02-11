@@ -31,6 +31,7 @@ Pman.Dialog.AdminEventLog = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 500,
+            title : "Event history",
             width : 800,
             items : [
                 {
