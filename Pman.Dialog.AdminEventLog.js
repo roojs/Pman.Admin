@@ -30,6 +30,7 @@ Pman.Dialog.AdminEventLog = {
         this.dialog = Roo.factory({
             xtype: 'LayoutDialog',
             xns: Roo,
+            width : 500,
             items : [
                 {
                     xtype: 'GridPanel',

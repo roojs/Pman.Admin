@@ -6,8 +6,9 @@
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEventLog.bjs",
     "items": [
         {
-            "|xns": "Roo",
+            "width": 500,
             "xtype": "LayoutDialog",
+            "|xns": "Roo",
             "items": [
                 {
                     "|xns": "Roo",
