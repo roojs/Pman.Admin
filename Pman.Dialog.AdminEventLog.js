@@ -222,47 +222,6 @@ Pman.Dialog.AdminEventLog = {
                             displayMsg : "Displaying Events{0} - {1} of {2}",
                             emptyMsg : "No Events found"
                         },
-                        toolbar : {
-                            xtype: 'Toolbar',
-                            xns: Roo,
-                            items : [
-                                {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
-                                    text : "Edit",
-                                    cls : 'x-btn-text-icon',
-                                    icon : Roo.rootURL + 'images/default/tree/leaf.gif',
-                                    listeners : {
-                                        click : function()
-                                        {
-                                            var s = _this.grid.getSelectionModel().getSelections();
-                                            if (!s.length || (s.length > 1))  {
-                                                Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                                                return;
-                                            }
-                                            if (!_this.dialog) return;
-                                            _this.dialog.show(s[0].data, function() {
-                                                _this.grid.footer.onClick('first');
-                                            }); 
-                                            
-                                        }
-                                    }
-                                },
-                                {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
-                                    text : "Delete",
-                                    cls : 'x-btn-text-icon',
-                                    icon : rootURL + '/Pman/templates/images/trash.gif',
-                                    listeners : {
-                                        click : function()
-                                        {
-                                             Pman.genericDelete(_this, 'Events'); 
-                                        }
-                                    }
-                                }
-                            ]
-                        },
                         colModel : [
                             {
                                 xtype: 'ColumnModel',
