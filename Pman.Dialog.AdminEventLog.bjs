@@ -41,9 +41,12 @@
                             "|xns": "Roo.grid",
                             "items": [
                                 {
+                                    "listeners": {
+                                        "beforeload": "function (_self,o )\n{\n    o.params.on_table = _this.data.on_table;\n    o.params.on_id = _this.data.on_id;\n}"
+                                    },
                                     "*prop": "dataSource",
-                                    "xtype": "Store",
                                     "remoteSort": true,
+                                    "xtype": "Store",
                                     "|sortInfo": "{ field : 'person_name', direction: 'ASC' }",
                                     "|xns": "Roo.data",
                                     "items": [

@@ -75,6 +75,13 @@ Pman.Dialog.AdminEventLog = {
                         dataSource : {
                             xtype: 'Store',
                             xns: Roo.data,
+                            listeners : {
+                                beforeload : function (_self,o )
+                                {
+                                    o.params.on_table = _this.data.on_table;
+                                    o.params.on_id = _this.data.on_id;
+                                }
+                            },
                             remoteSort : true,
                             sortInfo : { field : 'person_name', direction: 'ASC' },
                             proxy : {
