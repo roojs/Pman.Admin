@@ -363,7 +363,11 @@ Pman.Dialog.AdminEventLog = {
                         ]
                     }
                 }
-            ]
+            ],
+            center : {
+                xtype: 'LayoutRegion',
+                xns: Roo
+            }
         });
     }
 };
