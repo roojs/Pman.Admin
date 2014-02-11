@@ -252,7 +252,7 @@ Pman.Dialog.AdminEventLog = {
                                 xns: Roo.grid,
                                 dataIndex : 'ipaddr',
                                 header : 'Ipaddr',
-                                width : 200,
+                                width : 80,
                                 renderer : function(v) { return String.format('{0}', v); }
                             },
                             {
