@@ -4,7 +4,12 @@
     "parent": "",
     "title": "",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEventLog.bjs",
-    "items": false,
+    "items": [
+        {
+            "|xns": "Roo",
+            "xtype": "LayoutDialog"
+        }
+    ],
     "permname": "",
     "modOrder": "001"
 }
