@@ -31,7 +31,7 @@ Pman.Dialog.AdminEventLog = {
             xtype: 'LayoutDialog',
             xns: Roo,
             height : 500,
-            width : 500,
+            width : 800,
             items : [
                 {
                     xtype: 'GridPanel',
