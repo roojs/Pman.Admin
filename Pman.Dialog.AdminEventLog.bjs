@@ -127,6 +127,9 @@
                     ]
                 },
                 {
+                    "listeners": {
+                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+                    },
                     "*prop": "buttons[]",
                     "text": "Close",
                     "xtype": "Button",

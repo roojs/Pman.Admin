@@ -285,6 +285,12 @@ Pman.Dialog.AdminEventLog = {
                 {
                     xtype: 'Button',
                     xns: Roo,
+                    listeners : {
+                        click : function (_self, e)
+                        {
+                            _this.dialog.hide();
+                        }
+                    },
                     text : "Close"
                 }
             ]
