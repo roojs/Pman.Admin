@@ -258,22 +258,6 @@ Pman.Dialog.AdminEventLog = {
                             {
                                 xtype: 'ColumnModel',
                                 xns: Roo.grid,
-                                header : 'On',
-                                width : 75,
-                                dataIndex : 'on_id',
-                                renderer : function(v) { return String.format('{0}', v); }
-                            },
-                            {
-                                xtype: 'ColumnModel',
-                                xns: Roo.grid,
-                                header : 'On table',
-                                width : 200,
-                                dataIndex : 'on_table',
-                                renderer : function(v) { return String.format('{0}', v); }
-                            },
-                            {
-                                xtype: 'ColumnModel',
-                                xns: Roo.grid,
                                 header : 'Person',
                                 width : 75,
                                 dataIndex : 'person_id',
