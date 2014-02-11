@@ -242,17 +242,17 @@ Pman.Dialog.AdminEventLog = {
                             {
                                 xtype: 'ColumnModel',
                                 xns: Roo.grid,
-                                header : 'Action',
-                                width : 200,
                                 dataIndex : 'action',
+                                header : 'Action',
+                                width : 80,
                                 renderer : function(v) { return String.format('{0}', v); }
                             },
                             {
                                 xtype: 'ColumnModel',
                                 xns: Roo.grid,
+                                dataIndex : 'ipaddr',
                                 header : 'Ipaddr',
                                 width : 200,
-                                dataIndex : 'ipaddr',
                                 renderer : function(v) { return String.format('{0}', v); }
                             },
                             {
