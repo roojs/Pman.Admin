@@ -33,7 +33,7 @@ Pman.Dialog.AdminEventLog = {
             listeners : {
                 show : function (_self)
                 {
-                    _this.grid.onClick('first');
+                    _this.grid.footer.onClick('first');
                 }
             },
             height : 500,
