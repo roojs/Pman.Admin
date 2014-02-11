@@ -93,7 +93,7 @@ Pman.Dialog.AdminEventLog = {
                                 }
                             },
                             remoteSort : true,
-                            sortInfo : { field : 'person_name', direction: 'ASC' },
+                            sortInfo : { field : 'event_when', direction: 'DESC' },
                             proxy : {
                                 xtype: 'HttpProxy',
                                 xns: Roo.data,
