@@ -229,22 +229,6 @@ Pman.Dialog.AdminEventLog = {
                                 {
                                     xtype: 'Button',
                                     xns: Roo.Toolbar,
-                                    text : "Add",
-                                    cls : 'x-btn-text-icon',
-                                    icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-                                    listeners : {
-                                        click : function()
-                                        {
-                                            if (!_this.dialog) return;
-                                            _this.dialog.show( { id : 0 } , function() {
-                                                _this.grid.footer.onClick('first');
-                                           }); 
-                                        }
-                                    }
-                                },
-                                {
-                                    xtype: 'Button',
-                                    xns: Roo.Toolbar,
                                     text : "Edit",
                                     cls : 'x-btn-text-icon',
                                     icon : Roo.rootURL + 'images/default/tree/leaf.gif',
@@ -280,14 +264,6 @@ Pman.Dialog.AdminEventLog = {
                             ]
                         },
                         colModel : [
-                            {
-                                xtype: 'ColumnModel',
-                                xns: Roo.grid,
-                                header : 'Id',
-                                width : 75,
-                                dataIndex : 'id',
-                                renderer : function(v) { return String.format('{0}', v); }
-                            },
                             {
                                 xtype: 'ColumnModel',
                                 xns: Roo.grid,

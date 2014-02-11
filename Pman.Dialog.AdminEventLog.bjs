@@ -80,16 +80,6 @@
                                     "|xns": "Roo",
                                     "items": [
                                         {
-                                            "text": "Add",
-                                            "xtype": "Button",
-                                            "cls": "x-btn-text-icon",
-                                            "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                            "listeners": {
-                                                "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                            },
-                                            "|xns": "Roo.Toolbar"
-                                        },
-                                        {
                                             "text": "Edit",
                                             "xtype": "Button",
                                             "cls": "x-btn-text-icon",
@@ -110,15 +100,6 @@
                                             "|xns": "Roo.Toolbar"
                                         }
                                     ]
-                                },
-                                {
-                                    "xtype": "ColumnModel",
-                                    "header": "Id",
-                                    "width": 75,
-                                    "dataIndex": "id",
-                                    "|renderer": "function(v) { return String.format('{0}', v); }",
-                                    "|xns": "Roo.grid",
-                                    "*prop": "colModel[]"
                                 },
                                 {
                                     "xtype": "ColumnModel",
