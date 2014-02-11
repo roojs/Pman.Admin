@@ -78,7 +78,7 @@ Pman.Dialog.AdminEventLog = {
                             listeners : {
                                 beforeload : function (_self,o )
                                 {
-                                    if (!_this.data.on_id) {
+                                    if (!_this.data || !_this.data.on_id) {
                                         return false;
                                     }
                                     o.params.on_table = _this.data.on_table;
