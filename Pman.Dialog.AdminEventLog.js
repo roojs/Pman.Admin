@@ -90,6 +90,10 @@ Pman.Dialog.AdminEventLog = {
                                     }
                                     o.params.on_table = _this.data.on_table;
                                     o.params.on_id = _this.data.on_id;
+                                    
+                                    if (typeof(_this.data.person_table) != 'undefined') {
+                                         o.params.person_table =_this.data.person_table;
+                                     }
                                 }
                             },
                             remoteSort : true,
