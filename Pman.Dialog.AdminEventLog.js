@@ -53,8 +53,6 @@ Pman.Dialog.AdminEventLog = {
                     grid : {
                         xtype: 'Grid',
                         xns: Roo.grid,
-                        autoExpandColumn : 'person_name',
-                        loadMask : true,
                         listeners : {
                             render : function() 
                             {
@@ -72,6 +70,8 @@ Pman.Dialog.AdminEventLog = {
                                 }); 
                             }
                         },
+                        autoExpandColumn : 'remarks',
+                        loadMask : true,
                         dataSource : {
                             xtype: 'Store',
                             xns: Roo.data,
