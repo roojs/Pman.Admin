@@ -13,11 +13,6 @@
             "items": [
                 {
                     "|xns": "Roo",
-                    "xtype": "Button",
-                    "*prop": "buttons[]"
-                },
-                {
-                    "|xns": "Roo",
                     "xtype": "LayoutRegion",
                     "*prop": "center"
                 },
@@ -130,6 +125,11 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "|xns": "Roo",
+                    "xtype": "Button",
+                    "*prop": "buttons[]"
                 }
             ]
         }
