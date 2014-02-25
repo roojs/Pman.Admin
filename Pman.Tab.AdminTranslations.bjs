@@ -369,7 +369,7 @@
                                         },
                                         {
                                             "*prop": "colModel[]",
-                                            "dataIndex": "lval_en",
+                                            "dataIndex": "is_active",
                                             "header": "English",
                                             "width": 150,
                                             "xtype": "ColumnModel",
