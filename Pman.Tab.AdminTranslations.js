@@ -611,7 +611,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     xtype: 'ColumnModel',
                                     xns: Roo.grid,
                                     dataIndex : 'is_active',
-                                    header : 'English',
+                                    header : 'Active?',
                                     width : 150,
                                     renderer : function(v) { return String.format('{0}', v); }
                                 }
