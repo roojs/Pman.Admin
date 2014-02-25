@@ -466,7 +466,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         },
                                         success: function(res)
                                         {
-                                            _this.langgrid.ds.load({});
+                                            //_this.langgrid.ds.load({});
                                             
                                         }
                                     }); 
