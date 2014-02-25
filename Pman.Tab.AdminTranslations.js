@@ -450,6 +450,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     if(_this.langgrid.colModel.getDataIndex(columnIndex) !== 'is_active'){
                                         return;
                                     }
+                                    
+                                    Roo.log('click');
                                 }
                             },
                             autoExpandColumn : 'lval',
