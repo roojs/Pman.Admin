@@ -457,16 +457,18 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         return;
                                     }
                                     
+                                    s.set('is_active', s.data.is_active ? 0 : 1);
+                                    
                                     new Pman.Request({
                                         url : baseURL+'/Roo/I18n',
                                         method : 'POST',
                                         params : {
                                             id : s.data.id,
-                                            is_active : s.data.is_active ? 0 : 1
+                                            is_active : s.data.is_active
                                         },
                                         success: function(res)
                                         {
-                                            _this.langgrid.ds.load({});
+                                            
                                             
                                         }
                                     }); 
