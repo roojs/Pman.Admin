@@ -465,10 +465,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         params : {
                                             id : s.data.id,
                                             is_active : s.data.is_active
-                                        },
-                                        success: function(res)
-                                        {
-                                        
                                         }
                                     }); 
                                     
