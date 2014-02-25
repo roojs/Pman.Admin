@@ -613,7 +613,12 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                     dataIndex : 'is_active',
                                     header : 'Active?',
                                     width : 150,
-                                    renderer : function(v) { return String.format('{0}', v); }
+                                    renderer : function(v,x,r) { 
+                                    
+                                        return '<img class="x-grid-check-icon' + (v*1 ? '-checked' : '')  + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                                                                            
+                                        
+                                    }
                                 }
                             ]
                         }
