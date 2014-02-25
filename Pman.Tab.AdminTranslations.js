@@ -451,7 +451,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         return;
                                     }
                                     
-                                    Roo.log('click');
+                                    var s = _this.langgrid.ds.getAt(rowIndex);
+                                    
+                                    if(!s || s.data.id * 1 < 0){
+                                        return;
+                                    }
+                                    
+                                    
+                                    
+                                    
                                 }
                             },
                             autoExpandColumn : 'lval',
