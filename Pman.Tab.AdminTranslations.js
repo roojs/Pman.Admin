@@ -444,7 +444,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                            
                                             
                                             return true;
-                                        }
+                                        },
+                                cellclick : function (_self, rowIndex, columnIndex, e)
+                                {
+                                    if(_this.langgrid.colModel.getDataIndex(columnIndex) !== 'is_active'){
+                                        return;
+                                    }
+                                }
                             },
                             autoExpandColumn : 'lval',
                             clicksToEdit : 1,
