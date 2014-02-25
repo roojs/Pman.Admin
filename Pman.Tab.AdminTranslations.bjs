@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-168",
+    "id": "roo-file-275",
     "name": "Pman.Tab.AdminTranslations",
     "parent": "Pman.Tab.Admin",
     "title": "Admin - Translations",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
+    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
     "items": [
         {
             "region": "center",
@@ -366,6 +366,15 @@
                                                     ]
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "*prop": "colModel[]",
+                                            "dataIndex": "lval_en",
+                                            "header": "English",
+                                            "width": 150,
+                                            "xtype": "ColumnModel",
+                                            "|renderer": "function(v) { return String.format('{0}', v); }",
+                                            "|xns": "Roo.grid"
                                         }
                                     ]
                                 }

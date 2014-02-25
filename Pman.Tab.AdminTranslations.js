@@ -606,6 +606,14 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                             xns: Roo.form
                                         }
                                     }
+                                },
+                                {
+                                    xtype: 'ColumnModel',
+                                    xns: Roo.grid,
+                                    dataIndex : 'lval_en',
+                                    header : 'English',
+                                    width : 150,
+                                    renderer : function(v) { return String.format('{0}', v); }
                                 }
                             ]
                         }
