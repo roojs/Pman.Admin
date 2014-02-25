@@ -468,8 +468,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         },
                                         success: function(res)
                                         {
-                                            
-                                            
+                                        
                                         }
                                     }); 
                                     
