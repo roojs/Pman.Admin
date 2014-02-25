@@ -457,7 +457,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                         return;
                                     }
                                     
+                                    s.data.is_active = s.data.is_active ? 0 : 1;
                                     
+                                    s.data.commit();
                                     
                                     
                                 }
