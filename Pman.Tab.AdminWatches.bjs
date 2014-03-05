@@ -15,7 +15,6 @@
             "fitToframe": true,
             "region": "center",
             "tableName": "core_watch",
-            "title": "Watches",
             "xtype": "GridPanel",
             "|xns": "Roo",
             "items": [
