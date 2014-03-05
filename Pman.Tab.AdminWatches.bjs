@@ -163,7 +163,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "event",
                             "header": "Watch Event",
-                            "width": 100,
+                            "width": 150,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid"
