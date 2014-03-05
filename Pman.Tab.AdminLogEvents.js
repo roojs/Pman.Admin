@@ -46,7 +46,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 }
                             }
                         },
-                        background : true,
+                        background : false,
                         fitContainer : true,
                         fitToframe : true,
                         region : 'center',

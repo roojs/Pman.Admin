@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-206",
+    "id": "roo-file-228",
     "name": "Pman.Tab.AdminLogEvents",
     "parent": "Pman.Tab.AdminLogs",
     "title": "Admin - Logs - Events",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
+    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
     "items": [
         {
             "region": "center",
@@ -42,7 +42,7 @@
                             "listeners": {
                                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
-                            "background": true,
+                            "background": false,
                             "fitContainer": true,
                             "fitToframe": true,
                             "region": "center",
