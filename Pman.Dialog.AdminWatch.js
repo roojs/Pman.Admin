@@ -492,6 +492,7 @@ Pman.Dialog.AdminWatch = {
                                     displayField : 'val',
                                     editable : true,
                                     fieldLabel : 'Action',
+                                    forceSelection : false,
                                     listWidth : 200,
                                     name : 'medium',
                                     triggerAction : 'all',
