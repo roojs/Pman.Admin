@@ -363,8 +363,8 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                             var ar = v.split(':');
                             if (ar.length > 1) {
                                 var act = ar[1].replace(/^notify/,'');
-                                Roo.log(act);
-                                return String.format('<span qtip="{0}>{1}<span>', v, act);
+                        
+                                return String.format('<span qtip="{0}">{1}<span>', v, act);
                             }
                         
                             return String.format('{0}', v);
