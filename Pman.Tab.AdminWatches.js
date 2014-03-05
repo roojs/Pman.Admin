@@ -2,36 +2,19 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
-
-
-// register the module first
-Pman.on('beforeload', function()
-{
-    Pman.register({
-        part :  ["Admin","Watches"],
-        modKey : '860-Pman.Tab.AdminWatches',
-        module : Pman.Tab.AdminWatches,
-        region : 'center',
-        parent : Pman.Tab.AdminWatchNotify,
-        name : "Pman.Tab.AdminWatches",
-        disabled : false, 
-        permname: '' 
-    });
-});
-
-Pman.Tab.AdminWatches = new Roo.util.Observable({
-
-    panel : false,
-    disabled : false,
-    parentLayout:  false,
-
-    add : function(parentLayout, region)
+Pman.Tab.AdminWatches = new Roo.XComponent({
+    part     :  ["Admin","Watches"],
+    order    : '860-Pman.Tab.AdminWatches',
+    region   : 'center',
+    parent   : 'Pman.Tab.AdminWatchNotify',
+    name     : "Pman.Tab.AdminWatches",
+    disabled : false, 
+    permname : '', 
+    _tree : function()
     {
-
         var _this = this;
-        this.parentLayout = parentLayout;
-
-        this.panel = parentLayout.addxtype({
+        var MODULE = this;
+        return {
             xtype: 'GridPanel',
             xns: Roo,
             listeners : {
@@ -316,28 +299,6 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                         {
                             xtype: 'Button',
                             xns: Roo.Toolbar,
-                            text : "Edit",
-                            cls : 'x-btn-text-icon',
-                            icon : Roo.rootURL + 'images/default/tree/leaf.gif',
-                            listeners : {
-                                click : function()
-                                {
-                                    var s = _this.grid.getSelectionModel().getSelections();
-                                    if (!s.length || (s.length > 1))  {
-                                        Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                                        return;
-                                    }
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show(s[0].data, function() {
-                                        _this.grid.footer.onClick('first');
-                                    }); 
-                                    
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'Button',
-                            xns: Roo.Toolbar,
                             text : "Delete",
                             cls : 'x-btn-text-icon',
                             icon : rootURL + '/Pman/templates/images/trash.gif',
@@ -401,8 +362,6 @@ Pman.Tab.AdminWatches = new Roo.util.Observable({
                     }
                 ]
             }
-        });
-        this.layout = this.panel.layout;
-
+        };
     }
 });
