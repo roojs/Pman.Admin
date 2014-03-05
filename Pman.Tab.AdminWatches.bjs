@@ -32,7 +32,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, options)\n{\n        var val = _this.affectSel.getValue();\n        if (val.length) {\n            options.params.ontable = val;\n        }\n        \n}"
+                                "beforeload": "function (_self, options)\n{\n        var val = _this.affectSel.getValue();\n        if (val.length) {\n            options.params.ontable = val;\n        }\n        if (_this.requestArgs) { \n            Roo.apply(options.params, _this.requestArgs);\n        }\n        \n}"
                             },
                             "*prop": "dataSource",
                             "remoteSort": true,

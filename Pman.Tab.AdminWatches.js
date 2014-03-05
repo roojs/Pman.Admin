@@ -64,6 +64,9 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                                 if (val.length) {
                                     options.params.ontable = val;
                                 }
+                                if (_this.requestArgs) { 
+                                    Roo.apply(options.params, _this.requestArgs);
+                                }
                                 
                         }
                     },
