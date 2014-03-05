@@ -31,6 +31,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
             fitToframe : true,
             region : 'center',
             tableName : 'core_watch',
+            title : (function() { return _this.title || "Watches"; })(),
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
