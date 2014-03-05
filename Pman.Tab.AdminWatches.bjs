@@ -199,7 +199,7 @@
                             "*prop": "colModel[]",
                             "dataIndex": "medium",
                             "header": "What happens",
-                            "width": 200,
+                            "width": 300,
                             "xtype": "ColumnModel",
                             "|renderer": "function(v) { return String.format('{0}', v); }",
                             "|xns": "Roo.grid"

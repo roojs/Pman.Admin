@@ -358,7 +358,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                         xns: Roo.grid,
                         dataIndex : 'medium',
                         header : 'What happens',
-                        width : 200,
+                        width : 300,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
