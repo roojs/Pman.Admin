@@ -165,7 +165,7 @@
                             "header": "Watch Event",
                             "width": 150,
                             "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) { \n    if (typeof(r.data.event_right_display_name) != 'undefined') {\n        return String.format('{0} {1}', r.data.event_left, r.data.event_right_display_name);     \n    }\n    return String.format('{0}', v); \n    \n}",
+                            "|renderer": "function(v,x,r) { \n    if (typeof(r.data.event_right_display_name) != 'undefined') {\n        return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     \n    }\n    return String.format('{0}', v); \n    \n}",
                             "|xns": "Roo.grid"
                         },
                         {

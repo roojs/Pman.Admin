@@ -323,7 +323,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                         width : 150,
                         renderer : function(v,x,r) { 
                             if (typeof(r.data.event_right_display_name) != 'undefined') {
-                                return String.format('{0} {1}', r.data.event_left, r.data.event_right_display_name);     
+                                return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     
                             }
                             return String.format('{0}', v); 
                             
