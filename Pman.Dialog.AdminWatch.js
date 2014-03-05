@@ -119,7 +119,7 @@ Pman.Dialog.AdminWatch = {
                                             {
                                                 o.params = o.params || {};
                                                 // staff can see all logs, other companies can only see their own.
-                                                if (Pman.Login.authUser.company_id_comptype != 'OWNER') {
+                                                if ((typeof(Pman.Login) != 'undefined') && Pman.Login.authUser.company_id_comptype != 'OWNER') {
                                                     o.params.company_id = Pman.Login.authUser.company_id;
                                                 }
                                                 o.params._distinct = 'on_table';
