@@ -40,7 +40,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                     {
                         _this.grid = this; 
                         if (!_this.dialog) {
-                            //_this.dialog = Pman.Dialog.PersonEdit;
+                            _this.dialog = Pman.Dialog.PersonEdit;
                             
                         }
                         //_this.dialog = Pman.Dialog.FILL_IN
