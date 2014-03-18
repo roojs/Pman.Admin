@@ -239,7 +239,11 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                             // build a list of selections.
                             var sels = [];
-                            for (var i=0; i < data.selections.length; i++) {
+                            for (var i=0; i < data.selections.length; i++){
+                                if(data.selections[i].data){
+                                
+                                }
+                                Roo.log(data.selections[i].data);
                                 sels.push(data.selections[i].data.id);
                             }
                             Roo.log('submit');
