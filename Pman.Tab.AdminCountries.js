@@ -48,7 +48,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                     }
                 },
                 autoExpandColumn : 'name',
-                ddGroup : 'groupDD',
+                ddGroup : 'countryDD',
                 enableDrop : true,
                 loadMask : true,
                 dataSource : {

@@ -22,7 +22,7 @@
                     },
                     "*prop": "grid",
                     "autoExpandColumn": "name",
-                    "ddGroup": "groupDD",
+                    "ddGroup": "countryDD",
                     "enableDrop": true,
                     "loadMask": true,
                     "xtype": "Grid",
