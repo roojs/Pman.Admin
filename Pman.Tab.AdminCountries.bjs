@@ -81,7 +81,7 @@
                                 "over": "function (source, e, data)\n{\n    // Roo.log(\"dragover\");\n     \n    //Roo.log(e);\n    var t = Roo.lib.Event.getTarget(e); \n       //  Roo.log(t);\n    var ri = _this.grid.view.findRowIndex(t);\n      //            Roo.log(ri);\n    \n    var rid  = false;\n    if (ri !== false) {\n        rid = _this.grid.getDataSource().getAt(ri).data;\n    }\n    \n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    var isFromGroup = s.length ? s[0].data.id > 0 : false;\n    \n    var isToGroup = rid && rid.id > 0;\n    \n//    Roo.log(\"isToGroup:\"  + isToGroup + \", isFromGroup\" + isFromGroup);\n     \n    if (isFromGroup && isToGroup) {\n        this.valid = false;\n//        Roo.log('not valid');\n        return;\n    }\n    if (!isFromGroup && !isToGroup) {\n        this.valid = false;\n//        Roo.log('not valid');\n        return  \n    }\n    if (isFromGroup && !isToGroup) {\n        this.valid = 'ok-sub'; \n        return;\n    } \n    //if (!isFromGroup && isToGroup) {\n    this.valid = 'ok-add';\n//    Roo.log('add'); \n    //}\n}"
                             },
                             "*prop": "dropTarget",
-                            "ddGroup": "groupDD",
+                            "ddGroup": "countryDD",
                             "xtype": "DropTarget",
                             "|xns": "Roo.dd"
                         }
