@@ -273,6 +273,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         over : function (source, e, data)
                         {
                             Roo.log("dragover");
+                            Roo.log(source);
                             Roo.log(e);
                             var t = Roo.lib.Event.getTarget(e); 
                                  Roo.log(t);
@@ -290,7 +291,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             
                             var isToGroup = rid && rid.id > 0;
                             
-                            Roo.log("isToGroup:"  + isToGroup + ", isFromGroup" + isFromGroup);
+                            Roo.log("isToGroup:"  + isToGroup + ", isFromGroup:" + isFromGroup);
                              
                             if (isFromGroup && isToGroup) {
                                 this.valid = false;
