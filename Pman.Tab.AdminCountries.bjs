@@ -6,8 +6,12 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCountries.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "GridPanel"
+            "background": true,
+            "fitContainer": true,
+            "fitToFrame": true,
+            "region": "west",
+            "xtype": "GridPanel",
+            "|xns": "Roo"
         }
     ],
     "permname": "",

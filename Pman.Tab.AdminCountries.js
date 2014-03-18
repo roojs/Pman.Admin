@@ -16,7 +16,11 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
         var MODULE = this;
         return {
             xtype: 'GridPanel',
-            xns: Roo
+            xns: Roo,
+            background : true,
+            fitContainer : true,
+            fitToFrame : true,
+            region : 'west'
         };
     }
 });
