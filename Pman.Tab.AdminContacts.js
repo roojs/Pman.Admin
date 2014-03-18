@@ -115,15 +115,14 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 
                             }
                             
-                            if (Pman.Tab.AdminCountries && Pman.Tab.AdminCountries.grid) {
+                            if(Pman.Tab.AdminCountries && Pman.Tab.AdminCountries.grid){
                                 var tms = Pman.Tab.AdminCountries.grid.getSelectionModel().getSelected();
                                 
                                 if (!tms) {
                                     return false;
                                 }
                                 o.params['query[in_country]'] = tms.data.country;
-                                //o.params['query[type]'] = 2; // group type..
-                                
+                                o.params['query[in_group]'] = 0;
                             }
                             
                             //o.params['query[name]'] = _this.searchBox.getValue();
