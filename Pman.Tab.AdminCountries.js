@@ -238,7 +238,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             var targetCountry = rid.country;
                             var action = 'add';
                             
-                            if (targetCountry == 'subGroup') {
+                            if (targetCountry*1 == -1) {
                                 action = 'sub';
                                 //return 'x-dd-drop-ok-sub'; 
                             }
