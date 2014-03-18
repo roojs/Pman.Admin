@@ -20,6 +20,7 @@
                         {
                             "*prop": "west",
                             "split": true,
+                            "tabPosition": "top",
                             "width": 250,
                             "xtype": "LayoutRegion",
                             "|xns": "Roo"

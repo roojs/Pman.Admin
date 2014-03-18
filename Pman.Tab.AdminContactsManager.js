@@ -29,6 +29,7 @@ Pman.Tab.AdminContactsManager = new Roo.XComponent({
                     xtype: 'LayoutRegion',
                     xns: Roo,
                     split : true,
+                    tabPosition : 'top',
                     width : 250
                 },
                 center : {
