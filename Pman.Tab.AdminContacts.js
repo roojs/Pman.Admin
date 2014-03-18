@@ -116,7 +116,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 o.params['query[in_group]'] = tms.data.id;
                                 o.params['query[type]'] = 2; // group type..
                             }else{
-                                o.params['query[in_country]'] = tms.data.country;
+                                o.params['query[in_country]'] = (tms.data.country == 'subGroup') ? '' : tms.data.country;
                                 o.params['query[in_group]'] = 0;
                                 o.params['query[type]'] = 2;
                             }
