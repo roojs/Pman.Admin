@@ -263,7 +263,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
                                     action : action,
-                                    country: targetCountry,
+                                    country: (targetCountry > 0) ? targetCountry : '',
                                     user_ids : sels.join(',')
                                 },
                                 method: 'POST',  
