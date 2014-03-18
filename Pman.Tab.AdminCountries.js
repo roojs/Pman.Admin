@@ -47,7 +47,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         }); 
                     }
                 },
-                autoExpandColumn : 'name',
+                autoExpandColumn : 'country',
                 ddGroup : 'countryDD',
                 enableDrop : true,
                 loadMask : true,
