@@ -276,10 +276,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             Roo.log("dragover");
                             
                             var data = source.getDragData(e).selections;
-                            if(data.length > 1){
-                                this.valid = false;
-                                return;
-                            }
+                            
                             Roo.log(data);
                             Roo.log(e);
                             var t = Roo.lib.Event.getTarget(e); 
@@ -295,7 +292,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             
                             var s = _this.grid.getSelectionModel().getSelections();
                             
-                            var isFromGroup = s.length ? s[0].data.id > 0 : false;
+                            var isFromGroup = s.length ? s[0].data.country > 0 : false;
                             
                             var isToGroup = rid && rid.id > 0;
                             
