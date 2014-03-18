@@ -231,15 +231,16 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             if (isFromGroup){
                                 return;
                             }
-                            
+                            var targetCountry = rid.country;
                             var action = 'add';
-                            if (isFromGroup) {
+                            
+                            if (targetCountry == 'subGroup') {
                                 action = 'sub';
                                 //return 'x-dd-drop-ok-sub'; 
                             }
                             // build a list of selections.
                             var sels = [];
-                            var targetCountry = rid.country;
+                            
                             for (var i=0; i < data.selections.length; i++){
                                 var c = data.selections[i].data.countries.split(',');
                                 if(c.indexOf(targetCountry) > -1){
