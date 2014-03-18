@@ -261,7 +261,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         xtype: 'ColumnModel',
                         xns: Roo.grid,
                         dataIndex : 'country',
-                        header : 'Name',
+                        header : 'Country',
                         width : 200,
                         renderer : function(v,x,r) { 
                             if (r.data.id == -1) {
