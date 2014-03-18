@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-88",
+    "id": "roo-file-71",
     "name": "Pman.Tab.AdminContactsGroup",
     "parent": "Pman.Tab.AdminContactsManager",
     "title": "Pman.Tab.AdminContactsGroup",
-    "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroup.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroup.bjs",
     "items": [
         {
             "listeners": {
