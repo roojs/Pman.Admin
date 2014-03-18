@@ -286,20 +286,12 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         {
                             Roo.log("dragover");
                             
-                            var data = source.getDragData(e).selections;
-                            
-                            Roo.log(data);
-                            Roo.log(e);
-                            var t = Roo.lib.Event.getTarget(e); 
-                                 Roo.log(t);
+                            var t = Roo.lib.Event.getTarget(e);
                             var ri = _this.grid.view.findRowIndex(t);
-                                          Roo.log(ri);
-                            
                             var rid  = false;
                             if (ri !== false) {
                                 rid = _this.grid.getDataSource().getAt(ri).data;
                             }
-                            
                             
                             var s = _this.grid.getSelectionModel().getSelections();
                             
