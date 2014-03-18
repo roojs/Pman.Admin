@@ -30,7 +30,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                     render : function() 
                     {
                         _this.grid = this; 
-                        _this.dialog = Pman.Dialog.Groups;
+                        //_this.dialog = Pman.Dialog.Groups;
                         if (_this.panel.active) {
                             _this.grid.ds.load({});
                         }
