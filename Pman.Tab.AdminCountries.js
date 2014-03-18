@@ -76,7 +76,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         xtype: 'HttpProxy',
                         xns: Roo.data,
                         method : 'GET',
-                        url : baseURL + '/Roo/Groups.php'
+                        url : baseURL + '/Roo/Clipping.php'
                     },
                     reader : {
                         xtype: 'JsonReader',
