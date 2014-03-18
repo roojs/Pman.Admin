@@ -239,11 +239,11 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                             // build a list of selections.
                             var sels = [];
-                            var selectedCountry = rid.country;
+                            var targetCountry = rid.country;
                             for (var i=0; i < data.selections.length; i++){
                                 var c = data.selections[i].data.countries.split(',');
-                                if(c.indexOf(selectedCountry) > -1){
-                                    Roo.log("skipped : "+data.selections[i].data.id);
+                                if(c.indexOf(targetCountry) > -1){
+                                    //Roo.log("skipped : "+data.selections[i].data.id);
                                     continue;
                                 }
                                 Roo.log(data.selections[i].data);
@@ -256,7 +256,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
                                     action : action,
-                                    group_id: action =='add' ? rid.id : s[0].data.id,
+                                    country: targetCountry,
                                     type: _this.type,
                                     user_ids : sels.join(',')
                                     
