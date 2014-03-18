@@ -223,18 +223,17 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             var s = _this.grid.getSelectionModel().getSelections();
                               
                             //console.log(data);
-                            var isFromGroup = s.length ? s[0].data.id > 0 : false;
+                            var isFromGroup = _this.grid.getSelectionModel().isSelected(ri);;
                         
                             var isToGroup = rid && rid.id > 0;
                             this.success = false;
-                            if (isFromGroup && isToGroup) {
+                            
+                            if (isFromGroup){
                                 return;
                             }
-                            if (!isFromGroup && !isToGroup) {
-                                return;
-                            }
+                            
                             var action = 'add';
-                            if (isFromGroup && !isToGroup) {
+                            if (isFromGroup) {
                                 action = 'sub';
                                 //return 'x-dd-drop-ok-sub'; 
                             }
@@ -243,7 +242,8 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             for (var i=0; i < data.selections.length; i++) {
                                 sels.push(data.selections[i].data.id);
                             }
-                        
+                            Roo.log('submit');
+                            Roo.log(sels);
                             new Pman.Request({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
