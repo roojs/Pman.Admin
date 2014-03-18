@@ -251,16 +251,16 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                             Roo.log('submit');
                             Roo.log(sels);
+                            Roo.log(action);
+                            Roo.log(targetCountry);
                             return;
                             new Pman.Request({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
                                     action : action,
                                     country: targetCountry,
-                                    type: _this.type,
                                     user_ids : sels.join(',')
-                                    
-                                },  
+                                },
                                 method: 'POST',  
                                 success : function(res) {
                                     
