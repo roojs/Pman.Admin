@@ -307,7 +307,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             
                         //    var isToGroup = rid && rid.id > 0;
                             
-                            Roo.log("isToGroup:"  + isToGroup + ", isFromGroup:" + isFromGroup);
+                            Roo.log(", isFromGroup:" + isFromGroup);
                              
                             if (isFromGroup) {
                                 this.valid = false;
