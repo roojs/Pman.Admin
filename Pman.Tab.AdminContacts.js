@@ -99,19 +99,31 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                             if(_this.active_company_button.pressed){
                                 o.params.company_id = 0;
                             }
-                            if (!Pman.Tab.AdminContactsGroup) { 
+                            
+                            var c = Pman.Tab.AdminContactsManager.layout.getRegion('west').getActivePanel();
+                            
+                            if (!c) { 
                                 return false;
                             }
                             
+                            var tms = c.grid.getSelectionModel().getSelected();
                             
-                            if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
-                                var tms = Pman.Tab.AdminContactsGroup.grid.getSelectionModel().getSelected();
-                                
-                                if (!tms) {
-                                    return false;
-                                }
+                            if (!tms) {
+                                return false;
+                            }
+                            
+                            if(c.tableName == 'Groups'){
                                 o.params['query[in_group]'] = tms.data.id;
                                 o.params['query[type]'] = 2; // group type..
+                            }else{
+                                o.params['query[in_country]'] = tms.data.country;
+                                o.params['query[in_group]'] = 0;
+                                o.params['query[type]'] = 2;
+                            }
+                            /*
+                            if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {
+                                
+                                
                                 
                             }
                             
@@ -121,11 +133,9 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 if (!tms) {
                                     return false;
                                 }
-                                o.params['query[in_country]'] = tms.data.country;
-                                o.params['query[in_group]'] = 0;
-                                o.params['query[type]'] = 2;
+                                
                             }
-                            
+                            */
                             //o.params['query[name]'] = _this.searchBox.getValue();
                           
                         },
