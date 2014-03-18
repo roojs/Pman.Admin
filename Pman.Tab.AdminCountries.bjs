@@ -13,7 +13,14 @@
             "region": "west",
             "title": "Countries",
             "xtype": "GridPanel",
-            "|xns": "Roo"
+            "|xns": "Roo",
+            "items": [
+                {
+                    "|xns": "Roo.grid",
+                    "xtype": "Grid",
+                    "*prop": "grid"
+                }
+            ]
         }
     ],
     "permname": "",
