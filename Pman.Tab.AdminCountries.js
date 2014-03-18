@@ -240,7 +240,8 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             // build a list of selections.
                             var sels = [];
                             for (var i=0; i < data.selections.length; i++){
-                                if(data.selections[i].data){
+                                var c = data.selections[i].data.countries.split(',');
+                                if(data.selections[i].data.countries){
                                 
                                 }
                                 Roo.log(data.selections[i].data);
