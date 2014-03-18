@@ -308,11 +308,12 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             
                             Roo.log("isToGroup:"  + isToGroup + ", isFromGroup:" + isFromGroup);
                              
-                            if (isFromGroup && isToGroup) {
+                            if (isFromGroup) {
                                 this.valid = false;
                         //        Roo.log('not valid');
                                 return;
                             }
+                            /*
                             if (!isFromGroup && !isToGroup) {
                                 this.valid = false;
                         //        Roo.log('not valid');
@@ -322,6 +323,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 this.valid = 'ok-sub'; 
                                 return;
                             } 
+                            */
                             //if (!isFromGroup && isToGroup) {
                             this.valid = 'ok-add';
                         //    Roo.log('add'); 
