@@ -302,7 +302,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             
                             var s = _this.grid.getSelectionModel().getSelections();
                             
-                            var isFromGroup = s.length ? s[0].data.country > 0 : false;
+                            var isFromGroup = _this.grid.getSelectionModel().isSelected(ri);
                             
                             var isToGroup = rid && rid.id > 0;
                             
