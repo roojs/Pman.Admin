@@ -202,7 +202,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                     listeners : {
                         drop : function (source, e, data)
                         {
-                            // Roo.log("DROP");
+                            Roo.log("DROP");
                             var t = Roo.lib.Event.getTarget(e); 
                             var ri = _this.grid.view.findRowIndex(t);
                             var rid  = false;
