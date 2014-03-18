@@ -313,7 +313,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             //}
                         }
                     },
-                    ddGroup : 'countryDD'
+                    ddGroup : 'groupDD'
                 }
             }
         };
