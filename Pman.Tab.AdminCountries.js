@@ -260,7 +260,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             Roo.log(targetCountry);
                             //return;
                             new Pman.Request({
-                                url: baseURL + '/Roo/Person.php',
+                                url: baseURL + '/Core/GroupCountries.php',
                                 params: {
                                     action : action,
                                     country: (targetCountry != -1) ? targetCountry : '',
