@@ -6,7 +6,7 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCountries.bjs",
     "items": [
         {
-            "tableName": "",
+            "tableName": "Person",
             "background": true,
             "fitContainer": true,
             "fitToFrame": true,

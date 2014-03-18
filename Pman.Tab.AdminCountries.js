@@ -17,7 +17,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
         return {
             xtype: 'GridPanel',
             xns: Roo,
-            tableName : '',
+            tableName : 'Person',
             background : true,
             fitContainer : true,
             fitToFrame : true,
