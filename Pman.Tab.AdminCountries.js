@@ -245,7 +245,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                         
                             new Pman.Request({
-                                url: baseURL + '/Core/GroupMembers.php',
+                                url: baseURL + '/Roo/Person.php',
                                 params: {
                                     action : action,
                                     group_id: action =='add' ? rid.id : s[0].data.id,
