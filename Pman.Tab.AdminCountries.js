@@ -273,7 +273,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         over : function (source, e, data)
                         {
                             Roo.log("dragover");
-                            Roo.log(source);
+                            Roo.log(source.getDragData(e));
                             _this.sourceaa = source;
                             Roo.log(e);
                             var t = Roo.lib.Event.getTarget(e); 
