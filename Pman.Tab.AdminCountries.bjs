@@ -36,7 +36,7 @@
                             "*prop": "dataSource",
                             "remoteSort": true,
                             "xtype": "Store",
-                            "|sortInfo": "{ field : 'name', direction: 'ASC' }",
+                            "|sortInfo": "{ field : 'country_tr', direction: 'ASC' }",
                             "|xns": "Roo.data",
                             "items": [
                                 {

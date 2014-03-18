@@ -72,7 +72,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         }
                     },
                     remoteSort : true,
-                    sortInfo : { field : 'name', direction: 'ASC' },
+                    sortInfo : { field : 'country_tr', direction: 'ASC' },
                     proxy : {
                         xtype: 'HttpProxy',
                         xns: Roo.data,
