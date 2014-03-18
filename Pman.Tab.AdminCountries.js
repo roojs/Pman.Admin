@@ -243,6 +243,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             for (var i=0; i < data.selections.length; i++){
                                 var c = data.selections[i].data.countries.split(',');
                                 if(c.indexOf(selectedCountry) === -1){
+                                    Roo.log("skipped : "+data.selections[i].data.id);
                                     break;
                                 }
                                 Roo.log(data.selections[i].data);
