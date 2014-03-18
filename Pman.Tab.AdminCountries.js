@@ -58,7 +58,8 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         beforeload : function (_self, o)
                         {
                             o.params = o.params || {};
-                            o.params.type =2;
+                            o.params._distinct = 'country';
+                            
                         },
                         load : function (_self, records, options)
                         {
