@@ -114,6 +114,18 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 o.params['query[type]'] = 2; // group type..
                                 
                             }
+                            
+                            if (Pman.Tab.AdminCountries && Pman.Tab.AdminCountries.grid) {
+                                var tms = Pman.Tab.AdminCountries.grid.getSelectionModel().getSelected();
+                                
+                                if (!tms) {
+                                    return false;
+                                }
+                                o.params['query[in_country]'] = tms.data.country;
+                                //o.params['query[type]'] = 2; // group type..
+                                
+                            }
+                            
                             //o.params['query[name]'] = _this.searchBox.getValue();
                           
                         },
