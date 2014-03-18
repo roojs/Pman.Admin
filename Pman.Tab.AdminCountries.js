@@ -239,7 +239,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                             // build a list of selections.
                             var sels = [];
-                            var selectedCountry = _this.grid.getSelectionModel().getSelected().data.country;
+                            var selectedCountry = rid.country;
                             for (var i=0; i < data.selections.length; i++){
                                 var c = data.selections[i].data.countries.split(',');
                                 if(c.indexOf(selectedCountry) === -1){
