@@ -6,10 +6,12 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCountries.bjs",
     "items": [
         {
+            "tableName": "",
             "background": true,
             "fitContainer": true,
             "fitToFrame": true,
             "region": "west",
+            "title": "",
             "xtype": "GridPanel",
             "|xns": "Roo"
         }

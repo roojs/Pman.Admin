@@ -17,10 +17,12 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
         return {
             xtype: 'GridPanel',
             xns: Roo,
+            tableName : '',
             background : true,
             fitContainer : true,
             fitToFrame : true,
-            region : 'west'
+            region : 'west',
+            title : ""
         };
     }
 });
