@@ -258,7 +258,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             Roo.log(sels);
                             Roo.log(action);
                             Roo.log(targetCountry);
-                            return;
+                            //return;
                             new Pman.Request({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
@@ -269,13 +269,13 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 method: 'POST',  
                                 success : function(res) {
                                     
-                                    var data = res.data
+                                    //var data = res.data
                                     //refreshPager();
                                     // 
                                     // do we need to do anything??
-                                    if (isFromGroup) {
-                                        Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
-                                    }
+                                    //if (isFromGroup) {
+                                    //    Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                                    //}
                                 }, 
                                 
                                 failure: function() {
