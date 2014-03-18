@@ -188,7 +188,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         width : 200,
                         renderer : function(v,x,r)
                         {
-                            if(v == 'subGroup'){
+                            if(v*1 == -1){
                                 return String.format('<b>{0}</b>', r.data.country_tr);
                             }
                             
