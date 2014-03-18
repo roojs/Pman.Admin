@@ -123,6 +123,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                                 }
                                 o.params['query[in_country]'] = tms.data.country;
                                 o.params['query[in_group]'] = 0;
+                                o.params['query[type]'] = 2;
                             }
                             
                             //o.params['query[name]'] = _this.searchBox.getValue();
