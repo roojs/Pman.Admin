@@ -263,27 +263,9 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         dataIndex : 'country',
                         header : 'Country',
                         width : 200,
-                        renderer : function(v,x,r) { 
-                            if (r.data.id == -1) {
-                                return '<b>' + "Not in a Group" + '</b>';
-                            }
-                            if ((r.data.id == 0) && (_this.type == 0)) {
-                                return '<b>' + "All Staff (Default Permissions)" + '</b>';
-                            }
-                            if ((r.data.id == 0) && (_this.type == 2)) {
-                                return '<b>' + "Everybody" + '</b>';
-                            }
-                            if (r.data.id == 0) {
-                                return '<b>' + "All Staff" + '</b>';
-                            }
-                            if (v == 'Administrators') {
-                                return '<b>' + "Adminstrators" + '</b>';
-                            }
-                            if (r.data.leader) {
-                                return v + ' (' + r.data.leader_name + ')';
-                            }
-                            
-                            return v;
+                        renderer : function(v,x,r)
+                        {   
+                            return String.format('{0}', r.data.country_tr);
                         }
                     }
                 ],
