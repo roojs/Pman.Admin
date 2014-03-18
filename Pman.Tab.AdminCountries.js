@@ -263,6 +263,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 Roo.MessageBox.alert('Error', 'No person add to group');
                                 return;
                             }
+                            
                             new Pman.Request({
                                 url: baseURL + '/Core/GroupCountries.php',
                                 params: {
