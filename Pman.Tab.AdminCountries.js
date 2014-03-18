@@ -70,6 +70,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             o.params._distinct = 'country';
                             o.params._columns = 'country,country_tr';
                             o.params.limit = 9999;
+                            o.params._hideEmptyCountry = 1;
                         },
                         load : function (_self, records, options)
                         {
