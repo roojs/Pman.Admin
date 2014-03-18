@@ -11,7 +11,7 @@
             "fitContainer": true,
             "fitToFrame": true,
             "region": "west",
-            "title": "",
+            "title": "Countries",
             "xtype": "GridPanel",
             "|xns": "Roo"
         }

@@ -22,7 +22,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
             fitContainer : true,
             fitToFrame : true,
             region : 'west',
-            title : ""
+            title : "Countries"
         };
     }
 });
