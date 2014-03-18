@@ -244,6 +244,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             }
                             Roo.log('submit');
                             Roo.log(sels);
+                            return;
                             new Pman.Request({
                                 url: baseURL + '/Roo/Person.php',
                                 params: {
