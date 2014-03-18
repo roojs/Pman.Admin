@@ -30,7 +30,7 @@
                     "items": [
                         {
                             "listeners": {
-                                "beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params._distinct = 'country';\n    o.params._columns = 'country,country_tr';\n    o.params.sort = 'country_tr';\n    o.params.limit = 9999;\n}",
+                                "beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params._distinct = 'country';\n    o.params._columns = 'country,country_tr';\n    o.params.limit = 9999;\n}",
                                 "load": "function (_self, records, options)\n{\n    var sm = _this.grid.getSelectionModel();\n        if (!sm.getSelections().length) {\n            sm.selectFirstRow();\n        }\n        Pman.Tab.AdminContacts.grid.footer.onClick('first');\n}"
                             },
                             "*prop": "dataSource",
