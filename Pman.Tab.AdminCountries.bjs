@@ -6,11 +6,14 @@
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCountries.bjs",
     "items": [
         {
-            "tableName": "Person",
+            "listeners": {
+                "activate": "function (_self)\n{\n    _this.panel = this;\n    if (_this.grid){\n        _this.grid.ds.load({});\n    }\n}"
+            },
             "background": true,
             "fitContainer": true,
             "fitToFrame": true,
             "region": "west",
+            "tableName": "Person",
             "title": "Countries",
             "xtype": "GridPanel",
             "|xns": "Roo",

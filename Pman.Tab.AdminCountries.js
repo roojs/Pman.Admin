@@ -17,11 +17,20 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
         return {
             xtype: 'GridPanel',
             xns: Roo,
-            tableName : 'Person',
+            listeners : {
+                activate : function (_self)
+                {
+                    _this.panel = this;
+                    if (_this.grid){
+                        _this.grid.ds.load({});
+                    }
+                }
+            },
             background : true,
             fitContainer : true,
             fitToFrame : true,
             region : 'west',
+            tableName : 'Person',
             title : "Countries",
             grid : {
                 xtype: 'Grid',
