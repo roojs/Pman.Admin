@@ -31,7 +31,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
             fitToframe : true,
             region : 'center',
             tableName : 'Person',
-            title : "Person",
+            title : "Person1",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,
