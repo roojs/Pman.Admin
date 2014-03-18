@@ -1,10 +1,10 @@
 {
     "id": "roo-file-285",
     "name": "Pman.Tab.AdminCountries",
-    "parent": "",
-    "title": "",
+    "parent": "Pman.Tab.AdminContactsManager",
+    "title": "Pman.Tab.AdminCountries",
     "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminCountries.bjs",
-    "items": false,
+    "items": [],
     "permname": "",
     "modOrder": "001"
 }
