@@ -330,7 +330,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 return  
                             }
                             */
-                            if(c*1 == -1) {
+                            if(rid.country*1 == -1) {
                                 this.valid = 'ok-sub'; 
                                 return;
                             } 
