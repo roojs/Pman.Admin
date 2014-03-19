@@ -268,7 +268,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 url: baseURL + '/Core/GroupCountries.php',
                                 params: {
                                     action : action,
-                                    country: (targetCountry != -1) ? targetCountry : '',
+                                    country: (targetCountry != -1) ? targetCountry : _this.grid.getSelectionModel().getSelected().data.country,
                                     user_ids : sels.join(',')
                                 },
                                 method: 'POST',  
