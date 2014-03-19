@@ -301,7 +301,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         },
                         over : function (source, e, data)
                         {
-                            Roo.log("dragover");
+                            //Roo.log("dragover");
                             
                             var t = Roo.lib.Event.getTarget(e);
                             var ri = _this.grid.view.findRowIndex(t);
@@ -310,35 +310,21 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 rid = _this.grid.getDataSource().getAt(ri).data;
                             }
                             
-                            var c = _this.grid.getSelectionModel().getSelected().data.country;
-                            
                             var isFromGroup = _this.grid.getSelectionModel().isSelected(ri);
                             
-                        //    var isToGroup = rid && rid.id > 0;
-                            
-                            Roo.log(", isFromGroup:" + isFromGroup);
+                            //Roo.log(", isFromGroup:" + isFromGroup);
                              
                             if (isFromGroup) {
                                 this.valid = false;
-                        //        Roo.log('not valid');
                                 return;
                             }
-                            /*
-                            if (!isFromGroup && !isToGroup) {
-                                this.valid = false;
-                        //        Roo.log('not valid');
-                                return  
-                            }
-                            */
+                            
                             if(rid.country*1 == -1) {
                                 this.valid = 'ok-sub'; 
                                 return;
                             } 
                             
-                            //if (!isFromGroup && isToGroup) {
                             this.valid = 'ok-add';
-                        //    Roo.log('add'); 
-                            //}
                         }
                     },
                     ddGroup : 'groupDD'
