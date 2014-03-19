@@ -216,7 +216,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                     listeners : {
                         drop : function (source, e, data)
                         {
-                            Roo.log("DROP");
+                            //Roo.log("DROP");
                             
                             var t = Roo.lib.Event.getTarget(e); 
                             var ri = _this.grid.view.findRowIndex(t);
@@ -224,12 +224,12 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             if (ri !== false) {
                                 rid = _this.grid.getDataSource().getAt(ri).data;
                             }
-                            var s = _this.grid.getSelectionModel().getSelections();
+                            //var s = _this.grid.getSelectionModel().getSelections();
                               
                             //console.log(data);
                             var isFromGroup = _this.grid.getSelectionModel().isSelected(ri);;
                         
-                            var isToGroup = rid && rid.id > 0;
+                            //var isToGroup = rid && rid.id > 0;
                             this.success = false;
                             
                             if (isFromGroup){
@@ -251,14 +251,10 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                     //Roo.log("skipped : "+data.selections[i].data.id);
                                     continue;
                                 }
-                                Roo.log(data.selections[i].data);
+                                //Roo.log(data.selections[i].data);
                                 sels.push(data.selections[i].data.id);
                             }
-                            Roo.log('submit');
-                            Roo.log(sels);
-                            Roo.log(action);
-                            Roo.log(targetCountry);
-                            //return;
+                            
                             if(sels.length < 1){
                                 Roo.MessageBox.alert('Error', 'No person add to group');
                                 return;
@@ -293,11 +289,8 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                             });
                         
                             this.success = true;
-                        
-                            //if (!isFromGroup && isToGroup) {
-                                //return 'x-dd-drop-ok-add'; 
                             return;
-                            //}
+                        
                         },
                         over : function (source, e, data)
                         {
