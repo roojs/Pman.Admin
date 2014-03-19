@@ -310,7 +310,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 rid = _this.grid.getDataSource().getAt(ri).data;
                             }
                             
-                            var s = _this.grid.getSelectionModel().getSelections();
+                            var c = _this.grid.getSelectionModel().getSelected().data.country;
                             
                             var isFromGroup = _this.grid.getSelectionModel().isSelected(ri);
                             
@@ -329,11 +329,12 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                         //        Roo.log('not valid');
                                 return  
                             }
-                            if (isFromGroup && !isToGroup) {
+                            */
+                            if(c*1 == -1) {
                                 this.valid = 'ok-sub'; 
                                 return;
                             } 
-                            */
+                            
                             //if (!isFromGroup && isToGroup) {
                             this.valid = 'ok-add';
                         //    Roo.log('add'); 
