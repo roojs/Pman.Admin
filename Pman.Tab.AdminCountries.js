@@ -269,7 +269,7 @@ Pman.Tab.AdminCountries = new Roo.XComponent({
                                 },
                                 method: 'POST',  
                                 success : function(res) {
-                                    
+                                    Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
                                     //var data = res.data
                                     //refreshPager();
                                     // 
