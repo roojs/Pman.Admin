@@ -93,6 +93,9 @@
                             ]
                         },
                         {
+                            "listeners": {
+                                "beforeload": "function (_self, options)\n{\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n}"
+                            },
                             "*prop": "dataSource",
                             "remoteSort": true,
                             "xtype": "Store",

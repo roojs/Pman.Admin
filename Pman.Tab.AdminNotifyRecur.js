@@ -124,6 +124,18 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
+                    listeners : {
+                        beforeload : function (_self, options)
+                        {
+                            if (!_this.personCombo) {
+                                return false;
+                            }
+                            var p = _this.personCombo.getValue();
+                            if (p*1) { 
+                                options.params.person_id = p;
+                            }
+                        }
+                    },
                     remoteSort : true,
                     sortInfo : { field : 'person_id_name', direction: 'ASC' },
                     proxy : {
