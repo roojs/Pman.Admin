@@ -247,7 +247,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                                 },
                                 render : function (_self)
                                 {
-                                
+                                   _this.personCombo = _self;
                                 }
                             },
                             allowBlank : true,
