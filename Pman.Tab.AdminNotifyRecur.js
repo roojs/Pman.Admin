@@ -17,12 +17,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
         return {
             xtype: 'GridPanel',
             xns: Roo,
-            title : "core_notify_recur",
-            fitToframe : true,
-            fitContainer : true,
-            tableName : 'core_notify_recur',
-            background : true,
-            region : 'center',
             listeners : {
                 activate : function() {
                     _this.panel = this;
@@ -31,6 +25,12 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                     }
                 }
             },
+            background : true,
+            fitContainer : true,
+            fitToframe : true,
+            region : 'center',
+            tableName : 'core_notify_recur',
+            title : "Recurrent Notifications",
             grid : {
                 xtype: 'Grid',
                 xns: Roo.grid,

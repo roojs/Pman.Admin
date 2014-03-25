@@ -1,22 +1,22 @@
 {
-    "id": "roo-file-361",
+    "id": "roo-file-256",
     "name": "Pman.Tab.AdminNotifyRecur",
     "parent": "Pman.Tab.AdminWatchNotify",
     "title": "Pman.Tab.AdminNotifyRecur",
     "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotifyRecur.bjs",
     "items": [
         {
-            "|xns": "Roo",
-            "xtype": "GridPanel",
-            "title": "core_notify_recur",
-            "fitToframe": true,
-            "fitContainer": true,
-            "tableName": "core_notify_recur",
-            "background": true,
-            "region": "center",
             "listeners": {
                 "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
             },
+            "background": true,
+            "fitContainer": true,
+            "fitToframe": true,
+            "region": "center",
+            "tableName": "core_notify_recur",
+            "title": "Recurrent Notifications",
+            "xtype": "GridPanel",
+            "|xns": "Roo",
             "items": [
                 {
                     "listeners": {
