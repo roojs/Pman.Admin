@@ -53,6 +53,10 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                 },
                 autoExpandColumn : 'person_id_name',
                 loadMask : true,
+                toolbar : {
+                    xtype: 'Toolbar',
+                    xns: Roo
+                },
                 dataSource : {
                     xtype: 'Store',
                     xns: Roo.data,
