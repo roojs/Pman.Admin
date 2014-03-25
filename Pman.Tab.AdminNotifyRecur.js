@@ -283,7 +283,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                         xns: Roo.grid,
                         dataIndex : 'freq_day',
                         header : 'Freq day',
-                        width : 100,
+                        width : 200,
                         renderer : function(v) { return String.format('{0}', v); }
                     },
                     {
