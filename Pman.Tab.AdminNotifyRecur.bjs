@@ -72,10 +72,10 @@
                                             "items": [
                                                 {
                                                     "*prop": "proxy",
-                                                    "xtype": "HttpProxy",
                                                     "method": "GET",
-                                                    "|xns": "Roo.data",
-                                                    "|url": "baseURL + '/Roo/core_notify.php'"
+                                                    "xtype": "HttpProxy",
+                                                    "|url": "baseURL + '/Roo/core_notify_recur.php'",
+                                                    "|xns": "Roo.data"
                                                 },
                                                 {
                                                     "*prop": "reader",

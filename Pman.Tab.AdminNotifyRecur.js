@@ -107,7 +107,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                                     xtype: 'HttpProxy',
                                     xns: Roo.data,
                                     method : 'GET',
-                                    url : baseURL + '/Roo/core_notify.php'
+                                    url : baseURL + '/Roo/core_notify_recur.php'
                                 },
                                 reader : {
                                     xtype: 'JsonReader',
