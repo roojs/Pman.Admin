@@ -1,5 +1,5 @@
 {
-    "id": "roo-file-210",
+    "id": "roo-file-255",
     "name": "Pman.Tab.AdminNotify",
     "parent": "Pman.Tab.AdminWatchNotify",
     "title": "Pman.Tab.AdminNotify",
@@ -72,6 +72,9 @@
                             "|xns": "Roo",
                             "items": [
                                 {
+                                    "listeners": {
+                                        "select": "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}"
+                                    },
                                     "allowBlank": true,
                                     "displayField": "person_id_name",
                                     "editable": true,

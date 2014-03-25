@@ -240,6 +240,12 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         {
                             xtype: 'ComboBox',
                             xns: Roo.form,
+                            listeners : {
+                                select : function (combo, record, index)
+                                {
+                                   (function() { _this.grid.footer.onClick('first'); }).defer(100);
+                                }
+                            },
                             allowBlank : true,
                             displayField : 'person_id_name',
                             editable : true,
