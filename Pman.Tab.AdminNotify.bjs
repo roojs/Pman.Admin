@@ -73,7 +73,8 @@
                             "items": [
                                 {
                                     "listeners": {
-                                        "select": "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}"
+                                        "select": "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}",
+                                        "render": "function (_self)\n{\n\n}"
                                     },
                                     "allowBlank": true,
                                     "displayField": "person_id_name",
