@@ -32,7 +32,65 @@
                         {
                             "|xns": "Roo",
                             "xtype": "Toolbar",
-                            "*prop": "toolbar"
+                            "*prop": "toolbar",
+                            "items": [
+                                {
+                                    "listeners": {
+                                        "select": "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}",
+                                        "render": "function (_self)\n{\n   _this.personCombo = _self;\n}"
+                                    },
+                                    "allowBlank": true,
+                                    "displayField": "person_id_name",
+                                    "editable": true,
+                                    "emptyText": "Select person",
+                                    "forceSelection": true,
+                                    "hiddenName": "id",
+                                    "listWidth": 400,
+                                    "loadingText": "Searching...",
+                                    "minChars": 2,
+                                    "name": "name",
+                                    "pageSize": 20,
+                                    "qtip": "Select core_notify",
+                                    "queryParam": "query[person_id_name]",
+                                    "selectOnFocus": true,
+                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
+                                    "triggerAction": "all",
+                                    "valueField": "person_id",
+                                    "width": 300,
+                                    "xtype": "ComboBox",
+                                    "|xns": "Roo.form",
+                                    "items": [
+                                        {
+                                            "listeners": {
+                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id';\n    o.params._columns='person_id,person_id_name,person_id_email';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
+                                            },
+                                            "*prop": "store",
+                                            "remoteSort": true,
+                                            "xtype": "Store",
+                                            "|sortInfo": "{ direction : 'ASC', field: 'person_id_name' }",
+                                            "|xns": "Roo.data",
+                                            "items": [
+                                                {
+                                                    "*prop": "proxy",
+                                                    "xtype": "HttpProxy",
+                                                    "method": "GET",
+                                                    "|xns": "Roo.data",
+                                                    "|url": "baseURL + '/Roo/core_notify.php'"
+                                                },
+                                                {
+                                                    "*prop": "reader",
+                                                    "xtype": "JsonReader",
+                                                    "|xns": "Roo.data",
+                                                    "id": "id",
+                                                    "root": "data",
+                                                    "totalProperty": "total",
+                                                    "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "*prop": "dataSource",

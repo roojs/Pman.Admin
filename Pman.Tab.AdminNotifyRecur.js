@@ -55,7 +55,71 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                 loadMask : true,
                 toolbar : {
                     xtype: 'Toolbar',
-                    xns: Roo
+                    xns: Roo,
+                    items : [
+                        {
+                            xtype: 'ComboBox',
+                            xns: Roo.form,
+                            listeners : {
+                                select : function (combo, record, index)
+                                {
+                                   (function() { _this.grid.footer.onClick('first'); }).defer(100);
+                                },
+                                render : function (_self)
+                                {
+                                   _this.personCombo = _self;
+                                }
+                            },
+                            allowBlank : true,
+                            displayField : 'person_id_name',
+                            editable : true,
+                            emptyText : "Select person",
+                            forceSelection : true,
+                            hiddenName : 'id',
+                            listWidth : 400,
+                            loadingText : "Searching...",
+                            minChars : 2,
+                            name : 'name',
+                            pageSize : 20,
+                            qtip : "Select core_notify",
+                            queryParam : 'query[person_id_name]',
+                            selectOnFocus : true,
+                            tpl : '<div class="x-grid-cell-text x-btn button"><b>{person_id_name}</b> {person_id_email}</div>',
+                            triggerAction : 'all',
+                            valueField : 'person_id',
+                            width : 300,
+                            store : {
+                                xtype: 'Store',
+                                xns: Roo.data,
+                                listeners : {
+                                    beforeload : function (_self, o){
+                                        o.params = o.params || {};
+                                        o.params._distinct='person_id';
+                                        o.params._columns='person_id,person_id_name,person_id_email';
+                                        o.params['!person_id_name'] = '';
+                                        
+                                        // set more here
+                                    }
+                                },
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'person_id_name' },
+                                proxy : {
+                                    xtype: 'HttpProxy',
+                                    xns: Roo.data,
+                                    method : 'GET',
+                                    url : baseURL + '/Roo/core_notify.php'
+                                },
+                                reader : {
+                                    xtype: 'JsonReader',
+                                    xns: Roo.data,
+                                    id : 'id',
+                                    root : 'data',
+                                    totalProperty : 'total',
+                                    fields : [{"name":"id","type":"int"},{"name":"ontable","type":"string"}]
+                                }
+                            }
+                        }
+                    ]
                 },
                 dataSource : {
                     xtype: 'Store',
