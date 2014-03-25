@@ -63,6 +63,14 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             if (!_this.toggleBtn.pressed) {
                                 options.params['event_id'] = 0;
                             }
+                            if (!_this.personCombo) {
+                                return false;
+                            }
+                            var p = _this.personCombo.getValue();
+                            if (p*1) { 
+                                options.params.person_id = p;
+                            }
+                            
                         }
                     },
                     remoteSort : true,
