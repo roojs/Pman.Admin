@@ -1139,9 +1139,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                     width : 150,
                                     renderer : function(v,x,r) { 
                                         
+                                        var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;
+                                        var nfield = typeof(_this.name_field) == 'undefined' ? 'person_id_name' : _this.name_field;    
                                         
-                                        var email = r.data.person_id_email; // ? r.data.person_id_email : r.data.person_id_email;
-                                        var name  = r.data.person_id_name; // ? r.data.person_id_name : r.data.person_id_name;    
+                                        
+                                        var email = r.data['efield']; // ? r.data.person_id_email : r.data.person_id_email;
+                                        var name  = r.data['nfield']; // ? r.data.person_id_name : r.data.person_id_name;    
                                         return String.format('{0} &lt;<a href="mailto:{1}">{1}</a>&gt;', 
                                             name, email); 
                                     }
