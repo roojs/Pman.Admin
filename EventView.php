@@ -36,6 +36,8 @@ class Pman_Admin_EventView extends Pman
                 $this->jerrAuth();
             }
         }
+        
+        echo htmlspecialchars(print_r($ev,true));
         // we have 2 bits of data available at present:
         // core_event_audit
         // the event file..
