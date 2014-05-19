@@ -54,7 +54,7 @@ class Pman_Admin_EventView extends Pman
         
         $ff  = HTML_FlexyFramework::get();
         if (empty($ff->Pman['event_log_dir'])) {
-            echo "not available (not configured)";
+            echo "not available (Pman[event_log_dir] not configured)";
             exit;
         }
         if (function_exists('posix_getpwuid')) {
