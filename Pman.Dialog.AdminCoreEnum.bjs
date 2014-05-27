@@ -1,13 +1,13 @@
 {
-    "id": "roo-file-260",
+    "id": "roo-file-64",
     "name": "Pman.Dialog.AdminCoreEnum",
     "parent": "",
     "title": "",
-    "path": "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
+    "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
     "items": [
         {
             "listeners": {
-                "show": "function (_self)\n{\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n  _this.grid.colModel.setHidden(1,name_hidden);\n    _this.grid.footer.onClick('first');\n}"
+                "show": "function (_self)\n{\n    if(!isAdmin && Pman.Tab.Hopedb){\n        Roo.MessageBox.alert(\"Error\", \"Permission Denied\", function(){\n            _this.dialog.hide();\n        });\n        return;\n    }\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n  _this.grid.colModel.setHidden(1,name_hidden);\n    _this.grid.footer.onClick('first');\n}"
             },
             "closable": false,
             "height": 400,

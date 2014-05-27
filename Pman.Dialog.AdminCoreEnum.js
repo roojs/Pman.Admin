@@ -33,6 +33,12 @@ Pman.Dialog.AdminCoreEnum = {
             listeners : {
                 show : function (_self)
                 {
+                    if(!isAdmin && Pman.Tab.Hopedb){
+                        Roo.MessageBox.alert("Error", "Permission Denied", function(){
+                            _this.dialog.hide();
+                        });
+                        return;
+                    }
                     var name_hidden = false;
                 
                     if (typeof(_this.data._hide_name) != 'undefined') {
