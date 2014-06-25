@@ -1,9 +1,9 @@
 {
-    "id": "roo-file-64",
+    "id": "roo-file-292",
     "name": "Pman.Dialog.AdminCoreEnum",
     "parent": "",
     "title": "",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
+    "path": "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminCoreEnum.bjs",
     "items": [
         {
             "listeners": {
