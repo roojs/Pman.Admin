@@ -146,6 +146,7 @@
                                                     "xtype" : "ComboBox",
                                                     "allowBlank" : true,
                                                     "typeAhead" : true,
+                                                    "Boolean alwaysQuery" : true,
                                                     "editable" : false,
                                                     "width" : 150,
                                                     "$ xns" : "Roo.form",
