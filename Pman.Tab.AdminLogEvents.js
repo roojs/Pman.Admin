@@ -373,7 +373,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         value : "ALL",
                                         valueField : 'code',
                                         xtype : 'ComboBox',
-                                        allowBlank : false,
+                                        allowBlank : true,
                                         typeAhead : true,
                                         editable : false,
                                         width : 150,
