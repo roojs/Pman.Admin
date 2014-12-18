@@ -370,7 +370,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         displayField : 'title',
                                         emptyText : "Select Person Table",
                                         minChars : 2,
-                                        value : "ALL",
+                                        value : "Person",
                                         valueField : 'code',
                                         xtype : 'ComboBox',
                                         allowBlank : true,
