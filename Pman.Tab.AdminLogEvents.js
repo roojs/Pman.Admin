@@ -337,12 +337,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             '|xns' : 'Roo.data',
                                             data : (function() { 
                                             
-                                                Roo.log('test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-                                                if(typeof(uiConfig.events_person_table) != 'undefined' && uiConfig.events_person_table.length){
-                                                    Roo.log('got');
+                                                if(typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){
+                                            
                                                     return [];        
                                                 }
-                                                Roo.log(uiConfig.events_person_table);
+                                            
                                                 return ['Person', 'cntct'];
                                                 
                                             })(),
