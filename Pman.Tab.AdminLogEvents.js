@@ -346,7 +346,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 
                                             })(),
                                             xtype : 'SimpleStore',
-                                            fields : [ 'value' ],
+                                            fields : [ "value" ],
                                             xns : Roo.data,
                                             isLocal : true
                                         },
