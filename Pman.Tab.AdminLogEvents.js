@@ -378,7 +378,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         editable : false,
                                         width : 150,
                                         xns : Roo.form,
-                                        name : 'action',
+                                        name : 'person_table',
                                         qtip : "Select Action",
                                         tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>',
                                         loadingText : "Searching...",
