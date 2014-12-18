@@ -385,7 +385,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         listeners : {
                                         	render : function (_self)
                                         	   {
-                                        	     _this.postedCombo = _self;
+                                        	     _this.tableSel = _self;
                                         	   },
                                         	select : function (combo, record, index)
                                         	   {
