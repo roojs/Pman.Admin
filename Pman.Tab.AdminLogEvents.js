@@ -214,7 +214,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 	       }
                                 	       o.params = o.params || {};
                                 	       o.params.person_id = _this.personSel.getValue();
-                                	       o.params.person_id = _this.personSel.getValue();
+                                	       o.params.person_table = _this.tableSel.getValue();
                                 	       var act = _this.actionSel.getValue();
                                 	       if (act.length) {
                                 	           o.params.action = act;
