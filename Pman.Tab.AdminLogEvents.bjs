@@ -130,6 +130,42 @@
                                                 },
                                                 {
                                                     "listeners" : {
+                                                        "|render" : "function (_self)\n{\n  _this.postedCombo = _self;\n}",
+                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+                                                    },
+                                                    "listWidth" : 300,
+                                                    "triggerAction" : "all",
+                                                    "forceSelection" : true,
+                                                    "selectOnFocus" : true,
+                                                    "pageSize" : 20,
+                                                    "displayField" : "title",
+                                                    "emptyText" : "Select Action",
+                                                    "minChars" : 2,
+                                                    "value" : "ALL",
+                                                    "valueField" : "code",
+                                                    "xtype" : "ComboBox",
+                                                    "allowBlank" : false,
+                                                    "typeAhead" : true,
+                                                    "editable" : false,
+                                                    "width" : 150,
+                                                    "$ xns" : "Roo.form",
+                                                    "name" : "action",
+                                                    "qtip" : "Select Action",
+                                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>",
+                                                    "loadingText" : "Searching...",
+                                                    "items" : [
+                                                        {
+                                                            "| data" : "(function() { \n    var ret = [\n        [ 'ALL', 'All Transactions' ],\n        [ 'UNPOSTED', 'Unposted' ],\n        [ 'POSTED', 'Posted' ],\n        [ 'VOIDED', 'Voided' ],\n        [ '--', '-----------------' ]    \n    ];\n    var c = baseURL.split('/').pop().split('.').shift();     \n    Roo.each(uiConfig.xtuple_offices, function(o) {\n        if (o == c) {\n            return;\n        }\n        ret.push( [ 'office-' + o,    \"Transfers from \" +   Pman.Xtuple.offices[o] ] );\n\n    });\n    \n    return ret;\n    \n    \n})()",
+                                                            "xtype" : "SimpleStore",
+                                                            "$ fields" : "[ 'code', 'title' ]",
+                                                            "$ xns" : "Roo.data",
+                                                            "* prop" : "store",
+                                                            "isLocal" : true
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "listeners" : {
                                                         "|render" : "function (_self)\n{\n  _this.personSel = _self;\n}",
                                                         "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n  \n}"
                                                     },

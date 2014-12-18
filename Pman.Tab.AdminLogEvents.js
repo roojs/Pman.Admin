@@ -334,6 +334,71 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                     },
                                 	{
                                         store : {
+                                            '|xns' : 'Roo.data',
+                                            data : (function() { 
+                                                var ret = [
+                                                    [ 'ALL', 'All Transactions' ],
+                                                    [ 'UNPOSTED', 'Unposted' ],
+                                                    [ 'POSTED', 'Posted' ],
+                                                    [ 'VOIDED', 'Voided' ],
+                                                    [ '--', '-----------------' ]    
+                                                ];
+                                                var c = baseURL.split('/').pop().split('.').shift();     
+                                                Roo.each(uiConfig.xtuple_offices, function(o) {
+                                                    if (o == c) {
+                                                        return;
+                                                    }
+                                                    ret.push( [ 'office-' + o,    "Transfers from " +   Pman.Xtuple.offices[o] ] );
+                                            
+                                                });
+                                                
+                                                return ret;
+                                                
+                                                
+                                            })(),
+                                            xtype : 'SimpleStore',
+                                            fields : [ 'code', 'title' ],
+                                            xns : Roo.data,
+                                            isLocal : true
+                                        },
+                                        '|xns' : 'Roo.form',
+                                        listWidth : 300,
+                                        triggerAction : 'all',
+                                        forceSelection : true,
+                                        selectOnFocus : true,
+                                        pageSize : 20,
+                                        displayField : 'title',
+                                        emptyText : "Select Action",
+                                        minChars : 2,
+                                        value : "ALL",
+                                        valueField : 'code',
+                                        xtype : 'ComboBox',
+                                        allowBlank : false,
+                                        typeAhead : true,
+                                        editable : false,
+                                        width : 150,
+                                        xns : Roo.form,
+                                        name : 'action',
+                                        qtip : "Select Action",
+                                        tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>',
+                                        loadingText : "Searching...",
+                                        listeners : {
+                                        	render : function (_self)
+                                        	   {
+                                        	     _this.postedCombo = _self;
+                                        	   },
+                                        	select : function (combo, record, index)
+                                        	   {
+                                        	     _this.grid.footer.onClick('first');
+                                        	   }
+                                        },
+                                        items : [
+
+                                        ]
+
+                                    },
+                                	{
+                                        store : {
                                             proxy : {
                                                 '|xns' : 'Roo.data',
                                                 url : baseURL + '/Roo/Person.php',
