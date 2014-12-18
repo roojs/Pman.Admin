@@ -157,7 +157,7 @@
                                                         {
                                                             "| data" : "(function() { \n    var ret = [\n        [ 'ALL', 'All Transactions' ],\n        [ 'UNPOSTED', 'Unposted' ],\n        [ 'POSTED', 'Posted' ],\n        [ 'VOIDED', 'Voided' ],\n        [ '--', '-----------------' ]    \n    ];\n    var c = baseURL.split('/').pop().split('.').shift();     \n    Roo.each(uiConfig.xtuple_offices, function(o) {\n        if (o == c) {\n            return;\n        }\n        ret.push( [ 'office-' + o,    \"Transfers from \" +   Pman.Xtuple.offices[o] ] );\n\n    });\n    \n    return ret;\n    \n    \n})()",
                                                             "xtype" : "SimpleStore",
-                                                            "$ fields" : "[ 'code', 'title' ]",
+                                                            "$ fields" : "[ 'value' ]",
                                                             "$ xns" : "Roo.data",
                                                             "* prop" : "store",
                                                             "isLocal" : true
