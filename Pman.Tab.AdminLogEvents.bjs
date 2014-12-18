@@ -155,7 +155,7 @@
                                                     "loadingText" : "Searching...",
                                                     "items" : [
                                                         {
-                                                            "| data" : "(function() { \n\n    if(typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){\n\n        return [];        \n    }\n\n    return [['test'], ['test2']];\n    \n})()",
+                                                            "| data" : "(function() { \n\n    if(typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){\n\n        return [];        \n    }\n\n    return uiConfig.events_person_table;\n    \n})()",
                                                             "xtype" : "SimpleStore",
                                                             "$ fields" : "[ 'value' ]",
                                                             "$ xns" : "Roo.data",
