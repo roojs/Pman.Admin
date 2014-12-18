@@ -368,7 +368,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         selectOnFocus : true,
                                         pageSize : 20,
                                         displayField : 'title',
-                                        emptyText : "Select Action",
+                                        emptyText : "Select Person table",
                                         minChars : 2,
                                         value : "ALL",
                                         valueField : 'code',
