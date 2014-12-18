@@ -131,7 +131,7 @@
                                                 {
                                                     "listeners" : {
                                                         "|render" : "function (_self)\n{\n  _this.tableSel = _self;\n}",
-                                                        "|select" : "function (combo, record, index)\n{\n    Roo.log(record);\n  _this.grid.footer.onClick('first');\n}"
+                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
                                                     },
                                                     "listWidth" : 300,
                                                     "triggerAction" : "all",

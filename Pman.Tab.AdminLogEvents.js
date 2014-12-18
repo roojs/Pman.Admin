@@ -378,7 +378,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         	   },
                                         	select : function (combo, record, index)
                                         	   {
-                                        	       Roo.log(record);
                                         	     _this.grid.footer.onClick('first');
                                         	   }
                                         },
