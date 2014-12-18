@@ -367,11 +367,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         forceSelection : true,
                                         selectOnFocus : true,
                                         pageSize : 20,
-                                        displayField : 'title',
+                                        displayField : 'value',
                                         emptyText : "Select Person Table",
                                         minChars : 2,
                                         value : "Person",
-                                        valueField : 'code',
+                                        valueField : 'value',
                                         xtype : 'ComboBox',
                                         allowBlank : true,
                                         typeAhead : true,
@@ -380,7 +380,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         xns : Roo.form,
                                         name : 'person_table',
                                         qtip : "Select Person Table",
-                                        tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>',
+                                        tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{value}</b> </div>',
                                         loadingText : "Searching...",
                                         listeners : {
                                         	render : function (_self)
