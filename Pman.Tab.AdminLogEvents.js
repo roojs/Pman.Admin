@@ -336,14 +336,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                         store : {
                                             '|xns' : 'Roo.data',
                                             data : (function() { 
-                                                var ret = [
-                                                    [ 'ALL', 'All Transactions' ],
-                                                    [ 'UNPOSTED', 'Unposted' ],
-                                                    [ 'POSTED', 'Posted' ],
-                                                    [ 'VOIDED', 'Voided' ],
-                                                    [ '--', '-----------------' ]    
-                                                ];
-                                                var c = baseURL.split('/').pop().split('.').shift();     
+                                            
+                                                if(typeof(uiConfig.events_person_table) != 'undefined' && uiConfig.events_person_table.length){
+                                                    return [];        
+                                                }
+                                                
+                                                var table = uiConfig.events_person_table;
                                                 Roo.each(uiConfig.xtuple_offices, function(o) {
                                                     if (o == c) {
                                                         return;

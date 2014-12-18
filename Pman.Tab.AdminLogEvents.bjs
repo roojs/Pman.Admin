@@ -155,7 +155,7 @@
                                                     "loadingText" : "Searching...",
                                                     "items" : [
                                                         {
-                                                            "| data" : "(function() { \n    var ret = [\n        [ 'ALL', 'All Transactions' ],\n        [ 'UNPOSTED', 'Unposted' ],\n        [ 'POSTED', 'Posted' ],\n        [ 'VOIDED', 'Voided' ],\n        [ '--', '-----------------' ]    \n    ];\n    var c = baseURL.split('/').pop().split('.').shift();     \n    Roo.each(uiConfig.xtuple_offices, function(o) {\n        if (o == c) {\n            return;\n        }\n        ret.push( [ 'office-' + o,    \"Transfers from \" +   Pman.Xtuple.offices[o] ] );\n\n    });\n    \n    return ret;\n    \n    \n})()",
+                                                            "| data" : "(function() { \n\n    if(typeof(uiConfig.events_person_table) != 'undefined' && uiConfig.events_person_table.length){\n        return [];        \n    }\n    \n    var table = uiConfig.events_person_table;\n    Roo.each(uiConfig.xtuple_offices, function(o) {\n        if (o == c) {\n            return;\n        }\n        ret.push( [ 'office-' + o,    \"Transfers from \" +   Pman.Xtuple.offices[o] ] );\n\n    });\n    \n    return ret;\n    \n    \n})()",
                                                             "xtype" : "SimpleStore",
                                                             "$ fields" : "[ 'value' ]",
                                                             "$ xns" : "Roo.data",
