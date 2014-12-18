@@ -340,17 +340,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 if(typeof(uiConfig.events_person_table) != 'undefined' && uiConfig.events_person_table.length){
                                                     return [];        
                                                 }
-                                                
-                                                var table = uiConfig.events_person_table;
-                                                Roo.each(uiConfig.xtuple_offices, function(o) {
-                                                    if (o == c) {
-                                                        return;
-                                                    }
-                                                    ret.push( [ 'office-' + o,    "Transfers from " +   Pman.Xtuple.offices[o] ] );
                                             
-                                                });
-                                                
-                                                return ret;
+                                                return uiConfig.events_person_table;
                                                 
                                                 
                                             })(),
