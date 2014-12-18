@@ -342,7 +342,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                     return [];        
                                                 }
                                             
-                                                return uiConfig.events_person_table;
+                                                return [['test'], ['test2']];
                                                 
                                             })(),
                                             xtype : 'SimpleStore',
