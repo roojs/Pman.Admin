@@ -150,7 +150,7 @@
                                                     "width" : 150,
                                                     "$ xns" : "Roo.form",
                                                     "name" : "person_table",
-                                                    "qtip" : "Select Action",
+                                                    "qtip" : "Select Person Table",
                                                     "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>",
                                                     "loadingText" : "Searching...",
                                                     "items" : [
