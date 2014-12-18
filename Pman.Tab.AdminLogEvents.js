@@ -192,8 +192,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                 proxy : {
                                     '|xns' : 'Roo.data',
                                     url : baseURL + '/Roo/Events.php',
-                                    method : 'GET',
                                     xtype : 'HttpProxy',
+                                    method : 'GET',
                                     xns : Roo.data
                                 },
                                 '|xns' : 'Roo.data',
@@ -338,7 +338,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             '|xns' : 'Roo.data',
                                             data : (function() { 
                                             
-                                                if(typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){
+                                                if(typeof(uiConfig) == 'undefined' || typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){
                                             
                                                     return [];        
                                                 }
@@ -392,8 +392,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             proxy : {
                                                 '|xns' : 'Roo.data',
                                                 url : baseURL + '/Roo/Person.php',
-                                                xtype : 'HttpProxy',
                                                 method : 'GET',
+                                                xtype : 'HttpProxy',
                                                 xns : Roo.data
                                             },
                                             reader : {
@@ -799,8 +799,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             proxy : {
                                                 '|xns' : 'Roo.data',
                                                 url : baseURL + '/Roo/Events.php',
-                                                xtype : 'HttpProxy',
                                                 method : 'GET',
+                                                xtype : 'HttpProxy',
                                                 xns : Roo.data
                                             },
                                             reader : {
@@ -985,8 +985,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                             proxy : {
                                                 '|xns' : 'Roo.data',
                                                 url : baseURL + '/Roo/Events.php',
-                                                xtype : 'HttpProxy',
                                                 method : 'GET',
+                                                xtype : 'HttpProxy',
                                                 xns : Roo.data
                                             },
                                             reader : {
@@ -1216,8 +1216,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                             	 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'When',
                             	        width : 100,
+                            	        header : 'When',
                             	        renderer : function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; },
                             	        xns : Roo.grid,
                             	        dataIndex : 'event_when'
@@ -1225,16 +1225,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : '#id',
                             	        width : 100,
+                            	        header : '#id',
                             	        xns : Roo.grid,
                             	        dataIndex : 'id'
                             	    },
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Staff',
                             	        width : 150,
+                            	        header : 'Staff',
                             	        renderer : function(v,x,r) { 
                             	            
                             	            var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;
@@ -1255,8 +1255,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 100,
                             	        header : 'Action',
+                            	        width : 100,
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'action'
@@ -1264,8 +1264,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 100,
                             	        header : 'IP',
+                            	        width : 100,
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'ipaddr'
@@ -1273,8 +1273,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Affected',
                             	        width : 100,
+                            	        header : 'Affected',
                             	        renderer : function(v, x, r) {                     
                             	                    return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  
                             	           },
@@ -1284,8 +1284,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Remarks',
                             	        width : 300,
+                            	        header : 'Remarks',
                             	        renderer : function(v) { return String.format('<span qtip="{1}">{0}</span>', v, Roo.util.Format.htmlEncode(v)); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'remarks'
@@ -1306,9 +1306,9 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 
                         },
                         '|xns' : 'Roo',
+                        region : 'center',
                         fitToframe : true,
                         background : false,
-                        region : 'center',
                         title : "Events",
                         xtype : 'GridPanel',
                         fitContainer : true,
@@ -1332,8 +1332,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             },
             '|xns' : 'Roo',
             region : 'center',
-            xtype : 'NestedLayoutPanel',
             title : "Events",
+            xtype : 'NestedLayoutPanel',
             xns : Roo,
             items : [
 
