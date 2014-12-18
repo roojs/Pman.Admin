@@ -340,7 +340,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                                                 if(typeof(uiConfig.events_person_table) != 'undefined' && uiConfig.events_person_table.length){
                                                     return [];        
                                                 }
-                                            
+                                                Roo.log(uiConfig.events_person_table);
                                                 return uiConfig.events_person_table;
                                                 
                                             })(),
