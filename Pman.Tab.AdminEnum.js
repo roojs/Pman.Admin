@@ -459,9 +459,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	       }
                                         	       
                                         	       var d = _this.egrid.dataSource.getAt(s[0]);
-                                        	       
-                                        	       options.params.etype = d.data.name;
-                                        	       
+                                        	    
                                         	   
                                         	       var ds = _this.grid.getDataSource();
                                         	   
