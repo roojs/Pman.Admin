@@ -35,10 +35,8 @@
                             },
                             "background" : false,
                             "region" : "west",
-                            "fitToframe" : true,
                             "title" : "Pulldown Options",
                             "xtype" : "GridPanel",
-                            "fitContainer" : true,
                             "$ xns" : "Roo",
                             "tableName" : "core_enum",
                             "items" : [

@@ -300,10 +300,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                         '|xns' : 'Roo',
                         background : false,
                         region : 'west',
-                        fitToframe : true,
                         title : "Pulldown Options",
                         xtype : 'GridPanel',
-                        fitContainer : true,
                         xns : Roo,
                         tableName : 'core_enum',
                         listeners : {
