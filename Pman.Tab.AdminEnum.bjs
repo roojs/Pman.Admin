@@ -16,9 +16,11 @@
                     "* prop" : "layout",
                     "items" : [
                         {
+                            "Number width" : 200,
                             "xtype" : "LayoutRegion",
                             "$ xns" : "Roo",
-                            "* prop" : "west"
+                            "* prop" : "west",
+                            "Boolean split" : true
                         },
                         {
                             "xtype" : "LayoutRegion",

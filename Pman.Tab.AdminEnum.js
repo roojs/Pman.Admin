@@ -20,8 +20,10 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             layout : {
                 west : {
                     '|xns' : 'Roo',
+                    width : 200,
                     xtype : 'LayoutRegion',
-                    xns : Roo
+                    xns : Roo,
+                    split : true
                 },
                 center : {
                     '|xns' : 'Roo',
