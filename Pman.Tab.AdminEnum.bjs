@@ -84,6 +84,9 @@
                                             ]
                                         },
                                         {
+                                            "listeners" : {
+                                                "selectionchange" : "function (_self, selection)\n{\n    _this.grid.footer.onClick('first');\n}"
+                                            },
                                             "xtype" : "CellSelectionModel",
                                             "$ xns" : "Roo.grid",
                                             "* prop" : "sm"

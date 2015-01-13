@@ -121,7 +121,13 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             sm : {
                                 '|xns' : 'Roo.grid',
                                 xtype : 'CellSelectionModel',
-                                xns : Roo.grid
+                                xns : Roo.grid,
+                                listeners : {
+                                	selectionchange : function (_self, selection)
+                                	   {
+                                	       _this.grid.footer.onClick('first');
+                                	   }
+                                }
                             },
                             footer : {
                                 '|xns' : 'Roo',
