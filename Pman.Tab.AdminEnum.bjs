@@ -30,7 +30,7 @@
                                 "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
                             },
                             "background" : false,
-                            "region" : "center",
+                            "region" : "west",
                             "fitToframe" : true,
                             "title" : "Pulldown Options",
                             "xtype" : "GridPanel",
