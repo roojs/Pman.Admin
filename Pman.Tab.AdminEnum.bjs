@@ -129,16 +129,7 @@
                                         },
                                         {
                                             "xtype" : "ColumnModel",
-                                            "header" : "Internal #",
-                                            "width" : 75,
-                                            "$ renderer" : "function(v) { return String.format('{0}', v); }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "id"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "header" : "Display Name",
+                                            "header" : "Pulldown",
                                             "width" : 200,
                                             "$ renderer" : "function(v,x,r) { \n\n\n    return String.format('<span tip=\"{1}\">{0}</span>', v, r.data.name); \n}",
                                             "$ xns" : "Roo.grid",
