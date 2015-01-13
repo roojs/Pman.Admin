@@ -7,9 +7,7 @@
     "modOrder" : "500",
     "items" : [
         {
-            "Boolean fitContainer" : true,
             "xtype" : "NestedLayoutPanel",
-            "Boolean fitToFrame" : true,
             "$ xns" : "Roo",
             "String region" : "center",
             "String title" : "Pulldown Options",
