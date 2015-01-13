@@ -29,7 +29,7 @@
                         },
                         {
                             "listeners" : {
-                                "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+                                "|activate" : "function() {\n    _this.epanel = this;\n    if (_this.egrid) {\n        _this.egrid.footer.onClick('first');\n    }\n}"
                             },
                             "background" : false,
                             "region" : "west",
