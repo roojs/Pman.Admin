@@ -248,7 +248,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        xtype : 'ColumnModel',
                             	        header : 'Display Name',
                             	        width : 200,
-                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        renderer : function(v,x,r) { 
+                            	        
+                            	        
+                            	            return String.format('<span tip="{1}">{0}</span>', v, r.data.name); 
+                            	        },
                             	        xns : Roo.grid,
                             	        dataIndex : 'display_name'
                             	    },
@@ -265,37 +269,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	         },
                             	        xns : Roo.grid,
                             	        dataIndex : 'active'
-                            	    },
-{
-                            	        editor : {
-                            	            field : {
-                            	                '|xns' : 'Roo.form',
-                            	                allowNegative : true,
-                            	                xtype : 'NumberField',
-                            	                allowDecimals : false,
-                            	                decimalPrecision : 0,
-                            	                xns : Roo.form
-                            	            },
-                            	            '|xns' : 'Roo.grid',
-                            	            xtype : 'GridEditor',
-                            	            xns : Roo.grid,
-                            	            items : [
-
-                            	            ]
-
-                            	        },
-                            	        '|xns' : 'Roo.grid',
-                            	        xtype : 'ColumnModel',
-                            	        sortable : true,
-                            	        header : 'Order #',
-                            	        width : 75,
-                            	        renderer : function(v) { return String.format('{0}', v); },
-                            	        xns : Roo.grid,
-                            	        dataIndex : 'seqid',
-                            	        items : [
-
-                            	        ]
-
                             	    }
                             ],
                             listeners : {
