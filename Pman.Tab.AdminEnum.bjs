@@ -143,21 +143,7 @@
                                             "$ renderer" : "function(v) { return String.format('{0}', v); }",
                                             "$ xns" : "Roo.grid",
                                             "* prop" : "colModel[]",
-                                            "dataIndex" : "display_name",
-                                            "items" : [
-                                                {
-                                                    "xtype" : "GridEditor",
-                                                    "$ xns" : "Roo.grid",
-                                                    "* prop" : "editor",
-                                                    "items" : [
-                                                        {
-                                                            "xtype" : "TextField",
-                                                            "$ xns" : "Roo.form",
-                                                            "* prop" : "field"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "dataIndex" : "display_name"
                                         },
                                         {
                                             "xtype" : "ColumnModel",
