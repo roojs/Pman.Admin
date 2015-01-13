@@ -107,15 +107,10 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	       });
                                 	       
                                 	   },
-                                	beforeload : function (_self, options)
+                                	beforeload : function (_self, o)
                                 	   {
-                                	       if (!_this.etypeCombo) {
-                                	           return false;
-                                	       }
-                                	       options.params.etype = _this.etypeCombo.getValue();
-                                	       if (!options.params.etype.length) {
-                                	           return false;
-                                	       }
+                                	       o.params['query[empty_etype]'] = 1; 
+                                	     
                                 	   }
                                 },
                                 items : [
