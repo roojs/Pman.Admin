@@ -121,7 +121,7 @@
                                             "xtype" : "ColumnModel",
                                             "header" : "Pulldown",
                                             "width" : 200,
-                                            "$ renderer" : "function(v,x,r) { \n\n\n    return String.format('<span qtip=\"{1}\">{0}</span>', v, r.data.name); \n}",
+                                            "$ renderer" : "function(v,x,r) { \n\n\n    return String.format('<span qtip=\"{1}\">{0}</span>', (''+v).length ? v : r.data.name, r.data.name); \n}",
                                             "$ xns" : "Roo.grid",
                                             "* prop" : "colModel[]",
                                             "dataIndex" : "display_name"

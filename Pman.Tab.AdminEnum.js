@@ -203,7 +203,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        renderer : function(v,x,r) { 
                             	        
                             	        
-                            	            return String.format('<span qtip="{1}">{0}</span>', v, r.data.name); 
+                            	            return String.format('<span qtip="{1}">{0}</span>', (''+v).length ? v : r.data.name, r.data.name); 
                             	        },
                             	        xns : Roo.grid,
                             	        dataIndex : 'display_name'
