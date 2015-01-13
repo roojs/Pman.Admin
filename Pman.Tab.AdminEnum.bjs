@@ -9,6 +9,7 @@
         {
             "xtype" : "NestedLayoutPanel",
             "$ xns" : "Roo",
+            "String title" : "Pulldown Options",
             "items" : [
                 {
                     "xtype" : "BorderLayout",
