@@ -138,29 +138,6 @@
                                         },
                                         {
                                             "xtype" : "ColumnModel",
-                                            "width" : 200,
-                                            "header" : "Name",
-                                            "$ renderer" : "function(v) { return String.format('{0}', v); }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "name",
-                                            "items" : [
-                                                {
-                                                    "xtype" : "GridEditor",
-                                                    "$ xns" : "Roo.grid",
-                                                    "* prop" : "editor",
-                                                    "items" : [
-                                                        {
-                                                            "xtype" : "TextField",
-                                                            "$ xns" : "Roo.form",
-                                                            "* prop" : "field"
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
                                             "header" : "Display Name",
                                             "width" : 200,
                                             "$ renderer" : "function(v) { return String.format('{0}', v); }",
