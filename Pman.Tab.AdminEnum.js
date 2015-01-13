@@ -857,8 +857,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
 
             },
             '|xns' : 'Roo',
+            fitContainer : true,
             xtype : 'NestedLayoutPanel',
+            fitToFrame : true,
             xns : Roo,
+            region : 'center',
             title : "Pulldown Options",
             items : [
 
