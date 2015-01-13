@@ -1,0 +1,10 @@
+{
+    "name" : "Pman.Tab.AdminEnum",
+    "parent" : "",
+    "title" : "",
+    "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminEnum.bjs",
+    "permname" : "",
+    "modOrder" : "001",
+    "items" : [
+    ]
+}
