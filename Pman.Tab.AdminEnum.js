@@ -6,10 +6,10 @@ Roo.namespace('Pman.Tab');
 
 Pman.Tab.AdminEnum = new Roo.XComponent({
     part     :  ["Admin", "Enum" ],
-    order    : '001-Pman.Tab.AdminEnum',
+    order    : '500-Pman.Tab.AdminEnum',
     region   : 'center',
-    parent   : false,
-    name     : "unnamed module",
+    parent   : 'Pman.Tab.Admin',
+    name     : "Pman.Tab.AdminEnum",
     disabled : false, 
     permname : '', 
     _tree : function()
