@@ -139,7 +139,7 @@
                                         {
                                             "xtype" : "ColumnModel",
                                             "header" : "Active",
-                                            "width" : 75,
+                                            "width" : 50,
                                             "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
                                             "$ xns" : "Roo.grid",
                                             "* prop" : "colModel[]",

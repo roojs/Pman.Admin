@@ -251,7 +251,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
                             	        header : 'Active',
-                            	        width : 75,
+                            	        width : 50,
                             	        renderer : function(v) {  
                             	            var state = v> 0 ?  '-checked' : '';
                             	        
