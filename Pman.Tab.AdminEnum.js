@@ -509,53 +509,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	       
                                         	   }
                                         }
-                                    },
-                                	{
-                                        '|xns' : 'Roo.Toolbar',
-                                        xtype : 'Fill',
-                                        xns : Roo.Toolbar
-                                    },
-                                	{
-                                        '|xns' : 'Roo.Toolbar',
-                                        text : "Add new pulldown list",
-                                        xtype : 'Button',
-                                        cls : 'x-btn-text-icon',
-                                        icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-                                        xns : Roo.Toolbar,
-                                        listeners : {
-                                        	click : function()
-                                        	   {
-                                        	       
-                                        	       Roo.MessageBox.prompt ("Create a new Enum type",
-                                        	           "Enter the name for a new enum type, " + 
-                                        	           "this is only relivant if you  know how it is going to be used",
-                                        	           function(btn,txt) {
-                                        	               if (btn != 'ok') {
-                                        	                   return; 
-                                        	               }
-                                        	               new Pman.Request({
-                                        	                   url : baseURL + '/Roo/Core_enum.php',
-                                        	                   method : 'POST',
-                                        	                   params : {
-                                        	                       etype : '',
-                                        	                       name : txt,
-                                        	                       active : 1
-                                        	                   }, 
-                                        	                   success : function() {
-                                        	                       Roo.MessageBox.alert("Created", "You can now select it from the type list on the left");
-                                        	                   }
-                                        	               });
-                                        	                       
-                                        	               
-                                        	                
-                                        	                
-                                        	           }
-                                        	       ); 
-                                        	            
-                                        	            
-                                        	   
-                                        	   }
-                                        }
                                     }
                                 ]
 
