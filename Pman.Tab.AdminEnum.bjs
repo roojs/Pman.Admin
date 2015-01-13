@@ -6,5 +6,28 @@
     "permname" : "",
     "modOrder" : "001",
     "items" : [
+        {
+            "xtype" : "NestedLayoutPanel",
+            "$ xns" : "Roo",
+            "items" : [
+                {
+                    "xtype" : "BorderLayout",
+                    "$ xns" : "Roo",
+                    "* prop" : "layout",
+                    "items" : [
+                        {
+                            "xtype" : "LayoutRegion",
+                            "$ xns" : "Roo",
+                            "* prop" : "west"
+                        },
+                        {
+                            "xtype" : "LayoutRegion",
+                            "$ xns" : "Roo",
+                            "* prop" : "center"
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }
