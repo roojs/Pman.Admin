@@ -213,7 +213,7 @@
                                                 },
                                                 {
                                                     "listeners" : {
-                                                        "click" : "function (_self, e)\n{\n    var etype = _this.etypeCombo.getValue();\n    \n    if(!etype.length){\n        Roo.MessageBox.alert('Error', 'Please select a pulldown');\n        return;\n    }\n    \n    Pman.Dialog.Image.show(\n       {\n            _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})\n        \n       },\n       function () {\n            _this.grid.footer.onClick('first');\n       }\n   );\n}"
+                                                        "click" : "function (_self, e)\n{\n\n  var s =     _this.egrid.getSelectionModel().getSelectedCell();\n    \n\n    if (!s) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n    }\n    \n    var d = _this.egrid.dataSource.getAt(s[0]);\n \n\n    var etype = d.data.name;\n    \n    if(!etype.length){\n        Roo.MessageBox.alert('Error', 'Please select a pulldown');\n        return;\n    }\n    \n    Pman.Dialog.Image.show(\n       {\n            _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})\n        \n       },\n       function () {\n            _this.grid.footer.onClick('first');\n       }\n   );\n}"
                                                     },
                                                     "text" : "Upload Value",
                                                     "xtype" : "Button",

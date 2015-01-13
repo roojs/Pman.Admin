@@ -410,7 +410,18 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         listeners : {
                                         	click : function (_self, e)
                                         	   {
-                                        	       var etype = _this.etypeCombo.getValue();
+                                        	   
+                                        	     var s =     _this.egrid.getSelectionModel().getSelectedCell();
+                                        	       
+                                        	   
+                                        	       if (!s) {
+                                        	           Roo.MessageBox.alert("Error", "Select a pulldown");
+                                        	       }
+                                        	       
+                                        	       var d = _this.egrid.dataSource.getAt(s[0]);
+                                        	    
+                                        	   
+                                        	       var etype = d.data.name;
                                         	       
                                         	       if(!etype.length){
                                         	           Roo.MessageBox.alert('Error', 'Please select a pulldown');
