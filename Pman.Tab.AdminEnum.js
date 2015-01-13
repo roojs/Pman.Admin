@@ -444,77 +444,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         xns : Roo.Toolbar
                                     },
                                 	{
-                                        store : {
-                                            proxy : {
-                                                '|xns' : 'Roo.data',
-                                                url : baseURL + '/Roo/core_enum.php',
-                                                xtype : 'HttpProxy',
-                                                method : 'GET',
-                                                xns : Roo.data
-                                            },
-                                            reader : {
-                                                '|xns' : 'Roo.data',
-                                                id : 'id',
-                                                root : 'data',
-                                                xtype : 'JsonReader',
-                                                xns : Roo.data,
-                                                fields : [{"name":"id","type":"int"},{"name":"etype","type":"string"}],
-                                                totalProperty : 'total'
-                                            },
-                                            '|xns' : 'Roo.data',
-                                            xtype : 'Store',
-                                            remoteSort : true,
-                                            sortInfo : { direction : 'ASC', field: 'display_name' },
-                                            xns : Roo.data,
-                                            listeners : {
-                                            	beforeload : function (_self, o){
-                                            	       o.params = o.params || {};
-                                            	       // set more here
-                                            	       o.params['query[empty_etype]'] = 1; 
-                                            	   }
-                                            },
-                                            items : [
-
-                                            ]
-
-                                        },
-                                        '|xns' : 'Roo.form',
-                                        alwaysQuery : true,
-                                        listWidth : 400,
-                                        triggerAction : 'all',
-                                        fieldLabel : 'core_enum',
-                                        forceSelection : true,
-                                        selectOnFocus : true,
-                                        pageSize : 50,
-                                        displayField : 'name',
-                                        emptyText : "Select pulldown",
-                                        minChars : 2,
-                                        valueField : 'name',
-                                        xtype : 'ComboBox',
-                                        typeAhead : false,
-                                        editable : false,
-                                        width : 300,
-                                        xns : Roo.form,
-                                        qtip : "Select type",
-                                        queryParam : 'query[name]',
-                                        tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> - {name} </div>',
-                                        loadingText : "Searching...",
-                                        listeners : {
-                                        	render : function (_self)
-                                        	   {
-                                        	       _this.etypeCombo = _self;
-                                        	   },
-                                        	select : function (combo, record, index)
-                                        	   {
-                                        	       _this.grid.footer.onClick('first');
-                                        	   }
-                                        },
-                                        items : [
-
-                                        ]
-
-                                    },
-                                	{
                                         '|xns' : 'Roo.Toolbar',
                                         text : "Add Value",
                                         xtype : 'Button',
@@ -549,7 +478,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                     },
                                 	{
                                         '|xns' : 'Roo.Toolbar',
-                                        text : "Add Images",
+                                        text : "Add Image",
                                         xtype : 'Button',
                                         cls : 'x-btn-text-icon',
                                         icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
