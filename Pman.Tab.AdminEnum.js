@@ -449,18 +449,27 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	   {
                                         	       
                                         	       // if we do not have a selected type... - what should we show..?
-                                        	       var et = _this.etypeCombo.getValue();
-                                        	       var ds = _this.grid.getDataSource();
-                                        	       if (!et) {
+                                        	       
+                                        	       
+                                        	       var s =     _this.egrid.getSelectionModel().getSelectedCell();
+                                        	       
+                                        	   
+                                        	       if (!s) {
                                         	           Roo.MessageBox.alert("Error", "Select a pulldown");
-                                        	           return;
                                         	       }
+                                        	       
+                                        	       var d = _this.egrid.dataSource.getAt(s[0]);
+                                        	       
+                                        	       options.params.etype = d.data.name;
+                                        	       
+                                        	   
+                                        	       var ds = _this.grid.getDataSource();
                                         	   
                                         	       var add = ds.reader.newRow({    
                                         	                id: 0, 
                                         	                display_name : '', 
                                         	                name : '', 
-                                        	                etype: et, 
+                                        	                etype: d.data.name, 
                                         	                active: 1, 
                                         	                seqid: 0
                                         	         });
