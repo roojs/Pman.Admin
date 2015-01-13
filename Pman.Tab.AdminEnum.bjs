@@ -92,31 +92,13 @@
                                             "* prop" : "sm"
                                         },
                                         {
-                                            "pageSize" : 25,
+                                            "pageSize" : 100,
                                             "xtype" : "PagingToolbar",
                                             "emptyMsg" : "No core_enum found",
                                             "$ xns" : "Roo",
                                             "displayInfo" : true,
                                             "displayMsg" : "Displaying core_enum{0} - {1} of {2}",
-                                            "* prop" : "footer",
-                                            "items" : [
-                                                {
-                                                    "listeners" : {
-                                                        "click" : "function (_self, e)\n{\n    new Pman.Download({\n        grid : _this.grid\n    });\n    Roo.MessageBox.alert(\"Downloading\", \"File is downloading\");\n}"
-                                                    },
-                                                    "text" : "Download",
-                                                    "xtype" : "Button",
-                                                    "$ xns" : "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "click" : "function (_self, e)\n{\n    var etype = _this.etypeCombo.getValue();\n    \n    if(!etype.length){\n        Roo.MessageBox.alert('Error', 'Please select a pulldown');\n        return;\n    }\n    \n    Pman.Dialog.Image.show(\n       {\n            _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})\n        \n       },\n       function () {\n            _this.grid.footer.onClick('first');\n       }\n   );\n}"
-                                                    },
-                                                    "text" : "Upload Value",
-                                                    "xtype" : "Button",
-                                                    "$ xns" : "Roo.Toolbar"
-                                                }
-                                            ]
+                                            "* prop" : "footer"
                                         },
                                         {
                                             "xtype" : "Toolbar",

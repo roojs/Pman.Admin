@@ -131,57 +131,12 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             },
                             footer : {
                                 '|xns' : 'Roo',
-                                pageSize : 25,
+                                pageSize : 100,
                                 xtype : 'PagingToolbar',
                                 emptyMsg : "No core_enum found",
                                 xns : Roo,
                                 displayInfo : true,
-                                displayMsg : "Displaying core_enum{0} - {1} of {2}",
-                                items : [
-                                	{
-                                        '|xns' : 'Roo.Toolbar',
-                                        text : "Download",
-                                        xtype : 'Button',
-                                        xns : Roo.Toolbar,
-                                        listeners : {
-                                        	click : function (_self, e)
-                                        	   {
-                                        	       new Pman.Download({
-                                        	           grid : _this.grid
-                                        	       });
-                                        	       Roo.MessageBox.alert("Downloading", "File is downloading");
-                                        	   }
-                                        }
-                                    },
-                                	{
-                                        '|xns' : 'Roo.Toolbar',
-                                        text : "Upload Value",
-                                        xtype : 'Button',
-                                        xns : Roo.Toolbar,
-                                        listeners : {
-                                        	click : function (_self, e)
-                                        	   {
-                                        	       var etype = _this.etypeCombo.getValue();
-                                        	       
-                                        	       if(!etype.length){
-                                        	           Roo.MessageBox.alert('Error', 'Please select a pulldown');
-                                        	           return;
-                                        	       }
-                                        	       
-                                        	       Pman.Dialog.Image.show(
-                                        	          {
-                                        	               _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})
-                                        	           
-                                        	          },
-                                        	          function () {
-                                        	               _this.grid.footer.onClick('first');
-                                        	          }
-                                        	      );
-                                        	   }
-                                        }
-                                    }
-                                ]
-
+                                displayMsg : "Displaying core_enum{0} - {1} of {2}"
                             },
                             toolbar : {
                                 '|xns' : 'Roo',
