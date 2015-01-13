@@ -135,8 +135,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 xtype : 'PagingToolbar',
                                 emptyMsg : "No core_enum found",
                                 xns : Roo,
-                                displayInfo : true,
-                                displayMsg : "Displaying core_enum{0} - {1} of {2}"
+                                displayInfo : false,
+                                displayMsg : " "
                             },
                             toolbar : {
                                 '|xns' : 'Roo',
