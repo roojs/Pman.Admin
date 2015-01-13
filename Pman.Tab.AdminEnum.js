@@ -439,12 +439,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 items : [
                                 	{
                                         '|xns' : 'Roo.Toolbar',
-                                        text : "Pulldown Name:",
-                                        xtype : 'TextItem',
-                                        xns : Roo.Toolbar
-                                    },
-                                	{
-                                        '|xns' : 'Roo.Toolbar',
                                         text : "Add Value",
                                         xtype : 'Button',
                                         cls : 'x-btn-text-icon',
