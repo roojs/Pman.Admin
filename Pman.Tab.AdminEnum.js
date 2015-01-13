@@ -403,10 +403,16 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	   },
                                 	beforeload : function (_self, options)
                                 	   {
-                                	       if (!_this.etypeCombo) {
+                                	   
+                                	       var s =     _this.egrid.getSelectionModel().getSelectedCell();
+                                	       
+                                	   
+                                	       if (!s) {
                                 	           return false;
                                 	       }
-                                	       options.params.etype = _this.etypeCombo.getValue();
+                                	       var d = _this.egrid.dataSource.getAt(s[0]);
+                                	       
+                                	       options.params.etype = d.data.name;
                                 	       if (!options.params.etype.length) {
                                 	           return false;
                                 	       }
