@@ -244,15 +244,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        dataIndex : 'id'
                             	    },
 {
-                            	        '|xns' : 'Roo.grid',
-                            	        xtype : 'ColumnModel',
-                            	        header : 'Image',
-                            	        width : 75,
-                            	        renderer : function(v,x,r) { return String.format('<img src="{0}/Images/Thumb/25/{1}/{2}" width="25" height="25">', baseURL, v, r.data.images_id_filename); },
-                            	        xns : Roo.grid,
-                            	        dataIndex : 'images_id_id'
-                            	    },
-{
                             	        editor : {
                             	            field : {
                             	                '|xns' : 'Roo.form',
