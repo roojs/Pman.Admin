@@ -118,6 +118,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 ]
 
                             },
+                            sm : {
+                                '|xns' : 'Roo.grid',
+                                xtype : 'CellSelectionModel',
+                                xns : Roo.grid
+                            },
                             footer : {
                                 '|xns' : 'Roo',
                                 pageSize : 25,

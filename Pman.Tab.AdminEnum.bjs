@@ -84,6 +84,11 @@
                                             ]
                                         },
                                         {
+                                            "xtype" : "CellSelectionModel",
+                                            "$ xns" : "Roo.grid",
+                                            "* prop" : "sm"
+                                        },
+                                        {
                                             "pageSize" : 25,
                                             "xtype" : "PagingToolbar",
                                             "emptyMsg" : "No core_enum found",
