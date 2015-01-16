@@ -6,5 +6,9 @@
     "permname" : "",
     "modOrder" : "001",
     "items" : [
+        {
+            "xtype" : "LayoutDialog",
+            "$ xns" : "Roo"
+        }
     ]
 }
