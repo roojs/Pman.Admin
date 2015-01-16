@@ -62,6 +62,7 @@ Pman.Dialog.AdminEnumType = {
             	{
                     '|xns' : 'Roo',
                     xtype : 'Button',
+                    text : "Cancel",
                     xns : Roo
                 }
             ]
