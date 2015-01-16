@@ -40,8 +40,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 proxy : {
                                     '|xns' : 'Roo.data',
                                     url : baseURL + '/Roo/core_enum.php',
-                                    xtype : 'HttpProxy',
                                     method : 'GET',
+                                    xtype : 'HttpProxy',
                                     xns : Roo.data
                                 },
                                 reader : {
@@ -198,8 +198,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Pulldown',
                             	        width : 200,
+                            	        header : 'Pulldown',
                             	        renderer : function(v,x,r) { 
                             	        
                             	        
@@ -211,8 +211,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Active',
                             	        width : 50,
+                            	        header : 'Active',
                             	        renderer : function(v) {  
                             	            var state = v> 0 ?  '-checked' : '';
                             	        
@@ -230,6 +230,14 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	           return false;
                             	       }
                             	   },
+                            	render : function() 
+                            	   {
+                            	       _this.egrid = this; 
+                            	       //_this.dialog = Pman.Dialog.FILL_IN
+                            	       if (_this.epanel.active) {
+                            	          this.footer.onClick('first');
+                            	       }
+                            	   },
                             	cellclick : function (_self, rowIndex, columnIndex, e)
                             	   {
                             	   
@@ -244,14 +252,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	           rec.commit();
                             	            
                             	           
-                            	   },
-                            	render : function() 
-                            	   {
-                            	       _this.egrid = this; 
-                            	       //_this.dialog = Pman.Dialog.FILL_IN
-                            	       if (_this.epanel.active) {
-                            	          this.footer.onClick('first');
-                            	       }
                             	   },
                             	afteredit : function (e)
                             	   {
@@ -289,8 +289,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 proxy : {
                                     '|xns' : 'Roo.data',
                                     url : baseURL + '/Roo/core_enum.php',
-                                    method : 'GET',
                                     xtype : 'HttpProxy',
+                                    method : 'GET',
                                     xns : Roo.data
                                 },
                                 reader : {
@@ -535,8 +535,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 75,
                             	        header : 'Internal #',
+                            	        width : 75,
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'id'
@@ -544,8 +544,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 75,
                             	        header : 'Image',
+                            	        width : 75,
                             	        renderer : function(v,x,r) { return String.format('<img src="{0}/Images/Thumb/25/{1}/{2}" width="25" height="25">', baseURL, v, r.data.images_id_filename); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'images_id_id'
@@ -567,8 +567,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        },
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        header : 'Name',
                             	        width : 200,
+                            	        header : 'Name',
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'name',
@@ -594,8 +594,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        },
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 200,
                             	        header : 'Display Name',
+                            	        width : 200,
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
                             	        dataIndex : 'display_name',
@@ -607,8 +607,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
 {
                             	        '|xns' : 'Roo.grid',
                             	        xtype : 'ColumnModel',
-                            	        width : 75,
                             	        header : 'Active',
+                            	        width : 75,
                             	        renderer : function(v) {  
                             	            var state = v> 0 ?  '-checked' : '';
                             	        
@@ -657,14 +657,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	           return false;
                             	       }
                             	   },
-                            	render : function() 
-                            	   {
-                            	       _this.grid = this; 
-                            	       //_this.dialog = Pman.Dialog.FILL_IN
-                            	       if (_this.panel.active) {
-                            	          this.footer.onClick('first');
-                            	       }
-                            	   },
                             	cellclick : function (_self, rowIndex, columnIndex, e)
                             	   {
                             	   
@@ -680,6 +672,14 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	            
                             	           
                             	   },
+                            	render : function() 
+                            	   {
+                            	       _this.grid = this; 
+                            	       //_this.dialog = Pman.Dialog.FILL_IN
+                            	       if (_this.panel.active) {
+                            	          this.footer.onClick('first');
+                            	       }
+                            	   },
                             	afteredit : function (e)
                             	   {
                             	      e.record.commit();     
@@ -691,9 +691,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
 
                         },
                         '|xns' : 'Roo',
+                        region : 'center',
                         fitToframe : true,
                         background : false,
-                        region : 'center',
                         title : "Pulldown Options",
                         xtype : 'GridPanel',
                         xns : Roo,
@@ -716,8 +716,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             },
             '|xns' : 'Roo',
             xtype : 'NestedLayoutPanel',
-            xns : Roo,
             region : 'center',
+            xns : Roo,
             title : "Pulldown Options",
             items : [
 
