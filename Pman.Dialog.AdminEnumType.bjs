@@ -1,0 +1,10 @@
+{
+    "name" : "Pman.Dialog.AdminEnumType",
+    "parent" : "",
+    "title" : "",
+    "path" : "/home/michael/gitlive/Pman.Admin/Pman.Dialog.AdminEnumType.bjs",
+    "permname" : "",
+    "modOrder" : "001",
+    "items" : [
+    ]
+}
