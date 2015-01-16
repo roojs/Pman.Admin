@@ -52,6 +52,11 @@ Pman.Dialog.AdminEnumType = {
                         }
                     ]
 
+                },
+            	{
+                    '|xns' : 'Roo',
+                    xtype : 'Button',
+                    xns : Roo
                 }
             ]
 

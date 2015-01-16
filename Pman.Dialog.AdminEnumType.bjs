@@ -24,6 +24,10 @@
                             "$ xns" : "Roo.form"
                         }
                     ]
+                },
+                {
+                    "xtype" : "Button",
+                    "$ xns" : "Roo"
                 }
             ]
         }
