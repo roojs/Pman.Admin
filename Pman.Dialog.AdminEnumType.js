@@ -32,7 +32,15 @@ Pman.Dialog.AdminEnumType = {
         this.dialog = Roo.factory({
             '|xns' : 'Roo',
             xtype : 'LayoutDialog',
-            xns : Roo
+            xns : Roo,
+            items : [
+            	{
+                    '|xns' : 'Roo',
+                    xtype : 'LayoutRegion',
+                    xns : Roo
+                }
+            ]
+
         });
     }
 };

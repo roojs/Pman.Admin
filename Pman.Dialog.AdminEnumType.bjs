@@ -8,7 +8,13 @@
     "items" : [
         {
             "xtype" : "LayoutDialog",
-            "$ xns" : "Roo"
+            "$ xns" : "Roo",
+            "items" : [
+                {
+                    "xtype" : "LayoutRegion",
+                    "$ xns" : "Roo"
+                }
+            ]
         }
     ]
 }
