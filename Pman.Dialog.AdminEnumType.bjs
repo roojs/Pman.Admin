@@ -12,7 +12,8 @@
             "items" : [
                 {
                     "xtype" : "LayoutRegion",
-                    "$ xns" : "Roo"
+                    "$ xns" : "Roo",
+                    "String title" : "Edit"
                 }
             ]
         }
