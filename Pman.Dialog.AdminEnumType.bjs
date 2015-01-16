@@ -14,6 +14,10 @@
                     "xtype" : "LayoutRegion",
                     "$ xns" : "Roo",
                     "String title" : "Edit"
+                },
+                {
+                    "xtype" : "ContentPanel",
+                    "$ xns" : "Roo"
                 }
             ]
         }

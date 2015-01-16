@@ -39,6 +39,11 @@ Pman.Dialog.AdminEnumType = {
                     xtype : 'LayoutRegion',
                     xns : Roo,
                     title : "Edit"
+                },
+            	{
+                    '|xns' : 'Roo',
+                    xtype : 'ContentPanel',
+                    xns : Roo
                 }
             ]
 
