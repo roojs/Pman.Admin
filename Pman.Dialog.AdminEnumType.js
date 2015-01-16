@@ -43,7 +43,15 @@ Pman.Dialog.AdminEnumType = {
             	{
                     '|xns' : 'Roo',
                     xtype : 'ContentPanel',
-                    xns : Roo
+                    xns : Roo,
+                    items : [
+                    	{
+                            '|xns' : 'Roo.form',
+                            xtype : 'Form',
+                            xns : Roo.form
+                        }
+                    ]
+
                 }
             ]
 
