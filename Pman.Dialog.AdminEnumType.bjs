@@ -27,6 +27,7 @@
                 },
                 {
                     "xtype" : "Button",
+                    "String text" : "Save",
                     "$ xns" : "Roo"
                 }
             ]
