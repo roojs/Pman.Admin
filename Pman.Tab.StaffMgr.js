@@ -63,7 +63,7 @@ Pman.Tab.StaffMgr = {
         
        
         this.tab = parentLayout.add(region,  new Ext.NestedLayoutPanel(
-            this.layout, {title: this.title || "Staff / Teams1", background: true}));
+            this.layout, {title: this.title || "Staff / Teams", background: true}));
         
         this.tab.on('activate', function() {
             _this.layout.getRegion('center').showPanel(0);
