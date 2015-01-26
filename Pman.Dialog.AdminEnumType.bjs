@@ -7,33 +7,78 @@
     "modOrder" : "001",
     "items" : [
         {
+            "Boolean modal" : true,
+            "Number width" : 480,
             "xtype" : "LayoutDialog",
+            "Number height" : 160,
+            "Boolean resizable" : false,
             "$ xns" : "Roo",
+            "String title" : "Edit",
             "items" : [
                 {
                     "xtype" : "LayoutRegion",
                     "$ xns" : "Roo",
-                    "String title" : "Edit"
+                    "* prop" : "center\n"
                 },
                 {
                     "xtype" : "ContentPanel",
+                    "String region" : "center",
                     "$ xns" : "Roo",
                     "items" : [
                         {
+                            "listeners" : {
+                                "rendered" : "function (form)\n{\n    _this.form = this;\n}",
+                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n    }\n}"
+                            },
+                            "$ url" : "baseURL + '/Roo/Core_enum'",
                             "xtype" : "Form",
-                            "$ xns" : "Roo.form"
+                            "$ xns" : "Roo.form",
+                            "items" : [
+                                {
+                                    "String name" : "name",
+                                    "Number width" : 270,
+                                    "xtype" : "TextField",
+                                    "String fieldLabel" : "Name",
+                                    "$ xns" : "Roo.form"
+                                },
+                                {
+                                    "String name" : "id",
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form"
+                                },
+                                {
+                                    "String name" : "etype",
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form"
+                                },
+                                {
+                                    "String name" : "display_name",
+                                    "Number width" : 270,
+                                    "xtype" : "TextField",
+                                    "String fieldLabel" : "Display Name",
+                                    "$ xns" : "Roo.form"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    //this.url = baseURL + '/Roo/Core_enum.php';\n    //_this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n}"
+                    },
                     "xtype" : "Button",
                     "String text" : "Save",
-                    "$ xns" : "Roo"
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
                 },
                 {
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+                    },
                     "xtype" : "Button",
                     "String text" : "Cancel",
-                    "$ xns" : "Roo"
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
                 }
             ]
         }

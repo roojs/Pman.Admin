@@ -1,0 +1,44 @@
+{
+    "name" : "Pman.Dialog.AdminEnumType",
+    "parent" : "",
+    "title" : "",
+    "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEnumType.bjs",
+    "permname" : "",
+    "modOrder" : "001",
+    "items" : [
+        {
+            "xtype" : "LayoutDialog",
+            "$ xns" : "Roo",
+            "items" : [
+                {
+                    "xtype" : "LayoutRegion",
+<<<<<<< HEAD
+                    "$ xns" : "Roo",
+                    "String title" : "Edit"
+                },
+                {
+                    "xtype" : "ContentPanel",
+                    "$ xns" : "Roo",
+                    "items" : [
+                        {
+                            "xtype" : "Form",
+                            "$ xns" : "Roo.form"
+                        }
+                    ]
+                },
+                {
+                    "xtype" : "Button",
+                    "String text" : "Save",
+                    "$ xns" : "Roo"
+                },
+                {
+                    "xtype" : "Button",
+                    "String text" : "Cancel",
+=======
+>>>>>>> be2b32ec3940f51083d62854828ab95a2787c3c2
+                    "$ xns" : "Roo"
+                }
+            ]
+        }
+    ]
+}

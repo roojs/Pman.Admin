@@ -1,83 +1,82 @@
 {
-    "id": "roo-file-151",
-    "name": "Pman.Dialog.AdminGenericName",
-    "parent": "",
-    "title": "",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminGenericName.bjs",
-    "items": [
+    "name" : "Pman.Dialog.AdminGenericName",
+    "parent" : "",
+    "title" : "",
+    "path" : "/home/michael/gitlive/Pman.Admin/Pman.Dialog.AdminGenericName.bjs",
+    "permname" : "",
+    "modOrder" : "001",
+    "items" : [
         {
-            "closable": false,
-            "collapsible": false,
-            "height": 120,
-            "modal": true,
-            "resizable": false,
-            "title": "Edit",
-            "width": 400,
-            "xtype": "LayoutDialog",
-            "|xns": "Roo",
-            "items": [
+            "modal" : true,
+            "collapsible" : false,
+            "title" : "Edit",
+            "xtype" : "LayoutDialog",
+            "width" : 400,
+            "$ xns" : "Roo",
+            "closable" : false,
+            "resizable" : false,
+            "height" : 120,
+            "items" : [
                 {
-                    "|xns": "Roo",
-                    "xtype": "LayoutRegion",
-                    "*prop": "center"
+                    "xtype" : "LayoutRegion",
+                    "$ xns" : "Roo",
+                    "* prop" : "center"
                 },
                 {
-                    "region": "center",
-                    "xtype": "ContentPanel",
-                    "|xns": "Roo",
-                    "items": [
+                    "region" : "center",
+                    "xtype" : "ContentPanel",
+                    "$ xns" : "Roo",
+                    "items" : [
                         {
-                            "listeners": {
-                                "|actioncomplete": "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       this.url = baseURL + '/Roo/' + _this.data._table;\n       _this.dialog.setTitle(_this.data._title);\n       this.load({ \n            method: 'GET', \n            params: { '_id' : _this.data.id },\n            url : this.url\n        });\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        _this.form.findField('name').focus();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
-                                "|rendered": "function (form)\n{\n    _this.form= form;\n}\n"
+                            "listeners" : {
+                                "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       this.url = baseURL + '/Roo/' + _this.data._table;\n       _this.dialog.setTitle(_this.data._title);\n       this.load({ \n            method: 'GET', \n            params: { '_id' : _this.data.id },\n            url : this.url\n        });\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        _this.form.findField('name').focus();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+                                "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
                             },
-                            "labelWidth": 50,
-                            "method": "POST",
-                            "style": "margin:10px;",
-                            "xtype": "Form",
-                            "|url": "baseURL + '/Roo/core_company_type.php'",
-                            "|xns": "Roo.form",
-                            "items": [
+                            "$ url" : "baseURL + '/Roo/core_company_type.php'",
+                            "style" : "margin:10px;",
+                            "method" : "POST",
+                            "xtype" : "Form",
+                            "labelWidth" : 50,
+                            "$ xns" : "Roo.form",
+                            "items" : [
                                 {
-                                    "listeners": {
-                                        "specialkey": "function (_self, e)\n{\n    if (e.getKey() == 13) {\n         _this.dialog.el.mask(\"Saving\");\n         _this.form.doAction(\"submit\");\n    }\n}"
+                                    "listeners" : {
+                                        "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n         _this.dialog.el.mask(\"Saving\");\n         _this.form.doAction(\"submit\");\n    }\n}"
                                     },
-                                    "fieldLabel": "Name",
-                                    "name": "name",
-                                    "width": 270,
-                                    "xtype": "TextField",
-                                    "|xns": "Roo.form"
+                                    "fieldLabel" : "Name",
+                                    "xtype" : "TextField",
+                                    "width" : 270,
+                                    "$ xns" : "Roo.form",
+                                    "name" : "name"
                                 },
                                 {
-                                    "name": "id",
-                                    "|xns": "Roo.form",
-                                    "xtype": "Hidden"
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "id"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "listeners": {
-                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
                     },
-                    "*prop": "buttons[]",
-                    "text": "Cancel",
-                    "xtype": "Button",
-                    "|xns": "Roo"
+                    "text" : "Cancel",
+                    "xtype" : "Button",
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
                 },
                 {
-                    "listeners": {
-                        "click": "function (_self, e)\n{\n    // do some checks?\n     \n     this.url = baseURL + '/Roo/' + _this.data._table;\n    _this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n\n}"
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    // do some checks?\n     \n     this.url = baseURL + '/Roo/' + _this.data._table;\n    _this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n\n}"
                     },
-                    "*prop": "buttons[]",
-                    "text": "Save",
-                    "xtype": "Button",
-                    "|xns": "Roo"
+                    "text" : "Save",
+                    "xtype" : "Button",
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
                 }
             ]
         }
-    ],
-    "permname": "",
-    "modOrder": "001"
+    ]
 }
