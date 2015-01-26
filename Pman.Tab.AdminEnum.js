@@ -412,7 +412,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                     },
                                 	{
                                         '|xns' : 'Roo.Toolbar',
-                                        text : "Upload Value",
+                                        text : "Upload Values",
                                         xtype : 'Button',
                                         xns : Roo.Toolbar,
                                         listeners : {
@@ -438,7 +438,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	       
                                         	       Pman.Dialog.Image.show(
                                         	          {
-                                        	               _url : baseURL+'/Xtuple/Import/Enum?' + Roo.urlEncode({'etype' : etype})
+                                        	               _url : baseURL+'/Admin/Import/Enum?' + Roo.urlEncode({'etype' : etype})
                                         	           
                                         	          },
                                         	          function () {

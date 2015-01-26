@@ -8,6 +8,7 @@ Pman.on('beforeload', function()
  
  
     Pman.register({
+        part :  ["Admin","StaffManager"],
         modKey : '020-pman-tab-staffmgr',
         module : Pman.Tab.StaffMgr,
         region : 'center',
