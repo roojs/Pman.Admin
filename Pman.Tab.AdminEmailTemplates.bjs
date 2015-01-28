@@ -2,7 +2,7 @@
     "id": "roo-file-219",
     "name": "Pman.Tab.AdminEmailTemplates",
     "parent": "Pman.Tab.Admin",
-    "title": "",
+    "title": "Manage Email Templates",
     "path": "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminEmailTemplates.bjs",
     "items": [
         {
