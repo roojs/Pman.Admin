@@ -3,8 +3,8 @@
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
 Pman.Tab.CoreEmail = new Roo.XComponent({
-    part     :  ["Core","Email"],
-    order    : '999-Pman.Tab.CoreEmail',
+    part     :  ["Admin","EmailTemplates"],
+    order    : '999-Pman.Tab.AdminEmailTemplates',
     region   : 'center',
     parent   : 'Pman.Tab.Admin',
     name     : "unnamed module",
