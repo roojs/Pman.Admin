@@ -3,8 +3,8 @@
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
 Pman.Tab.CoreOAuthClient = new Roo.XComponent({
-    part     :  ["Core","OAuthClient"],
-    order    : '900-Pman.Tab.CoreOAuthClient',
+    part     :  ["Admin","OAuthClient"],
+    order    : '900-Pman.Tab.AdminOAuthClient',
     region   : 'center',
     parent   : 'Pman.Tab.Admin',
     name     : "unnamed module",
