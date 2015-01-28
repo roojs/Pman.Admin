@@ -7,7 +7,7 @@ Pman.Tab.CoreEmail = new Roo.XComponent({
     order    : '999-Pman.Tab.AdminEmailTemplates',
     region   : 'center',
     parent   : 'Pman.Tab.Admin',
-    name     : "unnamed module",
+    name     : "Manage Email Templates",
     disabled : false, 
     permname : '', 
     _tree : function()
