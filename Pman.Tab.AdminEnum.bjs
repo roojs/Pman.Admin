@@ -254,6 +254,7 @@
                                                     "$ xns" : "Roo.form"
                                                 },
                                                 {
+                                                    "String cls" : "x-btn-icon",
                                                     "xtype" : "Button",
                                                     "$ xns" : "Roo.Toolbar",
                                                     "$ icon" : "rootURL + '/web.Hydra/Pman/templates/images/search.gif'"
