@@ -255,7 +255,7 @@
                                                 },
                                                 {
                                                     "xtype" : "Button",
-                                                    "$ icon" : "rootURL + '/web.Hydry/Pman/templates/images/search.gif'",
+                                                    "$ icon" : "rootURL + '/web.Hydra/Pman/templates/images/search.gif'",
                                                     "$ xns" : "Roo.Toolbar"
                                                 },
                                                 {
