@@ -22,13 +22,13 @@
                 },
                 {
                     "xtype" : "ContentPanel",
-                    "String region" : "center",
                     "$ xns" : "Roo",
+                    "String region" : "center",
                     "items" : [
                         {
                             "listeners" : {
-                                "rendered" : "function (form)\n{\n    _this.form = this;\n}",
-                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n    }\n}"
+                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n    }\n}",
+                                "rendered" : "function (form)\n{\n    _this.form = this;\n}"
                             },
                             "$ url" : "baseURL + '/Roo/Core_enum'",
                             "xtype" : "Form",
