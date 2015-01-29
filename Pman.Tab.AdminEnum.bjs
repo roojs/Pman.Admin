@@ -261,7 +261,7 @@
                                                 {
                                                     "xtype" : "Button",
                                                     "$ xns" : "Roo.Toolbar",
-                                                    "String icon" : "http://roojs.com/Pman/templates/images/edit-clear.gif"
+                                                    "String icon" : "rootURL + '/web.Hydra/Pman/templates/images/edit-clear.gif'"
                                                 }
                                             ]
                                         },
