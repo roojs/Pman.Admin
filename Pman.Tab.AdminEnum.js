@@ -361,6 +361,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	       var d = _this.egrid.dataSource.getAt(s[0]);
                                 	       
                                 	       options.params.etype = d.data.name;
+                                	       options.params['query[search]'] = _this.searchBox.getValue();
                                 	       if (!options.params.etype.length) {
                                 	           return false;
                                 	       }
