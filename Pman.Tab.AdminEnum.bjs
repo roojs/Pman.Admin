@@ -249,6 +249,7 @@
                                                 },
                                                 {
                                                     "xtype" : "TextField",
+                                                    "String fieldLabel" : "Search",
                                                     "$ xns" : "Roo.form"
                                                 }
                                             ]
