@@ -514,6 +514,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	       
                                         	   }
                                         }
+                                    },
+                                	{
+                                        '|xns' : 'Roo.form',
+                                        xtype : 'TextField',
+                                        xns : Roo.form
                                     }
                                 ]
 
