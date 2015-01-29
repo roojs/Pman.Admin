@@ -255,7 +255,7 @@
                                                 },
                                                 {
                                                     "xtype" : "Button",
-                                                    "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+                                                    "$ icon" : "baseURL + '/Pman/templates/images/search.gif'",
                                                     "$ xns" : "Roo.Toolbar"
                                                 },
                                                 {

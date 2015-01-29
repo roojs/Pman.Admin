@@ -525,7 +525,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	{
                                         '|xns' : 'Roo.Toolbar',
                                         xtype : 'Button',
-                                        icon : rootURL + '/Pman/templates/images/search.gif',
+                                        icon : baseURL + '/Pman/templates/images/search.gif',
                                         xns : Roo.Toolbar
                                     },
                                 	{
