@@ -234,7 +234,7 @@
                                                     "text" : "Add Value",
                                                     "xtype" : "Button",
                                                     "cls" : "x-btn-text-icon",
-                                                    "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+                                                    "$ icon" : "baseURL + '/Pman/templates/images/search.gif'",
                                                     "$ xns" : "Roo.Toolbar"
                                                 },
                                                 {
