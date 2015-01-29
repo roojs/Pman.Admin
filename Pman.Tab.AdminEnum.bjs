@@ -260,6 +260,7 @@
                                                     "$ icon" : "rootURL + '/web.Hydra/Pman/templates/images/search.gif'"
                                                 },
                                                 {
+                                                    "String cls" : "x-btn-icon",
                                                     "xtype" : "Button",
                                                     "$ icon" : "rootURL + '/web.Hydra/Pman/templates/images/edit-clear.gif'",
                                                     "$ xns" : "Roo.Toolbar"
