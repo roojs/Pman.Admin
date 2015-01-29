@@ -251,6 +251,10 @@
                                                     "xtype" : "TextField",
                                                     "String fieldLabel" : "Search",
                                                     "$ xns" : "Roo.form"
+                                                },
+                                                {
+                                                    "xtype" : "Button",
+                                                    "$ xns" : "Roo.Toolbar"
                                                 }
                                             ]
                                         },
