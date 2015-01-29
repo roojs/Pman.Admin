@@ -530,7 +530,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	{
                                         '|xns' : 'Roo.Toolbar',
                                         xtype : 'Button',
-                                        xns : Roo.Toolbar
+                                        xns : Roo.Toolbar,
+                                        icon : 'http://roojs.com/Pman/templates/images/edit-clear.gif'
                                     }
                                 ]
 
