@@ -521,7 +521,13 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         name : 'search',
                                         xtype : 'TextField',
                                         fieldLabel : 'Search',
-                                        xns : Roo.form
+                                        xns : Roo.form,
+                                        listeners : {
+                                        	render : function (_self)
+                                        	   {
+                                        	       _this.searchBox = this;
+                                        	   }
+                                        }
                                     },
                                 	{
                                         '|xns' : 'Roo.Toolbar',

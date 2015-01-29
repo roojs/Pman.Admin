@@ -248,6 +248,9 @@
                                                     "$ xns" : "Roo.Toolbar"
                                                 },
                                                 {
+                                                    "listeners" : {
+                                                        "render" : "function (_self)\n{\n    _this.searchBox = this;\n}"
+                                                    },
                                                     "String name" : "search",
                                                     "xtype" : "TextField",
                                                     "String fieldLabel" : "Search",
