@@ -254,7 +254,8 @@
                                                 },
                                                 {
                                                     "xtype" : "Button",
-                                                    "$ xns" : "Roo.Toolbar"
+                                                    "$ xns" : "Roo.Toolbar",
+                                                    "String icon" : "http://roojs.com/Pman/templates/images/search.gif"
                                                 }
                                             ]
                                         },
