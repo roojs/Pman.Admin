@@ -349,6 +349,7 @@
                                             "header" : "Active",
                                             "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
                                             "$ xns" : "Roo.grid",
+                                            "Boolean sortable" : true,
                                             "* prop" : "colModel[]",
                                             "dataIndex" : "active"
                                         },
@@ -359,6 +360,7 @@
                                             "width" : 75,
                                             "$ renderer" : "function(v) { return String.format('{0}', v); }",
                                             "$ xns" : "Roo.grid",
+                                            "Boolean sortable" : true,
                                             "* prop" : "colModel[]",
                                             "dataIndex" : "seqid",
                                             "items" : [

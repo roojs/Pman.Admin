@@ -653,6 +653,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	                        
                             	         },
                             	        xns : Roo.grid,
+                            	        sortable : true,
                             	        dataIndex : 'active'
                             	    },
 {
@@ -680,6 +681,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        width : 75,
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
+                            	        sortable : true,
                             	        dataIndex : 'seqid',
                             	        items : [
 
