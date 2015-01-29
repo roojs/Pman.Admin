@@ -89,6 +89,11 @@ Pman.Dialog.AdminEnumType = {
                             	   {
                             	       if(action.type == 'submit'){
                             	           _this.dialog.hide();
+                            	           
+                            	           if(_this.callback){
+                            	               _this.callback.call(_this, _this.form.getValues());
+                            	           }
+                            	           return
                             	       }
                             	   },
                             	rendered : function (form)

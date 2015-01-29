@@ -27,7 +27,7 @@
                     "items" : [
                         {
                             "listeners" : {
-                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n    }\n}",
+                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n        \n        if(_this.callback){\n            _this.callback.call(_this, _this.form.getValues());\n        }\n        return\n    }\n}",
                                 "rendered" : "function (form)\n{\n    _this.form = this;\n}"
                             },
                             "$ url" : "baseURL + '/Roo/Core_enum'",
