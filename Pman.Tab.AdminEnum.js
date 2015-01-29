@@ -573,6 +573,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	        header : 'Internal #',
                             	        renderer : function(v) { return String.format('{0}', v); },
                             	        xns : Roo.grid,
+                            	        sortable : true,
                             	        dataIndex : 'id'
                             	    },
 {
