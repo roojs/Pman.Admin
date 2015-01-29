@@ -263,6 +263,9 @@
                                                     "$ icon" : "rootURL + '/Pman/templates/images/search.gif'"
                                                 },
                                                 {
+                                                    "listeners" : {
+                                                        "click" : "function (_self, e)\n{\n     _this.searchBox.setValue('');\n     _this.grid.footer.onClick('first');\n}"
+                                                    },
                                                     "String cls" : "x-btn-icon",
                                                     "xtype" : "Button",
                                                     "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",

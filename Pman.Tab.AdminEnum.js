@@ -541,7 +541,14 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         cls : 'x-btn-icon',
                                         xtype : 'Button',
                                         icon : rootURL + '/Pman/templates/images/edit-clear.gif',
-                                        xns : Roo.Toolbar
+                                        xns : Roo.Toolbar,
+                                        listeners : {
+                                        	click : function (_self, e)
+                                        	   {
+                                        	        _this.searchBox.setValue('');
+                                        	        _this.grid.footer.onClick('first');
+                                        	   }
+                                        }
                                     }
                                 ]
 
