@@ -446,7 +446,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         text : "Add Value",
                                         xtype : 'Button',
                                         cls : 'x-btn-text-icon',
-                                        icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+                                        icon : Roo.rootURL + '/Pman/templates/images/search.gif',
                                         xns : Roo.Toolbar,
                                         listeners : {
                                         	click : function()
