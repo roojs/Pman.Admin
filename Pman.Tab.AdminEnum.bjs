@@ -248,6 +248,7 @@
                                                     "$ xns" : "Roo.Toolbar"
                                                 },
                                                 {
+                                                    "String name" : "search",
                                                     "xtype" : "TextField",
                                                     "String fieldLabel" : "Search",
                                                     "$ xns" : "Roo.form"
