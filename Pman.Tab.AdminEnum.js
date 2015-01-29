@@ -531,8 +531,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                 	{
                                         '|xns' : 'Roo.Toolbar',
                                         xtype : 'Button',
-                                        xns : Roo.Toolbar,
-                                        icon : 'rootURL + \'/web.Hydra/Pman/templates/images/edit-clear.gif\''
+                                        icon : rootURL + '/web.Hydra/Pman/templates/images/edit-clear.gif',
+                                        xns : Roo.Toolbar
                                     }
                                 ]
 
