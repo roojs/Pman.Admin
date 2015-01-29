@@ -2,8 +2,10 @@
 
 // Auto generated file - created by app.Builder.js- do not edit directly (at present!)
 
+Roo.namespace('Pman.Tab');
+
 Pman.Tab.AdminCompanies = new Roo.XComponent({
-    part     :  ["Admin","Companies"],
+    part     :  ["Admin", "Companies" ],
     order    : '030-Pman.Tab.AdminCompanies',
     region   : 'center',
     parent   : 'Pman.Tab.Admin',
@@ -15,97 +17,46 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
         var _this = this;
         var MODULE = this;
         return {
-            xtype: 'NestedLayoutPanel',
-            xns: Roo,
-            region : 'center',
-            title : "Companies",
             layout : {
-                xtype: 'BorderLayout',
-                xns: Roo,
+                center : {
+                    '|xns' : 'Roo',
+                    xtype : 'LayoutRegion',
+                    xns : Roo
+                },
+                south : {
+                    '|xns' : 'Roo',
+                    xtype : 'LayoutRegion',
+                    xns : Roo,
+                    split : true,
+                    height : 150,
+                    titlebar : true
+                },
+                '|xns' : 'Roo',
+                xtype : 'BorderLayout',
+                xns : Roo,
                 items : [
-                    {
-                        xtype: 'GridPanel',
-                        xns: Roo,
-                        listeners : {
-                            activate : function() {
-                                _this.panel = this;
-                                if (_this.grid) {
-                                    _this.grid.footer.onClick('first');
-                                }
-                            }
-                        },
-                        background : true,
-                        fitContainer : true,
-                        fitToframe : true,
-                        region : 'center',
-                        tableName : 'Companies',
-                        title : "Companies",
+                	{
                         grid : {
-                            xtype: 'Grid',
-                            xns: Roo.grid,
-                            listeners : {
-                                render : function() 
-                                {
-                                    _this.grid = this; 
-                                     _this.dialog = Pman.Dialog.Companies;
-                                    if (_this.panel.active) {
-                                       this.footer.onClick('first');
-                                    }
-                                },
-                                rowdblclick : function (_self, rowIndex, e)
-                                {
-                                    if (!_this.dialog) return;
-                                    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
-                                        _this.grid.footer.onClick('first');
-                                    }); 
-                                    
-                                    
-                                },
-                                rowclick : function (_self, rowIndex, e)
-                                {
-                                  try { Pman.Tab.AdminOffice.grid.footer.onClick('refresh'); } catch(e) {}
-                                }
-                            },
-                            autoExpandColumn : 'name',
-                            loadMask : true,
                             dataSource : {
-                                xtype: 'Store',
-                                xns: Roo.data,
-                                listeners : {
-                                    load : function (_self, records, options)
-                                    {
-                                       try {
-                                            Pman.Tab.AdminOffice.grid.footer.onClick('refresh');
-                                        } catch (e) {}
-                                    },
-                                    beforeload : function (_self, o)
-                                    {
-                                       o.params = o.params || {};
-                                       try {
-                                           o.params['query[name]'] = _this.searchBox.getValue();
-                                       } catch(e) { return false; }
-                                    }
-                                },
-                                remoteSort : true,
-                                sortInfo : { field : 'name', direction: 'ASC' },
                                 proxy : {
-                                    xtype: 'HttpProxy',
-                                    xns: Roo.data,
-                                    listeners : {
-                                        load : function (This, o, arg)
-                                        {
-                                         
-                                        }
-                                    },
+                                    '|xns' : 'Roo.data',
+                                    url : baseURL + '/Roo/Companies.php',
+                                    xtype : 'HttpProxy',
                                     method : 'GET',
-                                    url : baseURL + '/Roo/Companies.php'
+                                    xns : Roo.data,
+                                    listeners : {
+                                    	load : function (This, o, arg)
+                                    	   {
+                                    	    
+                                    	   }
+                                    }
                                 },
                                 reader : {
-                                    xtype: 'JsonReader',
-                                    xns: Roo.data,
-                                    totalProperty : 'total',
-                                    root : 'data',
+                                    '|xns' : 'Roo.data',
                                     id : 'id',
+                                    root : 'data',
+                                    xtype : 'JsonReader',
+                                    xns : Roo.data,
                                     fields : [
                                         {
                                             'name': 'code',
@@ -369,218 +320,312 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
                                             'name': 'main_office_id_role',
                                             'type': 'string'
                                         }
-                                    ]
-                                }
+                                    ],
+                                    totalProperty : 'total'
+                                },
+                                '|xns' : 'Roo.data',
+                                xtype : 'Store',
+                                remoteSort : true,
+                                sortInfo : { field : 'name', direction: 'ASC' },
+                                xns : Roo.data,
+                                listeners : {
+                                	beforeload : function (_self, o)
+                                	   {
+                                	      o.params = o.params || {};
+                                	      try {
+                                	          o.params['query[name]'] = _this.searchBox.getValue();
+                                	      } catch(e) { return false; }
+                                	   },
+                                	load : function (_self, records, options)
+                                	   {
+                                	      try {
+                                	           Pman.Tab.AdminOffice.grid.footer.onClick('refresh');
+                                	       } catch (e) {}
+                                	   }
+                                },
+                                items : [
+
+                                ]
+
                             },
                             footer : {
-                                xtype: 'PagingToolbar',
-                                xns: Roo,
+                                '|xns' : 'Roo',
                                 pageSize : 25,
+                                xtype : 'PagingToolbar',
+                                emptyMsg : "No Companies found",
+                                xns : Roo,
                                 displayInfo : true,
-                                displayMsg : "Displaying Companies{0} - {1} of {2}",
-                                emptyMsg : "No Companies found"
+                                displayMsg : "Displaying Companies{0} - {1} of {2}"
                             },
                             toolbar : {
-                                xtype: 'Toolbar',
-                                xns: Roo,
+                                '|xns' : 'Roo',
+                                xtype : 'Toolbar',
+                                xns : Roo,
                                 items : [
-                                    {
-                                        xtype: 'TextField',
-                                        xns: Roo.form,
+                                	{
+                                        '|xns' : 'Roo.form',
+                                        xtype : 'TextField',
+                                        xns : Roo.form,
                                         listeners : {
-                                            show : function (_self)
-                                            {
-                                            
-                                            },
-                                            specialkey : function (_self, e)
-                                            {
-                                             if (e.getKey() == 13) {
-                                                 _this.grid.footer.onClick( 'first' );
-                                              }
-                                            },
-                                            render : function (_self)
-                                            {
-                                            _this.searchBox = _self;
-                                            }
+                                        	specialkey : function (_self, e)
+                                        	   {
+                                        	    if (e.getKey() == 13) {
+                                        	        _this.grid.footer.onClick( 'first' );
+                                        	     }
+                                        	   },
+                                        	show : function (_self)
+                                        	   {
+                                        	   
+                                        	   },
+                                        	render : function (_self)
+                                        	   {
+                                        	   _this.searchBox = _self;
+                                        	   }
                                         }
                                     },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
-                                        listeners : {
-                                            click : function (_self, e)
-                                            {
-                                            _this.grid.footer.onClick('first');
-                                            }
-                                        },
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
+                                        xtype : 'Button',
                                         cls : 'x-btn-icon',
-                                        icon : rootURL + '/Pman/templates/images/search.gif'
-                                    },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
+                                        icon : rootURL + '/Pman/templates/images/search.gif',
+                                        xns : Roo.Toolbar,
                                         listeners : {
-                                            click : function (_self, e)
-                                            {
-                                                _this.searchBox.setValue('');
-                                                _this.grid.footer.onClick('first');
-                                            }
-                                        },
+                                        	click : function (_self, e)
+                                        	   {
+                                        	   _this.grid.footer.onClick('first');
+                                        	   }
+                                        }
+                                    },
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
+                                        xtype : 'Button',
                                         cls : 'x-btn-icon',
-                                        icon : rootURL + '/Pman/templates/images/edit-clear.gif'
-                                    },
-                                    {
-                                        xtype: 'Fill',
-                                        xns: Roo.Toolbar
-                                    },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
+                                        icon : rootURL + '/Pman/templates/images/edit-clear.gif',
+                                        xns : Roo.Toolbar,
                                         listeners : {
-                                            click : function()
-                                            {
-                                                if (!_this.dialog) return;
-                                                _this.dialog.show( { id : 0 } , function() {
-                                                    _this.grid.footer.onClick('first');
-                                               }); 
-                                            }
-                                        },
-                                        cls : 'x-btn-text-icon',
+                                        	click : function (_self, e)
+                                        	   {
+                                        	       _this.searchBox.setValue('');
+                                        	       _this.grid.footer.onClick('first');
+                                        	   }
+                                        }
+                                    },
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
+                                        xtype : 'Fill',
+                                        xns : Roo.Toolbar
+                                    },
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
                                         text : "Add",
-                                        icon : Roo.rootURL + 'images/default/dd/drop-add.gif'
-                                    },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
-                                        listeners : {
-                                            click : function()
-                                            {
-                                                var s = _this.grid.getSelectionModel().getSelections();
-                                                if (!s.length || (s.length > 1))  {
-                                                    Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                                                    return;
-                                                }
-                                                if (!_this.dialog) return;
-                                                _this.dialog.show(s[0].data, function() {
-                                                    _this.grid.footer.onClick('first');
-                                                }); 
-                                                
-                                            }
-                                        },
+                                        xtype : 'Button',
                                         cls : 'x-btn-text-icon',
-                                        text : "Edit",
-                                        icon : Roo.rootURL + 'images/default/tree/leaf.gif'
+                                        icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+                                        xns : Roo.Toolbar,
+                                        listeners : {
+                                        	click : function()
+                                        	   {
+                                        	       if (!_this.dialog) return;
+                                        	       _this.dialog.show( { id : 0 } , function() {
+                                        	           _this.grid.footer.onClick('first');
+                                        	      }); 
+                                        	   }
+                                        }
                                     },
-                                    {
-                                        xtype: 'Button',
-                                        xns: Roo.Toolbar,
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
+                                        text : "Edit",
+                                        xtype : 'Button',
+                                        cls : 'x-btn-text-icon',
+                                        icon : Roo.rootURL + 'images/default/tree/leaf.gif',
+                                        xns : Roo.Toolbar,
+                                        listeners : {
+                                        	click : function()
+                                        	   {
+                                        	       var s = _this.grid.getSelectionModel().getSelections();
+                                        	       if (!s.length || (s.length > 1))  {
+                                        	           Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                                        	           return;
+                                        	       }
+                                        	       if (!_this.dialog) return;
+                                        	       _this.dialog.show(s[0].data, function() {
+                                        	           _this.grid.footer.onClick('first');
+                                        	       }); 
+                                        	       
+                                        	   }
+                                        }
+                                    },
+                                	{
+                                        '|xns' : 'Roo.Toolbar',
                                         text : "Delete",
+                                        xtype : 'Button',
                                         cls : 'x-btn-text-icon',
                                         icon : rootURL + '/Pman/templates/images/trash.gif',
+                                        xns : Roo.Toolbar,
                                         listeners : {
-                                            click : function()
-                                            {
-                                                 Pman.genericDelete(_this, 'Companies'); 
-                                            }
+                                        	click : function()
+                                        	   {
+                                        	        Pman.genericDelete(_this, 'Companies'); 
+                                        	   }
                                         }
                                     }
                                 ]
+
                             },
+                            '|xns' : 'Roo.grid',
+                            autoExpandColumn : 'name',
+                            xtype : 'Grid',
+                            loadMask : true,
+                            xns : Roo.grid,
                             colModel : [
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'comptype',
-                                    header : 'Type',
-                                    sortable : true,
-                                    width : 90,
-                                    renderer : function (v,x ,r) {
-                                        //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
-                                        return v;
-                                    }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'code',
-                                    header : 'Ref#',
-                                    sortable : true,
-                                    width : 50,
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'name',
-                                    header : 'Name',
-                                    sortable : true,
-                                    width : 200,
-                                    renderer : function(v,x,r) {
-                                        return String.format(r.data.comptype == 'OWNER' ? '<B>{0}</B>' : '{0}',v);    
-                                    }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'tel',
-                                    header : 'Tel',
-                                    width : 100,
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'fax',
-                                    header : 'Fax',
-                                    width : 100,
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'email',
-                                    header : 'Email',
-                                    sortable : true,
-                                    width : 100,
-                                    renderer : function (v) {
-                                            return (v.length && v.indexOf('@') > 0 ) ? 
-                                                String.format('<a href="mailto:{0}">{0}</a>',v) : v;
-                                                
-                                        }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    dataIndex : 'address',
-                                    header : 'Address',
-                                    sortable : true,
-                                    width : 200,
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                },
-                                {
-                                    xtype: 'ColumnModel',
-                                    xns: Roo.grid,
-                                    header : 'Remarks',
-                                    width : 200,
-                                    dataIndex : 'remarks',
-                                    renderer : function(v) { return String.format('{0}', v); }
-                                }
+                            	 {
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        sortable : true,
+                            	        header : 'Type',
+                            	        width : 90,
+                            	        renderer : function (v,x ,r) {
+                            	            //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
+                            	            return v;
+                            	        },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'comptype'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        sortable : true,
+                            	        header : 'Ref#',
+                            	        width : 50,
+                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'code'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        sortable : true,
+                            	        header : 'Name',
+                            	        width : 200,
+                            	        renderer : function(v,x,r) {
+                            	            return String.format(r.data.comptype == 'OWNER' ? '<B>{0}</B>' : '{0}',v);    
+                            	        },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'name'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        header : 'Tel',
+                            	        width : 100,
+                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'tel'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        header : 'Fax',
+                            	        width : 100,
+                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'fax'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        sortable : true,
+                            	        header : 'Email',
+                            	        width : 100,
+                            	        renderer : function (v) {
+                            	                return (v.length && v.indexOf('@') > 0 ) ? 
+                            	                    String.format('<a href="mailto:{0}">{0}</a>',v) : v;
+                            	                    
+                            	            },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'email'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        sortable : true,
+                            	        header : 'Address',
+                            	        width : 200,
+                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'address'
+                            	    },
+{
+                            	        '|xns' : 'Roo.grid',
+                            	        xtype : 'ColumnModel',
+                            	        width : 200,
+                            	        header : 'Remarks',
+                            	        renderer : function(v) { return String.format('{0}', v); },
+                            	        xns : Roo.grid,
+                            	        dataIndex : 'remarks'
+                            	    }
+                            ],
+                            listeners : {
+                            	rowdblclick : function (_self, rowIndex, e)
+                            	   {
+                            	       if (!_this.dialog) return;
+                            	       _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
+                            	           _this.grid.footer.onClick('first');
+                            	       }); 
+                            	       
+                            	       
+                            	   },
+                            	render : function() 
+                            	   {
+                            	       _this.grid = this; 
+                            	        _this.dialog = Pman.Dialog.Companies;
+                            	       if (_this.panel.active) {
+                            	          this.footer.onClick('first');
+                            	       }
+                            	   },
+                            	rowclick : function (_self, rowIndex, e)
+                            	   {
+                            	     try { Pman.Tab.AdminOffice.grid.footer.onClick('refresh'); } catch(e) {}
+                            	   }
+                            },
+                            items : [
+
                             ]
-                        }
+
+                        },
+                        '|xns' : 'Roo',
+                        fitToframe : true,
+                        background : true,
+                        region : 'center',
+                        title : "Companies",
+                        xtype : 'GridPanel',
+                        fitContainer : true,
+                        xns : Roo,
+                        tableName : 'Companies',
+                        listeners : {
+                        	activate : function() {
+                        	       _this.panel = this;
+                        	       if (_this.grid) {
+                        	           _this.grid.footer.onClick('first');
+                        	       }
+                        	   }
+                        },
+                        items : [
+
+                        ]
+
                     }
-                ],
-                center : {
-                    xtype: 'LayoutRegion',
-                    xns: Roo
-                },
-                south : {
-                    xtype: 'LayoutRegion',
-                    xns: Roo,
-                    height : 150,
-                    split : true,
-                    titlebar : true
-                }
-            }
-        };
-    }
+                ]
+
+            },
+            '|xns' : 'Roo',
+            region : 'center',
+            xtype : 'NestedLayoutPanel',
+            title : "Companies",
+            xns : Roo,
+            items : [
+
+            ]
+
+        };    }
 });
