@@ -154,8 +154,13 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                                         	click : function()
                                         	   {
                                         	       
-                                        	       //var rec = _this.egrid.ds.getAt(rowIndex);
-                                        	       Pman.Dialog.AdminEnumType.show(null,function(){
+                                        	       var data = {
+                                        	           active:1,
+                                        	           display_name:'',
+                                        	           etype:'',
+                                        	           name:''
+                                        	       };
+                                        	       Pman.Dialog.AdminEnumType.show(data,function(){
                                         	           
                                         	           _this.egrid.footer.onClick('first');
                                         	       });

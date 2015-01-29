@@ -108,7 +108,7 @@
                                             "items" : [
                                                 {
                                                     "listeners" : {
-                                                        "|click" : "function()\n{\n    \n    //var rec = _this.egrid.ds.getAt(rowIndex);\n    Pman.Dialog.AdminEnumType.show(null,function(){\n        \n        _this.egrid.footer.onClick('first');\n    });\n         \n         \n\n}\n"
+                                                        "|click" : "function()\n{\n    \n    var data = {\n        active:1,\n        display_name:'',\n        etype:'',\n        name:''\n    };\n    Pman.Dialog.AdminEnumType.show(data,function(){\n        \n        _this.egrid.footer.onClick('first');\n    });\n         \n         \n\n}\n"
                                                     },
                                                     "text" : "Add new pulldown list",
                                                     "xtype" : "Button",
