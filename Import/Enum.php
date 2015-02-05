@@ -94,7 +94,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             $rows[] = $row;
         }
         
-        print_r($rows);exit;
+         
         
         if (empty($cols)) {
             $this->jerr("could not find a row with " . implode(' / ', $req));
@@ -106,6 +106,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
         
         foreach ($rows as $row){
             $e = DB_DataObject::factory('core_enum');
+            $e->etype =  $_REQUEST['etype'];
             if($e->get('name', $row['NAME'])){
                 continue;
             }
