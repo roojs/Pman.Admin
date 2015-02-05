@@ -54,6 +54,9 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             $this->jerr('Invalid etype');
         }
         
+        
+        
+        
         $fh = fopen($csv, 'r');
         if (!$fh) {
             $this->jerr("invalid file");
@@ -90,6 +93,8 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             }
             $rows[] = $row;
         }
+        
+        print_r($rows);exit;
         
         if (empty($cols)) {
             $this->jerr("could not find a row with " . implode(' / ', $req));
