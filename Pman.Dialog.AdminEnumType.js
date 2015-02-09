@@ -76,8 +76,8 @@ Pman.Dialog.AdminEnumType = {
             	{
                     '|xns' : 'Roo',
                     xtype : 'ContentPanel',
-                    xns : Roo,
                     region : 'center',
+                    xns : Roo,
                     items : [
                     	{
                             '|xns' : 'Roo.form',
@@ -85,6 +85,10 @@ Pman.Dialog.AdminEnumType = {
                             xtype : 'Form',
                             xns : Roo.form,
                             listeners : {
+                            	rendered : function (form)
+                            	   {
+                            	       _this.form = this;
+                            	   },
                             	actioncomplete : function (_self, action)
                             	   {
                             	       if(action.type == 'submit'){
@@ -95,15 +99,12 @@ Pman.Dialog.AdminEnumType = {
                             	           }
                             	           return
                             	       }
-                            	   },
-                            	rendered : function (form)
-                            	   {
-                            	       _this.form = this;
                             	   }
                             },
                             items : [
                             	{
                                     '|xns' : 'Roo.form',
+                                    allowBlank : false,
                                     name : 'name',
                                     width : 270,
                                     xtype : 'TextField',
