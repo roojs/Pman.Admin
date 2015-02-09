@@ -693,7 +693,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             	keypress : function (e)
                             	   {
                             	       if(e.keyCode == 13){
-                            	           
+                            	           _this.grid.footer.onClick('first');
                             	       }
                             	   },
                             	beforeedit : function (e)
