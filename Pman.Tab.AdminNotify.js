@@ -216,7 +216,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     	       var type = _this.typeCombo.getValue();
                     	       
                     	       if(type.length){
-                    	           o.params.evtype = type;
+                    	           options.params.evtype = type;
                     	       }
                     	   }
                     },
