@@ -212,6 +212,12 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     	       if(to){
                     	           options.params.to = to.format('Y-m-d');
                     	       }
+                    	       
+                    	       var type = _this.typeCombo.getValue();
+                    	       
+                    	       if(type.length){
+                    	           o.params.evtype = type;
+                    	       }
                     	   }
                     },
                     items : [
