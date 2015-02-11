@@ -322,7 +322,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             	   },
                             	select : function (combo, date)
                             	   {
-                            	       _this.wgrid.ds.load({});
+                            	       _this.grid.footer.onClick('first');
                             	   }
                             }
                         },
