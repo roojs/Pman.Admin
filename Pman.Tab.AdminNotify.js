@@ -377,7 +377,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                 	        xtype : 'ColumnModel',
                 	        sortable : true,
                 	        header : 'Sent',
-                	        width : 100,
+                	        width : 150,
                 	        renderer : function(v,x,r) {
                 	            if (r.data.event_id *1 == 0) {
                 	                return '';
@@ -391,7 +391,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                 	        '|xns' : 'Roo.grid',
                 	        xtype : 'ColumnModel',
                 	        header : 'Ontable',
-                	        width : 100,
+                	        width : 150,
                 	        renderer : function(v,x,r) { return String.format('{0}:{1}', v,r.data.onid); },
                 	        xns : Roo.grid,
                 	        dataIndex : 'ontable'
