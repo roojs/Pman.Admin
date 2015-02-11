@@ -21,7 +21,6 @@
             "items" : [
                 {
                     "listeners" : {
-                        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
                         "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
                     },
                     "autoExpandColumn" : "person_id_name",
@@ -134,7 +133,7 @@
                                 },
                                 {
                                     "listeners" : {
-                                        "|click" : "function()\n        {\n        Pman.genericDelete(_this, 'core_notify'); \n        }\n        "
+                                        "|click" : "function()\n{\n    Pman.genericDelete(_this, 'core_notify'); \n}\n        "
                                     },
                                     "text" : "Delete",
                                     "xtype" : "Button",

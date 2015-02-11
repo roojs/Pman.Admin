@@ -306,9 +306,9 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             xns : Roo.Toolbar,
                             listeners : {
                             	click : function()
-                            	           {
-                            	           Pman.genericDelete(_this, 'core_notify'); 
-                            	           }
+                            	   {
+                            	       Pman.genericDelete(_this, 'core_notify'); 
+                            	   }
                             }
                         },
                     	{
@@ -439,13 +439,6 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                 	    }
                 ],
                 listeners : {
-                	rowdblclick : function (_self, rowIndex, e)
-                	   {
-                	       if (!_this.dialog) return;
-                	       _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {
-                	           _this.grid.footer.onClick('first');
-                	       }); 
-                	   },
                 	render : function() 
                 	   {
                 	       _this.grid = this; 
