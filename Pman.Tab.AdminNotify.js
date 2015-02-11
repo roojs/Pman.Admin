@@ -186,6 +186,10 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     listeners : {
                     	beforeload : function (_self, options)
                     	   {
+                    	       options.params = options.params || {};
+                    	       
+                    	       options.params._evtype_align = 1;
+                    	       
                     	       if (!_this.toggleBtn.pressed) {
                     	           options.params['event_id'] = 0;
                     	       }

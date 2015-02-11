@@ -31,7 +31,7 @@
                     "items" : [
                         {
                             "listeners" : {
-                                "beforeload" : "function (_self, options)\n{\n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    }\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n}"
+                                "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params._evtype_align = 1;\n    \n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    }\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n}"
                             },
                             "xtype" : "Store",
                             "remoteSort" : true,
