@@ -313,6 +313,85 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             xns : Roo.Toolbar
                         },
                     	{
+                            store : {
+                                proxy : {
+                                    '|xns' : 'Roo.data',
+                                    url : baseURL + '/Roo/core_notify.php',
+                                    xtype : 'HttpProxy',
+                                    method : 'GET',
+                                    xns : Roo.data
+                                },
+                                reader : {
+                                    '|xns' : 'Roo.data',
+                                    id : 'id',
+                                    root : 'data',
+                                    xtype : 'JsonReader',
+                                    xns : Roo.data,
+                                    fields : [{"name":"id","type":"int"},{"name":"ontable","type":"string"}],
+                                    totalProperty : 'total'
+                                },
+                                '|xns' : 'Roo.data',
+                                xtype : 'Store',
+                                remoteSort : true,
+                                sortInfo : { direction : 'ASC', field: 'person_id_name' },
+                                xns : Roo.data,
+                                listeners : {
+                                	beforeload : function (_self, o){
+                                	       o.params = o.params || {};
+                                	       o.params._distinct='person_id';
+                                	       o.params._columns='person_id,person_id_name,person_id_email';
+                                	       o.params['!person_id_name'] = '';
+                                	       
+                                	       // set more here
+                                	   }
+                                },
+                                items : [
+
+                                ]
+
+                            },
+                            '|xns' : 'Roo.form',
+                            listWidth : 400,
+                            triggerAction : 'all',
+                            forceSelection : true,
+                            selectOnFocus : true,
+                            pageSize : 20,
+                            displayField : 'person_id_name',
+                            emptyText : "Select person",
+                            hiddenName : 'id',
+                            minChars : 2,
+                            valueField : 'person_id',
+                            xtype : 'ComboBox',
+                            allowBlank : true,
+                            editable : true,
+                            width : 200,
+                            xns : Roo.form,
+                            name : 'name',
+                            qtip : "Select core_notify",
+                            queryParam : 'query[person_id_name]',
+                            tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>',
+                            loadingText : "Searching...",
+                            listeners : {
+                            	render : function (_self)
+                            	   {
+                            	      _this.personCombo = _self;
+                            	   },
+                            	select : function (combo, record, index)
+                            	   {
+                            	      _this.grid.footer.onClick('first');
+                            	   }
+                            },
+                            items : [
+
+                            ]
+
+                        },
+                    	{
+                            '|xns' : 'Roo.Toolbar',
+                            xtype : 'Separator',
+                            xns : Roo.Toolbar
+                        },
+                    	{
                             '|xns' : 'Roo.Toolbar',
                             text : "From",
                             xtype : 'TextItem',
@@ -364,11 +443,6 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             	       _this.grid.footer.onClick('first');
                             	   }
                             }
-                        },
-                    	{
-                            '|xns' : 'Roo.Toolbar',
-                            xtype : 'Separator',
-                            xns : Roo.Toolbar
                         },
                     	{
                             '|xns' : 'Roo.Toolbar',

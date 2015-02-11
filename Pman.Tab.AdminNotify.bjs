@@ -132,6 +132,66 @@
                                     "$ xns" : "Roo.Toolbar"
                                 },
                                 {
+                                    "listeners" : {
+                                        "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
+                                        "select" : "function (combo, record, index)\n{\n   _this.grid.footer.onClick('first');\n}"
+                                    },
+                                    "listWidth" : 400,
+                                    "triggerAction" : "all",
+                                    "forceSelection" : true,
+                                    "selectOnFocus" : true,
+                                    "pageSize" : 20,
+                                    "displayField" : "person_id_name",
+                                    "emptyText" : "Select person",
+                                    "hiddenName" : "id",
+                                    "minChars" : 2,
+                                    "valueField" : "person_id",
+                                    "xtype" : "ComboBox",
+                                    "allowBlank" : true,
+                                    "editable" : true,
+                                    "width" : 200,
+                                    "$ xns" : "Roo.form",
+                                    "name" : "name",
+                                    "qtip" : "Select core_notify",
+                                    "queryParam" : "query[person_id_name]",
+                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
+                                    "loadingText" : "Searching...",
+                                    "items" : [
+                                        {
+                                            "listeners" : {
+                                                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id';\n    o.params._columns='person_id,person_id_name,person_id_email';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
+                                            },
+                                            "xtype" : "Store",
+                                            "remoteSort" : true,
+                                            "$ sortInfo" : "{ direction : 'ASC', field: 'person_id_name' }",
+                                            "$ xns" : "Roo.data",
+                                            "* prop" : "store",
+                                            "items" : [
+                                                {
+                                                    "$ url" : "baseURL + '/Roo/core_notify.php'",
+                                                    "xtype" : "HttpProxy",
+                                                    "method" : "GET",
+                                                    "$ xns" : "Roo.data",
+                                                    "* prop" : "proxy"
+                                                },
+                                                {
+                                                    "id" : "id",
+                                                    "root" : "data",
+                                                    "xtype" : "JsonReader",
+                                                    "$ xns" : "Roo.data",
+                                                    "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]",
+                                                    "* prop" : "reader",
+                                                    "totalProperty" : "total"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "xtype" : "Separator",
+                                    "$ xns" : "Roo.Toolbar"
+                                },
+                                {
                                     "text" : "From",
                                     "xtype" : "TextItem",
                                     "$ xns" : "Roo.Toolbar"
@@ -164,10 +224,6 @@
                                     "xtype" : "DateField",
                                     "width" : 100,
                                     "$ xns" : "Roo.form"
-                                },
-                                {
-                                    "xtype" : "Separator",
-                                    "$ xns" : "Roo.Toolbar"
                                 },
                                 {
                                     "xtype" : "Fill",
