@@ -128,6 +128,10 @@
                                     ]
                                 },
                                 {
+                                    "xtype" : "Separator",
+                                    "$ xns" : "Roo.Toolbar"
+                                },
+                                {
                                     "listeners" : {
                                         "render" : "function (_self)\r\n{\r\n    _this.dateSel = _self;\r\n   _self.setValue(  new Date() );\r\n}",
                                         "select" : "function (combo, date)\n{\n    _this.wgrid.ds.load({});\n}"

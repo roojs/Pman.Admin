@@ -297,6 +297,11 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
 
                         },
                     	{
+                            '|xns' : 'Roo.Toolbar',
+                            xtype : 'Separator',
+                            xns : Roo.Toolbar
+                        },
+                    	{
                             '|xns' : 'Roo.form',
                             format : 'd/M/Y',
                             xtype : 'DateField',
