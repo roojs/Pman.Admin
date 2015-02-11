@@ -132,7 +132,6 @@
                                     "$ xns" : "Roo.Toolbar"
                                 },
                                 {
-                                    "$ text" : "From",
                                     "xtype" : "TextItem",
                                     "$ xns" : "Roo.Toolbar"
                                 },
