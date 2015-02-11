@@ -128,6 +128,17 @@
                                     ]
                                 },
                                 {
+                                    "listeners" : {
+                                        "render" : "function (_self)\r\n{\r\n    _this.dateSel = _self;\r\n   _self.setValue(  new Date() );\r\n}",
+                                        "select" : "function (combo, date)\n{\n    _this.wgrid.ds.load({});\n}"
+                                    },
+                                    "format" : "d/M/Y",
+                                    "xtype" : "DateField",
+                                    "allowBlank" : false,
+                                    "width" : 100,
+                                    "$ xns" : "Roo.form"
+                                },
+                                {
                                     "xtype" : "Fill",
                                     "$ xns" : "Roo.Toolbar"
                                 },

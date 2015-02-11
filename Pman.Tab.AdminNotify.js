@@ -297,6 +297,25 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
 
                         },
                     	{
+                            '|xns' : 'Roo.form',
+                            format : 'd/M/Y',
+                            xtype : 'DateField',
+                            allowBlank : false,
+                            width : 100,
+                            xns : Roo.form,
+                            listeners : {
+                            	render : function (_self)
+                            	   {
+                            	       _this.dateSel = _self;
+                            	      _self.setValue(  new Date() );
+                            	   },
+                            	select : function (combo, date)
+                            	   {
+                            	       _this.wgrid.ds.load({});
+                            	   }
+                            }
+                        },
+                    	{
                             '|xns' : 'Roo.Toolbar',
                             xtype : 'Fill',
                             xns : Roo.Toolbar
