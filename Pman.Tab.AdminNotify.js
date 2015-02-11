@@ -303,6 +303,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         },
                     	{
                             '|xns' : 'Roo.Toolbar',
+                            test : From,
                             xtype : 'TextItem',
                             xns : Roo.Toolbar
                         },
