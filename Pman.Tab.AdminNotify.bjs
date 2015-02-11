@@ -138,7 +138,7 @@
                                 },
                                 {
                                     "listeners" : {
-                                        "render" : "function (_self)\r\n{\r\n    _this.dateSel = _self;\r\n   _self.setValue(  new Date() );\r\n}",
+                                        "render" : "function (_self)\r\n{\r\n    _this.fromDateSel = _self;\r\n   _self.setValue(  new Date() );\r\n}",
                                         "select" : "function (combo, date)\n{\n    _this.grid.footer.onClick('first');\n}"
                                     },
                                     "format" : "d/M/Y",
