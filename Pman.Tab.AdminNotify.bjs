@@ -159,7 +159,7 @@
                                             },
                                             "xtype" : "Store",
                                             "remoteSort" : true,
-                                            "$ sortInfo" : "{ direction : 'ASC', field: 'person_id_name' }",
+                                            "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
                                             "$ xns" : "Roo.data",
                                             "* prop" : "store",
                                             "items" : [
