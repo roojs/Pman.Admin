@@ -175,7 +175,7 @@
                                                     "root" : "data",
                                                     "xtype" : "JsonReader",
                                                     "$ xns" : "Roo.data",
-                                                    "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]",
+                                                    "$ fields" : "[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"display_name\",\"type\":\"string\"}]",
                                                     "* prop" : "reader",
                                                     "totalProperty" : "total"
                                                 }

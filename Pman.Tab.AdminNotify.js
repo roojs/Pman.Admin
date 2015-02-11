@@ -325,7 +325,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                                     root : 'data',
                                     xtype : 'JsonReader',
                                     xns : Roo.data,
-                                    fields : [{"name":"id","type":"int"},{"name":"ontable","type":"string"}],
+                                    fields : [{"name":"name","type":"string"},{"name":"display_name","type":"string"}],
                                     totalProperty : 'total'
                                 },
                                 '|xns' : 'Roo.data',
