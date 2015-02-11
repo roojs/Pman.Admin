@@ -367,6 +367,11 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         },
                     	{
                             '|xns' : 'Roo.Toolbar',
+                            xtype : 'Separator',
+                            xns : Roo.Toolbar
+                        },
+                    	{
+                            '|xns' : 'Roo.Toolbar',
                             xtype : 'Fill',
                             xns : Roo.Toolbar
                         },
