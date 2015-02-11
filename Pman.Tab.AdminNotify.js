@@ -368,7 +368,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             xns : Roo.form,
                             name : 'name',
                             qtip : "Select core_notify",
-                            queryParam : 'query[person_id_name]',
+                            queryParam : 'query[name]',
                             tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b></div>',
                             loadingText : "Searching...",
                             listeners : {
