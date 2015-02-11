@@ -374,7 +374,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             listeners : {
                             	render : function (_self)
                             	   {
-                            	      _this.personCombo = _self;
+                            	      _this.evtypeCombo = _self;
                             	   },
                             	select : function (combo, record, index)
                             	   {

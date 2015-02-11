@@ -133,7 +133,7 @@
                                 },
                                 {
                                     "listeners" : {
-                                        "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
+                                        "render" : "function (_self)\n{\n   _this.evtypeCombo = _self;\n}",
                                         "select" : "function (combo, record, index)\n{\n   _this.grid.footer.onClick('first');\n}"
                                     },
                                     "listWidth" : 400,
