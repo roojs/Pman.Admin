@@ -363,7 +363,6 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             editable : true,
                             width : 200,
                             xns : Roo.form,
-                            name : 'name',
                             qtip : "Select type",
                             queryParam : 'query[name]',
                             tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b></div>',
