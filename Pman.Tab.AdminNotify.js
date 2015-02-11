@@ -348,7 +348,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             	render : function (_self)
                             	   {
                             	       _this.toDateSel = _self;
-                            	      _self.setValue(  new Date() );
+                            	      //_self.setValue(  new Date() );
                             	   },
                             	select : function (combo, date)
                             	   {
