@@ -284,7 +284,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             	   },
                             	select : function (combo, record, index)
                             	   {
-                            	      (function() { _this.grid.footer.onClick('first'); }).defer(100);
+                            	      _this.grid.footer.onClick('first');
                             	   }
                             },
                             items : [

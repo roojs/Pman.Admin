@@ -74,7 +74,7 @@
                                 {
                                     "listeners" : {
                                         "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
-                                        "select" : "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}"
+                                        "select" : "function (combo, record, index)\n{\n   _this.grid.footer.onClick('first');\n}"
                                     },
                                     "listWidth" : 400,
                                     "triggerAction" : "all",
