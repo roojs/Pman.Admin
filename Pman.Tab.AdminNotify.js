@@ -314,7 +314,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                             store : {
                                 proxy : {
                                     '|xns' : 'Roo.data',
-                                    url : baseURL + '/Roo/core_notify.php',
+                                    url : baseURL + '/Roo/core_enum.php',
                                     xtype : 'HttpProxy',
                                     method : 'GET',
                                     xns : Roo.data
