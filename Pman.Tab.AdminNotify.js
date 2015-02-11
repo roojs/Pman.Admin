@@ -357,7 +357,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                 	        renderer : function(v,x,r) 
                 	        { 
                 	            var vv = (typeof(r.data.evtype_align) != 'undefined' && r.data.evtype_align) ? r.data.evtype_align : v;
-                	            return String.format('{0}', vv ); 
+                	            return String.format('<span qtip="{0}">{1}</span>', v, vv ); 
                 	        },
                 	        xns : Roo.grid,
                 	        dataIndex : 'evtype'
