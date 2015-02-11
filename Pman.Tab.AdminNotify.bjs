@@ -132,6 +132,7 @@
                                     "$ xns" : "Roo.Toolbar"
                                 },
                                 {
+                                    "$ test" : "",
                                     "xtype" : "TextItem",
                                     "$ xns" : "Roo.Toolbar"
                                 },
