@@ -155,7 +155,7 @@
                                     "items" : [
                                         {
                                             "listeners" : {
-                                                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    o.params.evtype = 'Core.NotifyType';\n    o.params.active = 1;\n}\n"
+                                                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    o.params.etype = 'Core.NotifyType';\n    o.params.active = 1;\n}\n"
                                             },
                                             "xtype" : "Store",
                                             "remoteSort" : true,

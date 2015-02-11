@@ -336,7 +336,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                                 listeners : {
                                 	beforeload : function (_self, o){
                                 	       o.params = o.params || {};
-                                	       o.params.evtype = 'Core.NotifyType';
+                                	       o.params.etype = 'Core.NotifyType';
                                 	       o.params.active = 1;
                                 	   }
                                 },
