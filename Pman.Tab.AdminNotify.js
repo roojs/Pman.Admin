@@ -328,6 +328,36 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                         },
                     	{
                             '|xns' : 'Roo.Toolbar',
+                            xtype : 'Separator',
+                            xns : Roo.Toolbar
+                        },
+                    	{
+                            '|xns' : 'Roo.Toolbar',
+                            text : "To",
+                            xtype : 'TextItem',
+                            xns : Roo.Toolbar
+                        },
+                    	{
+                            '|xns' : 'Roo.form',
+                            format : 'd/M/Y',
+                            xtype : 'DateField',
+                            allowBlank : false,
+                            width : 100,
+                            xns : Roo.form,
+                            listeners : {
+                            	render : function (_self)
+                            	   {
+                            	       _this.fromDateSel = _self;
+                            	      _self.setValue(  new Date() );
+                            	   },
+                            	select : function (combo, date)
+                            	   {
+                            	       _this.grid.footer.onClick('first');
+                            	   }
+                            }
+                        },
+                    	{
+                            '|xns' : 'Roo.Toolbar',
                             xtype : 'Fill',
                             xns : Roo.Toolbar
                         },
