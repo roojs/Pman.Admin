@@ -201,6 +201,17 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                     	           options.params.person_id = p;
                     	       }
                     	       
+                    	       var from = _this.fromDateSel.getValue();
+                    	       
+                    	       if(from){
+                    	           options.params.from = from.format('Y-m-d');
+                    	       }
+                    	       
+                    	       var to = _this.toDateSel.getValue();
+                    	       
+                    	       if(to){
+                    	           options.params.to = to.format('Y-m-d');
+                    	       }
                     	   }
                     },
                     items : [
