@@ -266,9 +266,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                         listeners : {
                         	activate : function() {
                         	       _this.epanel = this;
-                        	       if (_this.egrid) {
-                        	           _this.egrid.footer.onClick('first');
-                        	       }
+                        	       //if (_this.egrid) {
+                        	       //    _this.egrid.footer.onClick('first');
+                        	       //}
                         	   }
                         },
                         items : [
