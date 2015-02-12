@@ -7,10 +7,6 @@
     "modOrder" : "500",
     "items" : [
         {
-            "listeners" : {
-                "deactivate" : "function (_self)\n{\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}",
-                "activate" : "function (_self)\n{\n\n}"
-            },
             "xtype" : "NestedLayoutPanel",
             "String region" : "center",
             "$ xns" : "Roo",

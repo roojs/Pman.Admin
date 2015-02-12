@@ -764,18 +764,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             region : 'center',
             xns : Roo,
             title : "Pulldown Options",
-            listeners : {
-            	deactivate : function (_self)
-            	   {
-            	       if (_this.grid) {
-            	           _this.grid.footer.onClick('first');
-            	       }
-            	   },
-            	activate : function (_self)
-            	   {
-            	   
-            	   }
-            },
             items : [
 
             ]
