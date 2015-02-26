@@ -119,7 +119,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
                 'active' => 1,
             ));
             $e->insert();
-//            $e->onInsert(array());
+            $e->onInsert(array());
             
             $count++;
         }
