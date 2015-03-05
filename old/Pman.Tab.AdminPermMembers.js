@@ -644,7 +644,7 @@ Pman.Tab.AdminPermMembers = new Roo.XComponent({
        header : 'Name',
        width : 200,
        renderer : function(v,p,r) { 
-           if(r.data.is_active != 1){
+           if(r.data.active != 1){
                return String.format('<div style="text-decoration:line-through">{0}</div>', v); 
            }
            return String.format('{0}', v); 

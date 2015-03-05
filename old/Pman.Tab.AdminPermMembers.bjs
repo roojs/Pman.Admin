@@ -202,7 +202,7 @@
        "sortable" : true,
        "header" : "Name",
        "width" : 200,
-       "$ renderer" : "function(v,p,r) { \n    if(r.data.is_active != 1){\n        return String.format('<div style=\"text-decoration:line-through\">{0}</div>', v); \n    }\n    return String.format('{0}', v); \n}",
+       "$ renderer" : "function(v,p,r) { \n    if(r.data.active != 1){\n        return String.format('<div style=\"text-decoration:line-through\">{0}</div>', v); \n    }\n    return String.format('{0}', v); \n}",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "name"
