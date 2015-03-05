@@ -643,7 +643,12 @@ Pman.Tab.AdminPermMembers = new Roo.XComponent({
        sortable : true,
        header : 'Name',
        width : 200,
-       renderer : function(v) { return String.format('{0}', v); },
+       renderer : function(v,p,r) { 
+           if(r.data.is_active != 1){
+               return String.format('<div style="text-decoration:line-through">{0}</div>', v); 
+           }
+           return String.format('{0}', v); 
+       },
        xns : Roo.grid,
        dataIndex : 'name'
       },
