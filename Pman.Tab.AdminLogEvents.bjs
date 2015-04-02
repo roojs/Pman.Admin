@@ -1,432 +1,452 @@
 {
-    "name" : "Pman.Tab.AdminLogEvents",
-    "parent" : "Pman.Tab.AdminLogs",
-    "title" : "Admin - Logs - Events",
-    "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
-    "permname" : "Admin.Logs",
-    "modOrder" : "001",
-    "items" : [
+ "name" : "Pman.Tab.AdminLogEvents",
+ "parent" : "Pman.Tab.AdminLogs",
+ "title" : "Admin - Logs - Events",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminLogEvents.bjs",
+ "permname" : "Admin.Logs",
+ "modOrder" : "001",
+ "strings" : {
+  "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+  "2ea72778ebaacc973260c88837dd7a2f" : "Displaying Events  {0} - {1} of {2}",
+  "87f9f735a1d36793ceaecd4e47124b63" : "Events",
+  "1b7f7d24575cdbfadb83b9587fa1bf97" : "#id",
+  "a12a3079e14ced46e69ba52b8a90b21a" : "IP",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "01bd6a16732dfa2b760dc8566c58afae" : "Download to Excel",
+  "498f79c4c5bbde77f1bceb6c86fd0f6d" : "Show",
+  "037fd50b0e85bb65995ca7125d06c7cd" : "Select Person Table",
+  "fd7535ce3979bb8547e2c01689db0767" : "Select Person ",
+  "679308a758de538c5f39c4c6cdba6593" : "Select Affects",
+  "8f7f93630c366dc55aec88eb8e9640d0" : "Staff",
+  "a8929eb5c1553d3f70497f862d25d0ce" : "Select Action",
+  "39b9e051f9fe75e65c7a330bb00499d4" : "Date Range",
+  "4e97aeeaa8b15ca1180fcd1f3ac478d1" : "When",
+  "004bf6c9a40003140292e97330236c53" : "Action",
+  "90e4ac2e5a22e53df63b6b186d8727ba" : "No Events found",
+  "2c92a9a6a5dbf570825e62eabcdecd8d" : "Affected"
+ },
+ "items" : [
+  {
+   "region" : "center",
+   "xtype" : "NestedLayoutPanel",
+   "title" : "Events",
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      },
+      {
+       "autoScroll" : true,
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "split" : true,
+       "height" : 150,
+       "* prop" : "south"
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n  _this.viewPanel = _self;\n}"
+       },
+       "fitToFrame" : true,
+       "region" : "south",
+       "xtype" : "ContentPanel",
+       "$ xns" : "Roo"
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+       },
+       "background" : false,
+       "region" : "center",
+       "fitToframe" : true,
+       "title" : "Events",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "Events",
+       "items" : [
         {
-            "region" : "center",
-            "title" : "Events",
-            "xtype" : "NestedLayoutPanel",
-            "$ xns" : "Roo",
-            "items" : [
+         "listeners" : {
+          "|render" : "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "remarks",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "afterselectionchange" : "function (_self)\n{\n    // load detail log in _this.viewPanel;\n    if (!this.getSelected()) {\n        this.viewPanel.setContent(\"Nothing Selected\");\n        return;\n    }\n    var id = this.getSelected().data.id;\n    _this.viewPanel.load( { url : baseURL + \"/Admin/EventView/\" + id + \".html\" });\n    \n}"
+           },
+           "xtype" : "RowSelectionModel",
+           "singleSelect" : true,
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          },
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o)\n{\n    if (!Pman.buildCompleted) {\n        return false;\n    }\n   \n   \n   if (! _this.personSel) {\n    return false;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    o.params.person_table = _this.tableSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        o.params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        o.params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        o.params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        o.params['query[to]'] = act.format('Y-m-d');\n    }\n \n    \n    /*\n    act = _this.groupedCombo.getValue();\n    o.params['query[grouped]'] = act;\n    if (o.params['query[grouped]'] == 'gr') {\n    \n        if (!tbl.length) {\n            Roo.MessageBox.alert(\"Error\", \"Select a table to group results on\");\n            return false;\n        }\n//        o.params['_columns']  = \n        o.params['_distinct'] = 'on_id';\n        \n        \n    }\n    \n    */\n\n    \n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field: 'event_when', direction: 'DESC'}",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            },
+            {
+             "$ url" : "baseURL + '/Roo/Events.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Events found",
+           "$ xns" : "Roo",
+           "displayInfo" : true,
+           "displayMsg" : "Displaying Events  {0} - {1} of {2}",
+           "* prop" : "footer",
+           "items" : [
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n    \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 900,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,\n        'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',\n        'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        \n    }\n        \n    params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        params['query[to]'] = act.format('Y-m-d');\n    }\n    params.limit = 9999;\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params ,\n        newWindow: true\n        \n    });\n}"
+             },
+             "text" : "Download to Excel",
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "text" : "Show",
+             "xtype" : "TextItem",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|render" : "function (_self)\n{\n  _this.tableSel = _self;\n}",
+              "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+             },
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "value",
+             "emptyText" : "Select Person Table",
+             "minChars" : 2,
+             "valueField" : "value",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : true,
+             "Boolean alwaysQuery" : true,
+             "editable" : false,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "person_table",
+             "qtip" : "Select Person Table",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{value}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "| data" : "(function() { \n\n    if(typeof(uiConfig) == 'undefined' || typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){\n\n        return [];        \n    }\n\n    return uiConfig.events_person_table;\n    \n})()",
+               "xtype" : "SimpleStore",
+               "$ fields" : "[ 'value' ]",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "isLocal" : true
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "|render" : "function (_self)\n{\n  _this.personSel = _self;\n}",
+              "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n  \n}"
+             },
+             "listWidth" : 600,
+             "triggerAction" : "all",
+             "fieldLabel" : "Person ",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "name",
+             "emptyText" : "Select Person ",
+             "minChars" : 2,
+             "valueField" : "id",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : true,
+             "editable" : true,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "person_id_name",
+             "qtip" : "Select Person ",
+             "queryParam" : "query[name]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> ({company_id_name}) &lt;{email}&gt; </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.company_id = Pman.Login.authUser.company_id;\n}"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ field : 'name' , direction : 'ASC' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
                 {
-                    "xtype" : "BorderLayout",
-                    "$ xns" : "Roo",
-                    "* prop" : "layout",
-                    "items" : [
-                        {
-                            "xtype" : "LayoutRegion",
-                            "$ xns" : "Roo",
-                            "* prop" : "center"
-                        },
-                        {
-                            "autoScroll" : true,
-                            "xtype" : "LayoutRegion",
-                            "$ xns" : "Roo",
-                            "split" : true,
-                            "height" : 150,
-                            "* prop" : "south"
-                        },
-                        {
-                            "listeners" : {
-                                "render" : "function (_self)\n{\n  _this.viewPanel = _self;\n}"
-                            },
-                            "fitToFrame" : true,
-                            "region" : "south",
-                            "xtype" : "ContentPanel",
-                            "$ xns" : "Roo"
-                        },
-                        {
-                            "listeners" : {
-                                "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-                            },
-                            "region" : "center",
-                            "fitToframe" : true,
-                            "background" : false,
-                            "title" : "Events",
-                            "xtype" : "GridPanel",
-                            "fitContainer" : true,
-                            "$ xns" : "Roo",
-                            "tableName" : "Events",
-                            "items" : [
-                                {
-                                    "listeners" : {
-                                        "|render" : "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
-                                    },
-                                    "autoExpandColumn" : "remarks",
-                                    "xtype" : "Grid",
-                                    "loadMask" : true,
-                                    "$ xns" : "Roo.grid",
-                                    "* prop" : "grid",
-                                    "items" : [
-                                        {
-                                            "listeners" : {
-                                                "afterselectionchange" : "function (_self)\n{\n    // load detail log in _this.viewPanel;\n    if (!this.getSelected()) {\n        this.viewPanel.setContent(\"Nothing Selected\");\n        return;\n    }\n    var id = this.getSelected().data.id;\n    _this.viewPanel.load( { url : baseURL + \"/Admin/EventView/\" + id + \".html\" });\n    \n}"
-                                            },
-                                            "xtype" : "RowSelectionModel",
-                                            "singleSelect" : true,
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "sm"
-                                        },
-                                        {
-                                            "listeners" : {
-                                                "|beforeload" : "function (_self, o)\n{\n    if (!Pman.buildCompleted) {\n        return false;\n    }\n   \n   \n   if (! _this.personSel) {\n    return false;\n    }\n    o.params = o.params || {};\n    o.params.person_id = _this.personSel.getValue();\n    o.params.person_table = _this.tableSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        o.params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        o.params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        o.params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        o.params['query[to]'] = act.format('Y-m-d');\n    }\n \n    \n    /*\n    act = _this.groupedCombo.getValue();\n    o.params['query[grouped]'] = act;\n    if (o.params['query[grouped]'] == 'gr') {\n    \n        if (!tbl.length) {\n            Roo.MessageBox.alert(\"Error\", \"Select a table to group results on\");\n            return false;\n        }\n//        o.params['_columns']  = \n        o.params['_distinct'] = 'on_id';\n        \n        \n    }\n    \n    */\n\n    \n}"
-                                            },
-                                            "xtype" : "Store",
-                                            "remoteSort" : true,
-                                            "$ sortInfo" : "{ field: 'event_when', direction: 'DESC'}",
-                                            "$ xns" : "Roo.data",
-                                            "* prop" : "dataSource",
-                                            "items" : [
-                                                {
-                                                    "id" : "id",
-                                                    "root" : "data",
-                                                    "xtype" : "JsonReader",
-                                                    "$ xns" : "Roo.data",
-                                                    "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
-                                                    "* prop" : "reader",
-                                                    "totalProperty" : "total"
-                                                },
-                                                {
-                                                    "$ url" : "baseURL + '/Roo/Events.php'",
-                                                    "xtype" : "HttpProxy",
-                                                    "method" : "GET",
-                                                    "$ xns" : "Roo.data",
-                                                    "* prop" : "proxy"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "pageSize" : 25,
-                                            "xtype" : "PagingToolbar",
-                                            "emptyMsg" : "No Events found",
-                                            "$ xns" : "Roo",
-                                            "displayInfo" : true,
-                                            "displayMsg" : "Displaying Events  {0} - {1} of {2}",
-                                            "* prop" : "footer",
-                                            "items" : [
-                                                {
-                                                    "listeners" : {
-                                                        "click" : "function (_self, e)\n{\n    \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 900,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,\n        'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',\n        'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        \n    }\n        \n    params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        params['query[to]'] = act.format('Y-m-d');\n    }\n    params.limit = 9999;\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params ,\n        newWindow: true\n        \n    });\n}"
-                                                    },
-                                                    "text" : "Download to Excel",
-                                                    "xtype" : "Button",
-                                                    "$ xns" : "Roo.Toolbar"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "xtype" : "Toolbar",
-                                            "$ xns" : "Roo",
-                                            "* prop" : "toolbar",
-                                            "items" : [
-                                                {
-                                                    "text" : "Show",
-                                                    "xtype" : "TextItem",
-                                                    "$ xns" : "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "|render" : "function (_self)\n{\n  _this.tableSel = _self;\n}",
-                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "listWidth" : 300,
-                                                    "triggerAction" : "all",
-                                                    "forceSelection" : true,
-                                                    "selectOnFocus" : true,
-                                                    "pageSize" : 20,
-                                                    "displayField" : "value",
-                                                    "emptyText" : "Select Person Table",
-                                                    "minChars" : 2,
-                                                    "valueField" : "value",
-                                                    "xtype" : "ComboBox",
-                                                    "allowBlank" : true,
-                                                    "typeAhead" : true,
-                                                    "Boolean alwaysQuery" : true,
-                                                    "editable" : false,
-                                                    "width" : 150,
-                                                    "$ xns" : "Roo.form",
-                                                    "name" : "person_table",
-                                                    "qtip" : "Select Person Table",
-                                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{value}</b> </div>",
-                                                    "loadingText" : "Searching...",
-                                                    "items" : [
-                                                        {
-                                                            "| data" : "(function() { \n\n    if(typeof(uiConfig) == 'undefined' || typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){\n\n        return [];        \n    }\n\n    return uiConfig.events_person_table;\n    \n})()",
-                                                            "xtype" : "SimpleStore",
-                                                            "$ fields" : "[ 'value' ]",
-                                                            "$ xns" : "Roo.data",
-                                                            "* prop" : "store",
-                                                            "isLocal" : true
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "|render" : "function (_self)\n{\n  _this.personSel = _self;\n}",
-                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n  \n}"
-                                                    },
-                                                    "listWidth" : 600,
-                                                    "triggerAction" : "all",
-                                                    "fieldLabel" : "Person ",
-                                                    "forceSelection" : true,
-                                                    "selectOnFocus" : true,
-                                                    "pageSize" : 20,
-                                                    "displayField" : "name",
-                                                    "emptyText" : "Select Person ",
-                                                    "minChars" : 2,
-                                                    "valueField" : "id",
-                                                    "xtype" : "ComboBox",
-                                                    "allowBlank" : true,
-                                                    "typeAhead" : true,
-                                                    "editable" : true,
-                                                    "width" : 150,
-                                                    "$ xns" : "Roo.form",
-                                                    "name" : "person_id_name",
-                                                    "qtip" : "Select Person ",
-                                                    "queryParam" : "query[name]",
-                                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> ({company_id_name}) &lt;{email}&gt; </div>",
-                                                    "loadingText" : "Searching...",
-                                                    "items" : [
-                                                        {
-                                                            "listeners" : {
-                                                                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.company_id = Pman.Login.authUser.company_id;\n}"
-                                                            },
-                                                            "xtype" : "Store",
-                                                            "remoteSort" : true,
-                                                            "$ sortInfo" : "{ field : 'name' , direction : 'ASC' }",
-                                                            "$ xns" : "Roo.data",
-                                                            "* prop" : "store",
-                                                            "items" : [
-                                                                {
-                                                                    "$ url" : "baseURL + '/Roo/Person.php'",
-                                                                    "method" : "GET",
-                                                                    "xtype" : "HttpProxy",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "* prop" : "proxy"
-                                                                },
-                                                                {
-                                                                    "id" : "id",
-                                                                    "root" : "data",
-                                                                    "xtype" : "JsonReader",
-                                                                    "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'lang',\n        'type': 'string'\n    },\n    {\n        'name': 'no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_province',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_country',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_open_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_close_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_countries',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_languages',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_deleted_dt',\n        'type': 'date'\n    }\n]",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "* prop" : "reader",
-                                                                    "totalProperty" : "total"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "|render" : "function (_self)\n{\n  _this.actionSel = _self;\n}",
-                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "listWidth" : 300,
-                                                    "triggerAction" : "all",
-                                                    "forceSelection" : true,
-                                                    "selectOnFocus" : true,
-                                                    "pageSize" : 20,
-                                                    "displayField" : "action",
-                                                    "emptyText" : "Select Action",
-                                                    "minChars" : 2,
-                                                    "valueField" : "action",
-                                                    "xtype" : "ComboBox",
-                                                    "allowBlank" : true,
-                                                    "typeAhead" : true,
-                                                    "editable" : true,
-                                                    "width" : 150,
-                                                    "$ xns" : "Roo.form",
-                                                    "name" : "action",
-                                                    "qtip" : "Select Action",
-                                                    "queryParam" : "query[action]",
-                                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{action}</b> </div>",
-                                                    "loadingText" : "Searching...",
-                                                    "items" : [
-                                                        {
-                                                            "listeners" : {
-                                                                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'action';\n    o.params._columns ='action';\n}"
-                                                            },
-                                                            "xtype" : "Store",
-                                                            "remoteSort" : true,
-                                                            "$ sortInfo" : "{ field : 'action' , direction : 'ASC' }",
-                                                            "$ xns" : "Roo.data",
-                                                            "* prop" : "store",
-                                                            "items" : [
-                                                                {
-                                                                    "$ url" : "baseURL + '/Roo/Events.php'",
-                                                                    "method" : "GET",
-                                                                    "xtype" : "HttpProxy",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "* prop" : "proxy"
-                                                                },
-                                                                {
-                                                                    "id" : "id",
-                                                                    "root" : "data",
-                                                                    "xtype" : "JsonReader",
-                                                                    "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "* prop" : "reader",
-                                                                    "totalProperty" : "total"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "|render" : "function (_self)\n{\n  _this.affectSel = _self;\n}",
-                                                        "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "listWidth" : 300,
-                                                    "triggerAction" : "all",
-                                                    "forceSelection" : true,
-                                                    "selectOnFocus" : true,
-                                                    "pageSize" : 20,
-                                                    "displayField" : "on_table",
-                                                    "emptyText" : "Select Affects",
-                                                    "minChars" : 2,
-                                                    "valueField" : "action",
-                                                    "xtype" : "ComboBox",
-                                                    "allowBlank" : true,
-                                                    "typeAhead" : true,
-                                                    "editable" : true,
-                                                    "width" : 150,
-                                                    "$ xns" : "Roo.form",
-                                                    "name" : "on_table",
-                                                    "qtip" : "Select Action",
-                                                    "queryParam" : "query[on_table]",
-                                                    "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{on_table}</b> </div>",
-                                                    "loadingText" : "Searching...",
-                                                    "items" : [
-                                                        {
-                                                            "listeners" : {
-                                                                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'on_table';\n    o.params._columns ='on_table';\n}"
-                                                            },
-                                                            "xtype" : "Store",
-                                                            "remoteSort" : true,
-                                                            "$ sortInfo" : "{ field : 'on_table' , direction : 'ASC' }",
-                                                            "$ xns" : "Roo.data",
-                                                            "* prop" : "store",
-                                                            "items" : [
-                                                                {
-                                                                    "$ url" : "baseURL + '/Roo/Events.php'",
-                                                                    "method" : "GET",
-                                                                    "xtype" : "HttpProxy",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "* prop" : "proxy"
-                                                                },
-                                                                {
-                                                                    "id" : "id",
-                                                                    "root" : "data",
-                                                                    "xtype" : "JsonReader",
-                                                                    "$ xns" : "Roo.data",
-                                                                    "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
-                                                                    "* prop" : "reader",
-                                                                    "totalProperty" : "total"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "text" : "Date Range",
-                                                    "xtype" : "TextItem",
-                                                    "$ xns" : "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "render" : "function (_self)\n{\n  _this.dateFrom = _self;\n}",
-                                                        "change" : "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "format" : "Y-m-d",
-                                                    "xtype" : "DateField",
-                                                    "$ xns" : "Roo.form"
-                                                },
-                                                {
-                                                    "listeners" : {
-                                                        "render" : "function (_self)\n{\n  _this.dateTo = _self;\n}",
-                                                        "change" : "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "format" : "Y-m-d",
-                                                    "xtype" : "DateField",
-                                                    "$ xns" : "Roo.form"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "width" : 100,
-                                            "header" : "When",
-                                            "$ renderer" : "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "event_when"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "width" : 100,
-                                            "header" : "#id",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "id"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "width" : 150,
-                                            "header" : "Staff",
-                                            "$ renderer" : "function(v,x,r) { \n    \n    var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;\n    var nfield = typeof(_this.name_field) == 'undefined' ? 'person_id_name' : _this.name_field;    \n    \n    //Roo.log([r, efield, nfield]);\n    \n    var email = r.json[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.json[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "person_id_name"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "header" : "Action",
-                                            "width" : 100,
-                                            "$ renderer" : "function(v) { return String.format('{0}', v); }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "action"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "header" : "IP",
-                                            "width" : 100,
-                                            "$ renderer" : "function(v) { return String.format('{0}', v); }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "ipaddr"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "width" : 100,
-                                            "header" : "Affected",
-                                            "$ renderer" : "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "on_table"
-                                        },
-                                        {
-                                            "xtype" : "ColumnModel",
-                                            "width" : 300,
-                                            "header" : "Remarks",
-                                            "$ renderer" : "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
-                                            "$ xns" : "Roo.grid",
-                                            "* prop" : "colModel[]",
-                                            "dataIndex" : "remarks"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                 "$ url" : "baseURL + '/Roo/Person.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'lang',\n        'type': 'string'\n    },\n    {\n        'name': 'no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_province',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_country',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_open_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_close_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_countries',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_languages',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
                 }
-            ]
+               ]
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "|render" : "function (_self)\n{\n  _this.actionSel = _self;\n}",
+              "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+             },
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "action",
+             "emptyText" : "Select Action",
+             "minChars" : 2,
+             "valueField" : "action",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : true,
+             "editable" : true,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "action",
+             "qtip" : "Select Action",
+             "queryParam" : "query[action]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{action}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'action';\n    o.params._columns ='action';\n}"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ field : 'action' , direction : 'ASC' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/Events.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "|render" : "function (_self)\n{\n  _this.affectSel = _self;\n}",
+              "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+             },
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "on_table",
+             "emptyText" : "Select Affects",
+             "minChars" : 2,
+             "valueField" : "action",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : true,
+             "editable" : true,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "on_table",
+             "qtip" : "Select Action",
+             "queryParam" : "query[on_table]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{on_table}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'on_table';\n    o.params._columns ='on_table';\n}"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ field : 'on_table' , direction : 'ASC' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/Events.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "text" : "Date Range",
+             "xtype" : "TextItem",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n  _this.dateFrom = _self;\n}",
+              "change" : "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
+             },
+             "format" : "Y-m-d",
+             "xtype" : "DateField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n  _this.dateTo = _self;\n}",
+              "change" : "function (_self, newValue, oldValue)\n{\n  _this.grid.footer.onClick('first');\n}"
+             },
+             "format" : "Y-m-d",
+             "xtype" : "DateField",
+             "$ xns" : "Roo.form"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "When",
+           "width" : 100,
+           "$ renderer" : "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "event_when"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "#id",
+           "width" : 100,
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "id"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Staff",
+           "width" : 150,
+           "$ renderer" : "function(v,x,r) { \n    \n    var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;\n    var nfield = typeof(_this.name_field) == 'undefined' ? 'person_id_name' : _this.name_field;    \n    \n    //Roo.log([r, efield, nfield]);\n    \n    var email = r.json[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.json[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "person_id_name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 100,
+           "header" : "Action",
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "action"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 100,
+           "header" : "IP",
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "ipaddr"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Affected",
+           "width" : 100,
+           "$ renderer" : "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "on_table"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Remarks",
+           "width" : 300,
+           "$ renderer" : "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "remarks"
+          }
+         ]
         }
-    ]
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
