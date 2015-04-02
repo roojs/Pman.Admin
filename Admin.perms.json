@@ -13,6 +13,6 @@
 	"ProjectManager"       : [ "S",      "" , "Project Manager Tab"],
 	"Iptables"		: [ "S",     "", "Login triggers firewall opening"],
         
-        "Logs_Affects"                  : [ "S",      "" , "Allow Select Affects"]
+        "Logs_Affects"                  : [ "S",      "" , "Allow Select Affects"],
 }
       
