@@ -408,6 +408,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     typeof(uiConfig.events_person_table) == 'undefined' || 
                     !uiConfig.events_person_table.length
                 ){
+                    Roo.log(this.getActionEl);
                     this.actionMode = 'fieldEl';
                     this.hideMode = 'display';
                     this.hide();
