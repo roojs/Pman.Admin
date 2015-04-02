@@ -409,9 +409,9 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     !uiConfig.events_person_table.length
                 ){
                     Roo.log(this.getActionEl);
-                    this.actionMode = 'el';
+                    this.actionMode = 'fieldEl';
                     this.hideMode = 'display';
-                    this.hide();
+                    this.el.hide();
                 }
             },
            select : function (combo, record, index)
