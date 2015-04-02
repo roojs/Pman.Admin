@@ -150,7 +150,7 @@
             },
             {
              "listeners" : {
-              "|render" : "function (_self)\n{\n    _this.tableSel = _self;\n  \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n    this.el.hide();\n}",
+              "|render" : "function (_self)\n{\n    _this.tableSel = _self;\n  \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n    if(\n        typeof(uiConfig) == 'undefined' || \n        typeof(uiConfig.events_person_table) == 'undefined' || \n        !uiConfig.events_person_table.length\n    ){\n        this.el.hide();\n    }\n}",
               "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
              },
              "listWidth" : 300,
