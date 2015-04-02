@@ -397,7 +397,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           listeners : {
            render : function (_self)
             {
-              _this.tableSel = _self;
+                _this.tableSel = _self;
+              
+                this.el.setVisibilityMode(Roo.Element.DISPLAY);
+                
+                this.el.hide();
             },
            select : function (combo, record, index)
             {
