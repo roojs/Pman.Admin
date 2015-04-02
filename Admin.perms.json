@@ -2,7 +2,7 @@
 {	
   
         
-	"Admin_Tab"            : [ "S",      "" , "View Admin Tab"] ,
+	"Admin_Tab"            : [ "S",      "" , "View Admin Tab 1"] ,
 	"Logs"                 : [ "S",      "" , "View log of all events"] ,
 	
 	"Teams"                : [ "S",      "" , "Admin Team manager"] ,
