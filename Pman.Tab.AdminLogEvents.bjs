@@ -156,6 +156,7 @@
              "listWidth" : 300,
              "String actionMode" : "fieldEl",
              "triggerAction" : "all",
+             "String hideMode" : "display",
              "forceSelection" : true,
              "selectOnFocus" : true,
              "pageSize" : 20,

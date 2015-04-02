@@ -381,6 +381,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           editable : false,
           emptyText : _this._strings['037fd50b0e85bb65995ca7125d06c7cd'],
           forceSelection : true,
+          hideMode : 'display',
           listWidth : 300,
           loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'],
           minChars : 2,
