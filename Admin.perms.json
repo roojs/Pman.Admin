@@ -11,6 +11,8 @@
 	"Translations"         : [ "S",      "" , "Translations manager"] ,
 	"Enum"                 : [ "S",      "" , "Pulldown options manager"],
 	"ProjectManager"       : [ "S",      "" , "Project Manager Tab"],
-	"Iptables"		: [ "S",     "", "Login triggers firewall opening"]
+	"Iptables"		: [ "S",     "", "Login triggers firewall opening"],
+        
+        "Logs"                  : [ "S",      "" , "Allow Select Affects"] ,
 }
       
