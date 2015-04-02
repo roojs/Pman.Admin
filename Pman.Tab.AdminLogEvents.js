@@ -1187,7 +1187,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
                 _this.affectSel = _self;
               
-                if(Pman.hasPerm('Admin.Logs_Affects', 'S')){
+                if(!Pman.hasPerm('Admin.Logs_Affects', 'S')){
                     this.hide();
                 }
             },

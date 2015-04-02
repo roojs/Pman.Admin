@@ -299,7 +299,7 @@
             },
             {
              "listeners" : {
-              "|render" : "function (_self)\n{\n    _this.affectSel = _self;\n  \n    if(Pman.hasPerm('Admin.Logs_Affects', 'S')){\n        this.hide();\n    }\n}",
+              "|render" : "function (_self)\n{\n    _this.affectSel = _self;\n  \n    if(!Pman.hasPerm('Admin.Logs_Affects', 'S')){\n        this.hide();\n    }\n}",
               "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
              },
              "listWidth" : 300,
