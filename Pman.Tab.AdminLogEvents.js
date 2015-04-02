@@ -1185,7 +1185,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           listeners : {
            render : function (_self)
             {
-              _this.affectSel = _self;
+                _this.affectSel = _self;
+              
+                if(!Pman.hasPerm('Admin.Logs_Affects', 'S')){
+                    this.hide();
+                }
             },
            select : function (combo, record, index)
             {
