@@ -399,6 +399,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
                 _this.tableSel = _self;
               
+                this.hide();
                 //this.el.setVisibilityMode(Roo.Element.DISPLAY);
                 /*
                 if(
