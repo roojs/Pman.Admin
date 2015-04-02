@@ -401,14 +401,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
                 _this.tableSel = _self;
               
-                this.el.setVisibilityMode(Roo.Element.DISPLAY);
+                //this.el.setVisibilityMode(Roo.Element.DISPLAY);
                 
                 if(
                     typeof(uiConfig) == 'undefined' || 
                     typeof(uiConfig.events_person_table) == 'undefined' || 
                     !uiConfig.events_person_table.length
                 ){
-                    this.el.hide();
+                    this.actionMode = 'fieldEl';
+                    this.hideMode = 'display';
+                    this.hide();
                 }
             },
            select : function (combo, record, index)
