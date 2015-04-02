@@ -399,20 +399,14 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
                 _this.tableSel = _self;
               
-                this.hide();
-                //this.el.setVisibilityMode(Roo.Element.DISPLAY);
-                /*
                 if(
                     typeof(uiConfig) == 'undefined' || 
                     typeof(uiConfig.events_person_table) == 'undefined' || 
                     !uiConfig.events_person_table.length
                 ){
-                    Roo.log(this.getActionEl);
-                    this.actionMode = 'fieldEl';
-                    this.hideMode = 'display';
-                    this.el.hide();
+                    this.hide();
                 }
-                */
+              
             },
            select : function (combo, record, index)
             {
