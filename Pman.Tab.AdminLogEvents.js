@@ -374,6 +374,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
            xtype : 'SimpleStore'
           },
           '|xns' : 'Roo.form',
+          actionMode : 'fieldEl',
           allowBlank : true,
           alwaysQuery : true,
           displayField : 'value',
