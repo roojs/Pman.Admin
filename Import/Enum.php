@@ -124,7 +124,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             $count++;
         }
         
-        $this->jok('data imported successfully! total : ' . $count);
+        $this->jok('data imported successfully! total : ' . $count .'/'. count($rows));
     
     }
     
