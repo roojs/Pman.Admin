@@ -108,6 +108,12 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             $e = DB_DataObject::factory('core_enum');
             $e->etype =  $_REQUEST['etype'];
             if($e->get('name', $row['NAME'])){
+                if (isset($row['ACTIVE']) && $e->active != $row['ACTIVE']) {
+                    $ee =clone($e);
+                    $e->active = $row['ACTIVE'];
+                    $e->update($ee);
+                    $count++;
+                }
                 continue;
             }
             
@@ -116,7 +122,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
                 'name' => $row['NAME'],
                 'display_name' => $row['DISPLAY NAME'],
                 'etype' => $_REQUEST['etype'],
-                'active' => 1,
+                'active' => isset($row['ACTIVE']) ? $row['ACTIVE'] : 1,
             ));
             $e->insert();
             $e->onInsert(array());
