@@ -108,6 +108,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
             $e = DB_DataObject::factory('core_enum');
             $e->etype =  $_REQUEST['etype'];
             if($e->get('name', $row['NAME'])){
+                // allow changing active?? -- order/seqid not used at present on update.
                 if (isset($row['ACTIVE']) && $e->active != $row['ACTIVE']) {
                     $ee =clone($e);
                     $e->active = $row['ACTIVE'];
