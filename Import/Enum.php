@@ -124,6 +124,9 @@ class Pman_Admin_Import_Enum extends Pman_Roo
                 'etype' => $_REQUEST['etype'],
                 'active' => isset($row['ACTIVE']) ? $row['ACTIVE'] : 1,
             ));
+            if (!empty($row['ORDER #'])) {
+                $e->seqid = $row['ORDER #'];
+            }
             $e->insert();
             $e->onInsert(array());
             
