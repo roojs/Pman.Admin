@@ -593,7 +593,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
            click : function()
             {
                 var ids = [];
-                this.grid.dataSource.each(function(rr) {
+                _this.grid.dataSource.each(function(rr) {
                     if (rr.selected) {
                         ids.push(rr.data.id);
                     }
