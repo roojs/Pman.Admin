@@ -724,14 +724,19 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
          {
          
                  var di = this.colModel.getDataIndex(columnIndex);
-                 if (di != 'active') {
+                 var rec = _this.grid.ds.getAt(rowIndex);
+                     
+                 if (di == 'active') {
+                     
+                     rec.set('active', rec.data.active ? 0 : 1);
+                     rec.commit();
                      return;
                  }
+                 if (di == 'id' ) {
+                     rec.set('sel', rec.data.sel ? 0 : 1);
+                 }
                   
-                 var rec = _this.grid.ds.getAt(rowIndex);
-                 
-                 rec.set('active', rec.data.active ? 0 : 1);
-                 rec.commit();
+         
                   
                  
          },
