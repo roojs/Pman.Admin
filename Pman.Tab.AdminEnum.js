@@ -21,6 +21,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   'd9ec74f5aa29ceef6bf7b45f7fec5d0f' :"Add Value",
   'b9c49611cfda3259a2b837b39489e650' :"Add Image",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '7215ee9c7d9dc229d2921a40e899ec5f' :" "
  },
@@ -580,6 +581,20 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           '|xns' : 'Roo.Toolbar',
           xns : Roo.Toolbar,
           xtype : 'Fill'
+         },
+         {
+          '|xns' : 'Roo.Toolbar',
+          cls : 'x-btn-text-icon',
+          icon : rootURL + '/Pman/templates/images/trash.gif',
+          text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'],
+          xns : Roo.Toolbar,
+          xtype : 'Button',
+          listeners : {
+           click : function()
+                    {
+                    Pman.genericDelete(_this, 'Ris_partner_type'); 
+                    }
+          }
          }
         ]
 
