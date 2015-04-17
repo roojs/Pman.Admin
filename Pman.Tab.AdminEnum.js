@@ -741,8 +741,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                  
                      if (this.last_selected && e.shiftKey) {
                          // the highlight all the lines between the one last selected, and this one.
-                         var s = this.dataStore.getIndexOf(this.last_selected);
-                         var e = this.dataStore.getIndexOf(rec);
+                         var s = this.dataSource.getIndexOf(this.last_selected);
+                         var e = this.dataSource.getIndexOf(rec);
                          var ss = Math.min(s,e);
                          var ee = Math.max(s,e) +1;
                          for(var i = ss; i < ee; i++) {
