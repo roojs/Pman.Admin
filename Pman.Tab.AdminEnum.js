@@ -298,12 +298,6 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
      },
      {
       grid : {
-       sm : {
-        '|xns' : 'Roo.grid',
-        singleSelect : false,
-        xns : Roo.grid,
-        xtype : 'RowSelectionModel'
-       },
        dataSource : {
         proxy : {
          '|xns' : 'Roo.data',
