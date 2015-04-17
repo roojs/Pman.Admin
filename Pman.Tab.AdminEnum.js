@@ -575,6 +575,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                  _this.grid.footer.onClick('first');
             }
           }
+         },
+         {
+          '|xns' : 'Roo.Toolbar',
+          xns : Roo.Toolbar,
+          xtype : 'Fill'
          }
         ]
 
