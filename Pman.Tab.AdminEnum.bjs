@@ -187,6 +187,7 @@
          "items" : [
           {
            "xtype" : "CellSelectionModel",
+           "Boolean enter_is_tab" : true,
            "$ xns" : "Roo.grid",
            "* prop" : "sm"
           },
