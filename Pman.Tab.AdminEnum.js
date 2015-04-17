@@ -738,8 +738,13 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                      return;
                  }
                  if (di == 'id' ) {
+                 
+                     if (this.last_selected) {
+                         Roo.log(e);
+                     }
+                 
                      rec.selected = rec.selected ? 0 : 1;
-                     
+                     this.last_selected = rec.selected ? rec : false;
                      rec.set('sel', rec.data.sel ? 0 : 1);
                  }
                   
