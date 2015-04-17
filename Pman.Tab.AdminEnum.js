@@ -614,7 +614,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             method : 'POST',
                             url : baseURL + '/Roo/Core_enum',
                             params : {
-                                _ids  : ids.join(',')
+                                _delete  : ids.join(',')
                             },
                             success : function() {
                                 _this.grid.footer.onClick('refresh');
