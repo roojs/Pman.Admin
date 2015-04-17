@@ -299,7 +299,7 @@
            "xtype" : "ColumnModel",
            "width" : 75,
            "header" : "Internal #",
-           "$ renderer" : "function(v,x,r) { \n    var fmt = '{0}';\n    if (r.data.sel) {\n        fmt = '<span style=\"color:orange;font-weight:bold;\">{0}</span>';\n    }\n    return String.format(fmt, v); }",
+           "$ renderer" : "function(v,x,r) { \n    var fmt = '{0}';\n    if (r.selected) {\n        fmt = '<span style=\"color:orange;font-weight:bold;\">{0}</span>';\n    }\n    return String.format(fmt, v); }",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
            "* prop" : "colModel[]",

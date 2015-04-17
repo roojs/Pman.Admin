@@ -592,7 +592,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           header : _this._strings['7af54708cf5a4286cf0cfa58ff5148a8'],
           renderer : function(v,x,r) { 
               var fmt = '{0}';
-              if (r.data.sel) {
+              if (r.selected) {
                   fmt = '<span style="color:orange;font-weight:bold;">{0}</span>';
               }
               return String.format(fmt, v); },
