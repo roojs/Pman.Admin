@@ -739,8 +739,20 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                  }
                  if (di == 'id' ) {
                  
-                     if (this.last_selected) {
-                         Roo.log(e);
+                     if (this.last_selected && e.shiftKey) {
+                         // the highlight all the lines between the one last selected, and this one.
+                         var s = this.dataStore.getIndexOf(this.last_selected);
+                         var e = this.dataStore.getIndexOf(rec);
+                         var ss = Math.min(s,e);
+                         var ee = Math.max(s,e) +1;
+                         for(var i = ss; i < ee; i++) {
+                             var rr = this.dataSource.getAt(i);
+                             rr.selected = 1;
+                             rr.set('sel', 1);
+                         }
+                         this.last_selected = false;
+                         return;
+         
                      }
                  
                      rec.selected = rec.selected ? 0 : 1;
