@@ -750,7 +750,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                              rr.selected = 1;
                              rr.set('sel', 1);
                          }
-                         this.last_selected = false;
+                         this.last_selected = rec;
                          return;
          
                      }
