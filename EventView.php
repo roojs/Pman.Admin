@@ -38,7 +38,7 @@ class Pman_Admin_EventView extends Pman
         }
         
         
-//        echo '<PRE>'.htmlspecialchars(print_r($ev,true))."</PRE>";
+        echo '<PRE>'.htmlspecialchars(print_r($ev->toArray(),true))."</PRE>";
         // we have 2 bits of data available at present:
         // core_event_audit
         // the event file..
