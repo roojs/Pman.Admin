@@ -615,12 +615,13 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                             url : baseURL + '/Roo/Core_enum',
                             params : {
                                 _ids  : ids.join(',')
-                            }
+                            },
                             success : function() {
                                 _this.grid.footer.onClick('refresh');
                             }
                         });
-                    });
+                    }
+                );
                 
                 
             }
