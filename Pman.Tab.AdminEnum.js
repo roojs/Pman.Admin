@@ -739,7 +739,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                  }
                  if (di == 'id' ) {
                      
-                     if (!e.controlKey && !e.shiftKey) {
+                     if (!e.controlKey && !e.shiftKey) { // shift or control not pressed -clear selection.
                      
                          this.dataSource.each(function(rr) {
                              rr.selected = 0;
