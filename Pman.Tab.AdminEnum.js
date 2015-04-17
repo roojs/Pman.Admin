@@ -591,9 +591,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           xtype : 'Button',
           listeners : {
            click : function()
-                    {
-                    Pman.genericDelete(_this, 'Ris_partner_type'); 
-                    }
+            {
+                     
+            }
           }
          }
         ]
