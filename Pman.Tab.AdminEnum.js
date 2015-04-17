@@ -590,7 +590,12 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           '|xns' : 'Roo.grid',
           dataIndex : 'id',
           header : _this._strings['7af54708cf5a4286cf0cfa58ff5148a8'],
-          renderer : function(v) { return String.format('{0}', v); },
+          renderer : function(v,x,r) { 
+              var fmt = '{0}';
+              if (r.data.sel) {
+                  fmt = '<span style="color:orange;font-weight:bold;">{0}</span>';
+              }
+              return String.format(fmt, v); },
           sortable : true,
           width : 75,
           xns : Roo.grid,
