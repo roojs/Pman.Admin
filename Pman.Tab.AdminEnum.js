@@ -500,7 +500,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                  var r = ds.data.length;
                 ds.insert(r  , add);  
                 
-                _this.grid.startEditing(r, 2); // name... 
+                _this.grid.startEditing(r, _this.grid.colModel.getIndexByDataIndex('name')); // name... 
             }
           }
          },
