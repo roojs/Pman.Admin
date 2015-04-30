@@ -18,10 +18,10 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '037fd50b0e85bb65995ca7125d06c7cd' :"Select Person Table",
   'fd7535ce3979bb8547e2c01689db0767' :"Select Person ",
   '679308a758de538c5f39c4c6cdba6593' :"Select Affects",
-  '8f7f93630c366dc55aec88eb8e9640d0' :"Staff",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   '39b9e051f9fe75e65c7a330bb00499d4' :"Date Range",
   '4e97aeeaa8b15ca1180fcd1f3ac478d1' :"When",
+  '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '004bf6c9a40003140292e97330236c53' :"Action",
   '90e4ac2e5a22e53df63b6b186d8727ba' :"No Events found",
   '2c92a9a6a5dbf570825e62eabcdecd8d' :"Affected"
@@ -1268,7 +1268,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
 {
           '|xns' : 'Roo.grid',
           dataIndex : 'person_id_name',
-          header : _this._strings['8f7f93630c366dc55aec88eb8e9640d0'],
+          header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'],
           renderer : function(v,x,r) { 
               
               var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;
