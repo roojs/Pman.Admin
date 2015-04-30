@@ -1276,7 +1276,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               var efield = 'person_id_email';
               var nfield = 'person_id_name';    
               
-              if(ptable.length && ptable != 'Person'){
+              if(
+                  ptable.length &&
+                  ptable != 'Person' &&
+                  typeof(r.data[ptable + '_id_email']) != 'undefined' &&
+                  typeof(r.data[ptable + '_id_name']) != 'undefined'
+              ){
                   efield = ptable + '_id_email';
                   nfield = ptable + '_id_name';    
               }
