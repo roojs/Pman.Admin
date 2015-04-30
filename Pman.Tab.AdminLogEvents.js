@@ -1271,10 +1271,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'],
           renderer : function(v,x,r) { 
               
-              Roo.log(_this.tableSel.getValue());
-              var efield = typeof(_this.email_field) == 'undefined' ? 'person_id_email' : _this.email_field;
-              var nfield = typeof(_this.name_field) == 'undefined' ? 'person_id_name' : _this.name_field;    
-          
+              var ptable = _this.tableSel.getValue();
+              
+              var efield = 'person_id_email';
+              var nfield = 'person_id_name';    
+              
+              if(ptable.length && ptable != 'Person'){
+                  efield = ptable + '_id_email';
+                  nfield = ptable + '_id_name';    
+              }
+              
               //Roo.log([r, efield, nfield]);
               
               var email = r.json[efield]; // ? r.data.person_id_email : r.data.person_id_email;
