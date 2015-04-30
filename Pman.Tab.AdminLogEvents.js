@@ -1327,7 +1327,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          }
        ],
        listeners : {
-        render : function ()
+        render : function () 
          {
              _this.grid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
