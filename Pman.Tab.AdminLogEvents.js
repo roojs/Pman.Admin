@@ -1326,6 +1326,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           xtype : 'ColumnModel'
          }
        ],
+       listeners : {
+        render : function (grid)
+         {
+             _this.grid = this; 
+             //_this.dialog = Pman.Dialog.FILL_IN
+             if (_this.panel.active) {
+                this.footer.onClick('first');
+             }
+         }
+       },
        items : [
 
        ]

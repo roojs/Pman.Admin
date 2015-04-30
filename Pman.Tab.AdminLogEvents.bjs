@@ -73,6 +73,9 @@
        "tableName" : "Events",
        "items" : [
         {
+         "listeners" : {
+          "render" : "function (grid)\n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
          "autoExpandColumn" : "remarks",
          "xtype" : "Grid",
          "loadMask" : true,
