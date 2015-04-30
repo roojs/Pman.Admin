@@ -399,7 +399,7 @@
            "xtype" : "ColumnModel",
            "width" : 150,
            "header" : "Person",
-           "$ renderer" : "function(v,x,r) { \n    \n    var ptable = _this.tableSel.getValue();\n    \n    var efield = 'person_id_email';\n    var nfield = 'person_id_name';    \n    \n    if(\n        ptable.length &&\n        ptable != 'Person' &&\n        typeof(r.data[ptable + '_id_email']) != 'undefined' &&\n        typeof(r.data[ptable + '_id_name']) != 'undefined'\n    ){\n        efield = ptable + '_id_email';\n        nfield = ptable + '_id_name';    \n    }\n    \n    //Roo.log([r, efield, nfield]);\n    \n    var email = r.data[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.data[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
+           "$ renderer" : "function(v,x,r) { \n    \n    var ptable = _this.tableSel.getValue();\n    \n    var efield = 'person_id_email';\n    var nfield = 'person_id_name';    \n    \n    if(\n        ptable.length &&\n        ptable != 'Person' &&\n        typeof(r.data[ptable + '_id_email']) != 'undefined' &&\n        typeof(r.data[ptable + '_id_name']) != 'undefined'\n    ){\n        efield = ptable + '_id_email';\n        nfield = ptable + '_id_name';    \n    }\n    \n    var email = r.data[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.data[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
            "dataIndex" : "person_id_name"
