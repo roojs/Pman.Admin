@@ -14,9 +14,6 @@
  },
  "items" : [
   {
-   "listeners" : {
-    "show" : "function (_self)\n{\n    \n}"
-   },
    "modal" : true,
    "collapsible" : false,
    "background" : true,

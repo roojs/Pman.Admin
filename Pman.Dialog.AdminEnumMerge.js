@@ -90,12 +90,6 @@ Pman.Dialog.AdminEnumMerge = {
        }
       }
     ],
-    listeners : {
-     show : function (_self)
-      {
-          
-      }
-    },
     items : [
      {
       '|xns' : 'Roo',
