@@ -196,12 +196,6 @@ Pman.Dialog.AdminEnumMerge = {
          },
          {
           '|xns' : 'Roo.form',
-          name : 'etype',
-          xns : Roo.form,
-          xtype : 'Hidden'
-         },
-         {
-          '|xns' : 'Roo.form',
           name : 'id',
           xns : Roo.form,
           xtype : 'Hidden'
