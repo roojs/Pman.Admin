@@ -11,6 +11,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   'd1228f5476d15142b1358ae4b5fa2454' :"Order #",
   'fdff10eac021dfbb69e9c38204237fdc' :"Add new pulldown list",
   '1206eb8aea05be4625371c9c12818785' :"Pulldown",
+  '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   '7af54708cf5a4286cf0cfa58ff5148a8' :"Internal #",
   'be53a0541a6d36f6ecb879fa2c584b08' :"Image",
@@ -624,6 +625,29 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                     }
                 );
                 
+                
+            }
+          }
+         },
+         {
+          '|xns' : 'Roo.Toolbar',
+          cls : 'x-btn-text-icon',
+          icon : Roo.rootURL + 'images/default/tree/leaf.gif',
+          text : _this._strings['7dce122004969d56ae2e0245cb754d35'],
+          xns : Roo.Toolbar,
+          xtype : 'Button',
+          listeners : {
+           click : function()
+            {
+                var s = _this.grid.getSelectionModel().getSelections();
+                if (!s.length || (s.length > 1))  {
+                    Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                    return;
+                }
+                if (!_this.dialog) return;
+                _this.dialog.show(s[0].data, function() {
+                    _this.grid.footer.onClick('first');
+                }); 
                 
             }
           }
