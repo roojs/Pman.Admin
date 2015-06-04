@@ -652,7 +652,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                 }
                 
                 var d = _this.grid.ds.getAt(s[0]);
-                Roo.log(d);return;
+            
                 Pman.Dialog.AdminEnumMerge.show(d.data, function() {
                     _this.grid.footer.onClick('first');
                 }); 
