@@ -7,7 +7,7 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminEnumMerge = {
 
  _strings : {
-  '518ad9ed87d3ca17e223a91604b464d5' :"Add / Edit Core Enum",
+  '0b3e4317865feb6f0224397600b7cafc' :"Merge Core Enum",
   'cfcd208495d565ef66e7dff9f98764da' :"0",
   'c4ca4238a0b923820dcc509a6f75849b' :"1",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
@@ -51,7 +51,7 @@ Pman.Dialog.AdminEnumMerge = {
     height : 150,
     modal : true,
     resizable : false,
-    title : _this._strings['518ad9ed87d3ca17e223a91604b464d5'],
+    title : _this._strings['0b3e4317865feb6f0224397600b7cafc'],
     width : 400,
     xns : Roo,
     xtype : 'LayoutDialog',
