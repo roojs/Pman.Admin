@@ -651,6 +651,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                     return;
                 }
                 
+                Roo.log(s);
                 
                 //_this.dialog.show(s[0].data, function() {
                 //    _this.grid.footer.onClick('first');
