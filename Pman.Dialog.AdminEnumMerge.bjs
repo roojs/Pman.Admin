@@ -74,7 +74,7 @@
            "xtype" : "Store",
            "remoteSort" : true,
            "$ xns" : "Roo.data",
-           "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
            "* prop" : "store",
            "items" : [
             {
@@ -89,7 +89,7 @@
              "root" : "data",
              "xtype" : "JsonReader",
              "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        \"name\":\"name\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"display_name\",\n        \"type\":\"string\"\n    }\n]",
+             "$ fields" : "[\n    {\n        \"name\":\"id\",\n        \"type\":\"int\"\n    },\n    {\n        \"name\":\"display_name\",\n        \"type\":\"string\"\n    }\n]",
              "* prop" : "reader",
              "totalProperty" : "total"
             }
