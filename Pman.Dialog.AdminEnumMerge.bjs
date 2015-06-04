@@ -48,6 +48,59 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
+         "listeners" : {
+          "add" : "function (combo)\n{\n    Pman.Dialog.CoreEnum.show({\n        etype : 'EuroCham.Industry',\n        title : 'Add Industry'\n    }, function(res){\n        combo.setFromData(res);\n    })\n}"
+         },
+         "alwaysQuery" : true,
+         "Number pageSize" : 50,
+         "triggerAction" : "all",
+         "fieldLabel" : "Industry",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "xtype" : "ComboBox",
+         "minChars" : 2,
+         "hiddenName" : "industry_id",
+         "displayField" : "display_name",
+         "valueField" : "id",
+         "editable" : true,
+         "Number listWidth" : 400,
+         "width" : 300,
+         "$ xns" : "Roo.form",
+         "name" : "industry_id_display_name",
+         "queryParam" : "query[search]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    o.params.etype = 'EuroCham.Industry';\n}\n"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ xns" : "Roo.data",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/Core_enum.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        \"name\":\"name\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"display_name\",\n        \"type\":\"string\"\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
+        },
+        {
          "xtype" : "Hidden",
          "$ xns" : "Roo.form",
          "name" : "id"

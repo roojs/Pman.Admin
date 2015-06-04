@@ -132,6 +132,86 @@ Pman.Dialog.AdminEnumMerge = {
         },
         items : [
          {
+          store : {
+           proxy : {
+            '|xns' : 'Roo.data',
+            method : 'GET',
+            url : baseURL + '/Roo/Core_enum.php',
+            xns : Roo.data,
+            xtype : 'HttpProxy'
+           },
+           reader : {
+            '|xns' : 'Roo.data',
+            fields : [
+                {
+                    "name":"name",
+                    "type":"string"
+                },
+                {
+                    "name":"display_name",
+                    "type":"string"
+                }
+            ],
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            xtype : 'JsonReader'
+           },
+           '|xns' : 'Roo.data',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'id' },
+           xns : Roo.data,
+           xtype : 'Store',
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 
+                 o.params.active = 1;
+                 o.params.etype = 'EuroCham.Industry';
+             }
+           },
+           items : [
+
+           ]
+
+          },
+          '|xns' : 'Roo.form',
+          alwaysQuery : true,
+          displayField : 'display_name',
+          editable : true,
+          fieldLabel : 'Industry',
+          forceSelection : true,
+          hiddenName : 'industry_id',
+          listWidth : 400,
+          minChars : 2,
+          name : 'industry_id_display_name',
+          pageSize : 50,
+          queryParam : 'query[search]',
+          selectOnFocus : true,
+          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>',
+          triggerAction : 'all',
+          valueField : 'id',
+          width : 300,
+          xns : Roo.form,
+          xtype : 'ComboBox',
+          listeners : {
+           add : function (combo)
+            {
+                Pman.Dialog.CoreEnum.show({
+                    etype : 'EuroCham.Industry',
+                    title : 'Add Industry'
+                }, function(res){
+                    combo.setFromData(res);
+                })
+            }
+          },
+          items : [
+
+          ]
+
+         },
+         {
           '|xns' : 'Roo.form',
           name : 'id',
           xns : Roo.form,
