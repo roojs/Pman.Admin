@@ -650,10 +650,11 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
                 }
-                if (!_this.dialog) return;
-                _this.dialog.show(s[0].data, function() {
-                    _this.grid.footer.onClick('first');
-                }); 
+                
+                
+                //_this.dialog.show(s[0].data, function() {
+                //    _this.grid.footer.onClick('first');
+                //}); 
                 
             }
           }
