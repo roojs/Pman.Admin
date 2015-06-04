@@ -11,8 +11,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   'd1228f5476d15142b1358ae4b5fa2454' :"Order #",
   'fdff10eac021dfbb69e9c38204237fdc' :"Add new pulldown list",
   '1206eb8aea05be4625371c9c12818785' :"Pulldown",
-  '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
+  '68be4837f6c739877233e527a996dd00' :"Merge",
   '7af54708cf5a4286cf0cfa58ff5148a8' :"Internal #",
   'be53a0541a6d36f6ecb879fa2c584b08' :"Image",
   'b48968e1c912da07df5e8d6d246291ec' :"Display Name",
@@ -631,9 +631,14 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
          },
          {
           '|xns' : 'Roo.Toolbar',
+          xns : Roo.Toolbar,
+          xtype : 'Separator'
+         },
+         {
+          '|xns' : 'Roo.Toolbar',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/tree/leaf.gif',
-          text : _this._strings['7dce122004969d56ae2e0245cb754d35'],
+          text : _this._strings['68be4837f6c739877233e527a996dd00'],
           xns : Roo.Toolbar,
           xtype : 'Button',
           listeners : {
