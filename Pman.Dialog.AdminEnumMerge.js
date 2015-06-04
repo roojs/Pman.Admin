@@ -183,7 +183,7 @@ Pman.Dialog.AdminEnumMerge = {
           editable : true,
           fieldLabel : 'Merge with',
           forceSelection : true,
-          hiddenName : 'industry_id',
+          hiddenName : '_merge_id',
           listWidth : 250,
           minChars : 2,
           name : 'merge_display_name',

@@ -56,7 +56,7 @@
          "selectOnFocus" : true,
          "xtype" : "ComboBox",
          "minChars" : 2,
-         "hiddenName" : "industry_id",
+         "hiddenName" : "_merge_id",
          "displayField" : "display_name",
          "valueField" : "id",
          "editable" : true,
