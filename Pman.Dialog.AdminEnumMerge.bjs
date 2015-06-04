@@ -74,7 +74,7 @@
            "xtype" : "Store",
            "remoteSort" : true,
            "$ xns" : "Roo.data",
-           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'display_name' }",
            "* prop" : "store",
            "items" : [
             {

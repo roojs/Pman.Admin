@@ -160,7 +160,7 @@ Pman.Dialog.AdminEnumMerge = {
            },
            '|xns' : 'Roo.data',
            remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'name' },
+           sortInfo : { direction : 'ASC', field: 'display_name' },
            xns : Roo.data,
            xtype : 'Store',
            listeners : {
