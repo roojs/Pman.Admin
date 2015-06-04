@@ -1,0 +1,10 @@
+{
+ "name" : "Pman.Dialog.AdminEnumMerge",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminEnumMerge.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "items" : [
+ ]
+}
