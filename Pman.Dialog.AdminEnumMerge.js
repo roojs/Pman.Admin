@@ -167,9 +167,9 @@ Pman.Dialog.AdminEnumMerge = {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  
-                 Roo.log(_this.data);
                  o.params.active = 1;
-                 o.params.etype = 'EuroCham.Industry';
+                 o.params.etype = _this.data.etype;
+                 o.params['!id'] = _this.data.id;
              }
            },
            items : [
