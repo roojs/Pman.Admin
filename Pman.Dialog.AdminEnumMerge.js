@@ -180,7 +180,7 @@ Pman.Dialog.AdminEnumMerge = {
           alwaysQuery : true,
           displayField : 'display_name',
           editable : true,
-          fieldLabel : 'Industry',
+          fieldLabel : 'Merge with',
           forceSelection : true,
           hiddenName : 'industry_id',
           listWidth : 400,

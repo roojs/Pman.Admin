@@ -54,7 +54,7 @@
          "alwaysQuery" : true,
          "Number pageSize" : 50,
          "triggerAction" : "all",
-         "fieldLabel" : "Industry",
+         "fieldLabel" : "Merge with",
          "forceSelection" : true,
          "selectOnFocus" : true,
          "xtype" : "ComboBox",
