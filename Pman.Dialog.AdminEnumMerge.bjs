@@ -69,7 +69,7 @@
          "items" : [
           {
            "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    o.params.etype = 'EuroCham.Industry';\n}\n"
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    Roo.log(_this.data);\n    o.params.active = 1;\n    o.params.etype = 'EuroCham.Industry';\n}\n"
            },
            "xtype" : "Store",
            "remoteSort" : true,
