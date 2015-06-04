@@ -184,7 +184,7 @@ Pman.Dialog.AdminEnumMerge = {
           fieldLabel : 'Merge with',
           forceSelection : true,
           hiddenName : 'industry_id',
-          listWidth : 400,
+          listWidth : 250,
           minChars : 2,
           name : 'industry_id_display_name',
           pageSize : 50,
@@ -193,7 +193,7 @@ Pman.Dialog.AdminEnumMerge = {
           tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>',
           triggerAction : 'all',
           valueField : 'id',
-          width : 300,
+          width : 250,
           xns : Roo.form,
           xtype : 'ComboBox',
           items : [
