@@ -11,9 +11,9 @@
   "fdff10eac021dfbb69e9c38204237fdc" : "Add new pulldown list",
   "1206eb8aea05be4625371c9c12818785" : "Pulldown",
   "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
-  "68be4837f6c739877233e527a996dd00" : "Merge",
   "7af54708cf5a4286cf0cfa58ff5148a8" : "Internal #",
   "be53a0541a6d36f6ecb879fa2c584b08" : "Image",
+  "1a87a3d29199e3435b8fb314624c008f" : "Merge Option",
   "b48968e1c912da07df5e8d6d246291ec" : "Display Name",
   "510bc6e58593b2b8002c9fe0c21f3fde" : "Displaying core_enum{0} - {1} of {2}",
   "1ba4d808fc7b27a7f60ce2ff75a8af3a" : "No core_enum found",
@@ -317,7 +317,7 @@
              "listeners" : {
               "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) return;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
              },
-             "text" : "Merge",
+             "text" : "Merge Option",
              "xtype" : "Button",
              "cls" : "x-btn-text-icon",
              "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
