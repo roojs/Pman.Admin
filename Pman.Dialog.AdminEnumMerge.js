@@ -195,17 +195,6 @@ Pman.Dialog.AdminEnumMerge = {
           width : 300,
           xns : Roo.form,
           xtype : 'ComboBox',
-          listeners : {
-           add : function (combo)
-            {
-                Pman.Dialog.CoreEnum.show({
-                    etype : 'EuroCham.Industry',
-                    title : 'Add Industry'
-                }, function(res){
-                    combo.setFromData(res);
-                })
-            }
-          },
           items : [
 
           ]

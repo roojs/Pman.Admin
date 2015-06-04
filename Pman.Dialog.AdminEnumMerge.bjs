@@ -48,9 +48,6 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
-         "listeners" : {
-          "add" : "function (combo)\n{\n    Pman.Dialog.CoreEnum.show({\n        etype : 'EuroCham.Industry',\n        title : 'Add Industry'\n    }, function(res){\n        combo.setFromData(res);\n    })\n}"
-         },
          "alwaysQuery" : true,
          "Number pageSize" : 50,
          "triggerAction" : "all",
