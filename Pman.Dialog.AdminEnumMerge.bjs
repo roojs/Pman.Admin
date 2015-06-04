@@ -63,7 +63,7 @@
          "Number listWidth" : 250,
          "width" : 250,
          "$ xns" : "Roo.form",
-         "name" : "industry_id_display_name",
+         "name" : "merge_display_name",
          "queryParam" : "query[search]",
          "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>",
          "items" : [

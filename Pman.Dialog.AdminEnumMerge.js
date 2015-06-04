@@ -186,7 +186,7 @@ Pman.Dialog.AdminEnumMerge = {
           hiddenName : 'industry_id',
           listWidth : 250,
           minChars : 2,
-          name : 'industry_id_display_name',
+          name : 'merge_display_name',
           pageSize : 50,
           queryParam : 'query[search]',
           selectOnFocus : true,
