@@ -51,6 +51,9 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.merge = this;\n}"
+         },
          "alwaysQuery" : true,
          "Number pageSize" : 50,
          "triggerAction" : "all",

@@ -195,6 +195,12 @@ Pman.Dialog.AdminEnumMerge = {
           width : 250,
           xns : Roo.form,
           xtype : 'ComboBox',
+          listeners : {
+           render : function (_self)
+            {
+                _this.merge = this;
+            }
+          },
           items : [
 
           ]
