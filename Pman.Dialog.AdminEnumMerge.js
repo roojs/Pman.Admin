@@ -84,7 +84,7 @@ Pman.Dialog.AdminEnumMerge = {
     listeners : {
      show : function (_self)
       {
-      
+          _this.merge.focus();
       }
     },
     items : [
