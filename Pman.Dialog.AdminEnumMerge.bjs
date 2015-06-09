@@ -33,9 +33,9 @@
      "* prop" : "center"
     },
     {
+     "background" : true,
      "region" : "center",
      "fitToFrame" : true,
-     "background" : true,
      "xtype" : "ContentPanel",
      "$ xns" : "Roo",
      "items" : [
@@ -45,8 +45,8 @@
         "|rendered" : "function (form)\n{\n   _this.form = form;\n}"
        },
        "$ url" : "baseURL + '/Roo/core_enum.php'",
-       "method" : "POST",
        "xtype" : "Form",
+       "method" : "POST",
        "style" : "margin: 5px",
        "$ xns" : "Roo.form",
        "items" : [
@@ -85,8 +85,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_enum.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
