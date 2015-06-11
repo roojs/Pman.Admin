@@ -283,7 +283,7 @@
        "xtype" : "ColumnModel",
        "sortable" : true,
        "header" : "Method",
-       "width" : 200,
+       "width" : 100,
        "$ renderer" : "function(v,x,r) \n{ \n    var vv = (typeof(r.data.evtype_align) != 'undefined' && r.data.evtype_align) ? r.data.evtype_align : v;\n    return String.format('<span qtip=\"{0}\">{1}</span>', v, vv ); \n}",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",

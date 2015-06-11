@@ -533,7 +533,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
            return String.format('<span qtip="{0}">{1}</span>', v, vv ); 
        },
        sortable : true,
-       width : 200,
+       width : 100,
        xns : Roo.grid,
        xtype : 'ColumnModel'
       },
