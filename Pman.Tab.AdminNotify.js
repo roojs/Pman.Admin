@@ -578,9 +578,9 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
        renderer : function(v,x,r) {
        
        
-            var col = r.data.person_table.lower() + '_email' ;
-            
-            return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data[col]); 
+            var ecol = r.data.person_table.lower() + '_email' ;
+            var ncol = r.data.person_table.lower() + '_name' ;
+            return String.format('{0} <u>&lt;{1}&gt;</u>', r.data[ncol], r.data[ecol]); 
         },
        width : 100,
        xns : Roo.grid,
