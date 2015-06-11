@@ -576,7 +576,11 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
        dataIndex : 'person_id_name',
        header : _this._strings['24463f10155b8af973300f86302c4fde'],
        renderer : function(v,x,r) {
-            return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data.person_id_email); 
+       
+       
+            var col = r.data.person_table.lower() + '_email' ;
+            
+            return String.format('{0} <u>&lt;{1}&gt;</u>', v, r.data[col]); 
         },
        width : 100,
        xns : Roo.grid,
