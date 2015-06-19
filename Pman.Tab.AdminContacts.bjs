@@ -37,8 +37,8 @@
     "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
    },
    "autoScroll" : true,
-   "fitToframe" : true,
    "background" : true,
+   "fitToframe" : true,
    "region" : "center",
    "title" : "Person",
    "xtype" : "GridPanel",
@@ -49,8 +49,8 @@
     {
      "listeners" : {
       "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}"
+      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}",
+      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
      },
      "autoExpandColumn" : "name",
      "xtype" : "Grid",
@@ -73,8 +73,8 @@
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/Person.php'",
-         "xtype" : "HttpProxy",
          "method" : "GET",
+         "xtype" : "HttpProxy",
          "$ xns" : "Roo.data",
          "* prop" : "proxy"
         },
@@ -162,8 +162,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Companies.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -315,8 +315,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "width" : 100,
        "header" : "Role",
+       "width" : 100,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -324,8 +324,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "width" : 100,
        "header" : "Phone",
+       "width" : 100,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -333,8 +333,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "width" : 100,
        "header" : "Fax",
+       "width" : 100,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -352,8 +352,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "width" : 75,
        "header" : "Active",
+       "width" : 75,
        "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
