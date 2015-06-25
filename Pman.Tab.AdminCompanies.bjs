@@ -24,8 +24,8 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Companies",
    "xtype" : "NestedLayoutPanel",
+   "title" : "Companies",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -50,9 +50,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "background" : true,
        "region" : "center",
        "fitToframe" : true,
-       "background" : true,
        "title" : "Companies",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -87,8 +87,8 @@
               "load" : "function (This, o, arg)\n{\n \n}"
              },
              "$ url" : "baseURL + '/Roo/Companies.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -212,8 +212,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Tel",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -221,8 +221,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Fax",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -250,8 +250,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Remarks",
            "width" : 200,
+           "header" : "Remarks",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
