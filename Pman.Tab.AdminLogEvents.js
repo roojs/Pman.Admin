@@ -194,7 +194,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',
                     'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        
                 }
-                parmas._with_obj_summary = 1;
+                params._with_obj_summary = 1;
                 params.person_id = _this.personSel.getValue();
                 var act = _this.actionSel.getValue();
                 if (act.length) {
