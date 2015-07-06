@@ -29,8 +29,8 @@
  "items" : [
   {
    "region" : "center",
-   "xtype" : "NestedLayoutPanel",
    "title" : "Events",
+   "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -64,9 +64,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "region" : "center",
        "fitToframe" : true,
        "background" : false,
-       "region" : "center",
        "title" : "Events",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -113,8 +113,8 @@
             },
             {
              "$ url" : "baseURL + '/Roo/Events.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             }
@@ -129,6 +129,14 @@
            "displayMsg" : "Displaying Events  {0} - {1} of {2}",
            "* prop" : "footer",
            "items" : [
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n    \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 900,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,\n        'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',\n        'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        \n    }\n        \n    params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        params['query[to]'] = act.format('Y-m-d');\n    }\n    params.limit = 9999;\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params ,\n        newWindow: true\n        \n    });\n}"
+             },
+             "text" : "Download to Excel",
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            },
             {
              "listeners" : {
               "click" : "function (_self, e)\n{\n    \n    var params = {\n        'sort' : 'event_when',\n        'dir' : 'DESC',\n        'start' : 0,\n        'limit' : 900,\n        person_id : _this.personSel.getValue(), \n        'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', \n        'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', \n        'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', \n        'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,\n        'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',\n        'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        \n    }\n        \n    params.person_id = _this.personSel.getValue();\n    var act = _this.actionSel.getValue();\n    if (act.length) {\n        params.action = act;\n    }\n    var tbl = _this.affectSel.getValue();\n    if (tbl.length) {\n        params.on_table = tbl;\n    }\n    act = _this.dateFrom.getValue();\n    if (act.format) {\n        params['query[from]'] = act.format('Y-m-d');\n    }\n    act = _this.dateTo.getValue();\n    if (act.format) {\n        params['query[to]'] = act.format('Y-m-d');\n    }\n    params.limit = 9999;\n    \n\n    new Pman.download({\n        url : baseURL + '/Roo/Events.php',\n        params : params ,\n        newWindow: true\n        \n    });\n}"
@@ -224,8 +232,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/Person.php'",
-                 "xtype" : "HttpProxy",
                  "method" : "GET",
+                 "xtype" : "HttpProxy",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -280,8 +288,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/Events.php'",
-                 "xtype" : "HttpProxy",
                  "method" : "GET",
+                 "xtype" : "HttpProxy",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -336,8 +344,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/Events.php'",
-                 "xtype" : "HttpProxy",
                  "method" : "GET",
+                 "xtype" : "HttpProxy",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -381,8 +389,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "When",
            "width" : 100,
+           "header" : "When",
            "$ renderer" : "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -390,16 +398,16 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "#id",
            "width" : 100,
+           "header" : "#id",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
            "dataIndex" : "id"
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Person",
            "width" : 150,
+           "header" : "Person",
            "$ renderer" : "function(v,x,r) { \n    \n    var ptable = _this.tableSel.getValue();\n    \n    var efield = 'person_id_email';\n    var nfield = 'person_id_name';    \n    \n    if(\n        ptable.length &&\n        ptable != 'Person' &&\n        typeof(r.data[ptable + '_id_email']) != 'undefined' &&\n        typeof(r.data[ptable + '_id_name']) != 'undefined'\n    ){\n        efield = ptable + '_id_email';\n        nfield = ptable + '_id_name';    \n    }\n    \n    var email = r.data[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.data[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -407,8 +415,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Action",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -416,8 +424,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "IP",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -425,8 +433,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Affected",
            "width" : 100,
+           "header" : "Affected",
            "$ renderer" : "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -434,8 +442,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Remarks",
            "width" : 300,
+           "header" : "Remarks",
            "$ renderer" : "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
