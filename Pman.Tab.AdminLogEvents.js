@@ -187,12 +187,13 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     'start' : 0,
                     'limit' : 900,
                     person_id : _this.personSel.getValue(), 
-                    'csvTitles[0]' : 'When',   'csvCols[0]' : 'event_when', 
-                    'csvTitles[1]' : 'Staff',   'csvCols[1]' : 'person_id_name', 
-                    'csvTitles[2]' : 'Action',   'csvCols[2]' : 'action', 
-                    'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,
-                    'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',
-                    'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        
+                    'csvTitles[0]' : 'ID#',   'csvCols[0]' : 'id',         
+                    'csvTitles[1]' : 'When',   'csvCols[1]' : 'event_when', 
+                    'csvTitles[2]' : 'Staff',   'csvCols[2]' : 'person_id_name', 
+                    'csvTitles[3]' : 'Action',   'csvCols[3]' : 'action', 
+                    'csvTitles[4]' : 'Record ID',   'csvCols[4]' : 'on_id'       ,
+                    'csvTitles[5]' : 'Record Type',   'csvCols[5]' : 'on_table',
+                    'csvTitles[6]' : 'Remarks',   'csvCols[6]' : 'remarks'        
                 }
                 params._with_obj_summary = 1;
                 params.person_id = _this.personSel.getValue();
