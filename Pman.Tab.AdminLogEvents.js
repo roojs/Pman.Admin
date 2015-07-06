@@ -7,6 +7,7 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminLogEvents = new Roo.XComponent({
 
  _strings : {
+  'e4ef97f584a9c8d2d686f84569307575' :"Download to Excel (with extra descriptions)",
   '231bc72756b5e6de492aaaa1577f61b1' :"Remarks",
   '2ea72778ebaacc973260c88837dd7a2f' :"Displaying Events  {0} - {1} of {2}",
   '87f9f735a1d36793ceaecd4e47124b63' :"Events",
@@ -172,7 +173,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           }
          },
          {
-          text : _this._strings['01bd6a16732dfa2b760dc8566c58afae'] /* Download to Excel */,
+          text : _this._strings['e4ef97f584a9c8d2d686f84569307575'] /* Download to Excel (with extra descriptions) */,
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar',
           xtype : 'Button',
