@@ -241,16 +241,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.grid.getSelectionModel().getSelections();
-                if (!s.length || (s.length > 1))  {
-                    Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                var s = _this.grid.getSelectionModel().getSelected();
+                
+                if(!s || s.data.id * 1 < 1){
+                    Roo.MessageBox.alert('Error', 'Please select a deleted person');
                     return;
                 }
-                if (!_this.dialog) return;
-                _this.dialog.show(s[0].data, function() {
-                    _this.grid.footer.onClick('first');
-                }); 
-                
             }
           }
          }
