@@ -153,7 +153,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if(!s || s.data.id * 1 < 1 || s.data.action != 'DELETE'){\n        Roo.MessageBox.alert('Error', 'Please select a deleted person');\n        return;\n    }\n    \n    new Pman.Request({\n       url: baseURL + '/Roo/Events',\n       method : 'POST',\n       mask : 'Sending...',\n       params : {\n           id : s.data.id,\n           _restore : 1\n       },\n       success : function(ret) {\n        \n       }\n   });\n}\n"
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if(!s || s.data.id * 1 < 1 || s.data.action != 'DELETE'){\n        Roo.MessageBox.alert('Error', 'Please select a deleted person');\n        return;\n    }\n    \n    new Pman.Request({\n       url: baseURL + '/Roo/Events',\n       method : 'POST',\n       mask : 'Sending...',\n       params : {\n           id : s.data.id,\n           _restore : 1\n       },\n       success : function(ret) {\n            _this.grid.footer.onClick('refresh');\n       }\n   });\n}\n"
              },
              "text" : "Restore",
              "xtype" : "Button",

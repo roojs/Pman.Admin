@@ -257,7 +257,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                        _restore : 1
                    },
                    success : function(ret) {
-                    
+                        _this.grid.footer.onClick('refresh');
                    }
                });
             }
