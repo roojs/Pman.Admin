@@ -248,7 +248,17 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     return;
                 }
                 
-                
+                new Pman.Request({
+                   url: baseURL + '/Roo/Events',
+                   method : 'POST',
+                   mask : 'Sending...',
+                   params : {
+                       _restore : s.data.id
+                   },
+                   success : function(ret) {
+                    
+                   }
+               });
             }
           }
          }
