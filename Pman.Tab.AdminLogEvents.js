@@ -258,7 +258,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                    },
                    success : function(ret) {
                         _this.grid.footer.onClick('refresh');
-                        Roo.MessageBox.alert('Notice', 'Restored');
+                        Roo.MessageBox.alert('Notice', 'Restored ');
                    }
                });
             }
