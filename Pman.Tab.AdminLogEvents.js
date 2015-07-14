@@ -25,6 +25,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '4e97aeeaa8b15ca1180fcd1f3ac478d1' :"When",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '004bf6c9a40003140292e97330236c53' :"Action",
+  '2bd339d85ee3b33e513359ce781b60cc' :"Restore",
   '90e4ac2e5a22e53df63b6b186d8727ba' :"No Events found",
   '2c92a9a6a5dbf570825e62eabcdecd8d' :"Affected"
  },
@@ -229,6 +230,29 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar',
           xtype : 'Separator'
+         },
+         {
+          cls : 'x-btn-text-icon',
+          icon : Roo.rootURL + 'images/default/tree/leaf.gif',
+          text : _this._strings['2bd339d85ee3b33e513359ce781b60cc'] /* Restore */,
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Button',
+          listeners : {
+           click : function()
+            {
+                var s = _this.grid.getSelectionModel().getSelections();
+                if (!s.length || (s.length > 1))  {
+                    Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                    return;
+                }
+                if (!_this.dialog) return;
+                _this.dialog.show(s[0].data, function() {
+                    _this.grid.footer.onClick('first');
+                }); 
+                
+            }
+          }
          }
         ]
        },
