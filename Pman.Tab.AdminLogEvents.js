@@ -253,7 +253,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                    method : 'POST',
                    mask : 'Sending...',
                    params : {
-                       _restore : s.data.id
+                       id : s.data.id,
+                       _restore : 1
                    },
                    success : function(ret) {
                     
