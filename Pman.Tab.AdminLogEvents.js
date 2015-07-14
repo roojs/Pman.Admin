@@ -243,10 +243,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
                 var s = _this.grid.getSelectionModel().getSelected();
                 
-                if(!s || s.data.id * 1 < 1){
+                if(!s || s.data.id * 1 < 1 || s.data.action != 'DELETE'){
                     Roo.MessageBox.alert('Error', 'Please select a deleted person');
                     return;
                 }
+                
+                
             }
           }
          }
