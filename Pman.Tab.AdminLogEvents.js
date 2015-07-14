@@ -224,6 +224,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                 });
             }
           }
+         },
+         {
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Separator'
          }
         ]
        },
