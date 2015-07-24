@@ -83,7 +83,7 @@ class Pman_Admin_EventView extends Pman
         $json = json_decode($ev->remarks);
         
         if(json_last_error() == JSON_ERROR_NONE){
-            
+            echo "<HR><H2>JSON DECODE Data:</H2>";
         }
         
         $filesJ = json_decode(file_get_contents($file));
