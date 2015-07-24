@@ -20,6 +20,10 @@ class Pman_Admin_EventView extends Pman
     
     function get($id)
     {
+        $test = json_decode('afsdfasf');
+        
+        print_R($test);exit;
+        
         $ev = DB_DataObject::Factory('Events');
         if (!$ev->get((int)$id)) {
             $this->jerr("invalid id");
