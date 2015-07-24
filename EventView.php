@@ -67,7 +67,7 @@ class Pman_Admin_EventView extends Pman
          
         $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php"; 
         if (file_exists($file)) {
-            echo '<PRE>111' . htmlspecialchars(file_get_contents($file)). '</PRE>';
+            echo '<PRE>' . htmlspecialchars(file_get_contents($file)). '</PRE>';
             
         } 
           
@@ -76,7 +76,7 @@ class Pman_Admin_EventView extends Pman
             echo "not available (missing file) $file";
             exit;
         }
-        echo '<PRE>222' . htmlspecialchars(print_r(json_decode(file_get_contents($file)), true)) . '</PRE>';
+        echo '<PRE>' . htmlspecialchars(print_r(json_decode(file_get_contents($file)), true)) . '</PRE>';
         
         echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         
