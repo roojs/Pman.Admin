@@ -19,11 +19,7 @@ class Pman_Admin_EventView extends Pman
     }
     
     function get($id)
-    {
-        $test = json_decode('{"action":"test"}');
-        
-        print_R(json_last_error());exit;
-        
+    {   
         $ev = DB_DataObject::Factory('Events');
         if (!$ev->get((int)$id)) {
             $this->jerr("invalid id");
