@@ -80,11 +80,11 @@ class Pman_Admin_EventView extends Pman
         
         echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         
-        $json = json_decode($ev->remarks);
+        $json = json_decode($ev->remarks, true);
         
         if(json_last_error() == JSON_ERROR_NONE){
             echo "<HR><H2>JSON DECODE Data:</H2>";
-            echo '<PRE>' . htmlspecialchars(print_r($json), true)) . '</PRE>';
+            echo '<PRE>' . htmlspecialchars(print_r($json)) . '</PRE>';
         }
         
         $filesJ = json_decode(file_get_contents($file));
