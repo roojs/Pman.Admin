@@ -20,9 +20,9 @@ class Pman_Admin_EventView extends Pman
     
     function get($id)
     {
-        $test = json_decode('afsdfasf');
-        
-        print_R(JSON_ERROR_NONE);exit;
+//        $test = json_decode('{a}');
+//        
+//        print_R(JSON_ERROR_NONE);exit;
         
         $ev = DB_DataObject::Factory('Events');
         if (!$ev->get((int)$id)) {
