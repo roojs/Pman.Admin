@@ -22,7 +22,7 @@ class Pman_Admin_EventView extends Pman
     {
         $test = json_decode('afsdfasf');
         
-        print_R(json_last_error() );exit;
+        print_R(JSON_ERROR_NONE);exit;
         
         $ev = DB_DataObject::Factory('Events');
         if (!$ev->get((int)$id)) {
