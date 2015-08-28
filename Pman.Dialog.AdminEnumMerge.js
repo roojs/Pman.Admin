@@ -79,9 +79,29 @@ Pman.Dialog.AdminEnumMerge = {
       '|xns' : 'Roo',
       xtype : 'Button',
       listeners : {
-       click : function() {
-        
-            
+       click : function() 
+        {
+            if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){
+                Roo.MessageBox.confirm(
+                    "Confirm", 
+                    "Are you sure '" + _this.data.display_name + "' Merge with " + _this.form.findField('merge_id'), 
+                    function(res) {
+                        if(res != 'yes') {
+                            return;
+                        }
+                        new Pman.Request({
+                            method : 'POST',
+                            url : baseURL + '/Roo/Core_enum',
+                            params : {
+                                _delete  : ids.join(',')
+                            },
+                            success : function() {
+                                _this.grid.footer.onClick('refresh');
+                            }
+                        });
+                    }
+                );
+            }
             _this.form.doAction('submit');
             
         }
