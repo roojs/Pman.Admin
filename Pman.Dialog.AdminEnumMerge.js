@@ -84,7 +84,7 @@ Pman.Dialog.AdminEnumMerge = {
             if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){
                 Roo.MessageBox.confirm(
                     "Confirm", 
-                    "Are you sure '" + _this.data.display_name + "' Merge with " + _this.form.findField('merge_id'), 
+                    "Are you sure '" + _this.data.display_name + "' Merge with '" + _this.form.findField('_merge_id').getRawValue() + "'", 
                     function(res) {
                         if(res != 'yes') {
                             return;
