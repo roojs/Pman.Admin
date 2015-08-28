@@ -89,18 +89,13 @@ Pman.Dialog.AdminEnumMerge = {
                         if(res != 'yes') {
                             return;
                         }
-                        new Pman.Request({
-                            method : 'POST',
-                            url : baseURL + '/Roo/Core_enum',
-                            params : {
-                                _delete  : ids.join(',')
-                            },
-                            success : function() {
-                                _this.grid.footer.onClick('refresh');
-                            }
-                        });
+                        
+                        _this.form.doAction('submit');
+                        return;
                     }
                 );
+                
+                return;
             }
             _this.form.doAction('submit');
             

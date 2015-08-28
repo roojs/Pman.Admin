@@ -124,7 +124,7 @@
     },
     {
      "listeners" : {
-      "|click" : "function() \n{\n    if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){\n        Roo.MessageBox.confirm(\n            \"Confirm\", \n            \"Are you sure '\" + _this.data.display_name + \"' Merge with '\" + _this.form.findField('_merge_id').getRawValue() + \"'\", \n            function(res) {\n                if(res != 'yes') {\n                    return;\n                }\n                new Pman.Request({\n                    method : 'POST',\n                    url : baseURL + '/Roo/Core_enum',\n                    params : {\n                        _delete  : ids.join(',')\n                    },\n                    success : function() {\n                        _this.grid.footer.onClick('refresh');\n                    }\n                });\n            }\n        );\n    }\n    _this.form.doAction('submit');\n    \n}"
+      "|click" : "function() \n{\n    if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){\n        Roo.MessageBox.confirm(\n            \"Confirm\", \n            \"Are you sure '\" + _this.data.display_name + \"' Merge with '\" + _this.form.findField('_merge_id').getRawValue() + \"'\", \n            function(res) {\n                if(res != 'yes') {\n                    return;\n                }\n                \n                _this.form.doAction('submit');\n                return;\n            }\n        );\n        \n        return;\n    }\n    _this.form.doAction('submit');\n    \n}"
      },
      "text" : "OK",
      "xtype" : "Button",
