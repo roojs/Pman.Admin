@@ -147,6 +147,7 @@ Pman.Dialog.AdminEnumMerge = {
         },
         items  : [
          {
+          allowBlank : false,
           alwaysQuery : true,
           displayField : 'display_name',
           editable : true,

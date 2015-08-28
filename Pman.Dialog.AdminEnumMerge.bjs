@@ -57,6 +57,7 @@
          },
          "alwaysQuery" : true,
          "Number pageSize" : 50,
+         "Boolean allowBlank" : false,
          "triggerAction" : "all",
          "fieldLabel" : "Merge with",
          "forceSelection" : true,
