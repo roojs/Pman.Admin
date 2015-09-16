@@ -173,7 +173,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
        },
        dataSource : {
         remoteSort : true,
-        sortInfo : { field : 'etype', direction: 'ASC' },
+        sortInfo : { field : 'name', direction: 'ASC' },
         xns : Roo.data,
         '|xns' : 'Roo.data',
         xtype : 'Store',
