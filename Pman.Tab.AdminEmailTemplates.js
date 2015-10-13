@@ -238,7 +238,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
        },
        dataSource : {
         remoteSort : true,
-        sortInfo : { field : 'name', direction: 'DESC' },
+        sortInfo : { field : 'name', direction: 'ASC' },
         xns : Roo.data,
         '|xns' : 'Roo.data',
         xtype : 'Store',
