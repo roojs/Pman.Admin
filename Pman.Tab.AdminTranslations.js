@@ -36,235 +36,47 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   region : 'center',
+   title : _this._strings['4e7c16d320ae129cc81b296e05748b3a'] /* Translate App */,
+   xns : Roo,
+   '|xns' : 'Roo',
+   xtype : 'NestedLayoutPanel',
    layout : {
+    xns : Roo,
+    '|xns' : 'Roo',
+    xtype : 'BorderLayout',
     center : {
-     '|xns' : 'Roo',
      alwaysShowTabs : true,
      tabPosition : 'top',
      xns : Roo,
+     '|xns' : 'Roo',
      xtype : 'LayoutRegion'
     },
-    '|xns' : 'Roo',
-    xns : Roo,
-    xtype : 'BorderLayout',
-    items : [
+    items  : [
      {
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      title : _this._strings['a1d1ae170f841c328acdc6052511ed8c'] /* Text in interface */,
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'GridPanel',
+      listeners : {
+       activate : function() {
+            _this.panel = this;
+            if (_this.grid) {
+               _this.grid.getDataSource().reload(); 
+            }
+        }
+      },
       grid : {
-       dataSource : {
-        proxy : {
-         '|xns' : 'Roo.data',
-         method : 'GET',
-         url : baseURL + '/Admin/Translations.php',
-         xns : Roo.data,
-         xtype : 'HttpProxy'
-        },
-        reader : {
-         '|xns' : 'Roo.data',
-         fields : [                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ],
-         id : 'id',
-         root : 'data',
-         totalProperty : 'total',
-         xns : Roo.data,
-         xtype : 'JsonReader'
-        },
-        '|xns' : 'Roo.data',
-        reader : Pman.Readers.Category,
-        xns : Roo.data,
-        xtype : 'Store',
-        listeners : {
-         beforeload : function (_self, opts)
-          {
-          
-                                  if (!_this.langCombo || !_this.langCombo.getValue().length) {
-                                      return false;
-                                  }
-                                  if (!_this.modCombo || !_this.modCombo.getValue().length) {
-                                      return false;
-                                  }
-                                  opts.params = {
-                                      lang :  _this.langCombo.getValue(),
-                                      module :  _this.modCombo.getValue()
-                                  };
-          },
-         loadexception : function (self, ret, load, jsonData)
-          {
-              Roo.MessageBox.alert("Error", jsonData);
-          }
-        },
-        items : [
-
-        ]
-
-       },
-       toolbar : {
-        '|xns' : 'Roo',
-        xns : Roo,
-        xtype : 'Toolbar',
-        items : [
-         {
-          store : {
-           '|xns' : 'Roo.data',
-           data : (function() {             
-                   var modlist = [];             
-                   AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
-                   Roo.each( AppModules.split(','), function(mod) {            
-                            modlist.push( [ mod ] );            
-                 });             
-                 return modlist;
-              })(),
-           fields : ['module'],
-           xns : Roo.data,
-           xtype : 'SimpleStore'
-          },
-          '|xns' : 'Roo.form',
-          displayField : 'module',
-          editable : false,
-          emptyText : _this._strings['b51c3fa7e0ae26a1d88bf1279f265bb4'],
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'module',
-          width : 200,
-          xns : Roo.form,
-          xtype : 'ComboBox',
-          listeners : {
-           render : function (_self)
-            {
-              _this.modCombo = _self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.grid.getDataSource().reload(); 
-            }
-          },
-          items : [
-
-          ]
-
-         },
-         {
-          store : {
-           '|xns' : 'Roo.data',
-           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
-           fields : ['lang', 'ldisp'],
-           xns : Roo.data,
-           xtype : 'SimpleStore'
-          },
-          '|xns' : 'Roo.form',
-          displayField : 'ldisp',
-          editable : false,
-          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'],
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'lang',
-          width : 200,
-          xns : Roo.form,
-          xtype : 'ComboBox',
-          listeners : {
-           render : function (_self)
-            {
-              _this.langCombo=_self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.grid.getDataSource().reload(); 
-            }
-          },
-          items : [
-
-          ]
-
-         },
-         {
-          '|xns' : 'Roo.Toolbar',
-          xns : Roo.Toolbar,
-          xtype : 'Fill'
-         },
-         {
-          '|xns' : 'Roo.Toolbar',
-          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'],
-          xns : Roo.Toolbar,
-          xtype : 'Button',
-          listeners : {
-           click : function (_self, e)
-            {
-                new Pman.Download({
-                    grid: _this.grid
-                
-                });
-            }
-          }
-         }
-        ]
-
-       },
-       '|xns' : 'Roo.grid',
        autoExpandColumn : 'txt',
        clicksToEdit : 1,
        loadMask : true,
        xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        xtype : 'EditorGrid',
-       colModel : [
-         {
-          '|xns' : 'Roo.grid',
-          dataIndex : 'colname',
-          header : _this._strings['49ee3087348e8d44e1feda1917443987'],
-          renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              },
-          width : 150,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         },
-{
-          '|xns' : 'Roo.grid',
-          dataIndex : 'origtxt',
-          header : _this._strings['0a52da7a03a6de3beefe54f8c03ad80d'],
-          renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style="color:' + c+ '">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              },
-          width : 300,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         },
-{
-          '|xns' : 'Roo.grid',
-          dataIndex : 'reset_tx',
-          header : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'],
-          renderer : function(v,x,r) {    
-              return  '<img src="' + rootURL + '/Pman/templates/images/edit-clear.gif' + '" width="16" height="16">';
-          },
-          width : 50,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         },
-{
-          editor : {
-           field : {
-            '|xns' : 'Roo.form',
-            xns : Roo.form,
-            xtype : 'TextField'
-           },
-           '|xns' : 'Roo.grid',
-           xns : Roo.grid,
-           xtype : 'GridEditor',
-           items : [
-
-           ]
-
-          },
-          '|xns' : 'Roo.grid',
-          dataIndex : 'txt',
-          header : _this._strings['e2ade2e0b88406a390f59b5232abb328'],
-          renderer : function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:' + c+ '">' + Ext.util.Format.htmlEncode(v) + '</div>';                     },
-          width : 150,
-          xns : Roo.grid,
-          xtype : 'ColumnModel',
-          items : [
-
-          ]
-
-         }
-       ],
        listeners : {
         afteredit : function (e)
          {
@@ -390,154 +202,53 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              }
          }
        },
-       items : [
-
-       ]
-
-      },
-      '|xns' : 'Roo',
-      background : true,
-      fitContainer : true,
-      fitToframe : true,
-      region : 'center',
-      title : _this._strings['a1d1ae170f841c328acdc6052511ed8c'],
-      xns : Roo,
-      xtype : 'GridPanel',
-      listeners : {
-       activate : function() {
-            _this.panel = this;
-            if (_this.grid) {
-               _this.grid.getDataSource().reload(); 
-            }
-        }
-      },
-      items : [
-
-      ]
-
-     },
-     {
-      grid : {
-       dataSource : {
-        proxy : {
-         '|xns' : 'Roo.data',
-         method : 'GET',
-         url : baseURL + '/Roo/i18n.php',
-         xns : Roo.data,
-         xtype : 'HttpProxy'
-        },
-        reader : {
-         '|xns' : 'Roo.data',
-         fields : [
-             {
-                 'name': 'id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'ltype',
-                 'type': 'string'
-             },
-             {
-                 'name': 'lkey',
-                 'type': 'string'
-             },
-             {
-                 'name': 'inlang',
-                 'type': 'string'
-             },
-             {
-                 'name': 'lval',
-                 'type': 'string'
-             }
-         ],
-         id : 'id',
-         root : 'data',
-         totalProperty : 'total',
-         xns : Roo.data,
-         xtype : 'JsonReader'
-        },
-        '|xns' : 'Roo.data',
-        remoteSort : true,
-        sortInfo : { field : 'lkey', direction: 'ASC' },
-        xns : Roo.data,
-        xtype : 'Store',
-        listeners : {
-         beforeload : function (_self, options)
-          {
-             options  =options ||  {};
-             options.params =options.params|| {};
-             options.params.ltype = _this.langtypeCombo.getValue();
-             options.params.inlang = _this.langgridCombo.getValue();
-             options.params['query[_with_en]'] = 1;
-             if (!options.params.ltype.length || !options.params.inlang.length) {
-                 return false;
-             }
-             
-             options.params.limit = 9999;
-             
-          }
-        },
-        items : [
-
-        ]
-
-       },
        toolbar : {
-        '|xns' : 'Roo',
         xns : Roo,
+        '|xns' : 'Roo',
         xtype : 'Toolbar',
-        items : [
+        items  : [
          {
-          store : {
-           '|xns' : 'Roo.data',
-           data : [
-              [ 'l', 'Language Names' ],
-              [ 'c', 'Country Names' ],
-               [ 'm', 'Currency Names' ]
-           ],
-           fields : ['lkey','lval'],
-           xns : Roo.data,
-           xtype : 'SimpleStore'
-          },
-          '|xns' : 'Roo.form',
-          displayField : 'lval',
+          displayField : 'module',
           editable : false,
-          emptyText : _this._strings['552bcc4e00cd663f09cc4efbaca1cd45'],
+          emptyText : _this._strings['b51c3fa7e0ae26a1d88bf1279f265bb4'] /* Select Module */,
           mode : 'local',
           selectOnFocus : true,
           triggerAction : 'all',
           typeAhead : false,
-          valueField : 'lkey',
+          valueField : 'module',
           width : 200,
           xns : Roo.form,
+          '|xns' : 'Roo.form',
           xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
-              _this.langtypeCombo = _self;
+              _this.modCombo = _self;
             },
            select : function (combo, record, index)
             {
-              _this.langgrid.getDataSource().reload(); 
+              _this.grid.getDataSource().reload(); 
             }
           },
-          items : [
-
-          ]
-
+          store : {
+           data : (function() {             
+                   var modlist = [];             
+                   AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
+                   Roo.each( AppModules.split(','), function(mod) {            
+                            modlist.push( [ mod ] );            
+                 });             
+                 return modlist;
+              })(),
+           fields : ['module'],
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           xtype : 'SimpleStore'
+          }
          },
          {
-          store : {
-           '|xns' : 'Roo.data',
-           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
-           fields : ['lang', 'ldisp'],
-           xns : Roo.data,
-           xtype : 'SimpleStore'
-          },
-          '|xns' : 'Roo.form',
           displayField : 'ldisp',
           editable : false,
-          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'],
+          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
           mode : 'local',
           selectOnFocus : true,
           triggerAction : 'all',
@@ -545,92 +256,167 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           valueField : 'lang',
           width : 200,
           xns : Roo.form,
+          '|xns' : 'Roo.form',
           xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
-              _this.langgridCombo=_self;
+              _this.langCombo=_self;
             },
            select : function (combo, record, index)
             {
-              _this.langgrid.getDataSource().reload(); 
+              _this.grid.getDataSource().reload(); 
             }
           },
-          items : [
-
-          ]
-
+          store : {
+           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
+           fields : ['lang', 'ldisp'],
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           xtype : 'SimpleStore'
+          }
+         },
+         {
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Fill'
+         },
+         {
+          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Button',
+          listeners : {
+           click : function (_self, e)
+            {
+                new Pman.Download({
+                    grid: _this.grid
+                
+                });
+            }
+          }
          }
         ]
-
        },
-       '|xns' : 'Roo.grid',
+       dataSource : {
+        reader : Pman.Readers.Category,
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        xtype : 'Store',
+        listeners : {
+         beforeload : function (_self, opts)
+          {
+          
+                                  if (!_this.langCombo || !_this.langCombo.getValue().length) {
+                                      return false;
+                                  }
+                                  if (!_this.modCombo || !_this.modCombo.getValue().length) {
+                                      return false;
+                                  }
+                                  opts.params = {
+                                      lang :  _this.langCombo.getValue(),
+                                      module :  _this.modCombo.getValue()
+                                  };
+          },
+         loadexception : function (self, ret, load, jsonData)
+          {
+              Roo.MessageBox.alert("Error", jsonData);
+          }
+        },
+        proxy : {
+         method : 'GET',
+         url : baseURL + '/Admin/Translations.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'HttpProxy'
+        },
+        reader : {
+         fields : [                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'JsonReader'
+        }
+       },
+       colModel : [
+        {
+         dataIndex : 'colname',
+         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+         renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'origtxt',
+         header : _this._strings['0a52da7a03a6de3beefe54f8c03ad80d'] /* Original */,
+         renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style="color:' + c+ '">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              },
+         width : 300,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'reset_tx',
+         header : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'] /* Reset */,
+         renderer : function(v,x,r) {    
+             return  '<img src="' + rootURL + '/Pman/templates/images/edit-clear.gif' + '" width="16" height="16">';
+         },
+         width : 50,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'txt',
+         header : _this._strings['e2ade2e0b88406a390f59b5232abb328'] /* Translated (Click to Edit) */,
+         renderer : function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:' + c+ '">' + Ext.util.Format.htmlEncode(v) + '</div>';                     },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel',
+         editor : {
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          xtype : 'GridEditor',
+          field : {
+           xns : Roo.form,
+           '|xns' : 'Roo.form',
+           xtype : 'TextField'
+          }
+         }
+        }
+       ]
+      }
+     },
+     {
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'i18n',
+      title : _this._strings['0a9e8bd9e8b301dfb2c21c355e0b377d'] /* Languages and Countries */,
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'GridPanel',
+      listeners : {
+       activate : function() {
+            _this.langpanel = this;
+            if (_this.langgrid) {
+                _this.langgrid.ds.load({});
+            }
+        }
+      },
+      grid : {
        autoExpandColumn : 'lval',
        clicksToEdit : 1,
        loadMask : true,
        xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        xtype : 'EditorGrid',
-       colModel : [
-         {
-          '|xns' : 'Roo.grid',
-          dataIndex : 'lkey',
-          header : _this._strings['ca0dbad92a874b2f69b549293387925e'],
-          renderer : function(v) { return String.format('{0}', v); },
-          width : 50,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         },
-{
-          '|xns' : 'Roo.grid',
-          dataIndex : 'lval_en',
-          header : _this._strings['78463a384a5aa4fad5fa73e2f506ecfc'],
-          renderer : function(v) { return String.format('{0}', v); },
-          width : 150,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         },
-{
-          editor : {
-           field : {
-            '|xns' : 'Roo.form',
-            xns : Roo.form,
-            xtype : 'TextField'
-           },
-           '|xns' : 'Roo.grid',
-           xns : Roo.grid,
-           xtype : 'GridEditor',
-           items : [
-
-           ]
-
-          },
-          '|xns' : 'Roo.grid',
-          dataIndex : 'lval',
-          header : _this._strings['6dd08874f83507e9c7b23f1a46b7fa7c'],
-          renderer : function(v) { return String.format('{0}', v); },
-          width : 200,
-          xns : Roo.grid,
-          xtype : 'ColumnModel',
-          items : [
-
-          ]
-
-         },
-{
-          '|xns' : 'Roo.grid',
-          dataIndex : 'is_active',
-          header : _this._strings['ae739a236065a45c64ad51aacb19498c'],
-          renderer : function(v,x,r) { 
-          
-              return '<img class="x-grid-check-icon' + (v*1 ? '-checked' : '')  + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
-                                                  
-              
-          },
-          width : 150,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         }
-       ],
        listeners : {
         afteredit : function (e)
          {
@@ -737,44 +523,195 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              }
          }
        },
-       items : [
-
-       ]
-
-      },
-      '|xns' : 'Roo',
-      background : true,
-      fitContainer : true,
-      fitToframe : true,
-      region : 'center',
-      tableName : 'i18n',
-      title : _this._strings['0a9e8bd9e8b301dfb2c21c355e0b377d'],
-      xns : Roo,
-      xtype : 'GridPanel',
-      listeners : {
-       activate : function() {
-            _this.langpanel = this;
-            if (_this.langgrid) {
-                _this.langgrid.ds.load({});
+       toolbar : {
+        xns : Roo,
+        '|xns' : 'Roo',
+        xtype : 'Toolbar',
+        items  : [
+         {
+          displayField : 'lval',
+          editable : false,
+          emptyText : _this._strings['552bcc4e00cd663f09cc4efbaca1cd45'] /* Select Translation of */,
+          mode : 'local',
+          selectOnFocus : true,
+          triggerAction : 'all',
+          typeAhead : false,
+          valueField : 'lkey',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          xtype : 'ComboBox',
+          listeners : {
+           render : function (_self)
+            {
+              _this.langtypeCombo = _self;
+            },
+           select : function (combo, record, index)
+            {
+              _this.langgrid.getDataSource().reload(); 
             }
+          },
+          store : {
+           data : [
+              [ 'l', 'Language Names' ],
+              [ 'c', 'Country Names' ],
+               [ 'm', 'Currency Names' ]
+           ],
+           fields : ['lkey','lval'],
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           xtype : 'SimpleStore'
+          }
+         },
+         {
+          displayField : 'ldisp',
+          editable : false,
+          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
+          mode : 'local',
+          selectOnFocus : true,
+          triggerAction : 'all',
+          typeAhead : false,
+          valueField : 'lang',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          xtype : 'ComboBox',
+          listeners : {
+           render : function (_self)
+            {
+              _this.langgridCombo=_self;
+            },
+           select : function (combo, record, index)
+            {
+              _this.langgrid.getDataSource().reload(); 
+            }
+          },
+          store : {
+           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
+           fields : ['lang', 'ldisp'],
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           xtype : 'SimpleStore'
+          }
+         }
+        ]
+       },
+       dataSource : {
+        remoteSort : true,
+        sortInfo : { field : 'lkey', direction: 'ASC' },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        xtype : 'Store',
+        listeners : {
+         beforeload : function (_self, options)
+          {
+             options  =options ||  {};
+             options.params =options.params|| {};
+             options.params.ltype = _this.langtypeCombo.getValue();
+             options.params.inlang = _this.langgridCombo.getValue();
+             options.params['query[_with_en]'] = 1;
+             if (!options.params.ltype.length || !options.params.inlang.length) {
+                 return false;
+             }
+             
+             options.params.limit = 9999;
+             
+          }
+        },
+        proxy : {
+         method : 'GET',
+         url : baseURL + '/Roo/i18n.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'HttpProxy'
+        },
+        reader : {
+         fields : [
+             {
+                 'name': 'id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'ltype',
+                 'type': 'string'
+             },
+             {
+                 'name': 'lkey',
+                 'type': 'string'
+             },
+             {
+                 'name': 'inlang',
+                 'type': 'string'
+             },
+             {
+                 'name': 'lval',
+                 'type': 'string'
+             }
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'JsonReader'
         }
-      },
-      items : [
-
-      ]
-
+       },
+       colModel : [
+        {
+         dataIndex : 'lkey',
+         header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 50,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'lval_en',
+         header : _this._strings['78463a384a5aa4fad5fa73e2f506ecfc'] /* English */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'lval',
+         header : _this._strings['6dd08874f83507e9c7b23f1a46b7fa7c'] /* Translation */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel',
+         editor : {
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          xtype : 'GridEditor',
+          field : {
+           xns : Roo.form,
+           '|xns' : 'Roo.form',
+           xtype : 'TextField'
+          }
+         }
+        },
+        {
+         dataIndex : 'is_active',
+         header : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
+         renderer : function(v,x,r) { 
+         
+             return '<img class="x-grid-check-icon' + (v*1 ? '-checked' : '')  + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                                                 
+             
+         },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        }
+       ]
+      }
      }
     ]
-
-   },
-   '|xns' : 'Roo',
-   region : 'center',
-   title : _this._strings['4e7c16d320ae129cc81b296e05748b3a'],
-   xns : Roo,
-   xtype : 'NestedLayoutPanel',
-   items : [
-
-   ]
-
+   }
   };  }
 });
