@@ -97,6 +97,8 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $subject[] = "{$v} {$k}";
         }
         
+        print_R($subject);exit;
+        
         $this->jok("Done");
         
     }
