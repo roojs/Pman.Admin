@@ -21,14 +21,14 @@ Content-Type: text/html; charset=utf-8
                 <th>Type</th>
                 <th>Error</th>
             </tr>
-            {foreach:errors,error}
-            <tr>
+            
+            <tr flexy:if="errors,error">
                 <td>{error.event_when}</td>
                 <td>{error.email}</td>
                 <td>{error.action}</td>
                 <td>{error.remarks}</td>
             </tr>
-            {end:}
+            
         </table>
         
     </body>
