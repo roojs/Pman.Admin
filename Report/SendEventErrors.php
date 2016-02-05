@@ -129,7 +129,12 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr('Nothing to be sent');
         }
         
-        print_R($events->fetchAll());exit;
+        $summary = array();
+        $list = array()
+        
+        foreach ($events->fetchAll() as $e){
+            
+        }
         
         $this->jok("Done");
         
