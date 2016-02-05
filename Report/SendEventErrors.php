@@ -132,7 +132,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $list = $events->fetchAll();
         
         $content = array(
-            'template'      => 'HYDRA_ADMIN_ORDER_NOTIFICATION',
+            'template'      => 'EVENT_ERRORS_REPORT',
             'rcpts'         => $rcpts,
             'list'          => $list,
             'subject'       => $subject
