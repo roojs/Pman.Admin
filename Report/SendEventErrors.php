@@ -32,7 +32,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $this->opts = $opts;
         
         if(empty($this->opts->group)){
-            $this->jerr()
+            $this->jerr('Missing group');
         }
         
         $this->transObj = DB_DataObject::Factory('core_enum');
