@@ -65,7 +65,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         if(!empty($this->opts['exclude'])){
             $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
-            print_r($exclude);exit;
+            
+            if(!empty($exclude)){
+                $events->whereAddIn('!Events.action', $exclude, 'string');
+            }
         }
         
         $events->groupBy('Events.action');
