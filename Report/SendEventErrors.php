@@ -77,7 +77,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $totals = $events->fetchAll('action', 'total');
         
         if(empty($totals)){
-            
+            $this->jerr('Nothing to be sent');
         }
         
         print_r();exit;
