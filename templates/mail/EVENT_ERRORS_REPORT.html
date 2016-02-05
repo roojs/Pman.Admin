@@ -21,12 +21,16 @@ Content-Type: text/html; charset=utf-8
                 <th>Type</th>
                 <th>Error</th>
             </tr>
-            
+            {foreach:errors,error}
+            <tr>
+                <td>{error.event_when}</td>
+                <td>{error.email}</td>
+                <td>{error.action}</td>
+                <td>{error.remarks}</td>
+            </tr>
+            {end:}
         </table>
         
-        {foreach:errors,error}
-        <p>test</p>
-            {end:}
     </body>
     
 </html>
