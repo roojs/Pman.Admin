@@ -22,7 +22,7 @@ Content-Type: text/html; charset=utf-8
                 <th>Error</th>
             </tr>
             
-            <tr flexy:if="errors,error">
+            <tr flexy:foreach="errors,error">
                 <td>{error.event_when}</td>
                 <td>{error.email}</td>
                 <td>{error.action}</td>
