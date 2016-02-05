@@ -43,6 +43,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     function get($args, $opts)
     {
+        $mailOptions = PEAR::getStaticProperty('Mail','options');
+        
+        print_R($mailOptions);exit;
+        
         $this->opts = $opts;
         
         if(empty($this->opts['group'])){
