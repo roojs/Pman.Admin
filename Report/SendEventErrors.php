@@ -51,7 +51,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $events->selectAdd();
         $events->selectAdd("
             DISTINCT(Events.action) AS action,
-            COUNT(Events.id) AS count
+            COUNT(Events.id) AS total
         ");
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
@@ -59,7 +59,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $events->groupBy('Events.action');
         $events->orderBy('Events.action ASC');
         
-        print_r($events->fetchAll());exit;
+        print_r($events->fetchAll('action', 'total'));exit;
         
         $this->jok("Done");
         
