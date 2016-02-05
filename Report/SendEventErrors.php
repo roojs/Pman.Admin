@@ -58,7 +58,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     function get($args, $opts)
     {
         $this->opts = $opts;
-        
+        print_R($this->opts);exit;
         if(empty($this->opts['group'])){
             $this->jerr('Missing group - try add [-t {group name}]');
         }
