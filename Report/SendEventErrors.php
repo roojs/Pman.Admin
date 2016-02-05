@@ -40,7 +40,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         if(empty($this->opts['group'])){
             $this->jerr('Missing group - try add [-t {group name}]');
         }
-        
+        DB_DataObject::debugLevel(1);
         $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'email');
         
         if(empty($$rcpts)){
