@@ -76,7 +76,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $events->orderBy('Events.action ASC');
         
         $summary = $events->fetchAll('action', 'total');
-        
+        pritn_R($summary);exit;
         if(empty($summary)){
             $this->jerr('Nothing to be sent');
         }
