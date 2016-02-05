@@ -123,12 +123,12 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr('Nothing to be sent');
         }
         
-        $list = $events->fetchAll();
+        $errors = $events->fetchAll();
         
         $content = array(
             'template'      => 'EVENT_ERRORS_REPORT',
             'rcpts'         => $rcpts,
-            'list'          => $list,
+            'list'          => $errors,
             'subject'       => $subject
         );
 
