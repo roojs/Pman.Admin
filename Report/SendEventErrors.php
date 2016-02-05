@@ -89,15 +89,17 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $subject = array();
         
-//        if(!empty($this->opts['subject'])){
-//            $subject[] = $this->opts['subject'];
-//        }
-        
         foreach ($totals as $k => $v){
             $subject[] = "{$v} {$k}";
         }
         
-        print_R($subject);exit;
+        $subject = implode(', ', $subject);
+        
+        if(!empty($this->opts['subject'])){
+            $subject = "{$this->opts['subject']} $subject";
+        }
+        
+        print_r($subject);exit;
         
         $this->jok("Done");
         
