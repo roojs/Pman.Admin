@@ -37,13 +37,11 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, array($this, 'onPearError'));
         
-        print_R($this->opts);exit;
-        
-        if(empty($this->opts->group)){
+        if(empty($this->opts['group'])){
             $this->jerr('Missing group - try add [-t {group name}]');
         }
         
-        $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts->group}",'email');
+        $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'email');
         
         print_R($rcpts);exit;
         
