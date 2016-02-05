@@ -21,12 +21,14 @@ Content-Type: text/html; charset=utf-8
                 <th>Type</th>
                 <th>Error</th>
             </tr>
-            <tr flexy:foreach="errors,e">
+            {foreach:errors,e}
+            <tr>
                 <th>{e.event_when}</th>
                 <th>{e.email}</th>
                 <th>{e.action}</th>
                 <th>{e.remarks}</th>
             </tr>
+            {end:}
         </table>
         
     </body>
