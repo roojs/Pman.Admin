@@ -99,7 +99,28 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $subject = "{$this->opts['subject']} $subject";
         }
         
-        print_r($subject);exit;
+        $events = DB_DataObject::factory('Events');
+        $events->autoJoin();
+        $events->selectAdd();
+        $events->selectAdd("
+            Events.event_when AS event_when,
+            Events.action AS action,
+            Events.
+        ");
+        
+        $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
+        
+        if(!empty($this->opts['exclude'])){
+            $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
+            
+            if(!empty($exclude)){
+                $events->whereAddIn('!Events.action', $exclude, 'string');
+            }
+        }
+        
+        $events->groupBy('Events.action');
+        $events->orderBy('Events.action ASC');
+        
         
         $this->jok("Done");
         
