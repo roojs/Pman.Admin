@@ -118,12 +118,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
+        $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
+        
         if(!empty($exclude)){
             $events->whereAddIn('!Events.action', $exclude, 'string');
         }
         
-        $events->groupBy('Events.action');
-        $events->orderBy('Events.action ASC');
+        print_R($exclude);exit;
         
         
         $this->jok("Done");
