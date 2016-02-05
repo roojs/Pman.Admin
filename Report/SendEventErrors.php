@@ -104,6 +104,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $events->selectAdd();
         $events->selectAdd("
+            Events.id AS id,
             Events.event_when AS event_when,
             Events.action AS action,
             Events.remarks AS remarks,
