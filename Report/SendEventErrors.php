@@ -94,7 +94,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         }
         
         foreach ($totals as $k => $v){
-            
+            $subject[] = "{$k} {$v}";
         }
         
         $this->jok("Done");
