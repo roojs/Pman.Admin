@@ -130,9 +130,16 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         }
         
         $summary = array();
-        $list = array()
+        $list = array();
         
         foreach ($events->fetchAll() as $e){
+            if(!isset($summary[$e->action])){
+                $summary[$e->action] = 0;
+            }
+            
+            $summary[$e->action] += 1;
+            
+            
             
         }
         
