@@ -36,7 +36,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     function get($args, $opts)
     {
-        print_R($opts);exit;
         $this->opts = $opts;
         
         $this->transObj = DB_DataObject::Factory('core_enum');
@@ -63,6 +62,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         ");
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
+        
+        if(!empty($this->opt['exclude'])){
+            $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opt['exclude']))));
+        }
         
         $events->groupBy('Events.action');
         $events->orderBy('Events.action ASC');
