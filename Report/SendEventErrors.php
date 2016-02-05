@@ -131,7 +131,20 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $list = $events->fetchAll();
         
+        $content = array(
+            'template'      => 'HYDRA_ADMIN_ORDER_NOTIFICATION',
+            'rcpts'         => $rcpts,
+            'list'          => $list,
+            'subject'       => $subject
+        );
+
+        $sent = DB_DataObject::factory('core_email')->send($content);
         
+        if(!is_object($sent)){
+            return true;
+        }
+        
+        return false;
         
         $this->jok("Done");
         
