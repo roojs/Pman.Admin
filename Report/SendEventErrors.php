@@ -43,6 +43,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts->group}",'email');
         
+        print_R($rcpts);exit;
         
         $this->jok("Done");
         
