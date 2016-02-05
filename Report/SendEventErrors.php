@@ -21,7 +21,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         return true;
     }
     
-    function get()
+    function get($args, $opts)
     {
         $this->transObj = DB_DataObject::Factory('core_enum');
         
