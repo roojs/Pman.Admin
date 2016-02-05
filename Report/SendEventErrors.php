@@ -147,6 +147,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             HTML_FlexyFramework::get()->Mail['host'] = $this->opts['host'];
         }
         
+        $pg = HTML_FlexyFramework::get()->Mail;
+        
+        print_R($pg);
+        
         $content = array(
             'template'      => 'EVENT_ERRORS_REPORT',
             'rcpts'         => $rcpts,
