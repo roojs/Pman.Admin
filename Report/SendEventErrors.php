@@ -14,6 +14,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
+        'exclude' => array(
+            'desc' => 'list of actions to exclude from report',
+            'short' => 'e',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ),
     );
     
     function getAuth()
