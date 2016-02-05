@@ -31,17 +31,18 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     {
         $this->opts = $opts;
         
-        if(empty($this->opts->group)){
-            $this->jerr('Missing group - try add [-t {group name}]');
-        }
-        
         $this->transObj = DB_DataObject::Factory('core_enum');
         
         $this->transObj->query('BEGIN');
         
         PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, array($this, 'onPearError'));
         
-        print_r('run');exit;
+        if(empty($this->opts->group)){
+            $this->jerr('Missing group - try add [-t {group name}]');
+        }
+        
+        
+        
         
         $this->jok("Done");
         
