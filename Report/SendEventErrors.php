@@ -141,12 +141,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $sent = DB_DataObject::factory('core_email')->send($content);
         
         if(!is_object($sent)){
-            return true;
+            $this->jok("Done");
         }
         
-        return false;
-        
-        $this->jok("Done");
+        $this->jerr($sent);
         
     }
     
