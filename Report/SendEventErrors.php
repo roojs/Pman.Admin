@@ -74,7 +74,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $events->groupBy('Events.action');
         $events->orderBy('Events.action ASC');
         
-        print_r($events->fetchAll('action', 'total'));exit;
+        $totals = $events->fetchAll('action', 'total');
+        
+        if(empty($totals)){
+            
+        }
+        
+        print_r();exit;
         
         $this->jok("Done");
         
