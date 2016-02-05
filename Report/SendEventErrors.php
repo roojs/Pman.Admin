@@ -61,43 +61,43 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr("{$this->opts['group']} does not has any memeber");
         }
         
-//        $events = DB_DataObject::factory('Events');
-//        $events->selectAdd();
-//        $events->selectAdd("
-//            DISTINCT(Events.action) AS action,
-//            COUNT(Events.id) AS total
-//        ");
-//        
-//        $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
-//        
-//        if(!empty($this->opts['exclude'])){
-//            $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
-//            
-//            if(!empty($exclude)){
-//                $events->whereAddIn('!Events.action', $exclude, 'string');
-//            }
-//        }
-//        
-//        $events->groupBy('Events.action');
-//        $events->orderBy('Events.action ASC');
-//        
-//        $totals = $events->fetchAll('action', 'total');
-//        
-//        if(empty($totals)){
-//            $this->jerr('Nothing to be sent');
-//        }
-//        
-//        $subject = array();
-//        
-//        foreach ($totals as $k => $v){
-//            $subject[] = "{$v} {$k}";
-//        }
-//        
-//        $subject = implode(', ', $subject);
-//        
-//        if(!empty($this->opts['subject'])){
-//            $subject = "{$this->opts['subject']} $subject";
-//        }
+        $events = DB_DataObject::factory('Events');
+        $events->selectAdd();
+        $events->selectAdd("
+            DISTINCT(Events.action) AS action,
+            COUNT(Events.id) AS total
+        ");
+        
+        $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
+        
+        if(!empty($this->opts['exclude'])){
+            $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
+            
+            if(!empty($exclude)){
+                $events->whereAddIn('!Events.action', $exclude, 'string');
+            }
+        }
+        
+        $events->groupBy('Events.action');
+        $events->orderBy('Events.action ASC');
+        
+        $summary = $events->fetchAll('action', 'total');
+        
+        if(empty($summary)){
+            $this->jerr('Nothing to be sent');
+        }
+        
+        $subject = array();
+        
+        foreach ($summary as $k => $v){
+            $subject[] = "{$v} {$k}";
+        }
+        
+        $subject = implode(', ', $subject);
+        
+        if(!empty($this->opts['subject'])){
+            $subject = "{$this->opts['subject']} $subject";
+        }
         
         $events = DB_DataObject::factory('Events');
         $events->autoJoin();
@@ -129,19 +129,9 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr('Nothing to be sent');
         }
         
-        $summary = array();
-        $list = array();
+        $list = $events->fetchAll();
         
-        foreach ($events->fetchAll() as $e){
-            if(!isset($summary[$e->action])){
-                $summary[$e->action] = 0;
-            }
-            
-            $summary[$e->action] += 1;
-            
-            
-            
-        }
+        
         
         $this->jok("Done");
         
