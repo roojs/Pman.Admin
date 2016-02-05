@@ -7,7 +7,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     static $cli_desc = "Send event errors occured in the last 24 hours";
     
     static $cli_opts = array(
-        
+        'group' => array(
+            'desc' => 'group to send to',
+            'short' => 't',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ),
     );
     
     function getAuth()
