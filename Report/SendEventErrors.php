@@ -47,6 +47,8 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr("{$this->opts['group']} does not has any memeber");
         }
         
+        print_r($rcpts);exit;
+        
         $this->jok("Done");
         
     }
