@@ -128,7 +128,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $content = array(
             'template'      => 'EVENT_ERRORS_REPORT',
             'rcpts'         => $rcpts,
-            'errors'          => $errors,
+            'errors'        => $errors,
             'subject'       => $subject
         );
 
