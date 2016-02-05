@@ -37,7 +37,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         ),
         'host' => array(
             'desc' => 'mail host to use',
-            'short' => 'h',
+            'short' => 'o',
             'default' => '',
             'min' => 1,
             'max' => 1,
