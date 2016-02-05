@@ -28,6 +28,20 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
+        'helo' => array(
+            'desc' => 'mail helo to use',
+            'short' => 'l',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ),
+        'host' => array(
+            'desc' => 'mail host to use',
+            'short' => 'h',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        )
     );
     
     function getAuth()
@@ -43,14 +57,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     function get($args, $opts)
     {
-        $mailOptions = PEAR::getStaticProperty('Mail','options');
-        
-        
-        HTML_FlexyFramework::get()->Mail['helo'] = 'test';
-        
-        $pg = HTML_FlexyFramework::get()->Mail;
-        print_R($pg);exit;
-        
         $this->opts = $opts;
         
         if(empty($this->opts['group'])){
