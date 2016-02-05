@@ -56,6 +56,8 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
+        print_r($events->fetchAll());exit;
+        
         $this->jok("Done");
         
     }
