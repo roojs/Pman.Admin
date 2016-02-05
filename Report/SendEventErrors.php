@@ -29,7 +29,11 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     function get($args, $opts)
     {
-        print_r($args);exit;
+        $this->opts = $opts;
+        
+        if(empty($this->opts->group)){
+            $this->jerr()
+        }
         
         $this->transObj = DB_DataObject::Factory('core_enum');
         
