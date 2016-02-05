@@ -124,7 +124,9 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $events->whereAddIn('!Events.action', $exclude, 'string');
         }
         
-        print_R($exclude);exit;
+        if($events->count()){
+            $this->jerr('Nothing to be sent');
+        }
         
         
         $this->jok("Done");
