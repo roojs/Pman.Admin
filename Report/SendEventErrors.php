@@ -47,7 +47,14 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr("{$this->opts['group']} does not has any memeber");
         }
         
-        print_r($rcpts);exit;
+        $events = DB_DataObject::factory('Events');
+        $events->selectAdd();
+        $events->selectAdd("
+            DISTINCT(Events.action) AS action,
+            COUNT(Events.id) AS count
+        ");
+        
+        $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
         $this->jok("Done");
         
