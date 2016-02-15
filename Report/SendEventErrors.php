@@ -140,9 +140,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $errors = $events->fetchAll();
         
         if(!empty($this->opts['host'])){
+            // reset the mail settings..
             HTML_FlexyFramework::get()->Mail = array(
                                         'host' = $this->opts['host']
-                                    );
+            );
         }
         
         if(!empty($this->opts['helo'])){
