@@ -1,0 +1,161 @@
+<!DOCTYPE html 
+      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:html="http://www.w3.org/1999/xhtml" 
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"> 
+    <head>
+        <title>{appName}</title>
+        <meta name="google" value="notranslate">
+        <link rel="shortcut icon" href="./Pman.ico" type="image/vnd.microsoft.icon"/>
+        
+        
+        <link rel="stylesheet" type="text/css" href="{rootURL}/roojs1/css/roojs.css" />  
+        <link rel="stylesheet" type="text/css" href="{rootURL}/roojs1/css/xtheme-slate.css" />  
+ 
+     </head>
+    
+    <script type="text/javascript">
+        Pman = {};
+    </script>
+    
+    <script type="text/javascript" src="{rootURL}/roojs1/roojs-all.js?"></script>
+    <script type="text/javascript" src="{rootURL}/Pman/Core/Pman.Request.js"></script>
+    <script type="text/javascript" src="{rootURL}/Pman/Core/Pman.Download.js"></script>
+                        
+    <flexy:toJSON 
+        baseURL="baseURL" 
+        rootURL="rootURL" 
+        release_id="release_id"
+        days="days"
+        direct_news_feed="direct_news_feed"
+        docType="docType"
+    ></flexy:toJSON>
+
+    <script type="text/javascript">
+        
+        Roo.onReady(function() {
+            
+            Roo.MessageBox.progress("Please wait...", "Sending");
+            
+            var task = false;
+            var p = {
+                release_id : release_id,
+                days : days,
+                direct_news_feed : direct_news_feed
+            };
+            
+            var doWordProcess = function()
+            {
+                if (task) {
+                    p.task = task;
+                }
+                
+                new Pman.Request( {
+                    url : baseURL+'/PressRelease/DistributionReport/ExportWord',
+                    method : 'POST',
+                    timeout: 600000,
+                    params : p,
+                    success : function(res) {
+                        var data = res.data;
+                        
+                        if (data.task) {
+                            task = data.task;
+                            Roo.MessageBox.updateProgress(data.done/data.total, data.desc);
+                            doWordProcess();
+                            return;
+                        }
+                            
+                        if (typeof(data.file) == 'undefined') {
+                            Roo.MessageBox.hide();
+                            Roo.MessageBox.alert("Error", "something went wrong!");
+                            Roo.log(data);
+                            return;
+                        }
+                        
+                        delete p.task;
+                        p.file = data.file;
+                        
+                        new Pman.Download({
+                            url : baseURL+'/PressRelease/DistributionReport/ExportWord',
+                            method : 'POST',
+                            timeout: 600000,
+                            params : p
+                        });
+
+                        Roo.MessageBox.hide();
+                        var ieMsg = Roo.isIE ? 
+                            "<BR/>You May have to allow downloads as you are using Internet Explorer" +
+                            "<BR/>We Highly recommend you use a better browser, like Chrome or Firefox" : '';
+                        Roo.MessageBox.alert("Downloading", "Report is downloading now" + ieMsg);
+                        
+                    }
+               });
+            }
+            
+            var doXLSProcess = function()
+            {
+                if (task) {
+                    p.task = task;
+                }
+                
+                new Pman.Request( {
+                    url : baseURL+'/PressRelease/DistributionReport/ExportXLS',
+                    method : 'POST',
+                    timeout: 600000,
+                    params : p,
+                    success : function(res) {
+                        var data = res.data;
+                        
+                        if (data.task) {
+                            task = data.task;
+                            Roo.MessageBox.updateProgress(data.done/data.total, data.desc);
+                            doXLSProcess();
+                            return;
+                        }
+                            
+                        if (typeof(data.file) == 'undefined') {
+                            Roo.MessageBox.hide();
+                            Roo.MessageBox.alert("Error", "something went wrong!");
+                            Roo.log(data);
+                            return;
+                        }
+                        
+                        delete p.task;
+                        p.file = data.file;
+                        
+                        new Pman.Download({
+                            url : baseURL+'/PressRelease/DistributionReport/ExportXLS',
+                            method : 'POST',
+                            timeout: 600000,
+                            params : p
+                        });
+
+                        Roo.MessageBox.hide();
+                        var ieMsg = Roo.isIE ? 
+                            "<BR/>You May have to allow downloads as you are using Internet Explorer" +
+                            "<BR/>We Highly recommend you use a better browser, like Chrome or Firefox" : '';
+                        Roo.MessageBox.alert("Downloading", "Report is downloading now" + ieMsg);
+                        
+                    }
+               });
+            }
+            
+            if(docType == 'Word'){
+                doWordProcess();
+                return;
+            }
+            
+            doXLSProcess();
+            
+            
+        },true);
+     </script>
+    
+    <body class="ytheme-gray">  
+        
+        
+    </body>
+</html>
+        

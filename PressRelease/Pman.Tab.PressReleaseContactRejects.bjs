@@ -1,0 +1,420 @@
+{
+ "name" : "Pman.Tab.PressReleaseContactRejects",
+ "parent" : "Pman.Tab.PressReleaseDistribution",
+ "title" : "Pman.Tab.PressReleaseContactRejects",
+ "path" : "/home/alan/gitlive/web.MediaOutreach/Pman/PressRelease/Pman.Tab.PressReleaseContactRejects.bjs",
+ "permname" : "",
+ "modOrder" : "100",
+ "strings" : {
+  "59716c97497eb9694541f7c3d37b1a4d" : "Country",
+  "3c1df4260ce594cb5594696461087f2f" : "Select Country",
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "acbb73117879b0729ee3bac61edb023a" : "Last Failed details",
+  "ec53a8c4f07baed5d8825072c89799be" : "Status",
+  "5a6c05f48afd958dcb5989bd66ed4783" : "Add / Edit Contacts",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "7f8c0283f16925caed8e632086b81b9c" : "Sent",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "a7f0ba4d77215ad8a7ca74781933c94f" : "Family Name",
+  "f8b970440931adb9af295d634b56110d" : "No Items found",
+  "6bd6beac1da76b2d2a9c3b7914ba034c" : "Publication",
+  "dd9fcc57e835b07ecc7ed7a750ad53b1" : "No failed records found",
+  "aad2b85747ca5dc40b4b12efd3042c84" : "Bad Addresses",
+  "1ede593e47b69d92e0cd20cfd12260c3" : "Displaying failed records {0} - {1} of {2}",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "20db0bfeecd8fe60533206a2b5e9891a" : "First name",
+  "9c9745a343efeacc9efe9b7222b27afb" : "Ref#",
+  "f45381a54504218e39aca33492d29306" : "Circulation",
+  "a58c1bdecbdb3600f836a9a3510250e6" : "Displaying history 0} - {1} of {2}",
+  "122a26ef126e03089bb959c949d12b0a" : "Due out (Local time)",
+  "7800aee89e121611c7edfcf2ca662e09" : "Failed Address"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "activate" : "function (_self)\n{\n    (function() { \n       if (_this.grid) {\n\n            _this.grid.footer.onClick('first');\n        }\n    }).defer(100, this);\n\n\n}"
+   },
+   "background" : true,
+   "region" : "center",
+   "title" : "Bad Addresses",
+   "xtype" : "NestedLayoutPanel",
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "south",
+       "height" : 150
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+       },
+       "fitToframe" : true,
+       "background" : false,
+       "region" : "center",
+       "title" : "Add / Edit Contacts",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "pressrelease_contact",
+       "items" : [
+        {
+         "listeners" : {
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    Roo.log(\"dblckck\");\n    \n    var rec = this.ds.getAt(rowIndex);\n    var g= this;\n    Pman.Dialog.PressReleaseContact.show({ id : rec.data.id }, function()\n    {\n        g.footer.onClick('refresh');\n    });\n}",
+          "|render" : "function() \n{\n    _this.grid = this; \n\n}",
+          "rowclick" : "function (_self, rowIndex, e)\n{\n   (function() { _this.circgrid.footer.onClick('first'); }).defer(500);\n}"
+         },
+         "autoExpandColumn" : "failed",
+         "multiSort" : true,
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n   options.params =     options.params || {};\n    options.params['query[search_name]'] = _this.searchBox.getValue();\n   \n    options.params['query[failed]'] = 1;\n     options.params['query[unreviewed]'] = 1;\n    options.params['search[country_ar]'] =  _this.country_ar_combo.getValue(); \n    \n         \n}"
+           },
+           "multiSort" : true,
+           "remoteSort" : true,
+           "xtype" : "Store",
+           "$ sortInfo" : "{ field : 'lastname', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/pressrelease_contact.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id',\n        'type': 'int'\n    },\n    {\n        'name': 'honor',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'email_personal',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'category_media_id',\n        'type': 'int'\n    },\n    {\n        'name': 'submission_time',\n        'type': 'string'\n    },\n    {\n        'name': 'media_language',\n        'type': 'string'\n    },\n    {\n        'name': 'url',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No failed records found",
+           "$ xns" : "Roo",
+           "displayMsg" : "Displaying failed records {0} - {1} of {2}",
+           "displayInfo" : true,
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n\n    if (e.getCharCode() == 13) {\n        _this.grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n  _this.searchBox = _self;\n}"
+             },
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n  _this.country_ar_combo = _self;\n}",
+              "change" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick.defer(100, _this.grid.footer,[ 'first' ]);\n}"
+             },
+             "alwaysQuery" : true,
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "forceSelection" : false,
+             "selectOnFocus" : true,
+             "pageSize" : 999,
+             "displayField" : "country_name",
+             "emptyText" : "Country",
+             "hiddenName" : "country",
+             "minChars" : 2,
+             "valueField" : "country",
+             "xtype" : "ComboCheck",
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 200,
+             "$ xns" : "Roo.form",
+             "qtip" : "Select Country",
+             "queryParam" : "search[country_name]",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['_distinct'] = 'country';\n    o.params['_with_country_name'] =1;\n    o.params['_columns'] = 'country_name,country';\n\n    \n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'ASC', field: 'country_name'  }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/pressrelease_contact.php'",
+                 "method" : "GET",
+                 "xtype" : "HttpProxy",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"honor\",\"type\":\"string\"}]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.searchBox.setValue('');\n    \n    \n    _this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) return;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('refresh');\n    }); \n    \n}\n"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n     Pman.genericDelete(_this, 'pressrelease_contact'); \n}\n        "
+             },
+             "text" : "Delete",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "First name",
+           "width" : 100,
+           "$ renderer" : "function(v,x,r) { \n    var d = r.data;\n    if (d.firstname_alt.length) {\n    \n        return String.format('{0} ({1})', d.firstname, d.firstname_alt ); \n    }\n    return String.format('{0}', d.firstname); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "firstname"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Family Name",
+           "width" : 150,
+           "$ renderer" : "function(v,x,r) { \n    var d = r.data;\n    if (d.lastname_alt.length) {\n    \n        return String.format('{0} ({1})', d.lastname, d.lastname_alt ); \n    }\n    return String.format('{0}', d.lastname); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "lastname"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Publication",
+           "width" : 150,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "publication_name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Country",
+           "width" : 100,
+           "$ renderer" : "function(v) { return String.format('{0}', v ? Pman.I18n.toName('c', v) : ''); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "country"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Email",
+           "width" : 150,
+           "$ renderer" : "function(v,x,r) { \n \n    var f = (\n            r.data.email_fails > 0 ? '<span style=\"color:red\">{0}</span>' : '{0}'\n        ) + (\n        r.data.email2.length > 0 ? \n            (r.data.email2_fails > 0 ? '<br/><span style=\"color:red\">{1}</span>' : '<br/>{1}')    : ''\n        ) + (\n        r.data.email3.length > 0 ? \n            (r.data.email3_fails > 0 ? '<br/><span style=\"color:red\">{2}</span>' : '<br/>{2}')    : ''\n        );\n        \n        \n    \n    return String.format(f, v, r.data.email2, r.data.email3); \n    \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "email"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Last Failed details",
+           "width" : 200,
+           "$ renderer" : "function(v,x,r) { \n\n    var map =  {\n        phone : 'Phone',\n        phone_mobile : 'Mobile',\n        phone_direct: 'Direct Line'\n    }\n    var ret = [];\n    for (var i in map) {\n        if (r.data[i].length) {\n            ret.push( map[i]+': ' +  String.format('{0}' , r.data[i]))\n        }\n    }\n\n    return ret.join('<BR/>');\n    \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "failure"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.circpanel = this;\n     \n}"
+       },
+       "fitToframe" : true,
+       "background" : true,
+       "region" : "south",
+       "title" : "Circulation",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "pressrelease_notify",
+       "items" : [
+        {
+         "listeners" : {
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var rec = this.ds.getAt(rowIndex);\n    var g= this;\n    Pman.Dialog.PressReleaseContact.show({ id : rec.data.person_id }, function()\n    {\n        g.footer.onClick('first');\n    });\n}",
+          "|render" : "function() \n{\n    _this.circgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.circpanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "event_id_remarks",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "xtype" : "RowSelectionModel",
+           "singleSelect" : true,
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          },
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, o)\n{\n  o.params = o.params || {};\n  o.params.ontable = 'pressrelease_entry';\n  //\n  \n  //o.params.onid = _this.form.findField('id').getValue();\n  o.params.vtype = \"FAILED\";\n  if (!_this.grid || !_this.grid.getSelectionModel) {\n  // not loaded yet.\n    return false;\n    }\n  var s = _this.grid.getSelectionModel().getSelected();\n  if (!s) {\n     _this.circgrid.ds.removeAll();\n    return false;\n  }\n  o.params.fail_reviewed = 0;\n  \n  o.params.person_id = s.data.id;\n\n}",
+            "load" : "function (_self, records, options)\n{\n    Roo.log(records);\n    if (!records.length) {\n        _this.grid.footer.onClick('refresh');\n    }\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field : 'sent', direction: 'DESC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/pressrelease_notify.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'act_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'msgid',\n        'type': 'string'\n    },\n    {\n        'name': 'sent',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'bounced',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_category_type_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_honor',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email_personal',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_category_media_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_submission_time',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone_mobile',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone_direct',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_firstname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_firstname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_category_scope_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_contact_language',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_contact_language_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_country',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_method',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_from',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_to',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_days',\n        'type': 'string'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Items found",
+           "$ xns" : "Roo",
+           "displayMsg" : "Displaying history 0} - {1} of {2}",
+           "displayInfo" : true,
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Ref#",
+           "width" : 50,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "id"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Due out (Local time)",
+           "width" : 120,
+           "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i') : ''); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "act_when"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Sent",
+           "width" : 120,
+           "$ renderer" : "function(v,x,r) { \n   if (!r.data.event_id) {\n        return 'not sent yet';\n   }\n   \n    return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "sent"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Failed Address",
+           "width" : 150,
+           "$ renderer" : "function(v,x,r) { \n\n    \n        return String.format('<B>{0}</B>', v);\n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "to_email"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Status",
+           "width" : 150,
+           "$ renderer" : "function(v) { \n     \n    return String.format('<span qtip=\"{1}\">{0}</span>', v,String.format('{0}', v)); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "event_id_remarks"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

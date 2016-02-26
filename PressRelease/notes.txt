@@ -1,0 +1,30 @@
+
+// general table.
+
+
+notes: 
+content_data == excell style data..
+publish_status = -1 = draft
+publish_status = 0 = published / ready to go..
+publish_status = 1 = archived?
+
+publish_dt_tz = need pulldown data for this..
+
+also needs:
+
+client_company - name in chinese?: 
+client_company- listed company id..?
+client_company - country?
+client_company - industry type. (string or id reference?)
+
+
+
+videos - (images attached to this of type video/.....)
+related links - extracted? or listed?
+photos - (images attached to this of type image/.....) - flag downloadable..
+media contacts
+
+company_contacts
+   'type' => media
+   user_id => 
+   

@@ -1,0 +1,12 @@
+From: office@roojs.com
+To: {t.email}
+Subject: Press Release Test Search Engine Providers Results
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <{t.msgid}@media-outreach.com>
+Mime-Version: 1.0
+
+
+The below search engine has failed in test search result:
+
+Engines: {t.failed}
+ 

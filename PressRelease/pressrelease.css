@@ -1,0 +1,17 @@
+.display-none
+{
+    display:none;
+}
+.press-release-edit-link {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+TD.underline {
+    border-bottom: 1px solid #222;
+    
+}
+TD.double-underline {
+    border-bottom: 3px double #222;
+    
+}

@@ -1,0 +1,9 @@
+{  
+	"MainTab"          :  ["S",   "", "Press Release Management "],
+     "JournalistAll"          :  ["S",   "", "View Journalist not created by Self"],
+    "Approvals"          :  ["S",   "", "View Journalist approval tab"],
+    "ReleaseJournalistTab"          :  ["S",   "", "View Journalist tab"],
+    "Pressrelease_entry"          :  ["ADES",   "", "View / Manage Press releases"]
+    
+    
+}

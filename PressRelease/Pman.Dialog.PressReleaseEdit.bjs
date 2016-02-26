@@ -1,0 +1,2185 @@
+{
+ "name" : "Pman.Dialog.PressReleaseEdit",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/alan/gitlive/web.MediaOutreach/Pman/PressRelease/Pman.Dialog.PressReleaseEdit.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "f31bbdd1b3e85bccd652680e16935819" : "Source",
+  "2f26e35d61be90501e099089dc533638" : "Select Images",
+  "90e02e896b4ee833a24236b45060d175" : "Description / Byline",
+  "91412465ea9169dfd901dd5e7c96dd99" : "Upload",
+  "c1df1da7a1ce305a3b60af9d5733ac1d" : "Contents",
+  "f0bac093bb884df2891d32385d053788" : "Distribution",
+  "4e97aeeaa8b15ca1180fcd1f3ac478d1" : "When",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "b1515c8965e8b24b15046bb2afe27123" : "Sub-Headline",
+  "01a5bf98dc3a43bb2f6d0787d87030b7" : "Add From Image Store",
+  "3f0f4d7d0b92612398cc55d9e47965e2" : "Financial Data",
+  "c864347be68dbc6a7b0540f1f79d8ea3" : "Reset selections",
+  "c78bf45129eff892d5c654c159fd8182" : "Displaying pressrelease_notify{0} - {1} of {2}",
+  "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+  "31fde7b05ac8952dacf4af8a704074ec" : "Preview",
+  "c6568e77f61109390e82d035aaacaef0" : "Headline",
+  "9c715f0e523e7e1d00d538db7b78615b" : "Word count",
+  "e0626222614bdee31951d84c64e5e9ff" : "Select",
+  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
+  "a97749f6323c1743aad997aaf0197b19" : "Remove undelivered messages",
+  "2dd37afd617264989a9dbad32cc239ad" : " same as (different publish dates)",
+  "9aa698f602b1e5694855cee73a683488" : "Contacts",
+  "471ddaf9e80da04dd5a3a54daa0239b0" : "Select Image Type",
+  "c9289663240146eaa1ec2d9838b0875a" : "News Beat",
+  "47b09b64b87dc1cb923065dd6167ecde" : "No pressrelease_notify found",
+  "d171235ac80dfa3cd3c83d27312565e5" : "Stock Code",
+  "336f78a6c761db5eb97973c04b0a2fe0" : "Release Details",
+  "47bd5f0bae18a1ce015e40d73a33a15f" : "Company Boiler Plate Statement",
+  "c00adc22f2bb333883dc1723e2899a0c" : "Related Web Links <B>Must have http:// before the link</b>",
+  "b18c29b8470190a02813415a04a2191f" : "Filesize",
+  "9c9745a343efeacc9efe9b7222b27afb" : "Ref#",
+  "95291adff6df977dbba485210bcf6b3c" : "pressrelease_entry",
+  "ad5fd38e083fd0d559ca3f54fa7ed593" : "Upload Excel of Financial data",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "cd1195c061c70621a670027d606c0be0" : "Fill this in when this release goes out at a different time",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "11f7b456ca765e9f556f653090045ae7" : "Images / PDF",
+  "577d7068826de925ea2aec01dbadf5e4" : "Client",
+  "5f159bce162b1b90e6ffc45602f151ea" : "This press release is a translation of",
+  "7205d42d6d975c911bc1147259d78935" : "Displaying Events{0} - {1} of {2}",
+  "97e7c9a7d06eac006a28bf05467fcc8b" : "Link",
+  "867343577fa1f33caa632a19543bd252" : "Keywords",
+  "addf678354e22ee4f52fefb5f25069d1" : "Select Client",
+  "15ec5490b30354020a6756796c5e4835" : "Edit Press Release",
+  "ec53a8c4f07baed5d8825072c89799be" : "Status",
+  "20e9dc20a361244eb40c7b723a393995" : "Forward Looking Statement",
+  "55cfeeacad2f92b9fea0a1bbb6449fac" : "Update Image Details",
+  "526d688f37a86d3c3f27d0c5016eb71d" : "Reset",
+  "b9e14d9b2886bcff408b85aefa780419" : "FAILED",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "a76d4ef5f3f6a672bbfab2865563e530" : "Time",
+  "69046eb2a80f3965bcd41bfdb1a7bf5c" : "Add Keyword",
+  "c4ca4238a0b923820dcc509a6f75849b" : "1",
+  "cc8498ab909997b95b2207684dbce5cf" : "Select industry",
+  "b9ea5920734c27f9ec7596d53589fb3c" : "Select Press release",
+  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
+  "432c508d90a57863d3800a123fdefa23" : "Financial Content",
+  "8e16a71b3d8217eb80b39b7d8dec4296" : "Image Type",
+  "4b1b4dc8cf38b3c64b1d657da8f5ac8c" : "Report",
+  "b9dc4c481b230aaec437ef58b23ca1ef" : " (Chinese) Name",
+  "2bb46cdcd6c198689d1c95ac20bba931" : "Beat",
+  "917d465e9a9e8b16a8da50a1ca8156ca" : "Show: ",
+  "dc9227804a61468a485e682cb932bdf7" : "Company Details",
+  "df1390c4238324679161da9c6652d17a" : "Select Exchange",
+  "b78a3223503896721cca1303f776159b" : "Title",
+  "8567f15f1470a10fcb0dfa920ac7c21b" : "Force Re-delivery",
+  "90e4ac2e5a22e53df63b6b186d8727ba" : "No Events found",
+  "4ee972120bcda675f75222c87cb9d356" : "Who",
+  "d7df5b64df1181ef1d62d646a13aa860" : "keyword",
+  "c91c7b93c28cd18741b71f727ee81ee3" : "Reports",
+  "446a6000511ab6fb0711400379a62a04" : "Select Image",
+  "f15c1cae7882448b3fb0404682e17e61" : "Content",
+  "236df51bb0e6416236e255b528346fca" : "Timezone",
+  "110a4b01beabd53b661a47d4b44bd7a8" : "Publish",
+  "59716c97497eb9694541f7c3d37b1a4d" : "Country",
+  "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
+  "992374d8e2e24f17bebc50a6e57becd6" : "Exchange",
+  "4fd0a37b0a02153b23bbb61d7915a429" : "Industry",
+  "8189ecf686157db0c0274c1f49373318" : "International",
+  "122a26ef126e03089bb959c949d12b0a" : "Due out (Local time)",
+  "cbe695bf80e8066f16a941601cd6846b" : "Select exchange",
+  "45e96c0a422ce8a1a6ec1bd5eb9625c6" : "Select All",
+  "e12167aa0a7698e6ebc92b4ce3909b53" : "To",
+  "7f8c0283f16925caed8e632086b81b9c" : "Sent",
+  "b112803ab9deb7deba2a6b24ef3bb91a" : "Add Group",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "ea72bacd2fdfa818907bb9559e6905a1" : "Upload Image or File",
+  "fff0d600f8a0b5e19e88bfb821dd1157" : "Images",
+  "c9d03748d1a54666b5c7a5187109301b" : "Delete Selected File or  Image",
+  "8535bcc0f05358a583bb432bbadf7e0d" : "Select type",
+  "f45381a54504218e39aca33492d29306" : "Circulation",
+  "004bf6c9a40003140292e97330236c53" : "Action",
+  "0a90b1bc4078f74b6f0d117ec7df65af" : "Credit",
+  "529701d5ccccf8a1c604c27f48ce7d82" : "Mimetype",
+  "4d1c8263ba1036754f8db14a98f9f006" : "Reload",
+  "ce0be71e33226e4c1db2bcea5959f16b" : "Log"
+ },
+ "items" : [
+  {
+   "modal" : true,
+   "collapsible" : false,
+   "minWidth" : 810,
+   "title" : "Edit Press Release",
+   "xtype" : "LayoutDialog",
+   "minHeight" : 650,
+   "width" : 810,
+   "$ xns" : "Roo",
+   "closable" : false,
+   "resizable" : true,
+   "height" : 600,
+   "items" : [
+    {
+     "alwaysShowTabs" : true,
+     "xtype" : "LayoutRegion",
+     "tabPosition" : "top",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "listeners" : {
+      "activate" : "function (_self)\n{\n  if (_this.form) {\n      _this.form.updateWordCount();\n  }\n  \n}",
+      "deactivate" : "function (_self)\n{\n    \n    //Roo.log('deactivate ' + _this.loaded);\n    if (!_this.loaded) {\n        return;\n    }\n    //Roo.log(_this.form.findField('id').getValue());\n    if (_this.form.findField('id').getValue() * 1 > 0) {\n        return;\n    }\n    (function() {\n        Roo.MessageBox.alert(\"Error\", \"Save first\");\n        _this.dialog.layout.getRegion('center').showPanel(0);\n    }).defer(100);\n\n\n}"
+     },
+     "autoScroll" : true,
+     "fitToFrame" : true,
+     "region" : "center",
+     "title" : "Contents",
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "listeners" : {
+        "actionfailed" : "function (_self, action)\n{\n   if (action.failureType) {\n          _this.dialog.el.unmask();\n       \n        Roo.MessageBox.alert(\"Error\", \"Please correct the errors in red\");\n        return;\n    \n    }\n}",
+        "|actioncomplete" : "function(_self,action)\n{\n    \n     if (action.failureType) {\n \n       \n        Roo.MessageBox.alert(\"Error\", \"Please correct the errors in red\");\n        return;\n    \n    }\n  if (action.type == 'setdata') {\n        _this.loaded = false;\n \n       _this.dialog.getLayout().showPanel(0);\n        _this.form.addForm(_this.form2);\n          _this.form.addForm(_this.form3);\n        if ( _this.data.id) {\n            _this.dialog.setTitle(\"Edit Press Release #\" + _this.data.id);\n           this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n       } else {\n        \n           _this.dialog.setTitle(\"Create a new  Press Release\");\n           \n          _this.loaded = true;\n          _this.form.findField('publish_status').setValue(-1);\n          _this.form.findField('distribute_to_feed').setValue(1);\n       }\n       \n       return;\n    }\n    if (action.type == 'load') {\n        _this.loaded = true;\n       var fd  =  _this.form3.findField('content_data').getValue(); \n\n       // not it uses mostly HTML..\n       //if (!fd.match(/<pre>/i)) {\n        //     _this.form3.findField('content_data').setValue('<pre>' + String.format('{0}', fd.replace(/\\&nbsp;/g, ' ').replace(/\\&amp;nbsp;/g, ' ')) +  '</pre>'); \n         //}   \n       \n        if (_this.data._translation_of) {\n            this.setValues({\n                id : 0,\n                parent_id  : _this.data.id,\n                parent_id_headline  : this.findField('headline').getValue(),\n                language : '',\n                language_name : '',                \n                content : '',\n                headline: '',\n                publish_status : -1\n                \n            });\n            //this.findField('language').el.dom.value = '';\n            _this.data.id = 0;\n        }\n        //_this.loadedData = action.result.data;\n        this.updateWordCount();\n        \n       \n        return;\n    }\n    if (action.type =='submit') {\n    \n        var hide = true;\n        if (_this.form.findField('id').getValue() * 1 < 1) {\n            hide = false;\n            _this.form.findField('id').setValue(action.result.data.id);\n        }\n        \n        if (_this.showPreview) {\n            _this.showPreview();\n            _this.showPreview = false;\n            return;\n        }\n        \n        if (!hide) {\n            return;\n        }\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+        "|rendered" : "function (form)\n{\n    _this.form= form;\n  \n}\n"
+       },
+       "$ url" : "baseURL + '/Roo/pressrelease_entry.php'",
+       "method" : "POST",
+       "xtype" : "Form",
+       "style" : "margin: 10px;",
+       "$ updateWordCount" : "function() {\n    var wc = 0;\n    \n    function html2wc(val)\n    {\n        var d = document.createElement('div');\n        d.innerHTML =val;\n        return txt2wc(Roo.isIE ? d.innerText : d.textContent);\n    \n    }\n    function txt2wc(val) {\n        return val.split(/\\s+/).length;\n    }\n    \n    wc += html2wc(this.findField('content').getValue());\n    wc += txt2wc(_this.form2.findField('contact_txt').getValue());    \n    wc += txt2wc(_this.form2.findField('content_about').getValue());        \n    wc += txt2wc(_this.form2.findField('content_links').getValue());        \n    wc += txt2wc(_this.form3.findField('content_forward').getValue());        \n    wc += html2wc(_this.form3.findField('content_data').getValue());\n    this.findField('word_count').setValue(wc);\n    \n}\n",
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "xtype" : "FieldSet",
+         "legend" : "Release Details",
+         "labelWidth" : 75,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "xtype" : "Row",
+           "labelWidth" : 240,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "alwaysQuery" : true,
+             "listWidth" : 400,
+             "triggerAction" : "all",
+             "fieldLabel" : "This press release is a translation of",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "headline",
+             "emptyText" : "Select Press release",
+             "hiddenName" : "parent_id",
+             "minChars" : 2,
+             "valueField" : "id",
+             "xtype" : "ComboBox",
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 420,
+             "$ xns" : "Roo.form",
+             "name" : "parent_id_headline",
+             "qtip" : "Select Press release",
+             "queryParam" : "query[name]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>#{id} - {headline}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    var client_id = _this.form.findField('client_id').getValue();\n    if (!client_id) {\n        Roo.MessageBox.alert(\"Error\", \"Select a client first\");\n        return false;\n    }\n    o.params.client_id = client_id;\n    o.params.parent_id = 0; /// only releases that do not have a parent..\n    var id = _this.form.findField('id').getValue();\n    if (id ) {\n        o.params['!id'] = id;\n    }\n    // set more here\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'DESC', field: 'id' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/pressrelease_entry.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"language\",\"type\":\"string\"}]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "alwaysQuery" : true,
+             "listWidth" : 400,
+             "triggerAction" : "all",
+             "fieldLabel" : " same as (different publish dates)",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "headline",
+             "emptyText" : "Fill this in when this release goes out at a different time",
+             "hiddenName" : "same_as_id",
+             "minChars" : 2,
+             "valueField" : "id",
+             "xtype" : "ComboBox",
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 420,
+             "$ xns" : "Roo.form",
+             "name" : "same_as_id_headline",
+             "qtip" : "Select Press release",
+             "queryParam" : "query[name]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>#{id} - {headline}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    var client_id = _this.form.findField('client_id').getValue();\n    if (!client_id) {\n        Roo.MessageBox.alert(\"Error\", \"Select a client first\");\n        return false;\n    }\n    o.params.client_id = client_id;\n    o.params.parent_id = 0; /// only releases that do not have a parent..\n    var id = _this.form.findField('id').getValue();\n    if (id ) {\n        o.params['!id'] = id;\n    }\n    // set more here\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'DESC', field: 'id' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/pressrelease_entry.php'",
+                 "method" : "GET",
+                 "xtype" : "HttpProxy",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"language\",\"type\":\"string\"}]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 75,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "listWidth" : 200,
+             "triggerAction" : "all",
+             "fieldLabel" : "Status",
+             "displayField" : "fname",
+             "hiddenName" : "publish_status",
+             "valueField" : "ftype",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "editable" : false,
+             "width" : 200,
+             "$ xns" : "Roo.form",
+             "mode" : "local",
+             "name" : "publish_status_name",
+             "items" : [
+              {
+               "xtype" : "SimpleStore",
+               "$ data" : "[ [-1, \"Draft\"],[ 0 , \"Ready to Distribute\"],[ 1, \"Embargoed\"] ]\n",
+               "$ fields" : "[  'ftype', 'fname']",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
+            },
+            {
+             "alwaysQuery" : true,
+             "listWidth" : 400,
+             "triggerAction" : "all",
+             "fieldLabel" : "Industry",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 150,
+             "displayField" : "hgroup",
+             "minChars" : 2,
+             "valueField" : "hgroup",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 300,
+             "$ xns" : "Roo.form",
+             "name" : "industry_name",
+             "qtip" : "Select industry",
+             "queryParam" : "query[hgroup]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{hgroup}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params['_distinct']='hgroup';\n    o.params['!hgroup']='';\n    o.params['parent_id_name'] = 'News Beat';\n    o.params['_columns'] = 'hgroup';\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'ASC', field: 'hgroup' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/pressrelease_category.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 75,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "listeners" : {
+              "add" : "function (combo)\n{\n    Pman.Dialog.Companies.show({},\n        function (data) {\n            _this.form.setValues({\n                client_id_name : data.name,\n                client_id : data.id\n            });\n        \n        }\n    );\n}"
+             },
+             "alwaysQuery" : true,
+             "listWidth" : 400,
+             "triggerAction" : "all",
+             "fieldLabel" : "Client",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "name",
+             "emptyText" : "Select Client",
+             "hiddenName" : "client_id",
+             "minChars" : 2,
+             "valueField" : "id",
+             "xtype" : "ComboBox",
+             "allowBlank" : true,
+             "typeAhead" : false,
+             "editable" : true,
+             "width" : 300,
+             "$ xns" : "Roo.form",
+             "name" : "client_id_name",
+             "qtip" : "Select Client",
+             "queryParam" : "query[name]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n     o.params['comptype[0]'] = 'CLIENT';\n   o.params['comptype[1]'] = 'AGENCY';\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/Companies.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'tel',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'ava_craft',\n        'type': 'string'\n    },\n    {\n        'name': 'url',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'created_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    }\n]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "fieldLabel" : "Word count",
+             "xtype" : "NumberField",
+             "readOnly" : true,
+             "width" : 50,
+             "$ xns" : "Roo.form",
+             "name" : "word_count"
+            },
+            {
+             "hideLabels" : true,
+             "xtype" : "Row",
+             "style" : "overflow:hidden",
+             "labelWidth" : 0,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "value" : 1,
+               "xtype" : "Checkbox",
+               "valueOff" : 0,
+               "boxLabel" : "Distribute To Feed",
+               "width" : 150,
+               "$ xns" : "Roo.form",
+               "name" : "distribute_to_feed"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 75,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "listWidth" : 200,
+             "triggerAction" : "all",
+             "fieldLabel" : "Language",
+             "displayField" : "title",
+             "hiddenName" : "language",
+             "valueField" : "code",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "editable" : false,
+             "width" : 200,
+             "$ xns" : "Roo.form",
+             "mode" : "local",
+             "name" : "language_name",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>",
+             "items" : [
+              {
+               "| data" : "(function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []})()",
+               "xtype" : "SimpleStore",
+               "$ fields" : "['code', 'title']",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
+            },
+            {
+             "listWidth" : 200,
+             "triggerAction" : "all",
+             "fieldLabel" : "Country",
+             "displayField" : "title",
+             "hiddenName" : "country",
+             "valueField" : "code",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "editable" : false,
+             "width" : 200,
+             "$ xns" : "Roo.form",
+             "mode" : "local",
+             "name" : "country_name",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>",
+             "items" : [
+              {
+               "| data" : "(function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('c') : []})()",
+               "xtype" : "SimpleStore",
+               "$ sortInfo" : "{ field : 'title', direction: 'ASC' }",
+               "$ fields" : "['code', 'title']",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 75,
+           "width" : 730,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "format" : "Y-m-d",
+             "fieldLabel" : "Publish",
+             "xtype" : "DateField",
+             "allowBlank" : true,
+             "width" : 100,
+             "$ xns" : "Roo.form",
+             "name" : "publish_dt_day"
+            },
+            {
+             "listWidth" : 80,
+             "triggerAction" : "all",
+             "fieldLabel" : "Time",
+             "displayField" : "hr",
+             "valueField" : "hr",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "editable" : false,
+             "width" : 60,
+             "$ xns" : "Roo.form",
+             "mode" : "local",
+             "name" : "publish_dt_hr",
+             "items" : [
+              {
+               "| data" : "(function() {\n   var r = [];\n   for (var i =0;i < 24;i++) {\n      r.push( [ i + ':00']);\n      r.push([ i + ':30']);\n   }\n   return r;\n})()",
+               "xtype" : "SimpleStore",
+               "$ fields" : "[  'hr']",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
+            },
+            {
+             "listWidth" : 500,
+             "triggerAction" : "all",
+             "fieldLabel" : "Timezone",
+             "displayField" : "fname",
+             "hiddenName" : "publish_dt_tz",
+             "valueField" : "ftype",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "editable" : false,
+             "width" : 280,
+             "$ xns" : "Roo.form",
+             "mode" : "local",
+             "name" : "publish_dt_tz_name",
+             "items" : [
+              {
+               "xtype" : "SimpleStore",
+               "$ data" : "[\n         ['-12.00' ,  '(GMT -12:00) Eniwetok, Kwajalein'],\n         ['-11.00' ,  '(GMT -11:00) Midway Island, Samoa'],\n         ['-10.00' ,  '(GMT -10:00) Hawaii'],\n         ['-9.00' ,  '(GMT -9:00) Alaska'],\n         ['-8.00' ,  '(GMT -8:00) Pacific Time (US & Canada)'],\n         ['-7.00' ,  '(GMT -7:00) Mountain Time (US & Canada)'],\n         ['-6.00' ,  '(GMT -6:00) Central Time (US & Canada), Mexico City'],\n         ['-5.00' ,  '(GMT -5:00) Eastern Time (US & Canada), Bogota, Lima'],\n         ['-4.00' ,  '(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz'],\n         ['-3.50' ,  '(GMT -3:30) Newfoundland'],\n         ['-3.00' ,  '(GMT -3:00) Brazil, Buenos Aires, Georgetown'],\n         ['-2.00' ,  '(GMT -2:00) Mid-Atlantic'],\n         ['-1.00' ,  '(GMT -1:00 hour) Azores, Cape Verde Islands'],\n         ['0.00' ,  '(GMT) Western Europe Time, London, Lisbon, Casablanca'],\n         ['1.00' ,  '(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris'],\n         ['2.00' ,  '(GMT +2:00) Kaliningrad, South Africa'],\n         ['3.00' ,  '(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg'],\n         ['3.30' ,  '(GMT +3:30) Tehran'],\n         ['4.00' , '(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi'],\n         ['4.50' , '(GMT +4:30) Kabul'],\n         ['5.00' , '(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent'],\n         ['5.30' ,  '(GMT +5:30) Bombay, Calcutta, Madras, New Delhi'],\n         ['5.45' ,  '(GMT +5:45) Kathmandu'],\n         ['6.00' ,  '(GMT +6:00) Almaty, Dhaka, Colombo'],\n         ['7.00' ,  '(GMT +7:00) Bangkok, Hanoi, Jakarta'],\n         ['8.00' ,  '(GMT +8:00) Beijing, Perth, Singapore, Hong Kong'],\n         ['9.00' ,  '(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk'],\n         ['9.30' ,  '(GMT +9:30) Adelaide, Darwin'],\n         ['10.00' ,  '(GMT +10:00) Eastern Australia, Guam, Vladivostok'],\n         ['11.00' ,  '(GMT +11:00) Magadan, Solomon Islands, New Caledonia'],\n         ['12.00' ,  '(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka']\n        ]\n",
+               "$ fields" : "[  'ftype', 'fname' ]",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "xtype" : "Column",
+         "width" : 750,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Headline",
+           "xtype" : "TextField",
+           "allowBlank" : false,
+           "width" : 650,
+           "$ xns" : "Roo.form",
+           "name" : "headline"
+          },
+          {
+           "fieldLabel" : "Sub-Headline",
+           "xtype" : "TextField",
+           "width" : 650,
+           "$ xns" : "Roo.form",
+           "name" : "subheadline"
+          }
+         ]
+        },
+        {
+         "labelAlign" : "top",
+         "xtype" : "Row",
+         "width" : 760,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "listeners" : {
+            "sync" : "function (_self, html)\n{\n    Roo.log('sync');\n    var lab =  this.fieldEl.query('label')[0];\n    var it = this.editorcore.doc.body.innerText || this.editorcore.doc.body.textContent;\n    var n = Math.max(0, it.replace(/^\\s+/, '').replace(/\\s+$/, '').split(/\\s+/).length );\n    \n    lab.innerHTML = 'Content: (' + n + ' Words)';\n    _this.form.updateWordCount();\n}"
+           },
+           "fieldLabel" : "Content",
+           "xtype" : "HtmlEditor",
+           "allowBlank" : false,
+           "$ stylesheets" : "[ \n   rootURL + '/Pman/PressRelease/templates/images/css/press.release.preview.css'\n]",
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "resizable" : "s",
+           "height" : 230,
+           "name" : "content",
+           "$ cblack" : "[ 'font-size' ]",
+           "items" : [
+            {
+             "xtype" : "ToolbarStandard",
+             "$ xns" : "Roo.form.HtmlEditor",
+             "* prop" : "toolbars[]",
+             "items" : [
+              {
+               "listeners" : {
+                "render" : "function (_self)\n{\n    _this.bodyimgselect = _self;\n}",
+                "beforequery" : "function (combo, query, forceAll, cancel, e)\n{\n \n    var id = _this.form.findField('id').getValue() * 1;    \n    if (!id) {\n        Roo.MessageBox.alert(\"Error\", \"Save press release first\");\n        return false;\n    }\n}",
+                "select" : "function (combo, record, index)\n{\n    Roo.log(record);\n    (function() { \n        combo.setValue('');\n    }).defer(100);\n\n    var editor = _this.form.findField('content').editorcore;\n    \n    var curnode = editor.getSelectedNode();\n\n    if (curnode && curnode.tagName == 'IMG') {\n        curnode.src= String.format('{0}/Images/{1}/{2}#image-{1}',\n                baseURL,  record.data.id, record.data.filename\n            );\n            // note -forces an update... hopefully...\n        editor.owner.fireEvent('editorevent', editor, false);\n    } else {\n    \n        editor.insertAtCursor(\n            String.format('<img src=\"{0}/Images/{1}/{2}#image-{1}\">',\n            baseURL,  record.data.id, record.data.filename\n            )\n        );\n\n    }\n    \n}"
+               },
+               "alwaysQuery" : true,
+               "listWidth" : 400,
+               "triggerAction" : "all",
+               "fieldLabel" : "Images",
+               "forceSelection" : true,
+               "selectOnFocus" : true,
+               "pageSize" : 20,
+               "displayField" : "name",
+               "emptyText" : "Select Image",
+               "minChars" : 2,
+               "valueField" : "id",
+               "xtype" : "ComboBox",
+               "typeAhead" : true,
+               "editable" : false,
+               "width" : 100,
+               "$ xns" : "Roo.form",
+               "* prop" : "btns[]",
+               "qtip" : "Select Images",
+               "queryParam" : "search",
+               "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><img src=\"{url_thumb}\" height=\"150\" width=\"150\"><b>{filename}</b> </div>",
+               "loadingText" : "Searching...",
+               "items" : [
+                {
+                 "listeners" : {
+                  "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n\n    var id = _this.form.findField('id').getValue() * 1;    \n    if (!id) {\n        Roo.MessageBox.alert(\"Error\", \"Save press release first\");\n        return false;\n    }\n    o.params.onid = id\n    o.params.ontable = 'pressrelease_entry';\n   // o.params.imgtype = 'PressRelease';\n    o.params['query[imagesize]'] = '150x150';\n    // set more here\n}\n"
+                 },
+                 "xtype" : "Store",
+                 "remoteSort" : true,
+                 "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "store",
+                 "items" : [
+                  {
+                   "$ url" : "baseURL + '/Roo/Images.php'",
+                   "xtype" : "HttpProxy",
+                   "method" : "GET",
+                   "$ xns" : "Roo.data",
+                   "* prop" : "proxy"
+                  },
+                  {
+                   "id" : "id",
+                   "root" : "data",
+                   "xtype" : "JsonReader",
+                   "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"filename\",\"type\":\"string\"},{\"name\":\"url_thumb\",\"type\":\"string\"}]",
+                   "$ xns" : "Roo.data",
+                   "* prop" : "reader",
+                   "totalProperty" : "total"
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "xtype" : "ToolbarContext",
+             "$ xns" : "Roo.form.HtmlEditor",
+             "* prop" : "toolbars[]"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "distribution_config"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "distribution_countries"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "blacklist_ids"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "project_id"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "parent_id_project_id"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "id"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "background" : true,
+     "region" : "center",
+     "title" : "Company Details",
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "listeners" : {
+        "|rendered" : "function (form)\n{\n    _this.form2= form;\n}\n"
+       },
+       "$ url" : "baseURL + '/Roo/Companies.php'",
+       "method" : "POST",
+       "style" : "margin:10px;",
+       "xtype" : "Form",
+       "labelWidth" : 80,
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "xtype" : "Row",
+         "labelWidth" : 80,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Stock Code",
+           "xtype" : "TextField",
+           "width" : 100,
+           "$ xns" : "Roo.form",
+           "name" : "stockcode"
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 110,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "fieldLabel" : " (Chinese) Name",
+             "xtype" : "TextField",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "company_name_alt"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "xtype" : "Row",
+         "labelWidth" : 80,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "listWidth" : 400,
+           "triggerAction" : "all",
+           "fieldLabel" : "Exchange",
+           "forceSelection" : true,
+           "selectOnFocus" : true,
+           "pageSize" : 20,
+           "displayField" : "name",
+           "emptyText" : "Select exchange",
+           "hiddenName" : "stock_exchange_id",
+           "minChars" : 2,
+           "valueField" : "id",
+           "xtype" : "ComboBox",
+           "allowBlank" : true,
+           "typeAhead" : true,
+           "editable" : false,
+           "width" : 100,
+           "$ xns" : "Roo.form",
+           "name" : "stock_exchange_id_name",
+           "qtip" : "Select Exchange",
+           "queryParam" : "query[name]",
+           "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+           "loadingText" : "Searching...",
+           "items" : [
+            {
+             "listeners" : {
+              "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params.etype='Exchange';\n}\n"
+             },
+             "xtype" : "Store",
+             "remoteSort" : true,
+             "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ url" : "baseURL + '/Roo/core_enum.php'",
+               "xtype" : "HttpProxy",
+               "method" : "GET",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy"
+              },
+              {
+               "id" : "id",
+               "root" : "data",
+               "xtype" : "JsonReader",
+               "$ xns" : "Roo.data",
+               "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"etype\",\"type\":\"string\"}]",
+               "* prop" : "reader",
+               "totalProperty" : "total"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "labelWidth" : 70,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "fieldLabel" : "Source",
+             "xtype" : "TextField",
+             "width" : 300,
+             "$ xns" : "Roo.form",
+             "name" : "source_name"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "labelAlign" : "top",
+         "xtype" : "Column",
+         "width" : 800,
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Contacts",
+           "xtype" : "TextArea",
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "name" : "contact_txt",
+           "height" : 100
+          },
+          {
+           "fieldLabel" : "Company Boiler Plate Statement",
+           "xtype" : "TextArea",
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "name" : "content_about",
+           "height" : 150
+          },
+          {
+           "fieldLabel" : "Related Web Links <B>Must have http:// before the link</b>",
+           "xtype" : "TextArea",
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "name" : "content_links",
+           "height" : 100
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "activate" : "function (_self)\n{\n   //console.log('activate');\n   if (_this.hasFinanceWatch) {\n     return;\n   }\n   _this.hasFinanceWatch =true;\n   _this.financeSending =false;\n     window.setInterval( function() {\n        // stops warning in editor..\n        if (!_this.financeForm) {\n            return;\n        }\n        var val = _this.financeForm.findField('imageUpload').getValue();\n        if (!val || !val.length) {\n            return;\n        }\n        \n        if (_this.financeSending) {\n            return;\n        }\n         _this.financeSending =true;\n         \n        _this.financeForm.el.mask(\"Sending\");\n        _this.financeForm.submit.defer(100, _this.financeForm);\n   \n  }, 1000)  \n   \n}"
+     },
+     "region" : "center",
+     "title" : "Financial Data",
+     "xtype" : "NestedLayoutPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "xtype" : "BorderLayout",
+       "$ xns" : "Roo",
+       "* prop" : "layout",
+       "items" : [
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "* prop" : "center"
+        },
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "* prop" : "south",
+         "height" : 40
+        },
+        {
+         "region" : "center",
+         "fitToFrame" : true,
+         "xtype" : "ContentPanel",
+         "fitContainer" : true,
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "listeners" : {
+            "|rendered" : "function (form)\n{\n    _this.form3= form;\n}\n"
+           },
+           "$ url" : "baseURL + '/Roo/pressrelease_entry.php'",
+           "method" : "POST",
+           "xtype" : "Form",
+           "style" : "margin:10px;",
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "labelAlign" : "top",
+             "xtype" : "Row",
+             "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "fieldLabel" : "Forward Looking Statement",
+               "xtype" : "TextArea",
+               "width" : 750,
+               "$ xns" : "Roo.form",
+               "name" : "content_forward",
+               "height" : 150
+              },
+              {
+               "fieldLabel" : "Financial Content",
+               "xtype" : "HtmlEditor",
+               "style" : "font-family: monospace;",
+               "$ stylesheets" : "[ \n   rootURL + '/Pman/PressRelease/templates/images/css/press.release.preview.css'\n  \n]",
+               "width" : 750,
+               "$ xns" : "Roo.form",
+               "resizable" : "s",
+               "name" : "content_data",
+               "height" : 200,
+               "items" : [
+                {
+                 "xtype" : "ToolbarStandard",
+                 "$ xns" : "Roo.form.HtmlEditor",
+                 "* prop" : "toolbars[]"
+                },
+                {
+                 "xtype" : "ToolbarContext",
+                 "$ xns" : "Roo.form.HtmlEditor",
+                 "$ styles" : "{ \n   'TD' :  [ 'underline', 'double-underline' ]\n}",
+                 "* prop" : "toolbars[]"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "region" : "south",
+         "xtype" : "ContentPanel",
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "listeners" : {
+            "actioncomplete" : "function (_self, action)\n{\n// only action this will handle is submit?\n// should test for errors..\n    if (action.failureType) {\n          _this.financeForm.el.unmask();\n          _this.uploadSending = false;\n        Roo.MessageBox.alert(\"Error\", \"Upload Failed\");\n        return false;\n    \n    }\n      \n    \n    if (action.type =='submit') {\n         _this.financeForm.reset();\n           _this.financeSending = false;\n          _this.financeForm.el.unmask();         \n        _this.form3.findField('content_data').setValue(action.result.data);\n\n         return;\n    }\n     \n}",
+            "rendered" : "function (form)\n{\n  _this.financeForm = form;\n}"
+           },
+           "$ url" : "baseURL + '/PressRelease/ExcelToText.php'",
+           "fileUpload" : true,
+           "style" : "margin: 10px;",
+           "xtype" : "Form",
+           "labelWidth" : 200,
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "xtype" : "Row",
+             "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "inputType" : "file",
+               "fieldLabel" : "Upload Excel of Financial data",
+               "xtype" : "TextField",
+               "allowBlank" : false,
+               "width" : 350,
+               "$ xns" : "Roo.form",
+               "name" : "imageUpload"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "activate" : "function (_self)\n{\n   _this.imagePanel = _self;\n   if (_this.addFromStore) {\n       _this.addFromStore.lastQuery = '~~~~';\n   }\n\n\n   \n   \n//   console.log('activate');\n   if (!_this.loaded) {\n     return;\n   }\n   _this.imageView.el.unmask();\n   if (_this.data.id) {\n       _this.imageView.loadImages();\n   } else {\n      _this.imageView.el.mask(\"Save Press Release First\");\n   }\n   \n   if (_this.hasUploadWatch) {\n     return;\n   }\n    _this.hasUploadWatch =true;\n    _this.uploadSending =false;\n    window.setInterval( function() {\n        // prevent warning in editor..\n        if (!_this.uploadForm) {return; }\n        \n      \n        \n        var val = _this.uploadForm.findField('imageUpload').getValue();\n        if (!val || !val.length) {\n            return;\n        }\n         var id = _this.form.findField('id').getValue() * 1;    \n        if (!id) {\n            Roo.MessageBox.alert(\"Error\", \"Save press release first\");\n           _this.uploadForm.reset();\n            return;\n        }\n        if (_this.uploadSending) {\n            return;\n        }\n         _this.uploadSending =true;\n        _this.uploadForm.findField('onid').setValue(_this.data.id);\n        _this.uploadForm.el.mask(\"Sending\");\n        _this.uploadForm.submit.defer(100, _this.uploadForm);\n   \n  }, 1000)  \n   \n}"
+     },
+     "region" : "center",
+     "title" : "Images / PDF",
+     "xtype" : "NestedLayoutPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "xtype" : "BorderLayout",
+       "$ xns" : "Roo",
+       "* prop" : "layout",
+       "items" : [
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "* prop" : "center"
+        },
+        {
+         "hidden" : true,
+         "xtype" : "LayoutRegion",
+         "width" : 200,
+         "$ xns" : "Roo",
+         "* prop" : "east"
+        },
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "* prop" : "south",
+         "height" : 60
+        },
+        {
+         "autoScroll" : true,
+         "region" : "center",
+         "fitToFrame" : true,
+         "xtype" : "ContentPanel",
+         "fitContainer" : true,
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "text" : "Add From Image Store",
+             "xtype" : "TextItem",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n    _this.addFromStore = _self;\n}",
+              "beforequery" : "function (combo, query, forceAll, cancel, e)\n{\nvar c = _this.form.findField('client_id').getValue();\n    if (!c) {\n        Roo.MessageBox.alert(\"Error\", \"Select a company first\");\n        return false;\n    }\n    var id = _this.form.findField('id').getValue() * 1;    \n    if (!id) {\n        Roo.MessageBox.alert(\"Error\", \"Save press release first\");\n        return false;\n    }\n}",
+              "select" : "function (combo, record, index)\n{\n    Roo.log(record);\n    new Pman.Request({\n        url: baseURL + '/Roo/Images',\n        method : 'POST',\n        params : {\n            ontable : 'pressrelease_entry',\n            onid : _this.form.findField('id').getValue(),\n            _copy_from : record.data.id\n        }, \n        success : function()\n        {\n            _this.imageView.loadImages();\n        }\n    });   \n}"
+             },
+             "alwaysQuery" : true,
+             "listWidth" : 400,
+             "triggerAction" : "all",
+             "fieldLabel" : "Images",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "name",
+             "emptyText" : "Select Image",
+             "minChars" : 2,
+             "valueField" : "id",
+             "xtype" : "ComboBox",
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 300,
+             "$ xns" : "Roo.form",
+             "qtip" : "Select Images",
+             "queryParam" : "search",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><img src=\"{url_thumb}\" height=\"150\" width=\"150\"><b>{filename}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    var c = _this.form.findField('client_id').getValue();\n    if (!c) {\n        Roo.MessageBox.alert(\"Error\", \"Select a company first\");\n        return false;\n    }\n    var id = _this.form.findField('id').getValue() * 1;    \n    if (!id) {\n        Roo.MessageBox.alert(\"Error\", \"Save press release first\");\n        return false;\n    }\n    o.params.onid = c;\n    o.params.ontable = 'Companies';\n   // o.params.imgtype = 'PressRelease';\n    o.params['query[imagesize]'] = '150x150';\n    // set more here\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/Images.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"filename\",\"type\":\"string\"},{\"name\":\"url_thumb\",\"type\":\"string\"}]",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n    if (!_this.imageView.getSelectedNodes().length) {\n     Roo.MessageBox.alert(\"Error\", \"Select an Image\");\n     return;\n   }\n   var id  = _this.imageView.getNodeData(_this.imageView.getSelectedNodes()[0]).id;\n   _this.imageView.el.mask('Deleting');\n   \n   Roo.Ajax.request({\n      url : baseURL + '/Roo/Images.php',\n      params : {\n         _delete : id\n      },\n      method : 'POST',\n      success : function() {\n          _this.imageView.loadImages();\n      },\n      failure : function() {\n           _this.imageView.el.unmask();\n           Roo.MessageBox.alert(\"Error\", \"Error deleting image\");\n           return;\n      }\n  });\n }"
+             },
+             "text" : "Delete Selected File or  Image",
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "listeners" : {
+            "selectionchange" : "function (_self, selections)\n{\n     \n     var snode = false;\n     if (selections && selections.length) {\n        try {\n           var snode =  _this.imageView.getNodeData(selections[0]);\n        } catch (e) {}\n    }\n     \n    if (!snode) {\n         _this.imagePanel.layout.getRegion('east').hide();\n        return;\n    }\n    _this.imagePanel.layout.getRegion('east').show();    \n \n    _this.imageForm.setValues(snode);\n}",
+            "beforerender" : "function (_self, data)\n{\n   _this.imageView = _self;\n   \n   if (this.stylesheet) {\n      return;\n   }\n   this.el.addClass('thumb-browser');\n\n   \n   this.stylesheet = Roo.util.CSS.createStyleSheet(\n        {\n          '.thumb-browser .thumb-wrap' : {\n                border:'3px solid #EEE',\n                'float':'left',\n                height:'190px',\n                margin:'2px',\n                'padding-left':'5px',\n                'padding-top':'5px',\n                width:'160px'\n            },\n            '.thumb-browser .x-view-selected' : {\n              border:'3px solid #333'\n          \n            },\n            '.thumblabel' : {\n                font: 'normal normal normal 11px/normal tahoma, verdana, helvetica'\n            }\n\n        }, Roo.id()\n        );\n   \n}"
+           },
+           "jsonRoot" : "data",
+           "$ loadImages" : "function() {\n     this.load({\n        url : baseURL + '/Roo/Images.php',\n        method : 'GET',\n        params : {\n           ontable : 'pressrelease_entry',\n           onid : _this.data.id,\n           'query[imagesize]' : '150x150',\n           'query[imageBaseURL]' : rootURL + '/release.php'\n        },\n        text : 'Loading'\n   });\n   \n}\n",
+           "xtype" : "JsonView",
+           "singleSelect" : true,
+           "$ xns" : "Roo",
+           "items" : [
+            {
+             "xtype" : "Template",
+             "$ html" : "'<div class=\"thumb-wrap\"> ' + \n  '<div class=\"thumb\"><img  src=\"{url_thumb}\" class=\"thumb-img\"></div>' + \n  '<div class=\"thumblabel\">{title}<br/>{linkurl}</div>' + \n'</div>'",
+             "$ xns" : "Roo",
+             "* prop" : "tpl"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "region" : "south",
+         "xtype" : "ContentPanel",
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "listeners" : {
+            "actionfailed" : "function (_self, action)\n{\n\n   _this.uploadForm.el.unmask();\n   _this.uploadForm.reset();\n    _this.uploadSending = false;\n    Roo.MessageBox.alert(\"Error\", \"Upload Failed\");\n    _this.imageView.loadImages();\n    \n  \n}",
+            "rendered" : "function (form)\n{\n  _this.uploadForm = form;\n}",
+            "actioncomplete" : "function (_self, action)\n{\n// only action this will handle is submit?\n// should test for errors..\n    if (action.failureType) {\n        _this.uploadForm.el.unmask();\n        _this.uploadSending = false;\n        Roo.MessageBox.alert(\"Error\", \"Upload Failed\");\n        return false;\n    \n    }\n      \n    \n    if (action.type =='submit') {\n         _this.uploadForm.reset();\n           _this.uploadSending = false;\n          _this.uploadForm.el.unmask();         \n          _this.imageView.loadImages();\n         return;\n    }\n     \n}"
+           },
+           "$ url" : "baseURL + '/Roo/Images.php'",
+           "fileUpload" : true,
+           "style" : "margin: 10px;",
+           "xtype" : "Form",
+           "labelWidth" : 200,
+           "$ xns" : "Roo.form",
+           "$ progressUrl" : "baseURL  + '/Core/UploadProgress.php'",
+           "items" : [
+            {
+             "xtype" : "Row",
+             "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "inputType" : "file",
+               "fieldLabel" : "Upload Image or File",
+               "xtype" : "TextField",
+               "allowBlank" : false,
+               "width" : 250,
+               "$ xns" : "Roo.form",
+               "name" : "imageUpload"
+              }
+             ]
+            },
+            {
+             "xtype" : "Hidden",
+             "$ xns" : "Roo.form",
+             "name" : "onid"
+            },
+            {
+             "xtype" : "Hidden",
+             "value" : "pressrelease_entry",
+             "$ xns" : "Roo.form",
+             "name" : "ontable"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "region" : "east",
+         "xtype" : "ContentPanel",
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "listeners" : {
+            "actionfailed" : "function (_self, action)\n{\n        var lr =  _this.imagePanel.layout.getRegion('east');\n        lr.el.unmask();\n   if (action.failureType ==  Roo.form.Action.CLIENT_INVALID) {\n    Roo.MessageBox.alert(\"Error\", \"Correct All the errors in Red\");\n    return;\n   }\n    Roo.MessageBox.alert(\"Error\", \"Problem sending to server\");\n}",
+            "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       //this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n       return;\n    }\n    if (action.type == 'load') {\n\n        return;\n    }\n    if (action.type =='submit') {\n         _this.selectAfterLoad = this.findField('id').getValue();\n           var lr =  _this.imagePanel.layout.getRegion('east');\n        lr.el.unmask();\n        _this.imageView.loadImages();\n         return;\n    }\n}\n",
+            "|rendered" : "function (form)\n{\n    _this.imageForm= form;\n}\n"
+           },
+           "labelAlign" : "top",
+           "$ url" : "baseURL + '/Roo/Images.php'",
+           "style" : "margin:10px;",
+           "method" : "POST",
+           "xtype" : "Form",
+           "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "fieldLabel" : "Title",
+             "xtype" : "TextArea",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "title",
+             "height" : 50
+            },
+            {
+             "fieldLabel" : "Description / Byline",
+             "xtype" : "TextArea",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "descript",
+             "height" : 75
+            },
+            {
+             "alwaysQuery" : true,
+             "listWidth" : 200,
+             "triggerAction" : "all",
+             "fieldLabel" : "Image Type",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "name",
+             "emptyText" : "Select type",
+             "minChars" : 2,
+             "valueField" : "name",
+             "xtype" : "ComboBox",
+             "typeAhead" : true,
+             "editable" : false,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "imgtype",
+             "qtip" : "Select Image Type",
+             "queryParam" : "query[name]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n       // set more here\n    o.params.etype=\"Image Types\";\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/core_enum.php'",
+                 "method" : "GET",
+                 "xtype" : "HttpProxy",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "fieldLabel" : "Link",
+             "xtype" : "TextField",
+             "vtype" : "url",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "linkurl"
+            },
+            {
+             "fieldLabel" : "Credit",
+             "xtype" : "TextField",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "credit"
+            },
+            {
+             "fieldLabel" : "Source",
+             "xtype" : "TextField",
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "source"
+            },
+            {
+             "fieldLabel" : "Mimetype",
+             "xtype" : "TextField",
+             "readOnly" : true,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "mimetype"
+            },
+            {
+             "fieldLabel" : "Filesize",
+             "xtype" : "TextField",
+             "readOnly" : true,
+             "width" : 75,
+             "$ xns" : "Roo.form",
+             "name" : "filesize"
+            },
+            {
+             "xtype" : "Hidden",
+             "$ xns" : "Roo.form",
+             "name" : "id"
+            },
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n\n    var lr =  _this.imagePanel.layout.getRegion('east');\n    lr.el.mask(\"Saving\");\n   _this.imageForm.submit();\n}"
+             },
+             "text" : "Update Image Details",
+             "xtype" : "Button",
+             "$ xns" : "Roo"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "activate" : "function (_self)\n{\n    \n    _this.distributionTab = _self;\n    \n    if (!_this.countrypanel) {\n        return;\n    }\n    \n    if (_this.form.findField('parent_id').getValue() * 1 > 0) {\n        _self.el.mask(\"Distribution is done on Original Language version\");\n        return;\n    \n    \n    }\n    _self.el.unmask();\n    \n    \n    _this.countrypanel.tree.root.reload(function() {\n        _this.countrypanel.tree.expandAll();\n        _this.countrypanel.tree.onloadComplete(function() {\n\n        \n            //Roo.log(\"load Complete\");\n               _this.beatgrid.ds.load({});\n                _this.countrypanel.tree.collapseUnchecked();               \n             // _this.distSummary.refreshContent();\n        });\n    });\n        \n     return;\n//    _this.distpanel = _self;\n    var parent_id = _this.form.findField('parent_id').getValue(); \n    if (parent_id * 1 > 0) {\n        _self.el.mask(\"This is a translation of #\" + parent_id + \" - set up the distribution on that release\");\n        return;\n    } \n      _self.el.unmask();\n   // _this.beatgrid.ds.load({});\n   _this.countrygrid.ds.block_next_load = false;\n   _this.countrygrid.ds.load({});\n\n}"
+     },
+     "background" : true,
+     "region" : "center",
+     "title" : "Distribution",
+     "xtype" : "NestedLayoutPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "xtype" : "Fill",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "click" : "function (_self, e)\n{\n \n    _this.form.findField('distribution_countries').setValue('_generalnews');\n    _this.form.findField('distribution_config').setValue( ''); \n     _this.countrypanel.tree.root.reload(function() {\n        _this.countrypanel.tree.expandAll();\n        _this.countrypanel.tree.onloadComplete(function() {\n            //Roo.log(\"load Complete\");\n               _this.beatgrid.ds.load({});\n             // _this.distSummary.refreshContent();\n        });\n    });\n    \n}"
+         },
+         "text" : "Reset selections",
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        }
+       ]
+      },
+      {
+       "xtype" : "BorderLayout",
+       "$ xns" : "Roo",
+       "* prop" : "layout",
+       "items" : [
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "width" : 350,
+         "* prop" : "west",
+         "titlebar" : true
+        },
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "* prop" : "center",
+         "titlebar" : true
+        },
+        {
+         "xtype" : "LayoutRegion",
+         "$ xns" : "Roo",
+         "split" : true,
+         "* prop" : "south",
+         "height" : 100
+        },
+        {
+         "listeners" : {
+          "activate" : "function (_self)\n{\n    _this.distSummary = _self;\n}"
+         },
+         "$ refreshContent" : "function() {\n    // display a summary of what we need..\n    \n    \n    function tr(k,v,vv) {\n        vv = vv || '';\n        return String.format('<tr><td style=\"text-align:right;width: 150px;\"><b>{0}</b>: </td>' + \n            '<td style=\"white-space: normal;\">'+vv+'{1}</td></tr>' + \"\\n\", k, v === false ? '' : v);\n    }\n    \n    var beats = [];\n    _this.beatgrid.ds.each(function(r) {\n        \n        if (r.data.member*1 < 1 ) {\n            return;\n        }\n        var n = (r.data.hgroup.length ? r.data.hgroup + ' : ' : '') + r.data.name; \n        beats.push(n);\n    });\n    var rt = {};\n    \n    var total = '???';\n    var cns_ar = _this.countrypanel.tree.getChecked('name');\n\n    // remove general..\n    var has_gen = false;\n    cns_ar = cns_ar.filter(function(e, i, a) {\n        if (e == 'General News') {\n            has_gen = true;\n            return false;\n        }\n        return true;\n    });\n    this.setContent(\"Loading....\");\n    var _t = this;\n    new Pman.Request({\n        url : baseURL+ '/Roo/Pressrelease_contact',\n        method : 'GET',\n        params : {\n            limit : 1,\n            'distfilter[beats]' : _this.form.findField('distribution_config').getValue(),\n            'distfilter[countries]' : _this.form.findField('distribution_countries').getValue()\n            \n        },\n        success : function(r) {\n           // Roo.log(r);\n            _t.setContent(\n                '<h3>Press release will be distributed to ' + r.total + ' Journalist' + ( r.total == 1 ? '' : 's') + ':</h3>' + \n                '<table class=\"x-grid-row\" style=\"width:100%\">' + \n                    tr(\"General Distribution\", false, has_gen ? 'YES' : '<span style=\"color:red\">NO</span>') +  \n                    tr(\"News Beats\",beats.join(', ')) + \n                    tr(\"Countries\", cns_ar.join(', '))  + \n                \"</table>\");\n        }\n    });\n                \n}\n",
+         "autoScroll" : true,
+         "region" : "south",
+         "fitToFrame" : true,
+         "xtype" : "ContentPanel",
+         "$ xns" : "Roo"
+        },
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n   _this.countrypanel = this;\n    \n}"
+         },
+         "region" : "west",
+         "xtype" : "TreePanel",
+         "$ xns" : "Roo",
+         "items" : [
+          {
+           "listeners" : {
+            "checkchange" : "function (node, checked)\n{\n    var t= this;\n    this.onloadComplete(function() {\n            _this.form.findField('distribution_countries').setValue(t.getChecked('id').join(','));\n         // _this.distSummary.refreshContent();\n           _this.beatgrid.ds.load({});\n    });\n    return;\n     \n     \n        \n}",
+            "click" : "function (node, e)\n{\n        if (node.ui.checkbox) {\n           node.ui.checkbox.checked = !node.ui.checkbox.checked;\n           node.ui.onCheckChange();\n       }\n}"
+           },
+           "$ isNodeLoaded" : "function(node) {\n    if (node.leaf) {\n        return true;\n    }\n    if (!node.loaded) {\n        return false;\n    }\n    var ret = true;\n    var t = this;\n    node.eachChild(function(n) {\n        if (!t.isNodeLoaded(n)) {\n            ret = false;\n            return false;\n        }\n    });\n    return ret;\n\n}\n",
+           "xtype" : "TreePanel",
+           "$ collapseUnchecked" : "function() {\n\n    var r = this.root;\n    \n    function closeNode  (n) {\n        if (n.leaf) { // do not look a leaves.\n            return false;\n        }\n        // do children first.\n        var chk = 0;\n        n.eachChild(function(nn) {\n            if (!nn.leaf) {\n                closeNode(nn);\n                // if they have leaf's keep them expanded\n                //if (nn.expanded) {\n                    chk++;\n                //}\n                return;\n            }\n\n            if (nn.attributes.checked) {\n                chk++;\n            }\n            \n        });\n        if (chk > 0) { // something is checked or expanded.\n            return;\n        }\n        if (n != r) {\n            n.collapse(false, false);\n        }\n\n    \n    }\n\n    closeNode(this.root);\n}\n",
+           "rootVisible" : false,
+           "$ xns" : "Roo.tree",
+           "* prop" : "tree",
+           "$ onloadComplete" : "function(fn) {\n   \n\n\n     var t = this;\n        // loop through all nodes and check if loaded  == true?\n\n    if (!this.isNodeLoaded(this.root)) {\n        this.onloadComplete.defer(500, this, [ fn ], false);\n        return;\n    }\n    fn.call(this);\n    \n    \n}\n",
+           "items" : [
+            {
+             "listeners" : {
+              "load" : "function (This, node, response)\n{\n  //  _this.beatgrid.ds.load({});\n}",
+              "create" : "function (This, attr)\n{\n   //Roo.log(attr);\n  // attr.text = \"set in create handler\";\n  \n  var v = _this.form.findField('distribution_countries').getValue();\n  if (!v.length) {\n       v = '_generalnews';\n       _this.form.findField('distribution_countries').setValue(v);\n\n  }\n  var x = v.split(',');\n //Roo.log(x);\n  \n   attr.checked = x.indexOf(attr.id) > -1 ; // read from cfg..\n}"
+             },
+             "$ baseParams" : " { _tree: 1, limit: 9999, sort: 'cname', dir : 'ASC'  }",
+             "root" : "data",
+             "xtype" : "TreeLoader",
+             "requestMethod" : "GET",
+             "$ xns" : "Roo.tree",
+             "* prop" : "loader",
+             "$ dataUrl" : " baseURL + '/Roo/Pressrelease_regionmap.php'"
+            },
+            {
+             "id" : "_root",
+             "text" : "International",
+             "xtype" : "AsyncTreeNode",
+             "$ xns" : "Roo.tree",
+             "* prop" : "root",
+             "checked" : false
+            },
+            {
+             "listeners" : {
+              "beforeselect" : "function (_self, node, node)\n{\n  return false;\n}"
+             },
+             "xtype" : "DefaultSelectionModel",
+             "$ xns" : "Roo.tree",
+             "* prop" : "sm"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "listeners" : {
+          "|activate" : "function() {\n    \n    if (_this.beatgrid) {\n        //_this.grid.ds.load({});\n    }\n}"
+         },
+         "fitToframe" : true,
+         "background" : false,
+         "region" : "center",
+         "title" : "Beat",
+         "xtype" : "GridPanel",
+         "fitContainer" : true,
+         "$ xns" : "Roo",
+         "tableName" : "pressrelease_category",
+         "items" : [
+          {
+           "listeners" : {
+            "|render" : "function() \n{\n    _this.beatgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    // if (_this.panel.active) {\n    //   this.ds.load({});\n    // }\n}",
+            "cellclick" : "function (_self, ri, ci , e)\n{\n   if (ci != 1) {return; }\n   \n    var rec = this.ds.getAt(ri);\n    rec.set('member', (rec.data.member * 1) ? 0 : 1);\n    rec.commit();\n\n    \n    var cfg = [];\n    \n    _this.beatgrid.ds.each(function(r) {\n        if (r.data.member*1 < 1) {\n            return;\n        }\n        cfg.push(r.data.id);\n    });\n\n    _this.form.findField('distribution_config').setValue( cfg.join(','));\n\n  //  _this.typegrid.ds.load({});\n\n     _this.distSummary.refreshContent();\n\n   //_this.countrygrid.ds.load({});\n}",
+            "rowclass" : "function (gridview, rowcfg)\n{\n     //Roo.log(rowcfg);\n     // determine if we need to show it..\n     var val=_this.beatfilter.getValue().toLowerCase();\n     rowcfg.rowClass= '';\n     if (!val.length) {\n        return; // always show..\n     }\n     var match = false;\n     var hg = rowcfg.record.data.hgroup.toLowerCase();\n     var n = rowcfg.record.data.name.toLowerCase();     \n     var re = new RegExp(val);\n     \n     if (hg.match(re) || n.match(re)) {\n        return; // display it..\n     }\n     //Roo.log('display none');\n     if (rowcfg.record.data.member * 1 > 0) {\n       // return;\n     }\n     rowcfg.rowClass = 'display-none';\n     \n     \n}"
+           },
+           "autoExpandColumn" : "name",
+           "xtype" : "Grid",
+           "loadMask" : true,
+           "$ xns" : "Roo.grid",
+           "* prop" : "grid",
+           "items" : [
+            {
+             "xtype" : "Toolbar",
+             "$ xns" : "Roo",
+             "* prop" : "toolbar",
+             "items" : [
+              {
+               "listeners" : {
+                "keyup" : "function (_self, e)\n{\n       _this.beatgrid.view.refresh(true);\n    \n\n}",
+                "render" : "function (_self)\n{\n  _this.beatfilter = _self;\n}"
+               },
+               "xtype" : "TextField",
+               "width" : 100,
+               "$ xns" : "Roo.form"
+              },
+              {
+               "listeners" : {
+                "|click" : "function (_self, e)\n{\n    _this.beatfilter.setValue('');\n     _this.beatgrid.view.refresh(true);\n    \n}"
+               },
+               "xtype" : "Button",
+               "cls" : "x-btn-icon",
+               "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+               "$ xns" : "Roo.Toolbar"
+              },
+              {
+               "xtype" : "Fill",
+               "$ xns" : "Roo.Toolbar"
+              },
+              {
+               "listeners" : {
+                "click" : "function (_self, e)\n{\n    \n    \n    _this.beatgrid.ds.each(function(rec) {\n            rec.set('member', 0);\n            rec.commit();\n           \n    \n\n    });\n\n}"
+               },
+               "text" : "Reset",
+               "xtype" : "Button",
+               "$ xns" : "Roo.Toolbar"
+              },
+              {
+               "listeners" : {
+                "click" : "function (_self, e)\n{\n    \n     // determine if we need to show it..\n     var val =_this.beatfilter.getValue().toLowerCase();\n     var re = false;\n     if (val.length) {\n         re = new RegExp(val);\n        \n     }\n     \n    \n    \n    _this.beatgrid.ds.each(function(rec) {\n        if (!re) {        \n            rec.set('member',  1);\n            rec.commit();\n            return;\n        }\n         var hg = rec.data.hgroup.toLowerCase();\n         var n = rec.data.name.toLowerCase();\n          if (!hg.match(re) && !n.match(re)) {\n            return; // do not select it..\n         }\n    \n          rec.set('member',  1);\n        rec.commit();\n           \n    \n\n    });\n\n}"
+               },
+               "text" : "Select All",
+               "xtype" : "Button",
+               "$ xns" : "Roo.Toolbar"
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "beforeload" : "function (_self, options)\n{\n    if (!_this.form.findField('distribution_countries').getValue().length) {\n        this.beatgrid.ds.removeAll();\n    \n        return false;\n    }\n    options.params =     options.params || {};\n    options.params.parent_id_name = 'News Beat';\n  //  options.params.for_beat = 1;\n  //  options.params.contact_id = _this.data ? _this.data.id : 0;\n    options.params['query[with_empty_member]'] = 1; // this sets member=0 (blank list..)\n    \n    options.params['query[hide_empty_member]'] = 1;\n    \n    options.params['query[only_countries_tree]'] = _this.form.findField('distribution_countries').getValue();\n  \n    options.params.limit = 999;\n}",
+              "load" : "function (_self, records, options)\n{\n    var fdef = _this.form.findField('distribution_config')\n    // beat list is loaded..\n    // if there are no data.. we should clear the distribution config..\n    if (!records.length) {\n       \n        fdef.setValue('');\n         _this.distSummary.refreshContent();\n       // _this.typegrid.ds.load({});\n       return;\n    }\n    \n    \n    // otherwise, grab the first item.. find the parent id..\n    // filter that list to make sure that nothing that is selected is hidden...\n    \n   \n    var def = fdef.getValue();    \n\n    if (def.length) {\n\n        var crecs = def.split(',');\n        \n        // crecs holds our current config...\n        \n        var avail = [];\n        \n        Roo.each(records, function(r) {\n        \n            if ( crecs.indexOf(''+r.data.id) > -1) {\n                r.set('member', 1);\n            }\n            avail.push(''+r.data.id);\n            \n        });\n        \n        // now clear out from crecs all the \n        var crec_new = [];\n        Roo.each(crecs, function(r) {\n            if (avail.indexOf(r) > -1) {\n                crec_new.push(r);\n            }\n        });\n      \n        fdef.setValue( crec_new.join(','));\n        \n        \n    }\n        // update the summary\n_this.distSummary.refreshContent();\n\n   //  _this.typegrid.ds.load({});\n}"
+             },
+             "xtype" : "Store",
+             "remoteSort" : true,
+             "$ sortInfo" : "{ field : 'hgroup,name', direction: 'ASC' }",
+             "$ xns" : "Roo.data",
+             "* prop" : "dataSource",
+             "items" : [
+              {
+               "$ url" : "baseURL + '/Roo/pressrelease_category.php'",
+               "xtype" : "HttpProxy",
+               "method" : "GET",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy"
+              },
+              {
+               "id" : "id",
+               "root" : "data",
+               "xtype" : "JsonReader",
+               "$ xns" : "Roo.data",
+               "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'parent_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'display_order',\n        'type': 'int'\n    },\n    {\n        'name': 'visible',\n        'type': 'int'\n    }\n]",
+               "* prop" : "reader",
+               "totalProperty" : "total"
+              }
+             ]
+            },
+            {
+             "xtype" : "ColumnModel",
+             "width" : 200,
+             "header" : "News Beat",
+             "$ renderer" : "function(v,x,r) { return String.format('{0}', (r.data.hgroup ? r.data.hgroup + ' : ' : '') + v); }",
+             "$ xns" : "Roo.grid",
+             "* prop" : "colModel[]",
+             "dataIndex" : "name"
+            },
+            {
+             "xtype" : "ColumnModel",
+             "width" : 75,
+             "header" : "Select",
+             "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
+             "$ xns" : "Roo.grid",
+             "* prop" : "colModel[]",
+             "dataIndex" : "member"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.circpanel = this;\n    if (_this.circvtype) {\n        _this.circvtype.setValue('FAILED');\n    }\n    if (_this.circgrid) {\n        _this.circgrid.footer.onClick('first');\n    }\n}"
+     },
+     "fitToframe" : true,
+     "background" : true,
+     "region" : "center",
+     "title" : "Circulation",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "pressrelease_notify",
+     "items" : [
+      {
+       "listeners" : {
+        "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var rec = this.ds.getAt(rowIndex);\n    var g= this;\n    Pman.Dialog.PressReleaseContact.show({ id : rec.data.person_id }, function()\n    {\n        g.footer.onClick('first');\n    });\n}",
+        "|render" : "function() \n{\n    _this.circgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.circpanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "person_id_firstname",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "text" : "Show: ",
+           "xtype" : "TextItem",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "specialkey" : "function (_self, e)\n{\n\n    if (e.getCharCode() == 13) {\n        _this.circgrid.footer.onClick('first');\n    }\n}",
+            "render" : "function (_self)\n{\n  _this.searchBox = _self;\n}"
+           },
+           "xtype" : "TextField",
+           "$ xns" : "Roo.form"
+          },
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n  _this.circvtype = _self;\n}",
+            "beforeselect" : "function (combo, record, index)\n{\n    (function() {\n        _this.circgrid.footer.onClick('first');\n    }).defer(100);\n}"
+           },
+           "listWidth" : 200,
+           "triggerAction" : "all",
+           "displayField" : "fname",
+           "hiddenName" : "vtype",
+           "value" : "FAILED",
+           "valueField" : "ftype",
+           "xtype" : "ComboBox",
+           "allowBlank" : false,
+           "editable" : false,
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "mode" : "local",
+           "name" : "vtype_name",
+           "items" : [
+            {
+             "xtype" : "SimpleStore",
+             "$ data" : "[ ['FAILED', \"Failed\"],[ 'DELIVERED' , \"Delivered\"],[ 'PENDING', \"Pending\"],[ 'ONLINE', \"ONLINE\"] ]\n",
+             "$ fields" : "[  'ftype', 'fname']",
+             "$ xns" : "Roo.data",
+             "* prop" : "store"
+            }
+           ]
+          },
+          {
+           "listeners" : {
+            "|click" : "function (_self, e)\n{\n_this.circgrid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Button",
+           "cls" : "x-btn-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function (_self, e)\n{\n    _this.searchBox.setValue('');\n    \n    \n    _this.circgrid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Button",
+           "cls" : "x-btn-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var id = _this.form.findField('id').getValue()*1\n    if (id < 1) {\n        Roo.MessageBox.alert(\"Error\", \"Save Release first\");\n        return;\n    }\n\n    new Pman.Request({\n        url : baseURL + '/PressRelease/View/' + id,\n        params : {\n            reset : 1\n        },\n        method : 'POST',\n        success : function() \n        {\n            _this.circgrid.footer.onClick('first');\n        } \n    \n    });\n}"
+           },
+           "text" : "Remove undelivered messages",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var id = _this.form.findField('id').getValue()*1\n    if (id < 1) {\n        Roo.MessageBox.alert(\"Error\", \"Save Release first\");\n        return;\n    }\n    var s = _this.circgrid.getSelectionModel().getSelections();\n    if (!s || !s.length) {\n        Roo.MessageBox.alert(\"Error\", \"Select item to re-deliver\");\n        return;\n    }\n     \n\n    new Pman.Request({\n        url : baseURL + '/PressRelease/View/' + id,\n        params : {\n            redeliver : s[0].data.id\n        },\n        method : 'POST',\n        success : function() \n        {\n            _this.circgrid.footer.onClick('first');\n        } \n    \n    });\n}"
+           },
+           "text" : "Force Re-delivery",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "listeners" : {
+          "beforeload" : "function (_self, o)\n{\n  o.params = o.params || {};\n  o.params.ontable = 'pressrelease_entry';\n  o.params.onid = _this.form.findField('id').getValue();\n  if ( ! o.params.onid) {\n     return false;\n  \n  }\n  o.params['search[remarks]'] = _this.searchBox.getValue();\n  \n  o.params.vtype = _this.circvtype.getValue();\n  \n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'ontable', direction: 'ASC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/pressrelease_notify.php'",
+           "xtype" : "HttpProxy",
+           "method" : "GET",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'act_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'msgid',\n        'type': 'string'\n    },\n    {\n        'name': 'sent',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'bounced',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_category_type_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_honor',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email_personal',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_category_media_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_submission_time',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone_mobile',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone_direct',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_firstname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_firstname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_publication_name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_category_scope_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_contact_language',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_contact_language_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_country',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_method',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_from',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_to',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_best_contact_days',\n        'type': 'string'\n    }\n]",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No pressrelease_notify found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying pressrelease_notify{0} - {1} of {2}",
+         "* prop" : "footer",
+         "items" : [
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n \n     new Pman.Download({\n          grid : _this.circgrid\n    });\n   Roo.MessageBox.alert(\"Downloading\", \"File should be downloading now\");\n\n}"
+           },
+           "xtype" : "Button",
+           "String text" : "Download",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 50,
+         "header" : "Ref#",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "id"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 50,
+         "header" : "Type",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "evtype"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "Due out (Local time)",
+         "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i') : ''); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "act_when"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "To",
+         "$ renderer" : "function(v,x,r) { \n\n    if (r.data.person_id < 0) {\n        return String.format('{0} <a qtip=\"{1}\" href=\"mailto:{1}\">{1}</a>>', \n            r.data.firstname, r.data.to_email); \n    \n    }\n    \n    if (!Pman.hasPerm('PressRelease.JournalistAll', 'S')) {\n        return String.format('{0} {1} ({2})', \n                v, r.data.person_id_lastname, r.data.person_id_publication_name\n        );     \n    }\n\n    return String.format('<a qtip=\"{3}\" href=\"mailto:{3}\">{0} {1}</a> ({2})', \n        v, r.data.person_id_lastname,  r.data.person_id_publication_name,\n         r.json['person_id_' + r.data.field]); \n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "person_id_firstname"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "Sent",
+         "$ renderer" : "function(v,x,r) \n{ \n    var prefix = '';\n    if (r.data.person_id < 0) {\n        prefix = 'MANUAL SEND: ';\n    \n    }\n\n   if (!r.data.event_id) {\n        return prefix + 'not sent yet';\n   }\n   \n    return String.format(prefix + '{0}', v ? v.format('d/M/Y H:i:s') : ''); \n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "sent"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "Status",
+         "$ renderer" : "function(v) { \n     \n    return String.format('<span qtip=\"{1}\">{0}</span>', v,String.format('{0}', v)); \n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "event_id_remarks"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+     },
+     "fitToframe" : true,
+     "background" : true,
+     "region" : "center",
+     "title" : "Log",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "Events",
+     "items" : [
+      {
+       "listeners" : {
+        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "remarks",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
+        {
+         "listeners" : {
+          "beforeload" : "function (_self, o)\n{\n    if (!_this.data || !_this.data.id) {\n        return false;\n    }\n    o.params.on_table = 'pressrelease_entry';\n    o.params.on_id = _this.data.id;\n    \n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'event_when', direction: 'DESC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/Events.php'",
+           "xtype" : "HttpProxy",
+           "method" : "GET",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No Events found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying Events{0} - {1} of {2}",
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "When",
+         "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i') : ''); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "event_when"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 100,
+         "header" : "Who",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "person_id_name"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 75,
+         "header" : "Action",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "action"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 200,
+         "header" : "Remarks",
+         "$ renderer" : "function(v) { return String.format('<span qtip=\"{0}\">{1}</span>', \n    Roo.util.Format.htmlEncode(v),v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "remarks"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "activate" : "function (_self)\n{\n    _this.treepanel.el.mask('Before you add a keyword, please publish release first');\n    \n    _this.treepanel.tree.getRootNode().reload(function() {\n        _this.treepanel.tree.getRootNode().expand(true,true);\n    });\n    \n    if(_this.form.findField('project_id').getValue()*1 > 0 || \n       _this.form.findField('parent_id_project_id').getValue()*1 > 0){\n        _this.treepanel.el.unmask();\n    }\n    \n    \n}",
+      "render" : "function (_self)\n{\n  _this.treepanel = _self;\n}"
+     },
+     "region" : "center",
+     "title" : "Keywords",
+     "xtype" : "TreePanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "text" : "Add",
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar",
+         "items" : [
+          {
+           "xtype" : "Menu",
+           "$ xns" : "Roo.menu",
+           "* prop" : "menu",
+           "items" : [
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n    if(!_this.form.findField('project_id').getValue()*1 && !_this.form.findField('parent_id_project_id').getValue()*1){\n        Roo.MessageBox.alert('Error', 'Please publish release first');\n        return;\n    }\n    var sn  = _this.treepanel.tree.getSelectionModel().getSelectedNode();\n    if(!sn || sn.leaf || sn.id == 'keyword'){\n        sn = 0;\n    }\n    Pman.Dialog.ClippingKeyword.show({\n            project_id: (_this.form.findField('project_id').getValue()) ? _this.form.findField('project_id').getValue() : _this.form.findField('parent_id_project_id').getValue(),\n            language: _this.form.findField('language').getValue(),\n            is_keyword : 1,\n            parent_id: sn ? sn.id : 0\n        },\n        function () {\n            (sn || _this.treepanel.tree.getRootNode()).reload(); \n    });\n}"
+             },
+             "text" : "Add Keyword",
+             "xtype" : "Item",
+             "$ xns" : "Roo.menu"
+            },
+            {
+             "listeners" : {
+              "click" : "function (_self, e)\n{\n    //var sn  = _this.treepanel.tree.getSelectionModel().getSelectedNode();\n    if(!_this.form.findField('project_id').getValue()*1 && !_this.form.findField('parent_id_project_id').getValue()*1){\n        Roo.MessageBox.alert('Error', 'Please publish release first');\n        return;\n    }\n    Pman.Dialog.ClippingKeywordGroup.show({\n        project_id: (_this.form.findField('project_id').getValue()) ? _this.form.findField('project_id').getValue() : _this.form.findField('parent_id_project_id').getValue(),\n        language: _this.form.findField('language').getValue(),\n        parent_id: 0\n    },\n    function () {\n        _this.treepanel.tree.getRootNode().reload();\n    });\n}"
+             },
+             "text" : "Add Group",
+             "xtype" : "Item",
+             "$ xns" : "Roo.menu"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "listeners" : {
+          "click" : "function (_self, e)\n{\n    if(!_this.form.findField('project_id').getValue()*1){\n        Roo.MessageBox.alert('Error', 'Please publish release first');\n        return;\n    }\n    var tree = _this.treepanel.tree;\n    var sn  = tree.getSelectionModel().getSelectedNode();\n    if (!sn || isNaN(sn.id *1)) {\n        Roo.MessageBox.alert(\"Error\", \"Select a keyword\");\n        return;\n    }\n    Roo.MessageBox.confirm(\"Confirm\", \"Are sure you want to delete the keyword?\", function (v){\n        if (v != 'yes') {\n            return;\n        }\n        \n        new Pman.Request({\n            url : baseURL + '/Roo/Clipping_keywords',\n            method: 'POST',\n            params : {\n                _delete : sn.id\n            },\n            success : function()\n            {\n               //_this.treepanel.tree.getRootNode().reload();\n               sn.parentNode.removeChild(sn);\n               \n                //g.getDataSource().reload();\n            }\n        });\n    });\n}"
+         },
+         "text" : "Delete",
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "text" : "Upload",
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "click" : "function (_self, e)\n{\n    if(!_this.form.findField('project_id').getValue()*1){\n        Roo.MessageBox.alert('Error', 'Please publish release first');\n        return;\n    }\n    _this.treepanel.tree.getRootNode().reload();\n}"
+         },
+         "text" : "Reload",
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "beforenodedrop" : "function (dropEvent)\n{\n    Roo.log(dropEvent);\n    Roo.log(dropEvent.target);\n    \n    \n    var target_parent = dropEvent.point ==  'append' ? \n            dropEvent.target : dropEvent.target.parentNode;\n            \n    // same parent\n    Roo.log(target_parent);\n    if (target_parent.id == dropEvent.data.node.parentNode.id) {\n         dropEvent.cancel = true;\n         return;\n    }\n    \n    \n    var tree = this;\n    if(!target_parent.leaf){\n        // parent is not a 'keyword'\n        // make sure we are dragging a keyword\n        if(dropEvent.data.node.leaf){\n            new Pman.Request({\n                url : baseURL + '/Roo/Clipping_keywords',\n                method: 'POST',\n                params : {\n                    parent_id : target_parent.id == 'keyword' ? 0 : target_parent.id,\n                    id : dropEvent.data.node.id\n                },\n                success : function()\n                {\n                    //_this.treepanel.tree.getRootNode().reload();\n                    //g.getDataSource().reload();\n                },\n                failure : function(){\n                    Roo.MessageBox.alert(\"Error\", \"problem saving change, please try again\");\n                    _this.treepanel.tree.getRootNode().reload();\n                }\n            });\n        }else{\n            dropEvent.cancel = true;\n        }\n    }else{\n        dropEvent.cancel = true;\n        Roo.MessageBox.confirm(\"Confirm\", \"Do you want to add this to alternatives?\", function (v){\n            if (v != 'yes') {\n               // _this.treepanel.tree.getRootNode().reload();\n                return;\n            }\n\n            var alt = dropEvent.target.attributes.alternatives;\n            alt = alt || '';\n            alt += (alt && alt.length) ? \"\\n\" : '';\n            alt += dropEvent.data.node.text;\n             dropEvent.target.attributes.alternatives = alt;\n             \n             dropEvent.data.node.parentNode.removeChild(dropEvent.data.node);\n             // update the tip..\n             dropEvent.target.ui.textNode.setAttribute('qtip', tree.rendererTip(dropEvent.target.attributes));\n             \n            new Pman.Request({\n                url : baseURL + '/Roo/Clipping_keywords',\n                method: 'POST',\n                params : {\n                    id : dropEvent.target.id,\n                    alternatives : alt\n                },\n                success : function()\n                {\n                    new Pman.Request({\n                        url : baseURL + '/Roo/Clipping_keywords',\n                        method: 'POST',\n                        params : {\n                            _delete : dropEvent.data.node.id\n                        },\n                        success : function()\n                        {\n                          // _this.treepanel.tree.getRootNode().reload();\n                            //g.getDataSource().reload();\n                        }\n                    });\n                }\n            });\n        });\n    }\n\n}",
+        "dblclick" : "function (node, e)\n{\n    var     tree =this;\n    if(parseInt(node.attributes.is_keyword)){\n        Pman.Dialog.ClippingKeyword.show({id:node.attributes.id},\n        function (res) {\n            node.attributes.alternatives = res.alternatives;\n            node.attributes.keyword = res.keyword; \n            node.attributes.text = res.keyword;             \n            \n            node.setText(res.keyword);\n            node.ui.textNode.setAttribute('qtip', tree.rendererTip(node.attributes));\n           \n            //_this.treepanel.tree.getRootNode().reload();\n        });\n    }else{\n        Pman.Dialog.ClippingKeywordGroup.show({id:node.attributes.id},\n        function (res) {\n\n            node.attributes.keyword = res.keyword; \n            node.attributes.text = res.keyword;             \n            \n            node.setText(res.keyword);\n\n\n        });\n    }\n}"
+       },
+       "$ rendererTip" : "function(attr) {\n    var alternatives = (attr.alternatives) ? attr.alternatives : '';\n    return attr.text + '<br/>' + alternatives.split('\\n').join('<br/>');\n}\n",
+       "xtype" : "TreePanel",
+       "enableDD" : true,
+       "rootVisible" : false,
+       "$ xns" : "Roo.tree",
+       "containerScroll" : true,
+       "ddScroll" : true,
+       "* prop" : "tree",
+       "items" : [
+        {
+         "listeners" : {
+          "beforeload" : "function (This, node, callback)\n{\n    this.baseParams._tree = 1;\n    if (!_this.form) {\n        return false;\n    }\n    \n    var pid = (_this.form.findField('parent_id').getValue()*1 > 0 && _this.form.findField('parent_id_project_id').getValue()*1 > 0) ?\n             _this.form.findField('parent_id_project_id').getValue() : _this.form.findField('project_id').getValue()\n    \n    this.baseParams.project_id = pid;\n    this.baseParams.language = _this.form.findField('language').getValue();\n}",
+          "create" : "function (This, attr)\n{\n\n    attr.text =  attr.text;\n    attr.allowChildren = true;\n}"
+         },
+         "$ baseParams" : "{_tree:1}",
+         "xtype" : "TreeLoader",
+         "requestMethod" : "GET",
+         "$ xns" : "Roo.tree",
+         "* prop" : "loader",
+         "$ dataUrl" : "baseURL + '/Roo/Clipping_keywords'"
+        },
+        {
+         "xtype" : "DefaultSelectionModel",
+         "$ xns" : "Roo.tree",
+         "* prop" : "selModel"
+        },
+        {
+         "id" : "keyword",
+         "text" : "keyword",
+         "xtype" : "AsyncTreeNode",
+         "$ xns" : "Roo.tree",
+         "* prop" : "root"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.notifypanel = this;\n    if (_this.notifygrid) {\n        _this.grid.notifyfooter.onClick('first');\n    }\n}"
+     },
+     "region" : "center",
+     "fitToframe" : true,
+     "background" : true,
+     "title" : "Reports",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "Events",
+     "items" : [
+      {
+       "listeners" : {
+        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n\n\n     var fd = _this.form.getFieldValues();\n     var dt = Date.parseDate (\n        fd.publish_dt_day + ' ' + fd.publish_dt_hr\n     , \"Y-m-d H:i\");\n     Roo.log(dt);\n      \n     Pman.Dialog.PressReleaseReportNotify.show({\n            id : this.getDataSource().getAt(rowIndex).data.id,\n            release_dt : dt,\n            act_when_tz: fd.publish_dt_tz\n            \n        }, function() {\n         _this.notifygrid.footer.onClick('refresh');\n     });\n\n\n}\n",
+        "|render" : "function() \n{\n    _this.notifygrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.notifypanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "to_email",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
+        {
+         "listeners" : {
+          "beforeload" : "function (_self, o)\n{\n    if (!_this.data || !_this.data.id) {\n        return false;\n    }\n    o.params.ontable = 'pressrelease_entry';\n    o.params.onid = _this.data.id;\n    o.params.evtype = 'distributionReport';\n    \n    \n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'event_when', direction: 'DESC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/core_notify.php'",
+           "method" : "GET",
+           "xtype" : "HttpProxy",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n     var fd = _this.form.getFieldValues();\n     var dt = Date.parseDate (\n        fd.publish_dt_day + ' ' + fd.publish_dt_hr\n     , \"Y-m-d H:i\");\n     Roo.log(dt);\n     \n     Pman.Dialog.PressReleaseReportNotify.show({\n            ontable:  'pressrelease_entry',\n            onid : _this.data.id,\n            evtype : 'distributionReport',\n            release_dt : dt,\n            act_when_tz: fd.publish_dt_tz\n            \n        }, function() {\n         _this.notifygrid.footer.onClick('refresh');\n     });\n}\n",
+            "render" : "function (_self)\n{\n    _this.addItemBtn = _self;\n}"
+           },
+           "text" : "Add",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function()\n        {\n        Pman.genericDelete(_this.notifypanel, 'core_notify'); \n        }\n        "
+           },
+           "text" : "Delete",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No Events found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying Events{0} - {1} of {2}",
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Report",
+         "width" : 150,
+         "$ renderer" : "function(v) { \n  if (!v) { \n       return '??';\n  }\n   var fd = _this.form.getFieldValues();\n    var reltime = Date.parseDate (\n        fd.publish_dt_day + ' ' + fd.publish_dt_hr\n     , \"Y-m-d H:i\");\n\n       \n   var tz =  fd.publish_dt_tz;\n \n   var parts = tz.split('.');\n   \n   var hkt = reltime.add(Date.HOUR, -1 * parts[0]).add(Date.MINUTE, -1 * parts[1]).add(Date.HOUR, 8);\n   \n  \n   var diff =  Math.round(v.getElapsed(hkt) / (1000 * 60 * 60 * 24));\n  return '' + diff + ' Days';\n\n//return String.format('{0}', v ? v.format('d/M/Y H:i') : ''); \n\n\n\n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "act_start"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 150,
+         "header" : "When",
+         "$ renderer" : "function(v) { \n  if (!v) { \n       return '??';\n  }\n   return v.format('d/M/Y h:ia'); \n\n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "act_start"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Who",
+         "width" : 100,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "to_email"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Sent",
+         "width" : 200,
+         "$ renderer" : "function(v,x,r) {\n    if (!v || v < r.data.act_start) {\n        return '';\n    }\n    return v.format('d/M/Y H:i');\n\n  }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "sent"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 50,
+         "header" : "Ref#",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "id"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Cancel",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    \n   \n    var lang = _this.form.findField('language').getValue();\n    if (!lang.length) {\n        Roo.MessageBox.alert(\"Error\", \"No Lanugage has been set\");\n        return;\n    }\n \n   \n    _this.showPreview = function() {\n    \n        var id = _this.form.findField('id').getValue()  * 1;\n        if (!id) {\n            Roo.MessageBox.alert(\"Error\", \"Could not find ID after saving?\");\n            return;\n        }\n    \n        Pman.Dialog.PressReleasePreview.show({\n            id : id,\n            title : _this.form.findField('headline').getValue(),\n            blacklist_ids :   _this.form.findField('blacklist_ids').getValue(),\n            beats:   _this.form.findField('distribution_config').getValue(),\n            countries :  _this.form.findField('distribution_countries').getValue() \n            \n          }, function()\n        {\n            _this.showPreview = false;\n        });\n    }\n     _this.form.doAction(\"submit\");\n     \n    \n}"
+     },
+     "text" : "Preview",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n     \n    var lang = _this.form.findField('language').getValue();\n    if (!lang.length) {\n        Roo.MessageBox.alert(\"Error\", \"No Lanugage has been set\");\n        return;\n    }\n \n    _this.form.doAction(\"submit\");\n\n}"
+     },
+     "text" : "Save",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+    "id": "roo-file-165",
+    "name": "Pman.Dialog.PressReleaseMediaList",
+    "parent": "",
+    "title": "",
+    "path": "/home/alan/gitlive/web.MediaOutreach/Pman/PressRelease/Pman.Dialog.PressReleaseMediaList.bjs",
+    "items": [
+        {
+            "closable": false,
+            "height": 110,
+            "modal": true,
+            "resizable": false,
+            "title": "Download Media List",
+            "width": 400,
+            "xtype": "LayoutDialog",
+            "|xns": "Roo",
+            "items": [
+                {
+                    "|xns": "Roo",
+                    "xtype": "LayoutRegion",
+                    "*prop": "center"
+                },
+                {
+                    "region": "center",
+                    "xtype": "ContentPanel",
+                    "|xns": "Roo",
+                    "items": [
+                        {
+                            "listeners": {
+                                "rendered": "function (form)\n{\n   _this.form = form;\n}"
+                            },
+                            "collapsible": true,
+                            "constraintoviewport": true,
+                            "draggable": true,
+                            "fixedcenter": true,
+                            "height": 0,
+                            "minButtonWidth": 0,
+                            "minHeight": 0,
+                            "minWidth": 0,
+                            "modal": true,
+                            "proxyDrag": true,
+                            "resizable": true,
+                            "resizeHandles": "",
+                            "shadow": "",
+                            "shadowOffset": 0,
+                            "shim": true,
+                            "syncHeightBeforeShow": true,
+                            "tabTag": "",
+                            "title": "",
+                            "width": 0,
+                            "x": 0,
+                            "xtype": "Form",
+                            "y": 0,
+                            "|xns": "Roo.form",
+                            "items": [
+                                {
+                                    "allowBlank": "false",
+                                    "displayField": "country_name",
+                                    "editable": "false",
+                                    "emptyText": "Select country",
+                                    "fieldLabel": "Country",
+                                    "forceSelection": true,
+                                    "hiddenName": "country",
+                                    "listWidth": 400,
+                                    "loadingText": "Searching...",
+                                    "minChars": 2,
+                                    "name": "country",
+                                    "pageSize": 20,
+                                    "qtip": "Select pressrelease_contact",
+                                    "queryParam": "",
+                                    "selectOnFocus": true,
+                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{country_name}</b> </div>",
+                                    "triggerAction": "all",
+                                    "typeAhead": true,
+                                    "valueField": "country",
+                                    "width": 200,
+                                    "xtype": "ComboBox",
+                                    "|xns": "Roo.form",
+                                    "items": [
+                                        {
+                                            "listeners": {
+                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct = 'country';\n    o.params._columns = 'country,country_name';\n    // set more here\n}\n"
+                                            },
+                                            "*prop": "store",
+                                            "remoteSort": true,
+                                            "xtype": "Store",
+                                            "|sortInfo": "{ direction : 'ASC', field: 'country_name' }",
+                                            "|xns": "Roo.data",
+                                            "items": [
+                                                {
+                                                    "*prop": "proxy",
+                                                    "xtype": "HttpProxy",
+                                                    "method": "GET",
+                                                    "|xns": "Roo.data",
+                                                    "|url": "baseURL + '/Roo/pressrelease_contact.php'"
+                                                },
+                                                {
+                                                    "*prop": "reader",
+                                                    "xtype": "JsonReader",
+                                                    "|xns": "Roo.data",
+                                                    "id": "id",
+                                                    "root": "data",
+                                                    "totalProperty": "total",
+                                                    "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"honor\",\"type\":\"string\"}]"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "listeners": {
+                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+                    },
+                    "*prop": "buttons[]",
+                    "text": "Cancel",
+                    "xtype": "Button",
+                    "|xns": "Roo"
+                },
+                {
+                    "listeners": {
+                        "click": "function (_self, e)\n{\n\n    cn = _this.form.findField('country').getValue();\n    if (!cn.length) {\n              Roo.MessageBox.alert(\"Error\", \"Select a country\");\n            return;\n        }\n\n      new Pman.Download({\n      \n        url : baseURL + '/PressRelease/MediaListExport/' + cn\n      \n      });\n      \n      _this.dialog.hide();\n      Roo.MessageBox.alert(\"Notice\", \"File should start downloading\");\n}"
+                    },
+                    "*prop": "buttons[]",
+                    "text": "Download",
+                    "xtype": "Button",
+                    "|xns": "Roo"
+                }
+            ]
+        }
+    ],
+    "permname": "",
+    "modOrder": "001"
+}

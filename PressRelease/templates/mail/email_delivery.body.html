@@ -1,0 +1,31 @@
+
+<H1>Yesterday Delivery failed for {badtotal} Bad email address, and {blacktotal} for spam blacklists</H1>
+
+<H2>Possible blacklists</H2>
+
+<table>
+    <tr>
+        <td>Total Failed</td>
+        <td>Code</td>
+    </tr>
+    <tr flexy:foreach="blacklists,desc,failed">
+        <td>{failed}</td>
+        <td>{formatDesc(desc):h}<br/>{emails(desc):h}</td>
+    </tr>
+ </table>
+
+<H2>Failed Delivery - probably bad email address</H2>
+
+<table>
+    <tr>
+        <td>email</td>
+        <td>reason</td>
+    </tr>
+    <tr flexy:foreach="bademails,email,failed">
+        <td>{email}</td>
+        <td>{formatDesc(failed):h}<br/></td>
+    </tr>
+ </table>
+
+
+

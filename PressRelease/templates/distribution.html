@@ -1,0 +1,73 @@
+ 
+            
+<H1>Distribution will be delivered to {distlistN} Journalists</h3></H1>
+
+<div><b>Distribute: </b> {release.publish_dt} GMT+{release.publish_dt_tz}</div>
+<div><b>Word Count: </b> {release.word_count}</div>
+<div><b>Source: </b> {release.source_name}</div>
+
+<div><b>Language</b> {release.language(authUser.lang)} <span flexy:foreach="release.children,cr">,
+        {cr.language(authUser.language)}</span></div>
+
+<h3>Photos / Videos</h3>
+ 
+
+    {if:!release.images} No Images / Videos Available {end:}
+    
+    <div flexy:foreach="release.images,img">
+        {img.toHTML(#150x150#,imageURL):h}
+        <br/>{img.title} 
+        <br/> <a href="{rootURL}/i/Download/{img.id}">http://{HOST}/{rootURL}/i/Download/{img.id}</a>
+    </div>
+
+
+<h3>Links</h3>
+
+ {release.content_links():h}
+ 
+ 
+<h3>Company Logo</h3>
+{if:!release.logo}No Company Logo{end:}
+{release.logo.toHTML(#150x150#,imageURL):h}
+ 
+
+<h3>Based on these rules</h3>
+
+<div><b>International: </b> {if:international}YES{else:}no{end:}</div>
+<div><b>Regions: </b> {if:regions}{regions}{else:}no{end:}</div>
+
+<div><b>Countries: </b> {countries}</div>
+<div><b>General News: </b> {if:general}YES{else:}no{end:}</div>
+<div><b>Beats: </b> {beats}</div>
+ 
+<br/><br/>
+<!--
+<h3>Journalists</h3>
+
+<table>
+
+   <tr >
+        <td>Publication<td>
+        <td>role<td>
+        <td>email<td>
+        <td>Pref. Lang</td>
+        <td>Name</td>
+        
+   </tr>
+   <tr flexy:foreach="distlist,v">
+
+        <td>{v.publication_name}</td>
+        <td>{v.role}<td>
+        <td>{v.email}<td>
+        <td>{v.contact_language}<td>
+        <td>{v.firstname} {v.lastname} </td>
+        
+        
+        
+        
+        
+   </tr>
+</table>
+   -->
+        
+  

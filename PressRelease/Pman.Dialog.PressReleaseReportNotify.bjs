@@ -1,0 +1,146 @@
+{
+    "name" : "Pman.Dialog.PressReleaseReportNotify",
+    "parent" : "",
+    "title" : "",
+    "path" : "/home/alan/gitlive/web.MediaOutreach/Pman/PressRelease/Pman.Dialog.PressReleaseReportNotify.bjs",
+    "permname" : "",
+    "modOrder" : "001",
+    "items" : [
+        {
+            "Boolean modal" : true,
+            "collapsible" : false,
+            "title" : "Edit / Create Report Notification",
+            "xtype" : "LayoutDialog",
+            "width" : 400,
+            "$ xns" : "Roo",
+            "closable" : false,
+            "resizable" : false,
+            "height" : 180,
+            "items" : [
+                {
+                    "xtype" : "LayoutRegion",
+                    "$ xns" : "Roo",
+                    "* prop" : "center"
+                },
+                {
+                    "region" : "center",
+                    "xtype" : "ContentPanel",
+                    "$ xns" : "Roo",
+                    "items" : [
+                        {
+                            "listeners" : {
+                                "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       if (_this.data.id) { \n            this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n            return;\n        }\n       \n       this.findField('act_when_dis').setValue(\"\");\n       \n       return;\n    }\n    if (action.type == 'load') {\n        this.findField('act_when_dis').updateFromWhen();\n        return;\n    }\n    if (action.type =='submit') {\n    \n       \n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+                                "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
+                            },
+                            "$ url" : "baseURL + '/Roo/core_notify.php'",
+                            "method" : "POST",
+                            "xtype" : "Form",
+                            "style" : "margin:10px;",
+                            "String labelAlign" : "right",
+                            "$ xns" : "Roo.form",
+                            "Number labelWidth" : 150,
+                            "items" : [
+                                {
+                                    "listeners" : {
+                                        "valid" : "function (_self)\n{\n    _this.form.findField('act_when_dis').updateVal();\n}"
+                                    },
+                                    "Boolean allowBlank" : false,
+                                    "String name" : "act_when_days",
+                                    "Number width" : 50,
+                                    "xtype" : "NumberField",
+                                    "Boolean allowDecimals" : false,
+                                    "$ xns" : "Roo.form",
+                                    "String fieldLabel" : "Days after release",
+                                    "Boolean allowNegative" : false,
+                                    "Number minValue" : 1,
+                                    "Number maxValue" : 15
+                                },
+                                {
+                                    "xtype" : "Row",
+                                    "String labelSeparator" : "",
+                                    "$ xns" : "Roo.form",
+                                    "Number/String width" : 200,
+                                    "items" : [
+                                        {
+                                            "String name" : "act_when_dis",
+                                            "Number width" : 200,
+                                            "| function updateVal" : "function() {\n   var tz = _this.form.findField('act_when_tz').getValue();\n   var reltime = _this.data.release_dt;\n   var parts = tz.split('.');\n   \n   var hkt = reltime.add(Date.HOUR, -1 * parts[0]).add(Date.MINUTE, -1 * parts[1]).add(Date.HOUR, 8);\n   \n   var days = 1*  _this.form.findField('act_when_days').getValue();\n   var disptime = reltime.add(Date.DAY,days);\n   Roo.log([ hkt, hkt.add(Date.DAY,days) ]);\n   var act_when = hkt.add(Date.DAY,days).format('Y-m-d H:i:s');\n   Roo.log('set actwhen = ' + act_when);\n   _this.form.findField('act_start').setValue(act_when);\n   this.setValue(disptime.format('d/M/Y h:ia') + ' (GMT+'+tz+')');\n\n }",
+                                            "xtype" : "DisplayField",
+                                            "$ xns" : "Roo.form",
+                                            "| function updateFromWhen" : "function() {\n\n   var tz = _this.form.findField('act_when_tz').getValue();\n   var reltime = _this.data.release_dt;\n   var parts = tz.split('.');\n   \n\n   \n   var hkt = reltime.add(Date.HOUR, -1 * parts[0]).add(Date.MINUTE, -1 * parts[1]).add(Date.HOUR, 8);\n   \n   var dt = Date.parseDate (\n        _this.form.findField('act_start').getValue()\n     , \"Y-m-d H:i:s\");\n\n   var diff =  Math.round(dt.getElapsed(hkt) / (1000 * 60 * 60 * 24));\n   this.form.findField('act_when_days').setValue(diff);\n   this.updateVal();\n }\n\n\n "
+                                        }
+                                    ]
+                                },
+                                {
+                                    "String name" : "to_email",
+                                    "Number width" : 200,
+                                    "xtype" : "TextField",
+                                    "$ xns" : "Roo.form",
+                                    "String fieldLabel" : "To",
+                                    "String vtype" : "email"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "id"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "onid"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "ontable"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "evtype"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "act_start"
+                                },
+                                {
+                                    "xtype" : "Hidden",
+                                    "$ xns" : "Roo.form",
+                                    "name" : "act_when_tz"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    \n    if (!_this.form.isValid()) {\n        Roo.MessageBox.alert(\"Error\", \"Please fill in the details\");\n        return;\n    }\n    \n    new Pman.Request({\n        url : baseURL + '/PressRelease/DistributionReport',\n        method : 'POST',\n        mask : 'Sending',\n        params : {\n            days : _this.form.findField('act_when_days').getValue(),\n            email : _this.form.findField('to_email').getValue(),\n            id : _this.form.findField('onid').getValue()\n        },\n        success : function() {\n            Roo.MessageBox.alert(\"Sent\", \"Message has been sent\");\n        }\n   \n   });\n   \n    \n    \n}"
+                    },
+                    "text" : "Send now",
+                    "xtype" : "Button",
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
+                },
+                {
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+                    },
+                    "text" : "Cancel",
+                    "xtype" : "Button",
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
+                },
+                {
+                    "listeners" : {
+                        "click" : "function (_self, e)\n{\n    // do some checks?\n     \n    \n    \n    _this.form.doAction(\"submit\");\n\n}"
+                    },
+                    "text" : "Save",
+                    "xtype" : "Button",
+                    "$ xns" : "Roo",
+                    "* prop" : "buttons[]"
+                }
+            ]
+        }
+    ]
+}

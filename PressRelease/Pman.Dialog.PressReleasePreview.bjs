@@ -1,0 +1,254 @@
+{
+ "name" : "Pman.Dialog.PressReleasePreview",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.MediaOutreach/Pman/PressRelease/Pman.Dialog.PressReleasePreview.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "e45c559f5de4a9f38b3cc11ffd7fef1c" : "Preview Release",
+  "99f1888871e14cbf8bca1cd8db21e400" : "No pressrelease_contact found",
+  "e12167aa0a7698e6ebc92b4ce3909b53" : "To",
+  "e925915109b4a15c1f15b2c0e9739bac" : "Contact language",
+  "eea7699a7f07e294c651d3842569512c" : "Send a copy to me",
+  "4f604bfc9885126ed4a7a986d0145aff" : "Preview press release",
+  "91a105e1c679f3320b6372a2f6e00de5" : "Approve for distribution",
+  "326185f4d4dfc0ef9df05d4de4ad5b5e" : "Displaying pressrelease_contact{0} - {1} of {2}",
+  "ffebf16bea0aaac6cf0c3b15e2b3fa76" : "Send a copy to",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "e3d388b2c43e5ba0905702620ae2abc1" : "Search for",
+  "a47ed9d50ffef087c683dc24f9a413db" : "Distribution Summary",
+  "cb50207904226f8409d63b3f1a6b8ccb" : "Distribution to",
+  "648a529e2eddc96da88575f89353f810" : "Publication name",
+  "94966d90747b97d1f0f206c98a8b1ac3" : "Send",
+  "bbbabdbe1b262f75d99d62880b953be1" : "Role"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    // this overlays the loaded data onto a spreadsheet layout.\n    if (!_this.data) {\n     \n        // products..\n         _this.data =  {\n            title : \"Preview Press release\",\n            id : 1,\n\n        };\n    }\n    _this.dialog.setTitle(_this.data.title);\n    var reg = _this.dialog.layout.getRegion('center');\n    var pan = reg.getPanel(0);\n    var sz = reg.el.getSize();\n    var psz = pan.el.getSize();\n    pan.setContent(\n        '<iframe ' + \n        'style=\"border: 0px;width:' + psz.width +'px;height:' + psz.height +'px\" ' +\n        'src=\"' +  baseURL + '/PressRelease/ViewDistribution/' + _this.data.id + '.html' + \n        '\"/>'\n        );\n     pan = reg.getPanel(1);\n     sz = reg.el.getSize();\n     psz = pan.el.getSize();\n    pan.setContent(\n        '<iframe ' + \n        'style=\"border: 0px;width:' + psz.width +'px;height:' + psz.height +'px\" ' +\n        'src=\"' +  baseURL + '/PressRelease/View/' + _this.data.id + '.html' + \n        '\"/>'\n        );\n     reg.showPanel(0);\n\n}"
+   },
+   "modal" : true,
+   "collapsible" : false,
+   "title" : "Preview press release",
+   "xtype" : "LayoutDialog",
+   "width" : 750,
+   "$ xns" : "Roo",
+   "closable" : false,
+   "resizable" : false,
+   "height" : 600,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "tabPosition" : "top",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "autoScroll" : false,
+     "fitToFrame" : true,
+     "region" : "center",
+     "title" : "Distribution Summary",
+     "xtype" : "ContentPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo"
+    },
+    {
+     "autoScroll" : false,
+     "fitToFrame" : true,
+     "region" : "center",
+     "title" : "Preview Release",
+     "xtype" : "ContentPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo"
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+     },
+     "background" : true,
+     "region" : "center",
+     "fitToframe" : true,
+     "title" : "Distribution to",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "pressrelease_contact",
+     "items" : [
+      {
+       "listeners" : {
+        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+        "cellclick" : "function (_self, ri, ci , e) {\n  \n    var di = this.colModel.getDataIndex(ci);\n    if (di != 'blacklist_pos') {\n        return;\n    }\n    \n           \n    var rec = this.ds.getAt(ri);\n    rec.set('blacklist_pos', (rec.data.blacklist_pos * 1) ? 0 : 1);\n    rec.commit();\n        \n           //_this.countrygrid.ds.load({});\n}",
+        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "email",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
+        {
+         "listeners" : {
+          "update" : "function (_self, record, operation)\n{\n   if (operation != Roo.data.Record.COMMIT) {\n       return;\n   }\n   var id = record.data.id;\n   var chg = record.data.blacklist_pos * 1;\n   var olds  = '' + _this.data.blacklist_ids;\n   var ar  =  _this.data.blacklist_ids.split(',');\n   var ix = ar.indexOf(new String(id));\n   if (!chg) {\n    // removed..\n        if (ix > -1) {\n            ar.splice(ix,1);\n\n        }\n        \n   } else {\n        if (ix < 0) {\n            ar.push(id);\n        }\n   \n   }\n   \n   _this.data.blacklist_ids = ar.join(',');\n   Pman.Dialog.PressReleaseEdit.form.findField('blacklist_ids').setValue(\n       _this.data.blacklist_ids\n   );\n   \n   if (olds != _this.data.blacklist_ids) {\n     // send it off..\n        new Pman.Request({\n            url : baseURL + '/Roo/Pressrelease_entry',\n            method : 'POST',\n            params : {\n                id : _this.data.id,\n                blacklist_ids : _this.data.blacklist_ids\n            }\n        });\n    \n   \n   }\n   \n   \n   \n   \n}",
+          "beforeload" : "function (_self, options)\n{\n   \n    if (typeof(_this.data) == 'undefined') {\n        return false;\n    }\n    options.params['distfilter[beats]'] = _this.data.beats;\n    options.params['distfilter[countries]'] = _this.data.countries;    \n    options.params['distfilter[blacklist]'] = _this.data.blacklist_ids;    \n    \n    options.params['query[search_name]'] = _this.searchBox.getValue();\n    \n    \n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'honor', direction: 'ASC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/pressrelease_contact.php'",
+           "method" : "GET",
+           "xtype" : "HttpProxy",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id',\n        'type': 'int'\n    },\n    {\n        'name': 'honor',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'email_personal',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'category_media_id',\n        'type': 'int'\n    },\n    {\n        'name': 'submission_time',\n        'type': 'string'\n    },\n    {\n        'name': 'contact_language',\n        'type': 'string'\n    },\n    {\n        'name': 'url',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'phone_mobile',\n        'type': 'string'\n    },\n    {\n        'name': 'phone_direct',\n        'type': 'string'\n    },\n    {\n        'name': 'firstname',\n        'type': 'string'\n    },\n    {\n        'name': 'lastname',\n        'type': 'string'\n    },\n    {\n        'name': 'firstname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'lastname_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'publication_name',\n        'type': 'string'\n    },\n    {\n        'name': 'publication_name_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'publication_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'category_scope_id',\n        'type': 'int'\n    },\n    {\n        'name': 'contact_language_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'best_contact_method',\n        'type': 'string'\n    },\n    {\n        'name': 'best_contact_from',\n        'type': 'string'\n    },\n    {\n        'name': 'best_contact_to',\n        'type': 'string'\n    },\n    {\n        'name': 'best_contact_days',\n        'type': 'string'\n    },\n    {\n        'name': 'publication_lang_alt',\n        'type': 'string'\n    },\n    {\n        'name': 'city',\n        'type': 'string'\n    },\n    {\n        'name': 'category_type_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id_parent_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'category_type_id_display_order',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id_visible',\n        'type': 'int'\n    },\n    {\n        'name': 'category_type_id_hgroup',\n        'type': 'string'\n    },\n    {\n        'name': 'category_media_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_media_id_parent_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_media_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'category_media_id_display_order',\n        'type': 'int'\n    },\n    {\n        'name': 'category_media_id_visible',\n        'type': 'int'\n    },\n    {\n        'name': 'category_media_id_hgroup',\n        'type': 'string'\n    },\n    {\n        'name': 'category_scope_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_scope_id_parent_id',\n        'type': 'int'\n    },\n    {\n        'name': 'category_scope_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'category_scope_id_display_order',\n        'type': 'int'\n    },\n    {\n        'name': 'category_scope_id_visible',\n        'type': 'int'\n    },\n    {\n        'name': 'category_scope_id_hgroup',\n        'type': 'string'\n    }\n]",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No pressrelease_contact found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying pressrelease_contact{0} - {1} of {2}",
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "text" : "Search for",
+           "xtype" : "TextItem",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "specialkey" : "function (_self, e)\n{\n    _this.grid.footer.onClick('first');\n}",
+            "render" : "function (_self)\n{\n_this.searchBox = _self;\n}"
+           },
+           "xtype" : "TextField",
+           "$ xns" : "Roo.form"
+          },
+          {
+           "listeners" : {
+            "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Button",
+           "cls" : "x-btn-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function (_self, e)\n{\n    _this.searchBox.setValue('');\n         \n\n    \n    _this.grid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Button",
+           "cls" : "x-btn-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Publication name",
+         "width" : 100,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "publication_name"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Role",
+         "width" : 100,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "role"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "To",
+         "width" : 200,
+         "$ renderer" : "function(v,x,r) { \n\n    var ar = [];\n    if (v.length) ar.push(v);\n    if (r.data.email2.length) ar.push(r.data.email2);\n    if (r.data.email3.length) ar.push(r.data.email3);    \n\n\n    if (!Pman.hasPerm('PressRelease.JournalistAll', 'S')) {\n        \n      return String.format('{0} {1} ({2} addresses)', \n                r.data.firstname, r.data.lastname, ar.length\n        );   \n    \n    }\n\n    //if (r.data.email_personal.length) ar.push(r.data.email_personal);\n    return String.format('<span qtip=\"{3}\">{0} {1}</span> ({2} addresses)',\n                r.data.firstname, r.data.lastname, ar.length,\n                 ar.join(' / ')); \n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "email"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Contact language",
+         "width" : 70,
+         "$ renderer" : "function(v,x,r) { \n    var ar = [];\n    if (v.length) ar.push(v);\n    if (r.data.contact_language_alt.length) ar.push(r.data.contact_language_alt);\n    //if (r.data.email_personal.length) ar.push(r.data.email_personal);\n    return String.format('{0}', ar.join(' / ')); \n}",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "contact_language"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Send",
+         "width" : 50,
+         "$ renderer" : "function(v) {\n     var state = v < 1 ?  '-checked' : '';\n                                            \n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                                                      \n}\n",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "blacklist_pos"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n    \n    // Roo.log(_this.data);\n    Pman.Dialog.PressReleasePreviewSend.show({ id : _this.data.id });\n    \n    \n}"
+     },
+     "text" : "Send a copy to",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n    \n    // Roo.log(_this.data);\n    \n    \n    new Pman.Request({\n        url : baseURL + '/PressRelease/View/' + _this.data.id,\n        method : 'GET',\n        params : {\n            send_test : 1\n        },\n        success : function()\n        {\n            Roo.MessageBox.alert(\"Notice\", \"Release set to \" + Pman.Login.authUser.email);\n\n        }\n    \n    \n    })\n    \n}"
+     },
+     "text" : "Send a copy to me",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n    \n    // Roo.log(_this.data);\n    \n    \n    new Pman.Request({\n        url : baseURL + '/PressRelease/View/' + _this.data.id,\n        method : 'POST',\n        success : function(res)\n        {\n\n            Roo.log(res);\n            Roo.MessageBox.alert(\"Queued\",\n                \"Release is queued for delivery to \" +\n                res.data +\n                \" Journalists - if this looks wrong - go to Circulation and remove undelivered \" +\n                \" Messages, and check with support to find out why\"\n            );\n                \n\n            _this.dialog.hide();\n            Pman.Dialog.PressReleaseEdit.dialog.hide();            \n            Pman.Dialog.PressReleaseEdit.callback();\n\n        }\n    \n    \n    })\n    \n}"
+     },
+     "text" : "Approve for distribution",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Cancel",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}
