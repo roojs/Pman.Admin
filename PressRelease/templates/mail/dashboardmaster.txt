@@ -1,8 +1,0 @@
-From: {t.sender:h}
-To: {t.email:h}
-Subject: {subject:h}
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <{t.msgid}@media-outreach.com>
-Mime-Version: 1.0
-
- 

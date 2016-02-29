@@ -1,7 +1,0 @@
-From: "Media Outreach" <support@media-outreach.com>
-To: {t.email:h}
-Subject: [RELEASE] - Yesterday Delivery - {badtotal} Bad email address, and {blacktotal} for blacklists
-Content-Type: text/plain; charset="utf-8"
-Mime-Version: 1.0
-
-Sorry - HTML only
