@@ -128,15 +128,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             Events.id AS id,
             Events.event_when AS event_when,
             Events.action AS action,
-            Events.remarks AS remarks,
-            CASE WHEN Events.person_id != 0 THEN
-                join_person_id_id.email
-            WHEN Events.hydra_person_id != 0 THEN
-                join_hydra_person_id_id.email
-            ELSE
-                ''
-            END AS email
+            Events.remarks AS remarks
+            
         ");
+        $events->selectAddPersonEmail();
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
