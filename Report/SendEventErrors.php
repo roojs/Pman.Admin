@@ -190,7 +190,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             DISTINCT(Events.action) AS action
         ");
         $ar = $events->fetchAll('action');
-        echo implode("\n", $ar);
+        echo implode(",", $ar);
         echo "\n";
         exit;
         
