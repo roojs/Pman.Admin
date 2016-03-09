@@ -53,7 +53,7 @@ class Pman_Admin_EventView extends Pman
         echo "<HR><H2>Posted Data:</H2>";
         
         $logdir = DB_DAtaObject::Factory('Events')->logDir();
-        $ff  = HTML_FlexyFramework::get();
+        
         if (!$logdir) {
             echo "not available (Pman[storedir] not configured)";
             exit;
@@ -65,7 +65,7 @@ class Pman_Admin_EventView extends Pman
             
         } 
           
-        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".json"; 
+        $file = $logdir. date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".json"; 
         if (!file_exists($file)) {
             echo "not available (missing file) $file";
             exit;
