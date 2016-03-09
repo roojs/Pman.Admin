@@ -189,6 +189,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $events->selectAdd("
             DISTINCT(Events.action) AS action
         ");
+        $events->whereAdd("action !-''");
         $ar = $events->fetchAll('action');
         echo implode(",", $ar);
         echo "\n";
