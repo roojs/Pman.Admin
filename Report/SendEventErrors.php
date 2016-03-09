@@ -42,7 +42,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
-        ,
+     
         'list' => array(
             'desc' => 'list the current actions in the database',
             'short' => 'L',
@@ -66,6 +66,11 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     function get($args, $opts)
     {
         $this->opts = $opts;
+        
+          
+        if(!empty($this->opts['list'])){
+            $this->listTypes();
+        }
         
         if(empty($this->opts['group'])){
             $this->jerr('Missing group - try add [-t {group name}]');
