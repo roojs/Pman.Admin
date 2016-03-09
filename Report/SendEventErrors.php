@@ -41,6 +41,14 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'default' => '',
             'min' => 1,
             'max' => 1,
+        ),
+        ,
+        'list' => array(
+            'desc' => 'list the current actions in the database',
+            'short' => 'L',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
         )
     );
     
