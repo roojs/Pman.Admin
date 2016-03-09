@@ -52,20 +52,14 @@ class Pman_Admin_EventView extends Pman
         }
         echo "<HR><H2>Posted Data:</H2>";
         
+        $logdir = DB_DAtaObject::Factory('Events')->logDir();
         $ff  = HTML_FlexyFramework::get();
-        if (empty($ff->Pman['event_log_dir'])) {
-            echo "not available (Pman[event_log_dir] not configured)";
+        if (!$logdir) {
+            echo "not available (Pman[storedir] not configured)";
             exit;
         }
-        if (function_exists('posix_getpwuid')) {
-            $uinfo = posix_getpwuid( posix_getuid () ); 
          
-            $user = $uinfo['name'];
-        } else {
-            $user = getenv('USERNAME'); // windows.
-        }
-         
-        $file = $ff->Pman['event_log_dir']. "/{$user}" . date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php"; 
+        $file = $logdir. date('/Y/m/d/',strtotime($ev->event_when)). $ev->id . ".php"; 
         if (file_exists($file)) {
             echo '<PRE>' . htmlspecialchars(file_get_contents($file)). '</PRE>';
             
