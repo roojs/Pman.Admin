@@ -322,7 +322,7 @@
        "xtype" : "ColumnModel",
        "header" : "Who to notify",
        "width" : 100,
-       "$ renderer" : "function(v,x,r) {\n\n\n     var ecol = r.data.person_table.toLowerCase() + '_id_email' ;\n     var ncol = r.data.person_table.toLowerCase() + '_id_name' ;\n     return String.format('{0} <u>&lt;{1}&gt;</u>', r.data[ncol], r.data[ecol]); \n }",
+       "$ renderer" : "function(v,x,r) {\n\n    var pt = r.data.person_table.toLowerCase() ;\n    var pt = pt.length ? pt : 'person';\n     var ecol = pt + '_id_email' ;\n     var ncol = pt + '_id_name' ;\n     return String.format('{0} <u>&lt;{1}&gt;</u>', r.data[ncol], r.data[ecol]); \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "person_id_name"

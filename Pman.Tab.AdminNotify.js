@@ -583,9 +583,10 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
       header : _this._strings['24463f10155b8af973300f86302c4fde'] /* Who to notify */,
       renderer : function(v,x,r) {
       
-      
-           var ecol = r.data.person_table.toLowerCase() + '_id_email' ;
-           var ncol = r.data.person_table.toLowerCase() + '_id_name' ;
+          var pt = r.data.person_table.toLowerCase() ;
+          var pt = pt.length ? pt : 'person';
+           var ecol = pt + '_id_email' ;
+           var ncol = pt + '_id_name' ;
            return String.format('{0} <u>&lt;{1}&gt;</u>', r.data[ncol], r.data[ecol]); 
        },
       width : 100,
