@@ -158,7 +158,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $subject = "{$this->opts['subject']} $subject";
         }
         
-        $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], false, $subject);
         
         $events = DB_DataObject::factory('Events');
         $events->autoJoin();
@@ -184,9 +183,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $events->whereAddIn('Events.action', $only, 'string');
         }
         
-        if(!$events->count()){
+        if(!$events->count()){  // this is the second count we are doing...
             $this->jerr('Nothing to be sent');
         }
+        
+        
+        $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], false, $subject);
+
         
         $errors = $events->fetchAll();
         
