@@ -111,14 +111,15 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $min = 0;
         
-        $events = DB_DataObject::factory('Events');
-        $events->action = 'ERROR-REPORT-' . $this->opts['uid'];
-        $events->orderBy('id DESC');
-        $events->limit(1);        
-        if ($events->find(true)) {
-            $min = $events->id;
+        if ($this->opts['uid'] != 'STD') {
+            $events = DB_DataObject::factory('Events');
+            $events->action = 'ERROR-REPORT-' . $this->opts['uid'];
+            $events->orderBy('id DESC');
+            $events->limit(1);        
+            if ($events->find(true)) {
+                $min = $events->id;
+            }
         }
-    
         
         
         $events = DB_DataObject::factory('Events');
