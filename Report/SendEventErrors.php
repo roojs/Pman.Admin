@@ -31,7 +31,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         'uid' => array(
             'desc' => 'Unique identifier - eg. FAILREPORT',
             'short' => 'U',
-            'default' => '',
+            'default' => 'STD',
             'min' => 1,
             'max' => 1,
         ),
@@ -100,16 +100,15 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
         
         $min = 0;
-        if (!empty($this->opts['uid'])) {}
+        if (!empty($this->opts['uid'])) {
             $events = DB_DataObject::factory('Events');
             $events->action = 'ERROR-REPORT-' . $this->opts['uid'];
             $events->orderBy('id DESC');
-            $events->limit(1);
-            
+            $events->limit(1);        
             if ($events->find(true)) {
                 $min = $events->id;
             }
-    }
+        }
         
         
         $events = DB_DataObject::factory('Events');
@@ -146,7 +145,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         if(empty($summary)){
             $this->jerror('ERROR-REPORT', 'Nothing to be sent');
         }
-        
+        $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], 'false', ;
         $e = DB_DataObject::factory('Events');
         $e->init('ERROR-REPORT',false,"Sending");
         $e->event_when = date('Y-m-d H:i:s');
