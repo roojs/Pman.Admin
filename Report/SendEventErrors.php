@@ -28,7 +28,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
-        
+        'uid' => array(
+            'desc' => 'Unique identifier - eg. FAILREPORT',
+            'short' => 'U',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ),
         'subject' => array(
             'desc' => 'email subject',
             'short' => 's',
@@ -93,16 +99,17 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         // see the last date of notification to these users...
         $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
         
-        $events = DB_DataObject::factory('Events');
-        $events->action = 'ERROR-REPORT';
-        $events->whereAddIn('person_id', $rcpt_ids, 'int');
-        $events->orderBy('id DESC');
-        $events->limit(1);
         $min = 0;
-        if ($events->find(true)) {
-            $min = $events->id;
-        }
-        
+        if (!empty($this->opts['uid'])) {}
+            $events = DB_DataObject::factory('Events');
+            $events->action = 'ERROR-REPORT-' . $this->opts['uid'];
+            $events->orderBy('id DESC');
+            $events->limit(1);
+            
+            if ($events->find(true)) {
+                $min = $events->id;
+            }
+    }
         
         
         $events = DB_DataObject::factory('Events');
@@ -142,8 +149,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $e = DB_DataObject::factory('Events');
         $e->init('ERROR-REPORT',false,"Sending");
-                 
-                 
         $e->event_when = date('Y-m-d H:i:s');
         $eid = $e->insert();
         
