@@ -28,6 +28,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
+        
         'subject' => array(
             'desc' => 'email subject',
             'short' => 's',
@@ -85,9 +86,16 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'email');
         
+        
         if(empty($rcpts)){
             $this->jerr("{$this->opts['group']} does not has any memeber");
         }
+        
+        $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
+        
+        // see the last date of notification to these users...
+        
+        
         
         $events = DB_DataObject::factory('Events');
         $events->selectAdd();
