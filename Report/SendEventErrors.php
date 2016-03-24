@@ -143,7 +143,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $summary = $events->fetchAll('action', 'total');
         
         if(empty($summary)){
-            $this->jerror('ERROR-REPORT', 'Nothing to be sent');
+            $this->jerror('ERROR-REPORT-' . $this->opts['uid'], 'Nothing to be sent');
         }
         $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], 'false', ;
         $e = DB_DataObject::factory('Events');
