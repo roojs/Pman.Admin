@@ -171,7 +171,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             
         ");
         $events->selectAddPersonEmail();
-        
+        $events->whereAdd('id > '. $min);
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
         $exclude = array_unique(array_filter(array_map('trim', explode(',', $this->opts['exclude']))));
