@@ -140,6 +140,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerror('ERROR-REPORT', 'Nothing to be sent');
         }
         
+        $e = DB_DataObject::factory('Events');
+        $e->init('ERROR-REPORT',false,"Sending");
+                 
+                 
+        $e->event_when = date('Y-m-d H:i:s');
+        $eid = $e->insert();
+        
         $subject = array();
         
         foreach ($summary as $k => $v){
