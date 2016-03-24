@@ -63,7 +63,14 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'default' => '',
             'min' => 1,
             'max' => 1,
-        )
+        ),
+        'debug' => array(
+            'desc' => 'Turn on database debugging',
+            'short' => 'd',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ), 
     );
     
     function getAuth()
@@ -81,7 +88,10 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     {
         $this->opts = $opts;
         
+        if (!empty($this->opts['debug'])) {
+            DB_DataObject::debugLevel(1);
           
+        }
         if(!empty($this->opts['list'])){
             $this->listTypes();
         }
