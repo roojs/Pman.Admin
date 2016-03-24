@@ -111,6 +111,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             DISTINCT(Events.action) AS action,
             COUNT(Events.id) AS total
         ");
+        $events->whereAdd('id > '. $min);
         
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
