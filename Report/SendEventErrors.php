@@ -145,11 +145,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         if(empty($summary)){
             $this->jerror('ERROR-REPORT-' . $this->opts['uid'], 'Nothing to be sent');
         }
-        $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], 'false', ;
-        $e = DB_DataObject::factory('Events');
-        $e->init('ERROR-REPORT',false,"Sending");
-        $e->event_when = date('Y-m-d H:i:s');
-        $eid = $e->insert();
         
         $subject = array();
         
@@ -162,6 +157,8 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         if(!empty($this->opts['subject'])){
             $subject = "{$this->opts['subject']} $subject";
         }
+        
+        $this->addEvent('ERROR-REPORT-' . $this->opts['uid'], false, $subject);
         
         $events = DB_DataObject::factory('Events');
         $events->autoJoin();
