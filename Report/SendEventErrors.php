@@ -110,7 +110,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
         
         $min = 0;
-        
+         
         if ($this->opts['uid'] != 'STD') {
             $events = DB_DataObject::factory('Events');
             $events->action = 'ERROR-REPORT-' . $this->opts['uid'];
