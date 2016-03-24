@@ -90,10 +90,18 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         if(empty($rcpts)){
             $this->jerr("{$this->opts['group']} does not has any memeber");
         }
-        
+        // see the last date of notification to these users...
         $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
         
-        // see the last date of notification to these users...
+        $events = DB_DataObject::factory('Events');
+        $events->action = 'ERROR-REPORT';
+        $events->whereAddIn('person_id', $rcpt_ids, 'int');
+        $events->orderBy('id DESC');
+        $events->limit(1);
+        $min = 0;
+        if ($events->find(true)) {
+            $min = $events->id;
+        }
         
         
         
