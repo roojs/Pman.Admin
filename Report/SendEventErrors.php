@@ -122,6 +122,14 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
                 $events->whereAddIn('!Events.action', $exclude, 'string');
             }
         }
+        if(!empty($this->opts['only'])){
+            $only= array_unique(array_filter(array_map('trim', explode(',', $this->opts['only']))));
+            
+            if(!empty($only)){
+                $events->whereAddIn('Events.action', $only, 'string');
+            }
+        }
+        
         
         $events->groupBy('Events.action');
         $events->orderBy('Events.action ASC');
