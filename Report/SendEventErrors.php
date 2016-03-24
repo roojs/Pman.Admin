@@ -21,6 +21,13 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             'min' => 1,
             'max' => 1,
         ),
+        'only' => array(
+            'desc' => 'list of actions only to report',
+            'short' => 'O',
+            'default' => '',
+            'min' => 1,
+            'max' => 1,
+        ),
         'subject' => array(
             'desc' => 'email subject',
             'short' => 's',
