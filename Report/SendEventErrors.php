@@ -182,6 +182,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             
         ");
         $events->selectAddPersonEmail();
+        $events->whereAdd("Events.action NOT LIKE 'ERROR-REPORT-%'");
         $events->whereAdd('Events.id > '. $min);
         $events->whereAdd("Events.event_when > NOW() - INTERVAL 1 DAY");
         
