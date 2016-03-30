@@ -142,7 +142,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     'csvTitles[3]' : 'Record ID',   'csvCols[3]' : 'on_id'       ,
                     'csvTitles[4]' : 'Record Type',   'csvCols[4]' : 'on_table',
                     'csvTitles[5]' : 'Remarks',   'csvCols[5]' : 'remarks'        
-                }
+                };
                     
                 params.person_id = _this.personSel.getValue();
                 var act = _this.actionSel.getValue();
