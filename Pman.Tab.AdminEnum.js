@@ -25,7 +25,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '49ee3087348e8d44e1feda1917443987' :"Name",
-  'd41d8cd98f00b204e9800998ecf8427e' :" "
+  '7215ee9c7d9dc229d2921a40e899ec5f' :" "
  },
 
   part     :  ["Admin", "Enum" ],
@@ -130,7 +130,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
        },
        footer : {
         displayInfo : false,
-        displayMsg : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*   */,
+        displayMsg : _this._strings['7215ee9c7d9dc229d2921a40e899ec5f'] /*   */,
         emptyMsg : _this._strings['1ba4d808fc7b27a7f60ce2ff75a8af3a'] /* No core_enum found */,
         pageSize : 100,
         xns : Roo,
