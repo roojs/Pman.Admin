@@ -494,7 +494,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             
                 ds.insert(0  , add);  
                 
-                _this.grid.startEditing(0, _this.grid.colModel.getIndexByDataIndex('name')); // name... 
+                _this.grid.startEditing(0, _this.grid.colModel.findColumnIndex('name')); // name... 
             }
           }
          },
