@@ -43,8 +43,11 @@
        "* prop" : "center"
       },
       {
+       "autoScroll" : true,
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
+       "split" : true,
+       "height" : 150,
        "* prop" : "south"
       },
       {

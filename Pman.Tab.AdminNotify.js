@@ -54,6 +54,9 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
      xtype : 'LayoutRegion'
     },
     south : {
+     autoScroll : true,
+     height : 150,
+     split : true,
      xns : Roo,
      '|xns' : 'Roo',
      xtype : 'LayoutRegion'
