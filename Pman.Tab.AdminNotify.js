@@ -58,6 +58,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     },
     south : {
      autoScroll : true,
+     collapsedTitle : 'View Details',
      collapsible : true,
      height : 150,
      split : true,

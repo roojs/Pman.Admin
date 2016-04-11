@@ -48,6 +48,7 @@
       {
        "autoScroll" : true,
        "xtype" : "LayoutRegion",
+       "String collapsedTitle" : "View Details",
        "$ xns" : "Roo",
        "Boolean collapsible" : true,
        "split" : true,
