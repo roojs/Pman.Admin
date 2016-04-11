@@ -560,7 +560,12 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                   this.viewPanel.setContent("Nothing Selected");
                   return;
               }
-              var id = this.getSelected().data.id;
+              var id = this.getSelected().data.event_id;
+              if (id *1 < 0) {
+              
+                  this.viewPanel.setContent("No Event for this line");    
+                  return;
+              }
               _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
               
           }
