@@ -31,6 +31,7 @@
   {
    "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
+   "String region" : "center",
    "String title" : "Current Notifications",
    "items" : [
     {

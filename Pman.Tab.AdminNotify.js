@@ -41,6 +41,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   region : 'center',
    title : _this._strings['bf1cb7e2a337a5e2ebf614009cbce9cc'] /* Current Notifications */,
    xns : Roo,
    '|xns' : 'Roo',
