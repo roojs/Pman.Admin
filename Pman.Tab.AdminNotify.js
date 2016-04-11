@@ -48,6 +48,11 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     xns : Roo,
     '|xns' : 'Roo',
     xtype : 'BorderLayout',
+    center : {
+     xns : Roo,
+     '|xns' : 'Roo',
+     xtype : 'LayoutRegion'
+    },
     items  : [
      {
       background : true,
