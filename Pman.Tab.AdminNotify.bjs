@@ -51,7 +51,8 @@
        "Boolean collapsible" : true,
        "split" : true,
        "height" : 150,
-       "* prop" : "south"
+       "* prop" : "south",
+       "Boolean split" : true
       },
       {
        "listeners" : {
