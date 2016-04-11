@@ -10,10 +10,10 @@
  },
  "items" : [
   {
+   "bool background" : false,
    "region" : "center",
    "title" : "Notifications",
    "xtype" : "NestedLayoutPanel",
-   "$ background" : false,
    "$ xns" : "Roo",
    "items" : [
     {
