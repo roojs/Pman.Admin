@@ -45,7 +45,7 @@
       {
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
-       "* prop" : "center"
+       "* prop" : "south"
       },
       {
        "listeners" : {
