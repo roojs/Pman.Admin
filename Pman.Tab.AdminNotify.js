@@ -547,6 +547,25 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
          xtype : 'JsonReader'
         }
        },
+       sm : {
+        singleSelect : true,
+        xns : Roo.grid,
+        '|xns' : 'Roo.grid',
+        xtype : 'RowSelectionModel',
+        listeners : {
+         afterselectionchange : function (_self)
+          {
+              // load detail log in _this.viewPanel;
+              if (!this.getSelected()) {
+                  this.viewPanel.setContent("Nothing Selected");
+                  return;
+              }
+              var id = this.getSelected().data.id;
+              _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
+              
+          }
+        }
+       },
        colModel : [
         {
          dataIndex : 'id',
