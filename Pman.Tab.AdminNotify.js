@@ -70,7 +70,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     },
     items  : [
      {
-      background : false,
+      background : true,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
