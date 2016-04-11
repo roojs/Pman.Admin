@@ -652,6 +652,19 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
         }
        ]
       }
+     },
+     {
+      fitToFrame : true,
+      region : 'south',
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'ContentPanel',
+      listeners : {
+       render : function (_self)
+        {
+          _this.viewPanel = _self;
+        }
+      }
      }
     ]
    }

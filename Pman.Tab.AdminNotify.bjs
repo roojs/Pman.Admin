@@ -379,6 +379,15 @@
          ]
         }
        ]
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n  _this.viewPanel = _self;\n}"
+       },
+       "fitToFrame" : true,
+       "region" : "south",
+       "xtype" : "ContentPanel",
+       "$ xns" : "Roo"
       }
      ]
     }
