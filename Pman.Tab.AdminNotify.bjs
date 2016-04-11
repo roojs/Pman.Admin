@@ -24,6 +24,7 @@
   "e4b478c05a833569833f9cc63b6c4354" : "Displaying core_notify{0} - {1} of {2}",
   "4c3880bb027f159e801041b1021e88e8" : "Method",
   "a4ecfc70574394990cf17bd83df499f7" : "Event",
+  "12ea1a38991aa3bc4992b10adac0f3bc" : "Event Details",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "f821027bade4aa6b7a4191cd1676cf41" : "Show Completed"
  },
@@ -50,6 +51,7 @@
        "$ xns" : "Roo",
        "Boolean collapsible" : true,
        "split" : true,
+       "String title" : "Event Details",
        "height" : 150,
        "* prop" : "south",
        "Boolean split" : true
