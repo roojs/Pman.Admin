@@ -34,6 +34,7 @@
    "$ xns" : "Roo",
    "String region" : "center",
    "String title" : "Current Notifications",
+   "Boolean background" : false,
    "items" : [
     {
      "xtype" : "BorderLayout",
