@@ -48,6 +48,7 @@
        "autoScroll" : true,
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
+       "Boolean collapsible" : true,
        "split" : true,
        "height" : 150,
        "* prop" : "south"
