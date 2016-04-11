@@ -1,33 +1,35 @@
 {
-    "id": "roo-file-194",
-    "name": "Pman.Tab.AdminWatchNotify",
-    "parent": "Pman.Tab.Admin",
-    "title": "Notifications",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
-    "items": [
-        {
-            "background": true,
-            "region": "center",
-            "title": "Notifications",
-            "xtype": "NestedLayoutPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo",
-                    "xtype": "BorderLayout",
-                    "*prop": "layout",
-                    "items": [
-                        {
-                            "*prop": "center",
-                            "tabPosition": "top",
-                            "xtype": "LayoutRegion",
-                            "|xns": "Roo"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "permname": "",
-    "modOrder": "860"
+ "name" : "Pman.Tab.AdminWatchNotify",
+ "parent" : "Pman.Tab.Admin",
+ "title" : "Notifications",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
+ "permname" : "",
+ "modOrder" : "860",
+ "strings" : {
+  "a274f4d4670213a9045ce258c6c56b80" : "Notifications"
+ },
+ "items" : [
+  {
+   "region" : "center",
+   "title" : "Notifications",
+   "xtype" : "NestedLayoutPanel",
+   "$ background" : false,
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "tabPosition" : "top",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
