@@ -62,7 +62,7 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n    \n}"
        },
-       "bool background" : true,
+       "bool background" : false,
        "fitToframe" : true,
        "region" : "center",
        "title" : "Current Notifications",
