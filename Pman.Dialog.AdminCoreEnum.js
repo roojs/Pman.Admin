@@ -6,448 +6,424 @@ Roo.namespace('Pman.Dialog');
 
 Pman.Dialog.AdminCoreEnum = {
 
-    dialog : false,
-    callback:  false,
+ _strings : {
+  '2df80d5febcde0c10a66818488622b7c' :"Pulldown Options",
+  'd1228f5476d15142b1358ae4b5fa2454' :"Order #",
+  '7af54708cf5a4286cf0cfa58ff5148a8' :"Internal #",
+  'b48968e1c912da07df5e8d6d246291ec' :"Display Name",
+  'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '510bc6e58593b2b8002c9fe0c21f3fde' :"Displaying core_enum{0} - {1} of {2}",
+  '1ba4d808fc7b27a7f60ce2ff75a8af3a' :"No core_enum found",
+  'd9ec74f5aa29ceef6bf7b45f7fec5d0f' :"Add Value",
+  '49ee3087348e8d44e1feda1917443987' :"Name",
+  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  'e0aa021e21dddbd6d8cecec71e9cf564' :"OK"
+ },
 
-    show : function(data, cb)
-    {
-        if (!this.dialog) {
-            this.create();
-        }
+ dialog : false,
+ callback:  false,
 
-        this.callback = cb;
-        this.data = data;
-        this.dialog.show(this.data._el);
-        if (this.form) {
-           this.form.reset();
-           this.form.setValues(data);
-           this.form.fireEvent('actioncomplete', this.form,  { type: 'setdata', data: data });
-        }
+ show : function(data, cb)
+ {
+  if (!this.dialog) {
+   this.create();
+  }
 
+  this.callback = cb;
+  this.data = data;
+  this.dialog.show(this.data._el);
+  if (this.form) {
+   this.form.reset();
+   this.form.setValues(data);
+   this.form.fireEvent('actioncomplete', this.form,  { type: 'setdata', data: data });
+  }
+
+ },
+
+ create : function()
+ {
+   var _this = this;
+   this.dialog = Roo.factory({
+    closable : false,
+    height : 400,
+    modal : true,
+    resizable : false,
+    title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
+    width : 950,
+    xns : Roo,
+    '|xns' : 'Roo',
+    xtype : 'LayoutDialog',
+    listeners : {
+     show : function (_self)
+      {
+          if(!isAdmin && Pman.Tab.Hopedb){
+              Roo.MessageBox.alert("Error", "Permission Denied", function(){
+                  _this.dialog.hide();
+              });
+              return;
+          }
+          var name_hidden = false;
+      
+          if (typeof(_this.data._hide_name) != 'undefined') {
+              name_hidden = true;
+          
+          }
+          
+        _this.grid.colModel.setHidden(1,name_hidden);
+          _this.grid.footer.onClick('first');
+      }
     },
-
-    create : function()
-    {
-        var _this = this;
-        this.dialog = Roo.factory({
-            center : {
-                '|xns' : 'Roo',
-                xtype : 'LayoutRegion',
-                xns : Roo
-            },
-            '|xns' : 'Roo',
-            modal : true,
-            title : "Pulldown Options",
-            xtype : 'LayoutDialog',
-            width : 950,
-            xns : Roo,
-            closable : false,
-            resizable : false,
-            height : 400,
-            buttons : [
-            	 {
-            	        '|xns' : 'Roo',
-            	        text : "Cancel",
-            	        xtype : 'Button',
-            	        xns : Roo,
-            	        listeners : {
-            	        	click : function (_self, e)
-            	        	   {
-            	        	     _this.dialog.hide();
-            	        	   }
-            	        }
-            	    },
-{
-            	        '|xns' : 'Roo',
-            	        text : "OK",
-            	        xtype : 'Button',
-            	        xns : Roo,
-            	        listeners : {
-            	        	click : function (_self, e)
-            	        	   {
-            	        	       var sel = _this.grid.selModel.getSelectedCell();
-            	        	       if (!sel && _this.callback) {
-            	        	           Roo.MessageBox.alert("Error", "Select an item");
-            	        	           return;
-            	        	       }
-            	        	       
-            	        	   
-            	        	       if (_this.callback) {
-            	        	           var rec = _this.grid.ds.getAt(sel[0]);
-            	        	          _this.callback(rec.data);
-            	        	      }
-            	        	      _this.dialog.hide();
-            	        	   }
-            	        }
-            	    }
-            ],
-            listeners : {
-            	show : function (_self)
-            	   {
-            	       if(!isAdmin && Pman.Tab.Hopedb){
-            	           Roo.MessageBox.alert("Error", "Permission Denied", function(){
-            	               _this.dialog.hide();
-            	           });
-            	           return;
-            	       }
-            	       var name_hidden = false;
-            	   
-            	       if (typeof(_this.data._hide_name) != 'undefined') {
-            	           name_hidden = true;
-            	       
-            	       }
-            	       
-            	     _this.grid.colModel.setHidden(1,name_hidden);
-            	       _this.grid.footer.onClick('first');
-            	   }
-            },
-            items : [
-            	{
-                    grid : {
-                        dataSource : {
-                            proxy : {
-                                '|xns' : 'Roo.data',
-                                url : baseURL + '/Roo/core_enum.php',
-                                xtype : 'HttpProxy',
-                                method : 'GET',
-                                xns : Roo.data
-                            },
-                            reader : {
-                                '|xns' : 'Roo.data',
-                                id : 'id',
-                                root : 'data',
-                                xtype : 'JsonReader',
-                                xns : Roo.data,
-                                fields : [
-                                    {
-                                        'name': 'id',
-                                        'type': 'int'
-                                    },
-                                    {
-                                        'name': 'etype',
-                                        'type': 'string'
-                                    },
-                                    {
-                                        'name': 'name',
-                                        'type': 'string'
-                                    },
-                                    {
-                                        'name': 'active',
-                                        'type': 'int'
-                                    },
-                                    {
-                                        'name': 'seqid',
-                                        'type': 'int'
-                                    }
-                                ],
-                                totalProperty : 'total'
-                            },
-                            '|xns' : 'Roo.data',
-                            xtype : 'Store',
-                            remoteSort : true,
-                            sortInfo : { field : 'etype', direction: 'ASC' },
-                            xns : Roo.data,
-                            listeners : {
-                            	update : function (_self, record, operation)
-                            	   {
-                            	       if (operation != Roo.data.Record.COMMIT) {
-                            	           return;
-                            	       }
-                            	       Roo.log(record);
-                            	   
-                            	       if (typeof(_this.data._hide_name) != 'undefined') {
-                            	           record.set('name', record.data.display_name);
-                            	       }
-                            	       if (!record.data.name.length) {
-                            	           return;
-                            	       }
-                            	       
-                            	       // got commit..
-                            	       new Pman.Request({
-                            	           url : baseURL + '/Roo/Core_enum.php',
-                            	           method : 'POST',
-                            	           params : {
-                            	               id : record.data.id,
-                            	               etype : _this.data.etype,
-                            	               name :  record.data.name,
-                            	               active : record.data.active,
-                            	               seqid : record.data.seqid,
-                            	               display_name : record.data.display_name
-                            	           }, 
-                            	           success : function(res) {
-                            	               //Roo.log(data);
-                            	               // update the ID if it's not set..
-                            	               if (record.data.id * 1 < 1) {
-                            	                   record.set('id', res.data.id);
-                            	               }
-                            	           }
-                            	       });
-                            	       
-                            	   },
-                            	beforeload : function (_self, options)
-                            	   {
-                            	   
-                            	       options.params.etype = _this.data.etype;
-                            	       if (!options.params.etype.length) {
-                            	           return false;
-                            	       }
-                            	   }
-                            },
-                            items : [
-
-                            ]
-
-                        },
-                        footer : {
-                            '|xns' : 'Roo',
-                            pageSize : 25,
-                            xtype : 'PagingToolbar',
-                            emptyMsg : "No core_enum found",
-                            xns : Roo,
-                            displayInfo : true,
-                            displayMsg : "Displaying core_enum{0} - {1} of {2}"
-                        },
-                        toolbar : {
-                            '|xns' : 'Roo',
-                            xtype : 'Toolbar',
-                            xns : Roo,
-                            items : [
-                            	{
-                                    '|xns' : 'Roo.Toolbar',
-                                    text : "Add Value",
-                                    xtype : 'Button',
-                                    cls : 'x-btn-text-icon',
-                                    icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-                                    xns : Roo.Toolbar,
-                                    listeners : {
-                                    	click : function()
-                                    	   {
-                                    	       
-                                    	       // if we do not have a selected type... - what should we show..?
-                                    	       var et = _this.data.etype;
-                                    	       var ds = _this.grid.getDataSource();
-                                    	       if (!et) {
-                                    	           Roo.MessageBox.alert("Error", "Select a pulldown");
-                                    	           return;
-                                    	       }
-                                    	   
-                                    	       var add = ds.reader.newRow({    
-                                    	                id: 0, 
-                                    	                display_name : '', 
-                                    	                name : '', 
-                                    	                etype: et, 
-                                    	                active: 1, 
-                                    	                seqid: 0
-                                    	         });
-                                    	        var r = ds.data.length;
-                                    	       ds.insert(r  , add);  
-                                    	       
-                                    	       var ec = 1;
-                                    	       if (typeof(_this.data._hide_name) != 'undefined') { 
-                                    	           ec =2;
-                                    	       }
-                                    	       _this.grid.startEditing(r, ec); // name... 
-                                    	   }
-                                    }
-                                },
-                            	{
-                                    '|xns' : 'Roo.Toolbar',
-                                    xtype : 'Fill',
-                                    xns : Roo.Toolbar
-                                }
-                            ]
-
-                        },
-                        '|xns' : 'Roo.grid',
-                        autoExpandColumn : 'display_name',
-                        xtype : 'EditorGrid',
-                        loadMask : true,
-                        clicksToEdit : 1,
-                        xns : Roo.grid,
-                        colModel : [
-                        	 {
-                        	        '|xns' : 'Roo.grid',
-                        	        xtype : 'ColumnModel',
-                        	        header : 'Internal #',
-                        	        width : 75,
-                        	        renderer : function(v) { return String.format('{0}', v); },
-                        	        xns : Roo.grid,
-                        	        dataIndex : 'id'
-                        	    },
-{
-                        	        editor : {
-                        	            field : {
-                        	                '|xns' : 'Roo.form',
-                        	                xtype : 'TextField',
-                        	                xns : Roo.form
-                        	            },
-                        	            '|xns' : 'Roo.grid',
-                        	            xtype : 'GridEditor',
-                        	            xns : Roo.grid,
-                        	            items : [
-
-                        	            ]
-
-                        	        },
-                        	        '|xns' : 'Roo.grid',
-                        	        xtype : 'ColumnModel',
-                        	        width : 200,
-                        	        header : 'Name',
-                        	        renderer : function(v) { return String.format('{0}', v); },
-                        	        xns : Roo.grid,
-                        	        dataIndex : 'name',
-                        	        items : [
-
-                        	        ]
-
-                        	    },
-{
-                        	        editor : {
-                        	            field : {
-                        	                '|xns' : 'Roo.form',
-                        	                xtype : 'TextField',
-                        	                xns : Roo.form
-                        	            },
-                        	            '|xns' : 'Roo.grid',
-                        	            xtype : 'GridEditor',
-                        	            xns : Roo.grid,
-                        	            items : [
-
-                        	            ]
-
-                        	        },
-                        	        '|xns' : 'Roo.grid',
-                        	        xtype : 'ColumnModel',
-                        	        header : 'Display Name',
-                        	        width : 200,
-                        	        renderer : function(v) { return String.format('{0}', v); },
-                        	        xns : Roo.grid,
-                        	        dataIndex : 'display_name',
-                        	        items : [
-
-                        	        ]
-
-                        	    },
-{
-                        	        '|xns' : 'Roo.grid',
-                        	        xtype : 'ColumnModel',
-                        	        header : 'Active',
-                        	        width : 75,
-                        	        renderer : function(v) {  
-                        	            var state = v> 0 ?  '-checked' : '';
-                        	        
-                        	            return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
-                        	                        
-                        	         },
-                        	        xns : Roo.grid,
-                        	        dataIndex : 'active'
-                        	    },
-{
-                        	        editor : {
-                        	            field : {
-                        	                '|xns' : 'Roo.form',
-                        	                allowNegative : true,
-                        	                xtype : 'NumberField',
-                        	                allowDecimals : false,
-                        	                decimalPrecision : 0,
-                        	                xns : Roo.form
-                        	            },
-                        	            '|xns' : 'Roo.grid',
-                        	            xtype : 'GridEditor',
-                        	            xns : Roo.grid,
-                        	            items : [
-
-                        	            ]
-
-                        	        },
-                        	        '|xns' : 'Roo.grid',
-                        	        xtype : 'ColumnModel',
-                        	        sortable : true,
-                        	        header : 'Order #',
-                        	        width : 75,
-                        	        renderer : function(v) { return String.format('{0}', v); },
-                        	        xns : Roo.grid,
-                        	        dataIndex : 'seqid',
-                        	        items : [
-
-                        	        ]
-
-                        	    }
-                        ],
-                        listeners : {
-                        	beforeedit : function (e)
-                        	   {
-                        	     
-                        	       // force fill in of name first.. (Except when it's hidden)
-                        	       if (typeof(_this.data._hide_name) != 'undefined') { 
-                        	           if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){
-                        	               return ;
-                        	           }
-                        	    
-                        	       }
-                        	       
-                        	       if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
-                        	           Roo.log("block name?");
-                        	           return false;
-                        	       }
-                        	   },
-                        	cellclick : function (_self, rowIndex, columnIndex, e)
-                        	   {
-                        	   
-                        	           var di = this.colModel.getDataIndex(columnIndex);
-                        	           if (di != 'active') {
-                        	               return;
-                        	           }
-                        	            
-                        	           var rec = _this.grid.ds.getAt(rowIndex);
-                        	           
-                        	           rec.set('active', rec.data.active ? 0 : 1);
-                        	           rec.commit();
-                        	            
-                        	           
-                        	   },
-                        	render : function() 
-                        	   {
-                        	       _this.grid = this; 
-                        	       //_this.dialog = Pman.Dialog.FILL_IN
-                        	       if (_this.panel.active) {
-                        	      //    this.footer.onClick('first');
-                        	       }
-                        	   },
-                        	afteredit : function (e)
-                        	   {
-                        	      e.record.commit();   
-                        	   }
-                        },
-                        items : [
-
-                        ]
-
-                    },
-                    '|xns' : 'Roo',
-                    fitToframe : true,
-                    background : false,
-                    region : 'center',
-                    title : "Pulldown Options",
-                    xtype : 'GridPanel',
-                    fitContainer : true,
-                    xns : Roo,
-                    tableName : 'core_enum',
-                    listeners : {
-                    	activate : function() {
-                    	       _this.panel = this;
-                    	       if (_this.grid) {
-                    	        //   _this.grid.footer.onClick('first');
-                    	       }
-                    	   }
-                    },
-                    items : [
-
-                    ]
-
+    center : {
+     xns : Roo,
+     '|xns' : 'Roo',
+     xtype : 'LayoutRegion'
+    },
+    buttons : [
+     {
+      text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'Button',
+      listeners : {
+       click : function (_self, e)
+        {
+          _this.dialog.hide();
+        }
+      }
+     },
+     {
+      text : _this._strings['e0aa021e21dddbd6d8cecec71e9cf564'] /* OK */,
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'Button',
+      listeners : {
+       click : function (_self, e)
+        {
+            var sel = _this.grid.selModel.getSelectedCell();
+            if (!sel && _this.callback) {
+                Roo.MessageBox.alert("Error", "Select an item");
+                return;
+            }
+            
+        
+            if (_this.callback) {
+                var rec = _this.grid.ds.getAt(sel[0]);
+               _this.callback(rec.data);
+           }
+           _this.dialog.hide();
+        }
+      }
+     }
+    ],
+    items  : [
+     {
+      background : false,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'core_enum',
+      title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
+      xns : Roo,
+      '|xns' : 'Roo',
+      xtype : 'GridPanel',
+      listeners : {
+       activate : function() {
+            _this.panel = this;
+            if (_this.grid) {
+             //   _this.grid.footer.onClick('first');
+            }
+        }
+      },
+      grid : {
+       autoExpandColumn : 'display_name',
+       clicksToEdit : 1,
+       loadMask : true,
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       xtype : 'EditorGrid',
+       listeners : {
+        afteredit : function (e)
+         {
+            e.record.commit();   
+         },
+        beforeedit : function (e)
+         {
+           
+             // force fill in of name first.. (Except when it's hidden)
+             if (typeof(_this.data._hide_name) != 'undefined') { 
+                 if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){
+                     return ;
+                 }
+          
+             }
+             
+             if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){
+                 Roo.log("block name?");
+                 return false;
+             }
+         },
+        cellclick : function (_self, rowIndex, columnIndex, e)
+         {
+         
+                 var di = this.colModel.getDataIndex(columnIndex);
+                 if (di != 'active') {
+                     return;
+                 }
+                  
+                 var rec = _this.grid.ds.getAt(rowIndex);
+                 
+                 rec.set('active', rec.data.active ? 0 : 1);
+                 rec.commit();
+                  
+                 
+         },
+        render : function() 
+         {
+             _this.grid = this; 
+             //_this.dialog = Pman.Dialog.FILL_IN
+             if (_this.panel.active) {
+            //    this.footer.onClick('first');
+             }
+         }
+       },
+       footer : {
+        displayInfo : true,
+        displayMsg : _this._strings['510bc6e58593b2b8002c9fe0c21f3fde'] /* Displaying core_enum{0} - {1} of {2} */,
+        emptyMsg : _this._strings['1ba4d808fc7b27a7f60ce2ff75a8af3a'] /* No core_enum found */,
+        pageSize : 25,
+        xns : Roo,
+        '|xns' : 'Roo',
+        xtype : 'PagingToolbar'
+       },
+       toolbar : {
+        xns : Roo,
+        '|xns' : 'Roo',
+        xtype : 'Toolbar',
+        items  : [
+         {
+          cls : 'x-btn-text-icon',
+          icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+          text : _this._strings['d9ec74f5aa29ceef6bf7b45f7fec5d0f'] /* Add Value */,
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Button',
+          listeners : {
+           click : function()
+            {
+                
+                // if we do not have a selected type... - what should we show..?
+                var et = _this.data.etype;
+                var ds = _this.grid.getDataSource();
+                if (!et) {
+                    Roo.MessageBox.alert("Error", "Select a pulldown");
+                    return;
                 }
-            ]
-
-        });
-    }
+            
+                var add = ds.reader.newRow({    
+                         id: 0, 
+                         display_name : '', 
+                         name : '', 
+                         etype: et, 
+                         active: 1, 
+                         seqid: 0
+                  });
+                 var r = ds.data.length;
+                ds.insert(r  , add);  
+                
+                var ec = 1;
+                if (typeof(_this.data._hide_name) != 'undefined') { 
+                    ec =2;
+                }
+                _this.grid.startEditing(r, ec); // name... 
+            }
+          }
+         },
+         {
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          xtype : 'Fill'
+         }
+        ]
+       },
+       dataSource : {
+        remoteSort : true,
+        sortInfo : { field : 'etype', direction: 'ASC' },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        xtype : 'Store',
+        listeners : {
+         beforeload : function (_self, options)
+          {
+          
+              options.params.etype = _this.data.etype;
+              if (!options.params.etype.length) {
+                  return false;
+              }
+          },
+         update : function (_self, record, operation)
+          {
+              if (operation != Roo.data.Record.COMMIT) {
+                  return;
+              }
+              Roo.log(record);
+          
+              if (typeof(_this.data._hide_name) != 'undefined') {
+                  record.set('name', record.data.display_name);
+              }
+              if (!record.data.name.length) {
+                  return;
+              }
+              
+              // got commit..
+              new Pman.Request({
+                  url : baseURL + '/Roo/Core_enum.php',
+                  method : 'POST',
+                  params : {
+                      id : record.data.id,
+                      etype : _this.data.etype,
+                      name :  record.data.name,
+                      active : record.data.active,
+                      seqid : record.data.seqid,
+                      display_name : record.data.display_name
+                  }, 
+                  success : function(res) {
+                      //Roo.log(data);
+                      // update the ID if it's not set..
+                      if (record.data.id * 1 < 1) {
+                          record.set('id', res.data.id);
+                      }
+                  }
+              });
+              
+          }
+        },
+        proxy : {
+         method : 'GET',
+         url : baseURL + '/Roo/core_enum.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'HttpProxy'
+        },
+        reader : {
+         fields : [
+             {
+                 'name': 'id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'etype',
+                 'type': 'string'
+             },
+             {
+                 'name': 'name',
+                 'type': 'string'
+             },
+             {
+                 'name': 'active',
+                 'type': 'int'
+             },
+             {
+                 'name': 'seqid',
+                 'type': 'int'
+             }
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data',
+         xtype : 'JsonReader'
+        }
+       },
+       colModel : [
+        {
+         dataIndex : 'id',
+         header : _this._strings['7af54708cf5a4286cf0cfa58ff5148a8'] /* Internal # */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'name',
+         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel',
+         editor : {
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          xtype : 'GridEditor',
+          field : {
+           xns : Roo.form,
+           '|xns' : 'Roo.form',
+           xtype : 'TextField'
+          }
+         }
+        },
+        {
+         dataIndex : 'display_name',
+         header : _this._strings['b48968e1c912da07df5e8d6d246291ec'] /* Display Name */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel',
+         editor : {
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          xtype : 'GridEditor',
+          field : {
+           xns : Roo.form,
+           '|xns' : 'Roo.form',
+           xtype : 'TextField'
+          }
+         }
+        },
+        {
+         dataIndex : 'active',
+         header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
+         renderer : function(v) {  
+             var state = v> 0 ?  '-checked' : '';
+         
+             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                         
+          },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'seqid',
+         header : _this._strings['d1228f5476d15142b1358ae4b5fa2454'] /* Order # */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel',
+         editor : {
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          xtype : 'GridEditor',
+          field : {
+           allowDecimals : false,
+           allowNegative : true,
+           decimalPrecision : 0,
+           xns : Roo.form,
+           '|xns' : 'Roo.form',
+           xtype : 'NumberField'
+          }
+         }
+        }
+       ]
+      }
+     }
+    ]
+   });
+ }
 };
