@@ -122,8 +122,6 @@
              },
              "text" : "Download to Excel",
              "xtype" : "Button",
-             "cls" : "x-btn-text-icon",
-             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
              "$ xns" : "Roo.Toolbar"
             }
            ]

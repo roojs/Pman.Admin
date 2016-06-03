@@ -120,8 +120,6 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         items  : [
          {
           xtype : 'Button',
-          cls : 'x-btn-text-icon',
-          icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
           text : _this._strings['01bd6a16732dfa2b760dc8566c58afae'] /* Download to Excel */,
           listeners : {
            click : function()
