@@ -124,22 +124,16 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
           listeners : {
            click : function()
             {
-              var sel = _this.grid.selModel.getSelected();
-              if (!sel) {
-                    Roo.MessageBox.alert("Error", "Select a message to copy");
-                    return;
-                }
-            new Pman.Request({
+               
+            new Pman.Download({
                 url : baseURL + '/Roo/Core_email',
-                method : 'POST',
+                method : 'GET',
                 params : {
-                    id : sel.data.id,
-                    _make_copy : 1
-                },
-                success : function() {
-                    _this.grid.footer.onClick('refresh');
+                    csvCols : '*',
+                    csvTitles : '*',
                 }
             });
+            Roo.MessageBox.alert("Notice", "Should be downloading now");
               
             }
           },
