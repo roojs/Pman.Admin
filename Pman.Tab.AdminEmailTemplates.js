@@ -14,6 +14,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
   'b78a3223503896721cca1303f776159b' :"Title",
   '9e11143e29a031212f2cdefcf61f39e9' :"View Message",
   'f49559cda3fb906fbd7736f8b8a0e37d' :"Email Template",
+  '01bd6a16732dfa2b760dc8566c58afae' :"Download to Excel",
   '4a4a8fe0c6dfb6bd2a41755d15eb6f0b' :"From Name",
   '4ca679a383343ab3d4ca1cd7c91b43f7' :"From Email",
   '5fb63579fc981698f97d55bfecb213ea' :"Copy",
@@ -121,7 +122,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
           xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-          text : _this._strings['5fb63579fc981698f97d55bfecb213ea'] /* Copy */,
+          text : _this._strings['01bd6a16732dfa2b760dc8566c58afae'] /* Download to Excel */,
           listeners : {
            click : function()
             {
