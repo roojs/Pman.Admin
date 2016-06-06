@@ -109,7 +109,6 @@ Pman.Dialog.AdminCoreEnum = {
                _this.callback(rec.data);
            }
            _this.dialog.hide();
-        }
       },
       xns : Roo,
       '|xns' : 'Roo'
