@@ -44,15 +44,13 @@ Pman.Dialog.AdminCoreEnum = {
  {
    var _this = this;
    this.dialog = Roo.factory({
+    xtype : 'LayoutDialog',
     closable : false,
     height : 400,
     modal : true,
     resizable : false,
     title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
     width : 950,
-    xns : Roo,
-    '|xns' : 'Roo',
-    xtype : 'LayoutDialog',
     listeners : {
      show : function (_self)
       {
@@ -73,29 +71,29 @@ Pman.Dialog.AdminCoreEnum = {
           _this.grid.footer.onClick('first');
       }
     },
+    xns : Roo,
+    '|xns' : 'Roo',
     center : {
+     xtype : 'LayoutRegion',
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     buttons : [
      {
-      text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
-      xns : Roo,
-      '|xns' : 'Roo',
       xtype : 'Button',
+      text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
       listeners : {
        click : function (_self, e)
         {
           _this.dialog.hide();
         }
-      }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
      },
      {
-      text : _this._strings['e0aa021e21dddbd6d8cecec71e9cf564'] /* OK */,
-      xns : Roo,
-      '|xns' : 'Roo',
       xtype : 'Button',
+      text : _this._strings['e0aa021e21dddbd6d8cecec71e9cf564'] /* OK */,
       listeners : {
        click : function (_self, e)
         {
@@ -112,35 +110,36 @@ Pman.Dialog.AdminCoreEnum = {
            }
            _this.dialog.hide();
         }
-      }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
      }
     ],
     items  : [
      {
+      xtype : 'GridPanel',
       background : false,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
       tableName : 'core_enum',
       title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'GridPanel',
       listeners : {
        activate : function() {
             _this.panel = this;
             if (_this.grid) {
              //   _this.grid.footer.onClick('first');
             }
+            
         }
       },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'EditorGrid',
        autoExpandColumn : 'display_name',
        clicksToEdit : 1,
        loadMask : true,
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       xtype : 'EditorGrid',
        listeners : {
         afteredit : function (e)
          {
@@ -186,27 +185,27 @@ Pman.Dialog.AdminCoreEnum = {
              }
          }
        },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        footer : {
+        xtype : 'PagingToolbar',
         displayInfo : true,
         displayMsg : _this._strings['510bc6e58593b2b8002c9fe0c21f3fde'] /* Displaying core_enum{0} - {1} of {2} */,
         emptyMsg : _this._strings['1ba4d808fc7b27a7f60ce2ff75a8af3a'] /* No core_enum found */,
         pageSize : 25,
         xns : Roo,
-        '|xns' : 'Roo',
-        xtype : 'PagingToolbar'
+        '|xns' : 'Roo'
        },
        toolbar : {
+        xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'Toolbar',
         items  : [
          {
+          xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
           text : _this._strings['d9ec74f5aa29ceef6bf7b45f7fec5d0f'] /* Add Value */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function()
             {
@@ -236,21 +235,21 @@ Pman.Dialog.AdminCoreEnum = {
                 }
                 _this.grid.startEditing(r, ec); // name... 
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Fill',
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Fill'
+          '|xns' : 'Roo.Toolbar'
          }
         ]
        },
        dataSource : {
+        xtype : 'Store',
         remoteSort : true,
         sortInfo : { field : 'etype', direction: 'ASC' },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        xtype : 'Store',
         listeners : {
          beforeload : function (_self, options)
           {
@@ -297,14 +296,17 @@ Pman.Dialog.AdminCoreEnum = {
               
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/core_enum.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [
              {
                  'name': 'id',
@@ -331,59 +333,59 @@ Pman.Dialog.AdminCoreEnum = {
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        },
        colModel : [
         {
+         xtype : 'ColumnModel',
          dataIndex : 'id',
          header : _this._strings['7af54708cf5a4286cf0cfa58ff5148a8'] /* Internal # */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 75,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel',
          editor : {
+          xtype : 'GridEditor',
           xns : Roo.grid,
           '|xns' : 'Roo.grid',
-          xtype : 'GridEditor',
           field : {
+           xtype : 'TextField',
            xns : Roo.form,
-           '|xns' : 'Roo.form',
-           xtype : 'TextField'
+           '|xns' : 'Roo.form'
           }
          }
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'display_name',
          header : _this._strings['b48968e1c912da07df5e8d6d246291ec'] /* Display Name */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel',
          editor : {
+          xtype : 'GridEditor',
           xns : Roo.grid,
           '|xns' : 'Roo.grid',
-          xtype : 'GridEditor',
           field : {
+           xtype : 'TextField',
            xns : Roo.form,
-           '|xns' : 'Roo.form',
-           xtype : 'TextField'
+           '|xns' : 'Roo.form'
           }
          }
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'active',
          header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
          renderer : function(v) {  
@@ -394,10 +396,10 @@ Pman.Dialog.AdminCoreEnum = {
           },
          width : 75,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'seqid',
          header : _this._strings['d1228f5476d15142b1358ae4b5fa2454'] /* Order # */,
          renderer : function(v) { return String.format('{0}', v); },
@@ -405,18 +407,17 @@ Pman.Dialog.AdminCoreEnum = {
          width : 75,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel',
          editor : {
+          xtype : 'GridEditor',
           xns : Roo.grid,
           '|xns' : 'Roo.grid',
-          xtype : 'GridEditor',
           field : {
+           xtype : 'NumberField',
            allowDecimals : false,
            allowNegative : true,
            decimalPrecision : 0,
            xns : Roo.form,
-           '|xns' : 'Roo.form',
-           xtype : 'NumberField'
+           '|xns' : 'Roo.form'
           }
          }
         }
