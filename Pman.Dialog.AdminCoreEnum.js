@@ -258,6 +258,7 @@ Pman.Dialog.AdminCoreEnum = {
               if (!options.params.etype.length) {
                   return false;
               }
+              
           },
          update : function (_self, record, operation)
           {
