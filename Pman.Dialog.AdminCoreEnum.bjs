@@ -24,8 +24,8 @@
     "show" : "function (_self)\n{\n    if(!isAdmin && Pman.Tab.Hopedb){\n        Roo.MessageBox.alert(\"Error\", \"Permission Denied\", function(){\n            _this.dialog.hide();\n        });\n        return;\n    }\n    var name_hidden = false;\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        name_hidden = true;\n    \n    }\n    \n  _this.grid.colModel.setHidden(1,name_hidden);\n    _this.grid.footer.onClick('first');\n    \n}"
    },
    "modal" : true,
-   "xtype" : "LayoutDialog",
    "title" : "Pulldown Options",
+   "xtype" : "LayoutDialog",
    "width" : 950,
    "$ xns" : "Roo",
    "closable" : false,
@@ -41,9 +41,9 @@
      "listeners" : {
       "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n     //   _this.grid.footer.onClick('first');\n    }\n    \n}"
      },
+     "fitToframe" : true,
      "background" : false,
      "region" : "center",
-     "fitToframe" : true,
      "title" : "Pulldown Options",
      "xtype" : "GridPanel",
      "fitContainer" : true,
@@ -53,8 +53,8 @@
       {
        "listeners" : {
         "beforeedit" : "function (e)\n{\n  \n    // force fill in of name first.. (Except when it's hidden)\n    if (typeof(_this.data._hide_name) != 'undefined') { \n        if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){\n            return ;\n        }\n \n    }\n    \n    if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){\n        Roo.log(\"block name?\");\n        return false;\n    }\n}",
-        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n   //    this.footer.onClick('first');\n    }\n}",
         "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}",
+        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n   //    this.footer.onClick('first');\n    }\n}",
         "afteredit" : "function (e)\n{\n   e.record.commit();   \n}"
        },
        "autoExpandColumn" : "display_name",
@@ -77,8 +77,8 @@
          "items" : [
           {
            "$ url" : "baseURL + '/Roo/core_enum.php'",
-           "method" : "GET",
            "xtype" : "HttpProxy",
+           "method" : "GET",
            "$ xns" : "Roo.data",
            "* prop" : "proxy"
           },
@@ -125,8 +125,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "width" : 75,
          "header" : "Internal #",
+         "width" : 75,
          "$ renderer" : "function(v) { return String.format('{0}', v); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
@@ -134,8 +134,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "header" : "Name",
          "width" : 200,
+         "header" : "Name",
          "$ renderer" : "function(v) { return String.format('{0}', v); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
@@ -157,8 +157,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "width" : 200,
          "header" : "Display Name",
+         "width" : 200,
          "$ renderer" : "function(v) { return String.format('{0}', v); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
@@ -180,8 +180,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "width" : 75,
          "header" : "Active",
+         "width" : 75,
          "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
@@ -229,7 +229,7 @@
     },
     {
      "listeners" : {
-      "click" : "function (_self, e)\n{\n    var sel = _this.grid.selModel.getSelectedCell();\n    if (!sel && _this.callback) {\n        Roo.MessageBox.alert(\"Error\", \"Select an item\");\n        return;\n    }\n    \n\n    if (_this.callback) {\n        var rec = _this.grid.ds.getAt(sel[0]);\n       _this.callback(rec.data);\n   }\n   _this.dialog.hide();\n    "
+      "click" : "function (_self, e)\n{\n    var sel = _this.grid.selModel.getSelectedCell();\n    if (!sel && _this.callback) {\n        Roo.MessageBox.alert(\"Error\", \"Select an item\");\n        return;\n    }\n    \n\n    if (_this.callback) {\n        var rec = _this.grid.ds.getAt(sel[0]);\n       _this.callback(rec.data);\n   }\n   _this.dialog.hide();\n   \n}   \n    "
      },
      "text" : "OK",
      "xtype" : "Button",
