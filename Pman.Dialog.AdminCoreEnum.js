@@ -259,6 +259,9 @@ Pman.Dialog.AdminCoreEnum = {
                   return false;
               }
               
+              
+              
+              
           },
          update : function (_self, record, operation)
           {
