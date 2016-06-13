@@ -130,7 +130,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
                 method : 'GET',
                 params : {
                     csvCols : '*',
-                    csvTitles : '*',
+                    csvTitles : '*'
                 }
             });
             Roo.MessageBox.alert("Notice", "Should be downloading now");
