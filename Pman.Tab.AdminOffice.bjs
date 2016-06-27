@@ -1,159 +1,171 @@
 {
-    "id": "roo-file-151",
-    "name": "Pman.Tab.AdminOffice",
-    "parent": "Pman.Tab.AdminCompanies",
-    "title": "Pman.Tab.AdminOffice",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminOffice.bjs",
-    "items": [
+ "name" : "Pman.Tab.AdminOffice",
+ "parent" : "Pman.Tab.AdminCompanies",
+ "title" : "Pman.Tab.AdminOffice",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminOffice.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "14820f8c54725a56438e99f6bd57dfa3" : "Displaying Office{0} - {1} of {2}",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "7407f706267593de473324b2c07ef2fc" : "Offices / Departments / Sub-Companies",
+  "217574e21514de41ec31aaf5ddadb2c3" : "No Office found",
+  "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+  "a8fa7984f57a42bb41143f3d7665bd36" : "Name / Department / Sub Comp.",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "dd7bf230fde8d4836917806aff6a6b27" : "Address",
+  "9810aa2b9f44401be4bf73188ef2b67d" : "Fax"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+   },
+   "region" : "south",
+   "fitToframe" : true,
+   "background" : true,
+   "title" : "Offices / Departments / Sub-Companies",
+   "xtype" : "GridPanel",
+   "fitContainer" : true,
+   "$ xns" : "Roo",
+   "tableName" : "Office",
+   "items" : [
+    {
+     "listeners" : {
+      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) { \n        return; \n    }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+      "|render" : "function() \n{\n    _this.grid = this; \n    _this.dialog =Pman.Dialog.Office;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    } \n}"
+     },
+     "autoExpandColumn" : "name",
+     "xtype" : "Grid",
+     "loadMask" : true,
+     "$ xns" : "Roo.grid",
+     "* prop" : "grid",
+     "items" : [
+      {
+       "listeners" : {
+        "beforeload" : "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n    \n }"
+       },
+       "xtype" : "Store",
+       "remoteSort" : true,
+       "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
+       "$ xns" : "Roo.data",
+       "* prop" : "dataSource",
+       "items" : [
         {
-            "listeners": {
-                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-            },
-            "background": true,
-            "fitContainer": true,
-            "fitToframe": true,
-            "region": "south",
-            "tableName": "Office",
-            "title": "Offices / Departments / Sub-Companies",
-            "xtype": "GridPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "listeners": {
-                        "|render": "function() \n{\n    _this.grid = this; \n    _this.dialog =Pman.Dialog.Office;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                    },
-                    "*prop": "grid",
-                    "autoExpandColumn": "name",
-                    "loadMask": true,
-                    "xtype": "Grid",
-                    "|xns": "Roo.grid",
-                    "items": [
-                        {
-                            "listeners": {
-                                "beforeload": "function (_self, o)\n{\n    try {\n        var sm = Pman.Tab.AdminCompanies.grid.getSelectionModel();\n        sm = sm.getSelected();\n        if (!sm || !sm.data.id) {\n            // mask??\n            return false;\n        }\n               \n        o.params.company_id = sm.data.id ;\n    } catch (e) {\n        return false;\n    }\n    \n    \n }"
-                            },
-                            "*prop": "dataSource",
-                            "remoteSort": true,
-                            "xtype": "Store",
-                            "|sortInfo": "{ field : 'name', direction: 'ASC' }",
-                            "|xns": "Roo.data",
-                            "items": [
-                                {
-                                    "*prop": "proxy",
-                                    "xtype": "HttpProxy",
-                                    "method": "GET",
-                                    "|url": "baseURL + '/Roo/Office.php'",
-                                    "|xns": "Roo.data"
-                                },
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "JsonReader",
-                                    "totalProperty": "total",
-                                    "root": "data",
-                                    "*prop": "reader",
-                                    "id": "id",
-                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_province',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_country',\n        'type': 'string'\n    }\n]"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "footer",
-                            "xtype": "PagingToolbar",
-                            "pageSize": 25,
-                            "displayInfo": true,
-                            "displayMsg": "Displaying Office{0} - {1} of {2}",
-                            "emptyMsg": "No Office found",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "*prop": "toolbar",
-                            "xtype": "Toolbar",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    \n    var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   });\n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Add",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) return;\n    s[0].data.company_name = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data.name;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
-                                    },
-                                    "cls": "x-btn-text-icon",
-                                    "text": "Edit",
-                                    "xtype": "Button",
-                                    "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'Office'); \n}\n        "
-                                    },
-                                    "|xns": "Roo.Toolbar"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "name",
-                            "header": "Name / Department / Sub Comp.",
-                            "sortable": true,
-                            "width": 200,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "phone",
-                            "header": "Phone",
-                            "width": 100,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "fax",
-                            "header": "Fax",
-                            "width": 100,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "email",
-                            "header": "Email",
-                            "width": 200,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function (v) {\n    return (v.length && v.indexOf('@') > 0 ) ? \n        String.format('<a href=\"mailto:{0}\">{0}</a>',v) : v;\n        \n}",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "address",
-                            "header": "Address",
-                            "width": 300,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        }
-                    ]
-                }
-            ]
+         "$ url" : "baseURL + '/Roo/Office.php'",
+         "xtype" : "HttpProxy",
+         "method" : "GET",
+         "$ xns" : "Roo.data",
+         "* prop" : "proxy"
+        },
+        {
+         "id" : "id",
+         "root" : "data",
+         "xtype" : "JsonReader",
+         "$ xns" : "Roo.data",
+         "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_province',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_country',\n        'type': 'string'\n    }\n]",
+         "* prop" : "reader",
+         "totalProperty" : "total"
         }
-    ],
-    "permname": "",
-    "modOrder": "001"
+       ]
+      },
+      {
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar",
+       "emptyMsg" : "No Office found",
+       "$ xns" : "Roo",
+       "displayInfo" : true,
+       "displayMsg" : "Displaying Office{0} - {1} of {2}",
+       "* prop" : "footer"
+      },
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "listeners" : {
+          "|click" : "function()\n{\n    if (!_this.dialog) {\n     return;\n    }\n    var cdata = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   });\n}"
+         },
+         "text" : "Add",
+         "xtype" : "Button",
+         "cls" : "x-btn-text-icon",
+         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) {\n        return;\n    }\n    s[0].data.company_name = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected().data.name;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
+         },
+         "text" : "Edit",
+         "xtype" : "Button",
+         "cls" : "x-btn-text-icon",
+         "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "|click" : "function()\n{\n     Pman.genericDelete(_this, 'Office'); \n}\n        "
+         },
+         "text" : "Delete",
+         "xtype" : "Button",
+         "cls" : "x-btn-text-icon",
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar"
+        }
+       ]
+      },
+      {
+       "xtype" : "ColumnModel",
+       "sortable" : true,
+       "header" : "Name / Department / Sub Comp.",
+       "width" : 200,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "name"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 100,
+       "header" : "Phone",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "phone"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 100,
+       "header" : "Fax",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "fax"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 200,
+       "header" : "Email",
+       "$ renderer" : "function (v) {\n    return (v.length && v.indexOf('@') > 0 ) ? \n        String.format('<a href=\"mailto:{0}\">{0}</a>',v) : v;\n        \n}",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "email"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 300,
+       "header" : "Address",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "address"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
