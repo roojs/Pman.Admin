@@ -1,223 +1,239 @@
 {
-    "id": "roo-file-237",
-    "name": "Pman.Tab.AdminWatches",
-    "parent": "Pman.Tab.AdminWatchNotify",
-    "title": "Pman.Tab.AdminWatches",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatches.bjs",
-    "items": [
+ "name" : "Pman.Tab.AdminWatches",
+ "parent" : "Pman.Tab.AdminWatchNotify",
+ "title" : "Pman.Tab.AdminWatches",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatches.bjs",
+ "permname" : "",
+ "modOrder" : "860",
+ "strings" : {
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "1a86349be7851cf03d6fe959b94ed6fb" : "Watch ID",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "c4523f19258f444b936df7f96f57c7b9" : "Watch Table",
+  "498f79c4c5bbde77f1bceb6c86fd0f6d" : "Show",
+  "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
+  "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
+  "a4e70e911022ccc98ab8055a09222cf2" : "No core_watch found",
+  "a8929eb5c1553d3f70497f862d25d0ce" : "Select Action",
+  "b548a2ee926c118cc3211c5d8bb92a40" : "Who get's notified",
+  "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
+  "c122d95a9c28f9a54baef2c7784bb038" : "Watch Event",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
+  "314b26dabb519a609db698728284683f" : "Select Table"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+   },
+   "autoScroll" : false,
+   "background" : true,
+   "fitToframe" : true,
+   "region" : "center",
+   "xtype" : "GridPanel",
+   "| title" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
+   "fitContainer" : true,
+   "$ xns" : "Roo",
+   "tableName" : "core_watch",
+   "items" : [
+    {
+     "listeners" : {
+      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+      "|render" : "function() \n{\n    _this.grid = this; \n    _this.dialog = Pman.Dialog.AdminWatch;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+     },
+     "autoExpandColumn" : "person_id_name",
+     "xtype" : "Grid",
+     "loadMask" : true,
+     "$ xns" : "Roo.grid",
+     "* prop" : "grid",
+     "items" : [
+      {
+       "listeners" : {
+        "beforeload" : "function (_self, options)\n{\n        var val = _this.affectSel.getValue();\n        if (val.length) {\n            options.params.ontable = val;\n        }\n        if (_this.requestArgs) { \n            Roo.apply(options.params, _this.requestArgs);\n        }\n        \n}"
+       },
+       "xtype" : "Store",
+       "remoteSort" : true,
+       "$ sortInfo" : "{ field : 'ontable', direction: 'ASC' }",
+       "$ xns" : "Roo.data",
+       "* prop" : "dataSource",
+       "items" : [
         {
-            "listeners": {
-                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-            },
-            "autoScroll": false,
-            "background": true,
-            "fitContainer": true,
-            "fitToframe": true,
-            "region": "center",
-            "tableName": "core_watch",
-            "xtype": "GridPanel",
-            "|title": "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "listeners": {
-                        "|render": "function() \n{\n    _this.grid = this; \n    _this.dialog = Pman.Dialog.AdminWatch;\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                    },
-                    "*prop": "grid",
-                    "autoExpandColumn": "person_id_name",
-                    "loadMask": true,
-                    "xtype": "Grid",
-                    "|xns": "Roo.grid",
-                    "items": [
-                        {
-                            "listeners": {
-                                "beforeload": "function (_self, options)\n{\n        var val = _this.affectSel.getValue();\n        if (val.length) {\n            options.params.ontable = val;\n        }\n        if (_this.requestArgs) { \n            Roo.apply(options.params, _this.requestArgs);\n        }\n        \n}"
-                            },
-                            "*prop": "dataSource",
-                            "remoteSort": true,
-                            "xtype": "Store",
-                            "|sortInfo": "{ field : 'ontable', direction: 'ASC' }",
-                            "|xns": "Roo.data",
-                            "items": [
-                                {
-                                    "*prop": "proxy",
-                                    "xtype": "HttpProxy",
-                                    "method": "GET",
-                                    "|url": "baseURL + '/Roo/core_watch.php'",
-                                    "|xns": "Roo.data"
-                                },
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "JsonReader",
-                                    "totalProperty": "total",
-                                    "root": "data",
-                                    "*prop": "reader",
-                                    "id": "id",
-                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'event',\n        'type': 'string'\n    },\n    {\n        'name': 'medium',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "footer",
-                            "xtype": "PagingToolbar",
-                            "pageSize": 25,
-                            "displayInfo": true,
-                            "displayMsg": "Displaying core_watch{0} - {1} of {2}",
-                            "emptyMsg": "No core_watch found",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "*prop": "toolbar",
-                            "xtype": "Toolbar",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "text": "Show",
-                                    "xtype": "TextItem",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "|select": "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}",
-                                        "|render": "function (_self)\n{\n  _this.affectSel = _self;\n}"
-                                    },
-                                    "allowBlank": true,
-                                    "displayField": "on_table",
-                                    "editable": false,
-                                    "emptyText": "Select Table",
-                                    "forceSelection": true,
-                                    "listWidth": 300,
-                                    "loadingText": "Searching...",
-                                    "minChars": 2,
-                                    "name": "ontable",
-                                    "pageSize": 20,
-                                    "qtip": "Select Action",
-                                    "queryParam": "query[ontable]",
-                                    "selectOnFocus": true,
-                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{on_table}</b> </div>",
-                                    "triggerAction": "all",
-                                    "typeAhead": true,
-                                    "valueField": "on_table",
-                                    "width": 150,
-                                    "xtype": "ComboBox",
-                                    "|xns": "Roo.form",
-                                    "items": [
-                                        {
-                                            "listeners": {
-                                                "|beforeload": "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'on_table';\n    o.params._columns ='on_table';\n}"
-                                            },
-                                            "*prop": "store",
-                                            "remoteSort": true,
-                                            "xtype": "Store",
-                                            "|sortInfo": "{ field : 'on_table' , direction : 'ASC' }",
-                                            "|xns": "Roo.data",
-                                            "items": [
-                                                {
-                                                    "*prop": "proxy",
-                                                    "method": "GET",
-                                                    "xtype": "HttpProxy",
-                                                    "|url": "baseURL + '/Roo/Events.php'",
-                                                    "|xns": "Roo.data"
-                                                },
-                                                {
-                                                    "*prop": "reader",
-                                                    "id": "id",
-                                                    "root": "data",
-                                                    "totalProperty": "total",
-                                                    "xtype": "JsonReader",
-                                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    }\n     \n]",
-                                                    "|xns": "Roo.data"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Fill"
-                                },
-                                {
-                                    "text": "Add",
-                                    "xtype": "Button",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                    "listeners": {
-                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                    },
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "text": "Delete",
-                                    "cls": "x-btn-text-icon",
-                                    "|icon": "rootURL + '/Pman/templates/images/trash.gif'",
-                                    "xtype": "Button",
-                                    "listeners": {
-                                        "|click": "function()\n{\n     Pman.genericDelete(_this, 'core_watch'); \n}\n        "
-                                    },
-                                    "|xns": "Roo.Toolbar"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "event",
-                            "header": "Watch Event",
-                            "width": 150,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) { \n    if (typeof(r.data.event_right_display_name) != 'undefined') {\n        return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     \n    }\n    return String.format('{0}', v); \n    \n}",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "ontable",
-                            "header": "Watch Table",
-                            "width": 150,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "onid",
-                            "header": "Watch ID",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "person_id_name",
-                            "header": "Who get's notified",
-                            "width": 150,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "medium",
-                            "header": "What happens",
-                            "width": 300,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) {\n    var ar = v.split(':');\n    if (ar.length > 1) {\n        var act = ar[1].replace(/^notify/,'');\n\n        return String.format('<span qtip=\"{0}\">{1}<span>', v, act);\n    }\n\n    return String.format('{0}', v);\n }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Active",
-                            "width": 75,
-                            "dataIndex": "active",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        }
-                    ]
-                }
-            ]
+         "$ url" : "baseURL + '/Roo/core_watch.php'",
+         "method" : "GET",
+         "xtype" : "HttpProxy",
+         "$ xns" : "Roo.data",
+         "* prop" : "proxy"
+        },
+        {
+         "id" : "id",
+         "root" : "data",
+         "xtype" : "JsonReader",
+         "$ xns" : "Roo.data",
+         "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'event',\n        'type': 'string'\n    },\n    {\n        'name': 'medium',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    }\n]",
+         "* prop" : "reader",
+         "totalProperty" : "total"
         }
-    ],
-    "permname": "",
-    "modOrder": "860"
+       ]
+      },
+      {
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar",
+       "emptyMsg" : "No core_watch found",
+       "$ xns" : "Roo",
+       "displayInfo" : true,
+       "displayMsg" : "Displaying core_watch{0} - {1} of {2}",
+       "* prop" : "footer"
+      },
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "text" : "Show",
+         "xtype" : "TextItem",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "|render" : "function (_self)\n{\n  _this.affectSel = _self;\n}",
+          "|select" : "function (combo, record, index)\n{\n  _this.grid.footer.onClick('first');\n}"
+         },
+         "listWidth" : 300,
+         "triggerAction" : "all",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "pageSize" : 20,
+         "displayField" : "on_table",
+         "emptyText" : "Select Table",
+         "minChars" : 2,
+         "valueField" : "on_table",
+         "xtype" : "ComboBox",
+         "allowBlank" : true,
+         "typeAhead" : true,
+         "editable" : false,
+         "width" : 150,
+         "$ xns" : "Roo.form",
+         "name" : "ontable",
+         "qtip" : "Select Action",
+         "queryParam" : "query[ontable]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{on_table}</b> </div>",
+         "loadingText" : "Searching...",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    // staff can see all logs, other companies can only see their own.\n    if (Pman.Login.authUser.company_id_comptype != 'OWNER') {\n        o.params.company_id = Pman.Login.authUser.company_id;\n    }\n    o.params._distinct = 'on_table';\n    o.params._columns ='on_table';\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field : 'on_table' , direction : 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/Events.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    }\n     \n]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "xtype" : "Fill",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "|click" : "function()\n{\n    if (!_this.dialog) {\n         return;\n     }\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+         },
+         "text" : "Add",
+         "xtype" : "Button",
+         "cls" : "x-btn-text-icon",
+         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_watch'); \n}\n        "
+         },
+         "text" : "Delete",
+         "xtype" : "Button",
+         "cls" : "x-btn-text-icon",
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar"
+        }
+       ]
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Watch Event",
+       "width" : 150,
+       "$ renderer" : "function(v,x,r) { \n    if (typeof(r.data.event_right_display_name) != 'undefined') {\n        return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     \n    }\n    return String.format('{0}', v); \n    \n}",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "event"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Watch Table",
+       "width" : 150,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "ontable"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Watch ID",
+       "width" : 75,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "onid"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Who get's notified",
+       "width" : 150,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "person_id_name"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "What happens",
+       "width" : 300,
+       "$ renderer" : "function(v) {\n    var ar = v.split(':');\n    if (ar.length > 1) {\n        var act = ar[1].replace(/^notify/,'');\n\n        return String.format('<span qtip=\"{0}\">{1}<span>', v, act);\n    }\n\n    return String.format('{0}', v);\n }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "medium"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 75,
+       "header" : "Active",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "active"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

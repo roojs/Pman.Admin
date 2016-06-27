@@ -1,169 +1,180 @@
 {
-    "id": "roo-file-189",
-    "name": "Pman.Tab.AdminProjectMembers",
-    "parent": "Pman.Tab.AdminProjectManager",
-    "title": "Pman.Tab.AdminProjectMembers",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectMembers.bjs",
-    "items": [
+ "name" : "Pman.Tab.AdminProjectMembers",
+ "parent" : "Pman.Tab.AdminProjectManager",
+ "title" : "Pman.Tab.AdminProjectMembers",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectMembers.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "858ba4765e53c712ef672a9570474b1d" : "Member",
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "1c76cbfe21c6f44c1d1e59d54f3e4420" : "Company",
+  "7cdc93ea9b163a546146172299bb0b38" : "Owners",
+  "ef53538ae41a651c7f72ab6cb1135d8c" : "Members",
+  "8f7f93630c366dc55aec88eb8e9640d0" : "Staff",
+  "6311ae17c1ee52b36e68aaf4ad066387" : "Other",
+  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
+  "f1174ecbbc232f948717979daf04cf08" : "No Person found",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "d41d8cd98f00b204e9800998ecf8427e" : " "
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+   },
+   "fitToframe" : true,
+   "background" : true,
+   "region" : "east",
+   "title" : "Person",
+   "xtype" : "GridPanel",
+   "fitContainer" : true,
+   "$ xns" : "Roo",
+   "tableName" : "Person",
+   "items" : [
+    {
+     "listeners" : {
+      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n        return;\n        }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+      "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+     },
+     "filter" : "S",
+     "autoExpandColumn" : "name",
+     "xtype" : "Grid",
+     "loadMask" : true,
+     "$ xns" : "Roo.grid",
+     "* prop" : "grid",
+     "items" : [
+      {
+       "listeners" : {
+        "beforeload" : "function (_self, options)\n{\n    if (!_this.memberBtn) {\n        return false;\n    }\n    options.params['query[project_member_filter]'] = _this.memberBtn.pressed ? 1 :0;\n    var pm = Pman ? Pman.Tab.AdminProjectManager :false;\n    if (!pm || !pm.grid || !pm.grid.getSelectionModel().getSelected()) {\n        return false;\n    }\n    var sel = pm.grid.getSelectionModel().getSelected();\n    options.params['query[project_member_of]'] = sel.data.id;    \n    switch(_this.grid.filter) {\n        case 'S': // staff\n            options.params.company_id_comptype='OWNER';\n\n            break;\n        case 'O': // owner..\n            options.params.company_id = sel.data.client_id;\n            break;\n        case 'A': // not owner or staff..\n            options.params['!company_id'] = sel.data.client_id;\n            options.params['!company_id_comptype'] ='OWNER';\n            break;      \n    }\n    \n}"
+       },
+       "xtype" : "Store",
+       "remoteSort" : true,
+       "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
+       "$ xns" : "Roo.data",
+       "* prop" : "dataSource",
+       "items" : [
         {
-            "listeners": {
-                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-            },
-            "background": true,
-            "fitContainer": true,
-            "fitToframe": true,
-            "region": "east",
-            "tableName": "Person",
-            "title": "Person",
-            "xtype": "GridPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "listeners": {
-                        "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                    },
-                    "filter": "S",
-                    "*prop": "grid",
-                    "autoExpandColumn": "name",
-                    "loadMask": true,
-                    "xtype": "Grid",
-                    "|xns": "Roo.grid",
-                    "items": [
-                        {
-                            "listeners": {
-                                "beforeload": "function (_self, options)\n{\n    if (!_this.memberBtn) {\n        return false;\n    }\n    options.params['query[project_member_filter]'] = _this.memberBtn.pressed ? 1 :0;\n    var pm = Pman ? Pman.Tab.AdminProjectManager :false;\n    if (!pm || !pm.grid || !pm.grid.getSelectionModel().getSelected()) {\n        return false;\n    }\n    var sel = pm.grid.getSelectionModel().getSelected();\n    options.params['query[project_member_of]'] = sel.data.id;    \n    switch(_this.grid.filter) {\n        case 'S': // staff\n            options.params.company_id_comptype='OWNER';\n\n            break;\n        case 'O': // owner..\n            options.params.company_id = sel.data.client_id;\n            break;\n        case 'A': // not owner or staff..\n            options.params['!company_id'] = sel.data.client_id;\n            options.params['!company_id_comptype'] ='OWNER';\n            break;      \n    }\n    \n}"
-                            },
-                            "*prop": "dataSource",
-                            "remoteSort": true,
-                            "xtype": "Store",
-                            "|sortInfo": "{ field : 'name', direction: 'ASC' }",
-                            "|xns": "Roo.data",
-                            "items": [
-                                {
-                                    "*prop": "proxy",
-                                    "xtype": "HttpProxy",
-                                    "method": "GET",
-                                    "|url": "baseURL + '/Roo/Person.php'",
-                                    "|xns": "Roo.data"
-                                },
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "JsonReader",
-                                    "totalProperty": "total",
-                                    "root": "data",
-                                    "*prop": "reader",
-                                    "id": "id",
-                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'lang',\n        'type': 'string'\n    },\n    {\n        'name': 'no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_open_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_close_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_countries',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_languages',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    }\n]"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "footer",
-                            "displayInfo": true,
-                            "displayMsg": " ",
-                            "emptyMsg": "No Person found",
-                            "pageSize": 25,
-                            "xtype": "PagingToolbar",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "*prop": "toolbar",
-                            "xtype": "Toolbar",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n    _this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "pressed": true,
-                                    "text": "Staff",
-                                    "toggleGroup": "appm",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'O';\n    }\n    _this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "text": "Owners",
-                                    "toggleGroup": "appm",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'A';\n    }\n    _this.grid.footer.onClick('first');\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "text": "Other",
-                                    "toggleGroup": "appm",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                },
-                                {
-                                    "|xns": "Roo.Toolbar",
-                                    "xtype": "Fill"
-                                },
-                                {
-                                    "listeners": {
-                                        "toggle": "function (_self, pressed)\n{\n   \n    _this.grid.footer.onClick('first');\n}",
-                                        "render": "function (_self)\n{\n    _this.memberBtn = _self;\n}"
-                                    },
-                                    "enableToggle": true,
-                                    "text": "Members",
-                                    "xtype": "Button",
-                                    "|xns": "Roo.Toolbar"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "is_member",
-                            "header": "Member",
-                            "width": 60,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "name",
-                            "header": "Name",
-                            "sortable": true,
-                            "width": 200,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "email",
-                            "header": "Email",
-                            "width": 100,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "sortable": true,
-                            "listeners": {}
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "company_id_name",
-                            "header": "Company",
-                            "sortable": true,
-                            "width": 120,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        }
-                    ]
-                }
-            ]
+         "$ url" : "baseURL + '/Roo/Person.php'",
+         "method" : "GET",
+         "xtype" : "HttpProxy",
+         "$ xns" : "Roo.data",
+         "* prop" : "proxy"
+        },
+        {
+         "id" : "id",
+         "root" : "data",
+         "xtype" : "JsonReader",
+         "$ xns" : "Roo.data",
+         "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'lang',\n        'type': 'string'\n    },\n    {\n        'name': 'no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_open_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_close_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_countries',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_languages',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    }\n]",
+         "* prop" : "reader",
+         "totalProperty" : "total"
         }
-    ],
-    "permname": "",
-    "modOrder": "001"
+       ]
+      },
+      {
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar",
+       "emptyMsg" : "No Person found",
+       "$ xns" : "Roo",
+       "displayMsg" : " ",
+       "displayInfo" : true,
+       "* prop" : "footer"
+      },
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "listeners" : {
+          "toggle" : "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'S';\n    }\n    _this.grid.footer.onClick('first');\n}"
+         },
+         "text" : "Staff",
+         "enableToggle" : true,
+         "toggleGroup" : "appm",
+         "pressed" : true,
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "toggle" : "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'O';\n    }\n    _this.grid.footer.onClick('first');\n}"
+         },
+         "text" : "Owners",
+         "toggleGroup" : "appm",
+         "enableToggle" : true,
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "toggle" : "function (_self, pressed)\n{\n    if (pressed) {\n        _this.grid.filter = 'A';\n    }\n    _this.grid.footer.onClick('first');\n}"
+         },
+         "text" : "Other",
+         "toggleGroup" : "appm",
+         "enableToggle" : true,
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "xtype" : "Fill",
+         "$ xns" : "Roo.Toolbar"
+        },
+        {
+         "listeners" : {
+          "toggle" : "function (_self, pressed)\n{\n   \n    _this.grid.footer.onClick('first');\n}",
+          "render" : "function (_self)\n{\n    _this.memberBtn = _self;\n}"
+         },
+         "text" : "Members",
+         "enableToggle" : true,
+         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar"
+        }
+       ]
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Member",
+       "width" : 60,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "is_member"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "sortable" : true,
+       "header" : "Name",
+       "width" : 200,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "name"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "sortable" : true,
+       "header" : "Email",
+       "width" : 100,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "email"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "sortable" : true,
+       "header" : "Company",
+       "width" : 120,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "company_id_name"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

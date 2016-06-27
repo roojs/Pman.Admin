@@ -97,7 +97,9 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
          },
         rowdblclick : function (_self, rowIndex, e)
          {
-             if (!_this.dialog) return;
+             if (!_this.dialog) {
+                 return;
+                 }
              _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
                  _this.grid.footer.onClick('first');
              }); 
@@ -182,7 +184,9 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                if (!_this.dialog) return;
+                if (!_this.dialog) {
+                    return;
+                    }
                 _this.dialog.show( { id : 0 } , function() {
                     _this.grid.footer.onClick('first');
                }); 
@@ -204,7 +208,9 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
                     Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
                     return;
                 }
-                if (!_this.dialog) return;
+                if (!_this.dialog) {
+                    return;
+                }
                 _this.dialog.show(s[0].data, function() {
                     _this.grid.footer.onClick('first');
                 }); 

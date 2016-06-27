@@ -1,274 +1,287 @@
 {
-    "id": "roo-file-95",
-    "name": "Pman.Tab.AdminProjectManager",
-    "parent": "Pman.Tab.Admin",
-    "title": "Pman.Tab.AdminProjectManager",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
-    "items": [
+ "name" : "Pman.Tab.AdminProjectManager",
+ "parent" : "Pman.Tab.Admin",
+ "title" : "Pman.Tab.AdminProjectManager",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminProjectManager.bjs",
+ "permname" : "Core.Projects_All",
+ "modOrder" : "002",
+ "strings" : {
+  "54e1d44609e3abed11f6e1eb6ae54988" : "Projects",
+  "8115b8afd5b2953d9fa63eb0db9559fc" : "No Projects found",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "577d7068826de925ea2aec01dbadf5e4" : "Client",
+  "917d465e9a9e8b16a8da50a1ca8156ca" : "Show:",
+  "0f111c111475c934057e6f8bb8314d56" : "Non-Projects",
+  "03f4a47830f97377a35321051685071e" : "Closed",
+  "f45e7cfb0824b6d381ade7d81bb81615" : "Displaying Projects {0} - {1} of {2}",
+  "b1c94ca2fbc3e78fc30069c8d0f01680" : "All",
+  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
+  "ca0dbad92a874b2f69b549293387925e" : "Code",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "93573647a6041adaabd942e88cc29e23" : "Projects / Members"
+ },
+ "items" : [
+  {
+   "region" : "center",
+   "fitToFrame" : true,
+   "title" : "Projects / Members",
+   "xtype" : "NestedLayoutPanel",
+   "fitContainer" : true,
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "width" : 300,
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "east"
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.panel = this;\n    try {\n        _this.dialog =  Pman.Dialog.CoreProject ; \n    } catch(e) {}\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+       },
+       "fitToframe" : true,
+       "background" : true,
+       "region" : "center",
+       "title" : "Projects",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "Projects",
+       "items" : [
         {
-            "fitContainer": true,
-            "fitToFrame": true,
-            "region": "center",
-            "title": "Projects / Members",
-            "xtype": "NestedLayoutPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo",
-                    "xtype": "BorderLayout",
-                    "*prop": "layout",
-                    "items": [
-                        {
-                            "|xns": "Roo",
-                            "xtype": "LayoutRegion",
-                            "*prop": "center"
-                        },
-                        {
-                            "*prop": "east",
-                            "split": true,
-                            "width": 300,
-                            "xtype": "LayoutRegion",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "listeners": {
-                                "|activate": "function() {\n    _this.panel = this;\n    try {\n        _this.dialog =  Pman.Dialog.CoreProject ; \n    } catch(e) {}\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-                            },
-                            "background": true,
-                            "fitContainer": true,
-                            "fitToframe": true,
-                            "region": "center",
-                            "tableName": "Projects",
-                            "title": "Projects",
-                            "xtype": "GridPanel",
-                            "|xns": "Roo",
-                            "items": [
-                                {
-                                    "listeners": {
-                                        "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                                    },
-                                    "*prop": "grid",
-                                    "autoExpandColumn": "name",
-                                    "filter": "P,U",
-                                    "loadMask": true,
-                                    "xtype": "Grid",
-                                    "|getTypes": "function() {\n    return [\n        [  'U' , \"Project (Unconfirmed)\" ],\n        [  'P' , \"Project\" ],\n        [  'C' , \"Project (Closed)\" ],\n        [  'N' , \"Non-Project\" ],\n        [  'X' , \"Non-Project (Closed)\" ]\n\n    ];\n}\n",
-                                    "|typeToString": "function(v)\n{\n    var ar = this.getTypes();\n    var ret = '';\n    Roo.each(ar, function(a) {\n        if (a[0] == v) {\n            ret = a[1];\n            return false;\n        }\n    });\n    return ret;\n}\n",
-                                    "|xns": "Roo.grid",
-                                    "items": [
-                                        {
-                                            "listeners": {
-                                                "beforeload": "function (_self, o)\n{\n    if (!_this.searchBox) {\n        return false;\n    }  \n    o.params = o.params ? o.params : {};\n    o.params['query[project_search]'] = _this.searchBox.getValue();\n    o.params['query[project_filter]'] = _this.grid.filter;\n}"
-                                            },
-                                            "*prop": "dataSource",
-                                            "remoteSort": true,
-                                            "xtype": "Store",
-                                            "|sortInfo": "{ field : 'code', direction: 'ASC' }",
-                                            "|xns": "Roo.data",
-                                            "items": [
-                                                {
-                                                    "*prop": "proxy",
-                                                    "xtype": "HttpProxy",
-                                                    "method": "GET",
-                                                    "|url": "baseURL + '/Roo/Projects.php'",
-                                                    "|xns": "Roo.data"
-                                                },
-                                                {
-                                                    "|xns": "Roo.data",
-                                                    "xtype": "JsonReader",
-                                                    "totalProperty": "total",
-                                                    "root": "data",
-                                                    "*prop": "reader",
-                                                    "id": "id",
-                                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'type',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'open_date',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'close_date',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'countries',\n        'type': 'string'\n    },\n    {\n        'name': 'languages',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'client_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'client_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'agency_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'agency_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'team_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'team_id_type',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id_leader',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_name',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_email',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_role',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_active',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    }\n]"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "*prop": "footer",
-                                            "displayInfo": true,
-                                            "displayMsg": "Displaying Projects {0} - {1} of {2}",
-                                            "emptyMsg": "No Projects found",
-                                            "pageSize": 25,
-                                            "xtype": "PagingToolbar",
-                                            "|xns": "Roo"
-                                        },
-                                        {
-                                            "*prop": "toolbar",
-                                            "xtype": "Toolbar",
-                                            "|xns": "Roo",
-                                            "items": [
-                                                {
-                                                    "listeners": {
-                                                        "|click": "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
-                                                    },
-                                                    "cls": "x-btn-text-icon",
-                                                    "text": "Add",
-                                                    "xtype": "Button",
-                                                    "|icon": "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "text": "Edit",
-                                                    "xtype": "Button",
-                                                    "cls": "x-btn-text-icon",
-                                                    "|icon": "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                                    "listeners": {
-                                                        "|click": "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) return;\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
-                                                    },
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "|xns": "Roo.Toolbar",
-                                                    "xtype": "Separator"
-                                                },
-                                                {
-                                                    "text": "Search",
-                                                    "xtype": "TextItem",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "render": "function (_self)\n{\n    _this.searchBox = _self;\n}",
-                                                        "specialkey": "function (_self, e)\n{\n    if(e.getKey() == 13) {\n          _this.grid.footer.onClick('first');\n    }\n}"
-                                                    },
-                                                    "xtype": "TextField",
-                                                    "|xns": "Roo.form"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "|click": "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "cls": "x-btn-icon",
-                                                    "xtype": "Button",
-                                                    "|icon": "rootURL + '/Pman/templates/images/search.gif'",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "|click": "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
-                                                    },
-                                                    "cls": "x-btn-icon",
-                                                    "xtype": "Button",
-                                                    "|icon": "rootURL + '/Pman/templates/images/edit-clear.gif'",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "|xns": "Roo.Toolbar",
-                                                    "xtype": "Separator"
-                                                },
-                                                {
-                                                    "text": "Show:",
-                                                    "xtype": "TextItem",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "toggle": "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'P,N,U'; } \n    _this.grid.footer.onClick('first');\n     \n}"
-                                                    },
-                                                    "enableToggle": true,
-                                                    "pressed": false,
-                                                    "text": "All",
-                                                    "toggleGroup": "pgrp",
-                                                    "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "toggle": "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'P,U'; } \n    _this.grid.footer.onClick('first');\n     \n}"
-                                                    },
-                                                    "enableToggle": true,
-                                                    "pressed": true,
-                                                    "text": "Projects",
-                                                    "toggleGroup": "pgrp",
-                                                    "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "toggle": "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'N'; } \n    _this.grid.footer.onClick('first');\n     \n}"
-                                                    },
-                                                    "enableToggle": true,
-                                                    "pressed": false,
-                                                    "text": "Non-Projects",
-                                                    "toggleGroup": "pgrp",
-                                                    "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar"
-                                                },
-                                                {
-                                                    "listeners": {
-                                                        "toggle": "function (_self, st)\n{\n        if (st) { _this.grid.filter = 'X,C'; } \n                _this.grid.footer.onClick('first');\n        \n}"
-                                                    },
-                                                    "enableToggle": true,
-                                                    "pressed": false,
-                                                    "text": "Closed",
-                                                    "toggleGroup": "pgrp",
-                                                    "xtype": "Button",
-                                                    "|xns": "Roo.Toolbar"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "*prop": "colModel[]",
-                                            "dataIndex": "type",
-                                            "header": "Type",
-                                            "width": 70,
-                                            "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return _this.grid.typeToString(v);}",
-                                            "|xns": "Roo.grid",
-                                            "sortable": true,
-                                            "listeners": {}
-                                        },
-                                        {
-                                            "*prop": "colModel[]",
-                                            "dataIndex": "client_id_name",
-                                            "header": "Client",
-                                            "width": 75,
-                                            "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid"
-                                        },
-                                        {
-                                            "*prop": "colModel[]",
-                                            "dataIndex": "code",
-                                            "header": "Code",
-                                            "width": 120,
-                                            "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "sortable": true,
-                                            "listeners": {}
-                                        },
-                                        {
-                                            "*prop": "colModel[]",
-                                            "dataIndex": "name",
-                                            "header": "Name",
-                                            "width": 200,
-                                            "xtype": "ColumnModel",
-                                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                                            "|xns": "Roo.grid",
-                                            "sortable": true,
-                                            "listeners": {}
-                                        },
-                                        {
-                                            "listeners": {
-                                                "afterselectionchange": "function (_self)\n{\n    // load project members.\n}"
-                                            },
-                                            "*prop": "sm",
-                                            "singleSelect": true,
-                                            "xtype": "RowSelectionModel",
-                                            "|xns": "Roo.grid"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+         "listeners" : {
+          "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n         return;\n     }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+          "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "filter" : "P,U",
+         "autoExpandColumn" : "name",
+         "xtype" : "Grid",
+         "$ getTypes" : "function() {\n    return [\n        [  'U' , \"Project (Unconfirmed)\" ],\n        [  'P' , \"Project\" ],\n        [  'C' , \"Project (Closed)\" ],\n        [  'N' , \"Non-Project\" ],\n        [  'X' , \"Non-Project (Closed)\" ]\n\n    ];\n}\n",
+         "loadMask" : true,
+         "$ typeToString" : "function(v)\n{\n    var ar = this.getTypes();\n    var ret = '';\n    Roo.each(ar, function(a) {\n        if (a[0] == v) {\n            ret = a[1];\n            return false;\n        }\n    });\n    return ret;\n}\n",
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, o)\n{\n    if (!_this.searchBox) {\n        return false;\n    }  \n    o.params = o.params ? o.params : {};\n    o.params['query[project_search]'] = _this.searchBox.getValue();\n    o.params['query[project_filter]'] = _this.grid.filter;\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field : 'code', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/Projects.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'type',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'open_date',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'close_date',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'countries',\n        'type': 'string'\n    },\n    {\n        'name': 'languages',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'client_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'client_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'client_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'client_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'agency_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_created_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'agency_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'agency_id_updated_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'agency_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'team_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'team_id_type',\n        'type': 'int'\n    },\n    {\n        'name': 'team_id_leader',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_name',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_email',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_role',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_active',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'open_by_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'open_by_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Projects found",
+           "$ xns" : "Roo",
+           "displayMsg" : "Displaying Projects {0} - {1} of {2}",
+           "displayInfo" : true,
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Separator",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "text" : "Search",
+             "xtype" : "TextItem",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n    if(e.getKey() == 13) {\n          _this.grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.searchBox = _self;\n}"
+             },
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Separator",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "text" : "Show:",
+             "xtype" : "TextItem",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "toggle" : "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'P,N,U'; } \n    _this.grid.footer.onClick('first');\n     \n}"
+             },
+             "text" : "All",
+             "enableToggle" : true,
+             "toggleGroup" : "pgrp",
+             "pressed" : false,
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "toggle" : "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'P,U'; } \n    _this.grid.footer.onClick('first');\n     \n}"
+             },
+             "text" : "Projects",
+             "enableToggle" : true,
+             "toggleGroup" : "pgrp",
+             "pressed" : true,
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "toggle" : "function (_self,st)\n{\n    if (st) { _this.grid.filter = 'N'; } \n    _this.grid.footer.onClick('first');\n     \n}"
+             },
+             "text" : "Non-Projects",
+             "enableToggle" : true,
+             "toggleGroup" : "pgrp",
+             "pressed" : false,
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "toggle" : "function (_self, st)\n{\n        if (st) { _this.grid.filter = 'X,C'; } \n                _this.grid.footer.onClick('first');\n        \n}"
+             },
+             "text" : "Closed",
+             "enableToggle" : true,
+             "toggleGroup" : "pgrp",
+             "pressed" : false,
+             "xtype" : "Button",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Type",
+           "width" : 70,
+           "$ renderer" : "function(v) { return _this.grid.typeToString(v);}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "type"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Client",
+           "width" : 75,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "client_id_name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Code",
+           "width" : 120,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "code"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Name",
+           "width" : 200,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "name"
+          },
+          {
+           "listeners" : {
+            "afterselectionchange" : "function (_self)\n{\n    // load project members.\n}"
+           },
+           "xtype" : "RowSelectionModel",
+           "singleSelect" : true,
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          }
+         ]
         }
-    ],
-    "permname": "Core.Projects_All",
-    "modOrder": "002"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

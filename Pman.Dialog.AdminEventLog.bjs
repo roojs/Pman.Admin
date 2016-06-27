@@ -1,147 +1,157 @@
 {
-    "id": "roo-file-545",
-    "name": "Pman.Dialog.AdminEventLog",
-    "parent": "",
-    "title": "",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEventLog.bjs",
-    "items": [
+ "name" : "Pman.Dialog.AdminEventLog",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEventLog.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "7a11042f53957727d8667732d7de1102" : "Ipaddr",
+  "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+  "87f9f735a1d36793ceaecd4e47124b63" : "Events",
+  "d9578744f1d4b13d40a51fbb8b9d6ea5" : "Person name",
+  "c0a002606fb906d471e04fe02e5e53f9" : "Event history",
+  "6be4aa550791c310e098cd6c234af7d8" : "Event when",
+  "d3d2e617335f08df83599665eef8a418" : "Close",
+  "7205d42d6d975c911bc1147259d78935" : "Displaying Events{0} - {1} of {2}",
+  "004bf6c9a40003140292e97330236c53" : "Action",
+  "90e4ac2e5a22e53df63b6b186d8727ba" : "No Events found"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    _this.grid.footer.onClick('first');\n}"
+   },
+   "title" : "Event history",
+   "xtype" : "LayoutDialog",
+   "width" : 800,
+   "$ xns" : "Roo",
+   "height" : 500,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+     },
+     "fitToframe" : true,
+     "background" : false,
+     "region" : "center",
+     "title" : "Events",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "Events",
+     "items" : [
+      {
+       "listeners" : {
+        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "remarks",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
         {
-            "listeners": {
-                "show": "function (_self)\n{\n    _this.grid.footer.onClick('first');\n}"
-            },
-            "height": 500,
-            "title": "Event history",
-            "width": 800,
-            "xtype": "LayoutDialog",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo",
-                    "xtype": "LayoutRegion",
-                    "*prop": "center"
-                },
-                {
-                    "listeners": {
-                        "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-                    },
-                    "background": false,
-                    "fitContainer": true,
-                    "fitToframe": true,
-                    "region": "center",
-                    "tableName": "Events",
-                    "title": "Events",
-                    "xtype": "GridPanel",
-                    "|xns": "Roo",
-                    "items": [
-                        {
-                            "listeners": {
-                                "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                                "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                            },
-                            "*prop": "grid",
-                            "autoExpandColumn": "remarks",
-                            "loadMask": true,
-                            "xtype": "Grid",
-                            "|xns": "Roo.grid",
-                            "items": [
-                                {
-                                    "listeners": {
-                                        "beforeload": "function (_self,o )\n{\n    if (!_this.data || !_this.data.on_id) {\n        return false;\n    }\n    o.params.on_table = _this.data.on_table;\n    o.params.on_id = _this.data.on_id;\n    \n    if (typeof(_this.data.person_table) != 'undefined') {\n         o.params.person_table =_this.data.person_table;\n     }\n}"
-                                    },
-                                    "*prop": "dataSource",
-                                    "remoteSort": true,
-                                    "xtype": "Store",
-                                    "|sortInfo": "{ field : 'event_when', direction: 'DESC' }",
-                                    "|xns": "Roo.data",
-                                    "items": [
-                                        {
-                                            "*prop": "proxy",
-                                            "xtype": "HttpProxy",
-                                            "method": "GET",
-                                            "|url": "baseURL + '/Roo/Events.php'",
-                                            "|xns": "Roo.data"
-                                        },
-                                        {
-                                            "|xns": "Roo.data",
-                                            "xtype": "JsonReader",
-                                            "totalProperty": "total",
-                                            "root": "data",
-                                            "*prop": "reader",
-                                            "id": "id",
-                                            "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'person_id_firstname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname',\n        'type': 'string'\n    }\n]"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "*prop": "footer",
-                                    "xtype": "PagingToolbar",
-                                    "pageSize": 25,
-                                    "displayInfo": true,
-                                    "displayMsg": "Displaying Events{0} - {1} of {2}",
-                                    "emptyMsg": "No Events found",
-                                    "|xns": "Roo"
-                                },
-                                {
-                                    "xtype": "ColumnModel",
-                                    "header": "Event when",
-                                    "width": 75,
-                                    "dataIndex": "event_when",
-                                    "|renderer": "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-                                    "|xns": "Roo.grid",
-                                    "*prop": "colModel[]"
-                                },
-                                {
-                                    "*prop": "colModel[]",
-                                    "dataIndex": "person_id_name",
-                                    "header": "Person name",
-                                    "width": 100,
-                                    "xtype": "ColumnModel",
-                                    "|renderer": "function(v) { return String.format('{0}', v); }",
-                                    "|xns": "Roo.grid"
-                                },
-                                {
-                                    "*prop": "colModel[]",
-                                    "dataIndex": "action",
-                                    "header": "Action",
-                                    "width": 80,
-                                    "xtype": "ColumnModel",
-                                    "|renderer": "function(v) { return String.format('{0}', v); }",
-                                    "|xns": "Roo.grid"
-                                },
-                                {
-                                    "*prop": "colModel[]",
-                                    "dataIndex": "ipaddr",
-                                    "header": "Ipaddr",
-                                    "width": 80,
-                                    "xtype": "ColumnModel",
-                                    "|renderer": "function(v) { return String.format('{0}', v); }",
-                                    "|xns": "Roo.grid"
-                                },
-                                {
-                                    "xtype": "ColumnModel",
-                                    "header": "Remarks",
-                                    "width": 200,
-                                    "dataIndex": "remarks",
-                                    "|renderer": "function(v) { return String.format('{0}', v); }",
-                                    "|xns": "Roo.grid",
-                                    "*prop": "colModel[]"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listeners": {
-                        "click": "function (_self, e)\n{\n    _this.dialog.hide();\n}"
-                    },
-                    "*prop": "buttons[]",
-                    "text": "Close",
-                    "xtype": "Button",
-                    "|xns": "Roo"
-                }
-            ]
+         "listeners" : {
+          "beforeload" : "function (_self,o )\n{\n    if (!_this.data || !_this.data.on_id) {\n        return false;\n    }\n    o.params.on_table = _this.data.on_table;\n    o.params.on_id = _this.data.on_id;\n    \n    if (typeof(_this.data.person_table) != 'undefined') {\n         o.params.person_table =_this.data.person_table;\n     }\n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'event_when', direction: 'DESC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/Events.php'",
+           "method" : "GET",
+           "xtype" : "HttpProxy",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_name',\n        'type': 'string'\n    },\n    {\n        'name': 'event_when',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'action',\n        'type': 'string'\n    },\n    {\n        'name': 'ipaddr',\n        'type': 'string'\n    },\n    {\n        'name': 'on_id',\n        'type': 'int'\n    },\n    {\n        'name': 'on_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_table',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id_deleted_dt',\n        'type': 'date'\n    },\n    {\n        'name': 'person_id_firstname',\n        'type': 'string'\n    },\n    {\n        'name': 'person_id_lastname',\n        'type': 'string'\n    }\n]",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No Events found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying Events{0} - {1} of {2}",
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 75,
+         "header" : "Event when",
+         "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "event_when"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Person name",
+         "width" : 100,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "person_id_name"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Action",
+         "width" : 80,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "action"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "header" : "Ipaddr",
+         "width" : 80,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "ipaddr"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 200,
+         "header" : "Remarks",
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "remarks"
         }
-    ],
-    "permname": "",
-    "modOrder": "001"
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Close",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
 }

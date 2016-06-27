@@ -64,7 +64,9 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
       },
      rowdblclick : function (_self, rowIndex, e)
       {
-          if (!_this.dialog) return;
+          if (!_this.dialog) { 
+              return; 
+          }
           var s = this.getDataSource().getAt(rowIndex);
           if (s.data.id < 1 ) {
               return;
@@ -99,7 +101,9 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                if (!_this.dialog) return;
+                if (!_this.dialog) {
+                    return;
+                }
                 _this.dialog.show( { id : 0,  type: 2 } , function() {
                      _this.grid.ds.load({});
                }); 
@@ -124,7 +128,9 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                 if (s[0].data.id < 1 ) {
                     return;
                 }
-                if (!_this.dialog) return;
+                if (!_this.dialog) {
+                    return;
+                    }
                 _this.dialog.show(s[0].data, function() {
                      _this.grid.ds.load({});
                 }); 

@@ -1,229 +1,246 @@
 {
-    "id": "roo-file-256",
-    "name": "Pman.Tab.AdminNotifyRecur",
-    "parent": "Pman.Tab.AdminWatchNotify",
-    "title": "Pman.Tab.AdminNotifyRecur",
-    "path": "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotifyRecur.bjs",
-    "items": [
+ "name" : "Pman.Tab.AdminNotifyRecur",
+ "parent" : "Pman.Tab.AdminWatchNotify",
+ "title" : "Pman.Tab.AdminNotifyRecur",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotifyRecur.bjs",
+ "permname" : "",
+ "modOrder" : "800",
+ "strings" : {
+  "04df30d61712300fd31c24e2c7c8f9bc" : "Select core_notify",
+  "be3c26f9baf09972ddc410c5c7c63403" : "Displaying core_notify_recur{0} - {1} of {2}",
+  "808e3eefe289c698ec4def4a54ac36af" : "Last Notification created",
+  "13a831874352b548ac7b5e63a860aa1b" : "Tz",
+  "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
+  "c956c97343a45cca5d492e70c56daa8e" : "Select person",
+  "25af45209313b11d55424103567a1347" : "Dtend",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found",
+  "83b9a425d6b152330823ab8357f441ae" : "Dtstart",
+  "ac2c474467a60fa4e2c88158a6d2abf9" : "Freq day",
+  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
+  "6ffde0d71e2b678e619e4a642d0b22a6" : "Freq hour",
+  "4c3880bb027f159e801041b1021e88e8" : "Method",
+  "d8d80ec41fc8cca7569ac2d2937bd97b" : "Affects",
+  "84307c751e4541f54714472e3df742dd" : "Freq"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+   },
+   "fitToframe" : true,
+   "background" : true,
+   "region" : "center",
+   "title" : "Recurrent Notifications",
+   "xtype" : "GridPanel",
+   "fitContainer" : true,
+   "$ xns" : "Roo",
+   "tableName" : "core_notify_recur",
+   "items" : [
+    {
+     "listeners" : {
+      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) { return; }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+      "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+     },
+     "autoExpandColumn" : "person_id_name",
+     "xtype" : "Grid",
+     "loadMask" : true,
+     "$ xns" : "Roo.grid",
+     "* prop" : "grid",
+     "items" : [
+      {
+       "xtype" : "Toolbar",
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
         {
-            "listeners": {
-                "|activate": "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+         "listeners" : {
+          "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
+          "select" : "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}"
+         },
+         "listWidth" : 400,
+         "triggerAction" : "all",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "pageSize" : 20,
+         "displayField" : "person_id_name",
+         "emptyText" : "Select person",
+         "hiddenName" : "id",
+         "minChars" : 2,
+         "valueField" : "person_id",
+         "xtype" : "ComboBox",
+         "allowBlank" : true,
+         "editable" : true,
+         "width" : 300,
+         "$ xns" : "Roo.form",
+         "name" : "name",
+         "qtip" : "Select core_notify",
+         "queryParam" : "query[person_id_name]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
+         "loadingText" : "Searching...",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id';\n    o.params._columns='person_id,person_id_name,person_id_email';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ direction : 'ASC', field: 'person_id_name' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_notify_recur.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
             },
-            "background": true,
-            "fitContainer": true,
-            "fitToframe": true,
-            "region": "center",
-            "tableName": "core_notify_recur",
-            "title": "Recurrent Notifications",
-            "xtype": "GridPanel",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "listeners": {
-                        "|render": "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-                        "|rowdblclick": "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n"
-                    },
-                    "*prop": "grid",
-                    "autoExpandColumn": "person_id_name",
-                    "loadMask": true,
-                    "xtype": "Grid",
-                    "|xns": "Roo.grid",
-                    "items": [
-                        {
-                            "|xns": "Roo",
-                            "xtype": "Toolbar",
-                            "*prop": "toolbar",
-                            "items": [
-                                {
-                                    "listeners": {
-                                        "select": "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}",
-                                        "render": "function (_self)\n{\n   _this.personCombo = _self;\n}"
-                                    },
-                                    "allowBlank": true,
-                                    "displayField": "person_id_name",
-                                    "editable": true,
-                                    "emptyText": "Select person",
-                                    "forceSelection": true,
-                                    "hiddenName": "id",
-                                    "listWidth": 400,
-                                    "loadingText": "Searching...",
-                                    "minChars": 2,
-                                    "name": "name",
-                                    "pageSize": 20,
-                                    "qtip": "Select core_notify",
-                                    "queryParam": "query[person_id_name]",
-                                    "selectOnFocus": true,
-                                    "tpl": "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
-                                    "triggerAction": "all",
-                                    "valueField": "person_id",
-                                    "width": 300,
-                                    "xtype": "ComboBox",
-                                    "|xns": "Roo.form",
-                                    "items": [
-                                        {
-                                            "listeners": {
-                                                "|beforeload": "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id';\n    o.params._columns='person_id,person_id_name,person_id_email';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
-                                            },
-                                            "*prop": "store",
-                                            "remoteSort": true,
-                                            "xtype": "Store",
-                                            "|sortInfo": "{ direction : 'ASC', field: 'person_id_name' }",
-                                            "|xns": "Roo.data",
-                                            "items": [
-                                                {
-                                                    "*prop": "proxy",
-                                                    "method": "GET",
-                                                    "xtype": "HttpProxy",
-                                                    "|url": "baseURL + '/Roo/core_notify_recur.php'",
-                                                    "|xns": "Roo.data"
-                                                },
-                                                {
-                                                    "*prop": "reader",
-                                                    "xtype": "JsonReader",
-                                                    "|xns": "Roo.data",
-                                                    "id": "id",
-                                                    "root": "data",
-                                                    "totalProperty": "total",
-                                                    "|fields": "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "listeners": {
-                                "beforeload": "function (_self, options)\n{\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n}"
-                            },
-                            "*prop": "dataSource",
-                            "remoteSort": true,
-                            "xtype": "Store",
-                            "|sortInfo": "{ field : 'person_id_name', direction: 'ASC' }",
-                            "|xns": "Roo.data",
-                            "items": [
-                                {
-                                    "*prop": "proxy",
-                                    "xtype": "HttpProxy",
-                                    "method": "GET",
-                                    "|url": "baseURL + '/Roo/core_notify_recur.php'",
-                                    "|xns": "Roo.data"
-                                },
-                                {
-                                    "|xns": "Roo.data",
-                                    "xtype": "JsonReader",
-                                    "totalProperty": "total",
-                                    "root": "data",
-                                    "*prop": "reader",
-                                    "id": "id",
-                                    "|fields": "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'dtstart',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'dtend',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'max_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'last_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'tz',\n        'type': 'string'\n    },\n    {\n        'name': 'freq',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_day',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_hour',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'last_event_id',\n        'type': 'int'\n    },\n    {\n        'name': 'method',\n        'type': 'string'\n    }\n]"
-                                }
-                            ]
-                        },
-                        {
-                            "*prop": "footer",
-                            "xtype": "PagingToolbar",
-                            "pageSize": 25,
-                            "displayInfo": true,
-                            "displayMsg": "Displaying core_notify_recur{0} - {1} of {2}",
-                            "emptyMsg": "No core_notify_recur found",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "person_id_name",
-                            "header": "Person",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) { \n    return String.format('{0} <a href=\"mailto:{1}\">{1}</a>', v,r.data.person_id_email); \n}",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Dtstart",
-                            "width": 75,
-                            "dataIndex": "dtstart",
-                            "|renderer": "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Dtend",
-                            "width": 75,
-                            "dataIndex": "dtend",
-                            "|renderer": "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "last_applied_dt",
-                            "header": "Last Notification created",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "tz",
-                            "header": "Tz",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "freq",
-                            "header": "Freq",
-                            "width": 100,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "freq_day",
-                            "header": "Freq day",
-                            "width": 200,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "xtype": "ColumnModel",
-                            "header": "Freq hour",
-                            "width": 200,
-                            "dataIndex": "freq_hour",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid",
-                            "*prop": "colModel[]"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "onid",
-                            "header": "Affects",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); }",
-                            "|xns": "Roo.grid"
-                        },
-                        {
-                            "*prop": "colModel[]",
-                            "dataIndex": "method",
-                            "header": "Method",
-                            "width": 75,
-                            "xtype": "ColumnModel",
-                            "|renderer": "function(v) { return String.format('{0}', v); }",
-                            "|xns": "Roo.grid"
-                        }
-                    ]
-                }
-            ]
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
         }
-    ],
-    "permname": "",
-    "modOrder": "800"
+       ]
+      },
+      {
+       "listeners" : {
+        "beforeload" : "function (_self, options)\n{\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n}"
+       },
+       "xtype" : "Store",
+       "remoteSort" : true,
+       "$ sortInfo" : "{ field : 'person_id_name', direction: 'ASC' }",
+       "$ xns" : "Roo.data",
+       "* prop" : "dataSource",
+       "items" : [
+        {
+         "$ url" : "baseURL + '/Roo/core_notify_recur.php'",
+         "method" : "GET",
+         "xtype" : "HttpProxy",
+         "$ xns" : "Roo.data",
+         "* prop" : "proxy"
+        },
+        {
+         "id" : "id",
+         "root" : "data",
+         "xtype" : "JsonReader",
+         "$ xns" : "Roo.data",
+         "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'dtstart',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'dtend',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'max_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'last_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'tz',\n        'type': 'string'\n    },\n    {\n        'name': 'freq',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_day',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_hour',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'last_event_id',\n        'type': 'int'\n    },\n    {\n        'name': 'method',\n        'type': 'string'\n    }\n]",
+         "* prop" : "reader",
+         "totalProperty" : "total"
+        }
+       ]
+      },
+      {
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar",
+       "emptyMsg" : "No core_notify_recur found",
+       "$ xns" : "Roo",
+       "displayInfo" : true,
+       "displayMsg" : "Displaying core_notify_recur{0} - {1} of {2}",
+       "* prop" : "footer"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Person",
+       "width" : 75,
+       "$ renderer" : "function(v,x,r) { \n    return String.format('{0} <a href=\"mailto:{1}\">{1}</a>', v,r.data.person_id_email); \n}",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "person_id_name"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 75,
+       "header" : "Dtstart",
+       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "dtstart"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 75,
+       "header" : "Dtend",
+       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "dtend"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Last Notification created",
+       "width" : 75,
+       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "last_applied_dt"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Tz",
+       "width" : 75,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "tz"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Freq",
+       "width" : 100,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "freq"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Freq day",
+       "width" : 200,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "freq_day"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "width" : 200,
+       "header" : "Freq hour",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "freq_hour"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Affects",
+       "width" : 75,
+       "$ renderer" : "function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "onid"
+      },
+      {
+       "xtype" : "ColumnModel",
+       "header" : "Method",
+       "width" : 75,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "method"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

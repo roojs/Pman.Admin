@@ -19,9 +19,9 @@
    "listeners" : {
     "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.ds.load({});\n    }\n}"
    },
+   "region" : "west",
    "fitToframe" : true,
    "background" : true,
-   "region" : "west",
    "title" : "Groups",
    "xtype" : "GridPanel",
    "fitContainer" : true,
@@ -30,12 +30,12 @@
    "items" : [
     {
      "listeners" : {
-      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) return;\n    var s = this.getDataSource().getAt(rowIndex);\n    if (s.data.id < 1 ) {\n        return;\n    }\n    _this.dialog.show( s.data, function() {\n        _this.ds.load({});\n    }); \n}\n",
+      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) { \n        return; \n    }\n    var s = this.getDataSource().getAt(rowIndex);\n    if (s.data.id < 1 ) {\n        return;\n    }\n    _this.dialog.show( s.data, function() {\n        _this.ds.load({});\n    }); \n}\n",
       "|render" : "function() \n{\n    _this.grid = this; \n    _this.dialog = Pman.Dialog.Groups;\n    if (_this.panel.active) {\n        _this.grid.ds.load({});\n    }\n}"
      },
      "autoExpandColumn" : "name",
-     "enableDrop" : true,
      "xtype" : "Grid",
+     "enableDrop" : true,
      "ddGroup" : "groupDD",
      "loadMask" : true,
      "$ xns" : "Roo.grid",
@@ -54,8 +54,8 @@
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/Groups.php'",
-         "method" : "GET",
          "xtype" : "HttpProxy",
+         "method" : "GET",
          "$ xns" : "Roo.data",
          "* prop" : "proxy"
         },
@@ -87,7 +87,7 @@
            "items" : [
             {
              "listeners" : {
-              "|click" : "function()\n{\n    if (!_this.dialog) return;\n    _this.dialog.show( { id : 0,  type: 2 } , function() {\n         _this.grid.ds.load({});\n   }); \n}\n"
+              "|click" : "function()\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( { id : 0,  type: 2 } , function() {\n         _this.grid.ds.load({});\n   }); \n}\n"
              },
              "text" : "Add",
              "xtype" : "Item",
@@ -97,7 +97,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (s[0].data.id < 1 ) {\n        return;\n    }\n    if (!_this.dialog) return;\n    _this.dialog.show(s[0].data, function() {\n         _this.grid.ds.load({});\n    }); \n    \n}\n"
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (s[0].data.id < 1 ) {\n        return;\n    }\n    if (!_this.dialog) {\n        return;\n        }\n    _this.dialog.show(s[0].data, function() {\n         _this.grid.ds.load({});\n    }); \n    \n}\n"
              },
              "text" : "Edit",
              "xtype" : "Item",
@@ -135,8 +135,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Name",
        "width" : 200,
+       "header" : "Name",
        "$ renderer" : "function(v,x,r) { \n    if (r.data.id == -1) {\n        return '<b>' + \"Not in a Group\" + '</b>';\n    }\n    if ((r.data.id == 0) && (_this.type == 0)) {\n        return '<b>' + \"All Staff (Default Permissions)\" + '</b>';\n    }\n    if ((r.data.id == 0) && (_this.type == 2)) {\n        return '<b>' + \"Everybody\" + '</b>';\n    }\n    if (r.data.id == 0) {\n        return '<b>' + \"All Staff\" + '</b>';\n    }\n    if (v == 'Administrators') {\n        return '<b>' + \"Adminstrators\" + '</b>';\n    }\n    if (r.data.leader) {\n        return v + ' (' + r.data.leader_name + ')';\n    }\n    \n    return v;\n}",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
