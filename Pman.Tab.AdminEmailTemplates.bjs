@@ -229,16 +229,6 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
-           "header" : "Title",
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "Boolean sortable" : true,
-           "* prop" : "cm[]",
-           "dataIndex" : "subject"
-          },
-          {
-           "xtype" : "ColumnModel",
            "width" : 400,
            "header" : "From Name",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
