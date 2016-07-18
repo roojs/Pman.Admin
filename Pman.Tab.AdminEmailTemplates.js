@@ -321,7 +321,14 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         {
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         renderer : function(v,x,r) 
+         { 
+             if(r.data.active * 1 < 1){
+                 return String.format('<s>{0}</s>', v ? v : ''); 
+             }
+             
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 250,
          xns : Roo.grid,
@@ -331,7 +338,14 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         {
          dataIndex : 'subject',
          header : _this._strings['b78a3223503896721cca1303f776159b'] /* Title */,
-         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         renderer : function(v,x,r) 
+         { 
+             if(r.data.active * 1 < 1){
+                 return String.format('<s>{0}</s>', v ? v : ''); 
+             }
+             
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 300,
          xns : Roo.grid,
