@@ -357,6 +357,28 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          '|xns' : 'Roo.grid',
          xtype : 'ColumnModel'
         }
+       ],
+       cm : [
+        {
+         dataIndex : 'subject',
+         header : _this._strings['b78a3223503896721cca1303f776159b'] /* Title */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 300,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        },
+        {
+         dataIndex : 'subject',
+         header : _this._strings['b78a3223503896721cca1303f776159b'] /* Title */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 300,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid',
+         xtype : 'ColumnModel'
+        }
        ]
       }
      },
