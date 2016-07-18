@@ -12,6 +12,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
   '00d6e06d2f3c092b4f5e1e708a360b0f' :"Displaying Message{0} - {1} of {2}",
   '9076cbba1d9ef79280b4f39e2aa0d115' :"Nothing found",
   'b78a3223503896721cca1303f776159b' :"Title",
+  '68b00d723d37122f64da8d9939f836f0' :"BCC Group",
   '9e11143e29a031212f2cdefcf61f39e9' :"View Message",
   'f49559cda3fb906fbd7736f8b8a0e37d' :"Email Template",
   '01bd6a16732dfa2b760dc8566c58afae' :"Download to Excel",
@@ -358,8 +359,8 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          xtype : 'ColumnModel'
         },
         {
-         dataIndex : 'from_email',
-         header : _this._strings['4ca679a383343ab3d4ca1cd7c91b43f7'] /* From Email */,
+         dataIndex : 'bcc_group_name',
+         header : _this._strings['68b00d723d37122f64da8d9939f836f0'] /* BCC Group */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 400,
