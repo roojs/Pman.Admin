@@ -316,7 +316,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         '|xns' : 'Roo.grid',
         xtype : 'RowSelectionModel'
        },
-       colModel : [
+       cm : [
         {
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
@@ -345,7 +345,19 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          width : 400,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         xtype : 'ColumnModel',
+         cm : [
+          {
+           dataIndex : 'subject',
+           header : _this._strings['b78a3223503896721cca1303f776159b'] /* Title */,
+           renderer : function(v) { return String.format('{0}', v); },
+           sortable : true,
+           width : 300,
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid',
+           xtype : 'ColumnModel'
+          }
+         ]
         },
         {
          dataIndex : 'from_email',
@@ -353,18 +365,6 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 400,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
-        }
-       ],
-       cm : [
-        {
-         dataIndex : 'subject',
-         header : _this._strings['b78a3223503896721cca1303f776159b'] /* Title */,
-         renderer : function(v) { return String.format('{0}', v); },
-         sortable : true,
-         width : 300,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
          xtype : 'ColumnModel'
