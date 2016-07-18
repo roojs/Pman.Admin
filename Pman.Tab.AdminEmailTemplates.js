@@ -343,7 +343,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['4a4a8fe0c6dfb6bd2a41755d15eb6f0b'] /* From Name */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 400,
+         width : 300,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
          xtype : 'ColumnModel'
@@ -353,7 +353,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['4ca679a383343ab3d4ca1cd7c91b43f7'] /* From Email */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 400,
+         width : 300,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
          xtype : 'ColumnModel'
@@ -363,7 +363,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['68b00d723d37122f64da8d9939f836f0'] /* BCC Group */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 400,
+         width : 300,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
          xtype : 'ColumnModel'
