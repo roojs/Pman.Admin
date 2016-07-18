@@ -361,7 +361,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         {
          dataIndex : 'bcc_group_name',
          header : _this._strings['68b00d723d37122f64da8d9939f836f0'] /* BCC Group */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
          width : 400,
          xns : Roo.grid,
