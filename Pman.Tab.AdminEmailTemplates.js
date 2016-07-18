@@ -351,7 +351,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
         {
          dataIndex : 'from_email',
          header : _this._strings['4ca679a383343ab3d4ca1cd7c91b43f7'] /* From Email */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
          width : 400,
          xns : Roo.grid,
