@@ -100,15 +100,6 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
             $this->jerr('Missing group - try add [-t {group name}]');
         }
         
-        $rcpts = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'email');
-        
-        
-        if(empty($rcpts)){
-            $this->jerr("{$this->opts['group']} does not has any memeber");
-        }
-        // see the last date of notification to these users...
-        $rcpt_ids = DB_DataObject::factory('groups')->lookupMembers("{$this->opts['group']}",'id');
-        
         $min = 0;
          
         if ($this->opts['uid'] != 'STD') {
@@ -220,7 +211,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         $content = array(
             'template'      => 'EVENT_ERRORS_REPORT',
-            'rcpts'         => $rcpts,
+            'rcpts_group'         => $rcpts,
             'errors'        => $errors,
             'subject'       => $subject
         );
