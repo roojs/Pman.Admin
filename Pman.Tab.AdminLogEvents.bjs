@@ -417,7 +417,7 @@
            "header" : "#id",
            "width" : 100,
            "$ xns" : "Roo.grid",
-           "$ Boolean hidden" : "",
+           "$ Boolean hidden" : "(function() {\n\n    Roo.log('run???');\n   Roo.log(this);\n   \n   return false;\n\n})()",
            "* prop" : "colModel[]",
            "dataIndex" : "id"
           },
