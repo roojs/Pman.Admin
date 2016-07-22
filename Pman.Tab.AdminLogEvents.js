@@ -1416,6 +1416,11 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
         {
          dataIndex : 'on_table',
          header : _this._strings['2c92a9a6a5dbf570825e62eabcdecd8d'] /* Affected */,
+         hidden : (function() {
+             return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? 
+             false : 
+             ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false)
+         })(),
          renderer : function(v, x, r) {                     
                      return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  
             },
