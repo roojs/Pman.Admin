@@ -1356,7 +1356,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          hidden : (function() {
              return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? 
              false : 
-             ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false)
+             ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false);
          })(),
          width : 100,
          xns : Roo.grid,
@@ -1419,7 +1419,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          hidden : (function() {
              return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? 
              false : 
-             ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false)
+             ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false);
          })(),
          renderer : function(v, x, r) {                     
                      return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  

@@ -417,7 +417,7 @@
            "header" : "#id",
            "width" : 100,
            "$ xns" : "Roo.grid",
-           "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false)\n})()",
+           "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false);\n})()",
            "* prop" : "colModel[]",
            "dataIndex" : "id"
           },
@@ -454,7 +454,7 @@
            "width" : 100,
            "$ renderer" : "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
            "$ xns" : "Roo.grid",
-           "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false)\n})()",
+           "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false);\n})()",
            "* prop" : "colModel[]",
            "dataIndex" : "on_table"
           },
