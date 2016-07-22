@@ -417,7 +417,7 @@
            "header" : "#id",
            "width" : 100,
            "$ xns" : "Roo.grid",
-           "$ Boolean hidden" : "(function() {\n    Roo.log(typeof(Pman.Tab.AdminLogEvents.hide_cols));\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == undefined ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false)\n})()",
+           "$ Boolean hidden" : "(function() {\n    Roo.log(typeof(Pman.Tab.AdminLogEvents.hide_cols));\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false)\n})()",
            "* prop" : "colModel[]",
            "dataIndex" : "id"
           },
