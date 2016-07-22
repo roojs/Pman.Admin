@@ -1354,7 +1354,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          dataIndex : 'id',
          header : _this._strings['1b7f7d24575cdbfadb83b9587fa1bf97'] /* #id */,
          hidden : (function() {
-             Roo.log(typeof(Pman.Tab.AdminLogEvents.hide_cols));
              return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? 
              false : 
              ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false)
