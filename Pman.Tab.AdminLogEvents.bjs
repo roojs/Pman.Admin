@@ -417,7 +417,7 @@
            "header" : "#id",
            "width" : 100,
            "$ xns" : "Roo.grid",
-           "$ Boolean hidden" : "(function() {\n\n    Roo.log('run???');\n   Roo.log(this);\n   \n   return false;\n\n})()",
+           "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == undefined ? false : Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1\n})()",
            "* prop" : "colModel[]",
            "dataIndex" : "id"
           },
