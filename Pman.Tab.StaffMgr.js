@@ -81,6 +81,7 @@ Pman.Tab.StaffMgr = {
                 Pman.Tab.Teams.refresh();
               // Pman.Tab.Teams.refresh();
             } else {
+                Roo.log('no west panelk?????');
                  Pman.Tab.PersonStaff.loadFirst();
                 
             }
