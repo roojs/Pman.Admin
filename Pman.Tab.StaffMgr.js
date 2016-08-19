@@ -55,7 +55,7 @@ Pman.Tab.StaffMgr = {
                 center: {
                     autoScroll:true,
                     hideTabs: false,
-                     tabPosition: 'top'
+                    tabPosition: 'top'
                    
                 }
             }
