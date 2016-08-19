@@ -34,9 +34,6 @@ Pman.Tab.StaffMgr = {
     panel : false,
     title: false,
     add : function(parentLayout, region) {
-        
-        Roo.log('StaffMgr add called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        
         var _this = this;
         if (this.panel) {
             parentLayout.getRegion(region).showPanel(this.panel);
@@ -58,30 +55,25 @@ Pman.Tab.StaffMgr = {
                 center: {
                     autoScroll:true,
                     hideTabs: false,
-                    tabPosition: 'top'
+                     tabPosition: 'top'
                    
                 }
             }
         );
         
-        Roo.log(parentLayout);
-        Roo.log(region);
-        Roo.log(this);
         
+       
         this.tab = parentLayout.add(region,  new Ext.NestedLayoutPanel(
             this.layout, {title: this.title || "Staff / Teams", background: true}));
         
         this.tab.on('activate', function() {
-            Roo.log('activate called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
             _this.layout.getRegion('center').showPanel(0);
             
             if (_this.layout.getRegion('west').panels.length) {
-                Roo.log('west panel??? called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
                 _this.layout.getRegion('west').showPanel(0); // forces a refresh..
                 Pman.Tab.Teams.refresh();
               // Pman.Tab.Teams.refresh();
             } else {
-                Roo.log('no west panelk?????');
                  Pman.Tab.PersonStaff.loadFirst();
                 
             }
