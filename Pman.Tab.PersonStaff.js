@@ -13,7 +13,7 @@ Pman.on('beforeload', function()
         module : Pman.Tab.PersonStaff,
         region : 'center',
         parent : Pman.Tab.StaffMgr,
-        name : "Staff",
+        name : "Staff??",
         permname : 'Admin.Teams'
     });
    
