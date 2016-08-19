@@ -39,7 +39,6 @@ Pman.Tab.PersonStaff = new  Pman.Tab.PersonList({
     beforeload: function(t, o) {
         //console.log(o.params);
         // teams!?!
-        Roo.log('beforeLoad?????');
         var tms = this.getLeftSelections();
         
         if (tms.length) {
