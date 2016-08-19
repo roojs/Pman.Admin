@@ -64,6 +64,8 @@ Pman.Tab.StaffMgr = {
             }
         );
         
+        Roo.log(parentLayout);
+        Roo.log(region);
         
         this.tab = parentLayout.add(region,  new Ext.NestedLayoutPanel(
             this.layout, {title: this.title || "Staff / Teams", background: true}));
