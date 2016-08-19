@@ -7,7 +7,7 @@
  */
 Pman.on('beforeload', function()
 {
-     Pman.Tab.PersonStaff.title = "Groups???";
+     
     Pman.register({
         modKey : '001-pman-tab-personlist',
         module : Pman.Tab.PersonStaff,
