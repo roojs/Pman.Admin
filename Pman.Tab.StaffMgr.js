@@ -76,6 +76,7 @@ Pman.Tab.StaffMgr = {
             _this.layout.getRegion('center').showPanel(0);
             
             if (_this.layout.getRegion('west').panels.length) {
+                Roo.log('west panel??? called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
                 _this.layout.getRegion('west').showPanel(0); // forces a refresh..
                 Pman.Tab.Teams.refresh();
               // Pman.Tab.Teams.refresh();
