@@ -10,10 +10,10 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'a37ede293936e29279ed543129451ec3' :"Groups",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  'b891a85b57a6261132a613eabd235f32' :"Manage Groups????",
   '4d1c8263ba1036754f8db14a98f9f006' :"Reload",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
-  'aba9f7d7443652e858969bfc280690b1' :"Manage Groups"
+  '49ee3087348e8d44e1feda1917443987' :"Name"
  },
 
   part     :  ["Admin", "ContactsGroup" ],
@@ -28,15 +28,13 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'GridPanel',
    background : true,
    fitContainer : true,
    fitToframe : true,
    region : 'west',
    tableName : 'Groups',
    title : _this._strings['a37ede293936e29279ed543129451ec3'] /* Groups */,
-   xns : Roo,
-   '|xns' : 'Roo',
-   xtype : 'GridPanel',
    listeners : {
     activate : function() {
          _this.panel = this;
@@ -45,14 +43,14 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
          }
      }
    },
+   xns : Roo,
+   '|xns' : 'Roo',
    grid : {
+    xtype : 'Grid',
     autoExpandColumn : 'name',
     ddGroup : 'groupDD',
     enableDrop : true,
     loadMask : true,
-    xns : Roo.grid,
-    '|xns' : 'Roo.grid',
-    xtype : 'Grid',
     listeners : {
      render : function() 
       {
@@ -76,28 +74,28 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
           }); 
       }
     },
+    xns : Roo.grid,
+    '|xns' : 'Roo.grid',
     toolbar : {
+     xtype : 'Toolbar',
      xns : Roo,
      '|xns' : 'Roo',
-     xtype : 'Toolbar',
      items  : [
       {
-       text : _this._strings['aba9f7d7443652e858969bfc280690b1'] /* Manage Groups */,
+       xtype : 'Button',
+       text : _this._strings['b891a85b57a6261132a613eabd235f32'] /* Manage Groups???? */,
        xns : Roo.Toolbar,
        '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        menu : {
+        xtype : 'Menu',
         xns : Roo.menu,
         '|xns' : 'Roo.menu',
-        xtype : 'Menu',
         items  : [
          {
+          xtype : 'Item',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
           text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
-          xns : Roo.menu,
-          '|xns' : 'Roo.menu',
-          xtype : 'Item',
           listeners : {
            click : function()
             {
@@ -108,15 +106,15 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                      _this.grid.ds.load({});
                }); 
             }
-          }
+          },
+          xns : Roo.menu,
+          '|xns' : 'Roo.menu'
          },
          {
+          xtype : 'Item',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/tree/leaf.gif',
           text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
-          xns : Roo.menu,
-          '|xns' : 'Roo.menu',
-          xtype : 'Item',
           listeners : {
            click : function()
             {
@@ -136,38 +134,40 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                 }); 
                 
             }
-          }
+          },
+          xns : Roo.menu,
+          '|xns' : 'Roo.menu'
          },
          {
+          xtype : 'Item',
           cls : 'x-btn-text-icon',
           icon : rootURL + '/Pman/templates/images/trash.gif',
           text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
-          xns : Roo.menu,
-          '|xns' : 'Roo.menu',
-          xtype : 'Item',
           listeners : {
            click : function()
             {
                  Pman.genericDelete(_this, 'Groups'); 
             }
-          }
+          },
+          xns : Roo.menu,
+          '|xns' : 'Roo.menu'
          },
          {
+          xtype : 'Separator',
           xns : Roo.menu,
-          '|xns' : 'Roo.menu',
-          xtype : 'Separator'
+          '|xns' : 'Roo.menu'
          },
          {
-          text : _this._strings['4d1c8263ba1036754f8db14a98f9f006'] /* Reload */,
-          xns : Roo.menu,
-          '|xns' : 'Roo.menu',
           xtype : 'Item',
+          text : _this._strings['4d1c8263ba1036754f8db14a98f9f006'] /* Reload */,
           listeners : {
            click : function (_self, e)
             {
               _this.grid.ds.load({});
             }
-          }
+          },
+          xns : Roo.menu,
+          '|xns' : 'Roo.menu'
          }
         ]
        }
@@ -175,11 +175,9 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
      ]
     },
     dataSource : {
+     xtype : 'Store',
      remoteSort : true,
      sortInfo : { field : 'name', direction: 'ASC' },
-     xns : Roo.data,
-     '|xns' : 'Roo.data',
-     xtype : 'Store',
      listeners : {
       beforeload : function (_self, o)
        {
@@ -195,14 +193,17 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
                Pman.Tab.AdminContacts.grid.footer.onClick('first');
        }
      },
+     xns : Roo.data,
+     '|xns' : 'Roo.data',
      proxy : {
+      xtype : 'HttpProxy',
       method : 'GET',
       url : baseURL + '/Roo/Groups.php',
       xns : Roo.data,
-      '|xns' : 'Roo.data',
-      xtype : 'HttpProxy'
+      '|xns' : 'Roo.data'
      },
      reader : {
+      xtype : 'JsonReader',
       fields : [
           {
               'name': 'id',
@@ -289,15 +290,12 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
       root : 'data',
       totalProperty : 'total',
       xns : Roo.data,
-      '|xns' : 'Roo.data',
-      xtype : 'JsonReader'
+      '|xns' : 'Roo.data'
      }
     },
     dropTarget : {
-     ddGroup : 'groupDD',
-     xns : Roo.dd,
-     '|xns' : 'Roo.dd',
      xtype : 'DropTarget',
+     ddGroup : 'groupDD',
      listeners : {
       drop : function (source, e, data)
        {
@@ -411,13 +409,13 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
        //    Roo.log('add'); 
            //}
        }
-     }
+     },
+     xns : Roo.dd,
+     '|xns' : 'Roo.dd'
     },
     sm : {
-     singleSelect : true,
-     xns : Roo.grid,
-     '|xns' : 'Roo.grid',
      xtype : 'RowSelectionModel',
+     singleSelect : true,
      listeners : {
       afterselectionchange : function (_self)
        {
@@ -426,10 +424,13 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
            c.getActivePanel().grid.footer.onClick('first');
            
        }
-     }
+     },
+     xns : Roo.grid,
+     '|xns' : 'Roo.grid'
     },
     colModel : [
      {
+      xtype : 'ColumnModel',
       dataIndex : 'name',
       header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
       renderer : function(v,x,r) { 
@@ -456,8 +457,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
       },
       width : 200,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      }
     ]
    }
