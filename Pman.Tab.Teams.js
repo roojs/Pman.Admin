@@ -13,8 +13,7 @@ Pman.on('beforeload', function()
         module : Pman.Tab.Teams,
         region : 'west',
         parent : Pman.Tab.StaffMgr,
-        name : "Staff Teams",
-        permname : 'Admin.Teams'
+        name : "Staff Teams"
     });
  
 });
