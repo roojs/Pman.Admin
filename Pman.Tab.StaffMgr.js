@@ -72,6 +72,7 @@ Pman.Tab.StaffMgr = {
             this.layout, {title: this.title || "Staff / Teams", background: true}));
         
         this.tab.on('activate', function() {
+            Roo.log('activate called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
             _this.layout.getRegion('center').showPanel(0);
             
             if (_this.layout.getRegion('west').panels.length) {
