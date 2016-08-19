@@ -34,6 +34,9 @@ Pman.Tab.StaffMgr = {
     panel : false,
     title: false,
     add : function(parentLayout, region) {
+        
+        Roo.log('StaffMgr add called!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        
         var _this = this;
         if (this.panel) {
             parentLayout.getRegion(region).showPanel(this.panel);
