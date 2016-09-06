@@ -45,16 +45,14 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'GridPanel',
    autoScroll : true,
-   background : true,
+   background : false,
    fitContainer : true,
    fitToframe : true,
    region : 'center',
    tableName : 'Person',
    title : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person */,
-   xns : Roo,
-   '|xns' : 'Roo',
-   xtype : 'GridPanel',
    listeners : {
     activate : function() {
          _this.panel = this;
@@ -63,14 +61,14 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
          }
      }
    },
+   xns : Roo,
+   '|xns' : 'Roo',
    grid : {
+    xtype : 'Grid',
     autoExpandColumn : 'name',
     ddGroup : 'groupDD',
     enableDrag : true,
     loadMask : true,
-    xns : Roo.grid,
-    '|xns' : 'Roo.grid',
-    xtype : 'Grid',
     listeners : {
      cellclick : function (_self, rowIndex, columnIndex, e)
       {
@@ -109,37 +107,37 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
           }); 
       }
     },
+    xns : Roo.grid,
+    '|xns' : 'Roo.grid',
     footer : {
+     xtype : 'PagingToolbar',
      displayInfo : true,
      displayMsg : _this._strings['8444e81d652b084d70c71cd7d19ac0cf'] /* Displaying Person{0} - {1} of {2} */,
      emptyMsg : _this._strings['f1174ecbbc232f948717979daf04cf08'] /* No Person found */,
      pageSize : 25,
      xns : Roo,
      '|xns' : 'Roo',
-     xtype : 'PagingToolbar',
      items  : [
       {
+       xtype : 'TextItem',
        text : _this._strings['4110db87ce3ac86d603d03d691616b1e'] /* Drag person to add or remove from group */,
        xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'TextItem'
+       '|xns' : 'Roo.Toolbar'
       }
      ]
     },
     toolbar : {
+     xtype : 'Toolbar',
      xns : Roo,
      '|xns' : 'Roo',
-     xtype : 'Toolbar',
      items  : [
       {
+       xtype : 'TextItem',
        text : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
        xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'TextItem'
+       '|xns' : 'Roo.Toolbar'
       },
       {
-       xns : Roo.form,
-       '|xns' : 'Roo.form',
        xtype : 'TextField',
        listeners : {
         render : function (_self)
@@ -159,9 +157,12 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
              _this.grid.footer.onClick('first');
            }
          }
-       }
+       },
+       xns : Roo.form,
+       '|xns' : 'Roo.form'
       },
       {
+       xtype : 'ComboBox',
        displayField : 'name',
        editable : true,
        emptyText : _this._strings['99b344c8ae43e3e7213862b8f35c4e51'] /* Select Company */,
@@ -180,9 +181,6 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
        typeAhead : true,
        valueField : 'id',
        width : 150,
-       xns : Roo.form,
-       '|xns' : 'Roo.form',
-       xtype : 'ComboBox',
        listeners : {
         render : function (_self)
          {
@@ -193,69 +191,69 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
             _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );
          }
        },
+       xns : Roo.form,
+       '|xns' : 'Roo.form',
        store : {
+        xtype : 'Store',
         remoteSort : true,
         sortInfo : { direction : 'ASC', field: 'name' },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        xtype : 'Store',
         listeners : {
          beforeload : function (_self, o){
               o.params = o.params || {};
               // set more here
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/Companies.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [{"name":"id","type":"int"},{"name":"code","type":"string"}],
          id : 'id',
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        }
       },
       {
+       xtype : 'Button',
        cls : 'x-btn-icon',
        icon : rootURL + '/Pman/templates/images/search.gif',
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function (_self, e)
          {
          _this.grid.footer.onClick('first');
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        cls : 'x-btn-icon',
        icon : rootURL + '/Pman/templates/images/edit-clear.gif',
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function (_self, e)
          {
          _this.searchBox.setValue('');
              _this.grid.footer.onClick('first');
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        enableToggle : true,
        text : _this._strings['d4d25ad0a12e8d30e9d8d35230f6d1d3'] /* Show Removed */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         render : function (_self)
          {
@@ -268,14 +266,14 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
             
             
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        enableToggle : true,
        text : _this._strings['b47a519aebda8fdb4b59bdae6eb2bff0'] /* Show No Company */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         render : function (_self)
          {
@@ -288,13 +286,13 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
             
             
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
-       text : _this._strings['ec3249f16ee5880d4c1acb752e5c925f'] /* Switch to Selected User */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
        xtype : 'Button',
+       text : _this._strings['ec3249f16ee5880d4c1acb752e5c925f'] /* Switch to Selected User */,
        listeners : {
         click : function (_self, e)
          {
@@ -319,20 +317,20 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                  }
              });
          }
-       }
-      },
-      {
+       },
        xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Fill'
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Fill',
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
        cls : 'x-btn-text-icon',
        icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
        text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function()
          {
@@ -341,15 +339,15 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                  _this.grid.footer.onClick('first');
             }); 
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        cls : 'x-btn-text-icon',
        icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
        text : _this._strings['a93806efd0cc7a149f0f03e2b9a0f862'] /* Bulk Add */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function()
          {
@@ -358,15 +356,15 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                  _this.grid.footer.onClick('first');
             }); 
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        cls : 'x-btn-text-icon',
        icon : Roo.rootURL + 'images/default/tree/leaf.gif',
        text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function()
          {
@@ -381,30 +379,30 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
              }); 
              
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       },
       {
+       xtype : 'Button',
        cls : 'x-btn-text-icon',
        icon : rootURL + '/Pman/templates/images/trash.gif',
        text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar',
-       xtype : 'Button',
        listeners : {
         click : function()
          {
               Pman.genericDelete(_this, 'Person'); 
          }
-       }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       }
      ]
     },
     dataSource : {
+     xtype : 'Store',
      remoteSort : true,
      sortInfo : { field : 'name', direction: 'ASC' },
-     xns : Roo.data,
-     '|xns' : 'Roo.data',
-     xtype : 'Store',
      listeners : {
       beforeload : function (_self, o)
        {
@@ -496,24 +494,27 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
            });
        }
      },
+     xns : Roo.data,
+     '|xns' : 'Roo.data',
      proxy : {
+      xtype : 'HttpProxy',
       method : 'GET',
       url : baseURL + '/Roo/Person.php',
       xns : Roo.data,
-      '|xns' : 'Roo.data',
-      xtype : 'HttpProxy'
+      '|xns' : 'Roo.data'
      },
      reader : {
+      xtype : 'JsonReader',
       id : 'id',
       root : 'data',
       totalProperty : 'total',
       xns : Roo.data,
-      '|xns' : 'Roo.data',
-      xtype : 'JsonReader'
+      '|xns' : 'Roo.data'
      }
     },
     colModel : [
      {
+      xtype : 'ColumnModel',
       dataIndex : 'project_id_code',
       header : _this._strings['9e727fdd3aec8274f46685441900280d'] /* Project */,
       hidden : true,
@@ -525,10 +526,10 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       sortable : true,
       width : 75,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'company_id_comptype',
       header : _this._strings['a1fa27779242b4902f7ae3bdd5c6d508'] /* Type */,
       renderer : function(v,x,r) {
@@ -540,10 +541,10 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       sortable : true,
       width : 50,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'company_id_name',
       header : _this._strings['1c76cbfe21c6f44c1d1e59d54f3e4420'] /* Company */,
       renderer : function(v,x,r) {
@@ -555,47 +556,47 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       sortable : true,
       width : 150,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'name',
       header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
       width : 200,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'role',
       header : _this._strings['bbbabdbe1b262f75d99d62880b953be1'] /* Role */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 100,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'phone',
       header : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 100,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'fax',
       header : _this._strings['9810aa2b9f44401be4bf73188ef2b67d'] /* Fax */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 100,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'email',
       header : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
       renderer : function(v) {
@@ -605,10 +606,10 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       sortable : true,
       width : 200,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      },
      {
+      xtype : 'ColumnModel',
       dataIndex : 'active',
       header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
       renderer : function(v) {  
@@ -619,8 +620,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
        },
       width : 75,
       xns : Roo.grid,
-      '|xns' : 'Roo.grid',
-      xtype : 'ColumnModel'
+      '|xns' : 'Roo.grid'
      }
     ]
    }
