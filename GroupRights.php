@@ -44,7 +44,7 @@ class Pman_Admin_GroupRights extends Pman
         }
         //print_r($g);
          //   DB_DataObject::debugLevel(1);
-        $p = DB_DataObject::factory('group_rights');
+        $p = DB_DataObject::factory('core_group_right');
         $p->group_id = (int)$_GET['group_id'];
         $p->find();
         $cur = array();
@@ -63,7 +63,7 @@ class Pman_Admin_GroupRights extends Pman
             if (!isset($cur[$k])) {
                 // then there is no current access right for it..
                 //DB_DataObject::debugLevel(1);
-                $gr = DB_DataObject::factory('group_rights');
+                $gr = DB_DataObject::factory('core_group_right');
                 $gr->group_id = (int)$_GET['group_id'];
                 $gr->rightname = $k;
                 $gr->accessmask = $g->type == 2 ? '' : $defdata[1]; // set to defaults.. unless it's a contact group.
@@ -106,7 +106,7 @@ class Pman_Admin_GroupRights extends Pman
         if (!empty($_POST['dataUpdate'])) {
             foreach($_POST['dataUpdate'] as $id => $ac) {
                 $id  = (int)$id;
-                $p = DB_DataObject::factory('group_rights');
+                $p = DB_DataObject::factory('core_group_right');
                 $p->group_id = (int)$_POST['group_id'];
                 if (!$p->get($id)) {
                     $this->jerr("could not find gid:{$p->group_id} and $id");
@@ -120,7 +120,7 @@ class Pman_Admin_GroupRights extends Pman
         }
         if (!empty($_POST['dataAdd'])) {
             foreach($_POST['dataAdd'] as $perm => $ac) {
-                $p = DB_DataObject::factory('group_rights');
+                $p = DB_DataObject::factory('core_group_right');
                 $p->group_id = (int)$_POST['group_id'];
                 $p->rightname = $perm;
                 $p->accessmask = $ac;
