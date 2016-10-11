@@ -86,7 +86,7 @@ class Pman_Admin_Iptables extends Pman {
         */
         //DB_DataObject::debugLevel(1);
         
-        $p = DB_DataObject::Factory('Person');
+        $p = DB_DataObject::Factory('core_person');
         $p->autoJoin();
         $p->whereAdd("join_company_id_id.comptype = 'OWNER'");
         $p->selectAdd();
