@@ -34,7 +34,7 @@ class Pman_Admin_Signup extends Pman
             $this->jok("OK");
         }
         
-        $p = DB_DataObject::factory("Person");
+        $p = DB_DataObject::factory("core_person");
         $p->setFrom($_REQUEST);
         $p->insert();
         
