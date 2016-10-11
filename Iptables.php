@@ -114,7 +114,7 @@ class Pman_Admin_Iptables extends Pman {
             max(event_when) + $interval as expires
                      
         ");
-        $e->person_table = DB_DataObject::factory('person')->tableName();
+        $e->person_table = DB_DataObject::factory('core_person')->tableName();
         $e->whereAddIn('person_id', $peps, 'int');
         $e->groupBy('ipaddr');
         $e->whereAdd("event_when > NOW() - $interval");
