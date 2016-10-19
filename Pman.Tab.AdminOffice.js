@@ -105,7 +105,7 @@ Pman.Tab.AdminOffice = new Roo.XComponent({
                  return;
              }
              var cdata = sd.data;
-             _this.dialog.show( { 
+             _this. dialog.show( { 
                  id : 0 ,
                  company_name : cdata.name,
                  company_id : cdata.id,
