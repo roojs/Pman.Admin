@@ -87,7 +87,7 @@
        "items" : [
         {
          "listeners" : {
-          "|click" : "function()\n{\n    if (!_this.dialog) {\n     return;\n    }\n    var sd = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected();\n    if (!sd) {\n        Roo.MessageBox.alert(\"Error\", \"Select an company to add an office to\");\n        return;\n    }\n    var cdata = sd.data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   });\n}"
+          "|click" : "function()\n{\n    if (!_this.dialog) {\n     return;\n    }\n    var sd = Pman.Tab.AdminCompanies.grid.getSelectionModel().getSelected();\n    if (!sd) {\n        Roo.MessageBox.alert(\"Error\", \"Select an company to add an office to\");\n        return;\n    }\n    var cdata = sd .data;\n    _dialog.show( { \n        id : 0 ,\n        company_name : cdata.name,\n        company_id : cdata.id,\n        address : cdata.address,\n        phone : cdata.tel,\n        fax : cdata.fax,\n        email  : cdata.email\n    } , function() {\n        _this.grid.footer.onClick('first');\n   });\n}"
          },
          "text" : "Add",
          "xtype" : "Button",

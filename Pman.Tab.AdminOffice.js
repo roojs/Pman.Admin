@@ -104,7 +104,7 @@ Pman.Tab.AdminOffice = new Roo.XComponent({
                  Roo.MessageBox.alert("Error", "Select an company to add an office to");
                  return;
              }
-             var cdata = sd.data;
+             var cdata = sd .data;
              _dialog.show( { 
                  id : 0 ,
                  company_name : cdata.name,
