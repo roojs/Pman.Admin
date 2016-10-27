@@ -1,41 +1,43 @@
 {
-    "id": "roo-file-73",
-    "name": "Pman.Tab.AdminContactsManager",
-    "parent": "Pman.Tab.Admin",
-    "title": "Pman.Tab.AdminContactsManager",
-    "path": "/home/chris/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
-    "items": [
-        {
-            "background": true,
-            "region": "center",
-            "xtype": "NestedLayoutPanel",
-            "|title": "(function() {\n    return _this.title || \"Contacts Manager\";\n})()",
-            "|xns": "Roo",
-            "items": [
-                {
-                    "|xns": "Roo",
-                    "xtype": "BorderLayout",
-                    "*prop": "layout",
-                    "items": [
-                        {
-                            "*prop": "west",
-                            "split": true,
-                            "tabPosition": "top",
-                            "width": 250,
-                            "xtype": "LayoutRegion",
-                            "|xns": "Roo"
-                        },
-                        {
-                            "*prop": "center",
-                            "tabPosition": "top",
-                            "xtype": "LayoutRegion",
-                            "|xns": "Roo"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "permname": "Core.Person",
-    "modOrder": "060"
+ "name" : "Pman.Tab.AdminContactsManager",
+ "parent" : "Pman.Tab.Admin",
+ "title" : "Pman.Tab.AdminContactsManager",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
+ "permname" : "Core.Person",
+ "modOrder" : "060",
+ "strings" : {
+  "24638ac4ae95a8101b5b6e9d3b034d3a" : "(function() {\n    return _this.title || \"Contacts Manager\";\n})()"
+ },
+ "items" : [
+  {
+   "background" : true,
+   "region" : "center",
+   "xtype" : "NestedLayoutPanel",
+   "| title" : "(function() {\n    return _this.title || \"Contacts Manager\";\n})()",
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "tabPosition" : "top",
+       "width" : 250,
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "west"
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "tabPosition" : "top",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
