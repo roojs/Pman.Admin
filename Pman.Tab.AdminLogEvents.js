@@ -88,6 +88,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
       title : _this._strings['87f9f735a1d36793ceaecd4e47124b63'] /* Events */,
       listeners : {
        activate : function() {
+            Roo.log('get activate??????????');
             _this.panel = this;
             if (_this.grid) {
                 _this.grid.footer.onClick('first');
