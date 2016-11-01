@@ -11,7 +11,7 @@
  "items" : [
   {
    "listeners" : {
-    "activate" : "function (_self)\n{\n    var cr = this.layout.getRegion('center');\n    if (cr) {\n        cr.showPanel(cr.activePanel);\n    }\n}"
+    "activate" : "function (_self)\n{\n    var cr = this.layout.getRegion('center');\n    Roo.log(cr);\n    if (cr) {\n        cr.showPanel(cr.activePanel);\n    }\n}"
    },
    "region" : "center",
    "background" : true,

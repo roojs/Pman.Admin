@@ -31,6 +31,7 @@ Pman.Tab.AdminLogs = new Roo.XComponent({
     activate : function (_self)
      {
          var cr = this.layout.getRegion('center');
+         Roo.log(cr);
          if (cr) {
              cr.showPanel(cr.activePanel);
          }
