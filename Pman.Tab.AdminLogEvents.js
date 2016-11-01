@@ -17,8 +17,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '01bd6a16732dfa2b760dc8566c58afae' :"Download to Excel",
   '498f79c4c5bbde77f1bceb6c86fd0f6d' :"Show",
   '037fd50b0e85bb65995ca7125d06c7cd' :"Select Person Table",
-  '42cf593b947cd3d591fa132742486f89' :"Person ",
-  'fd7535ce3979bb8547e2c01689db0767' :"Select Person ",
+  '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person ",
+  '340c2ee497b85d5954b01c64de7f44f6' :"Select Person ",
   '679308a758de538c5f39c4c6cdba6593' :"Select Affects",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   '39b9e051f9fe75e65c7a330bb00499d4' :"Date Range",
@@ -42,52 +42,50 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'NestedLayoutPanel',
    region : 'center',
    title : _this._strings['87f9f735a1d36793ceaecd4e47124b63'] /* Events */,
    xns : Roo,
    '|xns' : 'Roo',
-   xtype : 'NestedLayoutPanel',
    layout : {
+    xtype : 'BorderLayout',
     xns : Roo,
     '|xns' : 'Roo',
-    xtype : 'BorderLayout',
     center : {
+     xtype : 'LayoutRegion',
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     south : {
+     xtype : 'LayoutRegion',
      autoScroll : true,
      height : 150,
      split : true,
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     items  : [
      {
+      xtype : 'ContentPanel',
       fitToFrame : true,
       region : 'south',
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'ContentPanel',
       listeners : {
        render : function (_self)
         {
           _this.viewPanel = _self;
         }
-      }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
      },
      {
+      xtype : 'GridPanel',
       background : false,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
       tableName : 'Events',
       title : _this._strings['87f9f735a1d36793ceaecd4e47124b63'] /* Events */,
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'GridPanel',
       listeners : {
        activate : function() {
             _this.panel = this;
@@ -96,12 +94,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             }
         }
       },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'Grid',
        autoExpandColumn : 'remarks',
        loadMask : true,
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       xtype : 'Grid',
        listeners : {
         render : function () 
          {
@@ -112,20 +110,20 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
              }
          }
        },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        footer : {
+        xtype : 'PagingToolbar',
         displayInfo : true,
         displayMsg : _this._strings['2ea72778ebaacc973260c88837dd7a2f'] /* Displaying Events  {0} - {1} of {2} */,
         emptyMsg : _this._strings['90e4ac2e5a22e53df63b6b186d8727ba'] /* No Events found */,
         pageSize : 25,
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'PagingToolbar',
         items  : [
          {
-          text : _this._strings['01bd6a16732dfa2b760dc8566c58afae'] /* Download to Excel */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
           xtype : 'Button',
+          text : _this._strings['01bd6a16732dfa2b760dc8566c58afae'] /* Download to Excel */,
           listeners : {
            click : function (_self, e)
             {
@@ -171,13 +169,13 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     
                 });
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
-          text : _this._strings['e4ef97f584a9c8d2d686f84569307575'] /* Download to Excel (with extra descriptions) */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
           xtype : 'Button',
+          text : _this._strings['e4ef97f584a9c8d2d686f84569307575'] /* Download to Excel (with extra descriptions) */,
           listeners : {
            click : function (_self, e)
             {
@@ -224,20 +222,20 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                     
                 });
             }
-          }
-         },
-         {
+          },
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Separator'
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Separator',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/tree/leaf.gif',
           text : _this._strings['2bd339d85ee3b33e513359ce781b60cc'] /* Restore */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function()
             {
@@ -262,22 +260,25 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                    }
                });
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          }
         ]
        },
        toolbar : {
+        xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'Toolbar',
         items  : [
          {
+          xtype : 'TextItem',
           text : _this._strings['498f79c4c5bbde77f1bceb6c86fd0f6d'] /* Show */,
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'TextItem'
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'ComboBox',
           allowBlank : true,
           alwaysQuery : true,
           displayField : 'value',
@@ -296,9 +297,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           typeAhead : true,
           valueField : 'value',
           width : 150,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -318,7 +316,10 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               _this.grid.footer.onClick('first');
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'SimpleStore',
            data : (function() { 
            
                if(typeof(uiConfig) == 'undefined' || typeof(uiConfig.events_person_table) == 'undefined' || !uiConfig.events_person_table.length){
@@ -332,23 +333,23 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
            fields : [ 'value' ],
            isLocal : true,
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'SimpleStore'
+           '|xns' : 'Roo.data'
           }
          },
          {
+          xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'name',
           editable : true,
-          emptyText : _this._strings['fd7535ce3979bb8547e2c01689db0767'] /* Select Person  */,
-          fieldLabel : _this._strings['42cf593b947cd3d591fa132742486f89'] /* Person  */,
+          emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person  */,
+          fieldLabel : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person  */,
           forceSelection : true,
           listWidth : 600,
           loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
           minChars : 2,
           name : 'person_id_name',
           pageSize : 20,
-          qtip : _this._strings['fd7535ce3979bb8547e2c01689db0767'] /* Select Person  */,
+          qtip : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person  */,
           queryParam : 'query[name]',
           selectOnFocus : true,
           tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> ({company_id_name}) &lt;{email}&gt; </div>',
@@ -356,9 +357,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           typeAhead : true,
           valueField : 'id',
           width : 150,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -370,12 +368,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'Store',
            remoteSort : true,
            sortInfo : { field : 'name' , direction : 'ASC' },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'Store',
            listeners : {
             beforeload : function (_self, o)
              {
@@ -384,14 +382,17 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                  //o.params.company_id = Pman.Login.authUser.company_id;
              }
            },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
            proxy : {
+            xtype : 'HttpProxy',
             method : 'GET',
             url : baseURL + '/Roo/Person.php',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'HttpProxy'
+            '|xns' : 'Roo.data'
            },
            reader : {
+            xtype : 'JsonReader',
             fields : [
                 {
                     'name': 'id',
@@ -731,12 +732,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'JsonReader'
+            '|xns' : 'Roo.data'
            }
           }
          },
          {
+          xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'action',
           editable : true,
@@ -755,9 +756,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           typeAhead : true,
           valueField : 'action',
           width : 150,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -768,12 +766,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               _this.grid.footer.onClick('first');
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'Store',
            remoteSort : true,
            sortInfo : { field : 'action' , direction : 'ASC' },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'Store',
            listeners : {
             beforeload : function (_self, o)
              {
@@ -786,14 +784,17 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                  o.params._columns ='action';
              }
            },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
            proxy : {
+            xtype : 'HttpProxy',
             method : 'GET',
             url : baseURL + '/Roo/Events.php',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'HttpProxy'
+            '|xns' : 'Roo.data'
            },
            reader : {
+            xtype : 'JsonReader',
             fields : [
                 {
                     'name': 'id',
@@ -909,12 +910,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'JsonReader'
+            '|xns' : 'Roo.data'
            }
           }
          },
          {
+          xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'on_table',
           editable : true,
@@ -933,9 +934,6 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
           typeAhead : true,
           valueField : 'action',
           width : 150,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -950,12 +948,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               _this.grid.footer.onClick('first');
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'Store',
            remoteSort : true,
            sortInfo : { field : 'on_table' , direction : 'ASC' },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'Store',
            listeners : {
             beforeload : function (_self, o)
              {
@@ -968,14 +966,17 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                  o.params._columns ='on_table';
              }
            },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
            proxy : {
+            xtype : 'HttpProxy',
             method : 'GET',
             url : baseURL + '/Roo/Events.php',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'HttpProxy'
+            '|xns' : 'Roo.data'
            },
            reader : {
+            xtype : 'JsonReader',
             fields : [
                 {
                     'name': 'id',
@@ -1091,22 +1092,19 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'JsonReader'
+            '|xns' : 'Roo.data'
            }
           }
          },
          {
+          xtype : 'TextItem',
           text : _this._strings['39b9e051f9fe75e65c7a330bb00499d4'] /* Date Range */,
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'TextItem'
+          '|xns' : 'Roo.Toolbar'
          },
          {
-          format : 'Y-m-d',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
           xtype : 'DateField',
+          format : 'Y-m-d',
           listeners : {
            change : function (_self, newValue, oldValue)
             {
@@ -1116,13 +1114,13 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
               _this.dateFrom = _self;
             }
-          }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
-          format : 'Y-m-d',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
           xtype : 'DateField',
+          format : 'Y-m-d',
           listeners : {
            change : function (_self, newValue, oldValue)
             {
@@ -1132,16 +1130,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             {
               _this.dateTo = _self;
             }
-          }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          }
         ]
        },
        dataSource : {
+        xtype : 'Store',
         remoteSort : true,
         sortInfo : { field: 'event_when', direction: 'DESC'},
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        xtype : 'Store',
         listeners : {
          beforeload : function (_self, o)
           {
@@ -1194,14 +1192,17 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/Events.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [
              {
                  'name': 'id',
@@ -1317,15 +1318,12 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        },
        sm : {
-        singleSelect : true,
-        xns : Roo.grid,
-        '|xns' : 'Roo.grid',
         xtype : 'RowSelectionModel',
+        singleSelect : true,
         listeners : {
          afterselectionchange : function (_self)
           {
@@ -1338,19 +1336,22 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
               _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
               
           }
-        }
+        },
+        xns : Roo.grid,
+        '|xns' : 'Roo.grid'
        },
        colModel : [
         {
+         xtype : 'ColumnModel',
          dataIndex : 'event_when',
          header : _this._strings['4e97aeeaa8b15ca1180fcd1f3ac478d1'] /* When */,
          renderer : function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; },
          width : 100,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'id',
          header : _this._strings['1b7f7d24575cdbfadb83b9587fa1bf97'] /* #id */,
          hidden : (function() {
@@ -1360,10 +1361,10 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          })(),
          width : 100,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'person_id_name',
          header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person */,
          renderer : function(v,x,r) { 
@@ -1392,28 +1393,28 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
          },
          width : 150,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'action',
          header : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 100,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'ipaddr',
          header : _this._strings['a12a3079e14ced46e69ba52b8a90b21a'] /* IP */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 100,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'on_table',
          header : _this._strings['2c92a9a6a5dbf570825e62eabcdecd8d'] /* Affected */,
          hidden : (function() {
@@ -1426,17 +1427,16 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             },
          width : 100,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'remarks',
          header : _this._strings['231bc72756b5e6de492aaaa1577f61b1'] /* Remarks */,
          renderer : function(v) { return String.format('<span qtip="{1}">{0}</span>', v, Roo.util.Format.htmlEncode(v)); },
          width : 300,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         }
        ]
       }
