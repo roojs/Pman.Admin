@@ -114,6 +114,7 @@ Pman.Dialog.AdminCompanyMerge = {
                   _this.form.reset();
                   return;
               }
+              
               if (action.type == 'setdata') {
                   
                    var title = _this.data.title  || _this.data.etype;
