@@ -184,6 +184,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
            click : function()
             {
                 var s = _this.grid.getSelectionModel().getSelections();
+                
                 if (!s.length || (s.length > 1))  {
                     Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
                     return;

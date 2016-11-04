@@ -151,7 +151,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminCompanyMerge.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminCompanyMerge.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
              },
              "text" : "Merge",
              "xtype" : "Button",
