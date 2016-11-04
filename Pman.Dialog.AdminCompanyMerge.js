@@ -50,9 +50,7 @@ Pman.Dialog.AdminCompanyMerge = {
     listeners : {
      show : function (_self)
       {
-          if (_this.isBuilder) {
-              _this.data = { id : 2, comptype : 'SUPPLIER' }
-          }
+          
       }
     },
     xns : Roo,

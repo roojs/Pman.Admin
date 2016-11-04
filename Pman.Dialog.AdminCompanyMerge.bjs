@@ -16,7 +16,7 @@
  "items" : [
   {
    "listeners" : {
-    "show" : "function (_self)\n{\n    if (_this.isBuilder) {\n        _this.data = { id : 2, comptype : 'SUPPLIER' }\n    }\n}"
+    "show" : "function (_self)\n{\n    \n}"
    },
    "modal" : true,
    "collapsible" : false,
