@@ -190,9 +190,6 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
                     return;
                 }
                 
-                Roo.log(s);
-                return;
-                
                 Pman.Dialog.AdminCompanyMerge.show(s[0].data, function() {
                     _this.grid.footer.onClick('first');
                 }); 
