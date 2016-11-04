@@ -179,7 +179,7 @@ Pman.Dialog.AdminCompanyMerge = {
            proxy : {
             xtype : 'HttpProxy',
             method : 'GET',
-            url : baseURL + '/Roo/Core_enum',
+            url : baseURL + '/Roo/Core_company',
             xns : Roo.data,
             '|xns' : 'Roo.data'
            },
