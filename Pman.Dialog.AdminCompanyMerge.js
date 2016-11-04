@@ -153,7 +153,7 @@ Pman.Dialog.AdminCompanyMerge = {
           qtip : _this._strings['bf8691517ce00a09186a05cd65863091'] /* Select Item to Merge With */,
           queryParam : 'search[name]',
           selectOnFocus : true,
-          tpl : '<div class=\"x-grid-cell-text x-btn button\">{code} - <b>{name}</b> {name}</div>',
+          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b></div>',
           triggerAction : 'all',
           typeAhead : true,
           valueField : 'id',
