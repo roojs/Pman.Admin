@@ -99,7 +99,7 @@ Pman.Dialog.AdminCompanyMerge = {
         xtype : 'Form',
         method : 'POST',
         style : 'margin: 10px;',
-        url : baseURL + '/Roo/Core_enum.php',
+        url : baseURL + '/Roo/Core_company.php',
         listeners : {
          actioncomplete : function (_self, action)
           {
