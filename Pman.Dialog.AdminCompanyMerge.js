@@ -202,12 +202,6 @@ Pman.Dialog.AdminCompanyMerge = {
          },
          {
           xtype : 'Hidden',
-          name : 'etype',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
           name : 'id',
           xns : Roo.form,
           '|xns' : 'Roo.form'
