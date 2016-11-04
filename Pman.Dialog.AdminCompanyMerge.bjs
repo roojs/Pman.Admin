@@ -95,7 +95,7 @@
              "id" : "id",
              "root" : "data",
              "xtype" : "JsonReader",
-             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+             "$ fields" : "[\n    {\n        \"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
              "$ xns" : "Roo.data",
              "* prop" : "reader",
              "totalProperty" : "total"
