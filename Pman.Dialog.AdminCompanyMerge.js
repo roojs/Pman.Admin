@@ -149,7 +149,7 @@ Pman.Dialog.AdminCompanyMerge = {
           loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
           minChars : 2,
           name : '_merge_id_name',
-          pageSize : 25,
+          pageSize : 20,
           qtip : _this._strings['bf8691517ce00a09186a05cd65863091'] /* Select Item to Merge With */,
           queryParam : 'search[name]',
           selectOnFocus : true,

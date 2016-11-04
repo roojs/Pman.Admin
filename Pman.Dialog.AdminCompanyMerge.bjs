@@ -57,7 +57,7 @@
          "fieldLabel" : "Merge with",
          "forceSelection" : true,
          "selectOnFocus" : true,
-         "pageSize" : 25,
+         "pageSize" : 20,
          "displayField" : "name",
          "emptyText" : "Select Item to Merge With",
          "hiddenName" : "_merge_id",
