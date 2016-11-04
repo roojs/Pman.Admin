@@ -187,7 +187,14 @@ Pman.Dialog.AdminCompanyMerge = {
             xtype : 'JsonReader',
             fields : [
                 {
-                    "name":"id","type":"int"},{"name":"name","type":"string"}],
+                    "name":"id",
+                    "type":"int"
+                },
+                {
+                    "name":"name",
+                    "type":"string"
+                }
+            ],
             id : 'id',
             root : 'data',
             totalProperty : 'total',
