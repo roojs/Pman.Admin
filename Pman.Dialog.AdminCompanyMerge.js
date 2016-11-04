@@ -117,8 +117,7 @@ Pman.Dialog.AdminCompanyMerge = {
               
               if (action.type == 'setdata') {
                   
-                   var title = _this.data.title  || _this.data.etype;
-                  _this.dialog.setTitle("Delete selected " + title + " and merge data with");
+                  _this.dialog.setTitle("Delete selected " + _this.data.name + " and merge data with");
                    
                  return;
               }
