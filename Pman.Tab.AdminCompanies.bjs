@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminCompanies",
  "parent" : "Pman.Tab.Admin",
  "title" : "Pman.Tab.AdminCompanies",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
  "permname" : "Admin.Companies",
  "modOrder" : "030",
  "strings" : {
@@ -12,6 +12,7 @@
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "fc6f97505d89fe9277965c126744647a" : "No Companies found",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "68be4837f6c739877233e527a996dd00" : "Merge",
   "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
@@ -24,8 +25,8 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Companies",
    "xtype" : "NestedLayoutPanel",
+   "title" : "Companies",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -50,9 +51,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "region" : "center",
        "fitToframe" : true,
        "background" : true,
-       "region" : "center",
        "title" : "Companies",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -87,8 +88,8 @@
               "load" : "function (This, o, arg)\n{\n \n}"
              },
              "$ url" : "baseURL + '/Roo/Companies.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -146,6 +147,20 @@
             },
             {
              "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
+             },
+             "text" : "Merge",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Separator",
              "$ xns" : "Roo.Toolbar"
             },
             {
@@ -212,8 +227,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Tel",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -221,8 +236,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Fax",
+           "width" : 100,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -250,8 +265,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Remarks",
            "width" : 200,
+           "header" : "Remarks",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
