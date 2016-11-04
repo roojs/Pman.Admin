@@ -1,0 +1,10 @@
+{
+ "name" : "Pman.Dialog.AdminCompanyMerge",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminCompanyMerge.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "items" : [
+ ]
+}
