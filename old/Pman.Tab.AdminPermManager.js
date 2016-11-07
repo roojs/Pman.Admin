@@ -202,6 +202,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
           {
               o.params = o.params || {};
               o.params.type =0;
+              o.params._add_everyone = 1;
           },
          load : function (_self, records, options)
           {
