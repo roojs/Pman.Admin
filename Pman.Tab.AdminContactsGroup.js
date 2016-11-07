@@ -10,10 +10,10 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'a37ede293936e29279ed543129451ec3' :"Groups",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  'b891a85b57a6261132a613eabd235f32' :"Manage Groups????",
   '4d1c8263ba1036754f8db14a98f9f006' :"Reload",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
-  'aba9f7d7443652e858969bfc280690b1' :"Manage Groups"
+  '49ee3087348e8d44e1feda1917443987' :"Name"
  },
 
   part     :  ["Admin", "ContactsGroup" ],
@@ -83,7 +83,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
      items  : [
       {
        xtype : 'Button',
-       text : _this._strings['aba9f7d7443652e858969bfc280690b1'] /* Manage Groups */,
+       text : _this._strings['b891a85b57a6261132a613eabd235f32'] /* Manage Groups???? */,
        xns : Roo.Toolbar,
        '|xns' : 'Roo.Toolbar',
        menu : {
