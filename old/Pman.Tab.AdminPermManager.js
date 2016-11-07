@@ -29,35 +29,201 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'NestedLayoutPanel',
+   background : true,
+   region : 'center',
+   title : _this._strings['911051bc8a5abedcc127334f0f70b78a'] /* Permission Manager */,
+   xns : Roo,
+   '|xns' : 'Roo',
    layout : {
+    xtype : 'BorderLayout',
+    xns : Roo,
+    '|xns' : 'Roo',
     center : {
-     '|xns' : 'Roo',
+     xtype : 'LayoutRegion',
      tabPosition : 'top',
      xns : Roo,
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     west : {
-     '|xns' : 'Roo',
+     xtype : 'LayoutRegion',
      width : 200,
      xns : Roo,
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
-    '|xns' : 'Roo',
-    xns : Roo,
-    xtype : 'BorderLayout',
-    items : [
+    items  : [
      {
+      xtype : 'GridPanel',
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'west',
+      tableName : 'Groups',
+      title : _this._strings['a37ede293936e29279ed543129451ec3'] /* Groups */,
+      listeners : {
+       activate : function() {
+            _this.panel = this;
+            if (_this.grid) {
+                _this.grid.ds.load({});
+            }
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'name',
+       ddGroup : 'groupDD',
+       enableDrop : true,
+       loadMask : true,
+       listeners : {
+        render : function() 
+         {
+             _this.grid = this; 
+             _this.dialog = Pman.Dialog.Groups;
+             if (_this.panel.active) {
+                 _this.grid.ds.load({});
+             }
+         },
+        rowdblclick : function (_self, rowIndex, e)
+         {
+             if (!_this.dialog) return;
+             var s = this.getDataSource().getAt(rowIndex);
+             if (s.data.id < 1 ) {
+                 return;
+             }
+             _this.dialog.show( s.data, function() {
+                 _this.ds.load({});
+             }); 
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       toolbar : {
+        xtype : 'Toolbar',
+        xns : Roo,
+        '|xns' : 'Roo',
+        items  : [
+         {
+          xtype : 'Button',
+          text : _this._strings['aba9f7d7443652e858969bfc280690b1'] /* Manage Groups */,
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar',
+          menu : {
+           xtype : 'Menu',
+           xns : Roo.menu,
+           '|xns' : 'Roo.menu',
+           items  : [
+            {
+             xtype : 'Item',
+             cls : 'x-btn-text-icon',
+             icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+             listeners : {
+              click : function()
+               {
+                   if (!_this.dialog) return;
+                   _this.dialog.show( { id : 0,  type: 0 } , function() {
+                        _this.grid.ds.load({});
+                  }); 
+               }
+             },
+             xns : Roo.menu,
+             '|xns' : 'Roo.menu'
+            },
+            {
+             xtype : 'Item',
+             cls : 'x-btn-text-icon',
+             icon : Roo.rootURL + 'images/default/tree/leaf.gif',
+             text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
+             listeners : {
+              click : function()
+               {
+                   var s = _this.grid.getSelectionModel().getSelections();
+                   if (!s.length || (s.length > 1))  {
+                       Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                       return;
+                   }
+                   if (s[0].data.id < 1 ) {
+                       return;
+                   }
+                   if (!_this.dialog) return;
+                   _this.dialog.show(s[0].data, function() {
+                        _this.grid.ds.load({});
+                   }); 
+                   
+               }
+             },
+             xns : Roo.menu,
+             '|xns' : 'Roo.menu'
+            },
+            {
+             xtype : 'Item',
+             cls : 'x-btn-text-icon',
+             icon : rootURL + '/Pman/templates/images/trash.gif',
+             text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
+             listeners : {
+              click : function()
+               {
+                    Pman.genericDelete(_this, 'Groups'); 
+               }
+             },
+             xns : Roo.menu,
+             '|xns' : 'Roo.menu'
+            },
+            {
+             xtype : 'Separator',
+             xns : Roo.menu,
+             '|xns' : 'Roo.menu'
+            },
+            {
+             xtype : 'Item',
+             text : _this._strings['4d1c8263ba1036754f8db14a98f9f006'] /* Reload */,
+             listeners : {
+              click : function (_self, e)
+               {
+                 _this.grid.ds.load({});
+               }
+             },
+             xns : Roo.menu,
+             '|xns' : 'Roo.menu'
+            }
+           ]
+          }
+         }
+        ]
+       },
        dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'name', direction: 'ASC' },
+        listeners : {
+         beforeload : function (_self, o)
+          {
+              o.params = o.params || {};
+              o.params.type =0;
+          },
+         load : function (_self, records, options)
+          {
+              var sm = _this.grid.getSelectionModel();
+              if (!sm.getSelections().length) {
+                  sm.selectFirstRow();
+              }
+              // should refresh righthand side grid..
+               //   Pman.Tab.AdminContacts.grid.footer.onClick('first');
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
-         '|xns' : 'Roo.data',
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/Groups.php',
          xns : Roo.data,
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
-         '|xns' : 'Roo.data',
+         xtype : 'JsonReader',
          fields : [
              {
                  'name': 'id',
@@ -144,151 +310,12 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         xtype : 'JsonReader'
-        },
-        '|xns' : 'Roo.data',
-        remoteSort : true,
-        sortInfo : { field : 'name', direction: 'ASC' },
-        xns : Roo.data,
-        xtype : 'Store',
-        listeners : {
-         beforeload : function (_self, o)
-          {
-              o.params = o.params || {};
-              o.params.type =0;
-          },
-         load : function (_self, records, options)
-          {
-              var sm = _this.grid.getSelectionModel();
-              if (!sm.getSelections().length) {
-                  sm.selectFirstRow();
-              }
-              // should refresh righthand side grid..
-               //   Pman.Tab.AdminContacts.grid.footer.onClick('first');
-          }
-        },
-        items : [
-
-        ]
-
-       },
-       toolbar : {
-        '|xns' : 'Roo',
-        xns : Roo,
-        xtype : 'Toolbar',
-        items : [
-         {
-          menu : {
-           '|xns' : 'Roo.menu',
-           xns : Roo.menu,
-           xtype : 'Menu',
-           items : [
-            {
-             '|xns' : 'Roo.menu',
-             cls : 'x-btn-text-icon',
-             icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'],
-             xns : Roo.menu,
-             xtype : 'Item',
-             listeners : {
-              click : function()
-               {
-                   if (!_this.dialog) return;
-                   _this.dialog.show( { id : 0,  type: 0 } , function() {
-                        _this.grid.ds.load({});
-                  }); 
-               }
-             }
-            },
-            {
-             '|xns' : 'Roo.menu',
-             cls : 'x-btn-text-icon',
-             icon : Roo.rootURL + 'images/default/tree/leaf.gif',
-             text : _this._strings['7dce122004969d56ae2e0245cb754d35'],
-             xns : Roo.menu,
-             xtype : 'Item',
-             listeners : {
-              click : function()
-               {
-                   var s = _this.grid.getSelectionModel().getSelections();
-                   if (!s.length || (s.length > 1))  {
-                       Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                       return;
-                   }
-                   if (s[0].data.id < 1 ) {
-                       return;
-                   }
-                   if (!_this.dialog) return;
-                   _this.dialog.show(s[0].data, function() {
-                        _this.grid.ds.load({});
-                   }); 
-                   
-               }
-             }
-            },
-            {
-             '|xns' : 'Roo.menu',
-             cls : 'x-btn-text-icon',
-             icon : rootURL + '/Pman/templates/images/trash.gif',
-             text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'],
-             xns : Roo.menu,
-             xtype : 'Item',
-             listeners : {
-              click : function()
-               {
-                    Pman.genericDelete(_this, 'Groups'); 
-               }
-             }
-            },
-            {
-             '|xns' : 'Roo.menu',
-             xns : Roo.menu,
-             xtype : 'Separator'
-            },
-            {
-             '|xns' : 'Roo.menu',
-             text : _this._strings['4d1c8263ba1036754f8db14a98f9f006'],
-             xns : Roo.menu,
-             xtype : 'Item',
-             listeners : {
-              click : function (_self, e)
-               {
-                 _this.grid.ds.load({});
-               }
-             }
-            }
-           ]
-
-          },
-          '|xns' : 'Roo.Toolbar',
-          text : _this._strings['aba9f7d7443652e858969bfc280690b1'],
-          xns : Roo.Toolbar,
-          xtype : 'Button',
-          items : [
-
-          ]
-
-         }
-        ]
-
-       },
-       sm : {
-        '|xns' : 'Roo.grid',
-        singleSelect : true,
-        xns : Roo.grid,
-        xtype : 'RowSelectionModel',
-        listeners : {
-         afterselectionchange : function (_self)
-          {
-              Pman.Tab.AdminPermMembers.grid.footer.onClick('first');
-          }
+         '|xns' : 'Roo.data'
         }
        },
        dropTarget : {
-        '|xns' : 'Roo.dd',
-        ddGroup : 'groupDD',
-        xns : Roo.dd,
         xtype : 'DropTarget',
+        ddGroup : 'groupDD',
         listeners : {
          drop : function (source, e, data)
           {
@@ -400,107 +427,57 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
           //    Roo.log('add'); 
               //}
           }
-        }
+        },
+        xns : Roo.dd,
+        '|xns' : 'Roo.dd'
        },
-       '|xns' : 'Roo.grid',
-       autoExpandColumn : 'name',
-       ddGroup : 'groupDD',
-       enableDrop : true,
-       loadMask : true,
-       xns : Roo.grid,
-       xtype : 'Grid',
+       sm : {
+        xtype : 'RowSelectionModel',
+        singleSelect : true,
+        listeners : {
+         afterselectionchange : function (_self)
+          {
+              Pman.Tab.AdminPermMembers.grid.footer.onClick('first');
+          }
+        },
+        xns : Roo.grid,
+        '|xns' : 'Roo.grid'
+       },
        colModel : [
-         {
-          '|xns' : 'Roo.grid',
-          dataIndex : 'name',
-          header : _this._strings['49ee3087348e8d44e1feda1917443987'],
-          renderer : function(v,x,r) { 
-              if (r.data.id == -1) {
-                  return '<b>' + "Not in a Group" + '</b>';
-              }
-              if ((r.data.id == 0) && (_this.type == 0)) {
-                  return '<b>' + "All Staff (Default Permissions)" + '</b>';
-              }
-              if ((r.data.id == 0) && (_this.type == 2)) {
-                  return '<b>' + "Everybody" + '</b>';
-              }
-              if (r.data.id == 0) {
-                  return '<b>' + "All Staff" + '</b>';
-              }
-              if (v == 'Administrators') {
-                  return '<b>' + "Adminstrators" + '</b>';
-              }
-              if (r.data.leader) {
-                  return v + ' (' + r.data.leader_name + ')';
-              }
-              
-              return v;
-          },
-          width : 200,
-          xns : Roo.grid,
-          xtype : 'ColumnModel'
-         }
-       ],
-       listeners : {
-        render : function() 
-         {
-             _this.grid = this; 
-             _this.dialog = Pman.Dialog.Groups;
-             if (_this.panel.active) {
-                 _this.grid.ds.load({});
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'name',
+         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+         renderer : function(v,x,r) { 
+             if (r.data.id == -1) {
+                 return '<b>' + "Not in a Group" + '</b>';
              }
+             if ((r.data.id == 0) && (_this.type == 0)) {
+                 return '<b>' + "All Staff (Default Permissions)" + '</b>';
+             }
+             if ((r.data.id == 0) && (_this.type == 2)) {
+                 return '<b>' + "Everybody" + '</b>';
+             }
+             if (r.data.id == 0) {
+                 return '<b>' + "All Staff" + '</b>';
+             }
+             if (v == 'Administrators') {
+                 return '<b>' + "Adminstrators" + '</b>';
+             }
+             if (r.data.leader) {
+                 return v + ' (' + r.data.leader_name + ')';
+             }
+             
+             return v;
          },
-        rowdblclick : function (_self, rowIndex, e)
-         {
-             if (!_this.dialog) return;
-             var s = this.getDataSource().getAt(rowIndex);
-             if (s.data.id < 1 ) {
-                 return;
-             }
-             _this.dialog.show( s.data, function() {
-                 _this.ds.load({});
-             }); 
-         }
-       },
-       items : [
-
-       ]
-
-      },
-      '|xns' : 'Roo',
-      background : true,
-      fitContainer : true,
-      fitToframe : true,
-      region : 'west',
-      tableName : 'Groups',
-      title : _this._strings['a37ede293936e29279ed543129451ec3'],
-      xns : Roo,
-      xtype : 'GridPanel',
-      listeners : {
-       activate : function() {
-            _this.panel = this;
-            if (_this.grid) {
-                _this.grid.ds.load({});
-            }
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
         }
-      },
-      items : [
-
-      ]
-
+       ]
+      }
      }
     ]
-
-   },
-   '|xns' : 'Roo',
-   background : true,
-   region : 'center',
-   title : _this._strings['911051bc8a5abedcc127334f0f70b78a'],
-   xns : Roo,
-   xtype : 'NestedLayoutPanel',
-   items : [
-
-   ]
-
+   }
   };  }
 });
