@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminContacts",
  "parent" : "Pman.Tab.AdminContactsManager",
  "title" : "Pman.Tab.AdminContacts",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
  "permname" : "Core.Person",
  "modOrder" : "001",
  "strings" : {
@@ -14,12 +14,12 @@
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "9e727fdd3aec8274f46685441900280d" : "Project",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "bddfeb1f6293e3b072fc01869917f0cc" : "Person?",
   "4110db87ce3ac86d603d03d691616b1e" : "Drag person to add or remove from group",
   "b47a519aebda8fdb4b59bdae6eb2bff0" : "Show No Company",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
   "9675747b5ab12d05f18518761e68a533" : "Select Companies",
-  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
   "f1174ecbbc232f948717979daf04cf08" : "No Person found",
   "ec3249f16ee5880d4c1acb752e5c925f" : "Switch to Selected User",
   "a93806efd0cc7a149f0f03e2b9a0f862" : "Bulk Add",
@@ -40,7 +40,7 @@
    "autoScroll" : true,
    "fitToframe" : true,
    "region" : "center",
-   "title" : "Person",
+   "title" : "Person?",
    "xtype" : "GridPanel",
    "fitContainer" : true,
    "$ xns" : "Roo",
@@ -49,8 +49,8 @@
     {
      "listeners" : {
       "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}",
-      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
+      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}"
      },
      "autoExpandColumn" : "name",
      "xtype" : "Grid",
@@ -73,8 +73,8 @@
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/Person.php'",
-         "method" : "GET",
          "xtype" : "HttpProxy",
+         "method" : "GET",
          "$ xns" : "Roo.data",
          "* prop" : "proxy"
         },
@@ -161,8 +161,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Companies.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -314,8 +314,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Role",
        "width" : 100,
+       "header" : "Role",
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -323,8 +323,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Phone",
        "width" : 100,
+       "header" : "Phone",
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -332,8 +332,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Fax",
        "width" : 100,
+       "header" : "Fax",
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -351,8 +351,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Active",
        "width" : 75,
+       "header" : "Active",
        "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
