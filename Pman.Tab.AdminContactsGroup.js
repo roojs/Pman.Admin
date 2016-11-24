@@ -182,7 +182,10 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
       beforeload : function (_self, o)
        {
            o.params = o.params || {};
+           
            o.params.type =2;
+           
+           o.params._add_everyone = 1;
        },
       load : function (_self, records, options)
        {

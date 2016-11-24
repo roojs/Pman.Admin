@@ -43,7 +43,7 @@
      "items" : [
       {
        "listeners" : {
-        "beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.type =2;\n}",
+        "beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    \n    o.params.type =2;\n    \n    o.params._add_everyone = 1;\n}",
         "load" : "function (_self, records, options)\n{\n    var sm = _this.grid.getSelectionModel();\n        if (!sm.getSelections().length) {\n            sm.selectFirstRow();\n        }\n        Pman.Tab.AdminContacts.grid.footer.onClick('first');\n}"
        },
        "xtype" : "Store",
