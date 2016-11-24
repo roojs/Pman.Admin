@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminContactsGroupRight",
  "parent" : "Pman.Tab.AdminContactsManager",
  "title" : "",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroupRight.bjs",
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
@@ -26,8 +26,8 @@
     "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
    },
    "autoScroll" : true,
-   "background" : true,
    "fitToframe" : true,
+   "background" : true,
    "region" : "center",
    "title" : "Rights",
    "xtype" : "GridPanel",
@@ -37,12 +37,12 @@
    "items" : [
     {
      "listeners" : {
-      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n        _this.dataUpdate = typeof(_this.dataUpdate) =='undefined' ?  {} : _this.dataUpdate;\n        \n        var di = this.colModel.getDataIndex(columnIndex);\n        var i = di.split('_').shift();\n        var k = di.split('_').pop();\n        if (i != 'accessmask') {\n            return;\n        }\n        var rec = _this.grid.ds.getAt(rowIndex);\n        var fm = rec.data.FullMask.split('');        \n        if(k == 'AA'){\n\n            Roo.each(fm, function(e){\n                rec.set(i+'_'+e, rec.data[i+'_'+k] ? 0 : 1);\n            });\n        } \n        rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);\n        \n        var newmask = '';\n        Roo.each(fm, function(e) {\n            if (rec.data[i+'_'+e] === 1) {\n        \n                newmask += e;\n            }\n        \n        });        \n        \n        //rec.data.accessmask = rec.data.accessmask + rec\n        //Roo.log(rec);\n        _this.dataUpdate[rec.data.id] = newmask;\n\n        //rec.commit();\n         \n        \n}",
-      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
+      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n        _this.dataUpdate = typeof(_this.dataUpdate) =='undefined' ?  {} : _this.dataUpdate;\n        \n        var di = this.colModel.getDataIndex(columnIndex);\n        var i = di.split('_').shift();\n        var k = di.split('_').pop();\n        if (i != 'accessmask') {\n            return;\n        }\n        var rec = _this.grid.ds.getAt(rowIndex);\n        var fm = rec.data.FullMask.split('');        \n        if(k == 'AA'){\n\n            Roo.each(fm, function(e){\n                rec.set(i+'_'+e, rec.data[i+'_'+k] ? 0 : 1);\n            });\n        } \n        rec.set(i+'_'+k, rec.data[i+'_'+k] ? 0 : 1);\n        \n        var newmask = '';\n        Roo.each(fm, function(e) {\n            if (rec.data[i+'_'+e] === 1) {\n        \n                newmask += e;\n            }\n        \n        });        \n        \n        //rec.data.accessmask = rec.data.accessmask + rec\n        //Roo.log(rec);\n        _this.dataUpdate[rec.data.id] = newmask;\n\n        //rec.commit();\n         \n        \n}"
      },
      "xtype" : "Grid",
-     "enableDrag" : true,
      "ddGroup" : "groupDD",
+     "enableDrag" : true,
      "loadMask" : true,
      "$ xns" : "Roo.grid",
      "* prop" : "grid",
@@ -61,8 +61,8 @@
        "items" : [
         {
          "$ url" : "baseURL + '/Admin/GroupRights.php'",
-         "xtype" : "HttpProxy",
          "method" : "GET",
+         "xtype" : "HttpProxy",
          "$ xns" : "Roo.data",
          "* prop" : "proxy"
         },
@@ -140,8 +140,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Add",
        "width" : 75,
+       "header" : "Add",
        "$ renderer" : "function(v) {  \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -149,8 +149,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Edit",
        "width" : 75,
+       "header" : "Edit",
        "$ renderer" : "function(v) {  \n   if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -158,8 +158,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Delete",
        "width" : 75,
+       "header" : "Delete",
        "$ renderer" : "function(v) {  \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -167,8 +167,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "List/View",
        "width" : 75,
+       "header" : "List/View",
        "$ renderer" : "function(v) {  \n    \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
@@ -176,8 +176,8 @@
       },
       {
        "xtype" : "ColumnModel",
-       "header" : "Print/Export",
        "width" : 75,
+       "header" : "Print/Export",
        "$ renderer" : "function(v,x,r) {  \n    \n    \n    if (v < 0) {\n        return '';\n    }\n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
