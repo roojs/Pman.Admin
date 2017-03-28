@@ -203,7 +203,7 @@ Pman.Tab.AdminProjectMembers = new Roo.XComponent({
      },
      proxy : {
       method : 'GET',
-      url : baseURL + '/Roo/Person.php',
+      url : baseURL + '/Roo/core_person',
       xns : Roo.data,
       '|xns' : 'Roo.data',
       xtype : 'HttpProxy'

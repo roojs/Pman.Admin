@@ -140,7 +140,7 @@
                                                     "xtype": "HttpProxy",
                                                     "method": "GET",
                                                     "|xns": "Roo.data",
-                                                    "|url": "baseURL + '/Roo/Person.php'"
+                                                    "|url": "baseURL + '/Roo/core_person'"
                                                 },
                                                 {
                                                     "*prop": "reader",

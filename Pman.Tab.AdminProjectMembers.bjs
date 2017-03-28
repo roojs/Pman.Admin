@@ -55,7 +55,7 @@
        "* prop" : "dataSource",
        "items" : [
         {
-         "$ url" : "baseURL + '/Roo/Person.php'",
+         "$ url" : "baseURL + '/Roo/core_person'",
          "method" : "GET",
          "xtype" : "HttpProxy",
          "$ xns" : "Roo.data",

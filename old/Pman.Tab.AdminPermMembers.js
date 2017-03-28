@@ -21,7 +21,7 @@ Pman.Tab.AdminPermMembers = new Roo.XComponent({
     dataSource : {
      proxy : {
       '|xns' : 'Roo.data',
-      url : baseURL + '/Roo/Person.php',
+      url : baseURL + '/Roo/core_person',
       xtype : 'HttpProxy',
       method : 'GET',
       xns : Roo.data
@@ -354,7 +354,7 @@ Pman.Tab.AdminPermMembers = new Roo.XComponent({
            // only used to change active status.
            
            new Pman.Request({
-               url : baseURL + '/Roo/Person.php',
+               url : baseURL + '/Roo/core_person',
                method :'POST',
                params : {
                    id : record.data.id,

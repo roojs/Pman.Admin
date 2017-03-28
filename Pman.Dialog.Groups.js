@@ -104,7 +104,7 @@ Pman.Dialog.Groups = {
                 store: new Ext.data.Store({
                       // load using HTTP
                     proxy: new Ext.data.HttpProxy({
-                        url: baseURL + '/Roo/Person.php',
+                        url: baseURL + '/Roo/core_person',
                         method: 'GET'
                     }),
                     reader: Pman.Readers.Person,

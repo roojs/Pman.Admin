@@ -299,7 +299,7 @@ Pman.Dialog.AdminWatch = {
                                             xtype: 'HttpProxy',
                                             xns: Roo.data,
                                             method : 'GET',
-                                            url : baseURL + '/Roo/Person.php'
+                                            url : baseURL + '/Roo/core_person'
                                         },
                                         reader : {
                                             xtype: 'JsonReader',

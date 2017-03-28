@@ -472,7 +472,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
            // only used to change active status.
            
            new Pman.Request({
-               url : baseURL + '/Roo/Person.php',
+               url : baseURL + '/Roo/core_person',
                method :'POST',
                params : {
                    id : record.data.id,
@@ -499,7 +499,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
      proxy : {
       xtype : 'HttpProxy',
       method : 'GET',
-      url : baseURL + '/Roo/Person.php',
+      url : baseURL + '/Roo/core_person',
       xns : Roo.data,
       '|xns' : 'Roo.data'
      },
