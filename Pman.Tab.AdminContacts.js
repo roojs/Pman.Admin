@@ -208,7 +208,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/Companies.php',
+         url : baseURL + '/Roo/core_company',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
