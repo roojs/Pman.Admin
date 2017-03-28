@@ -288,7 +288,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/Companies.php',
+         url : baseURL + '/Roo/core_company',
          listeners : {
           load : function (This, o, arg)
            {
