@@ -342,7 +342,7 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
         },
         proxy : {
          method : 'GET',
-         url : baseURL + '/Roo/Projects.php',
+         url : baseURL + '/Roo/core_project.php',
          xns : Roo.data,
          '|xns' : 'Roo.data',
          xtype : 'HttpProxy'

@@ -98,7 +98,7 @@ Pman.Tab.ProjectsMgr = {
                 ds:   new Ext.data.Store({
                     // load using HTTP
                     proxy: new Ext.data.HttpProxy({
-                        url: baseURL + '/Roo/Projects.php',
+                        url: baseURL + '/Roo/core_project.php',
                         method: 'GET'
                     }),
                     remoteSort: true,

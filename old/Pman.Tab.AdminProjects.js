@@ -119,7 +119,7 @@ Pman.Tab.AdminProjects = {
                     proxy : {
                         xtype : 'HttpProxy',
                         method : 'GET',
-                        url: baseURL + '/Roo/Projects.php'
+                        url: baseURL + '/Roo/core_project.php'
                     }
                 },
                 colModel : [

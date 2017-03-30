@@ -94,7 +94,7 @@ Pman.Tab.AdminPermProjects = new Roo.util.Observable({
                         xtype: 'HttpProxy',
                         xns: Roo.data,
                         method : 'GET',
-                        url : baseURL + '/Roo/Projects.php'
+                        url : baseURL + '/Roo/core_project.php'
                     },
                     reader : {
                         xtype: 'JsonReader',
