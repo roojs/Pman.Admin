@@ -222,7 +222,7 @@ Pman.Dialog.Groups = {
     save : function()
     {
          this.form.doAction('submit', {
-            url: baseURL + '/Roo/Groups.php',
+            url: baseURL + '/Roo/core_group.php',
             method: 'POST',
             params: {
                 _id: this._id ,
