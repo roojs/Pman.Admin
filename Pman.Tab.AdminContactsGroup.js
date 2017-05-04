@@ -23,7 +23,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
   name     : "Pman.Tab.AdminContactsGroup",
   disabled : false, 
   permname : '', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
@@ -201,7 +201,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
      proxy : {
       xtype : 'HttpProxy',
       method : 'GET',
-      url : baseURL + '/Roo/Groups.php',
+      url : baseURL + '/Roo/core_group',
       xns : Roo.data,
       '|xns' : 'Roo.data'
      },
