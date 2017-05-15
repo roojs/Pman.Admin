@@ -35,7 +35,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   name     : "Pman.Tab.AdminEnum",
   disabled : false, 
   permname : '', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
