@@ -30,8 +30,8 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Events",
    "xtype" : "NestedLayoutPanel",
+   "title" : "Events",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -65,9 +65,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "fitToframe" : true,
        "background" : false,
        "region" : "center",
-       "fitToframe" : true,
        "title" : "Events",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -114,8 +114,8 @@
             },
             {
              "$ url" : "baseURL + '/Roo/Events.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             }
@@ -247,8 +247,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/core_person'",
-                 "method" : "GET",
                  "xtype" : "HttpProxy",
+                 "method" : "GET",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -303,8 +303,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/Events.php'",
-                 "method" : "GET",
                  "xtype" : "HttpProxy",
+                 "method" : "GET",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -359,8 +359,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/Events.php'",
-                 "method" : "GET",
                  "xtype" : "HttpProxy",
+                 "method" : "GET",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -404,8 +404,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "When",
+           "width" : 100,
            "$ renderer" : "function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -413,8 +413,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "#id",
+           "width" : 100,
            "$ xns" : "Roo.grid",
            "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('id') > -1) ? true : false);\n})()",
            "* prop" : "colModel[]",
@@ -422,8 +422,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 150,
            "header" : "Person",
+           "width" : 150,
            "$ renderer" : "function(v,x,r) { \n    \n    var ptable = _this.tableSel.getValue();\n    \n    var efield = 'person_id_email';\n    var nfield = 'person_id_name';    \n    \n    if(\n        ptable.length &&\n        ptable != 'Person' &&\n        typeof(r.data[ptable + '_id_email']) != 'undefined' &&\n        typeof(r.data[ptable + '_id_name']) != 'undefined'\n    ){\n        efield = ptable + '_id_email';\n        nfield = ptable + '_id_name';    \n    }\n    \n    var email = r.data[efield]; // ? r.data.person_id_email : r.data.person_id_email;\n    var name  = r.data[nfield]; // ? r.data.person_id_name : r.data.person_id_name;    \n    return String.format('{0} &lt;<a href=\"mailto:{1}\">{1}</a>&gt;', \n        name, email); \n\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -431,8 +431,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Action",
            "width" : 100,
+           "header" : "Action",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -440,8 +440,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "IP",
            "width" : 100,
+           "header" : "IP",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -449,8 +449,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 100,
            "header" : "Affected",
+           "width" : 100,
            "$ renderer" : "function(v, x, r) {                     \n            return v ? String.format('{0}({1})', v,  r.data.on_id)  : '';  \n   }",
            "$ xns" : "Roo.grid",
            "$ Boolean hidden" : "(function() {\n    return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? \n    false : \n    ((Pman.Tab.AdminLogEvents.hide_cols.indexOf('on_table') > -1) ? true : false);\n})()",
@@ -459,8 +459,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
            "header" : "Remarks",
+           "width" : 300,
            "$ renderer" : "function(v) { return String.format('<span qtip=\"{1}\">{0}</span>', v, Roo.util.Format.htmlEncode(v)); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",

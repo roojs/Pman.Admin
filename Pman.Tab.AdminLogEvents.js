@@ -37,7 +37,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   name     : "Admin - Logs - Events",
   disabled : false, 
   permname : 'Admin.Logs', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
