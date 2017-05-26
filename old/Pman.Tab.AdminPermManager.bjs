@@ -9,11 +9,11 @@
   "a37ede293936e29279ed543129451ec3" : "Groups",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "b645495692a2048578f4dc6620bcb833" : "Manage Groups ?",
   "911051bc8a5abedcc127334f0f70b78a" : "Permission Manager",
   "4d1c8263ba1036754f8db14a98f9f006" : "Reload",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
-  "aba9f7d7443652e858969bfc280690b1" : "Manage Groups"
+  "49ee3087348e8d44e1feda1917443987" : "Name"
  },
  "items" : [
   {
@@ -30,23 +30,23 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "$ xns" : "Roo",
        "tabPosition" : "top",
+       "$ xns" : "Roo",
        "* prop" : "center"
       },
       {
        "xtype" : "LayoutRegion",
-       "$ xns" : "Roo",
        "width" : 200,
+       "$ xns" : "Roo",
        "* prop" : "west"
       },
       {
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.ds.load({});\n    }\n}"
        },
+       "background" : true,
        "region" : "west",
        "fitToframe" : true,
-       "background" : true,
        "title" : "Groups",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -59,8 +59,8 @@
           "|render" : "function() \n{\n    _this.grid = this; \n    _this.dialog = Pman.Dialog.Groups;\n    if (_this.panel.active) {\n        _this.grid.ds.load({});\n    }\n}"
          },
          "autoExpandColumn" : "name",
-         "xtype" : "Grid",
          "enableDrop" : true,
+         "xtype" : "Grid",
          "ddGroup" : "groupDD",
          "loadMask" : true,
          "$ xns" : "Roo.grid",
@@ -79,8 +79,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Groups.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -101,7 +101,7 @@
            "* prop" : "toolbar",
            "items" : [
             {
-             "text" : "Manage Groups",
+             "text" : "Manage Groups ?",
              "xtype" : "Button",
              "$ xns" : "Roo.Toolbar",
              "items" : [
@@ -160,8 +160,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 200,
            "header" : "Name",
+           "width" : 200,
            "$ renderer" : "function(v,x,r) { \n    if (r.data.id == -1) {\n        return '<b>' + \"Not in a Group\" + '</b>';\n    }\n    if ((r.data.id == 0) && (_this.type == 0)) {\n        return '<b>' + \"All Staff (Default Permissions)\" + '</b>';\n    }\n    if ((r.data.id == 0) && (_this.type == 2)) {\n        return '<b>' + \"Everybody\" + '</b>';\n    }\n    if (r.data.id == 0) {\n        return '<b>' + \"All Staff\" + '</b>';\n    }\n    if (v == 'Administrators') {\n        return '<b>' + \"Adminstrators\" + '</b>';\n    }\n    if (r.data.leader) {\n        return v + ' (' + r.data.leader_name + ')';\n    }\n    \n    return v;\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
