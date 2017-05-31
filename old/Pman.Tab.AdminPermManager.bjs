@@ -132,7 +132,7 @@
                 },
                 {
                  "listeners" : {
-                  "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_group'); \n}\n        "
+                  "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_group');\n}\n        "
                  },
                  "text" : "Delete",
                  "xtype" : "Item",

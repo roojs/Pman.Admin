@@ -165,7 +165,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
              listeners : {
               click : function()
                {
-                    Pman.genericDelete(_this, 'core_group'); 
+                    Pman.genericDelete(_this, 'core_group');
                }
              },
              xns : Roo.menu,
