@@ -219,7 +219,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/Groups.php',
+         url : baseURL + '/Roo/core_group.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
