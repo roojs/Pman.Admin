@@ -26,7 +26,7 @@
    "xtype" : "GridPanel",
    "fitContainer" : true,
    "$ xns" : "Roo",
-   "tableName" : "Groups",
+   "tableName" : "core_group",
    "items" : [
     {
      "listeners" : {

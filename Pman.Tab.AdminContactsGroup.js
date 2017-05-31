@@ -33,7 +33,7 @@ Pman.Tab.AdminContactsGroup = new Roo.XComponent({
    fitContainer : true,
    fitToframe : true,
    region : 'west',
-   tableName : 'Groups',
+   tableName : 'core_group',
    title : _this._strings['a37ede293936e29279ed543129451ec3'] /* Groups */,
    listeners : {
     activate : function() {
