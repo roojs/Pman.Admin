@@ -52,6 +52,8 @@ class Pman_Admin_GroupRights extends Pman
         while ($p->fetch()) {
             $cur[$p->rightname] = clone($p);
         }
+        
+        print_r($cur);exit;
         $e = -1;
         $ar = array();
         // echo "<PRE>"; print_r($p->defaultPermData() );
