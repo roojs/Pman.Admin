@@ -31,37 +31,35 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   name     : "Admin - Translations",
   disabled : false, 
   permname : 'Admin.Translations', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'NestedLayoutPanel',
    region : 'center',
    title : _this._strings['4e7c16d320ae129cc81b296e05748b3a'] /* Translate App */,
    xns : Roo,
    '|xns' : 'Roo',
-   xtype : 'NestedLayoutPanel',
    layout : {
+    xtype : 'BorderLayout',
     xns : Roo,
     '|xns' : 'Roo',
-    xtype : 'BorderLayout',
     center : {
+     xtype : 'LayoutRegion',
      alwaysShowTabs : true,
      tabPosition : 'top',
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     items  : [
      {
+      xtype : 'GridPanel',
       background : true,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
       title : _this._strings['a1d1ae170f841c328acdc6052511ed8c'] /* Text in interface */,
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'GridPanel',
       listeners : {
        activate : function() {
             _this.panel = this;
@@ -70,13 +68,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
             }
         }
       },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'EditorGrid',
        autoExpandColumn : 'txt',
        clicksToEdit : 1,
        loadMask : true,
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       xtype : 'EditorGrid',
        listeners : {
         afteredit : function (e)
          {
@@ -202,12 +200,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              }
          }
        },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        toolbar : {
+        xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'Toolbar',
         items  : [
          {
+          xtype : 'ComboBox',
           displayField : 'module',
           editable : false,
           emptyText : _this._strings['b51c3fa7e0ae26a1d88bf1279f265bb4'] /* Select Module */,
@@ -217,9 +218,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           typeAhead : false,
           valueField : 'module',
           width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -230,7 +228,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               _this.grid.getDataSource().reload(); 
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'SimpleStore',
            data : (function() {             
                    var modlist = [];             
                    AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
@@ -241,11 +242,11 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               })(),
            fields : ['module'],
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'SimpleStore'
+           '|xns' : 'Roo.data'
           }
          },
          {
+          xtype : 'ComboBox',
           displayField : 'ldisp',
           editable : false,
           emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
@@ -255,9 +256,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           typeAhead : false,
           valueField : 'lang',
           width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -268,24 +266,24 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               _this.grid.getDataSource().reload(); 
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'SimpleStore',
            data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
            fields : ['lang', 'ldisp'],
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'SimpleStore'
+           '|xns' : 'Roo.data'
           }
          },
          {
+          xtype : 'Fill',
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Fill'
+          '|xns' : 'Roo.Toolbar'
          },
          {
-          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
           xtype : 'Button',
+          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
           listeners : {
            click : function (_self, e)
             {
@@ -294,15 +292,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                 
                 });
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          }
         ]
        },
        dataSource : {
-        reader : Pman.Readers.Category,
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
         xtype : 'Store',
+        reader : Pman.Readers.Category,
         listeners : {
          beforeload : function (_self, opts)
           {
@@ -323,43 +321,53 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               Roo.MessageBox.alert("Error", jsonData);
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Admin/Translations.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ],
          id : 'id',
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        },
        colModel : [
         {
+         xtype : 'ColumnModel',
          dataIndex : 'colname',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';                                              },
+         renderer : function(v,x,r) {                       
+           var c = '#666';                       
+             if (r.get('updated') < r.get('origupdated')) {         
+                                 c = 'red';                       
+                                 
+                                   }                                 
+                                                    return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';          
+                                                                                        },
          width : 150,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'origtxt',
          header : _this._strings['0a52da7a03a6de3beefe54f8c03ad80d'] /* Original */,
          renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style="color:' + c+ '">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              },
          width : 300,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'reset_tx',
          header : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'] /* Reset */,
          renderer : function(v,x,r) {    
@@ -367,25 +375,24 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          },
          width : 50,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'txt',
          header : _this._strings['e2ade2e0b88406a390f59b5232abb328'] /* Translated (Click to Edit) */,
          renderer : function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:' + c+ '">' + Ext.util.Format.htmlEncode(v) + '</div>';                     },
          width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel',
          editor : {
+          xtype : 'GridEditor',
           xns : Roo.grid,
           '|xns' : 'Roo.grid',
-          xtype : 'GridEditor',
           field : {
+           xtype : 'TextField',
            xns : Roo.form,
-           '|xns' : 'Roo.form',
-           xtype : 'TextField'
+           '|xns' : 'Roo.form'
           }
          }
         }
@@ -393,15 +400,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
       }
      },
      {
+      xtype : 'GridPanel',
       background : true,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
       tableName : 'i18n',
       title : _this._strings['0a9e8bd9e8b301dfb2c21c355e0b377d'] /* Languages and Countries */,
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'GridPanel',
       listeners : {
        activate : function() {
             _this.langpanel = this;
@@ -410,13 +415,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
             }
         }
       },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'EditorGrid',
        autoExpandColumn : 'lval',
        clicksToEdit : 1,
        loadMask : true,
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       xtype : 'EditorGrid',
        listeners : {
         afteredit : function (e)
          {
@@ -523,12 +528,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              }
          }
        },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        toolbar : {
+        xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'Toolbar',
         items  : [
          {
+          xtype : 'ComboBox',
           displayField : 'lval',
           editable : false,
           emptyText : _this._strings['552bcc4e00cd663f09cc4efbaca1cd45'] /* Select Translation of */,
@@ -538,9 +546,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           typeAhead : false,
           valueField : 'lkey',
           width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -551,7 +556,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               _this.langgrid.getDataSource().reload(); 
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'SimpleStore',
            data : [
               [ 'l', 'Language Names' ],
               [ 'c', 'Country Names' ],
@@ -559,11 +567,11 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
            ],
            fields : ['lkey','lval'],
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'SimpleStore'
+           '|xns' : 'Roo.data'
           }
          },
          {
+          xtype : 'ComboBox',
           displayField : 'ldisp',
           editable : false,
           emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
@@ -573,9 +581,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           typeAhead : false,
           valueField : 'lang',
           width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
@@ -586,22 +591,22 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               _this.langgrid.getDataSource().reload(); 
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'SimpleStore',
            data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
            fields : ['lang', 'ldisp'],
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'SimpleStore'
+           '|xns' : 'Roo.data'
           }
          }
         ]
        },
        dataSource : {
+        xtype : 'Store',
         remoteSort : true,
         sortInfo : { field : 'lkey', direction: 'ASC' },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        xtype : 'Store',
         listeners : {
          beforeload : function (_self, options)
           {
@@ -618,14 +623,17 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/i18n.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [
              {
                  'name': 'id',
@@ -652,49 +660,49 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        },
        colModel : [
         {
+         xtype : 'ColumnModel',
          dataIndex : 'lkey',
          header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 50,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'lval_en',
          header : _this._strings['78463a384a5aa4fad5fa73e2f506ecfc'] /* English */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 150,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'lval',
          header : _this._strings['6dd08874f83507e9c7b23f1a46b7fa7c'] /* Translation */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel',
          editor : {
+          xtype : 'GridEditor',
           xns : Roo.grid,
           '|xns' : 'Roo.grid',
-          xtype : 'GridEditor',
           field : {
+           xtype : 'TextField',
            xns : Roo.form,
-           '|xns' : 'Roo.form',
-           xtype : 'TextField'
+           '|xns' : 'Roo.form'
           }
          }
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'is_active',
          header : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
          renderer : function(v,x,r) { 
@@ -705,8 +713,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          },
          width : 150,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         }
        ]
       }
