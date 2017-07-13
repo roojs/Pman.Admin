@@ -74,6 +74,7 @@ Pman.Tab.GroupMgr = {
         this.tab.on('activate', function() {
             //console.log('groupmgr.activate');
             //Pman.Tab.Group_Members.disableReload = true;
+            Roo.log(_this.layout.getRegion('center'));
             _this.layout.getRegion('center').showPanel(0);
             Pman.Tab.Groups.refresh();
             //Pman.Tab.Group_Members.disableReload = false;
