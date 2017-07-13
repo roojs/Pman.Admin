@@ -107,7 +107,7 @@ Pman.Dialog.Groups = {
                         url: baseURL + '/Roo/core_person',
                         method: 'GET'
                     }),
-                    reader: Pman.Readers.Person,
+                    reader: new Roo.data.JsonReader({}, []),
                     listeners : {
                         beforeload : function(st,o)
                         {
