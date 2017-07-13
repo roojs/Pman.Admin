@@ -88,7 +88,32 @@ Pman.Tab.Group_Rights = {
                         method: 'GET'
                     }),
                     reader: new Roo.data.JsonReader({}, 
-                        [ ]
+                        [
+                            {
+                                'name': 'FullMask',
+                                'type': 'string'
+                            },
+                            {
+                                'name': 'accessmask',
+                                'type': 'string'
+                            },
+                            {
+                                'name': 'descript',
+                                'type': 'string'
+                            },
+                            {
+                                'name': 'group_id',
+                                'type': 'int'
+                            },
+                            {
+                                'name': 'id',
+                                'type': 'int'
+                            },
+                            {
+                                'name': 'rightname',
+                                'type': 'string'
+                            }
+                        ]
                     ),
                     remoteSort: false,
                     listeners : {
