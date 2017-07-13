@@ -57,7 +57,7 @@ Pman.Tab.Group_Rights = {
         }
         var _this= this;
         /*
-        this.innerLayout = new Ext.BorderLayout(
+        this.innerLayout = new Roo.BorderLayout(
             parentLayout.getEl().createChild({tag:'div'}),
             {
                
@@ -70,7 +70,7 @@ Pman.Tab.Group_Rights = {
 
         
 
-        this.tab = parentLayout.add(region,  new Ext.NestedLayoutPanel(
+        this.tab = parentLayout.add(region,  new Roo.NestedLayoutPanel(
             this.innerLayout, {title: "Rights", id: 'Group_Rights'}));
         */
        
@@ -78,12 +78,12 @@ Pman.Tab.Group_Rights = {
        
 
         var frm = parentLayout.getRegion(region).getEl().createChild({tag:'div', id: 'grid-group_rights'});
-        //this.grid = new Ext.grid.EditorGrid(frm,  {
-        this.grid = new Ext.grid.Grid(frm,  {
+        //this.grid = new Roo.grid.EditorGrid(frm,  {
+        this.grid = new Roo.grid.Grid(frm,  {
                 
-                ds:   new Ext.data.Store({
+                ds:   new Roo.data.Store({
                     // load using HTTP
-                    proxy: new Ext.data.HttpProxy({
+                    proxy: new Roo.data.HttpProxy({
                         url: baseURL + '/Admin/GroupRights.php',
                         method: 'GET'
                     }),
@@ -112,8 +112,8 @@ Pman.Tab.Group_Rights = {
                     
                     }
                 }), 
-                selModel: new Ext.grid.CellSelectionModel(),
-                cm: new Ext.grid.ColumnModel([
+                selModel: new Roo.grid.CellSelectionModel(),
+                cm: new Roo.grid.ColumnModel([
                     {
                         'id' : 'aa',
                         header : "[All]",
@@ -290,14 +290,14 @@ Pman.Tab.Group_Rights = {
                  
         });
         this.grid.getSelectionModel().lock();
-        this.panel  = parentLayout.add(region,  new Ext.GridPanel(this.grid ,
+        this.panel  = parentLayout.add(region,  new Roo.GridPanel(this.grid ,
             { fitToframe: true,fitContainer: true, title: "Rights", id: 'group_rights', controller : this })
         );
         this.grid.render();
         /*
         var gridFoot = this.grid.getView().getFooterPanel(true);
         
-        this.paging = new Ext.PagingToolbar(gridFoot, this.grid.getDataSource(), {
+        this.paging = new Roo.PagingToolbar(gridFoot, this.grid.getDataSource(), {
             pageSize: 25,
             displayInfo: true,
             displayMsg: "", 
@@ -307,7 +307,7 @@ Pman.Tab.Group_Rights = {
         var grid = this.grid;
  
         var gridHead = this.grid.getView().getHeaderPanel(true);
-        var tb = new Ext.Toolbar(gridHead);
+        var tb = new Roo.Toolbar(gridHead);
         
       
         
@@ -328,7 +328,7 @@ Pman.Tab.Group_Rights = {
                     });
                     
                     data.group_id = grid.getDataSource().lastOptions.params.group_id;
-                    Ext.Ajax.request({
+                    Roo.Ajax.request({
                         url: baseURL + '/Admin/GroupRights.php',
                         params : data,
                         method: 'POST',
@@ -337,7 +337,7 @@ Pman.Tab.Group_Rights = {
                             //Pman.Tab.Group_Rights.paging.onClick('first');
                         },
                         failure: function() {
-                            Ext.MessageBox.alert("There was a problem saving the data");
+                            Roo.MessageBox.alert("There was a problem saving the data");
                         }
                     });
                 }
