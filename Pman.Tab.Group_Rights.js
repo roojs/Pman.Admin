@@ -92,7 +92,6 @@ Pman.Tab.Group_Rights = {
                     listeners : {
                         beforeload : function(t,o)
                         {
-                            Roo.log('beforeLOad');
                             if (!o.params) {
                                 o.params = {}
                             }
