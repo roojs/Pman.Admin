@@ -12,7 +12,7 @@ Pman.Dialog.Groups = {
             return;
         }
         var _this = this;
-        this.dialog = new Ext.LayoutDialog(Ext.get(document.body).createChild({tag:'div'}),  { 
+        this.dialog = new Roo.LayoutDialog(Roo.get(document.body).createChild({tag:'div'}),  { 
             autoCreated: true,
             title: 'edit team',
             modal: true,
@@ -42,7 +42,7 @@ Pman.Dialog.Groups = {
         
        
         
-        this.form = new Ext.form.Form({
+        this.form = new Roo.form.Form({
             labelWidth: 250 ,
             listeners : {
                 actionfailed : function(f, act) {
@@ -101,9 +101,9 @@ Pman.Dialog.Groups = {
                 allowBlank : true,
                 width: 280,
                 
-                store: new Ext.data.Store({
+                store: new Roo.data.Store({
                       // load using HTTP
-                    proxy: new Ext.data.HttpProxy({
+                    proxy: new Roo.data.HttpProxy({
                         url: baseURL + '/Roo/core_person',
                         method: 'GET'
                     }),
@@ -139,7 +139,7 @@ Pman.Dialog.Groups = {
 
                 //mode: 'local',
                 triggerAction: 'all',
-                tpl: new Ext.Template(
+                tpl: new Roo.Template(
                     '<div class="x-grid-cell-text x-btn button">',
                         '<b>{name}</b> {role}',
                     '</div>'
@@ -172,7 +172,7 @@ Pman.Dialog.Groups = {
          
         this.form.render(ef.dom);
 
-        var vp = this.dialog.getLayout().add('center', new Ext.ContentPanel(ef, {
+        var vp = this.dialog.getLayout().add('center', new Roo.ContentPanel(ef, {
             autoCreate : true,
             //title: 'Org Details',
             //toolbar: this.tb,
@@ -198,9 +198,9 @@ Pman.Dialog.Groups = {
         this.dialog.show();
         
         this.dialog.setTitle(data.type ? "Edit Group" : "Edit Team");
-        var lw = Ext.get(this.form.findField('leader').el.dom.parentNode.parentNode.parentNode);
+        var lw = Roo.get(this.form.findField('leader').el.dom.parentNode.parentNode.parentNode);
         // change the label!?!!?
-        lw.setVisibilityMode(Ext.Element.DISPLAY);
+        lw.setVisibilityMode(Roo.Element.DISPLAY);
         if (this.data.type) {
             // show the leader..
             lw.show();
