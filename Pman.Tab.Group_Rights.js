@@ -90,6 +90,14 @@ Pman.Tab.Group_Rights = {
                     reader: new Roo.data.JsonReader({}, 
                         [
                             {
+                                'name': 'FullMask',
+                                'type': 'string'
+                            },
+                            {
+                                'name': 'accessmask',
+                                'type': 'string'
+                            },
+                            {
                                 'name': 'rightname',
                                 'type': 'string'
                             }
