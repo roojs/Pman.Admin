@@ -135,10 +135,6 @@ Pman.Tab.Group_Rights = {
                             _this.grid.getView().el.unmask();
                             return true;
                         },
-                        load : function (_self, records, options)
-                        {
-                            Roo.log(records);
-                        },
                         loadexception : Pman.loadException
                     
                     }
