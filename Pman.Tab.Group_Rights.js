@@ -98,6 +98,10 @@ Pman.Tab.Group_Rights = {
                                 'type': 'string'
                             },
                             {
+                                'name': 'descript',
+                                'type': 'string'
+                            },
+                            {
                                 'name': 'rightname',
                                 'type': 'string'
                             }
