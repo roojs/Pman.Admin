@@ -110,7 +110,7 @@ Pman.Tab.Group_Rights = {
                         },
                         load : function (_self, records, options)
                         {
-                         _this.panel.el.unmask();
+                            Roo.log(records);
                         },
                         loadexception : Pman.loadException
                     
