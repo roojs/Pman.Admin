@@ -87,7 +87,14 @@ Pman.Tab.Group_Rights = {
                         url: baseURL + '/Admin/GroupRights.php',
                         method: 'GET'
                     }),
-                    reader: new Roo.data.JsonReader({}, []),
+                    reader: new Roo.data.JsonReader({}, 
+                        [
+                            {
+                                'name': 'rightname',
+                                'type': 'string'
+                            }
+                        ]
+                    ),
                     remoteSort: false,
                     listeners : {
                         beforeload : function(t,o)
