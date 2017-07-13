@@ -7,7 +7,7 @@
 Pman.on('beforeload', function()
 { 
     
-    Pman.Tab.Groups.title = "Groups";
+    Pman.Tab.Groups.title = "Groups ??";
     
  
     Pman.register({
