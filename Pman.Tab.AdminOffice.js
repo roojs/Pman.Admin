@@ -27,7 +27,7 @@ Pman.Tab.AdminOffice = new Roo.XComponent({
   name     : "Pman.Tab.AdminOffice",
   disabled : false, 
   permname : '', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
