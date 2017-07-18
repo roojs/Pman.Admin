@@ -36,7 +36,7 @@ Pman.Tab.AdminOffice = new Roo.XComponent({
    background : true,
    fitContainer : true,
    fitToframe : true,
-   region : 'center',
+   region : 'south',
    tableName : 'Office',
    title : _this._strings['7407f706267593de473324b2c07ef2fc'] /* Offices / Departments / Sub-Companies */,
    listeners : {

@@ -25,7 +25,7 @@
    },
    "fitToframe" : true,
    "background" : true,
-   "region" : "center",
+   "region" : "south",
    "title" : "Offices / Departments / Sub-Companies",
    "xtype" : "GridPanel",
    "fitContainer" : true,
