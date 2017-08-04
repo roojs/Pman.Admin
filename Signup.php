@@ -17,7 +17,7 @@ class Pman_Admin_Signup extends Pman
         return true;
     }
     
-    function post()
+    function post($v)
     {
         
         $si = DB_DataObject::factory('Signup');
