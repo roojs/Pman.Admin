@@ -47,7 +47,7 @@ class Pman_Admin_Iptables extends Pman {
         return '/tmp/run_pman_admin_iptables-'.$db;
     }
     
-    function get($opt = '')
+    function get($opt = '', $opts = Array())
     {
         
         // monitor file
