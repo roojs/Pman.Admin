@@ -16,7 +16,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
     }
     
     
-    function post()
+    function post($v)
     {   
         
         PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, array($this, 'onPearError'));
