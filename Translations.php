@@ -41,7 +41,7 @@ class Pman_Admin_Translations extends Pman
     }
     
     
-    function get($module)
+    function get($module, $opts = Array())
     {
         
         if (!empty($module)) {
