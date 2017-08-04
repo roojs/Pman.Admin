@@ -129,7 +129,7 @@ class Pman_Admin_Translations extends Pman
         
     }
     
-    function post() 
+    function post($v) 
     {
          
          
