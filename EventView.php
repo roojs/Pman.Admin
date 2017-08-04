@@ -18,7 +18,7 @@ class Pman_Admin_EventView extends Pman
         
     }
     
-    function get($id)
+    function get($id, $opts = Array))
     {   
         $ev = DB_DataObject::Factory('Events');
         if (!$ev->get((int)$id)) {
