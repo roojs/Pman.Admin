@@ -92,7 +92,7 @@ class Pman_Admin_GroupRights extends Pman
     
     
     // post.. 
-    function post()
+    function post($v)
     {
         if (!isset($_POST['group_id']) || (int)$_POST['group_id'] < 0) {
             $this->jerr("NO GROUP");
