@@ -60,7 +60,7 @@ class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations
                
     }
     
-    function post($v) 
+    function post() 
     {
         $this->jerr("invalid url"); 
      
