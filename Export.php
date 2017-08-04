@@ -67,7 +67,7 @@ class Pman_Admin_Export extends Pman_Admin_Dump {
     
     var $uid = array();
     
-    function get($path )
+    function get($path, $opts = Array() )
     {
         ini_set('memory_limit', '256M'); // we need alot of memory
         set_time_limit(0);
