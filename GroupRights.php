@@ -28,7 +28,7 @@ class Pman_Admin_GroupRights extends Pman
     
     // FOR PERMS - SEE THE DATAOBJECT!
     
-    function get()
+    function get($v, $opts = Array())
     {
         // must recieve a group..
         if (!isset($_GET['group_id']) || (int)$_GET['group_id'] < 0) {
