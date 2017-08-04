@@ -84,7 +84,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         return true;
     }
     
-    function get($args, $opts)
+    function get($args,   $opts = Array())
     {
         $this->opts = $opts;
         
