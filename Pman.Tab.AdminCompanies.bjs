@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminCompanies",
  "parent" : "Pman.Tab.Admin",
  "title" : "Pman.Tab.AdminCompanies",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
+ "path" : "/home/khlau/gitlive/web.coba/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
  "permname" : "Admin.Companies",
  "modOrder" : "030",
  "strings" : {
@@ -30,6 +30,7 @@
    "$ xns" : "Roo",
    "items" : [
     {
+     "Object listeners" : "",
      "xtype" : "BorderLayout",
      "$ xns" : "Roo",
      "* prop" : "layout",
@@ -51,9 +52,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "fitToframe" : true,
        "background" : true,
        "region" : "center",
-       "fitToframe" : true,
        "title" : "Companies",
        "xtype" : "GridPanel",
        "fitContainer" : true,

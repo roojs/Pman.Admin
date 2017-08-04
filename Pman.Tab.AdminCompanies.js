@@ -31,7 +31,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
   name     : "Pman.Tab.AdminCompanies",
   disabled : false, 
   permname : 'Admin.Companies', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
@@ -43,6 +43,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
    '|xns' : 'Roo',
    layout : {
     xtype : 'BorderLayout',
+    listeners : '',
     xns : Roo,
     '|xns' : 'Roo',
     center : {
