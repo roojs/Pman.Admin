@@ -29,7 +29,7 @@ class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations
     }
     
     
-    function get($module)
+    function get($module, $opts = Array())
     {
         
         if (empty($module)) {
@@ -60,7 +60,7 @@ class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations
                
     }
     
-    function post() 
+    function post($v) 
     {
         $this->jerr("invalid url"); 
      
