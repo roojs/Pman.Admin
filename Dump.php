@@ -65,7 +65,7 @@ class Pman_Admin_Dump extends Pman {
     var $deps = array(); // list of dependants
     var $out = array(); // list of created sql/shell scripts.
     
-    function get($path )
+    function get($path, $opts = Array) )
     {
         ini_set('memory_limit', '256M'); // we need alot of memory
         set_time_limit(0);
