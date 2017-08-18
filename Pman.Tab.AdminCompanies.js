@@ -257,7 +257,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                 Pman.genericDelete(_this, 'Companies'); 
+                Pman.genericDelete(_this, 'Companies'); 
             }
           },
           xns : Roo.Toolbar,
