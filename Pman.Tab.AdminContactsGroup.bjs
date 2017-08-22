@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminContactsGroup",
  "parent" : "Pman.Tab.AdminContactsManager",
  "title" : "Pman.Tab.AdminContactsGroup",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsGroup.bjs",
+ "path" : "/home/khlau/gitlive/web.coba/Pman.Admin/Pman.Tab.AdminContactsGroup.bjs",
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
@@ -19,9 +19,9 @@
    "listeners" : {
     "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.ds.load({});\n    }\n}"
    },
-   "region" : "west",
    "fitToframe" : true,
    "background" : true,
+   "region" : "west",
    "title" : "Groups",
    "xtype" : "GridPanel",
    "fitContainer" : true,
