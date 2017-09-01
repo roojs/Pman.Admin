@@ -1,168 +1,181 @@
 {
-    "name" : "Pman.Dialog.AdminEnumImages",
-    "parent" : "",
-    "title" : "",
-    "path" : "/home/michael/gitlive/Pman.Admin/Pman.Dialog.AdminEnumImages.bjs",
-    "permname" : "",
-    "modOrder" : "001",
-    "items" : [
+ "name" : "Pman.Dialog.AdminEnumImages",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/khlau/gitlive/web.coba/Pman.Admin/Pman.Dialog.AdminEnumImages.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "0c81971f67c0bd4b33799c5365ec2bf5" : "No Images found",
+  "5b94af0908e765fe39e4d0e8f9c99ef8" : "Add / Edit Images",
+  "fff0d600f8a0b5e19e88bfb821dd1157" : "Images",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "0eceeb45861f9585dd7a97a3e36f85c6" : "Created",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "be53a0541a6d36f6ecb879fa2c584b08" : "Image",
+  "b78a3223503896721cca1303f776159b" : "Title",
+  "d3d2e617335f08df83599665eef8a418" : "Close",
+  "c0ed345ec857c06b31f7e88745c9bc40" : "Displaying Images  {0} - {1} of {2}",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    _this.grid.footer.onClick('first');\n}"
+   },
+   "modal" : true,
+   "xtype" : "LayoutDialog",
+   "title" : "Add / Edit Images",
+   "width" : 900,
+   "$ xns" : "Roo",
+   "height" : 500,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+     },
+     "region" : "center",
+     "fitToframe" : true,
+     "background" : false,
+     "title" : "Images",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "tableName" : "Images",
+     "items" : [
+      {
+       "listeners" : {
+        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n  \n   var s =  _self.getDataSource().getAt(rowIndex);\n     Pman.Dialog.PressReleaseImage.show(s.data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n}",
+        "|render" : "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    //if (_this.panel.active) {\n    //   this.footer.onClick('first');\n    //}\n}"
+       },
+       "autoExpandColumn" : "title",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
         {
-            "listeners" : {
-                "show" : "function (_self)\n{\n    _this.grid.footer.onClick('first');\n}"
-            },
-            "modal" : true,
-            "title" : "Add / Edit Images",
-            "xtype" : "LayoutDialog",
-            "width" : 900,
-            "$ xns" : "Roo",
-            "height" : 500,
-            "items" : [
-                {
-                    "xtype" : "LayoutRegion",
-                    "$ xns" : "Roo",
-                    "* prop" : "center"
-                },
-                {
-                    "listeners" : {
-                        "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-                    },
-                    "fitToframe" : true,
-                    "background" : false,
-                    "region" : "center",
-                    "title" : "Images",
-                    "xtype" : "GridPanel",
-                    "fitContainer" : true,
-                    "$ xns" : "Roo",
-                    "tableName" : "Images",
-                    "items" : [
-                        {
-                            "listeners" : {
-                                "|rowdblclick" : "function (_self, rowIndex, e)\n{\n  \n   var s =  _self.getDataSource().getAt(rowIndex);\n     Pman.Dialog.PressReleaseImage.show(s.data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n}",
-                                "|render" : "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    //if (_this.panel.active) {\n    //   this.footer.onClick('first');\n    //}\n}"
-                            },
-                            "autoExpandColumn" : "title",
-                            "xtype" : "Grid",
-                            "loadMask" : true,
-                            "$ xns" : "Roo.grid",
-                            "* prop" : "grid",
-                            "items" : [
-                                {
-                                    "listeners" : {
-                                        "|beforeload" : "function (_self, o)\n{\n    //o.params.ontable = 'Companies';\n    \n  //   o.params.imgtype = 'PressRelease';\n    \n    o.params = o.params || {};\n    o.params.onid = _this.data.onid;\n    o.params.ontable = 'core_enum';\n    Roo.log(_this);\n    \n}",
-                                        "|load" : "function (_self, records, options)\n{\n _this.panel.el.unmask();\n}"
-                                    },
-                                    "xtype" : "Store",
-                                    "remoteSort" : true,
-                                    "$ sortInfo" : "{ field: 'created' , direction: 'DESC' }",
-                                    "$ xns" : "Roo.data",
-                                    "* prop" : "dataSource",
-                                    "items" : [
-                                        {
-                                            "id" : "id",
-                                            "root" : "data",
-                                            "xtype" : "JsonReader",
-                                            "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'filename',\n        'type': 'string'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'mimetype',\n        'type': 'string'\n    },\n    {\n        'name': 'width',\n        'type': 'int'\n    },\n    {\n        'name': 'height',\n        'type': 'int'\n    },\n    {\n        'name': 'filesize',\n        'type': 'int'\n    },\n    {\n        'name': 'displayorder',\n        'type': 'int'\n    },\n    {\n        'name': 'language',\n        'type': 'string'\n    },\n    {\n        'name': 'parent_image_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created',\n        'type': 'date',\n        'dateFormat' : 'Y-m-d H:i:s'\n    },\n    {\n        'name': 'imgtype',\n        'type': 'string'\n    },\n    {\n        'name': 'linkurl',\n        'type': 'string'\n    },\n    {\n        'name': 'descript',\n        'type': 'string'\n    },\n    {\n        'name': 'title',\n        'type': 'string'\n    }\n]",
-                                            "$ xns" : "Roo.data",
-                                            "* prop" : "reader",
-                                            "totalProperty" : "total"
-                                        },
-                                        {
-                                            "$ url" : "baseURL + '/Roo/Images.php'",
-                                            "method" : "GET",
-                                            "xtype" : "HttpProxy",
-                                            "$ xns" : "Roo.data",
-                                            "* prop" : "proxy"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "pageSize" : 25,
-                                    "xtype" : "PagingToolbar",
-                                    "emptyMsg" : "No Images found",
-                                    "$ xns" : "Roo",
-                                    "displayInfo" : true,
-                                    "displayMsg" : "Displaying Images  {0} - {1} of {2}",
-                                    "* prop" : "footer"
-                                },
-                                {
-                                    "xtype" : "Toolbar",
-                                    "$ xns" : "Roo",
-                                    "* prop" : "toolbar",
-                                    "items" : [
-                                        {
-                                            "listeners" : {
-                                                "|click" : "function()\n{\n            \n    //var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n     \n    Pman.Dialog.Image.show({\n        id : 0, \n        ontable: 'core_enum',\n        onid: _this.data.onid,\n        imgtype : ''\n    }, function(data){\n        if (!data) { return; } \n        _this.grid.footer.onClick('first');\n    }); \n\n}       "
-                                            },
-                                            "text" : "Add",
-                                            "xtype" : "Button",
-                                            "cls" : "x-btn-text-icon",
-                                            "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-                                            "$ xns" : "Roo.Toolbar"
-                                        },
-                                        {
-                                            "listeners" : {
-                                                "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s || s.length != 1) {\n        Roo.MessageBox.alert(\"Error\", \"Select a single image to edit\");\n       return;\n     }\n     var data = _this.grid.getDataSource().getById(s[0].data.id).data;\n    \n             Pman.Dialog.PressReleaseImage.show(data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n            \n        }\n        "
-                                            },
-                                            "text" : "Edit",
-                                            "xtype" : "Button",
-                                            "cls" : "x-btn-text-icon",
-                                            "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
-                                            "$ xns" : "Roo"
-                                        },
-                                        {
-                                            "listeners" : {
-                                                "|click" : "function()\n        {\n        Pman.genericDelete(_this, 'Images'); \n        }\n        "
-                                            },
-                                            "text" : "Delete",
-                                            "xtype" : "Button",
-                                            "cls" : "x-btn-text-icon",
-                                            "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
-                                            "$ xns" : "Roo.Toolbar"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "xtype" : "ColumnModel",
-                                    "sortable" : true,
-                                    "width" : 100,
-                                    "header" : "Created",
-                                    "$ renderer" : "function(v,x,r) {\n       return String.format('{0}<br/><i>{1}</i><br/>{2}<br/><i>{3}x{4}</i>',\n            v.format('d/M/Y'), r.data.mimetype, r.data.filename,\n    r.data.width, r.data.height\n    ); \n}\n     ",
-                                    "$ xns" : "Roo.grid",
-                                    "* prop" : "colModel[]",
-                                    "dataIndex" : "created"
-                                },
-                                {
-                                    "xtype" : "ColumnModel",
-                                    "header" : "Image",
-                                    "width" : 100,
-                                    "$ renderer" : "function(v,x,r) { return String.format('<img src=\"{0}/Images/Thumb/100/{1}/{2}\" width=\"100\">', baseURL, v, r.data.filename); }",
-                                    "$ xns" : "Roo.grid",
-                                    "* prop" : "colModel[]",
-                                    "dataIndex" : "id"
-                                },
-                                {
-                                    "xtype" : "ColumnModel",
-                                    "header" : "Title",
-                                    "width" : 100,
-                                    "$ renderer" : "function(v,x,r) {\n//     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n  //   var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n    //  return String.format(\n      //    'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n        //  '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          //'<br/><b>{3}</b><br/>{4}</i>', \n         // window.location.host, surl, svurl,\n          // v, r.json.descript); \n     \n    }",
-                                    "$ xns" : "Roo.grid",
-                                    "* prop" : "colModel[]",
-                                    "dataIndex" : "title"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listeners" : {
-                        "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n    _this.callback(true);\n}"
-                    },
-                    "text" : "Close",
-                    "xtype" : "Button",
-                    "$ xns" : "Roo",
-                    "* prop" : "buttons[]"
-                }
-            ]
+         "listeners" : {
+          "|beforeload" : "function (_self, o)\n{\n    //o.params.ontable = 'Companies';\n    \n  //   o.params.imgtype = 'PressRelease';\n    \n    o.params = o.params || {};\n    o.params.onid = _this.data.onid;\n    o.params.ontable = 'core_enum';\n    Roo.log(_this);\n    \n}",
+          "|load" : "function (_self, records, options)\n{\n _this.panel.el.unmask();\n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field: 'created' , direction: 'DESC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'filename',\n        'type': 'string'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'mimetype',\n        'type': 'string'\n    },\n    {\n        'name': 'width',\n        'type': 'int'\n    },\n    {\n        'name': 'height',\n        'type': 'int'\n    },\n    {\n        'name': 'filesize',\n        'type': 'int'\n    },\n    {\n        'name': 'displayorder',\n        'type': 'int'\n    },\n    {\n        'name': 'language',\n        'type': 'string'\n    },\n    {\n        'name': 'parent_image_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created',\n        'type': 'date',\n        'dateFormat' : 'Y-m-d H:i:s'\n    },\n    {\n        'name': 'imgtype',\n        'type': 'string'\n    },\n    {\n        'name': 'linkurl',\n        'type': 'string'\n    },\n    {\n        'name': 'descript',\n        'type': 'string'\n    },\n    {\n        'name': 'title',\n        'type': 'string'\n    }\n]",
+           "$ xns" : "Roo.data",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          },
+          {
+           "$ url" : "baseURL + '/Roo/Images.php'",
+           "xtype" : "HttpProxy",
+           "method" : "GET",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No Images found",
+         "$ xns" : "Roo",
+         "displayInfo" : true,
+         "displayMsg" : "Displaying Images  {0} - {1} of {2}",
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n            \n    //var sel = Pman.Tab.PressReleaseCompanies  ? Pman.Tab.PressReleaseCompanies.grid.getSelectionModel().getSelected() : false\n     \n    Pman.Dialog.Image.show({\n        id : 0, \n        ontable: 'core_enum',\n        onid: _this.data.onid,\n        imgtype : ''\n    }, function(data){\n        if (!data) { return; } \n        _this.grid.footer.onClick('first');\n    }); \n\n}       "
+           },
+           "text" : "Add",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s || s.length != 1) {\n        Roo.MessageBox.alert(\"Error\", \"Select a single image to edit\");\n       return;\n     }\n     var data = _this.grid.getDataSource().getById(s[0].data.id).data;\n    \n             Pman.Dialog.PressReleaseImage.show(data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n            \n        }\n        "
+           },
+           "text" : "Edit",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+           "$ xns" : "Roo"
+          },
+          {
+           "listeners" : {
+            "|click" : "function()\n        {\n        Pman.genericDelete(_this, 'Images'); \n        }\n        "
+           },
+           "text" : "Delete",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "xtype" : "ColumnModel",
+         "sortable" : true,
+         "width" : 100,
+         "header" : "Created",
+         "$ renderer" : "function(v,x,r) {\n       return String.format('{0}<br/><i>{1}</i><br/>{2}<br/><i>{3}x{4}</i>',\n            v.format('d/M/Y'), r.data.mimetype, r.data.filename,\n    r.data.width, r.data.height\n    ); \n}\n     ",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "created"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 100,
+         "header" : "Image",
+         "$ renderer" : "function(v,x,r) { return String.format('<img src=\"{0}/Images/Thumb/100/{1}/{2}\" width=\"100\">', baseURL, v, r.data.filename); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "id"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "width" : 100,
+         "header" : "Title",
+         "$ renderer" : "function(v,x,r) {\n//     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n  //   var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n    //  return String.format(\n      //    'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n        //  '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          //'<br/><b>{3}</b><br/>{4}</i>', \n         // window.location.host, surl, svurl,\n          // v, r.json.descript); \n     \n    }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "title"
         }
-    ]
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n    _this.callback(true);\n}"
+     },
+     "text" : "Close",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
 }
