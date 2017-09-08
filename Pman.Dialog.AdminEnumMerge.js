@@ -37,6 +37,7 @@ Pman.Dialog.AdminEnumMerge = {
  {
    var _this = this;
    this.dialog = Roo.factory({
+    xtype : 'LayoutDialog',
     background : true,
     closable : false,
     collapsible : false,
@@ -45,39 +46,36 @@ Pman.Dialog.AdminEnumMerge = {
     resizable : false,
     title : _this._strings['0b3e4317865feb6f0224397600b7cafc'] /* Merge Core Enum */,
     width : 400,
-    xns : Roo,
-    '|xns' : 'Roo',
-    xtype : 'LayoutDialog',
     listeners : {
      show : function (_self)
       {
           _this.merge.focus();
       }
     },
+    xns : Roo,
+    '|xns' : 'Roo',
     center : {
+     xtype : 'LayoutRegion',
      titlebar : false,
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     buttons : [
      {
-      text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
-      xns : Roo,
-      '|xns' : 'Roo',
       xtype : 'Button',
+      text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
       listeners : {
        click : function() {
             _this.form.reset();
             _this.dialog.hide();
         }
-      }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
      },
      {
-      text : _this._strings['e0aa021e21dddbd6d8cecec71e9cf564'] /* OK */,
-      xns : Roo,
-      '|xns' : 'Roo',
       xtype : 'Button',
+      text : _this._strings['e0aa021e21dddbd6d8cecec71e9cf564'] /* OK */,
       listeners : {
        click : function() 
         {
@@ -100,25 +98,25 @@ Pman.Dialog.AdminEnumMerge = {
             _this.form.doAction('submit');
             
         }
-      }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
      }
     ],
     items  : [
      {
+      xtype : 'ContentPanel',
       background : true,
       fitToFrame : true,
       region : 'center',
       xns : Roo,
       '|xns' : 'Roo',
-      xtype : 'ContentPanel',
       items  : [
        {
+        xtype : 'Form',
         method : 'POST',
         style : 'margin: 5px',
         url : baseURL + '/Roo/core_enum.php',
-        xns : Roo.form,
-        '|xns' : 'Roo.form',
-        xtype : 'Form',
         listeners : {
          actioncomplete : function (_self, action)
           {
@@ -145,8 +143,11 @@ Pman.Dialog.AdminEnumMerge = {
              _this.form = form;
           }
         },
+        xns : Roo.form,
+        '|xns' : 'Roo.form',
         items  : [
          {
+          xtype : 'ComboBox',
           allowBlank : false,
           alwaysQuery : true,
           displayField : 'display_name',
@@ -164,21 +165,18 @@ Pman.Dialog.AdminEnumMerge = {
           triggerAction : 'all',
           valueField : 'id',
           width : 250,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'ComboBox',
           listeners : {
            render : function (_self)
             {
                 _this.merge = this;
             }
           },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
           store : {
+           xtype : 'Store',
            remoteSort : true,
            sortInfo : { direction : 'ASC', field: 'display_name' },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           xtype : 'Store',
            listeners : {
             beforeload : function (_self, o){
                  o.params = o.params || {};
@@ -188,14 +186,17 @@ Pman.Dialog.AdminEnumMerge = {
                  o.params['!id'] = _this.data.id;
              }
            },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
            proxy : {
+            xtype : 'HttpProxy',
             method : 'GET',
             url : baseURL + '/Roo/Core_enum.php',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'HttpProxy'
+            '|xns' : 'Roo.data'
            },
            reader : {
+            xtype : 'JsonReader',
             fields : [
                 {
                     "name":"id",
@@ -210,16 +211,15 @@ Pman.Dialog.AdminEnumMerge = {
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
-            '|xns' : 'Roo.data',
-            xtype : 'JsonReader'
+            '|xns' : 'Roo.data'
            }
           }
          },
          {
+          xtype : 'Hidden',
           name : 'id',
           xns : Roo.form,
-          '|xns' : 'Roo.form',
-          xtype : 'Hidden'
+          '|xns' : 'Roo.form'
          }
         ]
        }
