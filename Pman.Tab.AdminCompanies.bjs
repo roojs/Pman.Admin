@@ -2,18 +2,18 @@
  "name" : "Pman.Tab.AdminCompanies",
  "parent" : "Pman.Tab.Admin",
  "title" : "Pman.Tab.AdminCompanies",
- "path" : "/home/johns/gitlive/web.coba/Pman/Admin/Pman.Tab.AdminCompanies.bjs",
+ "path" : "/home/johns/gitlive/web.coba/Pman/Admin/Pman.Admin/Pman.Admin/Pman.Tab.AdminCompanies.bjs",
  "permname" : "Admin.Companies",
  "modOrder" : "030",
  "strings" : {
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
   "edefbda3a2bdd979e42d8944b7325b79" : "Companies",
-  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "fc6f97505d89fe9277965c126744647a" : "No Companies found",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "68be4837f6c739877233e527a996dd00" : "Merge",
   "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
+  "1490d932e5a8957e66a8ee9c3343abc1" : "Add test",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
   "9c9745a343efeacc9efe9b7222b27afb" : "Ref#",
@@ -25,8 +25,8 @@
  "items" : [
   {
    "region" : "center",
-   "xtype" : "NestedLayoutPanel",
    "title" : "Companies",
+   "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -52,9 +52,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "fitToframe" : true,
        "background" : true,
        "region" : "center",
-       "fitToframe" : true,
        "title" : "Companies",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -89,8 +89,8 @@
               "load" : "function (This, o, arg)\n{\n \n}"
              },
              "$ url" : "baseURL + '/Roo/core_company'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -168,7 +168,7 @@
              "listeners" : {
               "|click" : "function()\n{\n    if (!_this.dialog) {\n        return;\n        }\n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
              },
-             "text" : "Add",
+             "text" : "Add test",
              "xtype" : "Button",
              "cls" : "x-btn-text-icon",
              "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
@@ -228,8 +228,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Tel",
            "width" : 100,
+           "header" : "Tel",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -237,8 +237,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Fax",
            "width" : 100,
+           "header" : "Fax",
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -266,8 +266,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 200,
            "header" : "Remarks",
+           "width" : 200,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
