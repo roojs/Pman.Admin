@@ -10,11 +10,11 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '231bc72756b5e6de492aaaa1577f61b1' :"Remarks",
   'edefbda3a2bdd979e42d8944b7325b79' :"Companies",
+  'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '68be4837f6c739877233e527a996dd00' :"Merge",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
-  '1490d932e5a8957e66a8ee9c3343abc1' :"Add test",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'a1fa27779242b4902f7ae3bdd5c6d508' :"Type",
   '9c9745a343efeacc9efe9b7222b27afb' :"Ref#",
@@ -209,7 +209,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
           xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-          text : _this._strings['1490d932e5a8957e66a8ee9c3343abc1'] /* Add test */,
+          text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
           listeners : {
            click : function()
             {
