@@ -24,8 +24,8 @@
  "items" : [
   {
    "region" : "center",
-   "xtype" : "NestedLayoutPanel",
    "title" : "Email Template",
+   "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -53,9 +53,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "region" : "center",
        "fitToframe" : true,
        "background" : true,
-       "region" : "center",
        "title" : "core_email",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -92,8 +92,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_email.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -200,8 +200,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 250,
            "header" : "Name",
+           "width" : 250,
            "$ renderer" : "function(v,x,r) \n{ \n    if(r.data.active * 1 < 1){\n        return String.format('<s>{0}</s>', v ? v : ''); \n    }\n    \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
@@ -210,8 +210,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
            "header" : "Title",
+           "width" : 300,
            "$ renderer" : "function(v,x,r) \n{ \n    if(r.data.active * 1 < 1){\n        return String.format('<s>{0}</s>', v ? v : ''); \n    }\n    \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
@@ -220,8 +220,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
            "header" : "From Name",
+           "width" : 300,
            "$ renderer" : "function(v) { return String.format('{0}', v ? v : ''); }",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
@@ -230,8 +230,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "From Email",
            "width" : 300,
+           "header" : "From Email",
            "$ renderer" : "function(v) { return String.format('{0}', v ? v : ''); }",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
@@ -240,8 +240,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
            "header" : "BCC Group",
+           "width" : 300,
            "$ renderer" : "function(v) { return String.format('{0}', v ? v : ''); }",
            "$ xns" : "Roo.grid",
            "Boolean sortable" : true,
@@ -257,8 +257,8 @@
         "render" : "function (_self)\n{\n    _this.viewPanel = _self;\n}"
        },
        "autoScroll" : true,
-       "background" : false,
        "fitToFrame" : true,
+       "background" : false,
        "region" : "south",
        "title" : "View Message",
        "xtype" : "ContentPanel",
@@ -285,8 +285,8 @@
            "items" : [
             {
              "$ url" : "baseURL+'/Roo/Core_email.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
