@@ -13,4 +13,9 @@ class Pman_Coba_DataObjects_Modx_accountmgmts extends PDO_DataObject
     // {
     //     
     // }
+    
+    function beforeInsert($request,$roo)
+    {
+        print_r($request);exit;
+    }
 }
