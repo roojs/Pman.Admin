@@ -1,0 +1,945 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorModify",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/johns/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorModify.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "44749712dbec183e983dcd78a7736c41" : "Date",
+  "4e97aeeaa8b15ca1180fcd1f3ac478d1" : "When",
+  "e1d496d505f34ae1866fc7ad0e59e7ac" : "Compliance Review",
+  "f28128b38efbc6134dc40751ee21fd29" : "Documents",
+  "d41d8cd98f00b204e9800998ecf8427e" : "",
+  "3e4901127828df59e44a55af7659e508" : "<i class=\"fa fa-times-circle\"></i> not complete",
+  "457dd55184faedb7885afd4009d70163" : "Review",
+  "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+  "b80bb7740288fda1f201890375a60c8f" : "id",
+  "09677be3a36334e7fcad710832364b77" : "Add a Note",
+  "418c5509e2171d55b0aee5c2ea4442b5" : "action",
+  "31e41095bfaa14799239e8d9ba7ad438" : "Application Details",
+  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
+  "93b6fe26d96a3a9812a34cb6ba9b3567" : "Historical Notes",
+  "5cfee765454e9ab499d547c20476f696" : "Change Advisor",
+  "1eb39f9b4c58313ca684e44d590b1d82" : "Lexis Nexis",
+  "2b16564e6e838ce86608620b70beb570" : "Activity Log",
+  "3e4696aa5313272da1baa6497c82a9b5" : "Notes about User",
+  "4b1b4dc8cf38b3c64b1d657da8f5ac8c" : "Report",
+  "0945359809dad1fbf3dea1c95a0da951" : "Document",
+  "b46df2f1d2e702b38d83cc22954263c6" : "Un-submit",
+  "f018a137eb54d99d29a9b41fb6b061b5" : "Add Note",
+  "269d037052d86346356a8077aee32baf" : "View Reason",
+  "0e883c2b722f8a57275b249bef7c94db" : "Lexis Nexis Search",
+  "4ee972120bcda675f75222c87cb9d356" : "Who",
+  "292659c2de7f3de1a9ab2abfef6839a4" : "Uploaded Documents",
+  "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
+  "405e3e5c89b4b29dcb052614626788bb" : "View / Status",
+  "cce99c598cfdb9773ab041d54c3d973a" : "Profile",
+  "3b878279a04dc47d60932cb294d96259" : "Overview",
+  "8f2ec0b04f61587a0e83068e5ef842bd" : "<i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i>  not complete",
+  "a14739916eebbb7689b495e07b15fe2a" : "Edit Accreditation",
+  "66e77e7bfdc713de218e85cf6655b9d1" : "Modify / View Investor",
+  "f4c6f851b00d5518bf888815de279aba" : "Notes",
+  "e3a96404a82d284db5e77ec5a0d9d6cb" : "Change User's Password",
+  "d3d2e617335f08df83599665eef8a418" : "Close"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    _this.dialog.items[0].getRegion('center').showPanel(0); \n    \n    new Pman.Request({\n        url: baseURL + '/Roo/Core_group.php',\n        method : 'GET',\n        params : {\n            _count_member_by_name : 'Compliance Officers'\n        }, \n        success : function(res) {\n\n            if(res.data * 1 > 0){\n                return;\n            }\n            \n            Roo.bootstrap.MessageBox.alert('Warning', \"There is no any memeber in 'Compliance Officers' group\");\n            \n        }\n    });\n}",
+    "hide" : "function (_self)\n{\n    if (_this.callback) {\n        _this.callback.call(_self, _this.data);\n    } \n}"
+   },
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Modify / View Investor",
+   "bool fitwindow" : true,
+   "items" : [
+    {
+     "listeners" : {
+      "render" : "function (_self)\n{\n    _this.layout = _self;\n}"
+     },
+     "xtype" : "Border",
+     "$ xns" : "Roo.bootstrap.layout",
+     "items" : [
+      {
+       "String tabPosition" : "top",
+       "xtype" : "Region",
+       "$ xns" : "Roo.bootstrap.layout",
+       "Boolean alwaysShowTabs" : true,
+       "* prop" : "center"
+      },
+      {
+       "Boolean fitContainer" : true,
+       "xtype" : "Nest",
+       "Boolean fitToFrame" : true,
+       "$ xns" : "Roo.bootstrap.panel",
+       "String region" : "center",
+       "String title" : "Overview",
+       "Boolean autoScroll" : false,
+       "items" : [
+        {
+         "xtype" : "Border",
+         "$ xns" : "Roo.bootstrap.layout",
+         "* prop" : "layout",
+         "items" : [
+          {
+           "xtype" : "Region",
+           "Boolean hideTabs" : true,
+           "Number height" : 280,
+           "$ xns" : "Roo.bootstrap.layout",
+           "* prop" : "north",
+           "Boolean split" : true
+          },
+          {
+           "xtype" : "Region",
+           "Boolean hideTabs" : true,
+           "$ xns" : "Roo.bootstrap.layout",
+           "* prop" : "center"
+          },
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.overview_tab = _self;\n}"
+           },
+           "Boolean fitContainer" : true,
+           "xtype" : "Content",
+           "Boolean fitToFrame" : true,
+           "$ xns" : "Roo.bootstrap.panel",
+           "String region" : "north",
+           "String title" : "Overview",
+           "Boolean autoScroll" : true,
+           "items" : [
+            {
+             "listeners" : {
+              "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n\n        _this.form.reset();\n\n        if(_this.data.id * 1 > 0) {\n            \n            _this.form.reloadData();\n            \n        }\n        \n        return;\n    }\n    \n    if(action.type == 'load') {\n        \n        _this.data = action.result.data;\n        \n        _this.dialog.el.unmask();\n        \n        _this.dialog.setTitle('Manage Investor - ' + String.format('{0}', _this.data.full_name));\n        \n        _this.profile_indicator.update();\n        \n        _this.documents_indicator.update();\n        \n        _this.lexis_nexis_indicator.update();\n        \n        _this.compliance_indicator.update();\n        \n        _this.account_type_notice.update();\n        \n        _this.fund_name_notice.update();\n        \n        _this.advisor_notice.update();\n        \n        _this.lexis_nexis_panel.update();\n        \n        _this.reportGrid.store.load({});\n\n        return;\n    }\n    \n    if(action.type == 'submit') {\n\n        return;\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.form = _self; \n}"
+             },
+             "$ url" : "baseURL + '/Roo/Ext_data'",
+             "xtype" : "Form",
+             "| function reloadData" : "function() \n{\n    _this.dialog.el.mask('Loading...');\n    \n    _this.form.doAction('load', { method: 'GET', params: { \n        '_id' : _this.data.id, \n        _with_status : 1, \n        _with_lexis_nexis : 1,\n        _with_compliance_status : 1\n    }});\n}",
+             "$ xns" : "Roo.bootstrap",
+             "Boolean loadMask" : false,
+             "items" : [
+              {
+               "xtype" : "Container",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "margin-top:5px;",
+               "items" : [
+                {
+                 "xtype" : "Row",
+                 "$ xns" : "Roo.bootstrap",
+                 "String style" : "margin-top: 10px; margin-bottom: 10px;",
+                 "items" : [
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.account_type_notice = this;\n}"
+                   },
+                   "String cls" : "text-center",
+                   "| function update" : "function() \n{ \n    this.el.dom.innerHTML = String.format('<b>Type:</b> {0}', _this.data.account_type);\n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "Number sm" : 4
+                  },
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.fund_name_notice = this;\n}"
+                   },
+                   "String cls" : "text-center",
+                   "| function update" : "function() \n{ \n    this.el.dom.innerHTML = String.format('<b>Fund Name:</b> {0}', _this.data.fund_name);\n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "Number sm" : 4
+                  },
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.advisor_notice = this;\n}"
+                   },
+                   "String cls" : "text-center",
+                   "| function update" : "function() \n{ \n    this.el.dom.innerHTML = String.format('<b>Advisor:</b> {0}', _this.data.investment_advisor_id_name);\n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "Number sm" : 4
+                  }
+                 ]
+                },
+                {
+                 "xtype" : "Row",
+                 "$ xns" : "Roo.bootstrap",
+                 "items" : [
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.profile_indicator = this;\n}"
+                   },
+                   "| function update" : "function() \n{ \n    var icon = 'fa-times-circle';\n    var msg = 'Not Submitted';\n    var color = '#941B0C';\n    \n    _this.unSubmitBtn.el.hide();\n    \n    if(_this.data.is_submit * 1) {\n    \n        icon = 'fa-check';\n        msg = 'Submitted';\n        color = 'green';\n        \n        _this.unSubmitBtn.el.show();\n    }\n    \n    _this.profile_icon.el.setStyle('color', color);\n    \n    _this.profile_message.el.dom.innerHTML = String.format('<i style=\"color:{0}\" class=\"fa {1}\"></i> {2}', color, icon, msg);\n    \n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "String style" : "text-align:center",
+                   "Number sm" : 3,
+                   "items" : [
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.profile_icon = this;\n}"
+                     },
+                     "String cls" : "fa-5x",
+                     "string fa" : "user",
+                     "xtype" : "Container",
+                     "$ xns" : "Roo.bootstrap"
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Profile"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.profile_message = this;\n    \n}"
+                     },
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "<i class=\"fa fa-times-circle\"></i> not complete"
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "items" : [
+                      {
+                       "xtype" : "Row",
+                       "$ xns" : "Roo.bootstrap",
+                       "items" : [
+                        {
+                         "xtype" : "Column",
+                         "Number xs" : 12,
+                         "$ xns" : "Roo.bootstrap",
+                         "items" : [
+                          {
+                           "listeners" : {
+                            "render" : "function (_self)\n{\n    _this.unSubmitBtn = this;\n    \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n    this.el.hide();\n}",
+                            "click" : "function (_self, e)\n{\n    if(!_this.data.id* 1) {\n        return;\n    }\n\n    Roo.bootstrap.MessageBox.confirm(\"Confirm\", \"Are sure you want to Un-submit?\", function (v){\n        if (v != 'yes') {\n            return;\n        }\n\n        new Pman.Request({\n            url : baseURL + '/Roo/Ext_data',\n            method: 'POST',\n            mask : 'Loading',\n            params : {\n                id : _this.data.id* 1,\n                is_submit: 0\n            },\n            success : function(res)\n            {\n                _this.form.reloadData();\n            }\n        });\n    });\n    \n}"
+                           },
+                           "String weight" : "info",
+                           "xtype" : "Button",
+                           "$ xns" : "Roo.bootstrap",
+                           "String html" : "Un-submit",
+                           "String style" : "margin-left: auto; margin-right: auto; margin-bottom: 10px; width: 150px; text-align: center;"
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  },
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.documents_indicator = this;\n    \n}"
+                   },
+                   "| function update" : "function() \n{ \n    var icon = 'fa-times-circle';\n    var msg = 'Not Complete';\n    var color = '#941B0C';\n    \n    if(_this.data.is_missing_document * 1 == 0) {\n        icon = 'fa-check';\n        msg = 'Complete';\n        color = 'green';\n    }\n    \n    _this.check_document_icon.el.setStyle('color', color);\n    \n    _this.documents_message.el.dom.innerHTML = String.format('<i style=\"color:{0}\" class=\"fa {1}\"></i> {2}', color, icon, msg);\n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "String style" : "text-align:center",
+                   "Number sm" : 3,
+                   "items" : [
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.check_document_icon = _self;\n}"
+                     },
+                     "String cls" : "fa-5x",
+                     "string fa" : "file-text",
+                     "xtype" : "Container",
+                     "$ xns" : "Roo.bootstrap"
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Documents"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.documents_message = this;\n    \n}"
+                     },
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "<i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i>  not complete"
+                    }
+                   ]
+                  },
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.lexis_nexis_indicator = this;\n}"
+                   },
+                   "| function update" : "function() \n{ \n    var textIcon = '';\n    var msg = 'Status : Search not done';\n    var textColor = '#941B0C';\n    var color = '#941B0C';\n    \n    if(_this.data.is_lexis_nexis_search_completed * 1 == 1) {\n        msg = String.format('Status : {0} Matches Found', (_this.data.total_lexis_nexis * 1 > 0) ? _this.data.total_lexis_nexis: 'No');\n        textColor = 'green';\n        color = 'green';\n    }\n    \n    if(_this.data.is_missing_document * 1 == 1) {\n        textIcon = 'fa-times-circle';\n        msg = 'Document Not Upload';\n        textColor = '#941B0C';\n        color = '#999';\n    }\n    \n    if(_this.data.is_submit * 1 == 0) {\n        textIcon = 'fa-times-circle';\n        msg = 'Application Not complete';\n        textColor = '#941B0C';\n        color = '#999';\n    }\n    \n    \n    _this.lexis_nexis_icon.el.setStyle('color', color);\n    \n    _this.lexis_nexis_message.el.dom.innerHTML = String.format(\n        '<span style=\"color:{0}\">{1}</span>', \n        textColor, \n        msg\n    );\n    \n    if(textIcon.length){\n        _this.lexis_nexis_message.el.dom.innerHTML = String.format(\n            '<i style=\"color:{0}\" class=\"fa {1}\"></i> <span style=\"color:{0}\">{2}</span>', \n            textColor, \n            textIcon, \n            msg\n        );\n    }\n    \n    _this.lexis_nexis_btn.disable();\n                       \n    if(_this.data.is_submit * 1 == 1 && _this.data.is_missing_document * 1 == 0){\n        _this.lexis_nexis_btn.enable();\n    }\n    \n}\n",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "String style" : "text-align:center",
+                   "Number sm" : 3,
+                   "items" : [
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.lexis_nexis_icon = this;\n}"
+                     },
+                     "String cls" : "fa-5x",
+                     "string fa" : "search",
+                     "xtype" : "Container",
+                     "$ xns" : "Roo.bootstrap"
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Lexis Nexis"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.lexis_nexis_message = this;\n}"
+                     },
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : " "
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.lexis_nexis_btn = this;\n}",
+                      "click" : "function (_self, e)\n{\n    if(_this.data.userdata_id * 1 < 1){\n        return;\n    }\n    \n    new Pman.Request({\n        url: baseURL + '/Coba/LexisNexis/Search/' + _this.data.userdata_id,\n        method: 'GET',\n        mask: 'Processing...',\n        success : function(res) {\n            var total = res.data.total;\n            \n            var msg = 'No Matching Records where found';\n            \n            if(res.data.total * 1 > 0){\n                msg = String.format('{0} Matching Records where found - please review them on the Lexis Nexis Tab.', res.data.total);\n            }\n            \n            var m = new Roo.bootstrap.Modal({ \n                html : msg, \n                title:'Lexis Nexis Search Succeed', \n                buttons : [\n                    {\n                        name : 'ok',\n                        html : 'OK',\n                        weight : 'primary'\n                    }\n                ],\n                listeners : { \n                    btnclick : function(name, e) { \n                        \n                        this.hide();\n                        \n                        _this.form.reloadData();\n                        \n                        if(res.data.total * 1 == 0){\n                            return;\n                        }\n                        \n                        _this.dialog.items[0].getRegion('center').showPanel(3); \n                        \n                    }\n                }\n            });\n      \n            m.show();\n            \n        }\n    });\n    \n}"
+                     },
+                     "String weight" : "primary",
+                     "xtype" : "Button",
+                     "Boolean disabled" : false,
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Lexis Nexis Search"
+                    }
+                   ]
+                  },
+                  {
+                   "listeners" : {
+                    "render" : "function (_self)\n{\n    _this.compliance_indicator = this;\n}"
+                   },
+                   "| function update" : "function() \n{\n    var msg = 'Pending Approval';\n    var textColor = '#337ab7';\n    var color = '#337ab7';\n    var icon = 'fa-user';\n    \n    var isComplianceOfficer = (Pman.Login.authUser.groups.indexOf('Compliance Officers') == -1) ? false : true;\n    var isAdministrator = (Pman.Login.authUser.groups.indexOf('Administrators') == -1) ? false : true;\n    \n    _this.compliance_review_btn.el.hide();\n    _this.compliance_view_reason_btn.el.hide();\n    \n    if(isComplianceOfficer){\n        _this.compliance_review_btn.el.show();\n    }\n    \n    switch (_this.data.compliance_status) {\n        case 'APPROVED' : \n            msg = String.format('Approved by {0}', _this.data.compliance_status_by);\n            textColor = 'green';\n            color = 'green';\n            icon = 'fa-check';\n            \n            _this.compliance_review_btn.el.hide();\n            _this.compliance_view_reason_btn.el.hide();\n            \n            break;\n        case 'REJECTED' : \n            msg = String.format('Reject by {0}', _this.data.compliance_status_by);\n            textColor = '#941B0C';\n            color = '#941B0C';\n            icon = 'fa-times';\n            \n            _this.compliance_review_btn.el.hide();\n            \n            if(isComplianceOfficer || isAdministrator){\n                _this.compliance_view_reason_btn.el.show();\n            }\n    \n            break;\n        default :\n            break;\n    }\n    \n    if(_this.data.is_lexis_nexis_view_completed * 1 == 0){\n        msg = 'Nexis Lexis needs reviewing';\n        color = '#999';\n        textColor = '#941B0C';\n        _this.compliance_review_btn.el.hide();\n        _this.compliance_view_reason_btn.el.hide();\n    }\n    \n    if(_this.data.is_lexis_nexis_search_completed * 1 == 0) {\n        msg = 'Nexis Lexis not run';\n        color = '#999';\n        textColor = '#941B0C';\n        _this.compliance_review_btn.el.hide();\n        _this.compliance_view_reason_btn.el.hide();\n    }\n    \n    _this.compliance_icon.el.setStyle('color', color);\n    \n    _this.compliance_icon.el.select('i', true).first().removeClass(['fa-user', 'fa-check']).addClass(icon);\n    \n    _this.compliance_message.el.dom.innerHTML = String.format('<span style=\"color:{0}\">{1}</span>', textColor, msg);\n    \n}",
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "String style" : "text-align:center",
+                   "Number sm" : 3,
+                   "items" : [
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.compliance_icon = this;\n}"
+                     },
+                     "String cls" : "fa-5x",
+                     "string fa" : "user",
+                     "xtype" : "Container",
+                     "$ xns" : "Roo.bootstrap"
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Compliance Review"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.compliance_message = this;\n    \n}"
+                     },
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : ""
+                    },
+                    {
+                     "xtype" : "Element",
+                     "$ xns" : "Roo.bootstrap",
+                     "items" : [
+                      {
+                       "xtype" : "Row",
+                       "$ xns" : "Roo.bootstrap",
+                       "items" : [
+                        {
+                         "xtype" : "Column",
+                         "Number xs" : 12,
+                         "$ xns" : "Roo.bootstrap",
+                         "items" : [
+                          {
+                           "listeners" : {
+                            "render" : "function (_self)\n{\n    _this.compliance_review_btn = this;\n    \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n    this.el.hide();\n}",
+                            "click" : "function (_self, e)\n{\n    if(_this.data.id * 1 < 1) {\n        return;\n    }\n    \n    Pman.Dialog.CobaInvestorComplianceReview.show({\n        id : _this.data.id,\n        userdata_id : _this.data.userdata_id\n    }, function(){\n        _this.form.reloadData();\n    });\n    \n}"
+                           },
+                           "String weight" : "primary",
+                           "xtype" : "Button",
+                           "$ xns" : "Roo.bootstrap",
+                           "String html" : "Review",
+                           "String style" : "width: 150px; text-align: center;"
+                          },
+                          {
+                           "listeners" : {
+                            "render" : "function (_self)\n{\n    _this.compliance_view_reason_btn = this;\n    \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n    this.el.hide();\n}",
+                            "click" : "function (_self, e)\n{\n    if(!_this.data.compliance_coba_investor_notes || _this.data.compliance_coba_investor_notes.id * 1 < 1) {\n        return;\n    }\n    \n    Roo.bootstrap.MessageBox.alert('Reason', _this.data.compliance_coba_investor_notes.notes);\n    \n}"
+                           },
+                           "String weight" : "danger",
+                           "xtype" : "Button",
+                           "$ xns" : "Roo.bootstrap",
+                           "String html" : "View Reason",
+                           "String style" : "width: 150px; text-align: center;"
+                          }
+                         ]
+                        }
+                       ]
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              },
+              {
+               "String name" : "id",
+               "xtype" : "Input",
+               "String inputType" : "hidden",
+               "$ xns" : "Roo.bootstrap"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "Boolean fitContainer" : true,
+           "xtype" : "Grid",
+           "Boolean fitToFrame" : true,
+           "String region" : "center",
+           "$ xns" : "Roo.bootstrap.panel",
+           "Boolean autoScroll" : true,
+           "items" : [
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n    _this.reportGrid = this;\n}"
+             },
+             "Boolean footerShow" : false,
+             "xtype" : "Table",
+             "$ xns" : "Roo.bootstrap",
+             "* prop" : "grid",
+             "items" : [
+              {
+               "$ Array data" : " [[ \"Client Summary Report\", \"ClientSummary\" ],\n  [ \"Compliance Report\", \"ComplianceReport\" ],\n  [ \"Investor Risk Profile\", \"InvestorRiskProfile\" ]\n ]",
+               "boolean isLocal" : true,
+               "$ Array fields" : "[ 'name', 'url' ]",
+               "xtype" : "SimpleStore",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              },
+              {
+               "String header" : "Report",
+               "String dataIndex" : "name",
+               "xtype" : "ColumnModel",
+               "Number xs" : 6,
+               "$ xns" : "Roo.grid",
+               "$ renderer" : "function(v,x,r) {    \n     return v;\n}",
+               "* prop" : "cm[]"
+              },
+              {
+               "String header" : "Download",
+               "String dataIndex" : "url",
+               "$ Function renderer" : "function(v,x,r) {\n     return String.format( '<a href=\"{0}/Coba/Reports/'+ r.data.url.trim() +'/{1}\" target=\"_new\">Download</a>', \n            baseURL, _this.data.userdata_id\n     );\n}",
+               "xtype" : "ColumnModel",
+               "Number xs" : 6,
+               "$ xns" : "Roo.grid",
+               "* prop" : "cm[]"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    var url = 'about:blank';\n    \n    if(_this.data.userdata_id * 1 > 0){\n        url = baseURL + '/Coba/Reports/ApplicationSummary/' + _this.data.userdata_id;\n    }\n     \n    _this.app_summary_frame.el.dom.src = url;\n}",
+        "render" : "function (_self)\n{\n    _this.detail_tab = _self;\n}"
+       },
+       "Boolean fitContainer" : true,
+       "xtype" : "Content",
+       "Boolean fitToFrame" : true,
+       "$ xns" : "Roo.bootstrap.panel",
+       "String region" : "center",
+       "String title" : "Application Details",
+       "Boolean autoScroll" : false,
+       "Boolean background" : true,
+       "items" : [
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.app_summary_frame = this; \n}"
+         },
+         "xtype" : "Element",
+         "tag" : "iframe",
+         "$ xns" : "Roo.bootstrap",
+         "String style" : "width:100%;height:100%;border:none;"
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    if(_this.documentGrid){\n        _this.documentGrid.store.load({});\n    }\n}"
+       },
+       "xtype" : "Grid",
+       "String region" : "center",
+       "$ xns" : "Roo.bootstrap.panel",
+       "String title" : "Uploaded Documents",
+       "Boolean background" : false,
+       "items" : [
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.documentGrid = this;\n}"
+         },
+         "Boolean footerShow" : false,
+         "String cls" : "coba-document-table",
+         "xtype" : "Table",
+         "$ xns" : "Roo.bootstrap",
+         "* prop" : "grid",
+         "boolean condensed" : true,
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{ \n    options.params = options.params || {};\n    \n    if(typeof(_this.data.userdata_id) == 'undefined' || _this.data.userdata_id * 1 < 1){\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.is_active = 1;\n    options.params.dec_type = 'checklist';\n    \n    options.params._user_id = _this.data.userdata_id;\n    \n    options.params._with_others = 1;\n}"
+           },
+           "$ Object sortInfo" : "{ direction : 'ASC', field: 'seq_order' } ",
+           "xtype" : "Store",
+           "boolean remoteSort" : true,
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/coba_declarations'",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "String method" : "GET",
+             "* prop" : "proxy"
+            },
+            {
+             "xtype" : "JsonReader",
+             "String root" : "data",
+             "$ xns" : "Roo.data",
+             "String id" : "id",
+             "* prop" : "reader"
+            }
+           ]
+          },
+          {
+           "String header" : "Document",
+           "String dataIndex" : "title",
+           "xtype" : "ColumnModel",
+           "Number xs" : 4,
+           "$ xns" : "Roo.grid",
+           "Boolean sortable" : true,
+           "* prop" : "cm[]"
+          },
+          {
+           "String header" : "View / Status",
+           "String dataIndex" : "images_ids",
+           "xtype" : "ColumnModel",
+           "Number xs" : 8,
+           "$ xns" : "Roo.grid",
+           "$ renderer" : "function(v,x,r) {\n\n    var types = [\n        'image/png',\n        'image/jpeg',\n        'application/pdf',\n        'application/msword',\n        'application/mswordapplication',\n        'application/vnd.oasis.opendocument.text',\n        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',\n        'application/x-abiword'\n    ];\n      \n    var manager = new Roo.bootstrap.DocumentManager({\n        url : baseURL + '/Roo/Images',\n        editable: false,\n        toolTipName: 'title',\n        listeners : {\n            render : function (_self) {\n                \n            },\n            beforeselectfile : function(_self){\n                \n                if(typeof(window.FileReader) == 'undefined' || !window.FileReader) {\n                    Roo.bootstrap.MessageBox.alert('Sorry', 'Your browser is not support to upload file, Please upgrade it.');\n                    return false;\n                }\n                \n                return true;\n            },\n            initial : function (_self) {\n                \n                this.files = r.data.coba_investor_declarations_documents;\n                this.queue();\n            },\n            process : function (_self, file) {\n                \n                if(types.indexOf(file.type) == -1){\n                    this.progressDialog.hide();\n                    Roo.bootstrap.MessageBox.alert('Sorry', 'Invalid File Format');\n                    return false;\n                }\n                \n                if(file.size > 8388608){\n                    this.progressDialog.hide();\n                    Roo.bootstrap.MessageBox.alert('Sorry', 'Maximum size is 8MB');\n                    return false;\n                }\n            },\n            prepare : function (_self, formData, options) {\n                \n                if(r.data.id * 1 == -1){\n                    \n                    options.manually = true;\n                    \n                    Pman.Dialog.CobaInvestorDocumentTitle.show({name : options.file.name}, function(res){\n                        formData.append('_coba_document', 'upload');\n                        formData.append('title', res.title);\n                        formData.append('ontable', 'modx_users');\n                        formData.append('onid', r.data.coba_investor_declarations_id);\n                        formData.append('imgtype', 'other_documents');\n                        \n                        _self.xhr.send(formData);\n                        \n                        return;\n                    });\n                    \n                    return;\n                }\n                \n                formData.append('_coba_document', 'upload');\n                formData.append('ontable', 'coba_investor_declarations');\n                formData.append('onid', r.data.coba_investor_declarations_id);\n            },\n            remove : function (_self, file) {\n                \n                if(typeof(file) == 'undefined' || file.id * 1 < 1){\n                    return;\n                }\n                \n                var m = new Roo.bootstrap.Modal({ \n                    html : 'Are you sure want to remove this document', \n                    title:'Confirm',\n                    buttons : [\n                        {\n                            name : 'yes',\n                            html : 'Yes'\n                        },\n                        {\n                            name : 'no',\n                            html : 'No',\n                            weight : 'primary'\n                        }\n                    ],\n                    listeners : { \n                       btnclick : function(name, e) {\n                       \n                            this.hide();\n                            \n                            if(name == 'no'){\n                                return;\n                            }\n                            \n                            file.target.mask();\n                       \n                            new Pman.Request({\n                                url: baseURL + '/Roo/Images',\n                                method: 'POST',\n                                params: {\n                                    _coba_document : 'remove',\n                                    _delete : file.id\n                                },\n                                success: function(res){\n                                    _self.remove(file);\n                                    _this.form.reloadData();\n                                    return;\n                                },\n                                failure : function(ret) {\n                                    (function(){Roo.bootstrap.MessageBox.alert('Error', ret.errorMsg);}).defer(100);\n                                    return;\n                                }\n                            });\n                            \n                            return;\n                       }\n                   }\n                });\n                \n                m.show();\n             \n            },\n            afterupload : function(_self, xhr)\n            {\n                _this.form.reloadData();\n            },\n            click : function (_self, file) \n            {\n                Pman.Dialog.CobaInvestorViewDocument.show({\n                    file : file\n                }, function(ret){\n                \n                    if(typeof(ret) != 'string'){\n                        return;\n                    }\n                    \n                    if(ret == 'trash'){\n                        _self.fireEvent('remove', _self, file);\n                        return;\n                    }\n                    \n                });\n                \n                return;\n            }\n       }\n       \n    });\n    \n    return manager;\n    \n }\n ",
+           "Boolean sortable" : false,
+           "* prop" : "cm[]"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    var url = 'about:blank';\n    \n    if(_this.data.userdata_id * 1 > 0){\n        url = baseURL + '/Coba/Reports/LexisNexis/' + _this.data.userdata_id;\n    }\n    \n    var updateMatchStatus = function(frame, id, status) {\n        new Pman.Request({\n            url: baseURL + '/Roo/Coba_investor_lexis_results.php',\n            method : 'POST',\n            params : {\n                id : id,\n                status : status,\n                reason : ''\n            }, \n            success : function(res) {\n                _this.form.reloadData();\n                _this.lexis_nexis_frame.el.dom.src = url;\n                scrollTop = frame.documentElement.scrollTop || frame.body.scrollTop;\n            }\n        });\n    };\n    \n    var scrollTop = 0;\n    \n    _this.lexis_nexis_frame.el.dom.onload = function(){\n        \n        var frame = _this.lexis_nexis_frame.el.dom.contentDocument || _this.lexis_nexis_frame.el.dom.contentWindow.document;\n        \n        var scrollTarget = (typeof(frame.documentElement.scrollTop) != 'undefined') ? frame.documentElement : frame.body;\n        \n        frame.documentElement.scrollTop = scrollTop;\n        frame.body.scrollTop = scrollTop;\n        \n        Roo.each(Roo.get(frame.body).select('button.reject-match', true).elements, function(button){\n        \n            var id = button.attr('data-id');\n            \n            button.on('click', function(e){\n            \n                e.preventDefault();\n                \n                Pman.Dialog.CobaLexisNexisReject.show({ id : id }, function(){\n                    _this.form.reloadData();\n                    _this.lexis_nexis_frame.el.dom.src = url;\n                    scrollTop = Roo.get(frame.body).getScroll().top;\n                });\n                \n            });\n            \n        });\n        \n        Roo.each(Roo.get(frame.body).select('button.accept-match', true).elements, function(button){\n        \n            var id = button.attr('data-id');\n            \n            button.on('click', function(e){\n            \n                e.preventDefault();\n                \n                updateMatchStatus(frame, id, 1);\n                \n            });\n        });\n        \n        Roo.each(Roo.get(frame.body).select('button.un-accept-match', true).elements, function(button){\n        \n            var id = button.attr('data-id');\n            \n            button.on('click', function(e){\n            \n                e.preventDefault();\n                \n                updateMatchStatus(frame, id, 0);\n                \n            });\n        });\n        \n        Roo.each(Roo.get(frame.body).select('button.un-reject-match', true).elements, function(button){\n        \n            var id = button.attr('data-id');\n            \n            button.on('click', function(e){\n            \n                e.preventDefault();\n                \n                updateMatchStatus(frame, id, 0);\n                \n            });\n        });\n        \n    };\n    \n    _this.lexis_nexis_frame.el.dom.src = url;\n    \n    _this.lexis_nexis_search.update();\n}",
+        "render" : "function (_self)\n{\n    _this.lexis_nexis_panel = this;\n}"
+       },
+       "| function update" : "function() \n{ \n    var badges = this.tabItem.el.select('span.badge', true).first();\n    \n    var icon = this.tabItem.el.select('span.icon', true).first();\n    \n    if(!badges || !icon){\n        return;\n    }\n    \n    badges.setVisibilityMode(Roo.Element.DISPLAY).hide();\n    icon.setVisibilityMode(Roo.Element.DISPLAY).hide();\n    \n    if(_this.data.is_lexis_nexis_search_completed * 1 != 1){\n        icon.show();\n        return;\n    }\n    \n    badges.removeClass(['badge-success', 'badge-error']).addClass('badge-error');\n    \n    if(_this.data.is_lexis_nexis_view_completed * 1 == 1){\n        badges.removeClass(['badge-success', 'badge-error']).addClass('badge-success');\n    }\n    \n    badges.show();\n    \n    badges.dom.innerHTML = _this.data.total_lexis_nexis;\n    \n}",
+       "Boolean fitContainer" : true,
+       "xtype" : "Content",
+       "Boolean fitToFrame" : true,
+       "$ xns" : "Roo.bootstrap.panel",
+       "String region" : "center",
+       "String title" : "Lexis Nexis",
+       "Boolean background" : true,
+       "string tpl" : "<a href=\"#\"><span unselectable=\"on\" title=\"{text}\">{text}</span> <span class=\"badge\">{badge}</span><span class=\"icon\"><i class=\"fa fa-cog\"></i></span></a>",
+       "items" : [
+        {
+         "xtype" : "NavSimplebar",
+         "$ xns" : "Roo.bootstrap",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "xtype" : "NavGroup",
+           "$ xns" : "Roo.bootstrap",
+           "items" : [
+            {
+             "xtype" : "NavItem",
+             "$ xns" : "Roo.bootstrap",
+             "String style" : "float: left",
+             "items" : [
+              {
+               "listeners" : {
+                "render" : "function (_self)\n{\n    _this.lexis_nexis_search = this;\n}",
+                "click" : "function (_self, e)\n{\n    if(_this.data.userdata_id * 1 < 1){\n        return;\n    }\n    \n    new Pman.Request({\n        url: baseURL + '/Coba/LexisNexis/Search/' + _this.data.userdata_id,\n        method: 'GET',\n        mask: 'Processing...',\n        success : function(res) {\n            var total = res.data.total;\n            \n            var msg = 'No Matching Records where found';\n            \n            if(res.data.total * 1 > 0){\n                msg = String.format('{0} Matching Records where found - please review them on the Lexis Nexis Tab.', res.data.total);\n            }\n            \n            Roo.bootstrap.MessageBox.alert('Lexis Nexis Search Succeed', msg);\n            \n            _this.form.reloadData();\n            \n            var url = 'about:blank';\n    \n            if(_this.data.userdata_id * 1 > 0){\n                url = baseURL + '/Coba/Reports/LexisNexis/' + _this.data.userdata_id;\n            }\n            \n            _this.lexis_nexis_frame.el.dom.src = url;\n        }\n    });\n    \n}"
+               },
+               "String weight" : "primary",
+               "| function update" : "function() \n{ \n    _this.lexis_nexis_search.disable();\n    \n    if(_this.data.is_submit * 1 == 1 && _this.data.is_missing_document * 1 == 0){\n        _this.lexis_nexis_search.enable();\n    }\n    \n}",
+               "xtype" : "Button",
+               "$ xns" : "Roo.bootstrap",
+               "String html" : "Search",
+               "String style" : "margin:5px;"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.lexis_nexis_frame = this;\n    \n}"
+         },
+         "String tag" : "iframe",
+         "xtype" : "Element",
+         "$ xns" : "Roo.bootstrap",
+         "String style" : "width:100%;height:100%;border:none;"
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    if(_this.activityGrid ) {\n        _this.activityGrid.footer.onClick('first');\n    }\n}"
+       },
+       "xtype" : "Grid",
+       "$ xns" : "Roo.bootstrap.panel",
+       "String region" : "center",
+       "String title" : "Activity Log",
+       "Boolean background" : false,
+       "items" : [
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.activityGrid = _self;;\n}"
+         },
+         "String cls" : "coba-activity-table",
+         "xtype" : "Table",
+         "$ xns" : "Roo.bootstrap",
+         "Boolean loadMask" : true,
+         "* prop" : "grid",
+         "boolean condensed" : false,
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{ \n    options.params = options.params || {};\n    \n    if(typeof(_this.data.userdata_id) == 'undefined' || _this.data.userdata_id * 1 < 1){\n        this.removeAll();\n        return false;\n    }\n    options.params._with_dupe_count = 1;\n\n\n    options.params.modx_users_id = _this.data.userdata_id; \n\n\n    \n}\n"
+           },
+           "$ Object sortInfo" : "{ direction : 'DESC', field: 'event_when' } ",
+           "xtype" : "Store",
+           "boolean remoteSort" : true,
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/Events.php'",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "String method" : "GET",
+             "* prop" : "proxy"
+            },
+            {
+             "xtype" : "JsonReader",
+             "String root" : "data",
+             "$ xns" : "Roo.data",
+             "String id" : "id",
+             "* prop" : "reader"
+            }
+           ]
+          },
+          {
+           "String header" : "When",
+           "String dataIndex" : "event_when",
+           "xtype" : "ColumnModel",
+           "Number xs" : 3,
+           "$ xns" : "Roo.grid",
+           "Boolean sortable" : true,
+           "$ string renderer" : "function(v) \n{ \n    return v ? v.dateFormat('d/M/Y H:i') : ''; \n}",
+           "* prop" : "cm[]"
+          },
+          {
+           "String header" : "action",
+           "String dataIndex" : "action",
+           "xtype" : "ColumnModel",
+           "Number xs" : 3,
+           "$ xns" : "Roo.grid",
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : '');\n}",
+           "Boolean sortable" : true,
+           "* prop" : "cm[]"
+          },
+          {
+           "String header" : "Who",
+           "xtype" : "ColumnModel",
+           "Number xs" : 3,
+           "$ xns" : "Roo.grid",
+           "$ renderer" : "function(v,x,r) {\n     if(r.data.person_id* 1 > 0) {\n         return String.format('{0}', r.data.person_id_name );\n     }\n     if(r.data.modx_users_id_in_middlename !='')\n     {\n         return String.format('{0} {1} {2}', r.data.modx_users_id_in_firstname, r.data.modx_users_id_in_middlename, r.data.modx_users_id_in_lastname );\n     }\n     return String.format('{0} {1}', r.data.modx_users_id_in_firstname, r.data.modx_users_id_in_lastname  );\n\n}",
+           "Boolean sortable" : true,
+           "* prop" : "cm[]"
+          },
+          {
+           "String header" : "Remarks",
+           "String dataIndex" : "remarks",
+           "xtype" : "ColumnModel",
+           "Number xs" : 3,
+           "$ xns" : "Roo.grid",
+           "$ renderer" : "function(v,x,r) {\n     if(r.data.dupe_count*1 > 1) {\n         return String.format('{0} ({1})', v ? v : '', r.data.dupe_count);\n     }\n     return String.format('{0}', v ? v : ''); \n}",
+           "Boolean sortable" : false,
+           "* prop" : "cm[]"
+          },
+          {
+           "Number pageSize" : 10,
+           "xtype" : "PagingToolbar",
+           "$ xns" : "Roo.bootstrap",
+           "* prop" : "footer"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    if(_this.notes_table ) {\n        _this.notes_table.footer.onClick('first');\n    }\n    \n    _this.coba_person_id.setValue(_this.data.userdata_id);\n    \n}",
+        "render" : "function (_self)\n{\n    _this.notes_tab = _self;\n}"
+       },
+       "Boolean fitContainer" : true,
+       "xtype" : "Nest",
+       "Boolean fitToFrame" : true,
+       "$ xns" : "Roo.bootstrap.panel",
+       "String region" : "center",
+       "String title" : "Notes about User",
+       "Boolean autoScroll" : true,
+       "Boolean background" : true,
+       "items" : [
+        {
+         "xtype" : "Border",
+         "$ xns" : "Roo.bootstrap.layout",
+         "* prop" : "layout",
+         "items" : [
+          {
+           "xtype" : "Region",
+           "Boolean hideTabs" : true,
+           "Number height" : 280,
+           "$ xns" : "Roo.bootstrap.layout",
+           "* prop" : "north",
+           "Boolean split" : true
+          },
+          {
+           "xtype" : "Region",
+           "Boolean hideTabs" : true,
+           "$ xns" : "Roo.bootstrap.layout",
+           "* prop" : "center"
+          },
+          {
+           "Boolean fitContainer" : true,
+           "xtype" : "Content",
+           "Boolean fitToFrame" : true,
+           "String region" : "north",
+           "$ xns" : "Roo.bootstrap.panel",
+           "Boolean autoScroll" : true,
+           "String title" : "Add a Note",
+           "items" : [
+            {
+             "listeners" : {
+              "actionfailed" : "function (_self, action)\n{\n     Roo.bootstrap.MessageBox.alert(action.result.errorMsg);\n}",
+              "actioncomplete" : "function (_self, action)\n{\n   if (action.type == 'submit') { // only submitted here if we are \n        _this.add_notes_button.enable();\n        _this.add_notes_button.setText('Add Note');\n\n   \n        if (_this.callback) {\n            _this.callback.call(this, action.result.data);\n        }\n       _this.notes_textarea.setValue('');\n       if(_this.notes_table ) {\n          _this.notes_table.footer.onClick('first');\n       }\n        return; \n    }\n}",
+              "render" : "function (_self)\n{\n    _this.notes_form = _self; \n}"
+             },
+             "$ url" : "baseURL + '/Roo/Coba_person_notes'",
+             "xtype" : "Form",
+             "$ xns" : "Roo.bootstrap",
+             "String style" : "margin:15px;",
+             "String method" : "POST",
+             "Boolean loadMask" : true,
+             "items" : [
+              {
+               "String header" : "Add a Note",
+               "String panel" : "primary",
+               "xtype" : "Container",
+               "$ xns" : "Roo.bootstrap",
+               "Boolean expandable" : false,
+               "items" : [
+                {
+                 "xtype" : "Row",
+                 "$ xns" : "Roo.bootstrap",
+                 "items" : [
+                  {
+                   "xtype" : "Column",
+                   "$ xns" : "Roo.bootstrap",
+                   "Number sm" : 12,
+                   "items" : [
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.notes_textarea = _self;\n}"
+                     },
+                     "Boolean allowBlank" : false,
+                     "String name" : "notes",
+                     "xtype" : "TextArea",
+                     "Number rows" : 5,
+                     "$ xns" : "Roo.bootstrap"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.coba_person_id = this;\n}"
+                     },
+                     "String name" : "coba_person_id",
+                     "xtype" : "Input",
+                     "String inputType" : "input",
+                     "$ xns" : "Roo.bootstrap",
+                     "String style" : "display: none;"
+                    },
+                    {
+                     "listeners" : {
+                      "render" : "function (_self)\n{\n    _this.add_notes_button = _self;\n}",
+                      "click" : "function (_self, e)\n{\n    if(!_this.notes_form.isValid()){\n          Roo.bootstrap.MessageBox.alert('Error', 'Please enter note');\n          return;\n    }\n    \n    _this.notes_form.doAction('submit');\n    _this.add_notes_button.disable();\n    _this.add_notes_button.setText('sending...');\n\n}"
+                     },
+                     "String weight" : "primary",
+                     "xtype" : "Button",
+                     "$ xns" : "Roo.bootstrap",
+                     "String html" : "Add Note",
+                     "String style" : "float: right; margin: 10px; width: 100px; "
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "Boolean fitContainer" : true,
+           "xtype" : "Grid",
+           "Boolean fitToFrame" : true,
+           "String region" : "center",
+           "$ xns" : "Roo.bootstrap.panel",
+           "String title" : "Historical Notes",
+           "items" : [
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n    _this.notes_table = _self;\n}"
+             },
+             "Boolean cellSelection" : true,
+             "boolean responsive" : true,
+             "xtype" : "Table",
+             "$ xns" : "Roo.bootstrap",
+             "Boolean loadMask" : true,
+             "* prop" : "grid",
+             "items" : [
+              {
+               "listeners" : {
+                "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    // set more here\n    options.params.coba_person_id =  _this.data.userdata_id; \n    options.params.limit =   _this.notes_table.footer.pageSize *1; \n    options.params._order_by =   'date_created desc, id desc'; \n}"
+               },
+               "Object sortInfo" : "{ direction : 'ASC', field: 'id' } ",
+               "xtype" : "Store",
+               "boolean remoteSort" : true,
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/Coba_person_notes' ",
+                 "xtype" : "HttpProxy",
+                 "$ xns" : "Roo.data",
+                 "String method" : "GET",
+                 "* prop" : "proxy"
+                },
+                {
+                 "xtype" : "JsonReader",
+                 "String root" : "data",
+                 "$ xns" : "Roo.data",
+                 "String id" : "id",
+                 "* prop" : "reader"
+                }
+               ]
+              },
+              {
+               "String header" : "Date",
+               "String dataIndex" : "date_created",
+               "xtype" : "ColumnModel",
+               "Number xs" : 3,
+               "$ xns" : "Roo.grid",
+               "Boolean sortable" : false,
+               "$ string renderer" : "function(v) { return v ? v.dateFormat('d/m/Y') : ''; }",
+               "* prop" : "cm[]",
+               "Boolean hidden" : false
+              },
+              {
+               "String header" : "id",
+               "String dataIndex" : "id",
+               "xtype" : "ColumnModel",
+               "Number xs" : 2,
+               "$ xns" : "Roo.grid",
+               "Boolean sortable" : true,
+               "* prop" : "cm[]",
+               "Boolean hidden" : true
+              },
+              {
+               "String header" : "Notes",
+               "String dataIndex" : "notes",
+               "xtype" : "ColumnModel",
+               "Number xs" : 9,
+               "$ xns" : "Roo.grid",
+               "$ renderer" : "function(v) { \n\n    //if(v.length > 200) {\n    //    return v.substring(0,199) + '...';\n    //}\n     \n    return v;\n}",
+               "Boolean sortable" : false,
+               "* prop" : "cm[]",
+               "Boolean hidden" : false
+              },
+              {
+               "Number pageSize" : 5,
+               "xtype" : "PagingToolbar",
+               "$ xns" : "Roo.bootstrap",
+               "* prop" : "footer"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    if(_this.data.is_submit * 1 == 1){\n        Roo.bootstrap.MessageBox.alert('Application has been submittted', \"You should 'un-submit' the application if you wish to edit it.\");\n        return;\n    }\n    \n    _this.dialog.el.mask('Sending');\n    \n    new Pman.Request({\n        url: baseURL + '/Coba/ModxSession',\n        method: 'GET',\n        params: {\n            investor_id: _this.data.userdata_id,\n            account_type: _this.data.account_type\n        },\n        success:  function(res)  {\n            if (res.success && res.data) {\n                window.onbeforeunload  =null;\n                window.onunload  = function () {\n                    _this.dialog.el.unmask()\n                };\n                var win = window.open(res.data, '_self');\n            }\n        },\n        failure : function(res)\n        {\n            _this.dialog.el.unmask();\n            Roo.bootstrap.MessageBox.alert(\"Error\",  res.errorMsg);\n        }\n    });\n     \n}"
+     },
+     "String weight" : "warning",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Edit Accreditation",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{   \n    Pman.Dialog.CobaInvestorChangeAdvisor.show({id: _this.data.id}, function(){\n        _this.form.fireEvent('actioncomplete', _this.form,  { type: 'setdata', data: { id : _this.data.id }});\n    });\n    \n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Change Advisor",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    Pman.Dialog.CobaInvestorChangePassword.show({id: _this.data.userdata_id})\n    \n\n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Change User's Password",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n//     if (_this.callback) {\n//         _this.callback.call(this, _this.data);\n//     }\n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Close",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

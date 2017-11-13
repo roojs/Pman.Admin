@@ -1,0 +1,104 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorComplianceReview",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorComplianceReview.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "d98ac12774fca5c3cbaffe276840c55f" : "Reject",
+  "c4408d335012a56ff58937d78050efad" : "Accept",
+  "57d3c3623b963750443582d79de27efc" : "Please review the Compliance Report"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    _this.acceptBtn.disableIt();\n    _this.rejectBtn.disableIt();\n    \n    var url = 'about:blank';\n    \n    if(_this.data.userdata_id * 1 > 0){\n        url = baseURL + '/Coba/Reports/ComplianceReport/' + _this.data.userdata_id;\n    }\n    \n    window.addEventListener(\"resize\", _this.compliance_report_frame.resize);\n    \n    _this.compliance_report_frame.el.dom.onload = function(){\n        \n        _this.compliance_report_frame.resize();\n    \n        var frame = _this.compliance_report_frame.el.dom.contentDocument || _this.compliance_report_frame.el.dom.contentWindow.document;\n        \n        var frameBody = Roo.get(frame.body);\n        \n        frameBody.scrollTo('top');\n        \n        frame.addEventListener('scroll', function(e) {\n            _this.compliance_report_frame.onScroll();\n        }, false);\n        \n    };\n    \n    _this.compliance_report_frame.el.dom.src = url;\n    \n    \n}"
+   },
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "Boolean fitwindow" : true,
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Please review the Compliance Report",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{\n    Roo.log(action);\n    \n    var err = 'Please Correct all the errors in red';\n   \n    if (\n            typeof(action) != 'undefined' && \n            (\n                action.failureType == 'server' ||\n                action.failureType == 'load'\n            )\n    ) {\n        err = action.result.errorMsg;\n    }\n    \n    Roo.bootstrap.MessageBox.alert('Error', err);\n    return;\n    \n}",
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n    \n        return;\n    }\n\n\n    if (action.type =='submit') {\n        \n        _this.dialog.hide();\n        \n        if (_this.callback) {\n            _this.callback.call(_this, action.result);\n        }\n        \n        _this.form.reset();\n        \n        return;\n    }\n\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL+'/Roo/Coba_investor_lexis_results'",
+     "xtype" : "Form",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:15px;",
+     "String method" : "POST",
+     "Boolean loadMask" : false,
+     "items" : [
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "String style" : "margin-top: 15px;",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.compliance_report_frame = this;\n    \n}"
+           },
+           "String tag" : "iframe",
+           "| function resize" : "function() \n{ \n    var height = _this.dialog.bodyEl.getHeight(true);\n    \n    _this.compliance_report_frame.el.setHeight(height);\n}",
+           "| function onScroll" : "function() \n{ \n    var frame = _this.compliance_report_frame.el.dom.contentDocument || _this.compliance_report_frame.el.dom.contentWindow.document;\n        \n    var frameBody = Roo.get(frame.body);\n    \n    var scrollHeight = frameBody.dom.scrollHeight;\n    \n    var viewHeight = _this.compliance_report_frame.el.getHeight();\n    \n    var scrollTop = frame.documentElement.scrollTop || frame.body.scrollTop;\n    \n    if(scrollHeight - viewHeight > scrollTop){\n        return;\n    }\n    \n    _this.acceptBtn.enableIt();\n    _this.rejectBtn.enableIt();\n    \n}",
+           "xtype" : "Element",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "width:100%;border:none;"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "String name" : "id",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      },
+      {
+       "String name" : "status",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "render" : "function (_self)\n{\n    _this.acceptBtn = this;\n}",
+      "click" : "function (_self, e)\n{\n    if(_this.data.id * 1 < 1){\n        Roo.bootstrap.MessageBox.alert('Error', 'Invalid User ID');\n        return;\n    }\n    \n    new Pman.Request({\n        url: baseURL + '/Roo/Ext_data.php',\n        method : 'POST',\n        params : {\n            id : _this.data.id,\n            _accept : 1\n        }, \n        success : function(res) {\n            \n            _this.dialog.hide();\n            \n            if(_this.callback){\n                _this.callback.call(_this);\n            }\n            \n        }\n    });\n    \n}"
+     },
+     "| function disableIt" : "function() \n{ \n    this.setText('Scroll to end before accept');\n    this.disable();\n}",
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Accept",
+     "* prop" : "buttons[]",
+     "| function enableIt" : "function() \n{ \n    this.setText('Accept');\n    \n    this.enable();\n}"
+    },
+    {
+     "listeners" : {
+      "render" : "function (_self)\n{\n    _this.rejectBtn = this;\n}",
+      "click" : "function (_self, e)\n{\n    if(_this.data.userdata_id * 1 < 1){\n        Roo.bootstrap.MessageBox.alert('Error', 'Invalid User ID');\n        return;\n    }\n    \n    Pman.Dialog.CobaInvestorComplianceReject.show({\n        id : 0,\n        investor_id : _this.data.userdata_id\n    }, function(res){\n        \n        _this.dialog.hide();\n        \n        if(_this.callback){\n            _this.callback.call(_this);\n        }\n        \n    });\n    \n}"
+     },
+     "| function disableIt" : "function() \n{ \n    this.setText('Scroll to end before reject');\n    this.disable();\n}",
+     "String weight" : "danger",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Reject",
+     "* prop" : "buttons[]",
+     "| function enableIt" : "function() \n{ \n    this.setText('Reject');\n    \n    this.enable();\n}"
+    }
+   ]
+  }
+ ]
+}

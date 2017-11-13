@@ -1,0 +1,158 @@
+<div class="container app-sum-body-container">
+    <div class="row">
+        <div class="col-md-12">
+            <span class="text-primary text-uppercase" style="font-size: 40px;">
+                {user_name}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 app-sum-body-ref-container">
+            <span class="text-primary text-uppercase">
+                Investment Advisor: {name_advisor}
+            </span>
+            <br />
+            <span class="text-primary text-uppercase">
+                Reference Code: {ref_code}
+            </span>
+        </div>
+    </div>
+
+    {foreach:summary,stepKey,steps}
+    {foreach:steps,sectionKey,sections}
+    {if:is_show_section(sectionKey)}
+     <div class="row">
+        <div class="col-md-12 panel-primary report_heading text-uppercase">
+            <div class="panel-heading">
+            <span>
+                {renderSectionKey(sectionKey):h}
+            </span>
+            </div>
+        </div>
+    </div>
+    {end:}
+     
+    {foreach:sections,applicants}
+       
+        {if:is_show_section(sectionKey)}		  
+         <!-- switching for specific sections -->		   
+        <!-- director section -->
+        {if:is_director_section(sectionKey)}
+            {foreach:data_director,directorKey,director}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">
+                            Director {modifyClientNumber(directorKey)}
+                        </span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_label_and_data(director,row,0)}
+                {end:}
+            </table>
+            {end:}
+
+        <!-- individual shareholder section -->
+        {else:}
+        {if:is_individual_shareholder(sectionKey)}
+            {save_buffer_for_individual_shareholder(applicants)}
+            {foreach:data_individual_shareholder,individual_shareholder_key,individual_shareholder}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">Shareholder : Individual {modifyClientNumber(individual_shareholder_key)}</span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_label_and_data(individual_shareholder,row,0)}
+                {end:}
+            </table>
+            {end:}
+
+        <!-- corporate shareholder section -->
+        {else:}
+        {if:is_company_shareholder(sectionKey)}
+            {save_buffer_for_company_shareholder(applicants)}
+            {foreach:data_company_shareholder,company_shareholder_key,company_shareholder}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">Shareholder : Company {modifyClientNumber(company_shareholder_key)}</span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_com_label_and_data(company_shareholder,row,0)}
+                {end:}
+            </table>
+                {print_shareholder_of_shareholder(company_shareholder,0)}
+            {end:}
+
+        <!-- default section -->
+        {else:}
+        <table class="app-sum-body-indi-data-table">
+            {foreach:applicants,row}
+            {if:checkDependency(row)}
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        {renderRowLabel(row):h}
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        {outputQuestionByType(row):h}
+                    </td>
+                </tr>
+            {end:}
+            {end:}
+
+        </table>
+        {end:}
+        {end:}
+        {end:}
+        <!-- swiching end -->
+        
+         <!-- section check end -->        
+        {end:}
+
+    {end:}
+
+    {end:}
+    {end:}
+
+    <!--declaration section-->
+    <div class="row">
+        <div class="col-md-12 panel-primary report_heading text-uppercase">
+            <div class="panel-heading">
+            <span>
+                Declaration
+            </span>
+            </div>
+        </div>    
+    </div>
+    <table class="app-sum-body-indi-data-table">
+    {foreach:declarations,declaration}
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-6 app-sum-body-indi-data">
+                {declaration.title}
+            </td>
+            <td class="col-md-6 app-sum-body-indi-data">
+                {if:declaration.is_agreed}
+                <span class='glyphicon glyphicon-check text-primary'></span>
+                {else:}
+                <span class='glyphicon glyphicon-unchecked text-primary'></span>
+                {end:}
+            </td>
+        </tr>
+    {end:}
+    </table>
+
+
+
+
+
+    </div>

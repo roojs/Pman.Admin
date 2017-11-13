@@ -1,0 +1,68 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorViewDocument",
+ "parent" : "",
+ "title" : "View",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorViewDocument.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "d3d2e617335f08df83599665eef8a418" : "Close",
+  "e8e7ffc6c93c719011760eefa8b92621" : "Download Original",
+  "91fe4cf4aa01a04fe3cc52827c526097" : "View Document"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    if(typeof(_this.data.file) == 'undefined' || _this.data.file.id * 1 < 1){\n        _this.dialog.hide();\n        return;\n    }\n    \n    var width = _this.viewer.thumbEl.getWidth();\n    \n    var files = [\n        baseURL +'/Images/Thumb/' + width + '/' + _this.data.file.id + '/' + _this.data.file.filename\n    ];\n    \n    if(_this.data.file.no_of_pages * 1 > 1){\n        \n        files = [];\n        \n        for ( var i = 1; i <= _this.data.file.no_of_pages * 1; i++){\n            files.push(baseURL +'/Images/Thumb/' + width + '/' + _this.data.file.id + '/' + _this.data.file.filename + '?page=' + i);\n        }\n        \n    }\n    \n    window.addEventListener(\"resize\", _this.viewer.resize);\n    \n    _this.viewer.files = files;\n    \n    _this.viewer.initial();\n    \n    _this.viewer.resize();\n    \n}"
+   },
+   "String cls" : "enable-overflow document-slider-dialog",
+   "Boolean allow_close" : false,
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "View Document",
+   "items" : [
+    {
+     "xtype" : "Row",
+     "$ xns" : "Roo.bootstrap",
+     "items" : [
+      {
+       "xtype" : "Column",
+       "Number xs" : 12,
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "listeners" : {
+          "render" : "function (_self)\n{\n    _this.viewer = this;\n    \n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n}"
+         },
+         "| function resize" : "function() \n{ \n    var view_height = Roo.lib.Dom.getViewHeight();\n    \n    var dialog_margins = _this.dialog.dialogEl.getMargins();\n    \n    var dialog_header = _this.dialog.headerEl.getHeight();\n\n    var dialog_footer = _this.dialog.footerEl.getHeight();\n    \n    var dialog_usage = dialog_margins.top + dialog_margins.bottom + dialog_header + dialog_footer;\n\n    var available_height = view_height - dialog_usage - _this.viewer.headerEl.getHeight();;\n    \n    _this.viewer.bodyEl.setHeight(available_height);\n    \n}",
+         "xtype" : "DocumentSlider",
+         "$ xns" : "Roo.bootstrap",
+         "bool showTrash" : false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    if(typeof(_this.data.file) == 'undefined' || _this.data.file.id * 1 < 1){\n        return;\n    }\n    \n    new Pman.Download({\n        url: baseURL + '/Images/Download/' + _this.data.file.id\n    });\n    \n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Download Original",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Close",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

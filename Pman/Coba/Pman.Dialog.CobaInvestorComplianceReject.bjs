@@ -1,0 +1,97 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorComplianceReject",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorComplianceReject.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "c3829f941b2eb369a4eb1788396c5556" : "explain why you reject this investor",
+  "babca5bf265170c851ad830547a20f02" : "Please explain why reject this investor",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK",
+  "539d24367a77a2a7b50a66bf7c4e6cf0" : "COMPLIANCE REJECTED"
+ },
+ "items" : [
+  {
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Please explain why reject this investor",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{\n    Roo.log(action);\n    \n    var err = 'Please Correct all the errors in red';\n   \n    if (\n            typeof(action) != 'undefined' && \n            (\n                action.failureType == 'server' ||\n                action.failureType == 'load'\n            )\n    ) {\n        err = action.result.errorMsg;\n    }\n    \n    Roo.bootstrap.MessageBox.alert('Error', err);\n    return;\n    \n}",
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n    \n        return;\n    }\n\n\n    if (action.type =='submit') {\n        \n        _this.dialog.hide();\n        \n        if (_this.callback) {\n            _this.callback.call(_this, action.result);\n        }\n        \n        _this.form.reset();\n        \n        return;\n    }\n\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL+'/Roo/coba_investor_notes'",
+     "xtype" : "Form",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:15px;",
+     "String method" : "POST",
+     "Boolean loadMask" : false,
+     "items" : [
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "Boolean allowBlank" : false,
+           "String name" : "notes",
+           "xtype" : "TextArea",
+           "string placeholder" : "explain why you reject this investor",
+           "$ xns" : "Roo.bootstrap"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "String name" : "id",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      },
+      {
+       "String name" : "investor_id",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      },
+      {
+       "String name" : "note_type",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap",
+       "string value" : "COMPLIANCE REJECTED"
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Cancel",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.form.doAction('submit');\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "OK",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

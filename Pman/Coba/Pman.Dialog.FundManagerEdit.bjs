@@ -1,0 +1,10 @@
+{
+ "name" : "Pman.Dialog.FundManagerEdit",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/johns/gitlive/web.coba/Pman/Coba/Pman.Dialog.FundManagerEdit.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "items" : [
+ ]
+}

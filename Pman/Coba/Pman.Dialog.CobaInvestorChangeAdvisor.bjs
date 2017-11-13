@@ -1,0 +1,107 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorChangeAdvisor",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorChangeAdvisor.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "5cfee765454e9ab499d547c20476f696" : "Change Advisor",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "76f6e3fca8e568586bf04d22f80c5628" : "Please select an advisor"
+ },
+ "items" : [
+  {
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Change Advisor",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{\n    Roo.log(action);\n    \n    var err = 'Please fill in all the request fields';\n    \n    if (typeof(action) != 'undefined' && (action.failureType == 'server' || action.failureType == 'load')) {    \n        err = action.result.errorMsg;\n    }\n    \n    Roo.bootstrap.MessageBox.alert('Error', err);\n\n}",
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n        \n        if(_this.data.id * 1 > 0) {\n            this.doAction('load',{ method: 'GET', params: { '_id' : _this.data.id }});\n        }\n        \n        return;\n    }\n   \n    if (action.type == 'load') {\n    \n        _this.data = action.result.data;\n        \n        return;\n    }\n    \n    \n    if (action.type == 'submit') {\n    \n        _this.dialog.hide();\n       \n        if (_this.callback) {\n            _this.callback.call(this, action.result.data);\n        }\n        \n        return; \n    }\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL + '/Roo/Ext_data'",
+     "xtype" : "Form",
+     "String labelAlign" : "top",
+     "$ xns" : "Roo.bootstrap",
+     "items" : [
+      {
+       "Number pageSize" : 25,
+       "Boolean allowBlank" : false,
+       "Number minChars" : 2,
+       "String name" : "investment_advisor_id_name",
+       "String valueField" : "id",
+       "String queryParam" : "query[name_starts]",
+       "Boolean typeAhead" : true,
+       "xtype" : "ComboBox",
+       "String triggerAction" : "all",
+       "Boolean editable" : false,
+       "Boolean alwaysQuery" : true,
+       "string placeholder" : "Please select an advisor",
+       "$ xns" : "Roo.bootstrap",
+       "String/Roo.Template tpl" : "<div class=\"roo-select2-result\"><b>{name}</b></div>",
+       "String hiddenName" : "investment_advisor_id",
+       "String displayField" : "name",
+       "items" : [
+        {
+         "listeners" : {
+          "beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    \n    o.params.in_group_name = 'Adviser';\n}"
+         },
+         "xtype" : "Store",
+         "boolean remoteSort" : true,
+         "$ xns" : "Roo.data",
+         "$ sortInfo" : "{field:\"name\",direction:\"ASC\"}",
+         "* prop" : "store",
+         "items" : [
+          {
+           "xtype" : "HttpProxy",
+           "$ xns" : "Roo.data",
+           "String method" : "GET",
+           "* prop" : "proxy",
+           "$ String url" : "baseURL+'/Roo/Core_person'"
+          },
+          {
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    }\n]",
+           "* prop" : "reader"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "String name" : "id",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide(); \n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Cancel",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.form.doAction(\"submit\");\n\n    return;\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Save",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

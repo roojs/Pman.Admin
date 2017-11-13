@@ -1,0 +1,354 @@
+<div class="container app-sum-body-container">
+    <div class="row">
+        <div class="col-md-12">
+            <span class="text-primary text-uppercase" style="font-size: 40px;">
+                {user_name}
+            </span>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+             <span class="text-primary text-uppercase">
+                Reference Code: {ref_code}
+            </span>
+        </div>
+    </div>
+    <!--display content-->
+   {foreach:sections,sectionKey,steps}
+    <div class="row">
+        <div class="col-md-12 panel-primary report_heading text-uppercase">
+            <div class="panel-heading">
+            <span>
+            {sectionKey}
+            </span>
+            </div>
+        </div>  
+    </div>
+       {if:!is_column_group(sectionKey)}
+   
+           {foreach:steps,subSecKey,subSec}
+       
+           {if:is_show_template(sectionKey,subSecKey)}
+           {get_template_name(sectionKey,subSecKey)}
+           <flexy:include src="{html_template}"></flexy:include>
+           {end:}
+
+           {foreach:subSec,applicantKey,applicant}
+           {if:is_show_score(sectionKey,subSecKey)}
+           <!--table with score-->
+
+
+       <div class="col-md-6">
+             {foreach:applicant,question}
+
+             {question[display_name]}
+         <table class="app-sum-body-indi-data-table">
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data" style="text-align:center; width:20%;">
+               Client {getApplicationKey(applicantKey)}
+            </td>
+        </tr>
+        <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data" style="width:80%;">
+
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                Score
+            </td>
+        </tr>
+        <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data">
+                {question[answer]}
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                {question[score]}
+            </td>
+        </tr>
+        </table>
+         <br>
+
+              {end:}
+           <!-- total score -->
+          <table class="app-sum-body-indi-data-table">
+          <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data" style="text-align:center; width:20%;">
+               Client {getApplicationKey(applicantKey)}
+            </td>
+           </tr>
+           <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data" style="width:80%;">
+                Add up totals for each question and write the total for each client or for joint as appropriate
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                TOTAL SCORE
+            </td>
+           </tr>
+           <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data">
+
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+              {display_score(applicantKey)}
+            </td>
+            </tr>
+          </table>
+           <!-- end total score -->
+           <!-- comment -->
+         <span class="app-sum-header-note-container">See below the scores for each “Risk Profile” and tick that you agree
+        to your corresponding score:</span>
+        <table class="app-sum-body-indi-data-table">
+        <tr class="app-sum-body-indi-data-row" >
+            <td class="col-md-8 app-sum-body-indi-data" colspan="4">
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data" style="text-align:center; width:20%;">
+               Client {getApplicationKey(applicantKey)}
+            </td>
+        </tr>
+        <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data" style="text-align:center; width:10%;">
+                SCORE
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:30%;">
+                RISK PROFILE
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                TIME HORIZON
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                FOCUS
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                DEFENSIVE INVESTMENTS
+            </td>
+        </tr>
+        <tr class="app-sum-body-indi-data-row">
+            <td class="app-sum-body-indi-data" style="text-align:center; width:10%;">
+                {display_comments(applicantKey,#score#)}
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:30%;">
+                <span class="app-sum-body-ref"><strong>{display_comments(applicantKey,#profile_key#)}</strong></span><br>
+                {display_comments(applicantKey,#profile#)}
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                {display_comments(applicantKey,#time#)}
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                {display_comments(applicantKey,#focus#)}
+            </td>
+            <td class="app-sum-body-indi-data" style="text-align:center; width:20%;">
+                {display_comments(applicantKey,#def_inv#)}
+            </td>
+        </tr>
+       </table>
+           <!-- end comment -->
+         </div>
+
+           {else:}
+           <!--table without score-->
+               {if:is_show_section(sectionKey,subSecKey,applicantKey)}
+               <div class="col-md-6">
+               {get_heading(sectionKey,subSecKey,applicantKey)}       
+               <table class="app-sum-body-indi-data-table" >
+    	         <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        Client {getApplicationKey(applicantKey)}
+                    </td>
+               </tr>
+               {if:is_show_info(sectionKey,subSecKey)}
+                   {get_inv_info(applicantKey):h}
+               {end:}
+               
+               {foreach:applicant,question}
+               {if:checkDependency(question,applicantKey)}
+               <tr class="app-sum-body-indi-data-row">
+                   <td class="col-md-6 app-sum-body-indi-data">
+                   {question[display_name]}
+                   </td>
+                   <td class="col-md-6 app-sum-body-indi-data">
+                   {outputField(question):h}
+                   </td>
+               </tr>                 
+               {end:}
+               {end:}
+               </table>
+               </div>
+              {else:}
+              <div class="col-md-6">     
+              </div>
+              {end:}
+         {end:} <!--end show score check-->                       
+         {end:} <!--end foreach-->      
+         {end:}  <!--end foreach--> 
+   
+   
+       {else:}
+       <!-- column group start-->        
+        {foreach:steps,applicantKey,applicant}
+				
+				<div class="col-md-6">				
+				{foreach:applicant,subSecKey,subSec}				
+				
+				{if:is_show_section(sectionKey,subSecKey,applicantKey)}
+				{get_heading(sectionKey,subSecKey,applicantKey)}
+				<table class="app-sum-body-indi-data-table" >
+    	          <tr class="app-sum-body-indi-data-row">
+                <td class="col-md-6 app-sum-body-indi-data">
+                </td>
+                <td class="col-md-6 app-sum-body-indi-data">
+                 Client {getApplicationKey(applicantKey)}
+                </td>
+                </tr>
+                {if:is_show_info(sectionKey,subSecKey)}
+                {get_inv_info(applicantKey):h}
+                {end:}
+                {foreach:subSec,question}
+                {if:checkDependency(question,applicantKey)}
+                <tr class="app-sum-body-indi-data-row">
+                <td class="col-md-6 app-sum-body-indi-data">
+                {question[display_name]}
+                </td>
+                <td class="col-md-6 app-sum-body-indi-data">
+                {outputField(question):h}
+                </td>
+                </tr>                 
+                {end:}
+                {end:}
+            </table>
+				{end:}
+				
+			   {end:}
+			   </div>	 
+        {end:}
+        
+       
+  
+       <!-- column group end-->
+       {end:}
+       
+
+   {end:}
+
+
+    <div class="row">
+        <div class="col-md-12 panel-primary report_heading text-uppercase">
+            <div class="panel-heading">
+            <span>
+                    Summary of your risk profile and your ideal portfolio            
+            </span>
+            </div>
+        </div>        
+    </div>
+     <div class="row">
+        <div class="col-md-12">
+            <span class="col-md-6">
+            Please tick which statement applies to you:
+            </span>
+        </div>
+    </div>
+    <br>
+    <table class="app-sum-body-indi-data-table">
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                We wish to invest according to my investor risk profile score
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+            {if:ext_data[risk_profile_is_invest_acc_to_score]}
+					<span class='glyphicon glyphicon-check text-primary'></span>
+            {else:}
+            	<span class='glyphicon glyphicon-unchecked text-primary'></span>
+            {end:}
+            </td>
+       </tr>
+        {if:!ext_data[risk_profile_is_invest_acc_to_score]}
+          <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                We wish to be invested according to a different risk profile.
+                For this investment please invest according to the following risk profile
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+            {decodeEnum(ext_data[risk_profile_invest_profile_id])}
+            </td>
+          </tr>
+       {end:}
+        <tr class="app-sum-body-indi-data-row">
+
+            <td class="col-md-8 app-sum-body-indi-data">
+                We wish to consider satellite positions in addition to my core portfolios
+                and understand these positions may be higher risk and show higher volatility
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+            {if:ext_data[risk_profile_is_consider_satellite]}
+					<span class='glyphicon glyphicon-check text-primary'></span>
+            {else:}
+            	<span class='glyphicon glyphicon-unchecked text-primary'></span>
+            {end:}
+            </td>
+        </tr>
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                We wish to impose additional restrictions on my investment portfolio and
+                investment recommendations (see details below)
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+             {if:ext_data[risk_profile_is_impose_restriction]}
+					<span class='glyphicon glyphicon-check text-primary'></span>
+            {else:}
+            	<span class='glyphicon glyphicon-unchecked text-primary'></span>
+            {end:}
+            </td>
+        </tr>
+         {if:ext_data[risk_profile_is_impose_restriction]}
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                Additional restrictions:
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+                {renderField(ext_data[risk_profile_restriction])}
+            </td>
+        </tr>
+         {end:}
+          <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                Client and Adviser agreed the following Portfolio(s):
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+                {renderField(ext_data[risk_profile_agreed_portfolio])}
+            </td>
+        </tr>
+    </table>
+
+      <div class="row">
+        <div class="col-md-12">
+            <span class="col-md-6">
+            Client and Adviser agreed the following currency for the portfolio
+            </span>
+        </div>
+    </div>
+    <br>
+    <table class="app-sum-body-indi-data-table">
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-8 app-sum-body-indi-data">
+                Portfolio Recommended
+            </td>
+            <td class="col-md-4 app-sum-body-indi-data">
+            {decodeEnum(ext_data[risk_profile_agreed_currency_ids])}				
+            </td>
+       </tr>
+    </table>
+
+     <div class="row">
+        <div class="col-md-12 panel-primary report_heading text-uppercase">
+            <div class="panel-heading">
+            <span>
+                    Client acknowledgement           
+            </span>
+            </div>
+        </div>                           
+    </div>
+</div>

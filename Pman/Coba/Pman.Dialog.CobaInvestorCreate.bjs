@@ -1,0 +1,464 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorCreate",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/khlau/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorCreate.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "c55bb3f1897a02f7c3be32fc933b0e0c" : "Create Investor",
+  "5a679c50cadfca1ff5cdbd31939af3fc" : "Generated password",
+  "b60a6cfe4d8391ec9c29e11ab13216cd" : "Select Investment Advisor",
+  "e5676ba19f12f141c9d199c36ee5fde6" : "please select the fund related to the investor",
+  "c83804c010b690de6f340363e374b777" : "please enter the email of the investor",
+  "52c649c38236206862e79e77f735902d" : "Investment Advisor",
+  "e09596c4d5ca0043bbe539924e37adf9" : "please enter the username of the investor",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "ae9e6ac49d4f451b1ebf440619f595b5" : "please select the type of the investor",
+  "f6039d44b29456b20f8f373155ae4973" : "Username",
+  "51eea3dc60ae3a0b1bb8188bc6337dc2" : "enter password",
+  "c1098dd48f0fb20eeea79235055d02ca" : "Fund",
+  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK",
+  "e456949630edb405fba2217ddeef7f3c" : "Primary contact email",
+  "27f4aa512a351222967865d05016314c" : "enter password again to confirm"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n     Roo.get(document.body).mask('Loading');\n     new Pman.Request({\n        url : baseURL + '/Roo/Modx_accountmgmts' ,\n        method : 'GET',\n        params : {\n        }, \n        success : function(res) {          \n            if(res.data){\n                _this.fund_name.store.proxy.data = res;\n            }\n            new Pman.Request({\n                url : baseURL + '/Roo/core_person' ,\n                method : 'GET',\n                params : {\n                    in_group_name : 'Adviser'\n                }, \n                success : function(res) {          \n                    if(res.data){\n                        _this.advisor.store.proxy.data = res;\n                    }\n                    Roo.get(document.body).unmask();\n                },\n                failure : function(res) {\n                    Roo.get(document.body).unmask();\n                }\n            });\n        },\n        failure : function(res) {\n            Roo.get(document.body).unmask();\n        }\n    });\n}",
+    "render" : "function (_self)\n{\n    _this._confirm_dialog = Pman.Dialog.CobaInvestorCreateConfirm;\n}"
+   },
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Create Investor",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{  \n   _this.submit_button.enable();\n   _this.submit_button.setText('OK');\n   Roo.log('action call: '+action);\n   Roo.log(\"action failed\");\n   Roo.log(\"action type:\"+action.failureType);\n  \n   \n   if(action.result.errorMsg.length >= 200) {\n       Roo.bootstrap.MessageBox.alert(\"Error\", action.result.errorMsg.substring(0,199) + '...');\n  \n   } else {\n       Roo.bootstrap.MessageBox.alert(\"Error\", action.result.errorMsg);\n   }\n}",
+      "actioncomplete" : "function (_self, action) {\n\n    if (action.type == 'setdata') {\n        _this.check_set_pw_true.setValue('0');\n        //this.url = baseURL+'/Roo/Modx_accountmgmts'\n        //this.doAction('load', { method: 'GET', params: action.data });\n        return;\n    }\n    if (action.type == 'load') {\n        return;\n    }\n    if (action.type =='submit') {\n        Roo.log('test submit');\n        \n        if (_this.callback) {\n            _this.callback.call(_this, action.result);\n        }\n        \n      \n        \n        _this.submit_button.enable();\n        _this.submit_button.setText('OK');\n        _this.dialog.hide();\n        if(_this._confirm_dialog) {\n            _this._confirm_dialog.show({'investor_id':action.result.data.id, 'account_type': _this.investor_type.getValue()});            \n        }\n         \n        _this.form.reset();\n        return;\n    }\n\n}",
+      "show" : "function (_self)\n{\n    //if(_this.fund_name) {\n    //    _this.fund_name.store.load({});\n    //}\n}",
+      "render" : "function (_self,e)\n{\n    _this.form = _self;\n    \n}"
+     },
+     "xtype" : "Form",
+     "$ xns" : "Roo.bootstrap",
+     "String method" : "POST",
+     "$ String url" : "baseURL+'/Roo/Modx_users'",
+     "items" : [
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.investor_type = _self;\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "type",
+           "xtype" : "ComboBox",
+           "String triggerAction" : "all",
+           "Boolean editable" : false,
+           "String labelAlign" : "top",
+           "string fieldLabel" : "Type",
+           "string placeholder" : "please select the type of the investor",
+           "$ xns" : "Roo.bootstrap",
+           "String displayField" : "value",
+           "items" : [
+            {
+             "| data" : "[\n    ['individual', 'Individual'],\n    ['corporate', 'Corporate'],\n    ['joint', 'Joint']\n]",
+             "xtype" : "SimpleStore",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[ 'code', 'value' ]",
+             "* prop" : "store"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.fund_name = _self;\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "fund_name",
+           "String triggerAction" : "all",
+           "xtype" : "ComboBox",
+           "Boolean editable" : false,
+           "String labelAlign" : "top",
+           "string fieldLabel" : "Fund",
+           "string placeholder" : "please select the fund related to the investor",
+           "Boolean alwaysQuery" : false,
+           "$ xns" : "Roo.bootstrap",
+           "String/Roo.Template tpl" : "<div class=\"roo-select2-result\"><b>{name}</b></div>",
+           "String displayField" : "name",
+           "items" : [
+            {
+             "listeners" : {
+              "beforeload" : "function (_self, options)\n{\n\n}"
+             },
+             "$ Object sortInfo" : "{field:\"name\",direction:\"ASC\"}",
+             "xtype" : "Store",
+             "boolean remoteSort" : false,
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ Array fields" : "[{'name':'name','type':'string'},{'name':'id',type:'string'}]",
+               "xtype" : "JsonReader",
+               "$ xns" : "Roo.data",
+               "* prop" : "reader"
+              },
+              {
+               "xtype" : "MemoryProxy",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.advisor = _self;\n}"
+           },
+           "Boolean allowBlank" : false,
+           "Number minChars" : 2,
+           "String name" : "investment_advisor_id_name",
+           "String valueField" : "id",
+           "String queryParam" : "query[name]",
+           "Boolean typeAhead" : true,
+           "xtype" : "ComboBox",
+           "String triggerAction" : "all",
+           "Boolean editable" : false,
+           "Boolean alwaysQuery" : false,
+           "String labelAlign" : "top",
+           "string placeholder" : "Select Investment Advisor",
+           "$ xns" : "Roo.bootstrap",
+           "String/Roo.Template tpl" : "<div class=\"roo-select2-result\"><b>{name}</b></div>",
+           "String fieldLabel" : "Investment Advisor",
+           "String hiddenName" : "investment_advisor_id",
+           "String displayField" : "name",
+           "Boolean forceSelection" : true,
+           "String indicatorpos" : "right",
+           "items" : [
+            {
+             "listeners" : {
+              "beforeload" : "function (_self, o)\n{\n\n}"
+             },
+             "xtype" : "Store",
+             "boolean remoteSort" : false,
+             "$ xns" : "Roo.data",
+             "$ sortInfo" : "{field:\"name\",direction:\"ASC\"}",
+             "* prop" : "store",
+             "items" : [
+              {
+               "xtype" : "JsonReader",
+               "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    }\n]",
+               "$ xns" : "Roo.data",
+               "* prop" : "reader"
+              },
+              {
+               "xtype" : "MemoryProxy",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "valid" : "function (_self)\n{\n    var re = /^(([^<>()\\[\\]\\.,;:\\s@\\\"]+(\\.[^<>()\\[\\]\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@(([^<>()[\\]\\.,;:\\s@\\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\\"]{2,})$/;\n    if (!re.test(_this.email.getValue())){\n        _this.email.markInvalid('testing');\n    }\n}",
+            "keyup" : "function (_self, e)\n{\n//    console.debug('text box value: ' + _this.form.findField('email').getValue());\n    var email = _this.form.findField('email').getValue();\n    if(email.length>0) {\n        var res = email.split('@');\n        if(res.length>0) {\n            _this.form.findField('username').setValue(res[0]);\n        } else {\n            _this.form.findField('username').setValue(email);\n        }\n    }\n}",
+            "render" : "function (_self)\n{\n    _this.email = this;\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "email",
+           "xtype" : "Input",
+           "string fieldLabel" : "Primary contact email",
+           "String labelAlign" : "top",
+           "string placeholder" : "please enter the email of the investor",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "width: inherit;"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "username",
+           "xtype" : "Input",
+           "string fieldLabel" : "Username",
+           "String labelAlign" : "top",
+           "string placeholder" : "please enter the username of the investor",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "width: inherit;"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 6,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.check_set_pw_false = this;\n}",
+            "check" : "function (_self, checked)\n{\n\n    if (checked){\n    \n    \n    _this.check_gen_pw_row.el.hide('TRUE');\n    _this.pw_enter_row.el.hide('TRUE');\n    _this.pw_gen_row.el.hide('TRUE');\n    \n    _this.pw_gen.setValue('');\n    _this.pw_enter.setValue('please enter your password');\n    _this.pw_reenter.setValue('please enter your password');\n    //_this.check_gen_pw_true.setValue('0');\n    }\n   \n    \n}"
+           },
+           "String name" : "check_set_pw",
+           "xtype" : "Radio",
+           "String valueOff" : 0,
+           "String boxLabel" : "No password",
+           "$ xns" : "Roo.bootstrap",
+           "String inputValue" : 0,
+           "String style" : "float: left; width: 200px;"
+          }
+         ]
+        },
+        {
+         "xtype" : "Column",
+         "Number xs" : 6,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.check_set_pw_true = this;\n}",
+            "check" : "function (_self, checked)\n{\n    if (checked){\n        Roo.log('return check_set_pw_true: '+checked);\n        _this.check_gen_pw_row.el.show('TRUE');\n        _this.pw_enter_row.el.hide('TURE');\n        _this.check_gen_pw_true.setValue('1');\n        _this.pw_enter.setValue('please enter your password');\n        _this.pw_reenter.setValue('please enter your password');\n\n    }\n}\n\n"
+           },
+           "String name" : "check_set_pw",
+           "xtype" : "Radio",
+           "String valueOff" : 0,
+           "String boxLabel" : "Set password",
+           "$ xns" : "Roo.bootstrap",
+           "String inputValue" : 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n    _this.check_gen_pw_row = this;\n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n}"
+       },
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 6,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "check" : "function (_self, checked)\n{\n\n    _this.pw_gen_row.el.hide('TRUE');\n    _this.pw_gen.setValue('');\n    \n    _this.pw_enter_row.el.show('TRUE');\n    _this.pw_enter.setValue('');\n    _this.pw_reenter.setValue('');\n}"
+           },
+           "String name" : "check_gen_pw",
+           "xtype" : "Radio",
+           "String boxLabel" : "Enter Password",
+           "$ xns" : "Roo.bootstrap",
+           "String inputValue" : 0,
+           "String style" : "float: left; width: 200px;"
+          }
+         ]
+        },
+        {
+         "xtype" : "Column",
+         "Number xs" : 6,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.check_gen_pw_true = this;\n}",
+            "check" : "function (_self, checked)\n{\n\n    _this.pw_gen_row.el.show('TRUE');\n    var randomPw = Math.random().toString(36).slice(-8);\n    _this.pw_gen.setValue(randomPw);\n    \n    _this.pw_enter_row.el.hide('TRUE');\n\n    _this.pw_enter.setValue('please enter your password');\n    _this.pw_reenter.setValue('please enter your password');\n    \n    \n}"
+           },
+           "String name" : "check_gen_pw",
+           "xtype" : "Radio",
+           "String boxLabel" : "Generate password",
+           "$ xns" : "Roo.bootstrap",
+           "String inputValue" : 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n    _this.pw_enter_row = this;\n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n    \n}"
+       },
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.pw_enter = this;\n}",
+            "change" : "function (_self, newValue, oldValue)\n{\n    _this.pw_reenter.markInvalid('unmatch2');\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "pw_enter",
+           "xtype" : "Input",
+           "String labelAlign" : "top",
+           "string placeholder" : "enter password",
+           "String inputType" : "password",
+           "$ xns" : "Roo.bootstrap"
+          },
+          {
+           "listeners" : {
+            "valid" : "function (_self)\n{\n\n    if (_this.pw_enter.getValue() != _this.pw_reenter.getValue()){\n\n        _this.pw_reenter.markInvalid('unmatch2');\n\n    }\n\n}",
+            "render" : "function (_self)\n{\n    _this.pw_reenter = this;\n}"
+           },
+           "Boolean allowBlank" : false,
+           "String name" : "pw_reenter",
+           "xtype" : "Input",
+           "String labelAlign" : "top",
+           "string placeholder" : "enter password again to confirm",
+           "String inputType" : "password",
+           "$ xns" : "Roo.bootstrap"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n    _this.pw_gen_row = this;\n    this.el.setVisibilityMode(Roo.Element.DISPLAY);\n}"
+       },
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "Number xs" : 12,
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.pw_gen = this;\n}"
+           },
+           "Boolean allowBlank" : true,
+           "String name" : "pw_gen",
+           "xtype" : "Input",
+           "String labelAlign" : "top",
+           "string fieldLabel" : "Generated password",
+           "$ xns" : "Roo.bootstrap"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "render" : "function (_self)\n{\n    _this.password = this;\n}"
+       },
+       "String name" : "new_password",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      }
+     ]
+    },
+    {
+     "xtype" : "Row",
+     "$ xns" : "Roo.bootstrap",
+     "items" : [
+      {
+       "xtype" : "Column",
+       "Number xs" : 12,
+       "$ xns" : "Roo.bootstrap"
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "render" : "function (_self)\n{\n    _this.submit_button = this;\n}",
+      "click" : "function (_self, e)\n{\n    if(!_this.form.isValid()){\n        Roo.bootstrap.MessageBox.alert('Error','Invalid Input');\n        return;\n    }\n       \n    if(_this.check_set_pw_true.getValue() == '0'){\n        _this.password.setValue('');\n    }\n    else{\n        if(_this.check_gen_pw_true.getValue() == '0'){\n            _this.password.setValue(_this.pw_reenter.getValue());\n        }\n        else {\n            _this.password.setValue(_this.pw_gen.getValue());\n        }\n    }\n    \n    _this.form.doAction('submit');\n    _this.submit_button.disable();\n    _this.submit_button.setText('sending...');\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "OK",
+     "String style" : "float: right; margin: 10px; width:70px;",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "String weight" : "danger",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Cancel",
+     "String style" : "float: right; margin: 10px;",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

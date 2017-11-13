@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:html="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <flexy:include src="application-summary-master-head.html"></flexy:include>
+
+    <body class="ytheme-gray app-sum-body" xtype="Roo.bootstrap.Body">
+
+        <!--header start-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 app-sum-header-logo-container">                    
+                    <div class="col-md-12 app-logo">
+                    </div>                                        
+                </div>
+            </div>            
+            <div class="row">
+                <div class="col-md-12 app-sum-header-address-container">
+                    <span class="client-company-name"></span> <span class="client-parent-company-name"></span><br />
+                        <span class="client-address"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 app-sum-header-note-container">
+                <strong>Note: </strong>
+                    <span class="client-company-name"></span> are committed to ensuring that any personal data received is safeguarded against unauthorized disclosure.  
+                    The data provided herein is subject to the provisions of the Personal Data (Privacy) Ordinance (Cap. 486, Laws of Hong Kong).  
+                    This means that we will not disclose any personal data unless we have given written authorization to do so, or unless the disclosure is 
+                    otherwise permitted under the provisions of the Personal Data (Privacy) Ordinance.<br />
+                    The information collected in this report has been submitted on a voluntary basis. In no event, will <span class="client-company-name"></span>, 
+                    its related entities, or the partners or employees thereof be liable to the recipient or anyone else for any decision made or action taken in 
+                    reliance on the information supplied below.
+               </div>
+           </div>
+            <div class="row">
+                <div class="col-md-12 text-primary text-uppercase">
+                    <span class="app-sum-header-date">REPORT DATE: {report_date}</span>
+                </div>
+            </div>
+            <br>
+        </div>
+        <!--header end-->
+
+        <!--body for different account_types-->
+        {outputBody()}
+        <!--body end-->
+
+        <!--footer start-->
+        <flexy:include src="{client_dir}/report-footer.html"></flexy:include>        
+        <!--footer end-->
+    </body>
+
+    <flexy:include src="application-summary-master-footer.html"></flexy:include>
+
+</html>

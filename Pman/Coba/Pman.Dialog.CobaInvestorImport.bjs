@@ -1,0 +1,116 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorImport",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorImport.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "1aa14e9f377b528b5537d70fbd35c6a2" : "Select File",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "913ddd7613d305b4879b376adf3f798c" : "Import Investor",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    _this.submit_button.enable();\n    _this.submit_button.setText('OK');\n}"
+   },
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Import Investor",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{\n    _this.submit_button.enable();\n    _this.submit_button.setText('OK');\n    Roo.log('action call: ');\n    Roo.log(action);\n    Roo.log(\"action failed\");\n    Roo.log(\"action type:\"+action.failureType);\n    \n    switch(action.failureType) {\n        case Roo.form.Action.SERVER_INVALID: \n           if(action.result.errorMsg==\"duplicate\") {\n               Roo.bootstrap.MessageBox.confirm(\n                   \"Duplicate Entries where found, do you wish to import anyway\", \n                    action.result.errors.toString(), \n                    function(res) {\n                        if(res == 'no') {\n                            return;\n                        }\n                        _this.form.findField('import_duplicate').setValue('1'); \n                        _this.form.doAction('submit');\n                        _this.submit_button.disable();\n                        _this.submit_button.setText('sending...');\n                       }\n                    );\n                  \n           } else {\n               Roo.bootstrap.MessageBox.alert(\"Server Error\", action.result.errors.toString());\n           }\n           break;\n        case Roo.form.Action.CLIENT_INVALID: //for validation\n            Roo.bootstrap.MessageBox.alert(\"Client Error\", action.result.errorMsg);\n            break;\n        case Roo.form.Action.CONNECT_FAILURE:\n            Roo.bootstrap.MessageBox.alert(\"Connect Error\", action.result.errorMsg);\n            break;\n        default: \n           Roo.bootstrap.MessageBox.alert(\"Error\", action.result.errorMsg);\n           break;    \n    }\n}",
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n        _self.reset(); \n        if(_this.data.id * 1 > 0) {\n//            _this.onid.setValue(_this.data.id);\n//            _this.ontable.setValue('coba_declarations');\n        }        \n        return;\n    }\n   \n   if (action.type == 'submit') { // only submitted here if we are \n       _this.dialog.hide();\n       if (_this.callback) {\n            _this.callback.call(_this, action.result);\n        }\n        \n        _this.submit_button.enable();\n        _this.submit_button.setText('OK');\n        return;\n    }\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL + '/Coba/Import/Investors'",
+     "xtype" : "Form",
+     "Boolean fileUpload" : true,
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:15px;",
+     "String method" : "POST",
+     "items" : [
+      {
+       "String cls" : "col-md-12",
+       "xtype" : "Container",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Row",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "xtype" : "Column",
+           "$ xns" : "Roo.bootstrap",
+           "items" : [
+            {
+             "Boolean allowBlank" : false,
+             "String name" : "imageUpload",
+             "xtype" : "Input",
+             "string fieldLabel" : "Select File",
+             "String labelAlign" : "top",
+             "String inputType" : "file",
+             "$ xns" : "Roo.bootstrap"
+            },
+            {
+             "String name" : "post_max_filesize",
+             "xtype" : "Input",
+             "String inputType" : "hidden",
+             "$ xns" : "Roo.bootstrap",
+             "String vtype" : "32M"
+            },
+            {
+             "String name" : "upload_max_filesize",
+             "xtype" : "Input",
+             "String inputType" : "hidden",
+             "$ xns" : "Roo.bootstrap",
+             "String vtype" : "32M"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n    _this.import_duplicate = _self;\n}"
+             },
+             "String name" : "import_duplicate",
+             "xtype" : "Input",
+             "String inputType" : "hidden",
+             "$ xns" : "Roo.bootstrap"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide({});\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "float: right; margin: 10px; width: 70px;",
+     "String html" : "Cancel",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "render" : "function (_self)\n{\n    _this.submit_button = _self;\n}",
+      "click" : "function (_self, e)\n{\n    if(!_this.form.isValid()){\n          Roo.bootstrap.MessageBox.alert('Error', 'Please Correct all the errors in red');\n          return;\n    }\n    _this.form.findField('import_duplicate').setValue(''); \n    _this.form.doAction('submit');\n    _this.submit_button.disable();\n    _this.submit_button.setText('sending...');\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "float: right; margin: 10px; width: 70px;",
+     "String html" : "OK",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

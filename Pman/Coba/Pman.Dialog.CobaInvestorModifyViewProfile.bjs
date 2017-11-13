@@ -1,0 +1,18 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorModifyViewProfile",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/johns/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorModifyViewProfile.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "c428704e24d1e6c1b7a914c2a6ba9695" : "Investor Profile"
+ },
+ "items" : [
+  {
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Investor Profile"
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+
+.roo-document-manager-uploader, .roo-document-manager-loading, .roo-document-manager-preview {
+    margin-top: 0px;
+}
+
+.coba-document-table thead th:first-child,
+.coba-document-table tbody td:first-child {
+    padding-left: 15px;
+}
+
+.enable-overflow {
+    overflow : auto;
+}

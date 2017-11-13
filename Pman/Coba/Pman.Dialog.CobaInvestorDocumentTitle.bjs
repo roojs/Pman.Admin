@@ -1,0 +1,71 @@
+{
+ "name" : "Pman.Dialog.CobaInvestorDocumentTitle",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaInvestorDocumentTitle.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "cc50e67baddb78229bf62a269e95b3fe" : "Enter Document Title",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK",
+  "e647ea78eaa03bc9426685b054758bb9" : "Please enter the document title"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    this.setTitle(\"Enter Document Title For \" + _this.data.name)\n}"
+   },
+   "String cls" : "enable-overflow",
+   "Boolean animate" : false,
+   "Boolean allow_close" : false,
+   "xtype" : "Modal",
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Enter Document Title",
+   "items" : [
+    {
+     "listeners" : {
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n        return;\n    }\n\n    if (action.type =='submit') {\n        return;\n    }\n\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL + '/Roo/Invalid'",
+     "xtype" : "Form",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:15px;",
+     "String method" : "POST",
+     "Boolean loadMask" : false,
+     "items" : [
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "Boolean allowBlank" : false,
+           "String name" : "title",
+           "xtype" : "Input",
+           "string placeholder" : "Please enter the document title",
+           "$ xns" : "Roo.bootstrap"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    if(!_this.form.isValid()){\n        Roo.bootstrap.MessageBox.alert('Error', 'Please fill in all the require field');\n        return;\n    }\n    \n    _this.dialog.hide();\n    \n    if (_this.callback) {\n        _this.callback.call(_this, _this.form.getValues());\n    }\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "OK",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

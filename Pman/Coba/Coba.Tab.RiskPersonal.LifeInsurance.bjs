@@ -1,0 +1,583 @@
+{
+ "name" : "Coba.Tab.RiskPersonal.LifeInsurance",
+ "parent" : "Coba.Tab.RiskPersonal",
+ "title" : "",
+ "path" : "/home/johns/gitlive/web.coba/Pman/Coba/Coba.Tab.RiskPersonal.LifeInsurance.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "2895e3be29309616204afd096d1e6653" : "Liabilities to be paid out (e.g. Mortgage, Personal Loans):",
+  "74a2c78bffd362899c586b892448533e" : "Guarantor's insurance:",
+  "1f20f91fae0ff79efca4d8d02306ba3e" : "Protecion of family and/ or assets in the event of Death or Total and Permanent Disablement",
+  "ab91c7fde7e3f470415e967fd72f9332" : "Provide against Critical Illness or Major Trauma",
+  "e1678dfbd206408d8ef5bfb94228bea5" : "Business Insurance",
+  "4f81ff448f5008d6dfbe5b474d7521f2" : "Liabilities to be paid out (e.g. Mortgage, Loans):",
+  "cbf07fc663c0d8d286520e88cef718d6" : "Amount of income to be covered:",
+  "c262b5a5a8b218eaa0604f30bf75e7f6" : "For how long would you want your income replaced?",
+  "d3d9446802a44259755d38e6d163e820" : "10",
+  "b8fa154d2e9e40b9f339dba7dabde17c" : "Emergency fund:",
+  "eedf4b0c45884f110a705535494c893f" : "Do you require Key-person insurance?",
+  "dea938ebabb8ebbf5fe89506727bb247" : "Funeral expenses:",
+  "7fe2a2366ed2550f552a84a37c46af56" : "Protect income against serious illness or injury",
+  "f7302683963f2a1c38d31d48aa2a17ef" : "Waiting period (How long could you sustain lifestyle without earning income?)",
+  "1447299d17e7910f74983c23e9d79d5b" : "Children's education expenses:",
+  "70e9e572ab6623d0d2420faaa2c67adf" : "Other Expenses (e.g. Medical, Home Improvements):",
+  "22dd14a1d6bbc507213d3502c364d721" : "Need for share purchase, partnership insurance for buy/sell arrangement:",
+  "00c1ad871e16f31bc35aaeba5c71d296" : "Income to be replaced:",
+  "176a8c52ebd1a2f21acceabb717334ec" : "Benefit period (If you needed to make claim, for how long would you like benefits paid?)",
+  "ee629a7c963d602a41c6a4cdfd36673a" : "10. Life Insurance Objectives & Concerns",
+  "66c4c5112f455a19afde47829df363fa" : "Total:",
+  "fc1858e766ad35ccd1e3aaa0766a7fea" : "Other:"
+ },
+ "items" : [
+  {
+   "xtype" : "Content",
+   "String region" : "center",
+   "$ xns" : "Roo.bootstrap.panel",
+   "String title" : 10,
+   "items" : [
+    {
+     "String header" : "10. Life Insurance Objectives & Concerns",
+     "xtype" : "Container",
+     "String panel" : "primary",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:20px;",
+     "items" : [
+      {
+       "xtype" : "Form",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "String header" : "Protecion of family and/ or assets in the event of Death or Total and Permanent Disablement",
+         "String panel" : "info",
+         "xtype" : "Container",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_liability_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "Liabilities to be paid out (e.g. Mortgage, Personal Loans):",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_expense_edu_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "Children's education expenses:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_income_replace_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "Income to be replaced:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_year_replace_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "For how long would you want your income replaced?",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_expense_funeral_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "Funeral expenses:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_fund_emergency_family",
+               "xtype" : "Input",
+               "string fieldLabel" : "Emergency fund:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "xtype" : "Input",
+               "string fieldLabel" : "Total:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "String header" : "Provide against Critical Illness or Major Trauma",
+         "String panel" : "info",
+         "xtype" : "Container",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_liability_critical",
+               "xtype" : "Input",
+               "string fieldLabel" : "Liabilities to be paid out (e.g. Mortgage, Loans):",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_expense_critical",
+               "xtype" : "Input",
+               "string fieldLabel" : "Other Expenses (e.g. Medical, Home Improvements):",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_income_replace_critical",
+               "xtype" : "Input",
+               "string fieldLabel" : "Income to be replaced:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_income_other_critical",
+               "xtype" : "Input",
+               "string fieldLabel" : "Other:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "xtype" : "Input",
+               "string fieldLabel" : "Total:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "String header" : "Protect income against serious illness or injury",
+         "xtype" : "Container",
+         "String panel" : "info",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_income_cover_serious",
+               "xtype" : "Input",
+               "string fieldLabel" : "Amount of income to be covered:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_year_sustain_serious",
+               "xtype" : "Input",
+               "string fieldLabel" : "Waiting period (How long could you sustain lifestyle without earning income?)",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_year_benefit_serious",
+               "xtype" : "Input",
+               "string fieldLabel" : "Benefit period (If you needed to make claim, for how long would you like benefits paid?)",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_income_other_serious",
+               "xtype" : "Input",
+               "string fieldLabel" : "Other:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "xtype" : "Input",
+               "String labelAlign" : "left",
+               "string fieldLabel" : "Total:",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "String header" : "Business Insurance",
+         "String panel" : "info",
+         "xtype" : "Container",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_expense_share_business",
+               "xtype" : "Input",
+               "string fieldLabel" : "Need for share purchase, partnership insurance for buy/sell arrangement:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 12,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "String name" : "insurance_expense_guarantor_business",
+               "xtype" : "Input",
+               "string fieldLabel" : "Guarantor's insurance:",
+               "String labelAlign" : "left",
+               "$ xns" : "Roo.bootstrap",
+               "String style" : "line-height: 30px;",
+               "Number labelWidth" : 4
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "Row",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "margin: 5px;",
+           "items" : [
+            {
+             "Number md" : 4,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "xtype" : "FieldLabel",
+               "$ xns" : "Roo.bootstrap",
+               "String html" : "Do you require Key-person insurance?",
+               "String style" : "line-height: 45px; margin-left:14px;"
+              }
+             ]
+            },
+            {
+             "Number md" : 8,
+             "xtype" : "Column",
+             "$ xns" : "Roo.bootstrap",
+             "items" : [
+              {
+               "xtype" : "Row",
+               "$ xns" : "Roo.bootstrap",
+               "items" : [
+                {
+                 "Number md" : 2,
+                 "xtype" : "Column",
+                 "$ xns" : "Roo.bootstrap",
+                 "items" : [
+                  {
+                   "String name" : "insurance_is_require_keyperson",
+                   "xtype" : "Radio",
+                   "String labelAlign" : "top",
+                   "String boxLabel" : "Yes",
+                   "$ xns" : "Roo.bootstrap",
+                   "String inputValue" : 1
+                  }
+                 ]
+                },
+                {
+                 "Number md" : 2,
+                 "xtype" : "Column",
+                 "$ xns" : "Roo.bootstrap",
+                 "items" : [
+                  {
+                   "String name" : "insurance_is_require_keyperson",
+                   "xtype" : "Radio",
+                   "String labelAlign" : "left",
+                   "String boxLabel" : "No",
+                   "$ xns" : "Roo.bootstrap",
+                   "String inputValue" : 0
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

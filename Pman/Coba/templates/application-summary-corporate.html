@@ -1,0 +1,169 @@
+<div class="container app-sum-body-container">
+    <div class="row">
+        <div class="col-md-12 app-sum-body-user-name-container">
+            <span class="app-sum-body-user-name">
+                {user_name}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 app-sum-body-ref-container">
+            <span class="app-sum-body-ref">
+                Investment Advisor: {name_advisor}
+            </span>
+            <br />
+            <span class="app-sum-body-ref">
+                Reference Code: {ref_code}
+            </span>
+        </div>
+    </div>
+
+    {foreach:summary,stepKey,steps}
+    {foreach:steps,sectionKey,sections}
+    <div class="row">
+        <div class="col-md-12 app-sum-body-section-container">
+            <span class="app-sum-body-section">
+                {sectionKey}
+            </span>
+        </div>
+    </div>
+
+    {foreach:sections,applicants}
+        <!-- switching for specific sections -->
+
+        <!-- director section -->
+        {if:is_director_section(sectionKey)}
+            {foreach:data_director,directorKey,director}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">
+                            Director {modifyClientNumber(directorKey)}
+                        </span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_label_and_data(director,row,0)}
+                {end:}
+            </table>
+            {end:}
+
+        <!-- individual shareholder section -->
+        {else:}
+        {if:is_individual_shareholder(sectionKey)}
+            {save_buffer_for_individual_shareholder(applicants)}
+            {foreach:data_individual_shareholder,individual_shareholder_key,individual_shareholder}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">Individual Shareholder {modifyClientNumber(individual_shareholder_key)}</span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_label_and_data(individual_shareholder,row,0)}
+                {end:}
+            </table>
+            {end:}
+
+        <!-- corporate shareholder section -->
+        {else:}
+        {if:is_company_shareholder(sectionKey)}
+            {save_buffer_for_company_shareholder(applicants)}
+            {foreach:data_company_shareholder,company_shareholder_key,company_shareholder}
+            <table class="app-sum-body-indi-data-table">
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        <span class="app-sum-body-corp-title">Company Shareholder {modifyClientNumber(company_shareholder_key)}</span>
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                    </td>
+                </tr>
+                {foreach:applicants,row}
+                    {print_label_and_data(company_shareholder,row,0)}
+                {end:}
+            </table>
+                {print_shareholder_of_shareholder(company_shareholder,0)}
+            {end:}
+
+        <!-- default section -->
+        {else:}
+        <table class="app-sum-body-indi-data-table">
+            {foreach:applicants,row}
+            {if:checkDependency(row)}
+                <tr class="app-sum-body-indi-data-row">
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        {row[Label]}
+                    </td>
+                    <td class="col-md-6 app-sum-body-indi-data">
+                        {outputQuestionByType(row)}
+                    </td>
+                </tr>
+            {end:}
+            {end:}
+
+        </table>
+        {end:}
+        {end:}
+        {end:}
+        <!-- swiching end -->
+    {end:}
+
+    {end:}
+    {end:}
+
+    <!--declaration section-->
+    <div class="row">
+        <div class="col-md-12 app-sum-body-section-container">
+            <span class="app-sum-body-section">
+                Declaration
+            </span>
+        </div>
+    </div>
+    <table class="app-sum-body-indi-data-table">
+    {foreach:declarations,declaration}
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-6 app-sum-body-indi-data">
+                {declaration.title}
+            </td>
+            <td class="col-md-6 app-sum-body-indi-data">
+                {if:declaration.is_agreed}
+                <span class='glyphicon glyphicon-check app-sum-icon'></span>
+                {else:}
+                <span class='glyphicon glyphicon-unchecked app-sum-icon'></span>
+                {end:}
+            </td>
+        </tr>
+    {end:}
+    </table>
+
+    <!--document section-->
+    <div class="row">
+        <div class="col-md-12 app-sum-body-section-container">
+            <span class="app-sum-body-section">
+                Documents
+            </span>
+        </div>
+    </div>
+    <table class="app-sum-body-indi-data-table">
+    {foreach:documents,document}
+        <tr class="app-sum-body-indi-data-row">
+            <td class="col-md-6 app-sum-body-indi-data">
+                {document.title}
+            </td>
+            <td class="col-md-6 app-sum-body-indi-data">
+                 {if:document.images_ids}
+                <span class='glyphicon glyphicon-check app-sum-icon'></span>
+                {else:}
+                <span class='glyphicon glyphicon-unchecked app-sum-icon'></span>
+                {end:}
+            </td>
+        </tr>
+    {end:}
+    </table>
+
+
+    </div>

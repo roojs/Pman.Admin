@@ -1,0 +1,119 @@
+{
+ "name" : "Pman.Dialog.CobaLexisNexisReject",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/web.coba/Pman/Coba/Pman.Dialog.CobaLexisNexisReject.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "faaa46e5416608c7bd60089125d8ad37" : "explain why you do not think this match is relivant - please quote from the text if necessary.",
+  "6bb61e3b7bce0931da574d19d1d82c88" : "-1",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "1556cbebad269b3687e8b7265acd8530" : "Please explain why this match is not relivant",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "show" : "function (_self)\n{\n    window.addEventListener(\"resize\", _this.lexis_nexis_frame.resize);\n    \n    _this.lexis_nexis_frame.resize();\n    \n    var url = 'about:blank';\n    \n    if(_this.data.id * 1 > 0){\n        url = baseURL + '/Coba/Reports/LexisNexisDetail/' + _this.data.id;\n    }\n    \n    _this.lexis_nexis_frame.el.dom.src = url;\n}"
+   },
+   "String cls" : "enable-overflow",
+   "xtype" : "Modal",
+   "Boolean fitwindow" : true,
+   "$ xns" : "Roo.bootstrap",
+   "String title" : "Please explain why this match is not relivant",
+   "items" : [
+    {
+     "listeners" : {
+      "actionfailed" : "function (_self, action)\n{\n    Roo.log(action);\n    \n    var err = 'Please Correct all the errors in red';\n   \n    if (\n            typeof(action) != 'undefined' && \n            (\n                action.failureType == 'server' ||\n                action.failureType == 'load'\n            )\n    ) {\n        err = action.result.errorMsg;\n    }\n    \n    Roo.bootstrap.MessageBox.alert('Error', err);\n    return;\n    \n}",
+      "actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'setdata'){\n    \n        return;\n    }\n\n\n    if (action.type =='submit') {\n        \n        _this.dialog.hide();\n        \n        if (_this.callback) {\n            _this.callback.call(_this, action.result);\n        }\n        \n        _this.form.reset();\n        \n        return;\n    }\n\n}",
+      "render" : "function (_self)\n{\n    _this.form = _self;\n}"
+     },
+     "$ url" : "baseURL+'/Roo/Coba_investor_lexis_results'",
+     "xtype" : "Form",
+     "$ xns" : "Roo.bootstrap",
+     "String style" : "margin:15px;",
+     "String method" : "POST",
+     "Boolean loadMask" : false,
+     "items" : [
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "Boolean allowBlank" : false,
+           "String name" : "reason",
+           "xtype" : "TextArea",
+           "string placeholder" : "explain why you do not think this match is relivant - please quote from the text if necessary.",
+           "Number rows" : 2,
+           "$ xns" : "Roo.bootstrap"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "xtype" : "Row",
+       "$ xns" : "Roo.bootstrap",
+       "String style" : "margin-top: 15px;",
+       "items" : [
+        {
+         "xtype" : "Column",
+         "$ xns" : "Roo.bootstrap",
+         "items" : [
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.lexis_nexis_frame = this;\n    \n}"
+           },
+           "String tag" : "iframe",
+           "| function resize" : "function() \n{ \n    var height = _this.dialog.bodyEl.getHeight(true);\n    \n    var reason_height = _this.form.findField('reason').el.getHeight();\n    \n    _this.lexis_nexis_frame.el.setHeight(height - reason_height);\n    \n}",
+           "xtype" : "Element",
+           "$ xns" : "Roo.bootstrap",
+           "String style" : "width:100%;border:none;"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "String name" : "id",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap"
+      },
+      {
+       "String name" : "status",
+       "xtype" : "Input",
+       "String inputType" : "hidden",
+       "$ xns" : "Roo.bootstrap",
+       "string value" : "-1"
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "Cancel",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.form.doAction('submit');\n}"
+     },
+     "String weight" : "primary",
+     "xtype" : "Button",
+     "$ xns" : "Roo.bootstrap",
+     "String html" : "OK",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}
