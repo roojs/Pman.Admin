@@ -9,13 +9,9 @@ class Pman_Coba_DataObjects_Modx_accountmgmts extends PDO_DataObject
 
     public $__table = 'modx_accountmgmts';
     
-    // function applyFilters($q, $au, $roo)
-    // {
-    //     
-    // }
-    
-    function onInsert($request,$roo)
+    function applyFilters($q, $au, $roo)
     {
-        var_dump('stop');exit;
+        
     }
+    
 }
