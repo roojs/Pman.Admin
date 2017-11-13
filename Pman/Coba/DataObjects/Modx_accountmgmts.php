@@ -13,10 +13,4 @@ class Pman_Coba_DataObjects_Modx_accountmgmts extends PDO_DataObject
     {
         
     }
-    
-    function post()
-    {
-        print_r('testing');exit;
-    }
-    
 }
