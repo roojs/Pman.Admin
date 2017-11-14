@@ -1,3 +1,0 @@
-
--- full text indexes not supported...
-alter table  modx_site_content drop index content_ft_idx;
