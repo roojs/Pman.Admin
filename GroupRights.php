@@ -53,6 +53,8 @@ class Pman_Admin_GroupRights extends Pman
             $cur[$p->rightname] = clone($p);
         }
         
+        print_R($cur);exit;
+        
 //        print_r($cur);exit;
         
         $e = -1;
