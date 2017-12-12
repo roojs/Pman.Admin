@@ -53,13 +53,11 @@ class Pman_Admin_GroupRights extends Pman
             $cur[$p->rightname] = clone($p);
         }
         
-        print_R($cur);exit;
-        
 //        print_r($cur);exit;
         
         $e = -1;
         $ar = array();
-        // echo "<PRE>"; print_r($p->defaultPermData() );
+         echo "<PRE>"; print_r($p->defaultPermData() );exit;
         foreach($p->defaultPermData() as $k => $defdata) {
             
             if (empty($defdata[0])) { // no admin data available..
