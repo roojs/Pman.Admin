@@ -57,7 +57,7 @@ class Pman_Admin_GroupRights extends Pman
         
         $e = -1;
         $ar = array();
-         echo "<PRE>"; print_r($p->defaultPermData() );exit;
+        // echo "<PRE>"; print_r($p->defaultPermData() );
         foreach($p->defaultPermData() as $k => $defdata) {
             
             if (empty($defdata[0])) { // no admin data available..
