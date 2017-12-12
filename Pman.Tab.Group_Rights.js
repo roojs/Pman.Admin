@@ -318,7 +318,7 @@ Pman.Tab.Group_Rights = {
         });
         this.grid.getSelectionModel().lock();
         this.panel  = parentLayout.add(region,  new Roo.GridPanel(this.grid ,
-            { fitToframe: true,fitContainer: true, title: "Rights", id: 'group_rights', controller : this })
+            { fitToframe: true,fitContainer: true, title: "Rights???", id: 'group_rights', controller : this })
         );
         this.grid.render();
         /*
