@@ -34,7 +34,8 @@ class Pman_Admin_GroupRights extends Pman
         if (!isset($_GET['group_id']) || (int)$_GET['group_id'] < 0) {
             $this->jerr("NO GROUP");
         }
-        if (!$this->hasPerm( 'Core.Groups','S')) { // listing groups..
+        
+        if (!$this->checkPerm('Core.Groups','E')) { // editing groups..
             $this->jerr("PERMISSION DENIED");
         }
         
@@ -101,10 +102,6 @@ class Pman_Admin_GroupRights extends Pman
         if (!$this->checkPerm('Core.Groups','E')) { // editing groups..
             $this->jerr("PERMISSION DENIED");
         }
-        
-        
-            
-        
         
         // add or update..
         if (!empty($_POST['dataUpdate'])) {
