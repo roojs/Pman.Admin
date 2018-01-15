@@ -138,7 +138,7 @@ class Pman_Admin_GroupRights extends Pman
         
     }
     
-    function checkPerm($lvl, $au)
+    function checkPerm($perms, $lvl)
     {
         return $au->hasPerm("Core.Groups", $lvl);
     }
