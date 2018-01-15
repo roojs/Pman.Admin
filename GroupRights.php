@@ -99,7 +99,7 @@ class Pman_Admin_GroupRights extends Pman
             $this->jerr("NO GROUP");
         }
         
-        if (!$this->checkPerm('Core.Groups','E')) { // editing groups..
+        if (!$this->checkPerm('E')) { // editing groups..
             $this->jerr("PERMISSION DENIED");
         }
         
@@ -135,9 +135,9 @@ class Pman_Admin_GroupRights extends Pman
         
     }
     
-    function checkPerm($perms, $lvl)
+    function checkPerm($lvl)
     {
-        return $this->hasPerm($perms, $lvl);
+        return $this->hasPerm('Core.Groups', $lvl);
     }
     
 }
