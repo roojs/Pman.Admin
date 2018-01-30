@@ -86,7 +86,7 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
-        print_r($ar);
+        //print_r($ar);
         usort($ar, function($a, $b) {
             $retval = $a['rightname'] - $b['rightname'];
             if ($retval == 0) {
@@ -94,7 +94,7 @@ class Pman_Admin_GroupRights extends Pman
             }
             return $retval;
         });
-        print_r($ar);exit;
+        //print_r($ar);exit;
         $this->jdata($ar);
         
          
