@@ -87,8 +87,7 @@ class Pman_Admin_GroupRights extends Pman
                 
         }
         //print_r($ar);
-        usort($ar, function($a, $b) {
-        	
+        usort($ar, function($a, $b) {        	
         	   $rdiff = $a['rightname'] - $b['rightname'];
             if ($rdiff) return $rdiff; 
             return $a['descript'] - $b['descript'];     
