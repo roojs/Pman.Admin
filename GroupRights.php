@@ -83,7 +83,7 @@ class Pman_Admin_GroupRights extends Pman
                 'accessmask' => $cur[$k]->accessmask,
                 'FullMask' => $defdata[0],
                 'group_id' => (int)$_GET['group_id'],
-                'shortname' => $short[0];
+                'shortname' => $short[0]
             );
                 
         }
@@ -94,16 +94,16 @@ class Pman_Admin_GroupRights extends Pman
         }
 
         // Sort the data with volume descending, edition ascending
-        array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
+        //array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
         
         //print_r($ar); exit;
-        /*
+        
         usort($ar, function($a, $b) {        	
-        	   $rdiff = $a['rightname'] - $b['rightname'];
+        	   $rdiff = $a['shortname'] - $b['shortname'];
             if ($rdiff) return $rdiff; 
             return $a['descript'] - $b['descript'];     
         });
-        */
+        
         print_r($ar);exit;
         $this->jdata($ar);
         
