@@ -86,6 +86,14 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
+        print_r($ar);
+        usort($ar, function($a, $b) {
+            $retval = $a['rightname'] - $b['rightname'];
+            if ($retval == 0) {
+                $retval = $a['descript'] - $b['descript'];                
+            }
+            return $retval;
+        });
         print_r($ar);exit;
         $this->jdata($ar);
         
