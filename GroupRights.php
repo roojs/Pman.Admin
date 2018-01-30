@@ -90,7 +90,7 @@ class Pman_Admin_GroupRights extends Pman
         usort($ar, function($a, $b) {
             $retval = $a['rightname'] - $b['rightname'];
             if ($retval == 0) {
-                $retval = $a['descript'] - $b['descript'];                
+                $retval = $a['rightname']['descript'] - $b['rightname']['descript'];                
             }
             return $retval;
         });
