@@ -93,18 +93,8 @@ class Pman_Admin_GroupRights extends Pman
             $descript[$key] = $row['descript'];
         }
 
-        // Sort the data with volume descending, edition ascending
-        //array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
+        array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
         
-        //print_r($ar); exit;
-        
-        usort($ar, function($a, $b) {        	
-        	   $rdiff = $a['shortname'] - $b['shortname'];
-            if ($rdiff) return $rdiff; 
-            return $a['descript'] - $b['descript'];     
-        });
-        
-        print_r($ar);exit;
         $this->jdata($ar);
         
          
