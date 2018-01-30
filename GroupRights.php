@@ -75,34 +75,35 @@ class Pman_Admin_GroupRights extends Pman
                 $cur[$k] = clone($gr);
             }
             
-            
+            $shortname = explode('.',$k);
             $ar[] = array(
                 'id' => $cur[$k]->id * 1, //
                 'rightname' => $k,
                 'descript' => isset($defdata[2]) ? $defdata[2] : '' ,
                 'accessmask' => $cur[$k]->accessmask,
                 'FullMask' => $defdata[0],
-                'group_id' => (int)$_GET['group_id']
+                'group_id' => (int)$_GET['group_id'],
+                'shortname' => $shortname[0];
             );
                 
         }
 
         foreach ($ar as $key => $row) {
-            $rightname[$key]  = $row['rightname'];
+            $shortname[$key]  = $row['shortname'];
             $descript[$key] = $row['descript'];
         }
 
         // Sort the data with volume descending, edition ascending
-        //array_multisort($rightname, SORT_ASC, $descript, SORT_ASC, $ar);        
+        array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
         
         //print_r($ar); exit;
-        
+        /*
         usort($ar, function($a, $b) {        	
         	   $rdiff = $a['rightname'] - $b['rightname'];
             if ($rdiff) return $rdiff; 
             return $a['descript'] - $b['descript'];     
         });
-        
+        */
         print_r($ar);exit;
         $this->jdata($ar);
         
