@@ -86,6 +86,7 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
+        print_r($ar);exit;
         $this->jdata($ar);
         
          
