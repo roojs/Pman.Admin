@@ -87,7 +87,7 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
-        if (isset($_GET['_sort']) {}
+        if (isset($_GET['_sort'])) {}
             foreach ($ar as $key => $row) {
                 $shortname[$key]  = $row['shortname'];
                 $descript[$key] = $row['descript'];
