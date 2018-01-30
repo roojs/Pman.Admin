@@ -87,6 +87,7 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
+        
         if (isset($_GET['_sort'])) {
             foreach ($ar as $key => $row) {
                 $shortname[$key]  = $row['shortname'];
@@ -95,6 +96,7 @@ class Pman_Admin_GroupRights extends Pman
 
             array_multisort($shortname, SORT_ASC, $descript, SORT_ASC, $ar);        
         }
+        
         $this->jdata($ar);
         
          
