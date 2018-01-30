@@ -103,7 +103,7 @@ class Pman_Admin_GroupRights extends Pman
             return $a['descript'] - $b['descript'];     
         });
         */
-        print_r($ar);exit;
+        //print_r($ar);exit;
         $this->jdata($ar);
         
          
