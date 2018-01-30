@@ -75,7 +75,7 @@ class Pman_Admin_GroupRights extends Pman
                 $cur[$k] = clone($gr);
             }
             
-            $shortname = explode('.',$k);
+            $short = explode('.',$k);
             $ar[] = array(
                 'id' => $cur[$k]->id * 1, //
                 'rightname' => $k,
@@ -83,7 +83,7 @@ class Pman_Admin_GroupRights extends Pman
                 'accessmask' => $cur[$k]->accessmask,
                 'FullMask' => $defdata[0],
                 'group_id' => (int)$_GET['group_id'],
-                'shortname' => $shortname[0];
+                'shortname' => $short[0];
             );
                 
         }
