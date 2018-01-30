@@ -86,12 +86,23 @@ class Pman_Admin_GroupRights extends Pman
             );
                 
         }
-        //print_r($ar);
+
+        foreach ($ar as $key => $row) {
+            $rightname[$key]  = $row['rightname'];
+            $descript[$key] = $row['descript'];
+        }
+
+        // Sort the data with volume descending, edition ascending
+        array_multisort($rightname, SORT_ASC, $descript, SORT_ASC, $ar);        
+        
+        print_r($ar); exit;
+        /*
         usort($ar, function($a, $b) {        	
         	   $rdiff = $a['rightname'] - $b['rightname'];
             if ($rdiff) return $rdiff; 
             return $a['descript'] - $b['descript'];     
         });
+        */
         //print_r($ar);exit;
         $this->jdata($ar);
         
