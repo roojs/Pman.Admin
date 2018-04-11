@@ -210,7 +210,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         
         
         $content = array(
-            'template'      => 'EVENT_ERRORS_REPORT',
+            'template'      => 'Release_Spider_Report',
             'rcpts_group'   => $this->opts['group'],
             'data'        => $this,
             'subject'       => $subject
