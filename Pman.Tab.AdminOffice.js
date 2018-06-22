@@ -191,7 +191,7 @@ Pman.Tab.AdminOffice = new Roo.XComponent({
      proxy : {
       xtype : 'HttpProxy',
       method : 'GET',
-      url : baseURL + '/Roo/Office.php',
+      url : baseURL + '/Roo/core_office.php',
       xns : Roo.data,
       '|xns' : 'Roo.data'
      },
