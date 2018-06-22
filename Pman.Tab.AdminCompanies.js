@@ -274,7 +274,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
           {
              o.params = o.params || {};
              try {
-                 o.params['query[name]'] = _this.searchBox.getValue();
+                 o.params['search[name]'] = _this.searchBox.getValue();
              } catch(e) { return false; }
           },
          load : function (_self, records, options)
