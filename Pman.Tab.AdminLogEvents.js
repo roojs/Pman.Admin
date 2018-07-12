@@ -11,7 +11,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '231bc72756b5e6de492aaaa1577f61b1' :"Remarks",
   '2ea72778ebaacc973260c88837dd7a2f' :"Displaying Events  {0} - {1} of {2}",
   '87f9f735a1d36793ceaecd4e47124b63' :"Events",
-  '5a42488bf2a6345d604e33a8dd0bbd7b' :"#idssss",
+  '1b7f7d24575cdbfadb83b9587fa1bf97' :"#id",
   'a12a3079e14ced46e69ba52b8a90b21a' :"IP",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '01bd6a16732dfa2b760dc8566c58afae' :"Download to Excel",
@@ -1368,7 +1368,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
         {
          xtype : 'ColumnModel',
          dataIndex : 'id',
-         header : _this._strings['5a42488bf2a6345d604e33a8dd0bbd7b'] /* #idssss */,
+         header : _this._strings['1b7f7d24575cdbfadb83b9587fa1bf97'] /* #id */,
          hidden : (function() {
              return typeof(Pman.Tab.AdminLogEvents.hide_cols) == 'undefined' ? 
              false : 
