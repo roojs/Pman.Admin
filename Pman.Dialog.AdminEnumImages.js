@@ -193,7 +193,7 @@ Pman.Dialog.AdminEnumImages = {
             {
                 var ids = [];
                 _this.grid.dataSource.each(function(rr) {
-                    console.log(rr.selected.data.id);
+                    console.log(rr.data.id);
                     if (rr.selected) {
                         
                         ids.push(rr.data.id);
