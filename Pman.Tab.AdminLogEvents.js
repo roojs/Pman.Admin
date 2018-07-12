@@ -22,10 +22,10 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '679308a758de538c5f39c4c6cdba6593' :"Select Affects",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   '39b9e051f9fe75e65c7a330bb00499d4' :"Date Range",
-  '4e97aeeaa8b15ca1180fcd1f3ac478d1' :"When",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '004bf6c9a40003140292e97330236c53' :"Action",
   '2bd339d85ee3b33e513359ce781b60cc' :"Restore",
+  'db4b6786c3fc5a286611c5d61e040103' :"Whenxxx",
   '90e4ac2e5a22e53df63b6b186d8727ba' :"No Events found",
   '2c92a9a6a5dbf570825e62eabcdecd8d' :"Affected"
  },
@@ -1359,7 +1359,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
         {
          xtype : 'ColumnModel',
          dataIndex : 'event_when',
-         header : _this._strings['4e97aeeaa8b15ca1180fcd1f3ac478d1'] /* When */,
+         header : _this._strings['db4b6786c3fc5a286611c5d61e040103'] /* Whenxxx */,
          renderer : function(v) { return v ? v.dateFormat('d/m/Y H:i') : ''; },
          width : 100,
          xns : Roo.grid,
