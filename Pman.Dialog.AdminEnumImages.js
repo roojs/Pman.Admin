@@ -112,7 +112,7 @@ Pman.Dialog.AdminEnumImages = {
          {
            
             var s =  _self.getDataSource().getAt(rowIndex);
-              Pman.Dialog.PressReleaseImage.show(s.data, function() {
+              Pman.Dialog.Image.show(s.data, function() {
                          _this.grid.footer.onClick('first');
                         }); 
          }
