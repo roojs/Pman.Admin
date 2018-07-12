@@ -175,9 +175,9 @@ Pman.Dialog.AdminEnumImages = {
                  }
                  var data = _this.grid.getDataSource().getById(s[0].data.id).data;
                 
-                 _this.dialog.show(s[0].data, function() {
+                 Pman.Dialog.Image.show(data, function() {
                     _this.grid.footer.onClick('first');
-                }); 
+                   });
                         
             }
           },
