@@ -27,6 +27,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'd41d8cd98f00b204e9800998ecf8427e' :" "
  },
+ _named_strings : {
+  'search_fieldLabel' : '13348442cc6a27032d2b4aa28b75a5d3' /* Search */ 
+ },
 
   part     :  ["Admin", "Enum" ],
   order    : '500-Pman.Tab.AdminEnum',
@@ -508,15 +511,24 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             {
                 
                 // if we do not have a selected type... - what should we show..?
+                /*
                 var et = _this.etypeCombo.getValue();
                 
                 if (!et) {
                     Roo.MessageBox.alert("Error", "Select a pulldown");
                     return;
                 }
-                var sc = _this.grid.getSelectionModel().getSelectedCell();
-                Roo.log(sc);
-                var ds = _this.grid.ds.getAt(sc[0]);
+                */
+                
+                var sc = _this.egrid.getSelectionModel().getSelectedCell();
+                
+                if (!sc) {
+                    Roo.MessageBox.alert("Error", "Select a pulldown");
+                    return;
+                }
+                
+                var ds = _this.egrid.ds.getAt(sc[0]);
+                
                 if (!ds) {
                     Roo.MessageBox.alert("Error", "Select enum");
                     return;
