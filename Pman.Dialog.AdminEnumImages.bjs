@@ -24,8 +24,8 @@
     "show" : "function (_self)\n{\n    _this.grid.footer.onClick('first');\n}"
    },
    "modal" : true,
-   "title" : "Add / Edit Images",
    "xtype" : "LayoutDialog",
+   "title" : "Add / Edit Images",
    "width" : 900,
    "$ xns" : "Roo",
    "height" : 500,
@@ -39,9 +39,9 @@
      "listeners" : {
       "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
      },
+     "fitToframe" : true,
      "background" : false,
      "region" : "center",
-     "fitToframe" : true,
      "title" : "Images",
      "xtype" : "GridPanel",
      "fitContainer" : true,
@@ -81,8 +81,8 @@
           },
           {
            "$ url" : "baseURL + '/Roo/Images.php'",
-           "method" : "GET",
            "xtype" : "HttpProxy",
+           "method" : "GET",
            "$ xns" : "Roo.data",
            "* prop" : "proxy"
           }
@@ -146,8 +146,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "header" : "Image",
          "width" : 100,
+         "header" : "Image",
          "$ renderer" : "function(v,x,r) { return String.format('<img src=\"{0}/Images/Thumb/100/{1}/{2}\" width=\"100\">', baseURL, v, r.data.filename); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
@@ -155,8 +155,8 @@
         },
         {
          "xtype" : "ColumnModel",
-         "header" : "Title",
          "width" : 100,
+         "header" : "Title",
          "$ renderer" : "function(v,x,r) {\n//     var surl = r.json.url.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n  //   var svurl = r.json.url_view.replace(/\\/release.php\\/Images\\//, '/i/').replace(/\\/([0-9]+)\\/.*$/, '/$1');;\n    //  return String.format(\n      //    'Download Url : <a href=\"http://{0}{1}\" target=\"_new\">http://{0}{1}</a>' + \n        //  '<br/>View Url : <a href=\"http://{0}{2}\" target=\"_new\">http://{0}{2}</a>' + \n          //'<br/><b>{3}</b><br/>{4}</i>', \n         // window.location.host, surl, svurl,\n          // v, r.json.descript); \n     \n    }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
