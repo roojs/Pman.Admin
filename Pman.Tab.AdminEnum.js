@@ -722,7 +722,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/Images.php',
+         url : baseURL + '/Roo/core_enum.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },

@@ -200,7 +200,7 @@
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/Images.php'",
+             "$ url" : "baseURL + '/Roo/core_enum.php'",
              "xtype" : "HttpProxy",
              "method" : "GET",
              "$ xns" : "Roo.data",
