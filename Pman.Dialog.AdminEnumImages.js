@@ -193,14 +193,14 @@ Pman.Dialog.AdminEnumImages = {
             {
                 var ids = [];
                 _this.grid.dataSource.each(function(rr) {
-                    console.log(rr.data.id);
+                    console.log(rr.selected.data.id);
                     if (rr.selected) {
                         
                         ids.push(rr.data.id);
                     }
                 });   
                 if (!ids.length) {
-                    Roo.MessageBox.alert("Error", "Select rows by clicking on the Internal# column");
+                    Roo.MessageBox.alert("Error", "Select rows by clicking the row");
                     return;
                 }
                 
