@@ -29,6 +29,21 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
   '90e4ac2e5a22e53df63b6b186d8727ba' :"No Events found",
   '2c92a9a6a5dbf570825e62eabcdecd8d' :"Affected"
  },
+ _named_strings : {
+  'person_table_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'person_id_name_qtip' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person  */ ,
+  'person_table_qtip' : '037fd50b0e85bb65995ca7125d06c7cd' /* Select Person Table */ ,
+  'person_table_emptyText' : '037fd50b0e85bb65995ca7125d06c7cd' /* Select Person Table */ ,
+  'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person  */ ,
+  'person_id_name_fieldLabel' : '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' /* Person */ ,
+  'on_table_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'on_table_emptyText' : '679308a758de538c5f39c4c6cdba6593' /* Select Affects */ ,
+  'action_emptyText' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'action_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'action_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'on_table_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
+ },
 
   part     :  ["Admin", "LogEvents" ],
   order    : '001-Pman.Tab.AdminLogEvents',
