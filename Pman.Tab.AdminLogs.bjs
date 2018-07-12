@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminLogs",
  "parent" : "Pman",
  "title" : "Logs",
- "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminLogs.bjs",
+ "path" : "/home/benny/gitlive/Pman.Admin/Pman.Tab.AdminLogs.bjs",
  "permname" : "",
  "modOrder" : "999",
  "strings" : {
@@ -13,9 +13,9 @@
    "listeners" : {
     "activate" : "function (_self)\n{\n    var cr = this.layout.getRegion('center');\n    if (cr) {\n        cr.showPanel(cr.activePanel);\n    }\n}"
    },
+   "fitToFrame" : true,
    "region" : "center",
    "background" : true,
-   "fitToFrame" : true,
    "title" : "Logs",
    "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
@@ -27,8 +27,8 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "tabPosition" : "top",
        "$ xns" : "Roo",
+       "tabPosition" : "top",
        "titlebar" : false,
        "* prop" : "center"
       }
