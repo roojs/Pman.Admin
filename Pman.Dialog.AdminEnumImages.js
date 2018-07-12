@@ -200,7 +200,7 @@ Pman.Dialog.AdminEnumImages = {
                     return;
                 }
                 Roo.each(sc, function(v){
-                    ids.push(v);
+                    ids.push(v.id);
                 });
                 Roo.MessageBox.confirm(
                     "Confirm", 
