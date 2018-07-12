@@ -211,7 +211,7 @@ Pman.Dialog.AdminEnumImages = {
                         }
                         new Pman.Request({
                             method : 'POST',
-                            url : baseURL + '/Roo/Core_enum',
+                            url : baseURL + '/Roo/Images',
                             params : {
                                 _delete  : ids.join(',')
                             },
