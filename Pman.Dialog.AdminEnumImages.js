@@ -190,9 +190,38 @@ Pman.Dialog.AdminEnumImages = {
           text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
           listeners : {
            click : function()
-                    {
-                    Pman.genericDelete(_this, 'Images'); 
+            {
+                var ids = [];
+                _this.grid.dataSource.each(function(rr) {
+                    if (rr.selected) {
+                        ids.push(rr.data.id);
                     }
+                });   
+                if (!ids.length) {
+                    Roo.MessageBox.alert("Error", "Select rows by clicking on the Internal# column");
+                    return;
+                }
+                
+                Roo.MessageBox.confirm(
+                    "Confirm", 
+                    "Confirm Deletion of selected rows (some rows can not be deleted if they are referenced elsewhere", 
+                    function(res) {
+                        if(res != 'yes') {
+                            return;
+                        }
+                        new Pman.Request({
+                            method : 'POST',
+                            url : baseURL + '/Roo/Core_enum',
+                            params : {
+                                _delete  : ids.join(',')
+                            },
+                            success : function() {
+                                _this.grid.footer.onClick('refresh');
+                            }
+                        });
+                    }
+                );
+            }
           },
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'

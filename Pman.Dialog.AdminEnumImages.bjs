@@ -124,7 +124,7 @@
           },
           {
            "listeners" : {
-            "|click" : "function()\n        {\n        Pman.genericDelete(_this, 'Images'); \n        }\n        "
+            "|click" : "function()\n{\n    var ids = [];\n    _this.grid.dataSource.each(function(rr) {\n        if (rr.selected) {\n            ids.push(rr.data.id);\n        }\n    });   \n    if (!ids.length) {\n        Roo.MessageBox.alert(\"Error\", \"Select rows by clicking on the Internal# column\");\n        return;\n    }\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Confirm Deletion of selected rows (some rows can not be deleted if they are referenced elsewhere\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/Core_enum',\n                params : {\n                    _delete  : ids.join(',')\n                },\n                success : function() {\n                    _this.grid.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}\n        "
            },
            "text" : "Delete",
            "xtype" : "Button",
