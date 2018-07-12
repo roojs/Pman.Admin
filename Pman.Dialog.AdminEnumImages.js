@@ -175,7 +175,7 @@ Pman.Dialog.AdminEnumImages = {
                  }
                  var data = _this.grid.getDataSource().getById(s[0].data.id).data;
                 console.log(_this);
-                 _this.Dialog.Image.show(data, function() {
+                 _this.dialog.Image.show(data, function() {
                     _this.grid.footer.onClick('first');
                    });
                         
