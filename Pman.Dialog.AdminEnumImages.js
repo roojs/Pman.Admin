@@ -195,11 +195,13 @@ Pman.Dialog.AdminEnumImages = {
                 
                 var sc = _this.grid.getSelectionModel().getSelections();
                 console.log(sc);
-                if (!ids.length) {
+                if (!sc.length) {
                     Roo.MessageBox.alert("Error", "Select rows by clicking the row");
                     return;
                 }
-                
+                Roo.each(sc, function(v){
+                    ids.push(v);
+                });
                 Roo.MessageBox.confirm(
                     "Confirm", 
                     "Confirm Deletion of selected rows (some rows can not be deleted if they are referenced elsewhere", 
