@@ -32,6 +32,11 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
   'd4d25ad0a12e8d30e9d8d35230f6d1d3' :"Show Removed",
   '9810aa2b9f44401be4bf73188ef2b67d' :"Fax"
  },
+ _named_strings : {
+  'company_name_emptyText' : '99b344c8ae43e3e7213862b8f35c4e51' /* Select Company */ ,
+  'company_name_qtip' : '9675747b5ab12d05f18518761e68a533' /* Select Companies */ ,
+  'company_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
+ },
 
   part     :  ["Admin", "Contacts" ],
   order    : '001-Pman.Tab.AdminContacts',
