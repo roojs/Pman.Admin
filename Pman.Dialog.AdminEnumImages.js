@@ -192,13 +192,9 @@ Pman.Dialog.AdminEnumImages = {
            click : function()
             {
                 var ids = [];
-                _this.grid.dataSource.each(function(rr) {
-                    console.log(_this.grid.dataSource);
-                    if (rr.selected) {
-                        
-                        ids.push(rr.data.id);
-                    }
-                });   
+                
+                _
+                
                 if (!ids.length) {
                     Roo.MessageBox.alert("Error", "Select rows by clicking the row");
                     return;
