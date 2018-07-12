@@ -534,7 +534,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                     return;
                 }
                 
-                Roo.log(ds.data.id);
+                Roo.log(ds);
                 Pman.Dialog.Image.show({onid:ds.data.id}, function(){
                     _this.grid.footer.onClick('first');
                 });
