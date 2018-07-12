@@ -114,7 +114,7 @@
           },
           {
            "listeners" : {
-            "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s || s.length != 1) {\n        Roo.MessageBox.alert(\"Error\", \"Select a single image to edit\");\n       return;\n     }\n     var data = _this.grid.getDataSource().getById(s[0].data.id).data;\n    \n             Pman.Dialog.PressReleaseImage.show(data, function() {\n                _this.grid.footer.onClick('first');\n               }); \n            \n        }\n        "
+            "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s || s.length != 1) {\n        Roo.MessageBox.alert(\"Error\", \"Select a single image to edit\");\n       return;\n     }\n     var data = _this.grid.getDataSource().getById(s[0].data.id).data;\n    \n             Pman.Dialog.PressReleaseImage.show(data, function() {\n                _this.grid.footer.onClick('first');\n               });\n            \n        }\n        "
            },
            "text" : "Edit",
            "xtype" : "Button",

@@ -176,7 +176,7 @@ Pman.Dialog.AdminEnumImages = {
                 
                          Pman.Dialog.PressReleaseImage.show(data, function() {
                             _this.grid.footer.onClick('first');
-                           }); 
+                           });
                         
                     }
           },
