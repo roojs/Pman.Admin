@@ -168,6 +168,7 @@ Pman.Dialog.AdminEnumImages = {
            click : function()
             {
                 var s = _this.grid.getSelectionModel().getSelections();
+                console.log(s);
                 if (!s || s.length != 1) {
                     Roo.MessageBox.alert("Error", "Select a single image to edit");
                    return;
