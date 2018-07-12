@@ -598,11 +598,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
            click : function()
             {
                 var ids = [];
-                _this.grid.dataSource.each(function(rr) {
-                    if (rr.selected) {
-                        ids.push(rr.data.id);
-                    }
-                });   
+                
+                var sc = _this.egrid.getSelectionModel().getSelectedCell();
+                console.log(sc);
                 if (!ids.length) {
                     Roo.MessageBox.alert("Error", "Select rows by clicking on the Internal# column");
                     return;
