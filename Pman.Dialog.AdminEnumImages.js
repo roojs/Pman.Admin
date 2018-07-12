@@ -168,13 +168,13 @@ Pman.Dialog.AdminEnumImages = {
            click : function()
             {
                 var s = _this.grid.getSelectionModel().getSelections();
-                console.log(s);
+                
                 if (!s || s.length != 1) {
                     Roo.MessageBox.alert("Error", "Select a single image to edit");
                    return;
                  }
                  var data = _this.grid.getDataSource().getById(s[0].data.id).data;
-                
+                console.log(data);
                          Pman.Dialog.Image.show(data, function() {
                             _this.grid.footer.onClick('first');
                            });
