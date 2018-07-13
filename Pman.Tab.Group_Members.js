@@ -24,7 +24,7 @@
 Pman.Tab.Group_Members = new  Pman.Tab.PersonList({
     id : 'group_members',
     type: 0,
-    title : "Staff Membership",
+    title : "Staff Membershipxxx",
     permName : 'Core.Staff',
     hideDelete: true, // as it's confusing..
     getLeftSelections : function() {
