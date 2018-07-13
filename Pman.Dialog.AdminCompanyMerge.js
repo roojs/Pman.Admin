@@ -14,6 +14,12 @@ Pman.Dialog.AdminCompanyMerge = {
   '68be4837f6c739877233e527a996dd00' :"Merge",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel"
  },
+ _named_strings : {
+  '_merge_id_name_emptyText' : 'bf8691517ce00a09186a05cd65863091' /* Select Item to Merge With */ ,
+  '_merge_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  '_merge_id_name_qtip' : 'bf8691517ce00a09186a05cd65863091' /* Select Item to Merge With */ ,
+  '_merge_id_name_fieldLabel' : '03e956f1dca2b4d525df03cb1899cb6f' /* Merge with */ 
+ },
 
  dialog : false,
  callback:  false,

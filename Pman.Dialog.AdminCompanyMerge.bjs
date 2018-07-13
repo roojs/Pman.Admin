@@ -2,7 +2,7 @@
  "name" : "Pman.Dialog.AdminCompanyMerge",
  "parent" : "",
  "title" : "",
- "path" : "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminCompanyMerge.bjs",
+ "path" : "/home/benny/gitlive/web.hhyc_membership_system/Pman.Admin/Pman.Dialog.AdminCompanyMerge.bjs",
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
@@ -41,12 +41,12 @@
       {
        "listeners" : {
         "actionfailed" : "function (_self, action)\n{\n \n    Pman.standardActionFailed(_self, action);\n}\n",
-        "actioncomplete" : "function (_self, action)\n{\n\n   if (action.type =='submit') {\n       \n         _this.dialog.hide();\n       \n        if (_this.callback) {\n           _this.callback.call(_this, _this.form.getValues());\n        }\n        _this.form.reset();\n        return;\n    }\n    \n    if (action.type == 'setdata') {\n        \n        _this.dialog.setTitle(\"Delete selected \" + _this.data.name + \" and merge data with\");\n         \n       return;\n    }\n    \n}\n",
-        "rendered" : "function (form)\n{\n   _this.form = form;\n}"
+        "rendered" : "function (form)\n{\n   _this.form = form;\n}",
+        "actioncomplete" : "function (_self, action)\n{\n\n   if (action.type =='submit') {\n       \n         _this.dialog.hide();\n       \n        if (_this.callback) {\n           _this.callback.call(_this, _this.form.getValues());\n        }\n        _this.form.reset();\n        return;\n    }\n    \n    if (action.type == 'setdata') {\n        \n        _this.dialog.setTitle(\"Delete selected \" + _this.data.name + \" and merge data with\");\n         \n       return;\n    }\n    \n}\n"
        },
        "$ url" : "baseURL + '/Roo/Core_company.php'",
-       "method" : "POST",
        "xtype" : "Form",
+       "method" : "POST",
        "style" : "margin: 10px;",
        "$ xns" : "Roo.form",
        "items" : [
@@ -86,8 +86,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_company'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
