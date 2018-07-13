@@ -22,7 +22,6 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
   '9675747b5ab12d05f18518761e68a533' :"Select Companies",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   'f1174ecbbc232f948717979daf04cf08' :"No Person found",
-  'ec3249f16ee5880d4c1acb752e5c925f' :"Switch to Selected User",
   'a93806efd0cc7a149f0f03e2b9a0f862' :"Bulk Add",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'a1fa27779242b4902f7ae3bdd5c6d508' :"Type",
@@ -30,6 +29,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
   'bbbabdbe1b262f75d99d62880b953be1' :"Role",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'd4d25ad0a12e8d30e9d8d35230f6d1d3' :"Show Removed",
+  'e43cdd616be213ba8ce7270d471b96c9' :"Switch to Selected User ok",
   '9810aa2b9f44401be4bf73188ef2b67d' :"Fax"
  },
  _named_strings : {
@@ -297,7 +297,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       },
       {
        xtype : 'Button',
-       text : _this._strings['ec3249f16ee5880d4c1acb752e5c925f'] /* Switch to Selected User */,
+       text : _this._strings['e43cdd616be213ba8ce7270d471b96c9'] /* Switch to Selected User ok */,
        listeners : {
         click : function (_self, e)
          {
