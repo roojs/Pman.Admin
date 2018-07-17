@@ -647,15 +647,14 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                console.log(_this.grid);
-                console.log(_this.grid.getSelectionModel());
+            
                 var s = _this.grid.getSelectionModel().getSelectedCell();
-                console.log(s);
+            
                 if (!s.length)  {
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
                 }
-                console.log(_this.grid.ds);
+                
                 var d = _this.grid.ds.getAt(s[0]);
             
                 Pman.Dialog.AdminEnumMerge.show(d.data, function() {
