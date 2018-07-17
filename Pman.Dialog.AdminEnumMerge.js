@@ -187,7 +187,7 @@ Pman.Dialog.AdminEnumMerge = {
                  o.params.active = 1;
                  o.params.etype = _this.data.etype;
                  o.params['!id'] = _this.data.id;
-                 o.params.name = _this.data.name;
+                 o.params['name'] = _this.data.name;
              }
            },
            xns : Roo.data,

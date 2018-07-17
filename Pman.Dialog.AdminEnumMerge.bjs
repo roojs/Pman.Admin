@@ -77,7 +77,7 @@
          "items" : [
           {
            "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    o.params.etype = _this.data.etype;\n    o.params['!id'] = _this.data.id;\n    o.params.name = _this.data.name;\n}\n"
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    o.params.etype = _this.data.etype;\n    o.params['!id'] = _this.data.id;\n    o.params['name'] = _this.data.name;\n}\n"
            },
            "xtype" : "Store",
            "remoteSort" : true,
