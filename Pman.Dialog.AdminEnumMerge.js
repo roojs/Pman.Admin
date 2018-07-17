@@ -12,6 +12,9 @@ Pman.Dialog.AdminEnumMerge = {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'e0aa021e21dddbd6d8cecec71e9cf564' :"OK"
  },
+ _named_strings : {
+  'merge_display_name_fieldLabel' : '03e956f1dca2b4d525df03cb1899cb6f' /* Merge with */ 
+ },
 
  dialog : false,
  callback:  false,
