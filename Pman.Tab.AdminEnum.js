@@ -654,9 +654,9 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
                 }
-                
+                console.log(_this.grid);
                 var d = _this.grid.ds.getAt(s[0]);
-                console.log(_this.grid.ds);
+                
                 Pman.Dialog.AdminEnumMerge.show(d.data, function() {
                     _this.grid.footer.onClick('refresh');
                 }); 
