@@ -316,7 +316,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = [];\n    s.push(_this.grid.selModel.selection.record.id);\n    console.log(s);\n    if (s.length * 1 < 1)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var d = _this.grid.ds.getAt(s[0]);\n\n    Pman.Dialog.AdminEnumMerge.show(d.data, function() {\n        _this.grid.footer.onClick('refresh');\n    }); \n    \n}\n"
+              "|click" : "function()\n{\n    var s = [];\n    s.push(_this.grid.selModel.selection.record.id);\n    \n    if (s.length * 1 < 1)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var d = _this.grid.ds.getAt(s[0]);\n    console.log(d);\n    Pman.Dialog.AdminEnumMerge.show(d.data, function() {\n        _this.grid.footer.onClick('refresh');\n    }); \n    \n}\n"
              },
              "text" : "Merge Option",
              "xtype" : "Button",
