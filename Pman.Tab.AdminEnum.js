@@ -647,7 +647,7 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                console.log(_this.grid.selModel.getSelectedCell);
+                console.log(_this.grid.selModel);
                 var s = _this.grid.getSelectionModel().getSelections();
                 
                 if (!s.length)  {
