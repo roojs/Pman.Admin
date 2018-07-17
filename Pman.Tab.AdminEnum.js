@@ -647,8 +647,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.grid.RowSelectionModel.getSelections();
-                console.log(s);
+                var s = _this.grid.getSelectionModel().getSelections();
+                console.log(_this.grid.getSelectionModel());
                 if (!s.length)  {
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
