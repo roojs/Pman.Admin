@@ -34,9 +34,9 @@
      "* prop" : "center"
     },
     {
+     "background" : true,
      "region" : "center",
      "fitToFrame" : true,
-     "background" : true,
      "xtype" : "ContentPanel",
      "$ xns" : "Roo",
      "items" : [
@@ -46,8 +46,8 @@
         "|rendered" : "function (form)\n{\n   _this.form = form;\n}"
        },
        "$ url" : "baseURL + '/Roo/core_enum.php'",
-       "xtype" : "Form",
        "method" : "POST",
+       "xtype" : "Form",
        "style" : "margin: 5px",
        "$ xns" : "Roo.form",
        "items" : [
@@ -55,9 +55,9 @@
          "listeners" : {
           "render" : "function (_self)\n{\n    _this.merge = this;\n}"
          },
+         "Number pageSize" : 50,
          "Boolean allowBlank" : false,
          "alwaysQuery" : true,
-         "Number pageSize" : 50,
          "triggerAction" : "all",
          "fieldLabel" : "Merge with",
          "forceSelection" : true,
@@ -87,8 +87,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_enum.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
