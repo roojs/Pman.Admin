@@ -72,7 +72,7 @@ class Pman_Admin_EventView extends Pman
         }
         echo '<PRE>' . htmlspecialchars(print_r(json_decode(file_get_contents($file)), true)) . '</PRE>';
         
-        echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
+//        echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         
         $json = json_decode($ev->remarks, JSON_PRETTY_PRINT);
         
