@@ -228,7 +228,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     function listTypes()
     {
-         $events = DB_DataObject::factory('Events');
+        $events = DB_DataObject::factory('Events');
         $events->selectAdd();
         $events->selectAdd("
             DISTINCT(Events.action) AS action
@@ -238,6 +238,11 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
         echo implode(",", $ar);
         echo "\n";
         exit;
+        
+    }
+    
+    static function test_EVENT_ERRORS_REPORT($pg, $to)
+    {
         
     }
     
