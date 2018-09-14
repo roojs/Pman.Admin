@@ -243,7 +243,7 @@ class Pman_Admin_Report_SendEventErrors extends Pman_Roo
     
     static function test_EVENT_ERRORS_REPORT($pg, $to)
     {
-        
+        $this->jerr("Not implemented");
     }
     
     
