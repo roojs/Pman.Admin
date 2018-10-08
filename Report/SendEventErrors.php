@@ -1,5 +1,5 @@
 <?php
-
+ 
 require_once 'Pman/Roo.php';
 
 class Pman_Admin_Report_SendEventErrors extends Pman_Roo
