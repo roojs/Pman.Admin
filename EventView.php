@@ -76,7 +76,7 @@ class Pman_Admin_EventView extends Pman
         
         if (!empty($ev->remarks)) {
             echo "<HR><H2>Remarks:</H2>";
-            echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
+            echo '<PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         }
         
         
