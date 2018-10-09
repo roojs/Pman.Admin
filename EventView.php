@@ -43,7 +43,7 @@ class Pman_Admin_EventView extends Pman
         // core_event_audit
         // the event file..
         $d= DB_DataObject::factory('core_event_audit');
-        if (is_a($d,'DB_DataObject')) {
+        if (is_a($d,'DB_DataObject') && $d->count()) {
             echo "<H2>Changed Data:</H2>";
             $d->event_id = $ev->id;
             foreach($d->fetchAll() as $d) {
@@ -70,12 +70,14 @@ class Pman_Admin_EventView extends Pman
             echo "not available (missing file) $file";
             exit;
         }
+        
         echo '<PRE>' . htmlspecialchars(print_r(json_decode(file_get_contents($file)), true)) . '</PRE>';
         
         if (!empty($ev->remarks)) {
             echo "<HR><H2>Remarks:</H2>";
+            echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
         }
-        echo '<BR/><PRE>'. htmlspecialchars($ev->remarks) . '</PRE>';
+        
         
         $json = json_decode($ev->remarks, JSON_PRETTY_PRINT);
         
