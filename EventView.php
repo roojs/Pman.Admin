@@ -86,9 +86,9 @@ class Pman_Admin_EventView extends Pman
             echo "<HR><H2>JSON DECODE Data:</H2>";
             echo '<PRE>' . print_r($json, true) . '</PRE>';
         }
-        
+        $filesJ = json_decode(file_get_contents($file));
         if (!empty($filesJ->FILES )) {
-            $filesJ = json_decode(file_get_contents($file));
+            
             echo '<br /><PRE>Download files</PRE>';
             
             
