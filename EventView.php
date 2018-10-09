@@ -81,15 +81,17 @@ class Pman_Admin_EventView extends Pman
             echo '<PRE>' . print_r($json, true) . '</PRE>';
         }
         
-        $filesJ = json_decode(file_get_contents($file));
-        echo '<br /><PRE>Download files</PRE>';
-        
-        
-        foreach($filesJ->FILES as $k=>$f){
-            $ip = $this->baseURL."/Images/events/". $ev->id . '/'. $f->tmp_name;
-            echo '<a target="_new" href="'.$ip.'/download">' . htmlspecialchars( $k . ' - ' . $f->name ) . '</a><br/>';
+        if (!empty($filesJ->FILES )) {
+            $filesJ = json_decode(file_get_contents($file));
+            echo '<br /><PRE>Download files</PRE>';
+            
+            
+            foreach($filesJ->FILES as $k=>$f){
+                $ip = $this->baseURL."/Images/events/". $ev->id . '/'. $f->tmp_name;
+                echo '<a target="_new" href="'.$ip.'/download">' . htmlspecialchars( $k . ' - ' . $f->name ) . '</a><br/>';
+            }
+            
         }
-        
         
         
         exit;
