@@ -14,8 +14,7 @@ class Pman_Admin_EventView extends Pman
             $this->jerrAuth();
         }
         return true;
-        
-        
+         
     }
     
     function get($id, $opts = Array())
