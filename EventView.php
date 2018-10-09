@@ -43,9 +43,10 @@ class Pman_Admin_EventView extends Pman
         // core_event_audit
         // the event file..
         $d= DB_DataObject::factory('core_event_audit');
+        $d->event_id = $ev->id; // we can set that as the above returns error or dataobject..
         if (is_a($d,'DB_DataObject') && $d->count()) {
             echo "<H2>Changed Data:</H2>";
-            $d->event_id = $ev->id;
+            
             foreach($d->fetchAll() as $d) {
                 echo "{$d->name} SET TO: " . htmlspecialchars($d->newvalue) . "<br/>\n";
             }
