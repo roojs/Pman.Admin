@@ -87,7 +87,7 @@ class Pman_Admin_EventView extends Pman
         
         foreach($filesJ->FILES as $k=>$f){
             $ip = $this->baseURL."/Images/events/". $ev->id . '/'. $f->tmp_name;
-            echo '<a href="'.$ip.'/download">' . htmlspecialchars( $k . ' - ' . $f->name ) . '</a><br/>';
+            echo '<a target="_new" href="'.$ip.'/download">' . htmlspecialchars( $k . ' - ' . $f->name ) . '</a><br/>';
         }
         
         
