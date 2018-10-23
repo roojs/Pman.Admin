@@ -575,7 +575,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
        colModel : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'comptype',
+         dataIndex : 'comptype_id_display_name',
          header : _this._strings['a1fa27779242b4902f7ae3bdd5c6d508'] /* Type */,
          renderer : function (v,x ,r) {
              //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
