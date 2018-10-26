@@ -31,45 +31,43 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
   name     : "Pman.Tab.AdminProjectManager",
   disabled : false, 
   permname : 'Core.Projects_All', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
    return {
+   xtype : 'NestedLayoutPanel',
    fitContainer : true,
    fitToFrame : true,
    region : 'center',
    title : _this._strings['93573647a6041adaabd942e88cc29e23'] /* Projects / Members */,
    xns : Roo,
    '|xns' : 'Roo',
-   xtype : 'NestedLayoutPanel',
    layout : {
+    xtype : 'BorderLayout',
     xns : Roo,
     '|xns' : 'Roo',
-    xtype : 'BorderLayout',
     center : {
+     xtype : 'LayoutRegion',
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     east : {
+     xtype : 'LayoutRegion',
      split : true,
      width : 300,
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     },
     items  : [
      {
+      xtype : 'GridPanel',
       background : true,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
       tableName : 'Projects',
       title : _this._strings['54e1d44609e3abed11f6e1eb6ae54988'] /* Projects */,
-      xns : Roo,
-      '|xns' : 'Roo',
-      xtype : 'GridPanel',
       listeners : {
        activate : function() {
             _this.panel = this;
@@ -81,7 +79,10 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
             }
         }
       },
+      xns : Roo,
+      '|xns' : 'Roo',
       grid : {
+       xtype : 'Grid',
        autoExpandColumn : 'name',
        filter : 'P,U',
        getTypes : function() {
@@ -107,9 +108,6 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
            });
            return ret;
        },
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       xtype : 'Grid',
        listeners : {
         render : function() 
          {
@@ -125,31 +123,31 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                   return;
               }
              _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
-                 _this.grid.footer.onClick('first');
+                 _this.grid.footer.onClick('refresh');
              }); 
          }
        },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
        footer : {
+        xtype : 'PagingToolbar',
         displayInfo : true,
         displayMsg : _this._strings['f45e7cfb0824b6d381ade7d81bb81615'] /* Displaying Projects {0} - {1} of {2} */,
         emptyMsg : _this._strings['8115b8afd5b2953d9fa63eb0db9559fc'] /* No Projects found */,
         pageSize : 25,
         xns : Roo,
-        '|xns' : 'Roo',
-        xtype : 'PagingToolbar'
+        '|xns' : 'Roo'
        },
        toolbar : {
+        xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
-        xtype : 'Toolbar',
         items  : [
          {
+          xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
           text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function()
             {
@@ -160,15 +158,15 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                     _this.grid.footer.onClick('first');
                }); 
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : Roo.rootURL + 'images/default/tree/leaf.gif',
           text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function()
             {
@@ -185,22 +183,22 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                 }); 
                 
             }
-          }
-         },
-         {
+          },
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Separator'
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Separator',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'TextItem',
           text : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'TextItem'
+          '|xns' : 'Roo.Toolbar'
          },
          {
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
           xtype : 'TextField',
           listeners : {
            render : function (_self)
@@ -213,54 +211,54 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                       _this.grid.footer.onClick('first');
                 }
             }
-          }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
+          xtype : 'Button',
           cls : 'x-btn-icon',
           icon : rootURL + '/Pman/templates/images/search.gif',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function (_self, e)
             {
             _this.grid.footer.onClick('first');
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           cls : 'x-btn-icon',
           icon : rootURL + '/Pman/templates/images/edit-clear.gif',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            click : function (_self, e)
             {
             _this.searchBox.setValue('');
                 _this.grid.footer.onClick('first');
             }
-          }
-         },
-         {
+          },
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Separator'
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Separator',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'TextItem',
           text : _this._strings['917d465e9a9e8b16a8da50a1ca8156ca'] /* Show: */,
           xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'TextItem'
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           enableToggle : true,
           pressed : false,
           text : _this._strings['b1c94ca2fbc3e78fc30069c8d0f01680'] /* All */,
           toggleGroup : 'pgrp',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            toggle : function (_self,st)
             {
@@ -268,16 +266,16 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                 _this.grid.footer.onClick('first');
                  
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           enableToggle : true,
           pressed : true,
           text : _this._strings['54e1d44609e3abed11f6e1eb6ae54988'] /* Projects */,
           toggleGroup : 'pgrp',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            toggle : function (_self,st)
             {
@@ -285,16 +283,16 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                 _this.grid.footer.onClick('first');
                  
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           enableToggle : true,
           pressed : false,
           text : _this._strings['0f111c111475c934057e6f8bb8314d56'] /* Non-Projects */,
           toggleGroup : 'pgrp',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            toggle : function (_self,st)
             {
@@ -302,16 +300,16 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                 _this.grid.footer.onClick('first');
                  
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          },
          {
+          xtype : 'Button',
           enableToggle : true,
           pressed : false,
           text : _this._strings['03f4a47830f97377a35321051685071e'] /* Closed */,
           toggleGroup : 'pgrp',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar',
-          xtype : 'Button',
           listeners : {
            toggle : function (_self, st)
             {
@@ -319,16 +317,16 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                             _this.grid.footer.onClick('first');
                     
             }
-          }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          }
         ]
        },
        dataSource : {
+        xtype : 'Store',
         remoteSort : true,
         sortInfo : { field : 'code', direction: 'ASC' },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        xtype : 'Store',
         listeners : {
          beforeload : function (_self, o)
           {
@@ -340,14 +338,17 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
               o.params['query[project_filter]'] = _this.grid.filter;
           }
         },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
         proxy : {
+         xtype : 'HttpProxy',
          method : 'GET',
          url : baseURL + '/Roo/core_project.php',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'HttpProxy'
+         '|xns' : 'Roo.data'
         },
         reader : {
+         xtype : 'JsonReader',
          fields : [
              {
                  'name': 'id',
@@ -724,61 +725,60 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
          root : 'data',
          totalProperty : 'total',
          xns : Roo.data,
-         '|xns' : 'Roo.data',
-         xtype : 'JsonReader'
+         '|xns' : 'Roo.data'
         }
        },
        sm : {
-        singleSelect : true,
-        xns : Roo.grid,
-        '|xns' : 'Roo.grid',
         xtype : 'RowSelectionModel',
+        singleSelect : true,
         listeners : {
          afterselectionchange : function (_self)
           {
               // load project members.
           }
-        }
+        },
+        xns : Roo.grid,
+        '|xns' : 'Roo.grid'
        },
        colModel : [
         {
+         xtype : 'ColumnModel',
          dataIndex : 'type',
          header : _this._strings['a1fa27779242b4902f7ae3bdd5c6d508'] /* Type */,
          renderer : function(v) { return _this.grid.typeToString(v);},
          sortable : true,
          width : 70,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'client_id_name',
          header : _this._strings['577d7068826de925ea2aec01dbadf5e4'] /* Client */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 75,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'code',
          header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 120,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         },
         {
+         xtype : 'ColumnModel',
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 200,
          xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         xtype : 'ColumnModel'
+         '|xns' : 'Roo.grid'
         }
        ]
       }
