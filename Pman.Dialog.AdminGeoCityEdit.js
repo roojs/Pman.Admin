@@ -59,7 +59,7 @@ Pman.Dialog.AdminGeoCityEdit = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 300,
+    height : 250,
     modal : true,
     resizable : false,
     title : _this._strings['43ccafccb532cc57c20bc05a36aad7b7'] /* Add / Edit City */,

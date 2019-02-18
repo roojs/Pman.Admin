@@ -40,7 +40,7 @@
    "$ xns" : "Roo",
    "closable" : false,
    "resizable" : false,
-   "height" : 300,
+   "height" : 250,
    "items" : [
     {
      "xtype" : "LayoutRegion",
