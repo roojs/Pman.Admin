@@ -9,8 +9,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
  _strings : {
   'f2b734f9d29a7b036a5f26b229f1e918' :"Geographic Locations",
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
-  'edefbda3a2bdd979e42d8944b7325b79' :"Companies",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  'edefbda3a2bdd979e42d8944b7325b79' :"Companies",
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
   'aa186c44d0c1a9b263933bfa359802e3' :"Select Province",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
@@ -68,9 +68,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       xtype : 'GridPanel',
       fitContainer : true,
       fitToframe : true,
-      region : 'center',
+      region : 'west',
       tableName : 'core_company',
-      title : _this._strings['edefbda3a2bdd979e42d8944b7325b79'] /* Companies */,
+      title : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
       listeners : {
        activate : function() {
             _this.cpanel = this;
