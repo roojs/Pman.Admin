@@ -185,8 +185,8 @@ Pman.Dialog.AdminGeoDivisionEdit = {
           tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>',
           triggerAction : 'all',
           typeAhead : true,
-          valueField : 'id',
-          width : 300,
+          valueField : 'lkey',
+          width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
