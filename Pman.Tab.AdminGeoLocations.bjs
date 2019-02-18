@@ -374,6 +374,7 @@
        "items" : [
         {
          "listeners" : {
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var s =  _this.city_grid.getDataSource().getAt(rowIndex);\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('refresh');\n    });\n}",
           "|render" : "function() \n{\n   _this.city_grid = this; \n   \n    if (_this.city_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
          "autoExpandColumn" : "name",

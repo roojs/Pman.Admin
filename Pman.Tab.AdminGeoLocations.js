@@ -637,6 +637,16 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              if (_this.city_panel.active) {
                 this.footer.onClick('first');
              }
+         },
+        rowdblclick : function (_self, rowIndex, e)
+         {
+             var s =  _this.city_grid.getDataSource().getAt(rowIndex);
+             
+             Pman.Dialog.AdminGeoDivisionEdit.show({
+                 id : s.data.id
+             }, function(){
+                 _this.province_grid.footer.onClick('refresh');
+             });
          }
        },
        xns : Roo.grid,
