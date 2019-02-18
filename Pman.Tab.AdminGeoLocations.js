@@ -828,41 +828,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          '|xns' : 'Roo.data'
         }
        },
-       sm : {
-        xtype : 'RowSelectionModel',
-        singleSelect : false,
-        listeners : {
-         afterselectionchange : function (_self)
-          {
-              if (!this.getSelections().length) {
-                  if (_this.form) { _this.form.reset(); }
-                  _this.panel.layout.getRegion('east').el.mask("Select Supplier");
-                  _this.panel.layout.getRegion('south').el.mask("Select Supplier");
-                  return;
-              }
-              
-              if (_this.form) {
-                 _this.form.setValues(
-                      _this.grid.getDataSource().getById(this.getSelected().data.id).data
-                  );
-              }
-          
-              _this.pgrid.footer.onClick('first'); // load people.
-              _this.panel.layout.getRegion('east').el.unmask();
-              _this.panel.layout.getRegion('south').el.unmask();
-              
-              _this.panel.layout.getRegion('east').showPanel(0);
-             
-              if(this.getSelections().length > 1) {
-                  _this.panel.layout.getRegion('east').el.mask("Unable to Update");
-                  _this.panel.layout.getRegion('south').el.mask("Unable to Update");
-              }
-              
-          }
-        },
-        xns : Roo.grid,
-        '|xns' : 'Roo.grid'
-       },
        colModel : [
         {
          xtype : 'ColumnModel',
