@@ -229,7 +229,7 @@
           {
            "listeners" : {
             "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionMode().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n}",
-            "load" : "function (_self, records, options)\n{\n    if (_this.grid.getSelectionModel().getSelected()) {\n        _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n    if (!_this.grid.getSelectionModel().getSelected() && this.getTotalCount() == 1) {\n       \n        _this.grid.getSelectionModel().selectFirstRow();\n          _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n}"
+            "load" : "function (_self, records, options)\n{\n    \n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,

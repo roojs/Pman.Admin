@@ -543,14 +543,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           },
          load : function (_self, records, options)
           {
-              if (_this.grid.getSelectionModel().getSelected()) {
-                  _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());
-              }
-              if (!_this.grid.getSelectionModel().getSelected() && this.getTotalCount() == 1) {
-                 
-                  _this.grid.getSelectionModel().selectFirstRow();
-                    _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());
-              }
+              
           }
         },
         xns : Roo.data,
