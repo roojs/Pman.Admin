@@ -466,7 +466,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           {
               options.params = options.params || {};
               
-              var country = _this.country_grid.ds.getSelectionMode().getSelected();
+              var country = _this.country_grid.store.getSelectionMode().getSelected();
               
               if(!country) {
                   this.removeAll();
