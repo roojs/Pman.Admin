@@ -87,7 +87,7 @@
          "items" : [
           {
            "listeners" : {
-            "afterselectionchange" : "function (_self)\n{\n    \n}"
+            "afterselectionchange" : "function (_self)\n{\n    Roo.log('after selection change');\n}"
            },
            "Boolean singleSelect" : true,
            "xtype" : "RowSelectionModel",

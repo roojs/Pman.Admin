@@ -245,7 +245,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         listeners : {
          afterselectionchange : function (_self)
           {
-              
+              Roo.log('after selection change');
           }
         },
         xns : Roo.grid,
