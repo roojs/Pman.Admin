@@ -7,8 +7,8 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminGeoDivisionEdit = {
 
  _strings : {
-  '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  'd469fd7a8d8939b7abe793469d7375da' :"Add / Edit Province",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
@@ -43,11 +43,11 @@ Pman.Dialog.AdminGeoDivisionEdit = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 120,
+    height : 400,
     modal : true,
     resizable : false,
-    title : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
-    width : 400,
+    title : _this._strings['d469fd7a8d8939b7abe793469d7375da'] /* Add / Edit Province */,
+    width : 600,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
