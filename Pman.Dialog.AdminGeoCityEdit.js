@@ -12,8 +12,8 @@ Pman.Dialog.AdminGeoCityEdit = {
   '43ccafccb532cc57c20bc05a36aad7b7' :"Add / Edit City",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
   'ca0dbad92a874b2f69b549293387925e' :"Code",
+  '49ee3087348e8d44e1feda1917443987' :"Name",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
@@ -144,8 +144,8 @@ Pman.Dialog.AdminGeoCityEdit = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
-          name : 'code',
+          fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+          name : 'name',
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
@@ -153,8 +153,8 @@ Pman.Dialog.AdminGeoCityEdit = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-          name : 'name',
+          fieldLabel : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
+          name : 'code',
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
