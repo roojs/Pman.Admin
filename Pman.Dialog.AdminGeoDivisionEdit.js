@@ -52,11 +52,11 @@ Pman.Dialog.AdminGeoDivisionEdit = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 400,
+    height : 300,
     modal : true,
     resizable : false,
     title : _this._strings['d469fd7a8d8939b7abe793469d7375da'] /* Add / Edit Province */,
-    width : 600,
+    width : 400,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
