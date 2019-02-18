@@ -99,7 +99,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
       items  : [
        {
         xtype : 'Form',
-        labelWidth : 50,
+        labelWidth : 100,
         method : 'POST',
         style : 'margin:10px;',
         url : baseURL + '/Roo/core_company_type.php',

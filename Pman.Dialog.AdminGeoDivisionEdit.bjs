@@ -54,7 +54,7 @@
        "style" : "margin:10px;",
        "method" : "POST",
        "xtype" : "Form",
-       "labelWidth" : 50,
+       "labelWidth" : 100,
        "$ xns" : "Roo.form",
        "items" : [
         {
