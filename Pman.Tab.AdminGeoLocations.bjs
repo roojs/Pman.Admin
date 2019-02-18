@@ -1,0 +1,858 @@
+{
+ "name" : "Pman.Tab.AdminGeoLocations",
+ "parent" : "Pman.Tab.Admin",
+ "title" : "",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminGeoLocations.bjs",
+ "permname" : "",
+ "modOrder" : "100",
+ "strings" : {
+  "f1174ecbbc232f948717979daf04cf08" : "No Person found",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "f92d04c600dfe2779e117ecf723cd2ec" : "View / Download",
+  "8444e81d652b084d70c71cd7d19ac0cf" : "Displaying Person{0} - {1} of {2}",
+  "e2154f4fae1bfa7b918e0539d7d73b0a" : "Invalid Date",
+  "7a903d346ceceeabb680254c6c26885f" : "Buying Terms",
+  "617e98c5e5db2b205710f0b3552bc6ee" : "Vessel Booking",
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "9810aa2b9f44401be4bf73188ef2b67d" : "Fax",
+  "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
+  "fc6f97505d89fe9277965c126744647a" : "No Companies found",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "bf5b8cbcc7df7f946c06486d88499db9" : "Approval Required?",
+  "ec53a8c4f07baed5d8825072c89799be" : "Status",
+  "91f3a2c0e4424c87689525da44c4db11" : "Files",
+  "edefbda3a2bdd979e42d8944b7325b79" : "Companies",
+  "dd7bf230fde8d4836917806aff6a6b27" : "Address",
+  "2e006b735fbd916d8ab26978ae6714d4" : "Tel",
+  "1814d65a76028fdfbadab64a5a8076df" : "Suppliers",
+  "aa186c44d0c1a9b263933bfa359802e3" : "Select Province",
+  "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
+  "c6b5d0bb9a0c3f077863fdaef9773f7c" : "Province",
+  "17680f7b3d4fdfaf532038a55c17ab9f" : "Product/Dept/Role",
+  "6f54043edff88231017ffe8a1f092f44" : "Contact Details",
+  "59716c97497eb9694541f7c3d37b1a4d" : "Country",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "68be4837f6c739877233e527a996dd00" : "Merge",
+  "ea72bacd2fdfa818907bb9559e6905a1" : "Upload Image or File",
+  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
+  "c9d03748d1a54666b5c7a5187109301b" : "Delete Selected File or  Image",
+  "26cbe1e3b53e773d1bdf15fb4912c2e0" : "search name"
+ },
+ "named_strings" : {
+  "tel_fieldLabel" : "2e006b735fbd916d8ab26978ae6714d4",
+  "fax_fieldLabel" : "9810aa2b9f44401be4bf73188ef2b67d",
+  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
+  "remarks_fieldLabel" : "7a903d346ceceeabb680254c6c26885f",
+  "province_fieldLabel" : "c6b5d0bb9a0c3f077863fdaef9773f7c",
+  "country_display_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
+  "vessel_booking_approval_req_fieldLabel" : "617e98c5e5db2b205710f0b3552bc6ee",
+  "address_fieldLabel" : "dd7bf230fde8d4836917806aff6a6b27",
+  "vessel_booking_approval_req_boxLabel" : "bf5b8cbcc7df7f946c06486d88499db9",
+  "comptype_name_fieldLabel" : "ec53a8c4f07baed5d8825072c89799be",
+  "imageUpload_fieldLabel" : "ea72bacd2fdfa818907bb9559e6905a1",
+  "ontable_value" : "edefbda3a2bdd979e42d8944b7325b79"
+ },
+ "items" : [
+  {
+   "listeners" : {
+    "activate" : "function (_self)\n{\n   _this.panel = _self;\n\n   this.layout.getRegion('east').el.mask(\"Select Supplier\");\n    this.layout.getRegion('south').el.mask(\"Select Supplier\");\n   \n}"
+   },
+   "background" : true,
+   "region" : "center",
+   "title" : "Suppliers",
+   "xtype" : "NestedLayoutPanel",
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "south",
+       "height" : 150
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "width" : 400,
+       "tabPosition" : "top",
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "east"
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.cpanel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+       },
+       "region" : "center",
+       "fitToframe" : true,
+       "title" : "Companies",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "core_company",
+       "items" : [
+        {
+         "listeners" : {
+          "|render" : "function() \n{\n   _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.cpanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "name",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "afterselectionchange" : "function (_self)\n{\n    if (!this.getSelections().length) {\n        if (_this.form) { _this.form.reset(); }\n        _this.panel.layout.getRegion('east').el.mask(\"Select Supplier\");\n        _this.panel.layout.getRegion('south').el.mask(\"Select Supplier\");\n        return;\n    }\n    \n    if (_this.form) {\n       _this.form.setValues(\n            _this.grid.getDataSource().getById(this.getSelected().data.id).data\n        );\n    }\n\n    _this.pgrid.footer.onClick('first'); // load people.\n    _this.panel.layout.getRegion('east').el.unmask();\n    _this.panel.layout.getRegion('south').el.unmask();\n    \n    _this.panel.layout.getRegion('east').showPanel(0);\n   \n    if(this.getSelections().length > 1) {\n        _this.panel.layout.getRegion('east').el.mask(\"Unable to Update\");\n        _this.panel.layout.getRegion('south').el.mask(\"Unable to Update\");\n    }\n    \n}"
+           },
+           "xtype" : "RowSelectionModel",
+           "singleSelect" : false,
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          },
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n   if ( _this.layout) {\n      //_this.layout.getRegion('east').hide() ;\n      }\n    options.params['query[comptype]'] ='SUPPLIER,OLDSUPPL'; // base on pulldown..\n    options.params['query[name]'] = _this.searchBox.getValue();\n    if (_this.provinceCombo.getValue()) {\n       options.params['province'] = _this.provinceCombo.getValue();\n   }\n}",
+            "load" : "function (_self, records, options)\n{\n    if (_this.grid.getSelectionModel().getSelected()) {\n        _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n    if (!_this.grid.getSelectionModel().getSelected() && this.getTotalCount() == 1) {\n       \n        _this.grid.getSelectionModel().selectFirstRow();\n          _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_company.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'tel',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'url',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'created_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'province',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_filename',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_onid',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_mimetype',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_width',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_height',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_filesize',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_displayorder',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_language',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_parent_image_id',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_created',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_imgtype',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_linkurl',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_descript',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_title',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_role',\n        'type': 'string'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Companies found",
+           "$ xns" : "Roo",
+           "displayInfo" : true,
+           "displayMsg" : "Displaying Companies{0} - {1} of {2}",
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n     if (e.getKey() == 13) {\n        _this.grid.footer.onClick('first');\n     }\n}",
+              "render" : "function (_self)\n{\n  _this.searchBox = _self;\n}"
+             },
+             "emptyText" : "search name",
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "render" : "function (_self)\n{\n  _this.provinceCombo = _self;\n}",
+              "beforeselect" : "function (combo, record, index)\n{\n  var f = _this.grid.footer;\n  f.onClick.defer(100, f, [ 'first' ]);\n}"
+             },
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "forceSelection" : true,
+             "selectOnFocus" : true,
+             "pageSize" : 20,
+             "displayField" : "province",
+             "emptyText" : "Select Province",
+             "minChars" : 2,
+             "valueField" : "province",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "typeAhead" : true,
+             "editable" : true,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "qtip" : "Select Province",
+             "queryParam" : "query[province]",
+             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{province}</b> </div>",
+             "loadingText" : "Searching...",
+             "items" : [
+              {
+               "listeners" : {
+                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n \n     o.params._distinct = 'province';\n \n    // set more here\n}\n"
+               },
+               "xtype" : "Store",
+               "remoteSort" : true,
+               "$ sortInfo" : "{ direction : 'ASC', field: 'province' }",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/core_company.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"province\",\"type\":\"string\"}]",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n   _this.searchBox.setValue('');\n   _this.provinceCombo.setValue('');\n    _this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n   _this.grid.getSelectionModel().clearSelections();\n   _this.form.reset();\n    _this.form.setValues({ id: 0, comptype : 'SUPPLIER' });\n   // hide files..\n   _this.layout.getRegion('east').show();\n   _this.layout.getRegion('east').hidePanel(1);\n     _this.panel.layout.getRegion('east').el.unmask(0);\n   _this.layout.getRegion('east').showPanel(0);     \n   //yourdialog.show( { id : 0 } , function() {\n   //  _this.grid.footer.onClick('first');\n   //}); \n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    if (!s.length)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var ids = [];\n    var names = [];\n    \n    var params = {};\n    \n    params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';\n    \n    Roo.each(s, function(v, k){\n        ids.push(v.data.id);\n        names.push(v.data.name);\n        params['!id[' + k + ']'] = v.data.id\n    });\n    \n    Pman.Dialog.ShippingSupplierMerge.show({ \n        _merge_from : ids.join(','),\n        _name : names.join(', '),\n        type: 'Supplier',\n        params : params\n    }, function() {\n        _this.grid.footer.onClick('refresh');\n    });\n}"
+             },
+             "text" : "Merge",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Name",
+           "width" : 200,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Active",
+           "width" : 100,
+           "$ renderer" : "function(v) { return v.match(/OLD/) ? 'OLD' : v ; }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "comptype"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Province",
+           "width" : 100,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "province"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 100,
+           "header" : "Country",
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "country_display_name"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n    _this.fpanel = _self;\n}"
+       },
+       "autoScroll" : true,
+       "background" : false,
+       "region" : "east",
+       "title" : "Contact Details",
+       "xtype" : "ContentPanel",
+       "$ xns" : "Roo",
+       "items" : [
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n   if (!_this.form.findField('id').getValue()) {\n        Roo.MessageBox.alert(\"Error\", \"You can not delete this entry yet\");\n        return;\n   }\n   Roo.MessageBox.confirm(\"Confirm\", \"Are  you sure you want to delete this record?\", function(res) {\n   \n       if (res !='yes') {return;}\n       \n       Pman.request({\n            url: baseURL + '/Roo/core_company.php',\n            method : 'POST',\n            params : {\n                _delete : _this.form.findField('id').getValue()\n            },\n            success : function() {\n                _this.grid.footer.onClick('refresh');\n            },\n            failure : function() {\n                 Roo.MessageBox.alert(\"Error\", \"Problem deleting entry.\");\n            }\n        });\n    });\n   //Pman.genericDelete(_this, _this.grid.tableName); \n}\n        "
+           },
+           "text" : "Delete",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n    _this.fpanel.el.mask('saving');\n    _this.form.submit();\n    //_this.dialog.show(s[0].data, function() {\n    //    _this.grid.footer.onClick('first');\n    //   }); \n    \n}\n"
+           },
+           "text" : "Save",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "listeners" : {
+          "actionfailed" : "function (_self, action)\n{\n        _this.fpanel.el.unmask();\n        \n        Roo.MessageBox.alert(\"Error\", \"Somthing went wrong saving - check you filled in all the fields correctly\");\n}",
+          "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       //this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n       return;\n    }\n    if (action.type == 'load') {\n        _this.fpanel.el.unmask();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.fpanel.el.unmask();\n\n        if ((_this.form.findField('id').getValue() * 1) < 1) {\n            _this.searchBox.setValue(_this.form.findField('name').getValue());\n            _this.grid.footer.onClick('first');\n            return;\n        }\n        // set the search field \n        _this.grid.footer.onClick('refresh');\n        \n        return;\n    }\n}\n",
+          "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
+         },
+         "labelAlign" : "right",
+         "$ url" : "baseURL + '/Roo/core_company.php'",
+         "style" : "margin:10px;",
+         "method" : "POST",
+         "xtype" : "Form",
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Name",
+           "xtype" : "TextField",
+           "allowBlank" : false,
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "name"
+          },
+          {
+           "fieldLabel" : "Tel",
+           "xtype" : "TextField",
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "tel"
+          },
+          {
+           "fieldLabel" : "Address",
+           "xtype" : "TextArea",
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "address",
+           "height" : 100
+          },
+          {
+           "fieldLabel" : "Province",
+           "xtype" : "TextField",
+           "allowBlank" : false,
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "province"
+          },
+          {
+           "listeners" : {
+            "render" : "function (_self)\n{\n    _this.country = this;\n}"
+           },
+           "Number minChars" : 2,
+           "String name" : "country_display_name",
+           "String valueField" : "lkey",
+           "String queryParam" : "query[name]",
+           "Number width" : 200,
+           "xtype" : "ComboBox",
+           "Boolean editable" : true,
+           "String triggerAction" : "all",
+           "Boolean alwaysQuery" : true,
+           "$ xns" : "Roo.form",
+           "String fieldLabel" : "Country",
+           "String/Roo.Template tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>",
+           "String hiddenName" : "country",
+           "String displayField" : "lval",
+           "Boolean forceSelection" : true,
+           "items" : [
+            {
+             "listeners" : {
+              "beforeload" : "function (_self, o)\n{\n    o.params = o.params || {};\n    o.params.ltype = 'c';\n    o.params.inlang = 'en';\n    o.params.is_active = 1;\n    o.params.limit = 300;\n}"
+             },
+             "xtype" : "Store",
+             "boolean remoteSort" : true,
+             "$ xns" : "Roo.data",
+             "$ sortInfo" : "{field:\"lval\",direction:\"ASC\"}",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ url" : "baseURL+'/Roo/I18n'",
+               "xtype" : "HttpProxy",
+               "$ xns" : "Roo.data",
+               "String method" : "GET",
+               "* prop" : "proxy"
+              },
+              {
+               "xtype" : "JsonReader",
+               "$ xns" : "Roo.data",
+               "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    }\n]",
+               "* prop" : "reader"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "fieldLabel" : "Fax",
+           "xtype" : "TextField",
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "fax"
+          },
+          {
+           "fieldLabel" : "Buying Terms",
+           "xtype" : "TextField",
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "remarks"
+          },
+          {
+           "listWidth" : 200,
+           "triggerAction" : "all",
+           "fieldLabel" : "Status",
+           "displayField" : "vtype",
+           "hiddenName" : "comptype",
+           "valueField" : "ftype",
+           "xtype" : "ComboBox",
+           "allowBlank" : false,
+           "editable" : false,
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "mode" : "local",
+           "name" : "comptype_name",
+           "items" : [
+            {
+             "xtype" : "SimpleStore",
+             "$ data" : "[ [\"Active\" , \"SUPPLIER\" ],[ \"Old\", \"OLDSUPPL\"] ]\n",
+             "$ fields" : "[  'vtype', 'ftype']",
+             "$ xns" : "Roo.data",
+             "* prop" : "store"
+            }
+           ]
+          },
+          {
+           "inputValue" : 1,
+           "fieldLabel" : "Vessel Booking",
+           "xtype" : "Checkbox",
+           "boxLabel" : "Approval Required?",
+           "$ xns" : "Roo.form",
+           "name" : "vessel_booking_approval_req"
+          },
+          {
+           "xtype" : "Hidden",
+           "$ xns" : "Roo.form",
+           "name" : "id"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "activate" : "function (_self)\n{\n   //console.log('activate');\n    \n   if (!_this.imageView) {return; }\n   _this.imageView.reload();\n   \n   if (_this.hasUploadWatch) {\n     return;\n   }\n   //console.log('add uplaod watch');\n   _this.hasUploadWatch =true;\n      _this.uploadSending =false;\n   window.setInterval( function() {\n        var val = _this.uploadForm.findField('imageUpload').getValue();\n        if (!val || !val.length) {\n            return;\n        }\n         var s = _this.grid.getSelectionModel().getSelected();\n         if (!s) {return; }\n        if (_this.uploadSending) {\n            return;\n        }\n         _this.uploadSending =true;\n        _this.uploadForm.findField('onid').setValue(s.data.id);\n        _this.uploadForm.el.mask(\"Sending\");\n        _this.uploadForm.submit.defer(100, _this.uploadForm);\n   \n  }, 1000)  \n   \n}"
+       },
+       "background" : true,
+       "region" : "east",
+       "title" : "Files",
+       "xtype" : "NestedLayoutPanel",
+       "$ xns" : "Roo",
+       "items" : [
+        {
+         "xtype" : "BorderLayout",
+         "$ xns" : "Roo",
+         "* prop" : "layout",
+         "items" : [
+          {
+           "xtype" : "LayoutRegion",
+           "$ xns" : "Roo",
+           "* prop" : "center"
+          },
+          {
+           "xtype" : "LayoutRegion",
+           "$ xns" : "Roo",
+           "* prop" : "south",
+           "height" : 60
+          },
+          {
+           "autoScroll" : true,
+           "region" : "center",
+           "fitToFrame" : true,
+           "xtype" : "ContentPanel",
+           "fitContainer" : true,
+           "$ xns" : "Roo",
+           "items" : [
+            {
+             "xtype" : "Toolbar",
+             "$ xns" : "Roo",
+             "* prop" : "toolbar",
+             "items" : [
+              {
+               "listeners" : {
+                "click" : "function (_self, e)\n{\n \n   if (!_this.imageView.getSelectedNodes().length) {\n     Roo.MessageBox.alert(\"Error\", \"Select an Image\");\n     return;\n   }\n   var url  = _this.imageView.getNodeData(_this.imageView.getSelectedNodes()[0]).url;\n//   window.open(url, 'download');\n    Pman.download({ url : url});\n   // open a new window with this file in..\n   \n}"
+               },
+               "text" : "View / Download",
+               "xtype" : "Button",
+               "$ xns" : "Roo.Toolbar"
+              },
+              {
+               "xtype" : "Fill",
+               "$ xns" : "Roo.Toolbar"
+              },
+              {
+               "listeners" : {
+                "click" : "function (_self, e)\n{\n    if (!_this.imageView.getSelectedNodes().length) {\n     Roo.MessageBox.alert(\"Error\", \"Select an Image\");\n     return;\n   }\n   \n   Roo.MessageBox.confirm(\"Confirm\", \"Are you sure you want to delete this?\", function(yn) {\n        if (yn != 'yes') {\n            return;\n        }\n            \n       var id  = _this.imageView.getNodeData(_this.imageView.getSelectedNodes()[0]).id;\n       _this.imageView.el.mask('Deleting');\n       var s = _this.grid.getSelectionModel().getSelected();\n       \n       Roo.Ajax.request({\n          url : baseURL + '/Roo/Images.php',\n          params : {\n             _delete : id\n          },\n          method : 'POST',\n          success : function() {\n\n               _this.imageView.reload();\n          },\n          failure : function() {\n               _this.imageView.el.unmask();\n               Roo.MessageBox.alert(\"Error\", \"Error deleting image\");\n               return;\n          }\n      });\n   });\n }"
+               },
+               "text" : "Delete Selected File or  Image",
+               "xtype" : "Button",
+               "$ xns" : "Roo.Toolbar"
+              }
+             ]
+            },
+            {
+             "listeners" : {
+              "beforerender" : "function (_self, data)\n{\n   _this.imageView = _self;\n   \n   if (this.stylesheet) {\n      return;\n   }\n   this.el.addClass('thumb-browser');\n\n   \n   this.stylesheet = Roo.util.CSS.createStyleSheet(\n        {\n          '.thumb-browser .thumb-wrap' : {\n                border:'3px solid #EEE',\n                'float':'left',\n                height:'160px',\n                margin:'2px',\n                'padding-left':'5px',\n                'padding-top':'5px',\n                width:'160px'\n            },\n            '.thumb-browser .x-view-selected' : {\n              border:'3px solid #333'\n          \n            }\n\n\n        }, Roo.id()\n        );\n   \n}",
+              "dblclick" : "function (_self, index, node, e)\n{\n    Pman.download({ url : this.getNodeData(node).url});\n   \n   \n}"
+             },
+             "jsonRoot" : "data",
+             "$ reload" : "function() {\n    var s = _this.grid.getSelectionModel().getSelected();\n    if (!_this.imageView) {return; }\n    if (!s) {\n       _this.imageView.el.mask('Select Supplier First');\n       this.clearSelections();\n       this.el.update(\"\");\n      return;\n   }\n   _this.imageView.el.unmask();\n   _this.imageView.load({\n        url : baseURL + '/Roo/Images.php',\n        method : 'GET',\n        params : {\n           ontable : 'core_company',\n           onid : s.data.id,\n           'query[imagesize]' : '150x150'\n        },\n        text : 'Loading'\n   });\n   \n}\n",
+             "xtype" : "JsonView",
+             "singleSelect" : true,
+             "$ xns" : "Roo",
+             "items" : [
+              {
+               "xtype" : "Template",
+               "$ html" : "'<div class=\"thumb-wrap\"> ' + \n  '<div class=\"thumb\"><img  src=\"{url_thumb}\" class=\"thumb-img\"></div>' + \n'</div>'",
+               "$ xns" : "Roo",
+               "* prop" : "tpl"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "region" : "south",
+           "xtype" : "ContentPanel",
+           "$ xns" : "Roo",
+           "items" : [
+            {
+             "listeners" : {
+              "actioncomplete" : "function (_self, action)\n{\n// only action this will handle is submit?\n// should test for errors..\n    if (action.failureType) {\n          _this.uploadForm.el.unmask();\n          _this.uploadSending = false;\n        Roo.MessageBox.alert(\"Error\", \"Upload Failed\");\n        return false;\n    \n    }\n      \n    \n    if (action.type =='submit') {\n         _this.uploadForm.reset();\n           _this.uploadSending = false;\n          _this.uploadForm.el.unmask();         \n           _this.imageView.reload();\n         return;\n    }\n     \n}",
+              "rendered" : "function (form)\n{\n  _this.uploadForm = form;\n}"
+             },
+             "labelAlign" : "top",
+             "$ url" : "baseURL + '/Roo/Images.php'",
+             "fileUpload" : true,
+             "style" : "margin: 10px;",
+             "xtype" : "Form",
+             "labelWidth" : 200,
+             "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "xtype" : "Row",
+               "$ xns" : "Roo.form",
+               "items" : [
+                {
+                 "inputType" : "file",
+                 "fieldLabel" : "Upload Image or File",
+                 "xtype" : "TextField",
+                 "allowBlank" : false,
+                 "width" : 250,
+                 "$ xns" : "Roo.form",
+                 "name" : "imageUpload"
+                }
+               ]
+              },
+              {
+               "xtype" : "Hidden",
+               "$ xns" : "Roo.form",
+               "name" : "onid"
+              },
+              {
+               "xtype" : "Hidden",
+               "value" : "Companies",
+               "$ xns" : "Roo.form",
+               "name" : "ontable"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.ppanel = this;\n    if (_this.pgrid) {\n        _this.pgrid.footer.onClick('first');\n    }\n}"
+       },
+       "background" : true,
+       "region" : "south",
+       "fitToframe" : true,
+       "title" : "Person",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "Person",
+       "items" : [
+        {
+         "listeners" : {
+          "|render" : "function() \n{\n   _this.pgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.ppanel.active) {\n       this.footer.onClick('first');\n    }\n}",
+          "afteredit" : "function (e)\n{\n    //console.log('after edit:' + e.value);\n\n    var g = _this.pgrid;\n    var r = e.record;\n    var f = e.field;\n    var v = e.value;\n    var ov = e.originalValue;\n    if (v == ov) {\n        \n        return;\n    }\n    //what if no id..\n    var p = { id : r.data.id };\n    \n    \n    if (!r.data.id) {\n        if (!r.data.name) {\n           // Roo.log(newCell);\n            if (f == 'deleted_dt') {\n                r.set('deleted_by', typeof(v) == 'object' ? Pman.Login.authUser.id : 0);\n            }\n            return;\n        }\n        p = Roo.apply({}, r.data); //copy..\n        if (p.deleted_by) {\n            p['deleted_dt'] = typeof(p.deleted_dt) == 'object' ? p.deleted_dt.format('Y-m-d H:i:s') : '';\n        }\n        \n    } else {\n        p[f] = v;\n    }\n    if (f == 'deleted_dt') {\n        p['deleted_by'] = typeof(v) == 'object' ? Pman.Login.authUser.id : 0;\n        p['deleted_dt'] =typeof(v) == 'object' ? v.format('Y-m-d H:i:s') : '';\n    }\n    \n    Pman.request({\n        method : 'POST',\n        url : baseURL + '/Roo/core_person.php',\n        params : p,\n        success : function(nd)\n        {\n            r.set('id', nd.id);\n            if (f == 'deleted_dt') {\n               r.set('deleted_by', typeof(r.data.deleted_dt) == 'object'  ? Pman.Login.authUser.id: 0);\n            }\n\n            r.commit();\n           // Roo.log(newCell);\n          \n        },\n        failure:  function() {\n            Roo.MessageBox.alert(\"Error\", \"Saving Failed\");\n        }\n        \n        \n    });\n     \n  \n    \n    return true;\n}"
+         },
+         "autoExpandColumn" : "name",
+         "xtype" : "EditorGrid",
+         "loadMask" : true,
+         "clicksToEdit" : 1,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n    if (!_this.pgrid || !_this.grid) {\n        return false;\n    }\n    var cid = _this.grid.getSelectionModel().getSelected();\n    if (!cid) {\n        _this.pgrid.getDataSource().removeAll();\n        return false;\n    }\n    options.params.company_id = cid.data.id;\n}"
+           },
+           "xtype" : "Store",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_person.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'phone',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'role',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'lang',\n        'type': 'string'\n    },\n    {\n        'name': 'no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'office_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_tel',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_url',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_created_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'company_id_updated_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_province',\n        'type': 'string'\n    },\n    {\n        'name': 'company_id_country',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_code',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_type',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_client_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_team_id',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_file_location',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_open_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_open_by',\n        'type': 'int'\n    },\n    {\n        'name': 'project_id_close_date',\n        'type': 'date'\n    },\n    {\n        'name': 'project_id_countries',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_languages',\n        'type': 'string'\n    },\n    {\n        'name': 'project_id_agency_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_by',\n        'type': 'int'\n    },\n    {\n        'name': 'deleted_dt',\n        'type': 'date',\n        'dateFormat' : 'Y-m-d H:i:s'\n    }\n]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 5,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Person found",
+           "$ xns" : "Roo",
+           "displayMsg" : "Displaying Person{0} - {1} of {2}",
+           "displayInfo" : true,
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if (!s) {\n       Roo.MessageBox.alert(\"Error\", \"Select Supplier First\");\n       return;\n    }\n   \n   var r = _this.pgrid.getDataSource().reader.newRow();\n   \n   _this.pgrid.stopEditing();\n   _this.pgrid.getDataSource().insert(0, r);\n   r.set('company_id', s.data.id);\n   \n   _this.pgrid.startEditing(0, 0);\n\n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n   var c = _this.pgrid.selModel.getSelectedCell();\n   _this.pgrid.stopEditing();\n   if (!c) {\n       Roo.MessageBox.alert(\"Error\", \"Select a person to delete\");\n   }\n   var rec  = _this.pgrid.dataSource.getAt(c[0]);\n\n   if (!rec.get('id')) {\n        _this.pgrid.selModel.clearSelections();\n        _this.pgrid.dataSource.remove(rec);\n        return;\n   }\n    Roo.MessageBox.confirm(\"Confirm\", \"Are  you sure you want to delete this record?\", function(res) {\n   \n       if (res !='yes') {return;}\n       \n       Pman.request({\n            url: baseURL + '/Roo/core_person.php',\n            method : 'GET',\n            params : {\n                _delete : rec.get('id')\n            },\n            success : function() {\n               _this.pgrid.selModel.clearSelections();\n                 _this.pgrid.dataSource.remove(rec);\n            },\n            failure : function() {\n                 Roo.MessageBox.alert(\"Error\", \"Problem deleting entry.\");\n            }\n        });\n    });\n   \n   //Pman.genericDelete(_this, _this.grid.tableName); \n}\n        "
+             },
+             "text" : "Delete",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 200,
+           "header" : "Product/Dept/Role",
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "role",
+           "items" : [
+            {
+             "xtype" : "GridEditor",
+             "$ xns" : "Roo.grid",
+             "* prop" : "editor",
+             "items" : [
+              {
+               "xtype" : "TextField",
+               "$ xns" : "Roo.form",
+               "* prop" : "field"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "header" : "Name",
+           "width" : 200,
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "name",
+           "items" : [
+            {
+             "xtype" : "GridEditor",
+             "$ xns" : "Roo.grid",
+             "* prop" : "editor",
+             "items" : [
+              {
+               "xtype" : "TextField",
+               "$ xns" : "Roo.form",
+               "* prop" : "field"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 200,
+           "header" : "Email",
+           "$ renderer" : "function(v) { return v ? String.format('<a href=\"mailto:{0}\">{0}</a>', v) : ''; }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "email",
+           "items" : [
+            {
+             "xtype" : "GridEditor",
+             "$ xns" : "Roo.grid",
+             "* prop" : "editor",
+             "items" : [
+              {
+               "xtype" : "TextField",
+               "$ xns" : "Roo.form",
+               "* prop" : "field"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 200,
+           "header" : "Phone",
+           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "phone",
+           "items" : [
+            {
+             "xtype" : "GridEditor",
+             "$ xns" : "Roo.grid",
+             "* prop" : "editor",
+             "items" : [
+              {
+               "xtype" : "TextField",
+               "$ xns" : "Roo.form",
+               "* prop" : "field"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "width" : 100,
+           "header" : "Invalid Date",
+           "$ renderer" : "function(v,x,r) { return r.data.deleted_by && typeof(v) == 'object' ? v.format('d/M/Y') : ''; }",
+           "$ xns" : "Roo.grid",
+           "* prop" : "colModel[]",
+           "dataIndex" : "deleted_dt",
+           "items" : [
+            {
+             "xtype" : "GridEditor",
+             "$ xns" : "Roo.grid",
+             "* prop" : "editor",
+             "items" : [
+              {
+               "format" : "d/M/Y",
+               "xtype" : "DateField",
+               "$ xns" : "Roo.form",
+               "* prop" : "field",
+               "altFormats" : "Y-m-d H:i:s"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
