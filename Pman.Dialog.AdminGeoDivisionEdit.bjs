@@ -109,7 +109,7 @@
            "* prop" : "store",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/core_company.php'",
+             "$ url" : "baseURL + '/Roo/i18n.php'",
              "xtype" : "HttpProxy",
              "method" : "GET",
              "$ xns" : "Roo.data",
