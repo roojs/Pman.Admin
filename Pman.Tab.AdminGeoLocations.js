@@ -450,34 +450,13 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.grid.getSelectionModel().getSelections();
+                var s = _this.grid.getSelectionModel().getSelected();
                 
-                if (!s.length)  {
+                if (!s)  {
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
                 }
                 
-                var ids = [];
-                var names = [];
-                
-                var params = {};
-                
-                params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';
-                
-                Roo.each(s, function(v, k){
-                    ids.push(v.data.id);
-                    names.push(v.data.name);
-                    params['!id[' + k + ']'] = v.data.id
-                });
-                
-                Pman.Dialog.ShippingSupplierMerge.show({ 
-                    _merge_from : ids.join(','),
-                    _name : names.join(', '),
-                    type: 'Supplier',
-                    params : params
-                }, function() {
-                    _this.grid.footer.onClick('refresh');
-                });
             }
           },
           xns : Roo.Toolbar,

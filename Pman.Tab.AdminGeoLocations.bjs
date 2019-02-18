@@ -324,7 +324,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    if (!s.length)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var ids = [];\n    var names = [];\n    \n    var params = {};\n    \n    params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';\n    \n    Roo.each(s, function(v, k){\n        ids.push(v.data.id);\n        names.push(v.data.name);\n        params['!id[' + k + ']'] = v.data.id\n    });\n    \n    Pman.Dialog.ShippingSupplierMerge.show({ \n        _merge_from : ids.join(','),\n        _name : names.join(', '),\n        type: 'Supplier',\n        params : params\n    }, function() {\n        _this.grid.footer.onClick('refresh');\n    });\n}"
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n}"
              },
              "text" : "Delete",
              "xtype" : "Button",
