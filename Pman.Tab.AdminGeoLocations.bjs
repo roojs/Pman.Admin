@@ -52,7 +52,6 @@
        "width" : 400,
        "$ xns" : "Roo",
        "split" : true,
-       "Boolean alwaysShowTabs" : true,
        "* prop" : "east"
       },
       {
