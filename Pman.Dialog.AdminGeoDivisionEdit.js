@@ -56,7 +56,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
     modal : true,
     resizable : false,
     title : _this._strings['d469fd7a8d8939b7abe793469d7375da'] /* Add / Edit Province */,
-    width : 350,
+    width : 400,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
