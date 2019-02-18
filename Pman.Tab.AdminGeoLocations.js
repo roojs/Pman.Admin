@@ -471,6 +471,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                                 _delete  : s.data.id
                             },
                             success : function() {
+                                _this.country_grid.footer.onClick('refresh');
                                 _this.province_grid.footer.onClick('refresh');
                             }
                         });
