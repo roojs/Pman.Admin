@@ -647,6 +647,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              }, function(){
                  _this.city_grid.footer.onClick('refresh');
              });
+             
          }
        },
        xns : Roo.grid,
