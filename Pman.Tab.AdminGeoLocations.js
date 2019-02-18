@@ -424,25 +424,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.grid.getSelectionModel().getSelections();
+                var s = _this.province_grid.getSelectionModel().getSelected();
                 
-                if (!s.length)  {
+                if (!s)  {
                     Roo.MessageBox.alert("Error", "Select a Row");
                     return;
                 }
-                
-                var ids = [];
-                var names = [];
-                
-                var params = {};
-                
-                params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';
-                
-                Roo.each(s, function(v, k){
-                    ids.push(v.data.id);
-                    names.push(v.data.name);
-                    params['!id[' + k + ']'] = v.data.id
-                });
                 
                 Pman.Dialog.ShippingSupplierMerge.show({ 
                     _merge_from : ids.join(','),
