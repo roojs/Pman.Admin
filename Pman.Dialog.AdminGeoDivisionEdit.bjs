@@ -10,14 +10,13 @@
   "3c1df4260ce594cb5594696461087f2f" : "Select Country",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "9675747b5ab12d05f18518761e68a533" : "Select Companies",
   "d469fd7a8d8939b7abe793469d7375da" : "Add / Edit Province",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "ca0dbad92a874b2f69b549293387925e" : "Code",
   "c9cc8cce247e49bae79f15173ce97354" : "Save"
  },
  "named_strings" : {
-  "country_name_qtip" : "9675747b5ab12d05f18518761e68a533",
+  "country_name_qtip" : "3c1df4260ce594cb5594696461087f2f",
   "country_name_emptyText" : "3c1df4260ce594cb5594696461087f2f",
   "code_fieldLabel" : "ca0dbad92a874b2f69b549293387925e",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
@@ -94,9 +93,9 @@
          "width" : 300,
          "$ xns" : "Roo.form",
          "name" : "country_name",
-         "qtip" : "Select Companies",
-         "queryParam" : "query[code]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+         "qtip" : "Select Country",
+         "queryParam" : "query[name]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>",
          "loadingText" : "Searching...",
          "items" : [
           {
