@@ -9,9 +9,9 @@ Pman.Dialog.AdminGeoCityEdit = {
  _strings : {
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   '3c1df4260ce594cb5594696461087f2f' :"Select Country",
+  '43ccafccb532cc57c20bc05a36aad7b7' :"Add / Edit City",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  'd469fd7a8d8939b7abe793469d7375da' :"Add / Edit Province",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'ca0dbad92a874b2f69b549293387925e' :"Code",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
@@ -55,7 +55,7 @@ Pman.Dialog.AdminGeoCityEdit = {
     height : 200,
     modal : true,
     resizable : false,
-    title : _this._strings['d469fd7a8d8939b7abe793469d7375da'] /* Add / Edit Province */,
+    title : _this._strings['43ccafccb532cc57c20bc05a36aad7b7'] /* Add / Edit City */,
     width : 400,
     xns : Roo,
     '|xns' : 'Roo',
