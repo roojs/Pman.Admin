@@ -384,37 +384,18 @@
            "width" : 200,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
+           "* prop" : "cm[]",
            "dataIndex" : "name"
           },
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
-           "header" : "Active",
-           "width" : 100,
-           "$ renderer" : "function(v) { return v.match(/OLD/) ? 'OLD' : v ; }",
-           "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "comptype"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "sortable" : true,
-           "header" : "Province",
-           "width" : 100,
+           "header" : "Name",
+           "width" : 75,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "province"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "Country",
-           "width" : 100,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "country_display_name"
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_city"
           }
          ]
         }
