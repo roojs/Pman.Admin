@@ -20,6 +20,7 @@
   "31311feefd4f3253ed255d109da1480b" : "No Country found",
   "26cbe1e3b53e773d1bdf15fb4912c2e0" : "search name",
   "49ee3087348e8d44e1feda1917443987" : "Name",
+  "90fd8a29b37d805cf75af6a3809bca87" : "Search City",
   "08b523137281088adf3cb1883c8e5627" : "Search Country",
   "36dc0beb80c36193ac81b4f94e915e36" : "Country Name"
  },
@@ -419,10 +420,10 @@
            "items" : [
             {
              "listeners" : {
-              "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.country_grid.footer.onClick('first');\n    }\n}",
-              "render" : "function (_self)\n{\n    _this.country_searchBox = _self;\n}"
+              "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.city_grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.city_searchBox = _self;\n}"
              },
-             "emptyText" : "Search Country",
+             "emptyText" : "Search City",
              "xtype" : "TextField",
              "$ xns" : "Roo.form"
             },

@@ -21,6 +21,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '31311feefd4f3253ed255d109da1480b' :"No Country found",
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
+  '90fd8a29b37d805cf75af6a3809bca87' :"Search City",
   '08b523137281088adf3cb1883c8e5627' :"Search Country",
   '36dc0beb80c36193ac81b4f94e915e36' :"Country Name"
  },
@@ -615,16 +616,16 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         items  : [
          {
           xtype : 'TextField',
-          emptyText : _this._strings['08b523137281088adf3cb1883c8e5627'] /* Search Country */,
+          emptyText : _this._strings['90fd8a29b37d805cf75af6a3809bca87'] /* Search City */,
           listeners : {
            render : function (_self)
             {
-                _this.country_searchBox = _self;
+                _this.city_searchBox = _self;
             },
            specialkey : function (_self, e)
             {
                 if (e.getKey() == 13) {
-                    _this.country_grid.footer.onClick('first');
+                    _this.city_grid.footer.onClick('first');
                 }
             }
           },
