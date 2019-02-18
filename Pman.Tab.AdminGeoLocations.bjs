@@ -53,8 +53,8 @@
       },
       {
        "xtype" : "LayoutRegion",
-       "width" : 400,
        "$ xns" : "Roo",
+       "width" : 400,
        "split" : true,
        "* prop" : "east"
       },
@@ -102,8 +102,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/i18n.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -173,8 +173,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "sortable" : true,
            "String align" : "right",
+           "sortable" : true,
            "header" : "No. Provinces",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
@@ -184,8 +184,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "sortable" : true,
            "String align" : "right",
+           "sortable" : true,
            "header" : "No. Cities",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
@@ -241,8 +241,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/geoip_division.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -346,8 +346,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "sortable" : true,
            "String align" : "right",
+           "sortable" : true,
            "header" : "No. Cities",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
@@ -399,8 +399,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/geoip_city.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
