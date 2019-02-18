@@ -418,6 +418,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     country : (country) ? country.data.lkey : '',
                     country_name : (country) ? country.data.lval : ''
                 }, function(){
+                    _this.country_grid.footer.onClick('refresh');
                     _this.province_grid.footer.onClick('first');
                 });
                 
