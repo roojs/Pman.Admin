@@ -469,7 +469,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 
                 Roo.MessageBox.confirm(
                     "Confirm", 
-                    "Are you sure want to delete this province", 
+                    "Are you sure want to delete this division", 
                     function(res) {
                         if(res != 'yes') {
                             return;
