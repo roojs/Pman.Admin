@@ -12,6 +12,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
   '646f95b46cdc6ae59dd9f2e86bf3b598' :"Displaying Country {0} - {1} of {2}",
+  '7faaef9675ee0e8280a243a290569359' :"No. Provinces",
   'aa186c44d0c1a9b263933bfa359802e3' :"Select Province",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '68be4837f6c739877233e527a996dd00' :"Merge",
@@ -264,7 +265,20 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         {
          xtype : 'ColumnModel',
          dataIndex : 'lval',
-         header : _this._strings['36dc0beb80c36193ac81b4f94e915e36'] /* Country Name */,
+         header : _this._strings['7faaef9675ee0e8280a243a290569359'] /* No. Provinces */,
+         renderer : function(v) 
+         { 
+             return String.format('{0}', v ? v : ''); 
+         },
+         sortable : true,
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'lval',
+         header : _this._strings['7faaef9675ee0e8280a243a290569359'] /* No. Provinces */,
          renderer : function(v) 
          { 
              return String.format('{0}', v ? v : ''); 
