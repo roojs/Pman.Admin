@@ -289,7 +289,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function (_self, e)\n{\n   _this.province_searchBox.setValue('');\n    _this.province_grid.footer.onClick('first');\n}"
+              "|click" : "function (_self, e)\n{\n    _this.province_searchBox.setValue('');\n    _this.province_grid.footer.onClick('first');\n}"
              },
              "xtype" : "Button",
              "cls" : "x-btn-icon",

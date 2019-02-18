@@ -378,7 +378,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function (_self, e)
             {
-               _this.province_searchBox.setValue('');
+                _this.province_searchBox.setValue('');
                 _this.province_grid.footer.onClick('first');
             }
           },
