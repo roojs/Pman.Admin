@@ -74,7 +74,7 @@
        "* prop" : "center"
       },
       {
-       "Number width" : 300,
+       "Number width" : 400,
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "split" : true,
@@ -83,7 +83,6 @@
       {
        "xtype" : "LayoutRegion",
        "width" : 400,
-       "tabPosition" : "top",
        "$ xns" : "Roo",
        "split" : true,
        "* prop" : "east"
