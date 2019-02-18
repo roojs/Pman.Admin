@@ -726,15 +726,15 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              },
              {
                  'name': 'division_id_name',
-                 'type': 'int'
+                 'type': 'string'
              },
              {
-                 'name': 'no_of_division',
-                 'type': 'int'
+                 'name': 'postal_code',
+                 'type': 'string'
              },
              {
-                 'name': 'no_of_city',
-                 'type': 'int'
+                 'name': 'time_zone',
+                 'type': 'string'
              }
          ],
          id : 'id',
