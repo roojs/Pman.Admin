@@ -272,7 +272,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 75,
+         width : 100,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -285,7 +285,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 75,
+         width : 100,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
@@ -560,7 +560,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 75,
+         width : 100,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
