@@ -285,10 +285,15 @@ Pman.Dialog.AdminGeoCityEdit = {
            listeners : {
             beforeload : function (_self, o){
                  o.params = o.params || {};
-                 // set more here
-                 o.params.ltype = 'c',
-                 o.params.inlang = 'en';
-                 o.is_active = 1;
+                 
+                 var country = _this.form.findField('country').getValue();
+                 
+                 if(!country.length) {
+                     Roo.MessageBox.alert('Error', 'Please select a country');
+                     return false;
+                 }
+                 
+                 o.params.country = country;
              }
            },
            xns : Roo.data,
