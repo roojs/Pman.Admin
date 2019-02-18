@@ -179,6 +179,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
               
               options.params['query[name]'] = _this.country_searchBox.getValue();
               
+              options.params._with_geoip_count = 1;
           },
          load : function (_self, records, options)
           {
