@@ -148,11 +148,11 @@
          "forceSelection" : true,
          "selectOnFocus" : true,
          "pageSize" : 20,
-         "displayField" : "lval",
+         "displayField" : "name",
          "emptyText" : "Select Country",
          "hiddenName" : "division_id",
          "minChars" : 2,
-         "valueField" : "lkey",
+         "valueField" : "id",
          "xtype" : "ComboBox",
          "allowBlank" : false,
          "typeAhead" : true,
@@ -162,7 +162,7 @@
          "name" : "division_id_name",
          "qtip" : "Select Country",
          "queryParam" : "query[name]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
          "loadingText" : "Searching...",
          "items" : [
           {
