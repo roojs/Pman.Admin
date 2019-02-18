@@ -192,12 +192,14 @@ Pman.Dialog.AdminGeoDivisionEdit = {
           store : {
            xtype : 'Store',
            remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'name' },
+           sortInfo : { direction : 'ASC', field: 'lval' },
            listeners : {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  // set more here
-                 o.params.comptype= 'CUSTOMER';
+                 o.params.ltype = 'c',
+                 o.params.inlang = 'en';
+                 o.is_active = 1;
              }
            },
            xns : Roo.data,

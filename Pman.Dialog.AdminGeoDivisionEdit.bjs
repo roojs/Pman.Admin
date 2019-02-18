@@ -100,11 +100,11 @@
          "items" : [
           {
            "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params.comptype= 'CUSTOMER';\n}\n"
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params.ltype = 'c',\n    o.params.inlang = 'en';\n    o.is_active = 1;\n}\n"
            },
            "xtype" : "Store",
            "remoteSort" : true,
-           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'lval' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "items" : [
