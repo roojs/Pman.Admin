@@ -7,6 +7,7 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminGeoLocations = new Roo.XComponent({
 
  _strings : {
+  'f2b734f9d29a7b036a5f26b229f1e918' :"Geographic Locations",
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   'edefbda3a2bdd979e42d8944b7325b79' :"Companies",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
@@ -16,7 +17,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '68be4837f6c739877233e527a996dd00' :"Merge",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
   'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
-  '1814d65a76028fdfbadab64a5a8076df' :"Suppliers",
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active"
@@ -37,7 +37,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
    xtype : 'NestedLayoutPanel',
    background : true,
    region : 'center',
-   title : _this._strings['1814d65a76028fdfbadab64a5a8076df'] /* Suppliers */,
+   title : _this._strings['f2b734f9d29a7b036a5f26b229f1e918'] /* Geographic Locations */,
    xns : Roo,
    '|xns' : 'Roo',
    layout : {
