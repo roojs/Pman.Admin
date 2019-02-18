@@ -13,9 +13,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
   '646f95b46cdc6ae59dd9f2e86bf3b598' :"Displaying Country {0} - {1} of {2}",
   '7faaef9675ee0e8280a243a290569359' :"No. Provinces",
+  '68be4837f6c739877233e527a996dd00' :"Merge",
   'aa186c44d0c1a9b263933bfa359802e3' :"Select Province",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
-  '68be4837f6c739877233e527a996dd00' :"Merge",
   '05a43538cbc752df5428fe0a71192d09' :"No. Cities",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
   '57d056ed0984166336b7879c2af3657f' :"City",
@@ -357,71 +357,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           },
           xns : Roo.form,
           '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'ComboBox',
-          allowBlank : false,
-          displayField : 'province',
-          editable : true,
-          emptyText : _this._strings['aa186c44d0c1a9b263933bfa359802e3'] /* Select Province */,
-          forceSelection : true,
-          listWidth : 300,
-          loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
-          minChars : 2,
-          pageSize : 20,
-          qtip : _this._strings['aa186c44d0c1a9b263933bfa359802e3'] /* Select Province */,
-          queryParam : 'query[province]',
-          selectOnFocus : true,
-          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{province}</b> </div>',
-          triggerAction : 'all',
-          typeAhead : true,
-          valueField : 'province',
-          width : 150,
-          listeners : {
-           beforeselect : function (combo, record, index)
-            {
-              var f = _this.grid.footer;
-              f.onClick.defer(100, f, [ 'first' ]);
-            },
-           render : function (_self)
-            {
-              _this.provinceCombo = _self;
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'province' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-              
-                  o.params._distinct = 'province';
-              
-                 // set more here
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_company.php',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : [{"name":"id","type":"int"},{"name":"province","type":"string"}],
-            id : 'id',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
          },
          {
           xtype : 'Button',
