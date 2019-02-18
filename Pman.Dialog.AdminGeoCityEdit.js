@@ -311,7 +311,7 @@ Pman.Dialog.AdminGeoCityEdit = {
            proxy : {
             xtype : 'HttpProxy',
             method : 'GET',
-            url : baseURL + '/Roo/geo_division.php',
+            url : baseURL + '/Roo/geoip_division.php',
             xns : Roo.data,
             '|xns' : 'Roo.data'
            },
