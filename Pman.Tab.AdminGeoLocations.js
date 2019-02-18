@@ -450,7 +450,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.grid.getSelectionModel().getSelected();
+                var s = _this.province_grid.getSelectionModel().getSelected();
                 
                 if (!s)  {
                     Roo.MessageBox.alert("Error", "Select a Row");
