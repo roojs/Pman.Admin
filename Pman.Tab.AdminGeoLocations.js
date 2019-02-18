@@ -182,7 +182,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           },
          load : function (_self, records, options)
           {
-              Roo.log('load');
+              _this.province_grid.footer.onClick('first');
           }
         },
         xns : Roo.data,
