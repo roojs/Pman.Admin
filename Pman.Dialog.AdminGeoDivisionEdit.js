@@ -213,7 +213,28 @@ Pman.Dialog.AdminGeoDivisionEdit = {
            },
            reader : {
             xtype : 'JsonReader',
-            fields : [{"name":"id","type":"int"},{"name":"code","type":"string"}],
+            fields : [
+                {
+                    "name":"id",
+                    "type":"int"
+                },
+                {
+                    "name":"code",
+                    "type":"string"
+                },
+                {
+                    "name":"name",
+                    "type":"string"
+                },
+                {
+                    "name":"country",
+                    "type":"string"
+                },
+                {
+                    "name":"country_name",
+                    "type":"string"
+                }
+            ],
             id : 'id',
             root : 'data',
             totalProperty : 'total',
