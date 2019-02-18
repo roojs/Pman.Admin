@@ -255,7 +255,6 @@ Pman.Dialog.AdminGeoCityEdit = {
          },
          {
           xtype : 'ComboBox',
-          allowBlank : false,
           alwaysQuery : true,
           displayField : 'name',
           editable : true,
