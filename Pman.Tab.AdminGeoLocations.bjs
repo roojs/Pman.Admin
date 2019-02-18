@@ -384,7 +384,7 @@
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/i18n.php'",
+             "$ url" : "baseURL + '/Roo/geoip_city.php'",
              "method" : "GET",
              "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
