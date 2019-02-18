@@ -14,7 +14,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '646f95b46cdc6ae59dd9f2e86bf3b598' :"Displaying Country {0} - {1} of {2}",
   '7faaef9675ee0e8280a243a290569359' :"No. Provinces",
-  '68be4837f6c739877233e527a996dd00' :"Merge",
   'bbf2182dd4040fabc2b5433c32fd60f4' :"Province / District",
   '05a43538cbc752df5428fe0a71192d09' :"No. Cities",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
@@ -22,6 +21,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
   '31311feefd4f3253ed255d109da1480b' :"No Country found",
   '42e3bd04a7339573df51e33a0e4e8969' :"Search Province",
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '90fd8a29b37d805cf75af6a3809bca87' :"Search City",
   '08b523137281088adf3cb1883c8e5627' :"Search Country",
@@ -462,7 +462,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : rootURL + '/Pman/templates/images/trash.gif',
-          text : _this._strings['68be4837f6c739877233e527a996dd00'] /* Merge */,
+          text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
           listeners : {
            click : function()
             {
