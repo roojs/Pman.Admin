@@ -382,7 +382,7 @@
            "sortable" : true,
            "header" : "Name",
            "width" : 200,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
            "dataIndex" : "name"
@@ -390,9 +390,9 @@
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
-           "header" : "Name",
+           "header" : "No. Cities",
            "width" : 75,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
            "dataIndex" : "no_of_city"

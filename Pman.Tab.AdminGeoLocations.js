@@ -607,7 +607,10 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          xtype : 'ColumnModel',
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v) 
+         { 
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 200,
          xns : Roo.grid,
@@ -616,8 +619,11 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         {
          xtype : 'ColumnModel',
          dataIndex : 'no_of_city',
-         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v); },
+         header : _this._strings['05a43538cbc752df5428fe0a71192d09'] /* No. Cities */,
+         renderer : function(v) 
+         { 
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 75,
          xns : Roo.grid,
