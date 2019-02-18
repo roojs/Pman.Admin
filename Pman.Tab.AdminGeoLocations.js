@@ -302,7 +302,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       title : _this._strings['c6b5d0bb9a0c3f077863fdaef9773f7c'] /* Province */,
       listeners : {
        activate : function() {
-            _this.cpanel = this;
+            _this.province_panel = this;
             if (_this.grid) {
                 _this.grid.footer.onClick('first');
             }
