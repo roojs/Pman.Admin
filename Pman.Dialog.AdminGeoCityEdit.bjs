@@ -1,0 +1,10 @@
+{
+ "name" : "Pman.Dialog.AdminGeoCityEdit",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Dialog.AdminGeoCityEdit.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "items" : [
+ ]
+}
