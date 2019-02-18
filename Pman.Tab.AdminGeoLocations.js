@@ -434,7 +434,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 Pman.Dialog.AdminGeoDivisionEdit.show({
                     id : s.data.id
                 }, function(){
-                    _this.province_grid.footer.onClick('first');
+                    _this.province_grid.footer.onClick('refresh');
                 });
                 
             }
@@ -471,7 +471,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                                 _delete  : s.data.id
                             },
                             success : function() {
-                                _this._this.province_grid.footer.onClick('first');.footer.onClick('refresh');
+                                _this.province_grid.footer.onClick('refresh');
                             }
                         });
                     }

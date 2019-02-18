@@ -314,7 +314,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}"
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('refresh');\n    });\n    \n}"
              },
              "text" : "Edit",
              "xtype" : "Button",
@@ -324,7 +324,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Are you sure want to delete this province\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/geoip_division',\n                params : {\n                    _delete  : s.data.id\n                },\n                success : function() {\n                    _this._this.province_grid.footer.onClick('first');.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}"
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Are you sure want to delete this province\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/geoip_division',\n                params : {\n                    _delete  : s.data.id\n                },\n                success : function() {\n                    _this.province_grid.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}"
              },
              "text" : "Delete",
              "xtype" : "Button",
