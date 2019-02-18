@@ -313,10 +313,6 @@ Pman.Dialog.AdminGeoCityEdit = {
                     "type":"int"
                 },
                 {
-                    "name":"code",
-                    "type":"string"
-                },
-                {
                     "name":"name",
                     "type":"string"
                 },

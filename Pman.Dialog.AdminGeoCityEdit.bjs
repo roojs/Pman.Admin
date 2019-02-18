@@ -189,7 +189,7 @@
              "root" : "data",
              "xtype" : "JsonReader",
              "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        \"name\":\"id\",\n        \"type\":\"int\"\n    },\n    {\n        \"name\":\"code\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"name\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country_name\",\n        \"type\":\"string\"\n    }\n]",
+             "$ fields" : "[\n    {\n        \"name\":\"id\",\n        \"type\":\"int\"\n    },\n    {\n        \"name\":\"name\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country_name\",\n        \"type\":\"string\"\n    }\n]",
              "* prop" : "reader",
              "totalProperty" : "total"
             }
