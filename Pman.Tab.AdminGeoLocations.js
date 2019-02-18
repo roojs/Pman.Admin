@@ -409,7 +409,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     country_name : (country) ? country.data.lval : ''
                 }, function(){
                     _this.province_grid.footer.onClick('first');
-                ;})
+                });
                 
             }
           },

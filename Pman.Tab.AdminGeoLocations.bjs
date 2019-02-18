@@ -304,7 +304,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    ;})\n    \n}\n"
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}\n"
              },
              "text" : "Add",
              "xtype" : "Button",
