@@ -19,11 +19,15 @@ Pman.Dialog.AdminGeoCityEdit = {
  },
  _named_strings : {
   'country_name_qtip' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
+  'division_id_name_qtip' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'time_zone_fieldLabel' : '45c10605e0a492fbe7a3eac258cd1e81' /* Time Zone */ ,
   'country_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'postal_code_fieldLabel' : '25f75488c91cb6c3bab92672e479619f' /* Postal Code */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
   'country_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'division_id_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
+  'division_id_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ ,
+  'division_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'country_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ 
  },
 
@@ -182,6 +186,85 @@ Pman.Dialog.AdminGeoCityEdit = {
           loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
           minChars : 2,
           name : 'country_name',
+          pageSize : 20,
+          qtip : _this._strings['3c1df4260ce594cb5594696461087f2f'] /* Select Country */,
+          queryParam : 'query[name]',
+          selectOnFocus : true,
+          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>',
+          triggerAction : 'all',
+          typeAhead : true,
+          valueField : 'lkey',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'lval' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 // set more here
+                 o.params.ltype = 'c',
+                 o.params.inlang = 'en';
+                 o.is_active = 1;
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/i18n.php',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : [
+                {
+                    "name":"id",
+                    "type":"int"
+                },
+                {
+                    "name":"code",
+                    "type":"string"
+                },
+                {
+                    "name":"name",
+                    "type":"string"
+                },
+                {
+                    "name":"country",
+                    "type":"string"
+                },
+                {
+                    "name":"country_name",
+                    "type":"string"
+                }
+            ],
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          }
+         },
+         {
+          xtype : 'ComboBox',
+          allowBlank : false,
+          alwaysQuery : true,
+          displayField : 'lval',
+          editable : true,
+          emptyText : _this._strings['3c1df4260ce594cb5594696461087f2f'] /* Select Country */,
+          fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
+          forceSelection : true,
+          hiddenName : 'division_id',
+          listWidth : 400,
+          loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
+          minChars : 2,
+          name : 'division_id_name',
           pageSize : 20,
           qtip : _this._strings['3c1df4260ce594cb5594696461087f2f'] /* Select Country */,
           queryParam : 'query[name]',

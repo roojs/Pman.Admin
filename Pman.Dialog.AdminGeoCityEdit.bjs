@@ -18,11 +18,15 @@
  },
  "named_strings" : {
   "country_name_qtip" : "3c1df4260ce594cb5594696461087f2f",
+  "division_id_name_qtip" : "3c1df4260ce594cb5594696461087f2f",
   "time_zone_fieldLabel" : "45c10605e0a492fbe7a3eac258cd1e81",
   "country_name_emptyText" : "3c1df4260ce594cb5594696461087f2f",
   "postal_code_fieldLabel" : "25f75488c91cb6c3bab92672e479619f",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
   "country_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "division_id_name_emptyText" : "3c1df4260ce594cb5594696461087f2f",
+  "division_id_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
+  "division_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "country_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d"
  },
  "items" : [
@@ -120,6 +124,61 @@
              "$ url" : "baseURL + '/Roo/i18n.php'",
              "xtype" : "HttpProxy",
              "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        \"name\":\"id\",\n        \"type\":\"int\"\n    },\n    {\n        \"name\":\"code\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"name\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country\",\n        \"type\":\"string\"\n    },\n    {\n        \"name\":\"country_name\",\n        \"type\":\"string\"\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "alwaysQuery" : true,
+         "listWidth" : 400,
+         "triggerAction" : "all",
+         "fieldLabel" : "Country",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "pageSize" : 20,
+         "displayField" : "lval",
+         "emptyText" : "Select Country",
+         "hiddenName" : "division_id",
+         "minChars" : 2,
+         "valueField" : "lkey",
+         "xtype" : "ComboBox",
+         "allowBlank" : false,
+         "typeAhead" : true,
+         "editable" : true,
+         "width" : 200,
+         "$ xns" : "Roo.form",
+         "name" : "division_id_name",
+         "qtip" : "Select Country",
+         "queryParam" : "query[name]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{lval}</b> </div>",
+         "loadingText" : "Searching...",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params.ltype = 'c',\n    o.params.inlang = 'en';\n    o.is_active = 1;\n}\n"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ direction : 'ASC', field: 'lval' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/i18n.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
