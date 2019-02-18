@@ -129,7 +129,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            render : function (_self)
             {
-              _this.searchBox = _self;
+              _this.country_searchBox = _self;
             },
            specialkey : function (_self, e)
             {
