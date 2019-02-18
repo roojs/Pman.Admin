@@ -790,7 +790,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                             method : 'POST',
                             url : baseURL + '/Roo/geoip_division',
                             params : {
-                                _delete  : ids.join(','),
+                                _delete  : ids.join(',')
                             },
                             success : function() {
                                 _this.country_grid.footer.onClick('refresh');
