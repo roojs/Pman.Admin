@@ -716,6 +716,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
             {
                 var country = _this.country_grid.getSelectionModel().getSelected();
                 
+                var province = _this.province_grid.getSelectionModel().getSelected();
+                
                 Pman.Dialog.AdminGeoDivisionEdit.show({
                     id : 0,
                     country : (country) ? country.data.lkey : '',
@@ -875,12 +877,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          xns : Roo.data,
          '|xns' : 'Roo.data'
         }
-       },
-       sm : {
-        xtype : 'RowSelectionModel',
-        singleSelect : true,
-        xns : Roo.grid,
-        '|xns' : 'Roo.grid'
        },
        cm : [
         {

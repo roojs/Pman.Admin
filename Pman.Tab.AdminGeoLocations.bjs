@@ -383,12 +383,6 @@
          "* prop" : "grid",
          "items" : [
           {
-           "Boolean singleSelect" : true,
-           "xtype" : "RowSelectionModel",
-           "$ xns" : "Roo.grid",
-           "* prop" : "sm"
-          },
-          {
            "listeners" : {
             "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n    \n    var province = _this.province_grid.getSelectionModel().getSelected();\n    \n    if(province) {\n        options.params.division_id = province.data.id\n    }\n    \n    options.params['query[name]'] = _this.city_searchBox.getValue();\n}"
            },
@@ -463,7 +457,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}\n"
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    var province = _this.province_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}\n"
              },
              "text" : "Add",
              "xtype" : "Button",
