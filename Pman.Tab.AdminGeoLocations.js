@@ -750,7 +750,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 Pman.Dialog.AdminGeoCityEdit.show({
                     id : s[0].data.id
                 }, function(){
-                    _this.province_grid.footer.onClick('refresh');
+                    _this.country_grid.footer.onClick('refresh');
                 });
                 
             }
