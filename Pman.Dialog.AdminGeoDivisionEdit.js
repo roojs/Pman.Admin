@@ -7,7 +7,6 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminGeoDivisionEdit = {
 
  _strings : {
-  '2df80d5febcde0c10a66818488622b7c' :"Pulldown Options",
   'd1228f5476d15142b1358ae4b5fa2454' :"Order #",
   '7af54708cf5a4286cf0cfa58ff5148a8' :"Internal #",
   'b48968e1c912da07df5e8d6d246291ec' :"Display Name",
@@ -15,6 +14,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
   '510bc6e58593b2b8002c9fe0c21f3fde' :"Displaying core_enum{0} - {1} of {2}",
   '1ba4d808fc7b27a7f60ce2ff75a8af3a' :"No core_enum found",
   'd469fd7a8d8939b7abe793469d7375da' :"Add / Edit Province",
+  'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
   'd9ec74f5aa29ceef6bf7b45f7fec5d0f' :"Add Value",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
@@ -104,8 +104,8 @@ Pman.Dialog.AdminGeoDivisionEdit = {
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      tableName : 'core_enum',
-      title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
+      tableName : 'geoip_division',
+      title : _this._strings['c6b5d0bb9a0c3f077863fdaef9773f7c'] /* Province */,
       listeners : {
        activate : function() {
             _this.panel = this;
