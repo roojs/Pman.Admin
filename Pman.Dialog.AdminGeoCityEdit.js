@@ -279,7 +279,12 @@ Pman.Dialog.AdminGeoCityEdit = {
           listeners : {
            beforequery : function (combo, query, forceAll, cancel, e)
             {
+                var country = _this.form.findField('country').getValue();
                 
+                if(!country.length) {
+                    Roo.MessageBox.alert('Error', 'Please select a country');
+                    return false;
+                }
             }
           },
           xns : Roo.form,
@@ -293,6 +298,10 @@ Pman.Dialog.AdminGeoCityEdit = {
                  o.params = o.params || {};
                  
                  var country = _this.form.findField('country').getValue();
+                 
+                 if(!country.length) {
+                     return false;
+                 }
                  
                  o.params.country = country;
              }
