@@ -60,7 +60,7 @@
       },
       {
        "listeners" : {
-        "|activate" : "function() {\n    _this.cpanel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+        "|activate" : "function() {\n    \n    _this.country_panel = this;\n    if (_this.country_grid) {\n        _this.country_grid.footer.onClick('first');\n    }\n}"
        },
        "region" : "west",
        "fitToframe" : true,

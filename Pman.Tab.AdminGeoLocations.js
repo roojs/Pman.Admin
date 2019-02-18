@@ -79,9 +79,10 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       title : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
       listeners : {
        activate : function() {
-            _this.cpanel = this;
-            if (_this.grid) {
-                _this.grid.footer.onClick('first');
+            
+            _this.country_panel = this;
+            if (_this.country_grid) {
+                _this.country_grid.footer.onClick('first');
             }
         }
       },
