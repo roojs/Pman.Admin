@@ -401,17 +401,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function()
             {
-               _this.grid.getSelectionModel().clearSelections();
-               _this.form.reset();
-                _this.form.setValues({ id: 0, comptype : 'SUPPLIER' });
-               // hide files..
-               _this.layout.getRegion('east').show();
-               _this.layout.getRegion('east').hidePanel(1);
-                 _this.panel.layout.getRegion('east').el.unmask(0);
-               _this.layout.getRegion('east').showPanel(0);     
-               //yourdialog.show( { id : 0 } , function() {
-               //  _this.grid.footer.onClick('first');
-               //}); 
+                var country = _this.country_grid.getSelectionModel().getSelected();
+                
+                Pman.Dialog.AdminGeoDivisionEdit.show({}, function(){
+                    
+                ;})
+                
             }
           },
           xns : Roo.Toolbar,

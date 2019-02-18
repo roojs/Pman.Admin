@@ -304,7 +304,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n   _this.grid.getSelectionModel().clearSelections();\n   _this.form.reset();\n    _this.form.setValues({ id: 0, comptype : 'SUPPLIER' });\n   // hide files..\n   _this.layout.getRegion('east').show();\n   _this.layout.getRegion('east').hidePanel(1);\n     _this.panel.layout.getRegion('east').el.unmask(0);\n   _this.layout.getRegion('east').showPanel(0);     \n   //yourdialog.show( { id : 0 } , function() {\n   //  _this.grid.footer.onClick('first');\n   //}); \n}\n"
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({}, function(){\n        \n    ;})\n    \n}\n"
              },
              "text" : "Add",
              "xtype" : "Button",
