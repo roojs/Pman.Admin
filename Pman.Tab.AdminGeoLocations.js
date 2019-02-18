@@ -183,6 +183,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
               options.params.inlang = 'en';
               options.is_active = 1;
               
+              Roo.log(_this.country_searchBox.getValue());
               options['query[name]'] = _this.country_searchBox.getValue();
               
           }

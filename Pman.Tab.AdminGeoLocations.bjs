@@ -96,7 +96,7 @@
           },
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n    \n    options['query[name]'] = _this.country_searchBox.getValue();\n    \n}"
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n    \n    Roo.log(_this.country_searchBox.getValue());\n    options['query[name]'] = _this.country_searchBox.getValue();\n    \n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,
