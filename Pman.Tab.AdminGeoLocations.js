@@ -14,6 +14,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '646f95b46cdc6ae59dd9f2e86bf3b598' :"Displaying Country {0} - {1} of {2}",
   '7faaef9675ee0e8280a243a290569359' :"No. Provinces",
   '68be4837f6c739877233e527a996dd00' :"Merge",
+  'bbf2182dd4040fabc2b5433c32fd60f4' :"Province / District",
   '05a43538cbc752df5428fe0a71192d09' :"No. Cities",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
   '57d056ed0984166336b7879c2af3657f' :"City",
@@ -772,14 +773,14 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'no_of_division',
-         header : _this._strings['7faaef9675ee0e8280a243a290569359'] /* No. Provinces */,
+         dataIndex : 'division_id_name',
+         header : _this._strings['bbf2182dd4040fabc2b5433c32fd60f4'] /* Province / District */,
          renderer : function(v) 
          { 
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 75,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
