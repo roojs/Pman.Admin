@@ -13,8 +13,6 @@
   "646f95b46cdc6ae59dd9f2e86bf3b598" : "Displaying Country {0} - {1} of {2}",
   "7faaef9675ee0e8280a243a290569359" : "No. Provinces",
   "68be4837f6c739877233e527a996dd00" : "Merge",
-  "aa186c44d0c1a9b263933bfa359802e3" : "Select Province",
-  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "05a43538cbc752df5428fe0a71192d09" : "No. Cities",
   "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
   "57d056ed0984166336b7879c2af3657f" : "City",
@@ -22,7 +20,6 @@
   "31311feefd4f3253ed255d109da1480b" : "No Country found",
   "26cbe1e3b53e773d1bdf15fb4912c2e0" : "search name",
   "49ee3087348e8d44e1feda1917443987" : "Name",
-  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "08b523137281088adf3cb1883c8e5627" : "Search Country",
   "36dc0beb80c36193ac81b4f94e915e36" : "Country Name"
  },
@@ -348,7 +345,7 @@
       },
       {
        "listeners" : {
-        "|activate" : "function() {\n    _this.cpanel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+        "|activate" : "function() {\n    \n    _this.country_panel = this;\n    if (_this.country_grid) {\n        _this.country_grid.footer.onClick('first');\n    }\n}"
        },
        "region" : "east",
        "fitToframe" : true,
@@ -360,9 +357,9 @@
        "items" : [
         {
          "listeners" : {
-          "|render" : "function() \n{\n   _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.cpanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+          "|render" : "function() \n{\n   _this.country_grid = this; \n   \n    if (_this.country_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
-         "autoExpandColumn" : "name",
+         "autoExpandColumn" : "lval",
          "xtype" : "Grid",
          "loadMask" : true,
          "$ xns" : "Roo.grid",
@@ -379,17 +376,17 @@
           },
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n   if ( _this.layout) {\n      //_this.layout.getRegion('east').hide() ;\n      }\n    options.params['query[comptype]'] ='SUPPLIER,OLDSUPPL'; // base on pulldown..\n    options.params['query[name]'] = _this.searchBox.getValue();\n    if (_this.provinceCombo.getValue()) {\n       options.params['province'] = _this.provinceCombo.getValue();\n   }\n}",
-            "load" : "function (_self, records, options)\n{\n    if (_this.grid.getSelectionModel().getSelected()) {\n        _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n    if (!_this.grid.getSelectionModel().getSelected() && this.getTotalCount() == 1) {\n       \n        _this.grid.getSelectionModel().selectFirstRow();\n          _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n}"
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n    \n    options.params['query[name]'] = _this.country_searchBox.getValue();\n    \n}",
+            "load" : "function (_self, records, options)\n{\n    Roo.log('load');\n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,
-           "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
+           "$ sortInfo" : "{ field: 'lval', direction: 'ASC' }",
            "$ xns" : "Roo.data",
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/core_company.php'",
+             "$ url" : "baseURL + '/Roo/i18n.php'",
              "method" : "GET",
              "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
@@ -400,7 +397,7 @@
              "root" : "data",
              "xtype" : "JsonReader",
              "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'address',\n        'type': 'string'\n    },\n    {\n        'name': 'tel',\n        'type': 'string'\n    },\n    {\n        'name': 'fax',\n        'type': 'string'\n    },\n    {\n        'name': 'email',\n        'type': 'string'\n    },\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'isOwner',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id',\n        'type': 'int'\n    },\n    {\n        'name': 'background_color',\n        'type': 'string'\n    },\n    {\n        'name': 'comptype',\n        'type': 'string'\n    },\n    {\n        'name': 'url',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'created_by',\n        'type': 'int'\n    },\n    {\n        'name': 'created_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'updated_by',\n        'type': 'int'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'string'\n    },\n    {\n        'name': 'passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'dispatch_port',\n        'type': 'string'\n    },\n    {\n        'name': 'province',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_filename',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_onid',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_mimetype',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_width',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_height',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_filesize',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_displayorder',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_language',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_parent_image_id',\n        'type': 'int'\n    },\n    {\n        'name': 'logo_id_created',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_imgtype',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_linkurl',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_descript',\n        'type': 'string'\n    },\n    {\n        'name': 'logo_id_title',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_office_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_role',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_active',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_remarks',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_passwd',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_owner_id',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_lang',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_no_reset_sent',\n        'type': 'int'\n    },\n    {\n        'name': 'owner_id_action_type',\n        'type': 'string'\n    },\n    {\n        'name': 'owner_id_project_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_company_id',\n        'type': 'int'\n    },\n    {\n        'name': 'main_office_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_address',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_phone',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_fax',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_email',\n        'type': 'string'\n    },\n    {\n        'name': 'main_office_id_role',\n        'type': 'string'\n    }\n]",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    },\n    {\n        'name': 'is_active',\n        'type': 'int'\n    },\n    {\n        'name': 'is_prefer',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_division',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_city',\n        'type': 'int'\n    }\n]",
              "* prop" : "reader",
              "totalProperty" : "total"
             }
@@ -409,10 +406,10 @@
           {
            "pageSize" : 25,
            "xtype" : "PagingToolbar",
-           "emptyMsg" : "No Companies found",
+           "emptyMsg" : "No Country found",
            "$ xns" : "Roo",
            "displayInfo" : true,
-           "displayMsg" : "Displaying Companies{0} - {1} of {2}",
+           "displayMsg" : "Displaying Country {0} - {1} of {2}",
            "* prop" : "footer"
           },
           {
@@ -422,71 +419,16 @@
            "items" : [
             {
              "listeners" : {
-              "specialkey" : "function (_self, e)\n{\n     if (e.getKey() == 13) {\n        _this.grid.footer.onClick('first');\n     }\n}",
-              "render" : "function (_self)\n{\n  _this.searchBox = _self;\n}"
+              "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.country_grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.country_searchBox = _self;\n}"
              },
-             "emptyText" : "search name",
+             "emptyText" : "Search Country",
              "xtype" : "TextField",
              "$ xns" : "Roo.form"
             },
             {
              "listeners" : {
-              "render" : "function (_self)\n{\n  _this.provinceCombo = _self;\n}",
-              "beforeselect" : "function (combo, record, index)\n{\n  var f = _this.grid.footer;\n  f.onClick.defer(100, f, [ 'first' ]);\n}"
-             },
-             "listWidth" : 300,
-             "triggerAction" : "all",
-             "forceSelection" : true,
-             "selectOnFocus" : true,
-             "pageSize" : 20,
-             "displayField" : "province",
-             "emptyText" : "Select Province",
-             "minChars" : 2,
-             "valueField" : "province",
-             "xtype" : "ComboBox",
-             "allowBlank" : false,
-             "typeAhead" : true,
-             "editable" : true,
-             "width" : 150,
-             "$ xns" : "Roo.form",
-             "qtip" : "Select Province",
-             "queryParam" : "query[province]",
-             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{province}</b> </div>",
-             "loadingText" : "Searching...",
-             "items" : [
-              {
-               "listeners" : {
-                "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n \n     o.params._distinct = 'province';\n \n    // set more here\n}\n"
-               },
-               "xtype" : "Store",
-               "remoteSort" : true,
-               "$ sortInfo" : "{ direction : 'ASC', field: 'province' }",
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "items" : [
-                {
-                 "$ url" : "baseURL + '/Roo/core_company.php'",
-                 "method" : "GET",
-                 "xtype" : "HttpProxy",
-                 "$ xns" : "Roo.data",
-                 "* prop" : "proxy"
-                },
-                {
-                 "id" : "id",
-                 "root" : "data",
-                 "xtype" : "JsonReader",
-                 "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"province\",\"type\":\"string\"}]",
-                 "$ xns" : "Roo.data",
-                 "* prop" : "reader",
-                 "totalProperty" : "total"
-                }
-               ]
-              }
-             ]
-            },
-            {
-             "listeners" : {
-              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+              "|click" : "function (_self, e)\n{\n    _this.country_grid.footer.onClick('first');\n}"
              },
              "xtype" : "Button",
              "cls" : "x-btn-icon",
@@ -495,35 +437,11 @@
             },
             {
              "listeners" : {
-              "|click" : "function (_self, e)\n{\n   _this.searchBox.setValue('');\n   _this.provinceCombo.setValue('');\n    _this.grid.footer.onClick('first');\n}"
+              "|click" : "function (_self, e)\n{\n   _this.country_searchBox.setValue('');\n    _this.country_grid.footer.onClick('first');\n}"
              },
              "xtype" : "Button",
              "cls" : "x-btn-icon",
              "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
-             "$ xns" : "Roo.Toolbar"
-            },
-            {
-             "xtype" : "Fill",
-             "$ xns" : "Roo.Toolbar"
-            },
-            {
-             "listeners" : {
-              "|click" : "function()\n{\n   _this.grid.getSelectionModel().clearSelections();\n   _this.form.reset();\n    _this.form.setValues({ id: 0, comptype : 'SUPPLIER' });\n   // hide files..\n   _this.layout.getRegion('east').show();\n   _this.layout.getRegion('east').hidePanel(1);\n     _this.panel.layout.getRegion('east').el.unmask(0);\n   _this.layout.getRegion('east').showPanel(0);     \n   //yourdialog.show( { id : 0 } , function() {\n   //  _this.grid.footer.onClick('first');\n   //}); \n}\n"
-             },
-             "text" : "Add",
-             "xtype" : "Button",
-             "cls" : "x-btn-text-icon",
-             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-             "$ xns" : "Roo.Toolbar"
-            },
-            {
-             "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    if (!s.length)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var ids = [];\n    var names = [];\n    \n    var params = {};\n    \n    params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';\n    \n    Roo.each(s, function(v, k){\n        ids.push(v.data.id);\n        names.push(v.data.name);\n        params['!id[' + k + ']'] = v.data.id\n    });\n    \n    Pman.Dialog.ShippingSupplierMerge.show({ \n        _merge_from : ids.join(','),\n        _name : names.join(', '),\n        type: 'Supplier',\n        params : params\n    }, function() {\n        _this.grid.footer.onClick('refresh');\n    });\n}"
-             },
-             "text" : "Merge",
-             "xtype" : "Button",
-             "cls" : "x-btn-text-icon",
-             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
              "$ xns" : "Roo.Toolbar"
             }
            ]
@@ -531,41 +449,32 @@
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
-           "header" : "Name",
+           "header" : "Country Name",
            "width" : 200,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "name"
+           "* prop" : "cm[]",
+           "dataIndex" : "lval"
           },
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
-           "header" : "Active",
-           "width" : 100,
-           "$ renderer" : "function(v) { return v.match(/OLD/) ? 'OLD' : v ; }",
+           "header" : "No. Provinces",
+           "width" : 75,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "comptype"
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_division"
           },
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
-           "header" : "Province",
-           "width" : 100,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
+           "header" : "No. Cities",
+           "width" : 75,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "province"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "Country",
-           "width" : 100,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "country_display_name"
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_city"
           }
          ]
         }
