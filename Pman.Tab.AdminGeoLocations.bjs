@@ -40,28 +40,22 @@
      "* prop" : "layout",
      "items" : [
       {
-       "String tabPosition" : "top",
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
-       "Boolean alwaysShowTabs" : true,
        "* prop" : "center"
       },
       {
-       "String tabPosition" : "top",
        "Number width" : 400,
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "split" : true,
-       "Boolean alwaysShowTabs" : true,
        "* prop" : "west"
       },
       {
-       "String tabPosition" : "top",
        "xtype" : "LayoutRegion",
        "width" : 400,
        "$ xns" : "Roo",
        "split" : true,
-       "Boolean alwaysShowTabs" : true,
        "* prop" : "east"
       },
       {
