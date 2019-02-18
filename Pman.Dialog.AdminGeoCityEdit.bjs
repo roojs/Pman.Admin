@@ -178,7 +178,7 @@
            "* prop" : "store",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/i18n.php'",
+             "$ url" : "baseURL + '/Roo/geo_division.php'",
              "method" : "GET",
              "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
