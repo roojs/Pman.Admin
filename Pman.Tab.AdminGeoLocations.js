@@ -330,7 +330,11 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          {
              var s =  _this.province_grid.getDataSource().getAt(rowIndex);
              
-             
+             Pman.Dialog.AdminGeoDivisionEdit.show({
+                 id : s.data.id
+             }, function(){
+                 _this.province_grid.footer.onClick('refresh');
+             });
          }
        },
        xns : Roo.grid,
