@@ -398,7 +398,7 @@
              "root" : "data",
              "xtype" : "JsonReader",
              "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    },\n    {\n        'name': 'is_active',\n        'type': 'int'\n    },\n    {\n        'name': 'is_prefer',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_division',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_city',\n        'type': 'int'\n    }\n]",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'country_name',\n        'type': 'string'\n    },\n    {\n        'name': 'division_id',\n        'type': 'int'\n    },\n    {\n        'name': 'division_id_name',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_division',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_city',\n        'type': 'int'\n    }\n]",
              "* prop" : "reader",
              "totalProperty" : "total"
             }

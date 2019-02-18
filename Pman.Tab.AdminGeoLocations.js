@@ -709,23 +709,23 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                  'type': 'int'
              },
              {
-                 'name': 'lkey',
+                 'name': 'name',
                  'type': 'string'
              },
              {
-                 'name': 'inlang',
+                 'name': 'country',
                  'type': 'string'
              },
              {
-                 'name': 'lval',
+                 'name': 'country_name',
                  'type': 'string'
              },
              {
-                 'name': 'is_active',
+                 'name': 'division_id',
                  'type': 'int'
              },
              {
-                 'name': 'is_prefer',
+                 'name': 'division_id_name',
                  'type': 'int'
              },
              {
