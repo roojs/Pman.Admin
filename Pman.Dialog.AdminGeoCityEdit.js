@@ -102,7 +102,7 @@ Pman.Dialog.AdminGeoCityEdit = {
         labelWidth : 100,
         method : 'POST',
         style : 'margin:10px;',
-        url : baseURL + '/Roo/geoip_division.php',
+        url : baseURL + '/Roo/geoip_city.php',
         listeners : {
          actioncomplete : function(_self, action)
           {
