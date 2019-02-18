@@ -457,6 +457,25 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     return;
                 }
                 
+                Roo.MessageBox.confirm(
+                    "Confirm", 
+                    "Are you sure want to delete this province", 
+                    function(res) {
+                        if(res != 'yes') {
+                            return;
+                        }
+                        new Pman.Request({
+                            method : 'POST',
+                            url : baseURL + '/Roo/geoip_division',
+                            params : {
+                                _delete  : s.data.id
+                            },
+                            success : function() {
+                                _this._this.province_grid.footer.onClick('first');.footer.onClick('refresh');
+                            }
+                        });
+                    }
+                );
             }
           },
           xns : Roo.Toolbar,
