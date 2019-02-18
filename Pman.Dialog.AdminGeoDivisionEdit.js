@@ -100,22 +100,21 @@ Pman.Dialog.AdminGeoDivisionEdit = {
         style : 'margin:10px;',
         url : baseURL + '/Roo/core_company_type.php',
         listeners : {
-         actioncomplete : function(_self,action)
+         actioncomplete : function(_self, action)
           {
               if (action.type == 'setdata') {
-                 //_this.dialog.el.mask("Loading");
-                 this.url = baseURL + '/Roo/' + _this.data._table;
-                 _this.dialog.setTitle(_this.data._title);
-                 this.load({ 
-                      method: 'GET', 
-                      params: { '_id' : _this.data.id },
-                      url : this.url
-                  });
-                 return;
+                  
+                  if(_this.data.id) {
+                      this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                  }
+                  return;
               }
               if (action.type == 'load') {
+                  
                   _this.dialog.el.unmask();
-                  _this.form.findField('name').focus();
+                  
+                  _this.data = action.result.data;
+                  
                   return;
               }
               if (action.type =='submit') {
