@@ -467,16 +467,6 @@
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
            "dataIndex" : "division_id_name"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "sortable" : true,
-           "header" : "No. Cities",
-           "width" : 75,
-           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
-           "$ xns" : "Roo.grid",
-           "* prop" : "cm[]",
-           "dataIndex" : "no_of_city"
           }
          ]
         }
