@@ -29,7 +29,7 @@
    "collapsible" : false,
    "title" : "Add / Edit Province",
    "xtype" : "LayoutDialog",
-   "width" : 300,
+   "width" : 350,
    "$ xns" : "Roo",
    "closable" : false,
    "resizable" : false,
