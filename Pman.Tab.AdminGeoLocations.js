@@ -18,6 +18,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
   '57d056ed0984166336b7879c2af3657f' :"City",
   'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
+  '31311feefd4f3253ed255d109da1480b' :"No Country found",
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active"
@@ -109,7 +110,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         xtype : 'PagingToolbar',
         displayInfo : true,
         displayMsg : _this._strings['646f95b46cdc6ae59dd9f2e86bf3b598'] /* Displaying Country {0} - {1} of {2} */,
-        emptyMsg : _this._strings['fc6f97505d89fe9277965c126744647a'] /* No Companies found */,
+        emptyMsg : _this._strings['31311feefd4f3253ed255d109da1480b'] /* No Country found */,
         pageSize : 25,
         xns : Roo,
         '|xns' : 'Roo'
