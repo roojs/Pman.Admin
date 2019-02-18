@@ -139,71 +139,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           '|xns' : 'Roo.form'
          },
          {
-          xtype : 'ComboBox',
-          allowBlank : false,
-          displayField : 'province',
-          editable : true,
-          emptyText : _this._strings['aa186c44d0c1a9b263933bfa359802e3'] /* Select Province */,
-          forceSelection : true,
-          listWidth : 300,
-          loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
-          minChars : 2,
-          pageSize : 20,
-          qtip : _this._strings['aa186c44d0c1a9b263933bfa359802e3'] /* Select Province */,
-          queryParam : 'query[province]',
-          selectOnFocus : true,
-          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{province}</b> </div>',
-          triggerAction : 'all',
-          typeAhead : true,
-          valueField : 'province',
-          width : 150,
-          listeners : {
-           beforeselect : function (combo, record, index)
-            {
-              var f = _this.grid.footer;
-              f.onClick.defer(100, f, [ 'first' ]);
-            },
-           render : function (_self)
-            {
-              _this.provinceCombo = _self;
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'province' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-              
-                  o.params._distinct = 'province';
-              
-                 // set more here
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_company.php',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : [{"name":"id","type":"int"},{"name":"province","type":"string"}],
-            id : 'id',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
-         },
-         {
           xtype : 'Button',
           cls : 'x-btn-icon',
           icon : rootURL + '/Pman/templates/images/search.gif',
@@ -226,76 +161,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                _this.searchBox.setValue('');
                _this.provinceCombo.setValue('');
                 _this.grid.footer.onClick('first');
-            }
-          },
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Fill',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Button',
-          cls : 'x-btn-text-icon',
-          icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
-          text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
-          listeners : {
-           click : function()
-            {
-               _this.grid.getSelectionModel().clearSelections();
-               _this.form.reset();
-                _this.form.setValues({ id: 0, comptype : 'SUPPLIER' });
-               // hide files..
-               _this.layout.getRegion('east').show();
-               _this.layout.getRegion('east').hidePanel(1);
-                 _this.panel.layout.getRegion('east').el.unmask(0);
-               _this.layout.getRegion('east').showPanel(0);     
-               //yourdialog.show( { id : 0 } , function() {
-               //  _this.grid.footer.onClick('first');
-               //}); 
-            }
-          },
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Button',
-          cls : 'x-btn-text-icon',
-          icon : rootURL + '/Pman/templates/images/trash.gif',
-          text : _this._strings['68be4837f6c739877233e527a996dd00'] /* Merge */,
-          listeners : {
-           click : function()
-            {
-                var s = _this.grid.getSelectionModel().getSelections();
-                
-                if (!s.length)  {
-                    Roo.MessageBox.alert("Error", "Select a Row");
-                    return;
-                }
-                
-                var ids = [];
-                var names = [];
-                
-                var params = {};
-                
-                params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';
-                
-                Roo.each(s, function(v, k){
-                    ids.push(v.data.id);
-                    names.push(v.data.name);
-                    params['!id[' + k + ']'] = v.data.id
-                });
-                
-                Pman.Dialog.ShippingSupplierMerge.show({ 
-                    _merge_from : ids.join(','),
-                    _name : names.join(', '),
-                    type: 'Supplier',
-                    params : params
-                }, function() {
-                    _this.grid.footer.onClick('refresh');
-                });
             }
           },
           xns : Roo.Toolbar,
@@ -418,6 +283,18 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          header : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
          renderer : function(v) { return String.format('{0}', v); },
          width : 100,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ],
+       cm : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'name',
+         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
