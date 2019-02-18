@@ -74,6 +74,7 @@
        "* prop" : "center"
       },
       {
+       "Number width" : 300,
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "split" : true,
