@@ -11,6 +11,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
+  '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '646f95b46cdc6ae59dd9f2e86bf3b598' :"Displaying Country {0} - {1} of {2}",
   '7faaef9675ee0e8280a243a290569359' :"No. Provinces",
   '68be4837f6c739877233e527a996dd00' :"Merge",
@@ -411,6 +412,47 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                //yourdialog.show( { id : 0 } , function() {
                //  _this.grid.footer.onClick('first');
                //}); 
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-text-icon',
+          icon : rootURL + '/Pman/templates/images/trash.gif',
+          text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
+          listeners : {
+           click : function()
+            {
+                var s = _this.grid.getSelectionModel().getSelections();
+                
+                if (!s.length)  {
+                    Roo.MessageBox.alert("Error", "Select a Row");
+                    return;
+                }
+                
+                var ids = [];
+                var names = [];
+                
+                var params = {};
+                
+                params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';
+                
+                Roo.each(s, function(v, k){
+                    ids.push(v.data.id);
+                    names.push(v.data.name);
+                    params['!id[' + k + ']'] = v.data.id
+                });
+                
+                Pman.Dialog.ShippingSupplierMerge.show({ 
+                    _merge_from : ids.join(','),
+                    _name : names.join(', '),
+                    type: 'Supplier',
+                    params : params
+                }, function() {
+                    _this.grid.footer.onClick('refresh');
+                });
             }
           },
           xns : Roo.Toolbar,

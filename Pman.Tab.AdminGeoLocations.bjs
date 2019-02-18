@@ -10,6 +10,7 @@
   "59716c97497eb9694541f7c3d37b1a4d" : "Country",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "fc6f97505d89fe9277965c126744647a" : "No Companies found",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "646f95b46cdc6ae59dd9f2e86bf3b598" : "Displaying Country {0} - {1} of {2}",
   "7faaef9675ee0e8280a243a290569359" : "No. Provinces",
   "68be4837f6c739877233e527a996dd00" : "Merge",
@@ -309,6 +310,16 @@
              "xtype" : "Button",
              "cls" : "x-btn-text-icon",
              "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    \n    if (!s.length)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    var ids = [];\n    var names = [];\n    \n    var params = {};\n    \n    params['query[comptype]'] = 'SUPPLIER,OLDSUPPL';\n    \n    Roo.each(s, function(v, k){\n        ids.push(v.data.id);\n        names.push(v.data.name);\n        params['!id[' + k + ']'] = v.data.id\n    });\n    \n    Pman.Dialog.ShippingSupplierMerge.show({ \n        _merge_from : ids.join(','),\n        _name : names.join(', '),\n        type: 'Supplier',\n        params : params\n    }, function() {\n        _this.grid.footer.onClick('refresh');\n    });\n}"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
              "$ xns" : "Roo.Toolbar"
             },
             {
