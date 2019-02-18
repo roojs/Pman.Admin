@@ -10,6 +10,7 @@ Pman.Dialog.AdminGeoCityEdit = {
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   '3c1df4260ce594cb5594696461087f2f' :"Select Country",
   '43ccafccb532cc57c20bc05a36aad7b7' :"Add / Edit City",
+  '45c10605e0a492fbe7a3eac258cd1e81' :"Time Zone",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '25f75488c91cb6c3bab92672e479619f' :"Postal Code",
@@ -18,6 +19,7 @@ Pman.Dialog.AdminGeoCityEdit = {
  },
  _named_strings : {
   'country_name_qtip' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
+  'time_zone_fieldLabel' : '45c10605e0a492fbe7a3eac258cd1e81' /* Time Zone */ ,
   'country_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'postal_code_fieldLabel' : '25f75488c91cb6c3bab92672e479619f' /* Postal Code */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
@@ -152,7 +154,6 @@ Pman.Dialog.AdminGeoCityEdit = {
          },
          {
           xtype : 'TextField',
-          allowBlank : false,
           fieldLabel : _this._strings['25f75488c91cb6c3bab92672e479619f'] /* Postal Code */,
           name : 'postal_code',
           width : 200,
@@ -161,9 +162,8 @@ Pman.Dialog.AdminGeoCityEdit = {
          },
          {
           xtype : 'TextField',
-          allowBlank : false,
-          fieldLabel : _this._strings['25f75488c91cb6c3bab92672e479619f'] /* Postal Code */,
-          name : 'postal_code',
+          fieldLabel : _this._strings['45c10605e0a492fbe7a3eac258cd1e81'] /* Time Zone */,
+          name : 'time_zone',
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
