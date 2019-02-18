@@ -602,7 +602,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        },
        sm : {
         xtype : 'RowSelectionModel',
-        singleSelect : false,
+        singleSelect : true,
         listeners : {
          afterselectionchange : function (_self)
           {

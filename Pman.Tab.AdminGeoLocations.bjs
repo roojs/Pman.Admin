@@ -84,8 +84,8 @@
            "listeners" : {
             "afterselectionchange" : "function (_self)\n{\n    if (!this.getSelections().length) {\n        if (_this.form) { _this.form.reset(); }\n        _this.panel.layout.getRegion('east').el.mask(\"Select Supplier\");\n        _this.panel.layout.getRegion('south').el.mask(\"Select Supplier\");\n        return;\n    }\n    \n    if (_this.form) {\n       _this.form.setValues(\n            _this.grid.getDataSource().getById(this.getSelected().data.id).data\n        );\n    }\n\n    _this.pgrid.footer.onClick('first'); // load people.\n    _this.panel.layout.getRegion('east').el.unmask();\n    _this.panel.layout.getRegion('south').el.unmask();\n    \n    _this.panel.layout.getRegion('east').showPanel(0);\n   \n    if(this.getSelections().length > 1) {\n        _this.panel.layout.getRegion('east').el.mask(\"Unable to Update\");\n        _this.panel.layout.getRegion('south').el.mask(\"Unable to Update\");\n    }\n    \n}"
            },
+           "Boolean singleSelect" : true,
            "xtype" : "RowSelectionModel",
-           "singleSelect" : false,
            "$ xns" : "Roo.grid",
            "* prop" : "sm"
           },
