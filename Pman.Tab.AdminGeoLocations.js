@@ -10,12 +10,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   'f2b734f9d29a7b036a5f26b229f1e918' :"Geographic Locations",
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
-  'edefbda3a2bdd979e42d8944b7325b79' :"Companies",
   'fc6f97505d89fe9277965c126744647a' :"No Companies found",
   'aa186c44d0c1a9b263933bfa359802e3' :"Select Province",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '68be4837f6c739877233e527a996dd00' :"Merge",
   '155ca6a755e25c15ad7ce45e2f638f10' :"Displaying Companies{0} - {1} of {2}",
+  '57d056ed0984166336b7879c2af3657f' :"City",
   'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
@@ -1284,9 +1284,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       xtype : 'GridPanel',
       fitContainer : true,
       fitToframe : true,
-      region : 'center',
-      tableName : 'core_company',
-      title : _this._strings['edefbda3a2bdd979e42d8944b7325b79'] /* Companies */,
+      region : 'east',
+      tableName : 'geoip_city',
+      title : _this._strings['57d056ed0984166336b7879c2af3657f'] /* City */,
       listeners : {
        activate : function() {
             _this.cpanel = this;
