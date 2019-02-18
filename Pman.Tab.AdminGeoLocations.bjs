@@ -211,7 +211,7 @@
        "items" : [
         {
          "listeners" : {
-          "rowdblclick" : "function (_self, rowIndex, e)\n{\n\n}",
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var s =  _self.getDataSource().getAt(rowIndex);\n             \n}",
           "|render" : "function() \n{\n   _this.province_grid = this; \n   \n    if (_this.province_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
          "autoExpandColumn" : "name",
