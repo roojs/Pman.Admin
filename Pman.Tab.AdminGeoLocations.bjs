@@ -79,7 +79,7 @@
          "listeners" : {
           "|render" : "function() \n{\n   _this.country_grid = this; \n   \n    if (_this.country_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
-         "autoExpandColumn" : "name",
+         "autoExpandColumn" : "lval",
          "xtype" : "Grid",
          "loadMask" : true,
          "$ xns" : "Roo.grid",
@@ -179,7 +179,7 @@
            "xtype" : "ColumnModel",
            "sortable" : true,
            "header" : "No. Provinces",
-           "width" : 200,
+           "width" : 75,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -189,7 +189,7 @@
            "xtype" : "ColumnModel",
            "sortable" : true,
            "header" : "No. Cities",
-           "width" : 200,
+           "width" : 75,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",

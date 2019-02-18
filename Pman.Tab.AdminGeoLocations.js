@@ -95,7 +95,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'name',
+       autoExpandColumn : 'lval',
        loadMask : true,
        listeners : {
         render : function() 
@@ -272,7 +272,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 200,
+         width : 75,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -285,7 +285,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
              return String.format('{0}', v ? v : ''); 
          },
          sortable : true,
-         width : 200,
+         width : 75,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
