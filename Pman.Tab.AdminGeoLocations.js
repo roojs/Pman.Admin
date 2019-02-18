@@ -742,13 +742,13 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
             {
                 var s = _this.city_grid.getSelectionModel().getSelections();
                 
-                if (!s)  {
-                    Roo.MessageBox.alert("Error", "Select a Row");
+                if (!s.length || s.length > 1)  {
+                    Roo.MessageBox.alert("Error", "Select a single city");
                     return;
                 }
                 
-                Pman.Dialog.AdminGeoDivisionEdit.show({
-                    id : s.data.id
+                Pman.Dialog.AdminGeoCityEdit.show({
+                    id : s[0].data.id
                 }, function(){
                     _this.province_grid.footer.onClick('refresh');
                 });
