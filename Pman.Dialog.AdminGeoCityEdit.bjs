@@ -172,7 +172,7 @@
          "items" : [
           {
            "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    var country = _this.form.findField('country').getValue();\n    \n    if(!country.length) {\n        Roo.MessageBox.alert('Error', 'Please select a country');\n        return false;\n    }\n    \n    o.params.country = country;\n}\n"
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    var country = _this.form.findField('country').getValue();\n    \n    o.params.country = country;\n}\n"
            },
            "xtype" : "Store",
            "remoteSort" : true,

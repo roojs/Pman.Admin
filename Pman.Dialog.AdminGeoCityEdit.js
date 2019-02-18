@@ -294,11 +294,6 @@ Pman.Dialog.AdminGeoCityEdit = {
                  
                  var country = _this.form.findField('country').getValue();
                  
-                 if(!country.length) {
-                     Roo.MessageBox.alert('Error', 'Please select a country');
-                     return false;
-                 }
-                 
                  o.params.country = country;
              }
            },
