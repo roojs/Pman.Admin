@@ -133,9 +133,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
             },
            specialkey : function (_self, e)
             {
-                 if (e.getKey() == 13) {
+                if (e.getKey() == 13) {
                     _this.country_grid.footer.onClick('first');
-                 }
+                }
             }
           },
           xns : Roo.form,
