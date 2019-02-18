@@ -266,6 +266,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
+         align : 'right',
          dataIndex : 'no_of_division',
          header : _this._strings['7faaef9675ee0e8280a243a290569359'] /* No. Provinces */,
          renderer : function(v) 
@@ -279,6 +280,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
+         align : 'right',
          dataIndex : 'no_of_city',
          header : _this._strings['05a43538cbc752df5428fe0a71192d09'] /* No. Cities */,
          renderer : function(v) 
@@ -554,6 +556,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
+         align : 'right',
          dataIndex : 'no_of_city',
          header : _this._strings['05a43538cbc752df5428fe0a71192d09'] /* No. Cities */,
          renderer : function(v) 

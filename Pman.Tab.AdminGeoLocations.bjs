@@ -173,6 +173,7 @@
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
+           "String align" : "right",
            "header" : "No. Provinces",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
@@ -183,6 +184,7 @@
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
+           "String align" : "right",
            "header" : "No. Cities",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
@@ -334,6 +336,7 @@
           {
            "xtype" : "ColumnModel",
            "sortable" : true,
+           "String align" : "right",
            "header" : "No. Cities",
            "width" : 100,
            "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
