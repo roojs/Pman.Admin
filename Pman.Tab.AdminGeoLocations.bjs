@@ -197,7 +197,7 @@
       },
       {
        "listeners" : {
-        "|activate" : "function() {\n    _this.province_panel = this;\n}"
+        "|activate" : "function() {\n    _this.province_panel = this;\n    if (_this.province_grid) {\n        _this.province_grid.footer.onClick('first');\n    }\n}"
        },
        "region" : "center",
        "fitToframe" : true,
