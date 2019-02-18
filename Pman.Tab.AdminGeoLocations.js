@@ -474,6 +474,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
               }
               
               options.params.country = country.data.lkey;
+              
+              options.params['query[name]'] = _this.country_searchBox.getValue();
           },
          load : function (_self, records, options)
           {

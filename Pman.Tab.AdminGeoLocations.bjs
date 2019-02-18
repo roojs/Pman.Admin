@@ -228,7 +228,7 @@
           },
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n}",
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n    \n    options.params['query[name]'] = _this.country_searchBox.getValue();\n}",
             "load" : "function (_self, records, options)\n{\n    \n}"
            },
            "xtype" : "Store",
