@@ -139,7 +139,7 @@
             {
              "listeners" : {
               "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.country_grid.footer.onClick('first');\n    }\n}",
-              "render" : "function (_self)\n{\n  _this.country_searchBox = _self;\n}"
+              "render" : "function (_self)\n{\n    _this.country_searchBox = _self;\n}"
              },
              "emptyText" : "search name",
              "xtype" : "TextField",
