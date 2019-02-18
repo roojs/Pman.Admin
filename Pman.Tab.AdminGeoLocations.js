@@ -789,7 +789,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                         }
                         new Pman.Request({
                             method : 'POST',
-                            url : baseURL + '/Roo/geoip_division',
+                            url : baseURL + '/Roo/geoip_city',
                             params : {
                                 _delete  : ids.join(',')
                             },
