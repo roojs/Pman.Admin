@@ -775,13 +775,13 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 
                 var ids = [];
                 
-                Roo.each(s, function(ss){
-                    
+                Roo.each(s, function(v, k){
+                    ids.push(v.data.id);
                 });
                 
                 Roo.MessageBox.confirm(
                     "Confirm", 
-                    "Are you sure want to delete this province", 
+                    "Are you sure want to delete the selected city", 
                     function(res) {
                         if(res != 'yes') {
                             return;
@@ -790,7 +790,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                             method : 'POST',
                             url : baseURL + '/Roo/geoip_division',
                             params : {
-                                _delete  : s.data.id
+                                _delete  : ids.join(','),
                             },
                             success : function() {
                                 _this.country_grid.footer.onClick('refresh');
