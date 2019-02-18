@@ -266,7 +266,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lval',
+         dataIndex : 'no_of_division',
          header : _this._strings['7faaef9675ee0e8280a243a290569359'] /* No. Provinces */,
          renderer : function(v) 
          { 
