@@ -81,7 +81,7 @@
          "items" : [
           {
            "listeners" : {
-            "afterselectionchange" : "function (_self)\n{\n    Roo.log('after selection change');\n}"
+            "afterselectionchange" : "function (_self)\n{\n    _this.province_grid.footer.onClick('fis')\n}"
            },
            "Boolean singleSelect" : true,
            "xtype" : "RowSelectionModel",

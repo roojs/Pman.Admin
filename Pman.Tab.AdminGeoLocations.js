@@ -243,7 +243,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         listeners : {
          afterselectionchange : function (_self)
           {
-              Roo.log('after selection change');
+              _this.province_grid.footer.onClick('fis')
           }
         },
         xns : Roo.grid,
