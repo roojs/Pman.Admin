@@ -276,6 +276,12 @@ Pman.Dialog.AdminGeoCityEdit = {
           typeAhead : true,
           valueField : 'id',
           width : 200,
+          listeners : {
+           beforequery : function (combo, query, forceAll, cancel, e)
+            {
+                
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
