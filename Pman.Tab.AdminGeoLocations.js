@@ -482,7 +482,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                             },
                             success : function() {
                                 _this.country_grid.footer.onClick('refresh');
-                                _this.province_grid.footer.onClick('refresh');
                             }
                         });
                     }
