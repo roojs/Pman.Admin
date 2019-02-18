@@ -308,14 +308,11 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         listeners : {
          beforeload : function (_self, options)
           {
-             if ( _this.layout) {
-                //_this.layout.getRegion('east').hide() ;
-                }
-              options.params['query[comptype]'] ='SUPPLIER,OLDSUPPL'; // base on pulldown..
-              options.params['query[name]'] = _this.searchBox.getValue();
-              if (_this.provinceCombo.getValue()) {
-                 options.params['province'] = _this.provinceCombo.getValue();
-             }
+              options.params = options.params || {};
+              
+              options.params.ltype = 'c',
+              options.params.inlang = 'en';
+              options.is_active = 1;
           },
          load : function (_self, records, options)
           {

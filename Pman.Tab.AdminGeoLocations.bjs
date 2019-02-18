@@ -91,7 +91,7 @@
           },
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n   if ( _this.layout) {\n      //_this.layout.getRegion('east').hide() ;\n      }\n    options.params['query[comptype]'] ='SUPPLIER,OLDSUPPL'; // base on pulldown..\n    options.params['query[name]'] = _this.searchBox.getValue();\n    if (_this.provinceCombo.getValue()) {\n       options.params['province'] = _this.provinceCombo.getValue();\n   }\n}",
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n}",
             "load" : "function (_self, records, options)\n{\n    if (_this.grid.getSelectionModel().getSelected()) {\n        _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n    if (!_this.grid.getSelectionModel().getSelected() && this.getTotalCount() == 1) {\n       \n        _this.grid.getSelectionModel().selectFirstRow();\n          _this.grid.getSelectionModel().fireEvent('afterselectionchange', _this.grid.getSelectionModel());\n    }\n}"
            },
            "xtype" : "Store",
