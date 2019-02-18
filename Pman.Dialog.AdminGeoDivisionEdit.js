@@ -9,11 +9,11 @@ Pman.Dialog.AdminGeoDivisionEdit = {
  _strings : {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'd469fd7a8d8939b7abe793469d7375da' :"Add / Edit Province",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
+  'ca0dbad92a874b2f69b549293387925e' :"Code",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ 
+  'code_fieldLabel' : 'ca0dbad92a874b2f69b549293387925e' /* Code */ 
  },
 
  dialog : false,
@@ -139,18 +139,17 @@ Pman.Dialog.AdminGeoDivisionEdit = {
         items  : [
          {
           xtype : 'TextField',
-          fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-          name : 'name',
-          width : 270,
-          listeners : {
-           specialkey : function (_self, e)
-            {
-                if (e.getKey() == 13) {
-                     _this.dialog.el.mask("Saving");
-                     _this.form.doAction("submit");
-                }
-            }
-          },
+          fieldLabel : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
+          name : 'code',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          fieldLabel : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
+          name : 'code',
+          width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

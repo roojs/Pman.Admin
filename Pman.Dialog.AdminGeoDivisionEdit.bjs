@@ -8,11 +8,11 @@
  "strings" : {
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "d469fd7a8d8939b7abe793469d7375da" : "Add / Edit Province",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "ca0dbad92a874b2f69b549293387925e" : "Code",
   "c9cc8cce247e49bae79f15173ce97354" : "Save"
  },
  "named_strings" : {
-  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987"
+  "code_fieldLabel" : "ca0dbad92a874b2f69b549293387925e"
  },
  "items" : [
   {
@@ -49,14 +49,18 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
-         "listeners" : {
-          "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n         _this.dialog.el.mask(\"Saving\");\n         _this.form.doAction(\"submit\");\n    }\n}"
-         },
-         "fieldLabel" : "Name",
+         "fieldLabel" : "Code",
          "xtype" : "TextField",
-         "width" : 270,
+         "width" : 200,
          "$ xns" : "Roo.form",
-         "name" : "name"
+         "name" : "code"
+        },
+        {
+         "fieldLabel" : "Code",
+         "xtype" : "TextField",
+         "width" : 200,
+         "$ xns" : "Roo.form",
+         "name" : "code"
         },
         {
          "xtype" : "Hidden",
