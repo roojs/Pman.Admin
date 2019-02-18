@@ -50,28 +50,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
     modal : true,
     resizable : false,
     title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
-    width : 950,
-    listeners : {
-     show : function (_self)
-      {
-          if(!isAdmin && Pman.Tab.Hopedb){
-              Roo.MessageBox.alert("Error", "Permission Denied", function(){
-                  _this.dialog.hide();
-              });
-              return;
-          }
-          var name_hidden = false;
-      
-          if (typeof(_this.data._hide_name) != 'undefined') {
-              name_hidden = true;
-          
-          }
-          
-        _this.grid.colModel.setHidden(1,name_hidden);
-          _this.grid.footer.onClick('first');
-          
-      }
-    },
+    width : 600,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
