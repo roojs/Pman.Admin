@@ -247,12 +247,15 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         xns : Roo.grid,
         '|xns' : 'Roo.grid'
        },
-       colModel : [
+       cm : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'name',
-         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v); },
+         dataIndex : 'lval',
+         header : _this._strings['36dc0beb80c36193ac81b4f94e915e36'] /* Country Name */,
+         renderer : function(v) 
+         { 
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 200,
          xns : Roo.grid,
@@ -260,40 +263,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'comptype',
-         header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
-         renderer : function(v) { return v.match(/OLD/) ? 'OLD' : v ; },
-         sortable : true,
-         width : 100,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'province',
-         header : _this._strings['c6b5d0bb9a0c3f077863fdaef9773f7c'] /* Province */,
-         renderer : function(v) { return String.format('{0}', v); },
-         sortable : true,
-         width : 100,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'country_display_name',
-         header : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
-         renderer : function(v) { return String.format('{0}', v); },
-         width : 100,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        }
-       ],
-       cm : [
-        {
-         xtype : 'ColumnModel',
          dataIndex : 'lval',
          header : _this._strings['36dc0beb80c36193ac81b4f94e915e36'] /* Country Name */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v) 
+         { 
+             return String.format('{0}', v ? v : ''); 
+         },
          sortable : true,
          width : 200,
          xns : Roo.grid,
