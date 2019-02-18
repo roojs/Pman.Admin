@@ -10,6 +10,7 @@
   "59716c97497eb9694541f7c3d37b1a4d" : "Country",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "fc6f97505d89fe9277965c126744647a" : "No Companies found",
+  "646f95b46cdc6ae59dd9f2e86bf3b598" : "Displaying Country {0} - {1} of {2}",
   "aa186c44d0c1a9b263933bfa359802e3" : "Select Province",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "68be4837f6c739877233e527a996dd00" : "Merge",
@@ -123,7 +124,7 @@
            "emptyMsg" : "No Companies found",
            "$ xns" : "Roo",
            "displayInfo" : true,
-           "displayMsg" : "Displaying Companies{0} - {1} of {2}",
+           "displayMsg" : "Displaying Country {0} - {1} of {2}",
            "* prop" : "footer"
           },
           {
