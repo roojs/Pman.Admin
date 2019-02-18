@@ -73,16 +73,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
    background : true,
    region : 'center',
    title : _this._strings['1814d65a76028fdfbadab64a5a8076df'] /* Suppliers */,
-   listeners : {
-    activate : function (_self)
-     {
-        _this.panel = _self;
-     
-        this.layout.getRegion('east').el.mask("Select Supplier");
-         this.layout.getRegion('south').el.mask("Select Supplier");
-        
-     }
-   },
    xns : Roo,
    '|xns' : 'Roo',
    layout : {

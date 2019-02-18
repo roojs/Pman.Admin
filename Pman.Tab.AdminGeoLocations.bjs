@@ -57,9 +57,6 @@
  },
  "items" : [
   {
-   "listeners" : {
-    "activate" : "function (_self)\n{\n   _this.panel = _self;\n\n   this.layout.getRegion('east').el.mask(\"Select Supplier\");\n    this.layout.getRegion('south').el.mask(\"Select Supplier\");\n   \n}"
-   },
    "background" : true,
    "region" : "center",
    "title" : "Suppliers",
