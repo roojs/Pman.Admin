@@ -768,10 +768,16 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
             {
                 var s = _this.province_grid.getSelectionModel().getSelections();
                 
-                if (!s)  {
-                    Roo.MessageBox.alert("Error", "Select a Row");
+                if (!s.length)  {
+                    Roo.MessageBox.alert("Error", "Select city to delete");
                     return;
                 }
+                
+                var ids = [];
+                
+                Roo.each(s, function(ss){
+                    
+                });
                 
                 Roo.MessageBox.confirm(
                     "Confirm", 
