@@ -147,7 +147,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+              "|click" : "function (_self, e)\n{\n    _this.country_grid.footer.onClick('first');\n}"
              },
              "xtype" : "Button",
              "cls" : "x-btn-icon",
