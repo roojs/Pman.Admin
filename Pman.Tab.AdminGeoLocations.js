@@ -669,7 +669,16 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           {
               options.params = options.params || {};
               
+              var country = _this.country_grid.getSelectionModel().getSelected();
               
+              if(!country) {
+                  this.removeAll();
+                  return false;
+              }
+              
+              options.params.country = country.data.lkey;
+              
+              options.params['query[name]'] = _this.city_searchBox.getValue();
           },
          load : function (_self, records, options)
           {
