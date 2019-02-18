@@ -304,7 +304,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field: 'name', direction: 'ASC' },
+        sortInfo : { field: 'lval', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {
