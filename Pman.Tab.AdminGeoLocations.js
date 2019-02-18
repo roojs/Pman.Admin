@@ -279,7 +279,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lval',
+         dataIndex : 'no_of_city',
          header : _this._strings['05a43538cbc752df5428fe0a71192d09'] /* No. Cities */,
          renderer : function(v) 
          { 
