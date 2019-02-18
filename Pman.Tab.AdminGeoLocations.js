@@ -724,7 +724,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     division_id : (province) ? province.data.id : '',
                     division_id_name : (province) ? province.data.name : ''
                 }, function(){
-                    _this.city_grid.footer.onClick('first');
+                    _this.country_grid.footer.onClick('refresh');
                 });
                 
             }
@@ -788,7 +788,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                             },
                             success : function() {
                                 _this.country_grid.footer.onClick('refresh');
-                                _this.province_grid.footer.onClick('refresh');
                             }
                         });
                     }
