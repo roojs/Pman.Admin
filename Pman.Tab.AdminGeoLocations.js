@@ -551,7 +551,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/core_company.php',
+         url : baseURL + '/Roo/geoip_division.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
