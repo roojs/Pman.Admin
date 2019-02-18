@@ -431,14 +431,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     return;
                 }
                 
-                Pman.Dialog.ShippingSupplierMerge.show({ 
-                    _merge_from : ids.join(','),
-                    _name : names.join(', '),
-                    type: 'Supplier',
-                    params : params
-                }, function() {
-                    _this.grid.footer.onClick('refresh');
+                Pman.Dialog.AdminGeoDivisionEdit.show({
+                    id : s.data.id
+                }, function(){
+                    _this.province_grid.footer.onClick('first');
                 });
+                
             }
           },
           xns : Roo.Toolbar,

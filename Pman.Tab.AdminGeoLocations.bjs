@@ -314,7 +314,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.ShippingSupplierMerge.show({ \n        _merge_from : ids.join(','),\n        _name : names.join(', '),\n        type: 'Supplier',\n        params : params\n    }, function() {\n        _this.grid.footer.onClick('refresh');\n    });\n}"
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}"
              },
              "text" : "Edit",
              "xtype" : "Button",
