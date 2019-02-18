@@ -7,8 +7,9 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminGeoDivisionEdit = {
 
  _strings : {
+  '59716c97497eb9694541f7c3d37b1a4d' :"Country",
+  '3c1df4260ce594cb5594696461087f2f' :"Select Country",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
-  'ce26601dac0dea138b7295f02b7620a7' :"Customer",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '9675747b5ab12d05f18518761e68a533' :"Select Companies",
   'd469fd7a8d8939b7abe793469d7375da' :"Add / Edit Province",
@@ -20,9 +21,9 @@ Pman.Dialog.AdminGeoDivisionEdit = {
   'code_fieldLabel' : 'ca0dbad92a874b2f69b549293387925e' /* Code */ ,
   'company_customer_id_name_qtip' : '9675747b5ab12d05f18518761e68a533' /* Select Companies */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
-  'company_customer_id_name_emptyText' : '9675747b5ab12d05f18518761e68a533' /* Select Companies */ ,
+  'company_customer_id_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'company_customer_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'company_customer_id_name_fieldLabel' : 'ce26601dac0dea138b7295f02b7620a7' /* Customer */ 
+  'company_customer_id_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ 
  },
 
  dialog : false,
@@ -168,10 +169,10 @@ Pman.Dialog.AdminGeoDivisionEdit = {
           xtype : 'ComboBox',
           allowBlank : false,
           alwaysQuery : true,
-          displayField : 'name',
-          editable : false,
-          emptyText : _this._strings['9675747b5ab12d05f18518761e68a533'] /* Select Companies */,
-          fieldLabel : _this._strings['ce26601dac0dea138b7295f02b7620a7'] /* Customer */,
+          displayField : 'lval',
+          editable : true,
+          emptyText : _this._strings['3c1df4260ce594cb5594696461087f2f'] /* Select Country */,
+          fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
           forceSelection : true,
           hiddenName : 'company_customer_id',
           listWidth : 400,
