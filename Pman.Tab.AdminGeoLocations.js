@@ -585,14 +585,14 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'lval',
+       autoExpandColumn : 'name',
        loadMask : true,
        listeners : {
         render : function() 
          {
-            _this.country_grid = this; 
+            _this.city_grid = this; 
             
-             if (_this.country_panel.active) {
+             if (_this.city_panel.active) {
                 this.footer.onClick('first');
              }
          }

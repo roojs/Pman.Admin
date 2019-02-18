@@ -357,9 +357,9 @@
        "items" : [
         {
          "listeners" : {
-          "|render" : "function() \n{\n   _this.country_grid = this; \n   \n    if (_this.country_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+          "|render" : "function() \n{\n   _this.city_grid = this; \n   \n    if (_this.city_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
-         "autoExpandColumn" : "lval",
+         "autoExpandColumn" : "name",
          "xtype" : "Grid",
          "loadMask" : true,
          "$ xns" : "Roo.grid",
