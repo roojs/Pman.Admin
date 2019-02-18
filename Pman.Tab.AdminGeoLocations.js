@@ -69,7 +69,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       fitContainer : true,
       fitToframe : true,
       region : 'west',
-      tableName : 'core_company',
+      tableName : 'i18n',
       title : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
       listeners : {
        activate : function() {

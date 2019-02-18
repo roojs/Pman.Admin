@@ -62,7 +62,7 @@
        "xtype" : "GridPanel",
        "fitContainer" : true,
        "$ xns" : "Roo",
-       "tableName" : "core_company",
+       "tableName" : "i18n",
        "items" : [
         {
          "listeners" : {
