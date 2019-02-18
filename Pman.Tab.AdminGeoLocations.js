@@ -678,7 +678,11 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
               
               options.params.country = country.data.lkey;
               
-              var province = 
+              var province = _this.province_grid.getSelectionModel().getSelected();
+              
+              if(province) {
+                  options.params.division_id = province.data.id
+              }
               
               options.params['query[name]'] = _this.city_searchBox.getValue();
           },
