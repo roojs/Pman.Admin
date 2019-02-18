@@ -23,6 +23,7 @@
   "26cbe1e3b53e773d1bdf15fb4912c2e0" : "search name",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
+  "08b523137281088adf3cb1883c8e5627" : "Search Country",
   "36dc0beb80c36193ac81b4f94e915e36" : "Country Name"
  },
  "items" : [
@@ -142,7 +143,7 @@
               "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.country_grid.footer.onClick('first');\n    }\n}",
               "render" : "function (_self)\n{\n    _this.country_searchBox = _self;\n}"
              },
-             "emptyText" : "search name",
+             "emptyText" : "Search Country",
              "xtype" : "TextField",
              "$ xns" : "Roo.form"
             },

@@ -24,6 +24,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  '08b523137281088adf3cb1883c8e5627' :"Search Country",
   '36dc0beb80c36193ac81b4f94e915e36' :"Country Name"
  },
 
@@ -125,7 +126,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         items  : [
          {
           xtype : 'TextField',
-          emptyText : _this._strings['26cbe1e3b53e773d1bdf15fb4912c2e0'] /* search name */,
+          emptyText : _this._strings['08b523137281088adf3cb1883c8e5627'] /* Search Country */,
           listeners : {
            render : function (_self)
             {
