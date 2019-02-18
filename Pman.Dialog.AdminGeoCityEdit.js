@@ -281,7 +281,7 @@ Pman.Dialog.AdminGeoCityEdit = {
           store : {
            xtype : 'Store',
            remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'lval' },
+           sortInfo : { direction : 'ASC', field: 'name' },
            listeners : {
             beforeload : function (_self, o){
                  o.params = o.params || {};

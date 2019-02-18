@@ -173,7 +173,7 @@
            },
            "xtype" : "Store",
            "remoteSort" : true,
-           "$ sortInfo" : "{ direction : 'ASC', field: 'lval' }",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "items" : [
