@@ -328,8 +328,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          },
         rowdblclick : function (_self, rowIndex, e)
          {
-             var s =  _self.getDataSource().getAt(rowIndex);
-                      
+             var s =  _this.province_grid.getDataSource().getAt(rowIndex);
+             
+             
          }
        },
        xns : Roo.grid,
