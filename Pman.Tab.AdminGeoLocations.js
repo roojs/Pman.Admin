@@ -677,8 +677,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      tableName : 'core_company',
-      title : _this._strings['edefbda3a2bdd979e42d8944b7325b79'] /* Companies */,
+      tableName : 'geoip_division',
+      title : _this._strings['c6b5d0bb9a0c3f077863fdaef9773f7c'] /* Province */,
       listeners : {
        activate : function() {
             _this.cpanel = this;

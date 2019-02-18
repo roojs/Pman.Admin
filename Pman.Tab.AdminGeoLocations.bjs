@@ -283,11 +283,11 @@
        },
        "region" : "center",
        "fitToframe" : true,
-       "title" : "Companies",
+       "title" : "Province",
        "xtype" : "GridPanel",
        "fitContainer" : true,
        "$ xns" : "Roo",
-       "tableName" : "core_company",
+       "tableName" : "geoip_division",
        "items" : [
         {
          "listeners" : {
