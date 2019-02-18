@@ -83,12 +83,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
       listeners : {
        click : function (_self, e)
         {
-            // do some checks?
-             
-             this.url = baseURL + '/Roo/' + _this.data._table;
-            _this.dialog.el.mask("Saving");
             _this.form.doAction("submit");
-        
         }
       },
       xns : Roo,
