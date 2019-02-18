@@ -404,7 +404,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 var country = _this.country_grid.getSelectionModel().getSelected();
                 
                 Pman.Dialog.AdminGeoDivisionEdit.show({
-                    id : 0
+                    id : 0,
+                    country : (country) ? country.data.lkey : ''
                 }, function(){
                     _this.province_grid.footer.onClick('first');
                 ;})
