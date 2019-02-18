@@ -6,29 +6,25 @@
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
-  "d1228f5476d15142b1358ae4b5fa2454" : "Order #",
-  "7af54708cf5a4286cf0cfa58ff5148a8" : "Internal #",
-  "b48968e1c912da07df5e8d6d246291ec" : "Display Name",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "510bc6e58593b2b8002c9fe0c21f3fde" : "Displaying core_enum{0} - {1} of {2}",
-  "1ba4d808fc7b27a7f60ce2ff75a8af3a" : "No core_enum found",
-  "d469fd7a8d8939b7abe793469d7375da" : "Add / Edit Province",
-  "c6b5d0bb9a0c3f077863fdaef9773f7c" : "Province",
-  "d9ec74f5aa29ceef6bf7b45f7fec5d0f" : "Add Value",
   "49ee3087348e8d44e1feda1917443987" : "Name",
-  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
-  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
+  "c9cc8cce247e49bae79f15173ce97354" : "Save"
+ },
+ "named_strings" : {
+  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987"
  },
  "items" : [
   {
    "modal" : true,
-   "title" : "Add / Edit Province",
+   "collapsible" : false,
+   "title" : "Edit",
    "xtype" : "LayoutDialog",
-   "width" : 600,
+   "width" : 400,
    "$ xns" : "Roo",
    "closable" : false,
    "resizable" : false,
-   "height" : 400,
+   "height" : 120,
    "items" : [
     {
      "xtype" : "LayoutRegion",
@@ -36,181 +32,36 @@
      "* prop" : "center"
     },
     {
-     "listeners" : {
-      "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n     //   _this.grid.footer.onClick('first');\n    }\n    \n}"
-     },
-     "background" : false,
      "region" : "center",
-     "fitToframe" : true,
-     "title" : "Province",
-     "xtype" : "GridPanel",
-     "fitContainer" : true,
+     "xtype" : "ContentPanel",
      "$ xns" : "Roo",
-     "tableName" : "geoip_division",
      "items" : [
       {
        "listeners" : {
-        "beforeedit" : "function (e)\n{\n  \n    // force fill in of name first.. (Except when it's hidden)\n    if (typeof(_this.data._hide_name) != 'undefined') { \n        if(e.field == 'display_name' && e.record.data.is_system_enum*1 == 1){\n            return ;\n        }\n \n    }\n    \n    if(e.field == 'name' && e.record.data.is_system_enum*1 == 1){\n        Roo.log(\"block name?\");\n        return false;\n    }\n}",
-        "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}",
-        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n   //    this.footer.onClick('first');\n    }\n}",
-        "afteredit" : "function (e)\n{\n   e.record.commit();   \n}"
+        "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       this.url = baseURL + '/Roo/' + _this.data._table;\n       _this.dialog.setTitle(_this.data._title);\n       this.load({ \n            method: 'GET', \n            params: { '_id' : _this.data.id },\n            url : this.url\n        });\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        _this.form.findField('name').focus();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+        "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
        },
-       "autoExpandColumn" : "display_name",
-       "xtype" : "EditorGrid",
-       "loadMask" : true,
-       "clicksToEdit" : 1,
-       "$ xns" : "Roo.grid",
-       "* prop" : "grid",
+       "$ url" : "baseURL + '/Roo/core_company_type.php'",
+       "style" : "margin:10px;",
+       "method" : "POST",
+       "xtype" : "Form",
+       "labelWidth" : 50,
+       "$ xns" : "Roo.form",
        "items" : [
         {
          "listeners" : {
-          "update" : "function (_self, record, operation)\n{\n    if (operation != Roo.data.Record.COMMIT) {\n        return;\n    }\n    Roo.log(record);\n\n    if (typeof(_this.data._hide_name) != 'undefined') {\n        record.set('name', record.data.display_name);\n    }\n    if (!record.data.name.length) {\n        return;\n    }\n    \n    // got commit..\n    new Pman.Request({\n        url : baseURL + '/Roo/Core_enum.php',\n        method : 'POST',\n        params : {\n            id : record.data.id,\n            etype : _this.data.etype,\n            name :  record.data.name,\n            active : record.data.active,\n            seqid : record.data.seqid,\n            display_name : record.data.display_name\n        }, \n        success : function(res) {\n            //Roo.log(data);\n            // update the ID if it's not set..\n            if (record.data.id * 1 < 1) {\n                record.set('id', res.data.id);\n            }\n        }\n    });\n    \n}",
-          "beforeload" : "function (_self, options)\n{\n\n    options.params.etype = _this.data.etype;\n    if (!options.params.etype.length) {\n        return false;\n    }\n    \n    \n    \n    \n}"
+          "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n         _this.dialog.el.mask(\"Saving\");\n         _this.form.doAction(\"submit\");\n    }\n}"
          },
-         "xtype" : "Store",
-         "remoteSort" : true,
-         "$ sortInfo" : "{ field : 'etype', direction: 'ASC' }",
-         "$ xns" : "Roo.data",
-         "* prop" : "dataSource",
-         "items" : [
-          {
-           "$ url" : "baseURL + '/Roo/core_enum.php'",
-           "xtype" : "HttpProxy",
-           "method" : "GET",
-           "$ xns" : "Roo.data",
-           "* prop" : "proxy"
-          },
-          {
-           "id" : "id",
-           "root" : "data",
-           "xtype" : "JsonReader",
-           "$ xns" : "Roo.data",
-           "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'etype',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'active',\n        'type': 'int'\n    },\n    {\n        'name': 'seqid',\n        'type': 'int'\n    }\n]",
-           "* prop" : "reader",
-           "totalProperty" : "total"
-          }
-         ]
+         "fieldLabel" : "Name",
+         "xtype" : "TextField",
+         "width" : 270,
+         "$ xns" : "Roo.form",
+         "name" : "name"
         },
         {
-         "pageSize" : 25,
-         "xtype" : "PagingToolbar",
-         "emptyMsg" : "No core_enum found",
-         "$ xns" : "Roo",
-         "displayInfo" : true,
-         "displayMsg" : "Displaying core_enum{0} - {1} of {2}",
-         "* prop" : "footer"
-        },
-        {
-         "xtype" : "Toolbar",
-         "$ xns" : "Roo",
-         "* prop" : "toolbar",
-         "items" : [
-          {
-           "listeners" : {
-            "|click" : "function()\n{\n    \n    // if we do not have a selected type... - what should we show..?\n    var et = _this.data.etype;\n    var ds = _this.grid.getDataSource();\n    if (!et) {\n        Roo.MessageBox.alert(\"Error\", \"Select a pulldown\");\n        return;\n    }\n\n    var add = ds.reader.newRow({    \n             id: 0, \n             display_name : '', \n             name : '', \n             etype: et, \n             active: 1, \n             seqid: 0\n      });\n     var r = ds.data.length;\n    ds.insert(r  , add);  \n    \n    var ec = 1;\n    if (typeof(_this.data._hide_name) != 'undefined') { \n        ec =2;\n    }\n    _this.grid.startEditing(r, ec); // name... \n}\n"
-           },
-           "text" : "Add Value",
-           "xtype" : "Button",
-           "cls" : "x-btn-text-icon",
-           "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-           "$ xns" : "Roo.Toolbar"
-          },
-          {
-           "xtype" : "Fill",
-           "$ xns" : "Roo.Toolbar"
-          }
-         ]
-        },
-        {
-         "xtype" : "ColumnModel",
-         "header" : "Internal #",
-         "width" : 75,
-         "$ renderer" : "function(v) { return String.format('{0}', v); }",
-         "$ xns" : "Roo.grid",
-         "* prop" : "colModel[]",
-         "dataIndex" : "id"
-        },
-        {
-         "xtype" : "ColumnModel",
-         "width" : 200,
-         "header" : "Name",
-         "$ renderer" : "function(v) { return String.format('{0}', v); }",
-         "$ xns" : "Roo.grid",
-         "* prop" : "colModel[]",
-         "dataIndex" : "name",
-         "items" : [
-          {
-           "xtype" : "GridEditor",
-           "$ xns" : "Roo.grid",
-           "* prop" : "editor",
-           "items" : [
-            {
-             "xtype" : "TextField",
-             "$ xns" : "Roo.form",
-             "* prop" : "field"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "xtype" : "ColumnModel",
-         "header" : "Display Name",
-         "width" : 200,
-         "$ renderer" : "function(v) { return String.format('{0}', v); }",
-         "$ xns" : "Roo.grid",
-         "* prop" : "colModel[]",
-         "dataIndex" : "display_name",
-         "items" : [
-          {
-           "xtype" : "GridEditor",
-           "$ xns" : "Roo.grid",
-           "* prop" : "editor",
-           "items" : [
-            {
-             "xtype" : "TextField",
-             "$ xns" : "Roo.form",
-             "* prop" : "field"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "xtype" : "ColumnModel",
-         "header" : "Active",
-         "width" : 75,
-         "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
-         "$ xns" : "Roo.grid",
-         "* prop" : "colModel[]",
-         "dataIndex" : "active"
-        },
-        {
-         "xtype" : "ColumnModel",
-         "sortable" : true,
-         "header" : "Order #",
-         "width" : 75,
-         "$ renderer" : "function(v) { return String.format('{0}', v); }",
-         "$ xns" : "Roo.grid",
-         "* prop" : "colModel[]",
-         "dataIndex" : "seqid",
-         "items" : [
-          {
-           "xtype" : "GridEditor",
-           "$ xns" : "Roo.grid",
-           "* prop" : "editor",
-           "items" : [
-            {
-             "allowNegative" : true,
-             "xtype" : "NumberField",
-             "allowDecimals" : false,
-             "decimalPrecision" : 0,
-             "$ xns" : "Roo.form",
-             "* prop" : "field"
-            }
-           ]
-          }
-         ]
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "id"
         }
        ]
       }
@@ -218,7 +69,7 @@
     },
     {
      "listeners" : {
-      "click" : "function (_self, e)\n{\n  _this.dialog.hide();\n}"
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
      },
      "text" : "Cancel",
      "xtype" : "Button",
@@ -227,9 +78,9 @@
     },
     {
      "listeners" : {
-      "click" : "function (_self, e)\n{\n    var sel = _this.grid.selModel.getSelectedCell();\n    if (!sel && _this.callback) {\n        Roo.MessageBox.alert(\"Error\", \"Select an item\");\n        return;\n    }\n    \n\n    if (_this.callback) {\n        var rec = _this.grid.ds.getAt(sel[0]);\n       _this.callback(rec.data);\n   }\n   _this.dialog.hide();\n   \n}   \n    "
+      "click" : "function (_self, e)\n{\n    // do some checks?\n     \n     this.url = baseURL + '/Roo/' + _this.data._table;\n    _this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n\n}"
      },
-     "text" : "OK",
+     "text" : "Save",
      "xtype" : "Button",
      "$ xns" : "Roo",
      "* prop" : "buttons[]"
