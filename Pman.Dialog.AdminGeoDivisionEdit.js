@@ -102,7 +102,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
         labelWidth : 100,
         method : 'POST',
         style : 'margin:10px;',
-        url : baseURL + '/Roo/core_company_type.php',
+        url : baseURL + '/Roo/geoip_division.php',
         listeners : {
          actioncomplete : function(_self, action)
           {
