@@ -92,9 +92,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
      xns : Roo,
      '|xns' : 'Roo'
     },
-    south : {
+    west : {
      xtype : 'LayoutRegion',
-     height : 150,
      split : true,
      xns : Roo,
      '|xns' : 'Roo'

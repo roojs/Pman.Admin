@@ -77,8 +77,7 @@
        "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "split" : true,
-       "* prop" : "south",
-       "height" : 150
+       "* prop" : "west"
       },
       {
        "xtype" : "LayoutRegion",
