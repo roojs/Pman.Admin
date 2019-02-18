@@ -18,12 +18,12 @@ Pman.Dialog.AdminGeoDivisionEdit = {
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
+  'country_name_qtip' : '9675747b5ab12d05f18518761e68a533' /* Select Companies */ ,
+  'country_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'code_fieldLabel' : 'ca0dbad92a874b2f69b549293387925e' /* Code */ ,
-  'company_customer_id_name_qtip' : '9675747b5ab12d05f18518761e68a533' /* Select Companies */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
-  'company_customer_id_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
-  'company_customer_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'company_customer_id_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ 
+  'country_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'country_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ 
  },
 
  dialog : false,
@@ -174,11 +174,11 @@ Pman.Dialog.AdminGeoDivisionEdit = {
           emptyText : _this._strings['3c1df4260ce594cb5594696461087f2f'] /* Select Country */,
           fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
           forceSelection : true,
-          hiddenName : 'company_customer_id',
+          hiddenName : 'country',
           listWidth : 400,
           loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
           minChars : 2,
-          name : 'company_customer_id_name',
+          name : 'country_name',
           pageSize : 20,
           qtip : _this._strings['9675747b5ab12d05f18518761e68a533'] /* Select Companies */,
           queryParam : 'query[code]',
