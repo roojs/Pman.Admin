@@ -376,12 +376,12 @@
           },
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n    \n    options.params['query[name]'] = _this.country_searchBox.getValue();\n    \n}",
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    \n}",
             "load" : "function (_self, records, options)\n{\n    Roo.log('load');\n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,
-           "$ sortInfo" : "{ field: 'lval', direction: 'ASC' }",
+           "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
            "$ xns" : "Roo.data",
            "* prop" : "dataSource",
            "items" : [

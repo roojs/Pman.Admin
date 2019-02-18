@@ -663,17 +663,12 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field: 'lval', direction: 'ASC' },
+        sortInfo : { field: 'name', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {
               options.params = options.params || {};
               
-              options.params.ltype = 'c',
-              options.params.inlang = 'en';
-              options.is_active = 1;
-              
-              options.params['query[name]'] = _this.country_searchBox.getValue();
               
           },
          load : function (_self, records, options)
