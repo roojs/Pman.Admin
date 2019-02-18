@@ -6,7 +6,10 @@
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "ce26601dac0dea138b7295f02b7620a7" : "Customer",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "9675747b5ab12d05f18518761e68a533" : "Select Companies",
   "d469fd7a8d8939b7abe793469d7375da" : "Add / Edit Province",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "ca0dbad92a874b2f69b549293387925e" : "Code",
@@ -14,7 +17,11 @@
  },
  "named_strings" : {
   "code_fieldLabel" : "ca0dbad92a874b2f69b549293387925e",
-  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987"
+  "company_customer_id_name_qtip" : "9675747b5ab12d05f18518761e68a533",
+  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
+  "company_customer_id_name_emptyText" : "9675747b5ab12d05f18518761e68a533",
+  "company_customer_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "company_customer_id_name_fieldLabel" : "ce26601dac0dea138b7295f02b7620a7"
  },
  "items" : [
   {
@@ -51,6 +58,7 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
+         "Boolean allowBlank" : false,
          "fieldLabel" : "Code",
          "xtype" : "TextField",
          "width" : 200,
@@ -58,11 +66,67 @@
          "name" : "code"
         },
         {
+         "Boolean allowBlank" : false,
          "fieldLabel" : "Name",
          "xtype" : "TextField",
          "width" : 200,
          "$ xns" : "Roo.form",
          "name" : "name"
+        },
+        {
+         "alwaysQuery" : true,
+         "listWidth" : 400,
+         "triggerAction" : "all",
+         "fieldLabel" : "Customer",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "pageSize" : 20,
+         "displayField" : "name",
+         "emptyText" : "Select Companies",
+         "hiddenName" : "company_customer_id",
+         "minChars" : 2,
+         "valueField" : "id",
+         "xtype" : "ComboBox",
+         "allowBlank" : false,
+         "typeAhead" : true,
+         "editable" : false,
+         "width" : 300,
+         "$ xns" : "Roo.form",
+         "name" : "company_customer_id_name",
+         "qtip" : "Select Companies",
+         "queryParam" : "query[code]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+         "loadingText" : "Searching...",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n    o.params.comptype= 'CUSTOMER';\n}\n"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_company.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"code\",\"type\":\"string\"}]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
         },
         {
          "xtype" : "Hidden",
