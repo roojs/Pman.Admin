@@ -766,7 +766,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function()
             {
-                var s = _this.province_grid.getSelectionModel().getSelections();
+                var s = _this.city_grid.getSelectionModel().getSelections();
                 
                 Roo.log(s);
                 if (!s.length)  {
