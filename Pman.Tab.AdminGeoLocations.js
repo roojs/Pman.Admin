@@ -365,7 +365,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           listeners : {
            click : function (_self, e)
             {
-            _this.grid.footer.onClick('first');
+                _this.provincegrid.footer.onClick('first');
             }
           },
           xns : Roo.Toolbar,
