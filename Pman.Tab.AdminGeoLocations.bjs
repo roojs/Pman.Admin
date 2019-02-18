@@ -456,6 +456,40 @@
              "cls" : "x-btn-icon",
              "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
              "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.province_grid.footer.onClick('first');\n    });\n    \n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('refresh');\n    });\n    \n}"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Are you sure want to delete this province\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/geoip_division',\n                params : {\n                    _delete  : s.data.id\n                },\n                success : function() {\n                    _this.country_grid.footer.onClick('refresh');\n                    _this.province_grid.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}"
+             },
+             "text" : "Delete",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
             }
            ]
           },

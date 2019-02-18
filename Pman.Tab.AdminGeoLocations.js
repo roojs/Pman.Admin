@@ -700,6 +700,100 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           },
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Fill',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-text-icon',
+          icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+          text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+          listeners : {
+           click : function()
+            {
+                var country = _this.country_grid.getSelectionModel().getSelected();
+                
+                Pman.Dialog.AdminGeoDivisionEdit.show({
+                    id : 0,
+                    country : (country) ? country.data.lkey : '',
+                    country_name : (country) ? country.data.lval : ''
+                }, function(){
+                    _this.province_grid.footer.onClick('first');
+                });
+                
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-text-icon',
+          icon : Roo.rootURL + 'images/default/tree/leaf.gif',
+          text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
+          listeners : {
+           click : function()
+            {
+                var s = _this.province_grid.getSelectionModel().getSelected();
+                
+                if (!s)  {
+                    Roo.MessageBox.alert("Error", "Select a Row");
+                    return;
+                }
+                
+                Pman.Dialog.AdminGeoDivisionEdit.show({
+                    id : s.data.id
+                }, function(){
+                    _this.province_grid.footer.onClick('refresh');
+                });
+                
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-text-icon',
+          icon : rootURL + '/Pman/templates/images/trash.gif',
+          text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
+          listeners : {
+           click : function()
+            {
+                var s = _this.province_grid.getSelectionModel().getSelected();
+                
+                if (!s)  {
+                    Roo.MessageBox.alert("Error", "Select a Row");
+                    return;
+                }
+                
+                Roo.MessageBox.confirm(
+                    "Confirm", 
+                    "Are you sure want to delete this province", 
+                    function(res) {
+                        if(res != 'yes') {
+                            return;
+                        }
+                        new Pman.Request({
+                            method : 'POST',
+                            url : baseURL + '/Roo/geoip_division',
+                            params : {
+                                _delete  : s.data.id
+                            },
+                            success : function() {
+                                _this.country_grid.footer.onClick('refresh');
+                                _this.province_grid.footer.onClick('refresh');
+                            }
+                        });
+                    }
+                );
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
          }
         ]
        },
