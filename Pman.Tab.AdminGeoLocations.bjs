@@ -72,7 +72,7 @@
        "items" : [
         {
          "listeners" : {
-          "|render" : "function() \n{\n   _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.cpanel.active) {\n       this.footer.onClick('first');\n    }\n}"
+          "|render" : "function() \n{\n   _this.country_grid = this; \n   \n    if (_this.country_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
          },
          "autoExpandColumn" : "name",
          "xtype" : "Grid",

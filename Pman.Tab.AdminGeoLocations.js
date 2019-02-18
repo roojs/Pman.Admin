@@ -95,9 +95,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        listeners : {
         render : function() 
          {
-            _this.grid = this; 
-             //_this.dialog = Pman.Dialog.FILL_IN
-             if (_this.cpanel.active) {
+            _this.country_grid = this; 
+            
+             if (_this.country_panel.active) {
                 this.footer.onClick('first');
              }
          }
