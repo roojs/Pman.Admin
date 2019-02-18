@@ -19,7 +19,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '57d056ed0984166336b7879c2af3657f' :"City",
   'c6b5d0bb9a0c3f077863fdaef9773f7c' :"Province",
   '31311feefd4f3253ed255d109da1480b' :"No Country found",
-  '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
+  '42e3bd04a7339573df51e33a0e4e8969' :"Search Province",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   '90fd8a29b37d805cf75af6a3809bca87' :"Search City",
   '08b523137281088adf3cb1883c8e5627' :"Search Country",
@@ -340,7 +340,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         items  : [
          {
           xtype : 'TextField',
-          emptyText : _this._strings['26cbe1e3b53e773d1bdf15fb4912c2e0'] /* search name */,
+          emptyText : _this._strings['42e3bd04a7339573df51e33a0e4e8969'] /* Search Province */,
           listeners : {
            render : function (_self)
             {
@@ -759,8 +759,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        cm : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lval',
-         header : _this._strings['36dc0beb80c36193ac81b4f94e915e36'] /* Country Name */,
+         dataIndex : 'name',
+         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
          renderer : function(v) 
          { 
              return String.format('{0}', v ? v : ''); 
