@@ -12,14 +12,14 @@ Pman.Dialog.AdminGeoCityEdit = {
   '43ccafccb532cc57c20bc05a36aad7b7' :"Add / Edit City",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  'ca0dbad92a874b2f69b549293387925e' :"Code",
+  '25f75488c91cb6c3bab92672e479619f' :"Postal Code",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
   'country_name_qtip' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
   'country_name_emptyText' : '3c1df4260ce594cb5594696461087f2f' /* Select Country */ ,
-  'code_fieldLabel' : 'ca0dbad92a874b2f69b549293387925e' /* Code */ ,
+  'postal_code_fieldLabel' : '25f75488c91cb6c3bab92672e479619f' /* Postal Code */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
   'country_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'country_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ 
@@ -153,8 +153,17 @@ Pman.Dialog.AdminGeoCityEdit = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
-          name : 'code',
+          fieldLabel : _this._strings['25f75488c91cb6c3bab92672e479619f'] /* Postal Code */,
+          name : 'postal_code',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['25f75488c91cb6c3bab92672e479619f'] /* Postal Code */,
+          name : 'postal_code',
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
