@@ -319,7 +319,7 @@
              "text" : "Edit",
              "xtype" : "Button",
              "cls" : "x-btn-text-icon",
-             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
              "$ xns" : "Roo.Toolbar"
             },
             {
