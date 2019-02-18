@@ -420,7 +420,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          {
           xtype : 'Button',
           cls : 'x-btn-text-icon',
-          icon : rootURL + '/Pman/templates/images/trash.gif',
+          icon : rootURL + '/Pman/templates/images/leaf.gif',
           text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
           listeners : {
            click : function()
