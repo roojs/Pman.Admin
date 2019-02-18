@@ -351,7 +351,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
            specialkey : function (_self, e)
             {
                  if (e.getKey() == 13) {
-                    _this.grid.footer.onClick('first');
+                    _this.province_grid.footer.onClick('first');
                  }
             }
           },
