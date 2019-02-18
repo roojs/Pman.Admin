@@ -721,7 +721,9 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                 Pman.Dialog.AdminGeoCityEdit.show({
                     id : 0,
                     country : (country) ? country.data.lkey : '',
-                    country_name : (country) ? country.data.lval : ''
+                    country_name : (country) ? country.data.lval : '',
+                    division_id : (province) ? province.data.id : '',
+                    division_id_name : (province) ? province.data.name : ''
                 }, function(){
                     _this.province_grid.footer.onClick('first');
                 });
