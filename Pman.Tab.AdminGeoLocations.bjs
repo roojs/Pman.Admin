@@ -467,7 +467,7 @@
             },
             {
              "listeners" : {
-              "|click" : "function()\n{\n    var s = _this.city_grid.getSelectionModel().getSelections();\n    \n    if (!s.length || s.length > 1)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a single city\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoCityEdit.show({\n        id : s[0].data.id\n    }, function(){\n        _this.country_grid.footer.onClick('refresh');\n    });\n    \n}"
+              "|click" : "function()\n{\n    var s = _this.city_grid.getSelectionModel().getSelections();\n    \n    if (!s.length || s.length > 1)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a single city\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoCityEdit.show({\n        id : s[0].data.id\n    }, function(){\n        _this.city_grid.footer.onClick('refresh');\n    });\n    \n}"
              },
              "text" : "Edit",
              "xtype" : "Button",
