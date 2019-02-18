@@ -21,7 +21,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
   '31311feefd4f3253ed255d109da1480b' :"No Country found",
   '26cbe1e3b53e773d1bdf15fb4912c2e0' :"search name",
   '49ee3087348e8d44e1feda1917443987' :"Name",
-  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active"
+  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  '36dc0beb80c36193ac81b4f94e915e36' :"Country Name"
  },
 
   part     :  ["Admin", "GeoLocations" ],
@@ -290,8 +291,8 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        cm : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'name',
-         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+         dataIndex : 'lval',
+         header : _this._strings['36dc0beb80c36193ac81b4f94e915e36'] /* Country Name */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 200,
