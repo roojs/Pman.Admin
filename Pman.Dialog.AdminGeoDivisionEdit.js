@@ -118,7 +118,7 @@ Pman.Dialog.AdminGeoDivisionEdit = {
                   return;
               }
               if (action.type =='submit') {
-              
+                  
                   _this.dialog.el.unmask();
                   _this.dialog.hide();
               
