@@ -478,7 +478,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
           },
          load : function (_self, records, options)
           {
-              
+              _this.city_grid.footer.onClick('first');
           }
         },
         xns : Roo.data,
@@ -531,7 +531,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
         listeners : {
          afterselectionchange : function (_self)
           {
-              Roo.log('after selection change');
+              _this.city_grid.footer.onClick('first');
           }
         },
         xns : Roo.grid,
@@ -687,10 +687,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
               }
               
               options.params['query[name]'] = _this.city_searchBox.getValue();
-          },
-         load : function (_self, records, options)
-          {
-              Roo.log('load');
           }
         },
         xns : Roo.data,
@@ -748,12 +744,6 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
        sm : {
         xtype : 'RowSelectionModel',
         singleSelect : true,
-        listeners : {
-         afterselectionchange : function (_self)
-          {
-              Roo.log('after selection change');
-          }
-        },
         xns : Roo.grid,
         '|xns' : 'Roo.grid'
        },
