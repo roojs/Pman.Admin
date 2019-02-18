@@ -328,256 +328,36 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          xtype : 'JsonReader',
          fields : [
              {
-                 'name': 'code',
-                 'type': 'string'
-             },
-             {
-                 'name': 'name',
-                 'type': 'string'
-             },
-             {
-                 'name': 'remarks',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'address',
-                 'type': 'string'
-             },
-             {
-                 'name': 'tel',
-                 'type': 'string'
-             },
-             {
-                 'name': 'fax',
-                 'type': 'string'
-             },
-             {
-                 'name': 'email',
-                 'type': 'string'
-             },
-             {
                  'name': 'id',
                  'type': 'int'
              },
              {
-                 'name': 'isOwner',
+                 'name': 'lkey',
+                 'type': 'string'
+             },
+             {
+                 'name': 'inlang',
+                 'type': 'string'
+             },
+             {
+                 'name': 'lval',
+                 'type': 'string'
+             },
+             {
+                 'name': 'is_active',
                  'type': 'int'
              },
              {
-                 'name': 'logo_id',
+                 'name': 'is_prefer',
                  'type': 'int'
              },
              {
-                 'name': 'background_color',
-                 'type': 'string'
-             },
-             {
-                 'name': 'comptype',
-                 'type': 'string'
-             },
-             {
-                 'name': 'url',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id',
+                 'name': 'no_of_division',
                  'type': 'int'
              },
              {
-                 'name': 'created_by',
+                 'name': 'no_of_city',
                  'type': 'int'
-             },
-             {
-                 'name': 'created_dt',
-                 'type': 'string'
-             },
-             {
-                 'name': 'updated_by',
-                 'type': 'int'
-             },
-             {
-                 'name': 'updated_dt',
-                 'type': 'string'
-             },
-             {
-                 'name': 'passwd',
-                 'type': 'string'
-             },
-             {
-                 'name': 'dispatch_port',
-                 'type': 'string'
-             },
-             {
-                 'name': 'province',
-                 'type': 'string'
-             },
-             {
-                 'name': 'country',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_filename',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_ontable',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_onid',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_mimetype',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_width',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_height',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_filesize',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_displayorder',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_language',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_parent_image_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'logo_id_created',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_imgtype',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_linkurl',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_descript',
-                 'type': 'string'
-             },
-             {
-                 'name': 'logo_id_title',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_office_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_name',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_phone',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_fax',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_email',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_company_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_role',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_active',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_remarks',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_passwd',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_owner_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_lang',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_no_reset_sent',
-                 'type': 'int'
-             },
-             {
-                 'name': 'owner_id_action_type',
-                 'type': 'string'
-             },
-             {
-                 'name': 'owner_id_project_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'main_office_id_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'main_office_id_company_id',
-                 'type': 'int'
-             },
-             {
-                 'name': 'main_office_id_name',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id_address',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id_phone',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id_fax',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id_email',
-                 'type': 'string'
-             },
-             {
-                 'name': 'main_office_id_role',
-                 'type': 'string'
              }
          ],
          id : 'id',
