@@ -642,10 +642,10 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
          {
              var s =  _this.city_grid.getDataSource().getAt(rowIndex);
              
-             Pman.Dialog.AdminGeoDivisionEdit.show({
+             Pman.Dialog.AdminGeoCityEdit.show({
                  id : s.data.id
              }, function(){
-                 _this.province_grid.footer.onClick('refresh');
+                 _this.city_grid.footer.onClick('refresh');
              });
          }
        },
