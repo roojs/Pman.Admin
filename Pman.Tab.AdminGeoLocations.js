@@ -725,7 +725,7 @@ Pman.Tab.AdminGeoLocations = new Roo.XComponent({
                     division_id : (province) ? province.data.id : '',
                     division_id_name : (province) ? province.data.name : ''
                 }, function(){
-                    _this.province_grid.footer.onClick('first');
+                    _this.city_grid.footer.onClick('first');
                 });
                 
             }
