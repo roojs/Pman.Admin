@@ -1,0 +1,520 @@
+{
+ "name" : "Pman.Tab.AdminGeoLocations",
+ "parent" : "Pman.Tab.Admin",
+ "title" : "",
+ "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminGeoLocations.bjs",
+ "permname" : "",
+ "modOrder" : "100",
+ "strings" : {
+  "f2b734f9d29a7b036a5f26b229f1e918" : "Geographic Locations",
+  "59716c97497eb9694541f7c3d37b1a4d" : "Country",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "fc6f97505d89fe9277965c126744647a" : "No Companies found",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "646f95b46cdc6ae59dd9f2e86bf3b598" : "Displaying Country {0} - {1} of {2}",
+  "7faaef9675ee0e8280a243a290569359" : "No. Provinces",
+  "bbf2182dd4040fabc2b5433c32fd60f4" : "Province / District",
+  "05a43538cbc752df5428fe0a71192d09" : "No. Cities",
+  "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
+  "57d056ed0984166336b7879c2af3657f" : "City",
+  "c6b5d0bb9a0c3f077863fdaef9773f7c" : "Province",
+  "31311feefd4f3253ed255d109da1480b" : "No Country found",
+  "42e3bd04a7339573df51e33a0e4e8969" : "Search Province",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "90fd8a29b37d805cf75af6a3809bca87" : "Search City",
+  "08b523137281088adf3cb1883c8e5627" : "Search Country",
+  "36dc0beb80c36193ac81b4f94e915e36" : "Country Name"
+ },
+ "items" : [
+  {
+   "background" : true,
+   "region" : "center",
+   "title" : "Geographic Locations",
+   "xtype" : "NestedLayoutPanel",
+   "$ xns" : "Roo",
+   "items" : [
+    {
+     "xtype" : "BorderLayout",
+     "$ xns" : "Roo",
+     "* prop" : "layout",
+     "items" : [
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "* prop" : "center"
+      },
+      {
+       "Number width" : 400,
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "west"
+      },
+      {
+       "xtype" : "LayoutRegion",
+       "$ xns" : "Roo",
+       "width" : 400,
+       "split" : true,
+       "* prop" : "east"
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    \n    _this.country_panel = this;\n    if (_this.country_grid) {\n        _this.country_grid.footer.onClick('first');\n    }\n}"
+       },
+       "region" : "west",
+       "fitToframe" : true,
+       "title" : "Country",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "i18n",
+       "items" : [
+        {
+         "listeners" : {
+          "|render" : "function() \n{\n   _this.country_grid = this; \n   \n    if (_this.country_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "lval",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "afterselectionchange" : "function (_self)\n{\n    _this.province_grid.footer.onClick('first');\n}"
+           },
+           "Boolean singleSelect" : true,
+           "xtype" : "RowSelectionModel",
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          },
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params.ltype = 'c',\n    options.params.inlang = 'en';\n    options.is_active = 1;\n    \n    options.params['query[name]'] = _this.country_searchBox.getValue();\n    \n    options.params._with_geoip_count = 1;\n}",
+            "load" : "function (_self, records, options)\n{\n    _this.province_grid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field: 'lval', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/i18n.php'",
+             "method" : "GET",
+             "xtype" : "HttpProxy",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    },\n    {\n        'name': 'is_active',\n        'type': 'int'\n    },\n    {\n        'name': 'is_prefer',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_division',\n        'type': 'int'\n    },\n    {\n        'name': 'no_of_city',\n        'type': 'int'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Country found",
+           "$ xns" : "Roo",
+           "displayInfo" : true,
+           "displayMsg" : "Displaying Country {0} - {1} of {2}",
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.country_grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.country_searchBox = _self;\n}"
+             },
+             "emptyText" : "Search Country",
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.country_grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n   _this.country_searchBox.setValue('');\n    _this.country_grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Country Name",
+           "width" : 200,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "lval"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "String align" : "right",
+           "sortable" : true,
+           "header" : "No. Provinces",
+           "width" : 100,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_division"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "String align" : "right",
+           "sortable" : true,
+           "header" : "No. Cities",
+           "width" : 100,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_city"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.province_panel = this;\n    if (_this.province_grid) {\n        _this.province_grid.footer.onClick('first');\n    }\n}"
+       },
+       "region" : "center",
+       "fitToframe" : true,
+       "title" : "Province",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "geoip_division",
+       "items" : [
+        {
+         "listeners" : {
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var s =  _this.province_grid.getDataSource().getAt(rowIndex);\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('refresh');\n    });\n}",
+          "|render" : "function() \n{\n   _this.province_grid = this; \n   \n    if (_this.province_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "name",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "afterselectionchange" : "function (_self)\n{\n    _this.city_grid.footer.onClick('first');\n}"
+           },
+           "Boolean singleSelect" : true,
+           "xtype" : "RowSelectionModel",
+           "$ xns" : "Roo.grid",
+           "* prop" : "sm"
+          },
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n    \n    options.params['query[name]'] = _this.province_searchBox.getValue();\n    \n    options.params._with_geoip_count = 1;\n}",
+            "load" : "function (_self, records, options)\n{\n    _this.city_grid.footer.onClick('first');\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/geoip_division.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'country_name',\n        'type': 'string'\n    },\n    {\n        'name': 'no_of_city',\n        'type': 'string'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Companies found",
+           "$ xns" : "Roo",
+           "displayInfo" : true,
+           "displayMsg" : "Displaying Companies{0} - {1} of {2}",
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n     if (e.getKey() == 13) {\n        _this.province_grid.footer.onClick('first');\n     }\n}",
+              "render" : "function (_self)\n{\n    _this.province_searchBox = _self;\n}"
+             },
+             "emptyText" : "Search Province",
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.provincegrid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.province_searchBox.setValue('');\n    _this.province_grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : ''\n    }, function(){\n        _this.country_grid.footer.onClick('refresh');\n    });\n    \n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoDivisionEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.province_grid.footer.onClick('refresh');\n    });\n    \n}"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.province_grid.getSelectionModel().getSelected();\n    \n    if (!s)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a Row\");\n        return;\n    }\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Are you sure want to delete this division\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/geoip_division',\n                params : {\n                    _delete  : s.data.id\n                },\n                success : function() {\n                    _this.country_grid.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}"
+             },
+             "text" : "Delete",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Name",
+           "width" : 200,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "String align" : "right",
+           "sortable" : true,
+           "header" : "No. Cities",
+           "width" : 100,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "no_of_city"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    \n    _this.city_panel = this;\n    if (_this.city_grid) {\n        _this.city_grid.footer.onClick('first');\n    }\n}"
+       },
+       "region" : "east",
+       "fitToframe" : true,
+       "title" : "City",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "geoip_city",
+       "items" : [
+        {
+         "listeners" : {
+          "rowdblclick" : "function (_self, rowIndex, e)\n{\n    var s =  _this.city_grid.getDataSource().getAt(rowIndex);\n    \n    Pman.Dialog.AdminGeoCityEdit.show({\n        id : s.data.id\n    }, function(){\n        _this.city_grid.footer.onClick('refresh');\n    });\n    \n}",
+          "|render" : "function() \n{\n   _this.city_grid = this; \n   \n    if (_this.city_panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+         },
+         "autoExpandColumn" : "name",
+         "xtype" : "Grid",
+         "loadMask" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "grid",
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    if(!country) {\n        this.removeAll();\n        return false;\n    }\n    \n    options.params.country = country.data.lkey;\n    \n    var province = _this.province_grid.getSelectionModel().getSelected();\n    \n    if(province) {\n        options.params.division_id = province.data.id\n    }\n    \n    options.params['query[name]'] = _this.city_searchBox.getValue();\n}"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field: 'name', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "dataSource",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/geoip_city.php'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'name',\n        'type': 'string'\n    },\n    {\n        'name': 'country',\n        'type': 'string'\n    },\n    {\n        'name': 'country_name',\n        'type': 'string'\n    },\n    {\n        'name': 'division_id',\n        'type': 'int'\n    },\n    {\n        'name': 'division_id_name',\n        'type': 'string'\n    },\n    {\n        'name': 'postal_code',\n        'type': 'string'\n    },\n    {\n        'name': 'time_zone',\n        'type': 'string'\n    }\n]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          },
+          {
+           "pageSize" : 25,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "No Country found",
+           "$ xns" : "Roo",
+           "displayInfo" : true,
+           "displayMsg" : "Displaying Country {0} - {1} of {2}",
+           "* prop" : "footer"
+          },
+          {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n    if (e.getKey() == 13) {\n        _this.city_grid.footer.onClick('first');\n    }\n}",
+              "render" : "function (_self)\n{\n    _this.city_searchBox = _self;\n}"
+             },
+             "emptyText" : "Search City",
+             "xtype" : "TextField",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.country_grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n   _this.country_searchBox.setValue('');\n    _this.country_grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "xtype" : "Fill",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var country = _this.country_grid.getSelectionModel().getSelected();\n    \n    var province = _this.province_grid.getSelectionModel().getSelected();\n    \n    Pman.Dialog.AdminGeoCityEdit.show({\n        id : 0,\n        country : (country) ? country.data.lkey : '',\n        country_name : (country) ? country.data.lval : '',\n        division_id : (province) ? province.data.id : '',\n        division_id_name : (province) ? province.data.name : ''\n    }, function(){\n        _this.country_grid.footer.onClick('refresh');\n    });\n    \n}\n"
+             },
+             "text" : "Add",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.city_grid.getSelectionModel().getSelections();\n    \n    if (!s.length || s.length > 1)  {\n        Roo.MessageBox.alert(\"Error\", \"Select a single city\");\n        return;\n    }\n    \n    Pman.Dialog.AdminGeoCityEdit.show({\n        id : s[0].data.id\n    }, function(){\n        _this.city_grid.footer.onClick('refresh');\n    });\n    \n}"
+             },
+             "text" : "Edit",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function()\n{\n    var s = _this.city_grid.getSelectionModel().getSelections();\n    \n    if (!s.length)  {\n        Roo.MessageBox.alert(\"Error\", \"Select city to delete\");\n        return;\n    }\n    \n    var ids = [];\n    \n    Roo.each(s, function(v, k){\n        ids.push(v.data.id);\n    });\n    \n    Roo.MessageBox.confirm(\n        \"Confirm\", \n        \"Are you sure want to delete the selected city\", \n        function(res) {\n            if(res != 'yes') {\n                return;\n            }\n            new Pman.Request({\n                method : 'POST',\n                url : baseURL + '/Roo/geoip_city',\n                params : {\n                    _delete  : ids.join(',')\n                },\n                success : function() {\n                    _this.country_grid.footer.onClick('refresh');\n                }\n            });\n        }\n    );\n}"
+             },
+             "text" : "Delete",
+             "xtype" : "Button",
+             "cls" : "x-btn-text-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Name",
+           "width" : 200,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "name"
+          },
+          {
+           "xtype" : "ColumnModel",
+           "sortable" : true,
+           "header" : "Province / District",
+           "width" : 150,
+           "$ renderer" : "function(v) \n{ \n    return String.format('{0}', v ? v : ''); \n}",
+           "$ xns" : "Roo.grid",
+           "* prop" : "cm[]",
+           "dataIndex" : "division_id_name"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
