@@ -598,6 +598,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
            render : function (_self)
             {
               _this.langgridCombo=_self;
+            },
+           select : function (combo, record, index)
+            {
+              _this.langgrid.getDataSource().reload(); 
             }
           },
           xns : Roo.form,

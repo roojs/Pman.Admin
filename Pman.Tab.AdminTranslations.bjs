@@ -315,7 +315,8 @@
             },
             {
              "listeners" : {
-              "render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}"
+              "render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}",
+              "select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
              },
              "listWidth" : 300,
              "triggerAction" : "all",
