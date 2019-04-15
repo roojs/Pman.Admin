@@ -610,6 +610,18 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           '|xns' : 'Roo.form',
           store : {
            xtype : 'Store',
+           listeners : {
+            beforeload : function (_self, options)
+             {
+                options  =options ||  {};
+                options.params =options.params|| {};
+                options.params.ltype = 'l'
+                options.params.inlang = 'en'
+                
+             
+                
+             }
+           },
            xns : Roo.data,
            '|xns' : 'Roo.data',
            proxy : {
