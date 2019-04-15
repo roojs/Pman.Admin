@@ -594,6 +594,12 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
           valueField : 'code',
           width : 150,
+          listeners : {
+           render : function (_self)
+            {
+              _this.langgridCombo=_self;
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
