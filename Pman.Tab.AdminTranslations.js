@@ -594,7 +594,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           typeAhead : true,
           value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
           valueField : 'code',
-          width : 150,
+          width : 200,
           listeners : {
            render : function (_self)
             {
