@@ -620,7 +620,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                 options.params.ltype = 'l';
                 options.params.inlang = 'en';
                 
-             
+                 options.params._as_code_and_title = 1;
                 
              }
            },
