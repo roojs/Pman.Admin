@@ -341,7 +341,25 @@
               {
                "xtype" : "Store",
                "$ xns" : "Roo.data",
-               "* prop" : "store"
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/i18n.php'",
+                 "xtype" : "HttpProxy",
+                 "method" : "GET",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    }\n]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
               }
              ]
             }

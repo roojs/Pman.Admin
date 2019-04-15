@@ -611,7 +611,44 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           store : {
            xtype : 'Store',
            xns : Roo.data,
-           '|xns' : 'Roo.data'
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/i18n.php',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : [
+                {
+                    'name': 'id',
+                    'type': 'int'
+                },
+                {
+                    'name': 'ltype',
+                    'type': 'string'
+                },
+                {
+                    'name': 'lkey',
+                    'type': 'string'
+                },
+                {
+                    'name': 'inlang',
+                    'type': 'string'
+                },
+                {
+                    'name': 'lval',
+                    'type': 'string'
+                }
+            ],
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
           }
          }
         ]
