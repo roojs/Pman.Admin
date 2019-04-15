@@ -336,7 +336,14 @@
              "$ xns" : "Roo.form",
              "name" : "language_title",
              "qtip" : "Select Language",
-             "$ store" : "Pman.I18n.languageStore()"
+             "$ store" : "Pman.I18n.languageStore()",
+             "items" : [
+              {
+               "xtype" : "Store",
+               "$ xns" : "Roo.data",
+               "* prop" : "store"
+              }
+             ]
             }
            ]
           },

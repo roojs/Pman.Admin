@@ -607,7 +607,12 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
             }
           },
           xns : Roo.form,
-          '|xns' : 'Roo.form'
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'Store',
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
          }
         ]
        },
