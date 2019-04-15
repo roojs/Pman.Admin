@@ -336,7 +336,6 @@
              "$ xns" : "Roo.form",
              "name" : "language_title",
              "qtip" : "Select Language",
-             "$ store" : "Pman.I18n.languageStore()",
              "items" : [
               {
                "listeners" : {

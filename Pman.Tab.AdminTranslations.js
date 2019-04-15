@@ -590,7 +590,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           qtip : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
           queryParam : 'query[name_starts]',
           selectOnFocus : true,
-          store : Pman.I18n.languageStore(),
           triggerAction : 'all',
           typeAhead : true,
           value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
