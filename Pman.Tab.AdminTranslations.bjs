@@ -339,7 +339,7 @@
              "items" : [
               {
                "listeners" : {
-                "beforeload" : "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = 'l'\n   options.params.inlang = 'en'\n   \n\n   \n}"
+                "beforeload" : "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = 'l';\n   options.params.inlang = 'en';\n   \n\n   \n}"
                },
                "$ Object sortInfo" : "{ field : 'lkey', direction: 'ASC' }",
                "xtype" : "Store",

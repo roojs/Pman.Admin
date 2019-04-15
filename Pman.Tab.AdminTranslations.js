@@ -615,8 +615,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              {
                 options  =options ||  {};
                 options.params =options.params|| {};
-                options.params.ltype = 'l'
-                options.params.inlang = 'en'
+                options.params.ltype = 'l';
+                options.params.inlang = 'en';
                 
              
                 
