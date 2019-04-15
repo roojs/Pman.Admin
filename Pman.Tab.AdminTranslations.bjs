@@ -319,9 +319,11 @@
               "select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
              },
              "listWidth" : 300,
+             "Number pageSize" : 400,
              "triggerAction" : "all",
              "fieldLabel" : "Language",
              "selectOnFocus" : true,
+             "String queryParam" : "query[name_starts]",
              "displayField" : "title",
              "hiddenName" : "language",
              "value" : "",
