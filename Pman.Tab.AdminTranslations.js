@@ -442,7 +442,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                      method: 'POST',
                      params : {
                          id : rec.get('id'),
-                         lval : rec.get('lval')
+                         lval : rec.get('lval'),
+                         ltype : rec.get('ltype')
                      },
                      success : function()
                      {
