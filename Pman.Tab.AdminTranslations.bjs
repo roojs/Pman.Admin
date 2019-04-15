@@ -335,32 +335,6 @@
              "name" : "language_title",
              "qtip" : "Select Language",
              "$ store" : "Pman.I18n.languageStore()"
-            },
-            {
-             "listeners" : {
-              "|render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}",
-              "|select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
-             },
-             "triggerAction" : "all",
-             "selectOnFocus" : true,
-             "emptyText" : "Select Language",
-             "displayField" : "ldisp",
-             "valueField" : "lang",
-             "xtype" : "ComboBox",
-             "typeAhead" : false,
-             "editable" : false,
-             "width" : 200,
-             "$ xns" : "Roo.form",
-             "mode" : "local",
-             "items" : [
-              {
-               "xtype" : "SimpleStore",
-               "$ data" : "[  \n    [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],   \n    [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ] \n]",
-               "$ xns" : "Roo.data",
-               "$ fields" : "['lang', 'ldisp']",
-               "* prop" : "store"
-              }
-             ]
             }
            ]
           },

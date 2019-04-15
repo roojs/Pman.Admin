@@ -606,40 +606,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           },
           xns : Roo.form,
           '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'ComboBox',
-          displayField : 'ldisp',
-          editable : false,
-          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'lang',
-          width : 200,
-          listeners : {
-           render : function (_self)
-            {
-              _this.langgridCombo=_self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.langgrid.getDataSource().reload(); 
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'SimpleStore',
-           data : [  
-               [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],   
-               [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ] 
-           ],
-           fields : ['lang', 'ldisp'],
-           xns : Roo.data,
-           '|xns' : 'Roo.data'
-          }
          }
         ]
        },
