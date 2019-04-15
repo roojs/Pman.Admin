@@ -585,6 +585,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
           hiddenName : 'language',
           listWidth : 300,
+          minChars : 2,
           name : 'language_title',
           pageSize : 400,
           qtip : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,

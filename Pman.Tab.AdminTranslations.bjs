@@ -321,6 +321,7 @@
              "listWidth" : 300,
              "Number pageSize" : 400,
              "triggerAction" : "all",
+             "Number minChars" : 2,
              "fieldLabel" : "Language",
              "selectOnFocus" : true,
              "String queryParam" : "query[name_starts]",
