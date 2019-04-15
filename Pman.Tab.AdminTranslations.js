@@ -8,7 +8,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
 
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
+  '4994a8ffeba4ac3140beb89e8d41f174' :"Language",
   'ae739a236065a45c64ad51aacb19498c' :"Active?",
+  'd41d8cd98f00b204e9800998ecf8427e' :"",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   'e2ade2e0b88406a390f59b5232abb328' :"Translated (Click to Edit)",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
@@ -22,6 +24,11 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   '552bcc4e00cd663f09cc4efbaca1cd45' :"Select Translation of",
   'ca0dbad92a874b2f69b549293387925e' :"Code",
   '0a9e8bd9e8b301dfb2c21c355e0b377d' :"Languages and Countries"
+ },
+ _named_strings : {
+  'language_title_value' : 'd41d8cd98f00b204e9800998ecf8427e' /*  */ ,
+  'language_title_qtip' : '83dad8107f9459efe2b4fabcf5b63108' /* Select Language */ ,
+  'language_title_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ 
  },
 
   part     :  ["Admin", "Translations" ],
@@ -569,6 +576,26 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
            xns : Roo.data,
            '|xns' : 'Roo.data'
           }
+         },
+         {
+          xtype : 'ComboBox',
+          allowBlank : false,
+          displayField : 'title',
+          editable : false,
+          fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
+          hiddenName : 'language',
+          listWidth : 300,
+          name : 'language_title',
+          qtip : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
+          selectOnFocus : true,
+          store : Pman.I18n.languageStore(),
+          triggerAction : 'all',
+          typeAhead : false,
+          value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
+          valueField : 'code',
+          width : 150,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'ComboBox',

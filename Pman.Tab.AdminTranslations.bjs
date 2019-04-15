@@ -7,7 +7,9 @@
  "modOrder" : "950",
  "strings" : {
   "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
+  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
+  "d41d8cd98f00b204e9800998ecf8427e" : "",
   "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
   "e2ade2e0b88406a390f59b5232abb328" : "Translated (Click to Edit)",
   "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
@@ -21,6 +23,11 @@
   "552bcc4e00cd663f09cc4efbaca1cd45" : "Select Translation of",
   "ca0dbad92a874b2f69b549293387925e" : "Code",
   "0a9e8bd9e8b301dfb2c21c355e0b377d" : "Languages and Countries"
+ },
+ "named_strings" : {
+  "language_title_value" : "d41d8cd98f00b204e9800998ecf8427e",
+  "language_title_qtip" : "83dad8107f9459efe2b4fabcf5b63108",
+  "language_title_fieldLabel" : "4994a8ffeba4ac3140beb89e8d41f174"
  },
  "items" : [
   {
@@ -305,6 +312,25 @@
                "* prop" : "store"
               }
              ]
+            },
+            {
+             "listWidth" : 300,
+             "triggerAction" : "all",
+             "fieldLabel" : "Language",
+             "selectOnFocus" : true,
+             "displayField" : "title",
+             "hiddenName" : "language",
+             "value" : "",
+             "valueField" : "code",
+             "xtype" : "ComboBox",
+             "allowBlank" : false,
+             "typeAhead" : false,
+             "editable" : false,
+             "width" : 150,
+             "$ xns" : "Roo.form",
+             "name" : "language_title",
+             "qtip" : "Select Language",
+             "$ store" : "Pman.I18n.languageStore()"
             },
             {
              "listeners" : {
