@@ -610,6 +610,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           '|xns' : 'Roo.form',
           store : {
            xtype : 'Store',
+           sortInfo : '{ field : \'lkey\', direction: \'ASC\' }',
            listeners : {
             beforeload : function (_self, options)
              {
