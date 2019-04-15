@@ -7,7 +7,9 @@
  "modOrder" : "950",
  "strings" : {
   "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
+  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
+  "d41d8cd98f00b204e9800998ecf8427e" : "",
   "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
   "e2ade2e0b88406a390f59b5232abb328" : "Translated (Click to Edit)",
   "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
@@ -21,6 +23,11 @@
   "552bcc4e00cd663f09cc4efbaca1cd45" : "Select Translation of",
   "ca0dbad92a874b2f69b549293387925e" : "Code",
   "0a9e8bd9e8b301dfb2c21c355e0b377d" : "Languages and Countries"
+ },
+ "named_strings" : {
+  "language_title_value" : "d41d8cd98f00b204e9800998ecf8427e",
+  "language_title_qtip" : "83dad8107f9459efe2b4fabcf5b63108",
+  "language_title_fieldLabel" : "4994a8ffeba4ac3140beb89e8d41f174"
  },
  "items" : [
   {
@@ -45,9 +52,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n       _this.grid.getDataSource().reload(); \n    }\n}"
        },
-       "fitToframe" : true,
        "background" : true,
        "region" : "center",
+       "fitToframe" : true,
        "title" : "Text in interface",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -224,9 +231,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.langpanel = this;\n    if (_this.langgrid) {\n        _this.langgrid.ds.load({});\n    }\n}"
        },
-       "fitToframe" : true,
        "background" : true,
        "region" : "center",
+       "fitToframe" : true,
        "title" : "Languages and Countries",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -238,7 +245,7 @@
           "beforeedit" : "function(e) {\n    console.log('beforeedit');\n    //if (e.record.get('origtxt').indexOf('<') > -1) {\n                       // console.log(\"HTML EDITOR!!\");\n             \n            //    return false;\n            //}\n            if (e.record.get('lval').replace(/\\s+/, '').length) {\n                return true;\n            }\n            \n            \n            var tl = _this.langgridCombo.getValue();\n          \n            tl = (tl == 'zh_HK') ? 'zh-TW' : tl; \n            tl = tl.replace('_', '-');\n            var rec = e.record;\n            \n            \n            \n            Pman.gtranslate(e.record.get('lval_en'), 'en', tl, function(result) { \n                if (typeof(result) == 'object') { //error\n                    return; \n                   }\n                \n                if (_this.grid.activeEditor) {\n                    _this.grid.activeEditor.setValue(result);\n                } else {\n                    rec.set('lval',result);\n                    //_this.saveRec(rec);\n                }\n\n                //\n                \n                \n                //console.log(result.translation);\n            });\n            \n           \n            \n            return true;\n        } ",
           "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n    if(_this.langgrid.colModel.getDataIndex(columnIndex) !== 'is_active'){\n        return;\n    }\n    \n    var s = _this.langgrid.ds.getAt(rowIndex);\n    \n    if(!s || s.data.id * 1 < 0){\n        return;\n    }\n    \n    s.set('is_active', s.data.is_active ? 0 : 1);\n    \n    new Pman.Request({\n        url : baseURL+'/Roo/I18n',\n        method : 'POST',\n        params : {\n            id : s.data.id,\n            is_active : s.data.is_active\n        }\n    }); \n    \n}",
           "|render" : "function() \n{\n    _this.langgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.langpanel.active) {\n       this.ds.load({});\n    }\n}",
-          "afteredit" : "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        Ext.Ajax.request({\n            url : baseURL + '/Roo/I18n.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                lval : rec.get('lval')\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Ext.Msg.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
+          "afteredit" : "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        Ext.Ajax.request({\n            url : baseURL + '/Roo/I18n.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                lval : rec.get('lval'),\n                ltype : rec.get('ltype')\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Ext.Msg.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
          },
          "autoExpandColumn" : "lval",
          "xtype" : "EditorGrid",
@@ -308,27 +315,55 @@
             },
             {
              "listeners" : {
-              "|render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}",
-              "|select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
+              "render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}",
+              "select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
              },
+             "listWidth" : 300,
+             "Number pageSize" : 400,
              "triggerAction" : "all",
+             "Number minChars" : 2,
+             "fieldLabel" : "Language",
              "selectOnFocus" : true,
-             "emptyText" : "Select Language",
-             "displayField" : "ldisp",
-             "valueField" : "lang",
+             "String queryParam" : "query[name_starts]",
+             "displayField" : "title",
+             "hiddenName" : "language",
+             "value" : "",
+             "valueField" : "code",
              "xtype" : "ComboBox",
-             "typeAhead" : false,
-             "editable" : false,
+             "allowBlank" : false,
+             "typeAhead" : true,
+             "editable" : true,
              "width" : 200,
              "$ xns" : "Roo.form",
-             "mode" : "local",
+             "name" : "language_title",
+             "qtip" : "Select Language",
              "items" : [
               {
-               "xtype" : "SimpleStore",
-               "$ data" : "[                                                [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ]                     ]",
+               "listeners" : {
+                "beforeload" : "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = 'l';\n   options.params.inlang = 'en';\n   \n    options.params._as_code_and_title = 1;\n   \n}"
+               },
+               "$ Object sortInfo" : "{ field : 'title', direction: 'ASC' }",
+               "xtype" : "Store",
                "$ xns" : "Roo.data",
-               "$ fields" : "['lang', 'ldisp']",
-               "* prop" : "store"
+               "* prop" : "store",
+               "items" : [
+                {
+                 "$ url" : "baseURL + '/Roo/i18n.php'",
+                 "method" : "GET",
+                 "xtype" : "HttpProxy",
+                 "$ xns" : "Roo.data",
+                 "* prop" : "proxy"
+                },
+                {
+                 "id" : "id",
+                 "root" : "data",
+                 "xtype" : "JsonReader",
+                 "$ xns" : "Roo.data",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    }\n]",
+                 "* prop" : "reader",
+                 "totalProperty" : "total"
+                }
+               ]
               }
              ]
             }

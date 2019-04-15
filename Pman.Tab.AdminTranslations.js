@@ -8,7 +8,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
 
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
+  '4994a8ffeba4ac3140beb89e8d41f174' :"Language",
   'ae739a236065a45c64ad51aacb19498c' :"Active?",
+  'd41d8cd98f00b204e9800998ecf8427e' :"",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   'e2ade2e0b88406a390f59b5232abb328' :"Translated (Click to Edit)",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
@@ -22,6 +24,11 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   '552bcc4e00cd663f09cc4efbaca1cd45' :"Select Translation of",
   'ca0dbad92a874b2f69b549293387925e' :"Code",
   '0a9e8bd9e8b301dfb2c21c355e0b377d' :"Languages and Countries"
+ },
+ _named_strings : {
+  'language_title_value' : 'd41d8cd98f00b204e9800998ecf8427e' /*  */ ,
+  'language_title_qtip' : '83dad8107f9459efe2b4fabcf5b63108' /* Select Language */ ,
+  'language_title_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ 
  },
 
   part     :  ["Admin", "Translations" ],
@@ -435,7 +442,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                      method: 'POST',
                      params : {
                          id : rec.get('id'),
-                         lval : rec.get('lval')
+                         lval : rec.get('lval'),
+                         ltype : rec.get('ltype')
                      },
                      success : function()
                      {
@@ -572,14 +580,22 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          },
          {
           xtype : 'ComboBox',
-          displayField : 'ldisp',
-          editable : false,
-          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
-          mode : 'local',
+          allowBlank : false,
+          displayField : 'title',
+          editable : true,
+          fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
+          hiddenName : 'language',
+          listWidth : 300,
+          minChars : 2,
+          name : 'language_title',
+          pageSize : 400,
+          qtip : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
+          queryParam : 'query[name_starts]',
           selectOnFocus : true,
           triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'lang',
+          typeAhead : true,
+          value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
+          valueField : 'code',
           width : 200,
           listeners : {
            render : function (_self)
@@ -594,11 +610,59 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
-           xtype : 'SimpleStore',
-           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
-           fields : ['lang', 'ldisp'],
+           xtype : 'Store',
+           sortInfo : { field : 'title', direction: 'ASC' },
+           listeners : {
+            beforeload : function (_self, options)
+             {
+                options  =options ||  {};
+                options.params =options.params|| {};
+                options.params.ltype = 'l';
+                options.params.inlang = 'en';
+                
+                 options.params._as_code_and_title = 1;
+                
+             }
+           },
            xns : Roo.data,
-           '|xns' : 'Roo.data'
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/i18n.php',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : [
+                {
+                    'name': 'id',
+                    'type': 'int'
+                },
+                {
+                    'name': 'ltype',
+                    'type': 'string'
+                },
+                {
+                    'name': 'lkey',
+                    'type': 'string'
+                },
+                {
+                    'name': 'inlang',
+                    'type': 'string'
+                },
+                {
+                    'name': 'lval',
+                    'type': 'string'
+                }
+            ],
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
           }
          }
         ]
