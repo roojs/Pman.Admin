@@ -595,7 +595,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           '|xns' : 'Roo.form',
           store : {
            xtype : 'SimpleStore',
-           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
+           data : [  
+               [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],   
+               [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ] 
+           ],
            fields : ['lang', 'ldisp'],
            xns : Roo.data,
            '|xns' : 'Roo.data'
