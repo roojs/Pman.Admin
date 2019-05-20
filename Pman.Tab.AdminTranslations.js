@@ -655,7 +655,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                 {
                     'name': 'lval',
                     'type': 'string'
-                }
+                },
+                'title'
             ],
             id : 'id',
             root : 'data',
