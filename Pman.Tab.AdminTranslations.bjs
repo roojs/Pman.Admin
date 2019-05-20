@@ -359,7 +359,7 @@
                  "root" : "data",
                  "xtype" : "JsonReader",
                  "$ xns" : "Roo.data",
-                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    },\n    'title'\n]",
+                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    } \n]",
                  "* prop" : "reader",
                  "totalProperty" : "total"
                 }
