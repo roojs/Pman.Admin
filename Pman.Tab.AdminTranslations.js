@@ -733,6 +733,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          dataIndex : 'lkey',
          header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
          renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
          width : 50,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
@@ -742,6 +743,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          dataIndex : 'lval_en',
          header : _this._strings['78463a384a5aa4fad5fa73e2f506ecfc'] /* English */,
          renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
          width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
@@ -751,6 +753,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          dataIndex : 'lval',
          header : _this._strings['6dd08874f83507e9c7b23f1a46b7fa7c'] /* Translation */,
          renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
          width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
