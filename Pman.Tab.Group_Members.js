@@ -55,6 +55,7 @@ Pman.Tab.Group_Members = new  Pman.Tab.PersonList({
             this.c_name(),
             this.c_office_id_name(),
             this.c_role(),
+            this.c_group_membership(),
             this.c_phone(),
             this.c_fax(),
             this.c_email(),
