@@ -38,6 +38,12 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
    xtype : 'NestedLayoutPanel',
    region : 'center',
    title : _this._strings['f49559cda3fb906fbd7736f8b8a0e37d'] /* Email Template */,
+   listeners : {
+    render : function (_self)
+     {
+         _this.nest = this;
+     }
+   },
    xns : Roo,
    '|xns' : 'Roo',
    layout : {
