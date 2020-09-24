@@ -275,7 +275,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'name', direction: 'ASC' },
+        sortInfo : { field : 'description', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {
@@ -330,6 +330,11 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
          renderer : function(v,x,r) 
          { 
+             if (r.data.description.length > 0) {
+                 v = r.data.description;
+             }
+             
+             
              if(r.data.active * 1 < 1){
                  return String.format('<s>{0}</s>', v ? v : ''); 
              }
@@ -364,7 +369,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['4a4a8fe0c6dfb6bd2a41755d15eb6f0b'] /* From Name */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 300,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -374,7 +379,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['4ca679a383343ab3d4ca1cd7c91b43f7'] /* From Email */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 300,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -384,7 +389,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
          header : _this._strings['68b00d723d37122f64da8d9939f836f0'] /* BCC Group */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 300,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
