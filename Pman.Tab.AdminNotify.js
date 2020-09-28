@@ -602,7 +602,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
              return String.format('<span qtip="{0}">{1}</span>', v, vv ); 
          },
          sortable : true,
-         width : 100,
+         width : 70,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -612,7 +612,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
          header : _this._strings['0f6d01b16d57911731aa44b94dbfefcc'] /* Act when */,
          renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); },
          sortable : true,
-         width : 150,
+         width : 130,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -627,7 +627,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
               return String.format('{0}', v ? v.format('d/M/Y H:i:s') : '');
            },
          sortable : true,
-         width : 150,
+         width : 130,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -677,7 +677,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
          dataIndex : 'msgid',
          header : _this._strings['12832b4def6eb0b6105b3d11e16066ea'] /* Msgid */,
          renderer : function(v) { return String.format('{0}', v); },
-         width : 200,
+         width : 50,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
