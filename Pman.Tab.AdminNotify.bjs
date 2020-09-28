@@ -86,7 +86,7 @@
          "items" : [
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params._evtype_align = 1;\n    \n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    }\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n    var from = _this.fromDateSel.getValue();\n    \n    if(from){\n        options.params.from = from.format('Y-m-d');\n    }\n    \n    var to = _this.toDateSel.getValue();\n    \n    if(to){\n        options.params.to = to.format('Y-m-d');\n    }\n    \n    var type = _this.typeCombo.getValue();\n    \n    if(type.length){\n        options.params.evtype = type;\n    }\n}"
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params._evtype_align = 1;\n    \n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    } else  {\n        options.params['!event_id'] = 0;\n    }\n    \n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n    var from = _this.fromDateSel.getValue();\n    \n    if(from){\n        options.params.from = from.format('Y-m-d');\n    }\n    \n    var to = _this.toDateSel.getValue();\n    \n    if(to){\n        options.params.to = to.format('Y-m-d');\n    }\n    \n    var type = _this.typeCombo.getValue();\n    \n    if(type.length){\n        options.params.evtype = type;\n    }\n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,
@@ -114,7 +114,7 @@
           },
           {
            "listeners" : {
-            "afterselectionchange" : "function (_self)\n{\n    // load detail log in _this.viewPanel;\n    if (!this.getSelected()) {\n        this.viewPanel.setContent(\"Nothing Selected\");\n        return;\n    }\n    var id = this.getSelected().data.event_id;\n    if (id *1 < 0) {\n    \n        this.viewPanel.setContent(\"No Event for this line\");    \n        return;\n    }\n    _this.viewPanel.load( { url : baseURL + \"/Admin/EventView/\" + id + \".html\" });\n    \n}"
+            "afterselectionchange" : "function (_self)\n{\n    // load detail log in _this.viewPanel;\n    if (!this.getSelected()) {\n        this.viewPanel.setContent(\"Nothing Selected\");\n        return;\n    }\n    var id = this.getSelected().data.event_id;\n    if (id *1 < 1) {\n    \n       _this.viewPanel.setContent(\"No Event for this line\");    \n        return;\n    }\n    _this.viewPanel.load( { url : baseURL + \"/Admin/EventView/\" + id + \".html\" });\n    \n}"
            },
            "xtype" : "RowSelectionModel",
            "singleSelect" : true,

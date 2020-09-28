@@ -364,7 +364,10 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
               
               if (!_this.toggleBtn.pressed) {
                   options.params['event_id'] = 0;
+              } else  {
+                  options.params['!event_id'] = 0;
               }
+              
               if (!_this.personCombo) {
                   return false;
               }
@@ -566,9 +569,9 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
                   return;
               }
               var id = this.getSelected().data.event_id;
-              if (id *1 < 0) {
+              if (id *1 < 1) {
               
-                  this.viewPanel.setContent("No Event for this line");    
+                 _this.viewPanel.setContent("No Event for this line");    
                   return;
               }
               _this.viewPanel.load( { url : baseURL + "/Admin/EventView/" + id + ".html" });
