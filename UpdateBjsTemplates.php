@@ -56,53 +56,53 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         if (empty($ff->Pman_Core)) {
             $this->jerr("config[Pman_Core] is not set");
         }
-        
-        $base = empty($ff->Pman_Core['project_name']) ? $ff->project : $ff->Pman_Core['project_name'];
-        
-        $dh = opendir($base);
-        
-        $ret = array();
-        
-        if(!$dh){
-            $this->jerr("could not open dir: config[Pman_Core] = " . $base);
-            return $ret; // something went wrong!?
+        if (!empty($ff->Pman_Core['project_name'])) {
+            $base  = $ff->Pman_Core['project_name'];
+            
+            $dh = opendir($base);
+            
+            $ret = array();
+            
+            if(!$dh){
+                $this->jerr("could not open dir: config[Pman_Core] = " . $base);
+                return $ret; // something went wrong!?
+            }
+             
+            while (($fn = readdir($dh)) !== false) {
+                
+                if(empty($fn) || $fn[0] == '.' || !preg_match('/\.bjs$/', $fn)){
+                    continue;
+                }
+                
+                if($this->cli){
+                    echo "Processing {$fn} \n";
+                }
+                
+                $template = DB_DataObject::factory('cms_template');
+                $template->setFrom(array(
+                    'template' => $fn,
+                    'lang' => 'en',
+                    'view_name' => $base
+                ));
+                
+                $o = false;
+                
+                if($template->find(true)){
+                    $o = clone ($template);
+                }
+                
+                $template->updated = $template->sqlValue("NOW()");
+                
+                (empty($o)) ? $template->insert() : $template->update($o);
+                
+                $data = json_decode(file_get_contents($base . '/' . $fn), true);
+                
+                $template->words = empty($data['strings']) ? array() : $data['strings'];
+                
+                $x = DB_DataObject::Factory('cms_templatestr');
+                $x->syncTemplateWords($template, false);
+            }
         }
-         
-        while (($fn = readdir($dh)) !== false) {
-            
-            if(empty($fn) || $fn[0] == '.' || !preg_match('/\.bjs$/', $fn)){
-                continue;
-            }
-            
-            if($this->cli){
-                echo "Processing {$fn} \n";
-            }
-            
-            $template = DB_DataObject::factory('cms_template');
-            $template->setFrom(array(
-                'template' => $fn,
-                'lang' => 'en',
-                'view_name' => $base
-            ));
-            
-            $o = false;
-            
-            if($template->find(true)){
-                $o = clone ($template);
-            }
-            
-            $template->updated = $template->sqlValue("NOW()");
-            
-            (empty($o)) ? $template->insert() : $template->update($o);
-            
-            $data = json_decode(file_get_contents($base . '/' . $fn), true);
-            
-            $template->words = empty($data['strings']) ? array() : $data['strings'];
-            
-            $x = DB_DataObject::Factory('cms_templatestr');
-            $x->syncTemplateWords($template, false);
-        }
-        
         $this->scanPmanTemplates();
         
     }
