@@ -124,7 +124,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        Roo.MessageBox.alert("Not yet", "not done yet");
                        return;
                        Roo.Ajax.request({
-                           url : baseURL + '/Roo/cms_language.php',
+                           url : baseURL + '/Roo/core_language.php',
                            method: 'POST',
                            params : {
                                _delete : _t.selectedNode.id 
