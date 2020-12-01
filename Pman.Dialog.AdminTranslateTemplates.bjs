@@ -5,5 +5,112 @@
  "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminTranslateTemplates.bjs",
  "permname" : "",
  "modOrder" : "001",
- "items" : []
+ "strings" : {
+  "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
+  "d41d8cd98f00b204e9800998ecf8427e" : "",
+  "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "305253475cc868103805068f45a90468" : "Edit Translation",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
+ },
+ "named_strings" : {
+  "src_id_txt_fieldLabel" : "0a52da7a03a6de3beefe54f8c03ad80d",
+  "src_id_txt_value" : "d41d8cd98f00b204e9800998ecf8427e",
+  "txt_fieldLabel" : "6dd08874f83507e9c7b23f1a46b7fa7c"
+ },
+ "items" : [
+  {
+   "modal" : true,
+   "collapsible" : false,
+   "background" : true,
+   "title" : "Edit Translation",
+   "xtype" : "LayoutDialog",
+   "width" : 800,
+   "$ xns" : "Roo",
+   "closable" : false,
+   "resizable" : true,
+   "height" : 450,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "titlebar" : true,
+     "$ title" : "\"Note: If the original text contains template variables like  {TEMPLATE_VARIABLE} <br/>Be careful to retain them otherwise the translation may not work\""
+    },
+    {
+     "region" : "center",
+     "fitToFrame" : true,
+     "background" : true,
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "listeners" : {
+        "|actionfailed" : "function (_self, action)\n{\n    _this.dialog.el.unmask();\n    Pman.standardActionFailed(_self, action);\n}\n",
+        "|actioncomplete" : "function (_self, action)\n{\n      \n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       \n       Roo.log(_this.data);\n       return;\n    }\n    if (action.type == 'load') {\n         return;\n    }\n    if (action.type =='submit') {\n        _this.dialog.hide();\n        if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n        }\n        _this.form.reset();\n        return;\n    }\n}\n",
+        "|rendered" : "function (form)\n{\n   _this.form = form;\n}"
+       },
+       "style" : "margin: 5px",
+       "xtype" : "Form",
+       "method" : "POST",
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "labelAlign" : "top",
+         "xtype" : "Row",
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Original",
+           "xtype" : "TextArea",
+           "value" : "",
+           "readOnly" : true,
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "height" : 150,
+           "name" : "src_id_txt"
+          }
+         ]
+        },
+        {
+         "labelAlign" : "top",
+         "xtype" : "Row",
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "fieldLabel" : "Translation",
+           "xtype" : "TextArea",
+           "width" : 750,
+           "$ xns" : "Roo.form",
+           "name" : "txt",
+           "height" : 150
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "|click" : "function() {\n    _this.form.reset();\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Cancel",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "|click" : "function() {\n    _this.dialog.el.mask(\"Saving\");\n    //_this.form.doAction('submit');\n    _this.dialog.hide();\n    if (_this.callback) {\n        _this.callback.call(_this, _this.form.getValues());\n    }\n    _this.dialog.el.unmask();\n    _this.form.reset();\n}"
+     },
+     "text" : "OK",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
 }
