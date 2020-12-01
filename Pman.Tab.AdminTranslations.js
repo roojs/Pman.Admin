@@ -175,7 +175,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        method : 'POST',
                        mask : 'Processing...',
                        params : {
-                           _rescan : sn.attributes.id
+                           _rescan : sn.attributes.id.split(':')[1]
                        }, 
                        success : function()
                        {
@@ -482,7 +482,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               }
           
               o.params = o.params || {};
-              o.params.lang = sn.parentNode.attributes.id ;
+              o.params.lang =  sn.parentNode.attributes.id.split(':')[1];
               o.params.template_id = sn.attributes.id * 1;
               o.params.active = 1;
               o.params['!src_id'] = 0;
