@@ -151,7 +151,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
                 $template->words = empty($data['strings']) ? array() : $data['strings'];
 
-                $x = DB_DataObject::Factory('cms_templatestr');
+                $x = DB_DataObject::Factory('core_templatestr');
                 $x->syncTemplateWords($template, false);
             }
         }
