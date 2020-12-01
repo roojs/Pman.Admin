@@ -1,5 +1,6 @@
 <?php
 
+die("NOT USED!?");
 
 /**
  * Pman_Admin_Translation:
@@ -191,6 +192,15 @@ class Pman_Admin_Translations extends Pman
                 if (empty($jd->strings)) {
                     continue;
                 }
+                foreach($jd->strings as $tkey => $val) {
+                    $line = array(
+                        'module' => $module,
+                        'tfile' => preg_replace('/\.js$/','',  basename($bjs)),
+                    )
+                    
+                    
+                }
+                
                 $this->original[str_replace('.bjs', '', basename($bjs)) ] = array_flip((array)$jd->strings);
             }
              
