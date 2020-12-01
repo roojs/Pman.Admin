@@ -526,7 +526,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           
               _this.grid.getView().el.mask("Saving");
               new Pman.Request({
-                  url : baseURL + '/Roo/cms_templatestr',
+                  url : baseURL + '/Roo/Core_templatestr',
                   method: 'POST',
                   params : {
                       id : rec.get('id'),
@@ -552,7 +552,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/cms_templatestr.php',
+         url : baseURL + '/Roo/Core_templatestr.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
