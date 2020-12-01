@@ -193,7 +193,7 @@ class Pman_Admin_Translations extends Pman
                 }
                 $this->original[str_replace('.bjs', '', basename($bjs)) ] = $jd->strings;
             }
-            print_r($this->original); exit;
+             
             file_put_contents($tfile, json_encode($this->original));
             
             
