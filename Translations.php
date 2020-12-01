@@ -1,6 +1,8 @@
 <?php
 
 die("NOT USED!?");
+// see core_template code..
+
 
 /**
  * Pman_Admin_Translation:
