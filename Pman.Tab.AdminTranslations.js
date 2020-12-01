@@ -174,7 +174,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                
                var syncTemplate = function(){
                    new Pman.Request({
-                       url : baseURL + '/Cms/UpdateBjsTemplates',
+                       url : baseURL + '/Core/UpdateBjsTemplates',
                        method : 'GET',
                        mask : 'Processing...',
                        timeout : 9000000,
@@ -189,7 +189,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                
                var syncLanguage = function(){
                    new Pman.Request({
-                       url : baseURL + '/Roo/cms_templatestr',
+                       url : baseURL + '/Roo/Core_templatestr',
                        method : 'POST',
                        mask : 'Processing...',
                        params : {
