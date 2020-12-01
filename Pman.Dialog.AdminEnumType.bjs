@@ -1,87 +1,98 @@
 {
-    "name" : "Pman.Dialog.AdminEnumType",
-    "parent" : "",
-    "title" : "",
-    "path" : "/home/michael/gitlive/Pman.Admin/Pman.Dialog.AdminEnumType.bjs",
-    "permname" : "",
-    "modOrder" : "001",
-    "items" : [
+ "name" : "Pman.Dialog.AdminEnumType",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminEnumType.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "b48968e1c912da07df5e8d6d246291ec" : "Display Name",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save"
+ },
+ "named_strings" : {
+  "display_name_fieldLabel" : "b48968e1c912da07df5e8d6d246291ec",
+  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987"
+ },
+ "items" : [
+  {
+   "Boolean modal" : true,
+   "Number width" : 480,
+   "xtype" : "LayoutDialog",
+   "Number height" : 160,
+   "Boolean resizable" : false,
+   "$ xns" : "Roo",
+   "String title" : "Edit",
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center\n"
+    },
+    {
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "String region" : "center",
+     "items" : [
+      {
+       "listeners" : {
+        "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n        \n        if(_this.callback){\n            _this.callback.call(_this, _this.form.getValues());\n        }\n        return\n    }\n}",
+        "rendered" : "function (form)\n{\n    _this.form = this;\n}"
+       },
+       "$ url" : "baseURL + '/Roo/Core_enum'",
+       "xtype" : "Form",
+       "$ xns" : "Roo.form",
+       "items" : [
         {
-            "Boolean modal" : true,
-            "Number width" : 480,
-            "xtype" : "LayoutDialog",
-            "Number height" : 160,
-            "Boolean resizable" : false,
-            "$ xns" : "Roo",
-            "String title" : "Edit",
-            "items" : [
-                {
-                    "xtype" : "LayoutRegion",
-                    "$ xns" : "Roo",
-                    "* prop" : "center\n"
-                },
-                {
-                    "xtype" : "ContentPanel",
-                    "String region" : "center",
-                    "$ xns" : "Roo",
-                    "items" : [
-                        {
-                            "listeners" : {
-                                "rendered" : "function (form)\n{\n    _this.form = this;\n}",
-                                "|actioncomplete" : "function (_self, action)\n{\n    if(action.type == 'submit'){\n        _this.dialog.hide();\n        \n        if(_this.callback){\n            _this.callback.call(_this, _this.form.getValues());\n        }\n        return\n    }\n}"
-                            },
-                            "$ url" : "baseURL + '/Roo/Core_enum'",
-                            "xtype" : "Form",
-                            "$ xns" : "Roo.form",
-                            "items" : [
-                                {
-                                    "Boolean allowBlank" : false,
-                                    "String name" : "name",
-                                    "Number width" : 270,
-                                    "xtype" : "TextField",
-                                    "String fieldLabel" : "Name",
-                                    "$ xns" : "Roo.form"
-                                },
-                                {
-                                    "String name" : "id",
-                                    "xtype" : "Hidden",
-                                    "$ xns" : "Roo.form"
-                                },
-                                {
-                                    "String name" : "etype",
-                                    "xtype" : "Hidden",
-                                    "$ xns" : "Roo.form"
-                                },
-                                {
-                                    "String name" : "display_name",
-                                    "Number width" : 270,
-                                    "xtype" : "TextField",
-                                    "String fieldLabel" : "Display Name",
-                                    "$ xns" : "Roo.form"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listeners" : {
-                        "click" : "function (_self, e)\n{\n    //this.url = baseURL + '/Roo/Core_enum.php';\n    //_this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n}"
-                    },
-                    "xtype" : "Button",
-                    "String text" : "Save",
-                    "$ xns" : "Roo",
-                    "* prop" : "buttons[]"
-                },
-                {
-                    "listeners" : {
-                        "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
-                    },
-                    "xtype" : "Button",
-                    "String text" : "Cancel",
-                    "$ xns" : "Roo",
-                    "* prop" : "buttons[]"
-                }
-            ]
+         "Boolean allowBlank" : false,
+         "String name" : "name",
+         "Number width" : 270,
+         "xtype" : "TextField",
+         "String fieldLabel" : "Name",
+         "$ xns" : "Roo.form"
+        },
+        {
+         "String name" : "id",
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form"
+        },
+        {
+         "String name" : "etype",
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form"
+        },
+        {
+         "String name" : "display_name",
+         "Number width" : 270,
+         "xtype" : "TextField",
+         "String fieldLabel" : "Display Name",
+         "$ xns" : "Roo.form"
         }
-    ]
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    //this.url = baseURL + '/Roo/Core_enum.php';\n    //_this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n}"
+     },
+     "xtype" : "Button",
+     "String text" : "Save",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "xtype" : "Button",
+     "String text" : "Cancel",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
 }
