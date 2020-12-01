@@ -177,7 +177,7 @@ class Pman_Admin_Translations extends Pman
         
         
         
-        
+        $this->original  = array();
         $tfile = $info->basedir . '/'. $info->translation_data;
          //var_dump($tfile);
         if (empty($tfile) || !file_exists($tfile)) {
@@ -190,7 +190,7 @@ class Pman_Admin_Translations extends Pman
                 $jd = json_decode(file_get_contents($bjs));
                 $this->original[str_replace('.bjs', '', basename($bjs)) ] = $jd->strings;
             }
-            print_r($this->original) exit;
+            print_r($this->original); exit;
             file_put_contents($tfile, json_encode($this->original));
             
             
