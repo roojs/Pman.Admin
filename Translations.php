@@ -108,7 +108,7 @@ class Pman_Admin_Translations extends Pman
         foreach($this->original as $k=>$ar) {
             foreach($ar as $tr=>$trv) {
                 // $hint = isset($hints[$tr]) ? $hints[$tr] : '';
-                $key = md5($k.'-'.$tr);
+                $key = $trv;
                 $ret[] = array(
                     'id' => $lang.'/'.$key,
                     'msum' => $key,
