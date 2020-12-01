@@ -119,7 +119,7 @@
            "requestMethod" : "GET",
            "$ xns" : "Roo.tree",
            "* prop" : "loader",
-           "$ dataUrl" : "baseURL + '/Roo/cms_templatestr'"
+           "$ dataUrl" : "baseURL + '/Roo/Core_templatestr'"
           },
           {
            "id" : "transtree",

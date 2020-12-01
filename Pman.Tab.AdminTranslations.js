@@ -276,7 +276,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
        loader : {
         xtype : 'TreeLoader',
         baseParams : { _tree : 1 },
-        dataUrl : baseURL + '/Roo/cms_templatestr',
+        dataUrl : baseURL + '/Roo/Core_templatestr',
         requestMethod : 'GET',
         listeners : {
          beforeload : function (This, node, callback)
