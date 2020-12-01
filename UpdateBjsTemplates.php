@@ -57,7 +57,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             $this->jerr("config[Pman_Core] is not set");
         }
         
-        $base = $ff->Pman_Core['project_name'];
+        $base = empty($ff->Pman_Core['project_name']) ? $ff->project;
         
         $dh = opendir($base);
         
