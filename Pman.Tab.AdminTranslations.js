@@ -77,10 +77,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          listeners : {
           click : function (_self, e)
            {
-               Pman.Dialog.CmsLanguagePick.show( {  }, function(lang) {
+               Pman.Dialog.CoreLanguagePick.show( {  }, function(lang) {
                    
                    new Pman.Request({
-                       url : baseURL + '/Roo/cms_templatestr',
+                       url : baseURL + '/Roo/core_templatestr',
                        method : 'POST',
                        params : {
                            _rescan : lang
