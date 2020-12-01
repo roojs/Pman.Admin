@@ -188,12 +188,12 @@ class Pman_Admin_Translations extends Pman
                     continue;
                 }
                 $jd = json_decode(file_get_contents($bjs));
-                print_R($jd);exit;
+                $this->original[str_replace('.bjs', '', basename($bjs)) ] = $jd->strings;
             }
             
+            file_put_contents($tfile, json_encode($this->original));
             
             
-            return array();
         }
         
         
