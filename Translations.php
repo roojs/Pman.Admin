@@ -200,7 +200,7 @@ class Pman_Admin_Translations extends Pman
         //}
         
         
-        
+        print_R($this->original);exit;
         
         
         $this->original = (array) json_decode( file_get_contents($tfile) );
