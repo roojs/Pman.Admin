@@ -78,7 +78,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     echo "Processing {$fn} \n";
                 }
                 
-                $template = DB_DataObject::factory('cms_template');
+                $template = DB_DataObject::factory('core_template');
                 $template->setFrom(array(
                     'template' => $fn,
                     'lang' => 'en',
@@ -99,7 +99,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 
                 $template->words = empty($data['strings']) ? array() : $data['strings'];
                 
-                $x = DB_DataObject::Factory('cms_templatestr');
+                $x = DB_DataObject::Factory('core_templatestr');
                 $x->syncTemplateWords($template, false);
             }
         }
@@ -130,7 +130,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     echo "Processing {$fn} \n";
                 }
 
-                $template = DB_DataObject::factory('cms_template');
+                $template = DB_DataObject::factory('core_template');
                 $template->setFrom(array(
                     'template' => $fn,
                     'lang' => 'en',
@@ -167,7 +167,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         }
         
         if(isset($ff->Pman_Core['DataObjects_Core_templatestr']['tables'])){
-            $cts = DB_DataObject::factory('cms_templatestr');
+            $cts = DB_DataObject::factory('core_templatestr');
             
             if($this->cli){
                 echo "Sync tables.....\n";
@@ -201,7 +201,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 echo "Sync $l Language.....\n";
             }
 
-            $tps = DB_DataObject::factory('cms_templatestr');
+            $tps = DB_DataObject::factory('core_templatestr');
             $tps->syncLang($l); /// this should be configured somewhere..
         }
     }
