@@ -180,7 +180,7 @@ class Pman_Admin_Translations extends Pman
         $this->original  = array();
         $tfile = $info->basedir . '/'. $info->translation_data;
          //var_dump($tfile);
-        if (empty($tfile) || !file_exists($tfile)) {
+        //if (empty($tfile) || !file_exists($tfile)) {
             
             foreach($info->filesmtime as $f =>$mt) {
                 $bjs = preg_replace('/\.js$/','.bjs', $f);
@@ -197,7 +197,7 @@ class Pman_Admin_Translations extends Pman
             file_put_contents($tfile, json_encode($this->original));
             
             
-        }
+        //}
         
         
         
