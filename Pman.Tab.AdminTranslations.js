@@ -341,7 +341,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              
              if(patt.test(str)){
                  e.cancel = true;
-                 Pman.Dialog.CoreTranslateTemplates.show(e.record.data, function(v){
+                 Pman.Dialog.AdminTranslateTemplates.show(e.record.data, function(v){
                      Roo.log(v);
                      e.value = v.txt;
                      e.record.set('txt', v.txt);
@@ -360,7 +360,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              
              if(str.length > 150){
                  e.cancel = true;
-                 Pman.Dialog.CoreTranslateTemplates.show(e.record.data, function(v){
+                 Pman.Dialog.AdminTranslateTemplates.show(e.record.data, function(v){
                      e.value = v.txt;
                      e.record.set('txt', v.txt);
                      e.record.commit();
