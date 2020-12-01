@@ -199,9 +199,8 @@ class Pman_Admin_Translations extends Pman
         
         
         
-        require_once 'Services/JSON.php';
-        $j = new Services_JSON();
-        $this->original = (array) $j->decode('{'. file_get_contents($tfile).'}');
+        
+        $this->original = (array) json_decode( file_get_contents($tfile) );
         ksort($this->original);
 
         $this->originalKeys = array();
