@@ -9,6 +9,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
   '0b8d92bc19b720bb1065649535463409' :"Translations",
+  '69fd71b6f79260924a32a45850a13ab7' :"Translations (rescan this to update strings)",
   '9d1ead73e678fa2f51a70a933b0bf017' :"Not Found",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
   'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
@@ -231,7 +232,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
        root : {
         xtype : 'AsyncTreeNode',
         id : 'transtree',
-        text : _this._strings['0b8d92bc19b720bb1065649535463409'] /* Translations */,
+        text : _this._strings['69fd71b6f79260924a32a45850a13ab7'] /* Translations (rescan this to update strings) */,
         xns : Roo.tree,
         '|xns' : 'Roo.tree'
        },
