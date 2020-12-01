@@ -123,25 +123,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        }
                        Roo.MessageBox.alert("Not yet", "not done yet");
                        return;
-                       Roo.Ajax.request({
-                           url : baseURL + '/Roo/core_language.php',
-                           method: 'POST',
-                           params : {
-                               _delete : _t.selectedNode.id 
-                           },
-                           success : function()
-                           {
-                              _this.treepanel.tree.getRootNode().reload();
-                               //g.getDataSource().reload();
-                           },
-                           failure : function()
-                           {
-                               Roo.MessageBox.alert("Error", 
-                                   "There was a problem saving the data - try reloading");
-                               
-                           }
-                           
-                       });
                        
                        
                        
