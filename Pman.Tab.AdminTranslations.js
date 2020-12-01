@@ -8,27 +8,17 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
 
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
-  '4994a8ffeba4ac3140beb89e8d41f174' :"Language",
-  'ae739a236065a45c64ad51aacb19498c' :"Active?",
-  'd41d8cd98f00b204e9800998ecf8427e' :"",
-  '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
-  'e2ade2e0b88406a390f59b5232abb328' :"Translated (Click to Edit)",
+  '0b8d92bc19b720bb1065649535463409' :"Translations",
+  '9d1ead73e678fa2f51a70a933b0bf017' :"Not Found",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
-  '83dad8107f9459efe2b4fabcf5b63108' :"Select Language",
-  'a1d1ae170f841c328acdc6052511ed8c' :"Text in interface",
-  '78463a384a5aa4fad5fa73e2f506ecfc' :"English",
-  '4e7c16d320ae129cc81b296e05748b3a' :"Translate App",
-  '526d688f37a86d3c3f27d0c5016eb71d' :"Reset",
-  'b51c3fa7e0ae26a1d88bf1279f265bb4' :"Select Module",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
-  '552bcc4e00cd663f09cc4efbaca1cd45' :"Select Translation of",
-  'ca0dbad92a874b2f69b549293387925e' :"Code",
-  '0a9e8bd9e8b301dfb2c21c355e0b377d' :"Languages and Countries"
- },
- _named_strings : {
-  'language_title_value' : 'd41d8cd98f00b204e9800998ecf8427e' /*  */ ,
-  'language_title_qtip' : '83dad8107f9459efe2b4fabcf5b63108' /* Select Language */ ,
-  'language_title_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ 
+  'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
+  'e2f9d206562d8f5ea421ad51100f7151' :"Displaying petition_entry{0} - {1} of {2}",
+  'cd6ae20e52d83f601c5fa12b66f0f6d0' :"Rescan",
+  '4d1c8263ba1036754f8db14a98f9f006' :"Reload",
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
+  '03c2e7e41ffc181a4e84080b4710e81e' :"New",
+  '193cfc9be3b995831c6af2fea6650e60' :"Page",
+  '1bc29b36f623ba82aaf6724fd3b16718' :"md5"
  },
 
   part     :  ["Admin", "Translations" ],
@@ -45,7 +35,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
    return {
    xtype : 'NestedLayoutPanel',
    region : 'center',
-   title : _this._strings['4e7c16d320ae129cc81b296e05748b3a'] /* Translate App */,
+   title : _this._strings['0b8d92bc19b720bb1065649535463409'] /* Translations */,
    xns : Roo,
    '|xns' : 'Roo',
    layout : {
@@ -54,24 +44,272 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
     '|xns' : 'Roo',
     center : {
      xtype : 'LayoutRegion',
-     alwaysShowTabs : true,
-     tabPosition : 'top',
+     xns : Roo,
+     '|xns' : 'Roo'
+    },
+    west : {
+     xtype : 'LayoutRegion',
+     split : true,
+     width : 300,
      xns : Roo,
      '|xns' : 'Roo'
     },
     items  : [
      {
+      xtype : 'TreePanel',
+      region : 'west',
+      listeners : {
+       render : function (_self)
+        {
+            _this.treepanel = _self;
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      toolbar : {
+       xtype : 'Toolbar',
+       xns : Roo,
+       '|xns' : 'Roo',
+       items  : [
+        {
+         xtype : 'Button',
+         text : _this._strings['03c2e7e41ffc181a4e84080b4710e81e'] /* New */,
+         listeners : {
+          click : function (_self, e)
+           {
+               Pman.Dialog.CmsLanguagePick.show( {  }, function(lang) {
+                   
+                   new Pman.Request({
+                       url : baseURL + '/Roo/cms_templatestr',
+                       method : 'POST',
+                       params : {
+                           _rescan : lang
+                       }, 
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               
+               });
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Separator',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
+         text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
+         listeners : {
+          click : function (_self, e)
+           {
+               var tree = _this.treepanel.tree;
+               var sn  = tree.getSelectionModel().getSelectedNode();
+           
+               if (!sn || typeof(sn.attributes.language) == 'undefined' || !sn.attributes.language) {
+                   Roo.MessageBox.alert("Error", "Select a language");
+                   return;
+               }
+           
+                Roo.MessageBox.confirm("Confirm", "Are sure you want to delete the language", function (v){
+                       if (v != 'yes') {
+                           return;
+                       }
+                       Roo.MessageBox.alert("Not yet", "not done yet");
+                       return;
+                       Roo.Ajax.request({
+                           url : baseURL + '/Roo/cms_language.php',
+                           method: 'POST',
+                           params : {
+                               _delete : _t.selectedNode.id 
+                           },
+                           success : function()
+                           {
+                              _this.treepanel.tree.getRootNode().reload();
+                               //g.getDataSource().reload();
+                           },
+                           failure : function()
+                           {
+                               Roo.MessageBox.alert("Error", 
+                                   "There was a problem saving the data - try reloading");
+                               
+                           }
+                           
+                       });
+                       
+                       
+                       
+                       
+                   });
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Separator',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
+         text : _this._strings['cd6ae20e52d83f601c5fa12b66f0f6d0'] /* Rescan */,
+         listeners : {
+          click : function (_self, e)
+           {
+               var tree = _this.treepanel.tree;
+               Roo.log(tree);
+               var sn  = tree.getSelectionModel().getSelectedNode();
+           
+               if (!sn) {
+                   Roo.MessageBox.alert("Error", "Select a node");
+                   return;
+               }
+               
+               var syncTemplate = function(){
+                   new Pman.Request({
+                       url : baseURL + '/Cms/UpdateBjsTemplates',
+                       method : 'GET',
+                       mask : 'Processing...',
+                       timeout : 9000000,
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               
+               };
+               
+               
+               var syncLanguage = function(){
+                   new Pman.Request({
+                       url : baseURL + '/Roo/cms_templatestr',
+                       method : 'POST',
+                       mask : 'Processing...',
+                       params : {
+                           _rescan : sn.attributes.id
+                       }, 
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               };
+               
+               if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){
+                   syncTemplate();
+                   return;
+               }
+               
+               if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){
+                   syncLanguage();
+                   return;
+               }
+               
+               
+               
+               
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Fill',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
+         text : _this._strings['4d1c8263ba1036754f8db14a98f9f006'] /* Reload */,
+         listeners : {
+          click : function (_self, e)
+           {
+               _this.treepanel.tree.getRootNode().reload();
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        }
+       ]
+      },
+      tree : {
+       xtype : 'TreePanel',
+       containerScroll : false,
+       rootVisible : true,
+       xns : Roo.tree,
+       '|xns' : 'Roo.tree',
+       root : {
+        xtype : 'AsyncTreeNode',
+        id : 'transtree',
+        text : _this._strings['0b8d92bc19b720bb1065649535463409'] /* Translations */,
+        xns : Roo.tree,
+        '|xns' : 'Roo.tree'
+       },
+       selModel : {
+        xtype : 'DefaultSelectionModel',
+        listeners : {
+         selectionchange : function (_self, node)
+          {
+              Roo.log(node);
+              
+              //if (node.id.split('/').length < 2) {
+              //    return;
+             // }
+              (function() {
+                  _this.grid.footer.onClick('first');
+              }).defer(100);
+              
+          }
+        },
+        xns : Roo.tree,
+        '|xns' : 'Roo.tree'
+       },
+       loader : {
+        xtype : 'TreeLoader',
+        baseParams : { _tree : 1 },
+        dataUrl : baseURL + '/Roo/cms_templatestr',
+        requestMethod : 'GET',
+        listeners : {
+         beforeload : function (This, node, callback)
+          {
+              // set some params.
+              Roo.log(node);
+              this.baseParams._tree = 1;
+              
+              //this.baseParams.category = node.attributes.category;
+          },
+         loadexception : function (This, node, response)
+          {
+              Roo.MessageBox.alert("Error", "Problem loading tree");
+          }
+        },
+        xns : Roo.tree,
+        '|xns' : 'Roo.tree'
+       }
+      }
+     },
+     {
       xtype : 'GridPanel',
-      background : true,
+      background : false,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      title : _this._strings['a1d1ae170f841c328acdc6052511ed8c'] /* Text in interface */,
+      tableName : 'Page',
+      title : _this._strings['193cfc9be3b995831c6af2fea6650e60'] /* Page */,
       listeners : {
        activate : function() {
             _this.panel = this;
             if (_this.grid) {
-               _this.grid.getDataSource().reload(); 
+                _this.grid.footer.onClick('first');
             }
         }
       },
@@ -85,606 +323,228 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
        listeners : {
         afteredit : function (e)
          {
-             var saveRec  = function(rec)
-             {
-                 var g = _this.grid;
-         
-                 //g.getView().el.mask('Saving');
-                 new Pman.Request({
-                     url : baseURL + '/Admin/Translations.php',
-                     method: 'POST',
-                     params : {
-                         id : rec.get('id'),
-                         txt : rec.get('txt'),
-                         lang :  _this.langCombo.getValue(),
-                         module :  _this.modCombo.getValue()
-                     },
-                     success : function()
-                     {
-                         //g.getView().el.unmask();
-                         //g.getDataSource().reload();
-                     },
-                     failure : function()
-                     {
-                         Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
-                        // g.getView().el.unmask();
-                     }
-                     
-             });
-                 };
-             
-             saveRec.defer(1000, _this, [ e.record ]);
+             e.record.commit();
          },
-        beforeedit : function(e) {
-             console.log('beforeedit');
-             //if (e.record.get('origtxt').indexOf('<') > -1) {
-                                // console.log("HTML EDITOR!!");
-                              
-                             //    return false;
-                             //}
-                             if (e.record.get('txt').replace(/\s+/, '').length) {
-                                 return true;
-                             }
-                             if (e.record.get('suggest').length) {
-                                 e.record.set('txt', e.record.get('suggest'));
-                             //    _this.saveRec(e.record);
-                                 return;
-                             }
-                             
-                             
-                             
-                            
-                             var tl = e.record.get('id').split('/')[0];
-                           
-                             tl = (tl == 'zh_HK') ? 'zh-TW' : tl; 
-                             tl = tl.replace('_', '-');
-                             var rec = e.record;
-                             
-                             
-                             
-                             Pman.gtranslate(e.record.get('origtxt'), 'en', tl, function(result) { 
-                                 if (typeof(result) == 'object') { //error
-                                     return; 
-                                    }
-                                 
-                                 if (_this.grid.activeEditor) {
-                                     _this.grid.activeEditor.setValue(result);
-                                 } else {
-                                     rec.set('txt',result);
-                                     //_this.saveRec(rec);
-                                 }
-         
-                                 //
-                                 
-                                 
-                                 //console.log(result.translation);
-                             });
-                             
-                            
-                             
-                             return true;
-                         },
-        celldblclick : function (_self, rowIndex, columnIndex, e)
-         {
-             var di  = this.colModel.config[columnIndex].dataIndex;
-             if (di != 'reset_tx') {
+        beforeedit : function (e)
+         {   
+             /*if (e.record.data.src_id_txt.indexOf('<') > -1) {
+                // console.log("HTML EDITOR!!");
+                 Pman.Dialog.CmsTranslateEditor.show(e.record);
+                 return false;
+             }*/
+             
+             var str=e.record.data.src_id_txt;
+             var patt=/{(.*?)}/g;
+             
+             Roo.log(str.length);
+             
+             
+             if(patt.test(str)){
+                 e.cancel = true;
+                 Pman.Dialog.CmsTranslateTemplates.show(e.record.data, function(v){
+                     Roo.log(v);
+                     e.value = v.txt;
+                     e.record.set('txt', v.txt);
+                     e.record.commit();
+                 });
+                 /*
+                 Roo.MessageBox.prompt('WARNING', 'This text is with {TEMPLATE VARIABLE}, PLEASE BE CAREFUL EDITING. What\'s change? '+str, function(btn, text){
+                     if (btn == 'ok'){
+                         e.value = text;
+                         e.record.set('txt', text);
+                         e.record.commit();
+                     }
+                 });*/
                  return;
              }
-             rec = this.ds.getAt(rowIndex);
              
-               var g = _this.grid;
-          
-             new Pman.Request({
-                 url : baseURL + '/Admin/Translations.php',
-                 method: 'POST',
-                 params : {
-                     id : rec.get('id'),
-                     txt : '',
-                     lang :  _this.langCombo.getValue(),
-                     module :  _this.modCombo.getValue()
-                 },
-                 success : function()
-                 {
-                     //g.getView().el.unmask();
-                     //g.getDataSource().reload();
-                     rec.set('txt', '');
-                 },
-                 failure : function()
-                 {
-                     Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
-                    // g.getView().el.unmask();
-                 }
-                 
+             if(str.length > 150){
+                 e.cancel = true;
+                 Pman.Dialog.CmsTranslateTemplates.show(e.record.data, function(v){
+                     e.value = v.txt;
+                     e.record.set('txt', v.txt);
+                     e.record.commit();
+                 });
+                 /*
+                 Roo.MessageBox.prompt('WARNING', 'This text is with {TEMPLATE VARIABLE}, PLEASE BE CAREFUL EDITING. What\'s change? '+str, function(btn, text){
+                     if (btn == 'ok'){
+                         e.value = text;
+                         e.record.set('txt', text);
+                         e.record.commit();
+                     }
+                 });*/
+                 return;
+             }
+             
+         
+             if (e.record.data.txt.replace(/\s+/, '').length) {
+                 return true;
+             }
+             
+             var tl = _this.treepanel.tree.getSelectionModel().getSelectedNode().parentNode.attributes.id;
+             // mapping?
+             
+             tl = (tl == 'zh_HK') ? 'zh-TW' : tl;
+             
+             if (tl == 'en' && !e.value.length) {
+         
+                 e.value = e.record.data.src_id_txt;
+                 e.record.set('txt', e.record.data.src_id_txt);
+                 return true;
+             }
+             
+             Pman.GoogleTranslate(e.record.data.src_id_txt, "en", tl, function(result) {
+                // Roo.log(result);
+                 _this.grid.activeEditor.setValue(result);
+                 //console.log(result.translation);
              });
-                
              
+         
+             
+             return true;
          },
-        render : function() { 
+        render : function() 
+         {
              _this.grid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
              if (_this.panel.active) {
-               _this.grid.getDataSource().reload(); 
+                 this.footer.onClick('first');
+               // this.ds.onc.onClick('first');
              }
+         },
+        rowdblclick : function (_self, rowIndex, e)
+         {
+             if (!_this.dialog) {
+                 return;
+             }
+             _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
+                 _this.grid.footer.onClick('first');
+             }); 
          }
        },
        xns : Roo.grid,
        '|xns' : 'Roo.grid',
+       footer : {
+        xtype : 'PagingToolbar',
+        displayInfo : true,
+        displayMsg : _this._strings['e2f9d206562d8f5ea421ad51100f7151'] /* Displaying petition_entry{0} - {1} of {2} */,
+        emptyMsg : _this._strings['9d1ead73e678fa2f51a70a933b0bf017'] /* Not Found */,
+        pageSize : 100,
+        xns : Roo,
+        '|xns' : 'Roo'
+       },
        toolbar : {
         xtype : 'Toolbar',
         xns : Roo,
         '|xns' : 'Roo',
         items  : [
          {
-          xtype : 'ComboBox',
-          displayField : 'module',
-          editable : false,
-          emptyText : _this._strings['b51c3fa7e0ae26a1d88bf1279f265bb4'] /* Select Module */,
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'module',
-          width : 200,
+          xtype : 'TextField',
+          emptyText : _this._strings['e3d388b2c43e5ba0905702620ae2abc1'] /* Search for */,
           listeners : {
            render : function (_self)
             {
-              _this.modCombo = _self;
+                _this.searchBox = this;
             },
-           select : function (combo, record, index)
+           specialkey : function (_self, e)
             {
-              _this.grid.getDataSource().reload(); 
+            _this.grid.footer.onClick('first');
             }
           },
           xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'SimpleStore',
-           data : (function() {             
-                   var modlist = [];             
-                   AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;
-                   Roo.each( AppModules.split(','), function(mod) {            
-                            modlist.push( [ mod ] );            
-                 });             
-                 return modlist;
-              })(),
-           fields : ['module'],
-           xns : Roo.data,
-           '|xns' : 'Roo.data'
-          }
+          '|xns' : 'Roo.form'
          },
          {
-          xtype : 'ComboBox',
-          displayField : 'ldisp',
-          editable : false,
-          emptyText : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'lang',
-          width : 200,
+          xtype : 'Button',
+          cls : 'x-btn-icon',
+          icon : rootURL + '/Pman/templates/images/search.gif',
           listeners : {
-           render : function (_self)
+           click : function (_self, e)
             {
-              _this.langCombo=_self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.grid.getDataSource().reload(); 
+            _this.grid.footer.onClick('first');
             }
           },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'SimpleStore',
-           data : [                                                [ 'zh_HK' , '\u7E41\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\u7C21\u4E2D - Simp. Chin.' ]                     ],
-           fields : ['lang', 'ldisp'],
-           xns : Roo.data,
-           '|xns' : 'Roo.data'
-          }
-         },
-         {
-          xtype : 'Fill',
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'
          },
          {
           xtype : 'Button',
-          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
+          cls : 'x-btn-icon',
+          icon : rootURL + '/Pman/templates/images/edit-clear.gif',
           listeners : {
            click : function (_self, e)
             {
-                new Pman.Download({
-                    grid: _this.grid
+                _this.searchBox.setValue('');
                 
-                });
+                _this.grid.footer.onClick('first');
             }
           },
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'
-         }
-        ]
-       },
-       dataSource : {
-        xtype : 'Store',
-        reader : Pman.Readers.Category,
-        listeners : {
-         beforeload : function (_self, opts)
-          {
-          
-                                  if (!_this.langCombo || !_this.langCombo.getValue().length) {
-                                      return false;
-                                  }
-                                  if (!_this.modCombo || !_this.modCombo.getValue().length) {
-                                      return false;
-                                  }
-                                  opts.params = {
-                                      lang :  _this.langCombo.getValue(),
-                                      module :  _this.modCombo.getValue()
-                                  };
-          },
-         loadexception : function (self, ret, load, jsonData)
-          {
-              Roo.MessageBox.alert("Error", jsonData);
-          }
-        },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        proxy : {
-         xtype : 'HttpProxy',
-         method : 'GET',
-         url : baseURL + '/Admin/Translations.php',
-         xns : Roo.data,
-         '|xns' : 'Roo.data'
-        },
-        reader : {
-         xtype : 'JsonReader',
-         fields : [                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ],
-         id : 'id',
-         root : 'data',
-         totalProperty : 'total',
-         xns : Roo.data,
-         '|xns' : 'Roo.data'
-        }
-       },
-       colModel : [
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'colname',
-         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v,x,r) {                       
-           var c = '#666';                       
-             if (r.get('updated') < r.get('origupdated')) {         
-                                 c = 'red';                       
-                                 
-                                   }                                 
-                                                    return '<div style="color:'+c+'";>' +r.get('tableid')+ ':' + v + '</div>';          
-                                                                                        },
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'origtxt',
-         header : _this._strings['0a52da7a03a6de3beefe54f8c03ad80d'] /* Original */,
-         renderer : function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style="color:' + c+ '">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              },
-         width : 300,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'reset_tx',
-         header : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'] /* Reset */,
-         renderer : function(v,x,r) {    
-             return  '<img src="' + rootURL + '/Pman/templates/images/edit-clear.gif' + '" width="16" height="16">';
-         },
-         width : 50,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'txt',
-         header : _this._strings['e2ade2e0b88406a390f59b5232abb328'] /* Translated (Click to Edit) */,
-         renderer : function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style="color:' + c+ '">' + Ext.util.Format.htmlEncode(v) + '</div>';                     },
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid',
-         editor : {
-          xtype : 'GridEditor',
-          xns : Roo.grid,
-          '|xns' : 'Roo.grid',
-          field : {
-           xtype : 'TextField',
-           xns : Roo.form,
-           '|xns' : 'Roo.form'
-          }
-         }
-        }
-       ]
-      }
-     },
-     {
-      xtype : 'GridPanel',
-      background : true,
-      fitContainer : true,
-      fitToframe : true,
-      region : 'center',
-      tableName : 'i18n',
-      title : _this._strings['0a9e8bd9e8b301dfb2c21c355e0b377d'] /* Languages and Countries */,
-      listeners : {
-       activate : function() {
-            _this.langpanel = this;
-            if (_this.langgrid) {
-                _this.langgrid.ds.load({});
-            }
-        }
-      },
-      xns : Roo,
-      '|xns' : 'Roo',
-      grid : {
-       xtype : 'EditorGrid',
-       autoExpandColumn : 'lval',
-       clicksToEdit : 1,
-       loadMask : true,
-       listeners : {
-        afteredit : function (e)
-         {
-             var saveRec  = function(rec)
-             {
-                 var g = _this.grid;
-         
-                 //g.getView().el.mask('Saving');
-                 Ext.Ajax.request({
-                     url : baseURL + '/Roo/I18n.php',
-                     method: 'POST',
-                     params : {
-                         id : rec.get('id'),
-                         lval : rec.get('lval'),
-                         ltype : rec.get('ltype')
-                     },
-                     success : function()
-                     {
-                         //g.getView().el.unmask();
-                         //g.getDataSource().reload();
-                     },
-                     failure : function()
-                     {
-                         Ext.Msg.alert("Error", "There was a problem saving the data - try reloading");
-                        // g.getView().el.unmask();
-                     }
-                     
-             });
-                 };
-             
-             saveRec.defer(1000, _this, [ e.record ]);
-         },
-        beforeedit : function(e) {
-             console.log('beforeedit');
-             //if (e.record.get('origtxt').indexOf('<') > -1) {
-                                // console.log("HTML EDITOR!!");
-                      
-                     //    return false;
-                     //}
-                     if (e.record.get('lval').replace(/\s+/, '').length) {
-                         return true;
-                     }
-                     
-                     
-                     var tl = _this.langgridCombo.getValue();
-                   
-                     tl = (tl == 'zh_HK') ? 'zh-TW' : tl; 
-                     tl = tl.replace('_', '-');
-                     var rec = e.record;
-                     
-                     
-                     
-                     Pman.gtranslate(e.record.get('lval_en'), 'en', tl, function(result) { 
-                         if (typeof(result) == 'object') { //error
-                             return; 
-                            }
-                         
-                         if (_this.grid.activeEditor) {
-                             _this.grid.activeEditor.setValue(result);
-                         } else {
-                             rec.set('lval',result);
-                             //_this.saveRec(rec);
-                         }
-         
-                         //
-                         
-                         
-                         //console.log(result.translation);
-                     });
-                     
-                    
-                     
-                     return true;
-                 },
-        cellclick : function (_self, rowIndex, columnIndex, e)
-         {
-             if(_this.langgrid.colModel.getDataIndex(columnIndex) !== 'is_active'){
-                 return;
-             }
-             
-             var s = _this.langgrid.ds.getAt(rowIndex);
-             
-             if(!s || s.data.id * 1 < 0){
-                 return;
-             }
-             
-             s.set('is_active', s.data.is_active ? 0 : 1);
-             
-             new Pman.Request({
-                 url : baseURL+'/Roo/I18n',
-                 method : 'POST',
-                 params : {
-                     id : s.data.id,
-                     is_active : s.data.is_active
-                 }
-             }); 
-             
-         },
-        render : function() 
-         {
-             _this.langgrid = this; 
-             //_this.dialog = Pman.Dialog.FILL_IN
-             if (_this.langpanel.active) {
-                this.ds.load({});
-             }
-         }
-       },
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       toolbar : {
-        xtype : 'Toolbar',
-        xns : Roo,
-        '|xns' : 'Roo',
-        items  : [
-         {
-          xtype : 'ComboBox',
-          displayField : 'lval',
-          editable : false,
-          emptyText : _this._strings['552bcc4e00cd663f09cc4efbaca1cd45'] /* Select Translation of */,
-          mode : 'local',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : false,
-          valueField : 'lkey',
-          width : 200,
-          listeners : {
-           render : function (_self)
-            {
-              _this.langtypeCombo = _self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.langgrid.getDataSource().reload(); 
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'SimpleStore',
-           data : [
-              [ 'l', 'Language Names' ],
-              [ 'c', 'Country Names' ],
-               [ 'm', 'Currency Names' ]
-           ],
-           fields : ['lkey','lval'],
-           xns : Roo.data,
-           '|xns' : 'Roo.data'
-          }
-         },
-         {
-          xtype : 'ComboBox',
-          allowBlank : false,
-          displayField : 'title',
-          editable : true,
-          fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
-          hiddenName : 'language',
-          listWidth : 300,
-          minChars : 2,
-          name : 'language_title',
-          pageSize : 400,
-          qtip : _this._strings['83dad8107f9459efe2b4fabcf5b63108'] /* Select Language */,
-          queryParam : 'query[name_starts]',
-          selectOnFocus : true,
-          triggerAction : 'all',
-          typeAhead : true,
-          value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
-          valueField : 'code',
-          width : 200,
-          listeners : {
-           render : function (_self)
-            {
-              _this.langgridCombo=_self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.langgrid.getDataSource().reload(); 
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           sortInfo : { field : 'title', direction: 'ASC' },
-           listeners : {
-            beforeload : function (_self, options)
-             {
-                options  =options ||  {};
-                options.params =options.params|| {};
-                options.params.ltype = 'l';
-                options.params.inlang = 'en';
-                
-                 options.params._as_code_and_title = 1;
-                
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/i18n.php',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : [
-                {
-                    'name': 'id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'ltype',
-                    'type': 'string'
-                },
-                {
-                    'name': 'lkey',
-                    'type': 'string'
-                },
-                {
-                    'name': 'inlang',
-                    'type': 'string'
-                },
-                {
-                    'name': 'lval',
-                    'type': 'string'
-                } 
-            ],
-            id : 'id',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
          }
         ]
        },
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'lkey', direction: 'ASC' },
+        sortInfo : { field : 'src_id_txt', direction: 'ASC' },
         listeners : {
-         beforeload : function (_self, options)
+         beforeload : function (_self, o)
           {
-             options  =options ||  {};
-             options.params =options.params|| {};
-             options.params.ltype = _this.langtypeCombo.getValue();
-             options.params.inlang = _this.langgridCombo.getValue();
-             options.params['query[_with_en]'] = 1;
-             if (!options.params.ltype.length || !options.params.inlang.length) {
-                 return false;
-             }
              
-             options.params.limit = 9999;
-             
+              var sn = _this.treepanel.tree.getSelectionModel().getSelectedNode();
+          
+              if (!sn || typeof(sn.attributes) == 'undefined' || typeof(sn.attributes.leaf) == 'undefined' || !sn.attributes.leaf) { 
+                  _this.grid.ds.removeAll();
+                  return false;
+              }
+          
+              o.params = o.params || {};
+              o.params.lang = sn.parentNode.attributes.id ;
+              o.params.template_id = sn.attributes.id * 1;
+              o.params.active = 1;
+              o.params['!src_id'] = 0;
+              
+              if (_this.searchBox && _this.searchBox.getValue().length) { 
+                  o.params['_search_txt'] = _this.searchBox.getValue();
+              }
+              
+              
+              if(sn.attributes.on_table){
+                  o.params.on_table = sn.attributes.on_table;
+              }
+              
+          },
+         update : function (_self, rec, operation)
+          {
+              Roo.log(operation);
+              
+              if (operation != 'commit') {
+                  return;
+              }
+              
+          
+              _this.grid.getView().el.mask("Saving");
+              new Pman.Request({
+                  url : baseURL + '/Roo/cms_templatestr',
+                  method: 'POST',
+                  params : {
+                      id : rec.get('id'),
+                      txt : rec.get('txt')
+                  },
+                  success : function()
+                  {
+                      _this.grid.getView().el.unmask();
+                          //g.getDataSource().reload();
+                  },
+                  failure : function()
+                  {
+                      _this.grid.getView().el.unmask();
+                      Roo.MessageBox.alert("Error", "There was a problem saving the data - try reloading");
+                   }
+                      
+              });
+              
           }
         },
         xns : Roo.data,
@@ -692,7 +552,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/i18n.php',
+         url : baseURL + '/Roo/cms_templatestr.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
@@ -704,21 +564,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                  'type': 'int'
              },
              {
-                 'name': 'ltype',
-                 'type': 'string'
-             },
-             {
-                 'name': 'lkey',
-                 'type': 'string'
-             },
-             {
-                 'name': 'inlang',
-                 'type': 'string'
-             },
-             {
-                 'name': 'lval',
+                 'name': 'shortname',
                  'type': 'string'
              }
+            
          ],
          id : 'id',
          root : 'data',
@@ -727,33 +576,40 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          '|xns' : 'Roo.data'
         }
        },
-       colModel : [
+       cm : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lkey',
-         header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
-         renderer : function(v) { return String.format('{0}', v); },
-         sortable : true,
-         width : 50,
+         dataIndex : 'src_id_txt',
+         header : _this._strings['0a52da7a03a6de3beefe54f8c03ad80d'] /* Original */,
+         renderer : function(v,x,r) 
+         {
+             var c = '#666';
+             if (r.data.updated  < r.data.src_id_updated) {
+                 c = 'red';
+             }
+             
+             return String.format('<div style="color:'+c+'";>{0}</div>', v)
+         
+         },
+         width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lval_en',
-         header : _this._strings['78463a384a5aa4fad5fa73e2f506ecfc'] /* English */,
-         renderer : function(v) { return String.format('{0}', v); },
-         sortable : true,
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'lval',
+         dataIndex : 'txt',
          header : _this._strings['6dd08874f83507e9c7b23f1a46b7fa7c'] /* Translation */,
-         renderer : function(v) { return String.format('{0}', v); },
-         sortable : true,
+         renderer : function(v,x,r) 
+         { 
+         
+             var c = '#666';
+             if (r.data.updated  < r.data.src_id_updated) {
+                 c = 'red';
+             }
+             
+             return String.format('<div style="color:'+c+'";>{0}</div>', v)
+         
+         },
          width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid',
@@ -763,6 +619,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           '|xns' : 'Roo.grid',
           field : {
            xtype : 'TextField',
+           allowBlank : false,
            xns : Roo.form,
            '|xns' : 'Roo.form'
           }
@@ -770,15 +627,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'is_active',
-         header : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
-         renderer : function(v,x,r) { 
+         dataIndex : 'src_id_mdsum',
+         header : _this._strings['1bc29b36f623ba82aaf6724fd3b16718'] /* md5 */,
+         hidden : true,
+         renderer : function(v,x,r) 
+         {
+             return v ? v : '';
          
-             return '<img class="x-grid-check-icon' + (v*1 ? '-checked' : '')  + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
-                                                 
-             
          },
-         width : 150,
+         width : 250,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
