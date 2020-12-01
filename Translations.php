@@ -181,8 +181,22 @@ class Pman_Admin_Translations extends Pman
         $tfile = $info->basedir . '/'. $info->translation_data;
          //var_dump($tfile);
         if (empty($tfile) || !file_exists($tfile)) {
+            
+            foreach($info->filesmtime as $f =>$mt) {
+                $bjs = preg_replace('/\.js$/','.bjs', $f);
+                if (!file_exists($bjs)) {
+                    continue;
+                }
+                $jd = json_decode(file_get_contents($bjs));
+                print_R($jd);exit;
+            }
+            
+            
+            
             return array();
         }
+        
+        
         
         
         require_once 'Services/JSON.php';
