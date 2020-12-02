@@ -318,9 +318,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
           
             
-            $ret[] = array(
-               $subdir . (empty($subdir) ? '' : '/').  $fn  /// this used to be strtolower?? why???
-            );
+            $ret[] =  $subdir . (empty($subdir) ? '' : '/').  $fn;  /// this used to be strtolower?? why???
+
             
             
         }
