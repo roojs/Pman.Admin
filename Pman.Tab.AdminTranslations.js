@@ -241,9 +241,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                // transtree
                // view: {lang} : {view_name}
                // lang:
-               
-               sn.id
-           
+                
                new Pman.Download({
                    url : baseURL + '/Roo/Core_templatestr',
                    params : p,
