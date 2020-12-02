@@ -219,6 +219,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
            
                var sn  = tree.getSelectionModel().getSelectedNode();
                
+               p = {
+                   csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',
+                   csvTitles : 'Code,Module,Template,Original,Language,Translation'
+               };
                
                switch(true) {
                    case !sn:
