@@ -221,7 +221,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                
                p = {
                    csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',
-                   csvTitles : 'Code,Module,Template,Original,Language,Translation'
+                   csvTitles : 'Code,Module,Template,Original,Language,Translation',
+                   limit : 9999,
+                   sort: 'template_id_view_name,template_id_template,src_id_txt'
                };
                
                switch(true) {
