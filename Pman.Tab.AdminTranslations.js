@@ -51,7 +51,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
     west : {
      xtype : 'LayoutRegion',
      split : true,
-     width : 300,
+     width : 450,
      xns : Roo,
      '|xns' : 'Roo'
     },
@@ -573,7 +573,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
              return String.format('<div style="color:'+c+'";>{0}</div>', v)
          
          },
-         width : 200,
+         width : 300,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
