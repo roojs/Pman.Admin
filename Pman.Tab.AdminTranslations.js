@@ -215,11 +215,38 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          listeners : {
           click : function (_self, e)
            {
+               var tree = _this.treepanel.tree;
            
+               var sn  = tree.getSelectionModel().getSelectedNode();
+               
+               
+               switch(true) {
+                   case !sn:
+                   case sn.id == 'transtree':
+                       Roo.MessageBox.alert("Error", "Select language, module or page");
+                       return;
+                   case typeof(sn.id) == 'number':
+                       p.template_id = sn.id;
+                       break;
+                   case sn.id.match(/^view:/):
+                       var sns = sn.id.split(':');
+                       p.lang = sns[1];
+                       p.view_name = sns[2];
+                       break;
+                   case sn.id.match(/^lang:/):
+                       var sns = sn.id.split(':');
+                       p.lang = sns[1];
+                       break;
+              }
+               // transtree
+               // view: {lang} : {view_name}
+               // lang:
+               
+               sn.id
            
                new Pman.Download({
                    url : baseURL + '/Roo/Core_templatestr',
-                   params : p
+                   params : p,
                    method : 'GET' 
                });
                
