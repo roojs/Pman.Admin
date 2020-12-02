@@ -227,12 +227,16 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 
                  
                 $tp->syncTemplatePage(array(
-                                             'base' =>'Pman.'.$m, 
-                'template_dir' =>  "Pman/$m/templates",
-                'template' => $pg
+                    'base' =>'Pman.'.$m, 
+                    'template_dir' =>  "Pman/$m/templates",
+                    'template' => $pg
                 ));
             }
             // should clean up old templates..
+            // php files..
+            
+            
+            
             
             
             
