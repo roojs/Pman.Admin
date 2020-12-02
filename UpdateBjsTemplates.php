@@ -39,17 +39,18 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     function updateData()
     {   
-        $this->scanTemplates();
-        
+        $this->scanProjectBJS();
+        $this->scanPmanBJS();
+        $this->scanPmanTemplates();
+
         $this->scanTables();
-        
         $this->syncLanguage();
         
         $this->jok('OK');
         
     }
     
-    function scanTemplates()
+    function scanProjectBJS()
     {
         $ff = HTML_FlexyFramework::get();
         
@@ -103,11 +104,10 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $x->syncTemplateWords($template, false);
             }
         }
-        $this->scanPmanTemplates();
-        
+         
     }
     
-    function scanPmanTemplates()
+    function scanPmanBJS()
     {
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
@@ -206,5 +206,102 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         }
     }
     
+    function scanPmanTemplates()
+    {
+        // the CMS stuff scanned the PHP code looking for references to templates..
+        $tp = DB_DAtaObject::Factory('core_template');
+       
+        foreach ($this->modules() as $m){
+            
+            $ar = $this->scanTemplateDir('Pman.'.$m, "Pman/$m/templates",'');
+            
+            
+            foreach($ar as $pg) {
+                $tp->syncTemplatePage($pg);
+            }
+            // should clean up old templates..
+            
+            
+            
+            //$tp->syncTemplatePage($pg);
+        }
+        
+         
+    }
+    
+    
+    
+    function scanTemplateDir($view, $tdir , $subdir='')
+    {
+        //echo "TSCAN base= $base subdir =$subdir\n ";
+        $ff = HTML_FlexyFramework::get();
+         
+         
+        $scandir = $tdir. (empty($subdir) ? '' : '/') . $subdir;
+       
+        if (in_array($subdir, array('images','css','js'))) {
+            return array();
+        }
+        // skip dom_templates
+          
+        if (!file_exists($scandir)) {
+            return array();
+        }
+        $dh = opendir($scandir);
+        if(!$dh){
+            return array(); // something went wrong!?
+        }
+        $ret = array();
+            
+        while (($fn = readdir($dh)) !== false) {
+            // do we care that it will try and parse the template directory??? - not really..
+            // as we are only looking for php files..
+            if(empty($fn) || $fn[0] == '.'){
+                continue;
+            }
+            
+            $fullpath = $scandir.(empty($scandir) ? '' : "/").$fn;
+            // echo "filename:  $fullpath \n";
+            //var_Dump($fullpath);
+             
+            if (is_link($fullpath)) {
+                continue;
+            }
+            
+            if(is_dir($fullpath)){
+                // then recursively call self...
+                $children = $this->scanTemplateDir($view,$tdir, $subdir . (empty($subdir) ? '' : '/'). $fn);
+                if (count($children)) {
+                    $ret =array_merge($ret, $children);
+                    
+                }
+                continue;
+                 
+            }
+            
+            if (!preg_match('/\.(html|txt|abw)$/', $fn) || !is_file($fullpath)) {
+                // skip non-php files..
+            //    echo "  skipped = not a html or txt file \n";
+                continue;
+            }
+            
+          
+            
+            $ret[] = array(
+                'base' => $view,
+                'template_dir' => $tdir ,
+                'template' =>  $subdir . (empty($subdir) ? '' : '/').  $fn  /// this used to be strtolower?? why???
+            );
+            
+            
+        }
+//        print_r($ret);
+        
+        return $ret;
+            
+        
+        
+         
+    }
     
 }
