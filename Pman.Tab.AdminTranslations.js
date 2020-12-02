@@ -226,24 +226,23 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    sort: 'template_id_view_name,template_id_template,src_id_txt',
                    dir: 'ASC'
                };
-               
-               switch(true) {
-                   case !sn:
-                   case sn.id == 'transtree':
-                       Roo.MessageBox.alert("Error", "Select language, module or page");
-                       return;
-                   case typeof(sn.id) == 'number':
-                       p.template_id = sn.id;
-                       break;
-                   case sn.id.match(/^view:/) != null:
-                       var sns = sn.id.split(':');
-                       p.lang = sns[1];
-                       p.view_name = sns[2];
-                       break;
-                   case sn.id.match(/^lang:/) != null:
-                       var sns = sn.id.split(':');
-                       p.lang = sns[1];
-                       break;
+               if (!sn ||  sn.id == 'transtree') {
+                   Roo.MessageBox.alert("Error", "Select language, module or page");
+                   return;
+               }
+               if (typeof(sn.id) == 'number') {
+                   p.template_id = sn.id;
+           
+               }
+               if (sn.id.match(/^view:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+                   p.view_name = sns[2];
+               }
+               if (sn.id.match(/^lang:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+           
               }
                // transtree
                // view: {lang} : {view_name}
