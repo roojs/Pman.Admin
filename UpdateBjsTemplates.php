@@ -214,8 +214,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         foreach ($this->modules() as $m){
             
             $ar = $this->scanTemplateDir(array(
-                'view' => 'Pman.'.$m,
-                'tdir' => "Pman/$m/templates",
+                 'tdir' => "Pman/$m/templates",
                 'subdir' => '',
                 'match' => '/\.(html|txt|abw)$/',
                 'skipdir' => array('images','css','js'),
@@ -224,7 +223,13 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             
             foreach($ar as $pg) {
-                $tp->syncTemplatePage($pg);
+                
+                 
+                $tp->syncTemplatePage(array(
+                                             'base' =>'Pman.'.$m, 
+                'template_dir' =>  "Pman/$m/templates",
+                'template' => $pg
+                ));
             }
             // should clean up old templates..
             
@@ -238,7 +243,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     
     
-    function scanTemplateDir($cfg) //$view, $tdir , $subdir='', $match)
+    function scanDir($cfg) //$view, $tdir , $subdir='', $match)
     {
         //echo "TSCAN base= $base subdir =$subdir\n ";
         $ff = HTML_FlexyFramework::get();
@@ -279,7 +284,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $cfg['subdir'] = $subdir . (empty($subdir) ? '' : '/') . $fn;
                 $children = $this->scanTemplateDir($cfg);
                 if (count($children)) {
-                    $ret =array_merge($ret, $children);
+                    $ret = array_merge($ret, $children);
                     
                 }
                 continue;
@@ -293,9 +298,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
           
             
             $ret[] = array(
-                'base' => $cfg['view'],
-                'template_dir' => $cfg['tdir'] ,
-                'template' =>  $subdir . (empty($subdir) ? '' : '/').  $fn  /// this used to be strtolower?? why???
+               $subdir . (empty($subdir) ? '' : '/').  $fn  /// this used to be strtolower?? why???
             );
             
             
