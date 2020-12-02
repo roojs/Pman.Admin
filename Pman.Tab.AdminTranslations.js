@@ -215,54 +215,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          listeners : {
           click : function (_self, e)
            {
-               var tree = _this.treepanel.tree;
-               Roo.log(tree);
-               var sn  = tree.getSelectionModel().getSelectedNode();
            
-               if (!sn) {
-                   Roo.MessageBox.alert("Error", "Select a node");
-                   return;
-               }
-               
-               var syncTemplate = function(){
-                   new Pman.Request({
-                       url : baseURL + '/Admin/UpdateBjsTemplates',
-                       method : 'GET',
-                       mask : 'Processing...',
-                       timeout : 9000000,
-                       success : function()
-                       {
-                           _this.treepanel.tree.getRootNode().reload();
-                       }
-                   });
-               
-               };
-               
-               
-               var syncLanguage = function(){
-                   new Pman.Request({
-                       url : baseURL + '/Roo/Core_templatestr',
-                       method : 'POST',
-                       mask : 'Processing...',
-                       params : {
-                           _rescan : sn.attributes.id.split(':')[1]
-                       }, 
-                       success : function()
-                       {
-                           _this.treepanel.tree.getRootNode().reload();
-                       }
-                   });
-               };
-               
-               if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){
-                   syncTemplate();
-                   return;
-               }
-               
-               if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){
-                   syncLanguage();
-                   return;
-               }
+           
+               new Pman.Download({
+                   url : baseURL + '/Roo/Core_templatestr',
+                   params : p
+                   method : 'GET' 
+               });
                
                
                
