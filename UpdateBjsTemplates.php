@@ -210,7 +210,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     {
         // the CMS stuff scanned the PHP code looking for references to templates..
         $tp = DB_DAtaObject::Factory('core_template');
-       
+        
         foreach ($this->modules() as $m){
             
             // templates...
@@ -234,7 +234,23 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             }
             // should clean up old templates..
             // php files..
+            $ar = $this->scanTemplateDir(array(
+                'tdir' => "Pman/$m",
+                'subdir' => '',
+                'match' => '/\.(php)$/',
+                'skipdir' => array('templates'),
+                
+            ));
             
+            
+            foreach($ar as $pg) {
+                
+                $tp->syncPhpGetText(array(
+                    'base' =>'Pman.'.$m, 
+                    'template_dir' =>  "Pman/$m",
+                    'template' => $pg
+                ));
+            }
             
             
             
