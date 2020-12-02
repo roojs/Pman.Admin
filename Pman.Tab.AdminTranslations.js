@@ -11,6 +11,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   '0b8d92bc19b720bb1065649535463409' :"Translations",
   '69fd71b6f79260924a32a45850a13ab7' :"Translations (rescan this to update strings)",
   '9d1ead73e678fa2f51a70a933b0bf017' :"Not Found",
+  '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
   'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
   'e2f9d206562d8f5ea421ad51100f7151' :"Displaying petition_entry{0} - {1} of {2}",
@@ -205,6 +206,75 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
         },
         {
          xtype : 'Fill',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
+         text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
+         listeners : {
+          click : function (_self, e)
+           {
+               var tree = _this.treepanel.tree;
+               Roo.log(tree);
+               var sn  = tree.getSelectionModel().getSelectedNode();
+           
+               if (!sn) {
+                   Roo.MessageBox.alert("Error", "Select a node");
+                   return;
+               }
+               
+               var syncTemplate = function(){
+                   new Pman.Request({
+                       url : baseURL + '/Admin/UpdateBjsTemplates',
+                       method : 'GET',
+                       mask : 'Processing...',
+                       timeout : 9000000,
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               
+               };
+               
+               
+               var syncLanguage = function(){
+                   new Pman.Request({
+                       url : baseURL + '/Roo/Core_templatestr',
+                       method : 'POST',
+                       mask : 'Processing...',
+                       params : {
+                           _rescan : sn.attributes.id.split(':')[1]
+                       }, 
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               };
+               
+               if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){
+                   syncTemplate();
+                   return;
+               }
+               
+               if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){
+                   syncLanguage();
+                   return;
+               }
+               
+               
+               
+               
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Separator',
          xns : Roo.Toolbar,
          '|xns' : 'Roo.Toolbar'
         },
