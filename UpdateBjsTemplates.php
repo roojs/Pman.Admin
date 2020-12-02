@@ -234,7 +234,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             }
             // should clean up old templates..
             // php files..
-            $ar = $this->scanTemplateDir(array(
+            $ar = $this->scanDir(array(
                 'tdir' => "Pman/$m",
                 'subdir' => '',
                 'match' => '/\.(php)$/',
@@ -303,7 +303,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             if(is_dir($fullpath)){
                 // then recursively call self...
                 $cfg['subdir'] = $subdir . (empty($subdir) ? '' : '/') . $fn;
-                $children = $this->scanTemplateDir($cfg);
+                $children = $this->scanDir($cfg);
                 if (count($children)) {
                     $ret = array_merge($ret, $children);
                     
