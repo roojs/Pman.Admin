@@ -213,7 +213,14 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
        
         foreach ($this->modules() as $m){
             
-            $ar = $this->scanTemplateDir('Pman.'.$m, "Pman/$m/templates",'');
+            $ar = $this->scanTemplateDir(array(
+                'view' => 'Pman.'.$m,
+                'tdir' => "Pman/$m/templates",
+                'subdir' => '',
+                'match' => '/\.(html|txt|abw)$/',
+                'skipdir' => array('images','css','js'),
+                
+            ));
             
             
             foreach($ar as $pg) {
@@ -231,15 +238,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     
     
-    function scanTemplateDir($view, $tdir , $subdir='')
+    function scanTemplateDir($cfg) //$view, $tdir , $subdir='', $match)
     {
         //echo "TSCAN base= $base subdir =$subdir\n ";
         $ff = HTML_FlexyFramework::get();
          
-         
-        $scandir = $tdir. (empty($subdir) ? '' : '/') . $subdir;
+         $subdir = $cfg['subdir'];
+        $scandir = $cfg['tdir']. (empty($subdir) ? '' : '/') . $subdir;
        
-        if (in_array($subdir, array('images','css','js'))) {
+        if (in_array($subdir, $cfg['skipdir'])) {
             return array();
         }
         // skip dom_templates
@@ -262,15 +269,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             $fullpath = $scandir.(empty($scandir) ? '' : "/").$fn;
             // echo "filename:  $fullpath \n";
-            //var_Dump($fullpath);
-             
+           
             if (is_link($fullpath)) {
                 continue;
             }
             
             if(is_dir($fullpath)){
                 // then recursively call self...
-                $children = $this->scanTemplateDir($view,$tdir, $subdir . (empty($subdir) ? '' : '/'). $fn);
+                $cfg['subdir'] = $subdir . (empty($subdir) ? '' : '/') . $fn;
+                $children = $this->scanTemplateDir($cfg);
                 if (count($children)) {
                     $ret =array_merge($ret, $children);
                     
@@ -279,17 +286,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                  
             }
             
-            if (!preg_match('/\.(html|txt|abw)$/', $fn) || !is_file($fullpath)) {
-                // skip non-php files..
-            //    echo "  skipped = not a html or txt file \n";
+            if (!preg_match($cfg['match'], $fn) || !is_file($fullpath)) {
                 continue;
             }
             
           
             
             $ret[] = array(
-                'base' => $view,
-                'template_dir' => $tdir ,
+                'base' => $cfg['view'],
+                'template_dir' => $cfg['tdir'] ,
                 'template' =>  $subdir . (empty($subdir) ? '' : '/').  $fn  /// this used to be strtolower?? why???
             );
             
