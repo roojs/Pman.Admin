@@ -235,12 +235,12 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    case typeof(sn.id) == 'number':
                        p.template_id = sn.id;
                        break;
-                   case sn.id.match(/^view:/):
+                   case sn.id.match(/^view:/) != null:
                        var sns = sn.id.split(':');
                        p.lang = sns[1];
                        p.view_name = sns[2];
                        break;
-                   case sn.id.match(/^lang:/):
+                   case sn.id.match(/^lang:/) != null:
                        var sns = sn.id.split(':');
                        p.lang = sns[1];
                        break;
