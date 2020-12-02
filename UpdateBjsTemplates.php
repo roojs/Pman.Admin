@@ -214,7 +214,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         foreach ($this->modules() as $m){
             
             // templates...
-            $ar = $this->scanTemplateDir(array(
+            $ar = $this->scanDir(array(
                  'tdir' => "Pman/$m/templates",
                 'subdir' => '',
                 'match' => '/\.(html|txt|abw)$/',
