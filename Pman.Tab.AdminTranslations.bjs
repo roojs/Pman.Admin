@@ -7,33 +7,25 @@
  "modOrder" : "950",
  "strings" : {
   "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
-  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
-  "ae739a236065a45c64ad51aacb19498c" : "Active?",
-  "d41d8cd98f00b204e9800998ecf8427e" : "",
+  "0b8d92bc19b720bb1065649535463409" : "Translations",
+  "69fd71b6f79260924a32a45850a13ab7" : "Translations (rescan this to update strings)",
+  "9d1ead73e678fa2f51a70a933b0bf017" : "Not Found",
   "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
-  "e2ade2e0b88406a390f59b5232abb328" : "Translated (Click to Edit)",
   "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
-  "83dad8107f9459efe2b4fabcf5b63108" : "Select Language",
-  "a1d1ae170f841c328acdc6052511ed8c" : "Text in interface",
-  "78463a384a5aa4fad5fa73e2f506ecfc" : "English",
-  "4e7c16d320ae129cc81b296e05748b3a" : "Translate App",
-  "526d688f37a86d3c3f27d0c5016eb71d" : "Reset",
-  "b51c3fa7e0ae26a1d88bf1279f265bb4" : "Select Module",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
-  "552bcc4e00cd663f09cc4efbaca1cd45" : "Select Translation of",
-  "ca0dbad92a874b2f69b549293387925e" : "Code",
-  "0a9e8bd9e8b301dfb2c21c355e0b377d" : "Languages and Countries"
- },
- "named_strings" : {
-  "language_title_value" : "d41d8cd98f00b204e9800998ecf8427e",
-  "language_title_qtip" : "83dad8107f9459efe2b4fabcf5b63108",
-  "language_title_fieldLabel" : "4994a8ffeba4ac3140beb89e8d41f174"
+  "e3d388b2c43e5ba0905702620ae2abc1" : "Search for",
+  "e2f9d206562d8f5ea421ad51100f7151" : "Displaying petition_entry{0} - {1} of {2}",
+  "cd6ae20e52d83f601c5fa12b66f0f6d0" : "Rescan",
+  "4d1c8263ba1036754f8db14a98f9f006" : "Reload",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "03c2e7e41ffc181a4e84080b4710e81e" : "New",
+  "193cfc9be3b995831c6af2fea6650e60" : "Page",
+  "1bc29b36f623ba82aaf6724fd3b16718" : "md5"
  },
  "items" : [
   {
    "region" : "center",
    "xtype" : "NestedLayoutPanel",
-   "title" : "Translate App",
+   "title" : "Translations",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -42,30 +34,145 @@
      "* prop" : "layout",
      "items" : [
       {
-       "alwaysShowTabs" : true,
        "xtype" : "LayoutRegion",
-       "tabPosition" : "top",
+       "width" : 450,
+       "$ xns" : "Roo",
+       "split" : true,
+       "* prop" : "west"
+      },
+      {
+       "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "* prop" : "center"
       },
       {
        "listeners" : {
-        "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n       _this.grid.getDataSource().reload(); \n    }\n}"
+        "render" : "function (_self)\n{\n    _this.treepanel = _self;\n}"
        },
-       "fitToframe" : true,
-       "background" : true,
-       "region" : "center",
-       "title" : "Text in interface",
-       "xtype" : "GridPanel",
-       "fitContainer" : true,
+       "region" : "west",
+       "xtype" : "TreePanel",
        "$ xns" : "Roo",
        "items" : [
         {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    Pman.Dialog.AdminLanguagePick.show( {  }, function(lang) {\n        \n        new Pman.Request({\n            url : baseURL + '/Roo/core_templatestr',\n            method : 'POST',\n            params : {\n                _rescan : lang\n            }, \n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    \n    });\n    \n}"
+           },
+           "text" : "New",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Separator",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n    var sn  = tree.getSelectionModel().getSelectedNode();\n\n    if (!sn || typeof(sn.attributes.language) == 'undefined' || !sn.attributes.language) {\n        Roo.MessageBox.alert(\"Error\", \"Select a language\");\n        return;\n    }\n\n     Roo.MessageBox.confirm(\"Confirm\", \"Are sure you want to delete the language\", function (v){\n            if (v != 'yes') {\n                return;\n            }\n            Roo.MessageBox.alert(\"Not yet\", \"not done yet\");\n            return;\n            \n            \n            \n            \n        });\n}"
+           },
+           "text" : "Delete",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Separator",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n    Roo.log(tree);\n    var sn  = tree.getSelectionModel().getSelectedNode();\n\n    if (!sn) {\n        Roo.MessageBox.alert(\"Error\", \"Select a node\");\n        return;\n    }\n    \n    var syncTemplate = function(){\n        new Pman.Request({\n            url : baseURL + '/Admin/UpdateBjsTemplates',\n            method : 'GET',\n            mask : 'Processing...',\n            timeout : 9000000,\n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    \n    };\n    \n    \n    var syncLanguage = function(){\n        new Pman.Request({\n            url : baseURL + '/Roo/Core_templatestr',\n            method : 'POST',\n            mask : 'Processing...',\n            params : {\n                _rescan : sn.attributes.id.split(':')[1]\n            }, \n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    };\n    \n    if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){\n        syncTemplate();\n        return;\n    }\n    \n    if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){\n        syncLanguage();\n        return;\n    }\n    \n    \n    \n    \n    \n}"
+           },
+           "text" : "Rescan",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n\n    var sn  = tree.getSelectionModel().getSelectedNode();\n    \n    p = {\n        csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',\n        csvTitles : 'Code,Module,Template,Original,Language,Translation',\n        limit : 9999,\n        sort: 'template_id_view_name,template_id_template,src_id_txt',\n        dir: 'ASC'\n    };\n    if (!sn ||  sn.id == 'transtree') {\n        Roo.MessageBox.alert(\"Error\", \"Select language, module or page\");\n        return;\n    }\n    if (typeof(sn.id) == 'number') {\n        p.template_id = sn.id;\n\n    }\n    if (sn.id.match(/^view:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n        p.template_id_view_name = sns[2];\n    }\n    if (sn.id.match(/^lang:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n\n   }\n    // transtree\n    // view: {lang} : {view_name}\n    // lang:\n     \n    new Pman.Download({\n        url : baseURL + '/Roo/Core_templatestr',\n        params : p,\n        method : 'GET' \n    });\n    \n    \n    \n    \n    \n}"
+           },
+           "text" : "Download",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Separator",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    _this.treepanel.tree.getRootNode().reload();\n    \n}"
+           },
+           "text" : "Reload",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "xtype" : "TreePanel",
+         "rootVisible" : true,
+         "$ xns" : "Roo.tree",
+         "containerScroll" : false,
+         "* prop" : "tree",
+         "items" : [
+          {
+           "listeners" : {
+            "loadexception" : "function (This, node, response)\n{\n    Roo.MessageBox.alert(\"Error\", \"Problem loading tree\");\n}",
+            "beforeload" : "function (This, node, callback)\n{\n    // set some params.\n    Roo.log(node);\n    this.baseParams._tree = 1;\n    \n    //this.baseParams.category = node.attributes.category;\n}"
+           },
+           "$ baseParams" : "{ _tree : 1 }",
+           "xtype" : "TreeLoader",
+           "requestMethod" : "GET",
+           "$ xns" : "Roo.tree",
+           "* prop" : "loader",
+           "$ dataUrl" : "baseURL + '/Roo/Core_templatestr'"
+          },
+          {
+           "id" : "transtree",
+           "text" : "Translations (rescan this to update strings)",
+           "xtype" : "AsyncTreeNode",
+           "$ xns" : "Roo.tree",
+           "* prop" : "root"
+          },
+          {
+           "listeners" : {
+            "selectionchange" : "function (_self, node)\n{\n    Roo.log(node);\n    \n    //if (node.id.split('/').length < 2) {\n    //    return;\n   // }\n    (function() {\n        _this.grid.footer.onClick('first');\n    }).defer(100);\n    \n}"
+           },
+           "xtype" : "DefaultSelectionModel",
+           "$ xns" : "Roo.tree",
+           "* prop" : "selModel"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "listeners" : {
+        "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+       },
+       "background" : false,
+       "region" : "center",
+       "fitToframe" : true,
+       "title" : "Page",
+       "xtype" : "GridPanel",
+       "fitContainer" : true,
+       "$ xns" : "Roo",
+       "tableName" : "Page",
+       "items" : [
+        {
          "listeners" : {
-          "|render" : "function() { \n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n      _this.grid.getDataSource().reload(); \n    }\n}",
-          "celldblclick" : "function (_self, rowIndex, columnIndex, e)\n{\n    var di  = this.colModel.config[columnIndex].dataIndex;\n    if (di != 'reset_tx') {\n        return;\n    }\n    rec = this.ds.getAt(rowIndex);\n    \n      var g = _this.grid;\n \n    new Pman.Request({\n        url : baseURL + '/Admin/Translations.php',\n        method: 'POST',\n        params : {\n            id : rec.get('id'),\n            txt : '',\n            lang :  _this.langCombo.getValue(),\n            module :  _this.modCombo.getValue()\n        },\n        success : function()\n        {\n            //g.getView().el.unmask();\n            //g.getDataSource().reload();\n            rec.set('txt', '');\n        },\n        failure : function()\n        {\n            Roo.MessageBox.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n           // g.getView().el.unmask();\n        }\n        \n    });\n       \n    \n}",
-          "|beforeedit" : "function(e) {\n    console.log('beforeedit');\n    //if (e.record.get('origtxt').indexOf('<') > -1) {\n                       // console.log(\"HTML EDITOR!!\");\n                     \n                    //    return false;\n                    //}\n                    if (e.record.get('txt').replace(/\\s+/, '').length) {\n                        return true;\n                    }\n                    if (e.record.get('suggest').length) {\n                        e.record.set('txt', e.record.get('suggest'));\n                    //    _this.saveRec(e.record);\n                        return;\n                    }\n                    \n                    \n                    \n                   \n                    var tl = e.record.get('id').split('/')[0];\n                  \n                    tl = (tl == 'zh_HK') ? 'zh-TW' : tl; \n                    tl = tl.replace('_', '-');\n                    var rec = e.record;\n                    \n                    \n                    \n                    Pman.gtranslate(e.record.get('origtxt'), 'en', tl, function(result) { \n                        if (typeof(result) == 'object') { //error\n                            return; \n                           }\n                        \n                        if (_this.grid.activeEditor) {\n                            _this.grid.activeEditor.setValue(result);\n                        } else {\n                            rec.set('txt',result);\n                            //_this.saveRec(rec);\n                        }\n\n                        //\n                        \n                        \n                        //console.log(result.translation);\n                    });\n                    \n                   \n                    \n                    return true;\n                } ",
-          "|afteredit" : "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        new Pman.Request({\n            url : baseURL + '/Admin/Translations.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                txt : rec.get('txt'),\n                lang :  _this.langCombo.getValue(),\n                module :  _this.modCombo.getValue()\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Roo.MessageBox.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
+          "beforeedit" : "function (e)\n{   \n    /*if (e.record.data.src_id_txt.indexOf('<') > -1) {\n       // console.log(\"HTML EDITOR!!\");\n        Pman.Dialog.CmsTranslateEditor.show(e.record);\n        return false;\n    }*/\n    \n    var str=e.record.data.src_id_txt;\n    var patt=/{(.*?)}/g;\n    \n    Roo.log(str.length);\n    \n    \n    if(patt.test(str)){\n        e.cancel = true;\n        Pman.Dialog.AdminTranslateTemplates.show(e.record.data, function(v){\n            Roo.log(v);\n            e.value = v.txt;\n            e.record.set('txt', v.txt);\n            e.record.commit();\n        });\n        /*\n        Roo.MessageBox.prompt('WARNING', 'This text is with {TEMPLATE VARIABLE}, PLEASE BE CAREFUL EDITING. What\\'s change? '+str, function(btn, text){\n            if (btn == 'ok'){\n                e.value = text;\n                e.record.set('txt', text);\n                e.record.commit();\n            }\n        });*/\n        return;\n    }\n    \n    if(str.length > 150){\n        e.cancel = true;\n        Pman.Dialog.AdminTranslateTemplates.show(e.record.data, function(v){\n            e.value = v.txt;\n            e.record.set('txt', v.txt);\n            e.record.commit();\n        });\n        /*\n        Roo.MessageBox.prompt('WARNING', 'This text is with {TEMPLATE VARIABLE}, PLEASE BE CAREFUL EDITING. What\\'s change? '+str, function(btn, text){\n            if (btn == 'ok'){\n                e.value = text;\n                e.record.set('txt', text);\n                e.record.commit();\n            }\n        });*/\n        return;\n    }\n    \n\n    if (e.record.data.txt.replace(/\\s+/, '').length) {\n        return true;\n    }\n    \n    var tl = _this.treepanel.tree.getSelectionModel().getSelectedNode().parentNode.attributes.id;\n    // mapping?\n    \n    tl = (tl == 'zh_HK') ? 'zh-TW' : tl;\n    \n    if (tl == 'en' && !e.value.length) {\n\n        e.value = e.record.data.src_id_txt;\n        e.record.set('txt', e.record.data.src_id_txt);\n        return true;\n    }\n    \n    Pman.GoogleTranslate(e.record.data.src_id_txt, \"en\", tl, function(result) {\n       // Roo.log(result);\n        _this.grid.activeEditor.setValue(result);\n        //console.log(result.translation);\n    });\n    \n\n    \n    return true;\n}",
+          "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
+          "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n        this.footer.onClick('first');\n      // this.ds.onc.onClick('first');\n    }\n}",
+          "afteredit" : "function (e)\n{\n    e.record.commit();\n}"
          },
          "autoExpandColumn" : "txt",
          "xtype" : "EditorGrid",
@@ -75,19 +182,63 @@
          "* prop" : "grid",
          "items" : [
           {
+           "xtype" : "Toolbar",
+           "$ xns" : "Roo",
+           "* prop" : "toolbar",
+           "items" : [
+            {
+             "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}",
+              "render" : "function (_self)\n{\n    _this.searchBox = this;\n}"
+             },
+             "xtype" : "TextField",
+             "String emptyText" : "Search for",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+             "$ xns" : "Roo.Toolbar"
+            },
+            {
+             "listeners" : {
+              "|click" : "function (_self, e)\n{\n    _this.searchBox.setValue('');\n    \n    _this.grid.footer.onClick('first');\n}"
+             },
+             "xtype" : "Button",
+             "cls" : "x-btn-icon",
+             "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+             "$ xns" : "Roo.Toolbar"
+            }
+           ]
+          },
+          {
+           "pageSize" : 100,
+           "xtype" : "PagingToolbar",
+           "emptyMsg" : "Not Found",
+           "$ xns" : "Roo",
+           "displayMsg" : "Displaying petition_entry{0} - {1} of {2}",
+           "displayInfo" : true,
+           "* prop" : "footer"
+          },
+          {
            "listeners" : {
-            "|beforeload" : "function (_self, opts)\n{\n\n                        if (!_this.langCombo || !_this.langCombo.getValue().length) {\n                            return false;\n                        }\n                        if (!_this.modCombo || !_this.modCombo.getValue().length) {\n                            return false;\n                        }\n                        opts.params = {\n                            lang :  _this.langCombo.getValue(),\n                            module :  _this.modCombo.getValue()\n                        };\n}",
-            "loadexception" : "function (self, ret, load, jsonData)\n{\n    Roo.MessageBox.alert(\"Error\", jsonData);\n}"
+            "update" : "function (_self, rec, operation)\n{\n    Roo.log(operation);\n    \n    if (operation != 'commit') {\n        return;\n    }\n    \n\n    _this.grid.getView().el.mask(\"Saving\");\n    new Pman.Request({\n        url : baseURL + '/Roo/Core_templatestr',\n        method: 'POST',\n        params : {\n            id : rec.get('id'),\n            txt : rec.get('txt')\n        },\n        success : function()\n        {\n            _this.grid.getView().el.unmask();\n                //g.getDataSource().reload();\n        },\n        failure : function()\n        {\n            _this.grid.getView().el.unmask();\n            Roo.MessageBox.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n         }\n            \n    });\n    \n}",
+            "beforeload" : "function (_self, o)\n{\n   \n    var sn = _this.treepanel.tree.getSelectionModel().getSelectedNode();\n\n    if (!sn || typeof(sn.attributes) == 'undefined' || typeof(sn.attributes.leaf) == 'undefined' || !sn.attributes.leaf) { \n        _this.grid.ds.removeAll();\n        return false;\n    }\n\n    o.params = o.params || {};\n    o.params.lang =  sn.parentNode.attributes.id.split(':')[1];\n    o.params.template_id = sn.attributes.id * 1;\n    o.params.active = 1;\n    o.params['!src_id'] = 0;\n    \n    if (_this.searchBox && _this.searchBox.getValue().length) { \n        o.params['_search_txt'] = _this.searchBox.getValue();\n    }\n    \n    \n    if(sn.attributes.on_table){\n        o.params.on_table = sn.attributes.on_table;\n    }\n    \n}\n\n\n"
            },
            "xtype" : "Store",
-           "$ reader" : "Pman.Readers.Category",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ field : 'src_id_txt', direction: 'ASC' }",
            "$ xns" : "Roo.data",
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Admin/Translations.php'",
-             "method" : "GET",
+             "$ url" : "baseURL + '/Roo/Core_templatestr.php'",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -95,118 +246,29 @@
              "id" : "id",
              "root" : "data",
              "xtype" : "JsonReader",
+             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'shortname',\n        'type': 'string'\n    }\n   \n]",
              "$ xns" : "Roo.data",
-             "$ fields" : "[                    'id',             'tablename',             'tableid',             'colname',             'txt',             'lang',             { name:'updated', type:'date', dateFormat: 'Y-m-d H:i:s' },             { name:'origupdated', type:'date', dateFormat: 'Y-m-d H:i:s' },             'origtxt',             'msum',             'suggest'                  ]",
              "* prop" : "reader",
              "totalProperty" : "total"
             }
            ]
           },
           {
-           "xtype" : "Toolbar",
-           "$ xns" : "Roo",
-           "* prop" : "toolbar",
-           "items" : [
-            {
-             "listeners" : {
-              "|render" : "function (_self)\n{\n  _this.modCombo = _self;\n}",
-              "|select" : "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}"
-             },
-             "triggerAction" : "all",
-             "selectOnFocus" : true,
-             "displayField" : "module",
-             "xtype" : "ComboBox",
-             "valueField" : "module",
-             "emptyText" : "Select Module",
-             "typeAhead" : false,
-             "editable" : false,
-             "width" : 200,
-             "$ xns" : "Roo.form",
-             "mode" : "local",
-             "items" : [
-              {
-               "| data" : "(function() {             \n        var modlist = [];             \n        AppModules = typeof(AppModules) == 'undefined' ? '' : AppModules;\n        Roo.each( AppModules.split(','), function(mod) {            \n                 modlist.push( [ mod ] );            \n      });             \n      return modlist;\n   })()",
-               "xtype" : "SimpleStore",
-               "$ fields" : "['module']",
-               "$ xns" : "Roo.data",
-               "* prop" : "store"
-              }
-             ]
-            },
-            {
-             "listeners" : {
-              "|render" : "function (_self)\n{\n  _this.langCombo=_self;\n}",
-              "|select" : "function (combo, record, index)\n{\n  _this.grid.getDataSource().reload(); \n}"
-             },
-             "triggerAction" : "all",
-             "selectOnFocus" : true,
-             "displayField" : "ldisp",
-             "xtype" : "ComboBox",
-             "valueField" : "lang",
-             "emptyText" : "Select Language",
-             "typeAhead" : false,
-             "editable" : false,
-             "width" : 200,
-             "$ xns" : "Roo.form",
-             "mode" : "local",
-             "items" : [
-              {
-               "xtype" : "SimpleStore",
-               "$ data" : "[                                                [ 'zh_HK' , '\\u7E41\\u4E2D - Trad. Chin. (HK)' ],                         [ 'zh_CN', '\\u7C21\\u4E2D - Simp. Chin.' ]                     ]",
-               "$ xns" : "Roo.data",
-               "$ fields" : "['lang', 'ldisp']",
-               "* prop" : "store"
-              }
-             ]
-            },
-            {
-             "xtype" : "Fill",
-             "$ xns" : "Roo.Toolbar"
-            },
-            {
-             "listeners" : {
-              "click" : "function (_self, e)\n{\n    new Pman.Download({\n        grid: _this.grid\n    \n    });\n}"
-             },
-             "text" : "Download",
-             "xtype" : "Button",
-             "$ xns" : "Roo.Toolbar"
-            }
-           ]
-          },
-          {
-           "xtype" : "ColumnModel",
-           "width" : 150,
-           "header" : "Name",
-           "$ renderer" : "function(v,x,r) {                       \n  var c = '#666';                       \n    if (r.get('updated') < r.get('origupdated')) {         \n                        c = 'red';                       \n                        \n                          }                                 \n                                           return '<div style=\"color:'+c+'\";>' +r.get('tableid')+ ':' + v + '</div>';          \n                                                                               }",
-           "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "colname"
-          },
-          {
            "xtype" : "ColumnModel",
            "width" : 300,
            "header" : "Original",
-           "$ renderer" : "function(v,x,r) {                         var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                         return '<div style=\"color:' + c+ '\">' +                                  Ext.util.Format.htmlEncode(v) + '</div>';                                              }",
+           "$ renderer" : "function(v,x,r) \n{\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "origtxt"
+           "* prop" : "cm[]",
+           "dataIndex" : "src_id_txt"
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Reset",
-           "width" : 50,
-           "$ renderer" : "function(v,x,r) {    \n    return  '<img src=\"' + rootURL + '/Pman/templates/images/edit-clear.gif' + '\" width=\"16\" height=\"16\">';\n}",
+           "width" : 200,
+           "header" : "Translation",
+           "$ renderer" : "function(v,x,r) \n{ \n\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "reset_tx"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "Translated (Click to Edit)",
-           "width" : 150,
-           "$ renderer" : "function(v,x,r) {                                                   var c = '#666';                         if (r.get('updated') < r.get('origupdated')) {                             c = 'red';                         }                                                  return '<div style=\"color:' + c+ '\">' + Ext.util.Format.htmlEncode(v) + '</div>';                     }",
-           "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
+           "* prop" : "cm[]",
            "dataIndex" : "txt",
            "items" : [
             {
@@ -216,196 +278,7 @@
              "items" : [
               {
                "xtype" : "TextField",
-               "$ xns" : "Roo.form",
-               "* prop" : "field"
-              }
-             ]
-            }
-           ]
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "listeners" : {
-        "|activate" : "function() {\n    _this.langpanel = this;\n    if (_this.langgrid) {\n        _this.langgrid.ds.load({});\n    }\n}"
-       },
-       "fitToframe" : true,
-       "background" : true,
-       "region" : "center",
-       "title" : "Languages and Countries",
-       "xtype" : "GridPanel",
-       "fitContainer" : true,
-       "$ xns" : "Roo",
-       "tableName" : "i18n",
-       "items" : [
-        {
-         "listeners" : {
-          "beforeedit" : "function(e) {\n    console.log('beforeedit');\n    //if (e.record.get('origtxt').indexOf('<') > -1) {\n                       // console.log(\"HTML EDITOR!!\");\n             \n            //    return false;\n            //}\n            if (e.record.get('lval').replace(/\\s+/, '').length) {\n                return true;\n            }\n            \n            \n            var tl = _this.langgridCombo.getValue();\n          \n            tl = (tl == 'zh_HK') ? 'zh-TW' : tl; \n            tl = tl.replace('_', '-');\n            var rec = e.record;\n            \n            \n            \n            Pman.gtranslate(e.record.get('lval_en'), 'en', tl, function(result) { \n                if (typeof(result) == 'object') { //error\n                    return; \n                   }\n                \n                if (_this.grid.activeEditor) {\n                    _this.grid.activeEditor.setValue(result);\n                } else {\n                    rec.set('lval',result);\n                    //_this.saveRec(rec);\n                }\n\n                //\n                \n                \n                //console.log(result.translation);\n            });\n            \n           \n            \n            return true;\n        } ",
-          "|render" : "function() \n{\n    _this.langgrid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.langpanel.active) {\n       this.ds.load({});\n    }\n}",
-          "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n    if(_this.langgrid.colModel.getDataIndex(columnIndex) !== 'is_active'){\n        return;\n    }\n    \n    var s = _this.langgrid.ds.getAt(rowIndex);\n    \n    if(!s || s.data.id * 1 < 0){\n        return;\n    }\n    \n    s.set('is_active', s.data.is_active ? 0 : 1);\n    \n    new Pman.Request({\n        url : baseURL+'/Roo/I18n',\n        method : 'POST',\n        params : {\n            id : s.data.id,\n            is_active : s.data.is_active\n        }\n    }); \n    \n}",
-          "afteredit" : "function (e)\n{\n    var saveRec  = function(rec)\n    {\n        var g = _this.grid;\n\n        //g.getView().el.mask('Saving');\n        Ext.Ajax.request({\n            url : baseURL + '/Roo/I18n.php',\n            method: 'POST',\n            params : {\n                id : rec.get('id'),\n                lval : rec.get('lval'),\n                ltype : rec.get('ltype')\n            },\n            success : function()\n            {\n                //g.getView().el.unmask();\n                //g.getDataSource().reload();\n            },\n            failure : function()\n            {\n                Ext.Msg.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n               // g.getView().el.unmask();\n            }\n            \n    });\n        };\n    \n    saveRec.defer(1000, _this, [ e.record ]);\n}"
-         },
-         "autoExpandColumn" : "lval",
-         "xtype" : "EditorGrid",
-         "loadMask" : true,
-         "clicksToEdit" : 1,
-         "$ xns" : "Roo.grid",
-         "* prop" : "grid",
-         "items" : [
-          {
-           "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = _this.langtypeCombo.getValue();\n   options.params.inlang = _this.langgridCombo.getValue();\n   options.params['query[_with_en]'] = 1;\n   if (!options.params.ltype.length || !options.params.inlang.length) {\n       return false;\n   }\n   \n   options.params.limit = 9999;\n   \n}"
-           },
-           "xtype" : "Store",
-           "remoteSort" : true,
-           "$ sortInfo" : "{ field : 'lkey', direction: 'ASC' }",
-           "$ xns" : "Roo.data",
-           "* prop" : "dataSource",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/i18n.php'",
-             "method" : "GET",
-             "xtype" : "HttpProxy",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy"
-            },
-            {
-             "id" : "id",
-             "root" : "data",
-             "xtype" : "JsonReader",
-             "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    }\n]",
-             "* prop" : "reader",
-             "totalProperty" : "total"
-            }
-           ]
-          },
-          {
-           "xtype" : "Toolbar",
-           "$ xns" : "Roo",
-           "* prop" : "toolbar",
-           "items" : [
-            {
-             "listeners" : {
-              "|render" : "function (_self)\n{\n  _this.langtypeCombo = _self;\n}",
-              "|select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
-             },
-             "triggerAction" : "all",
-             "selectOnFocus" : true,
-             "emptyText" : "Select Translation of",
-             "displayField" : "lval",
-             "valueField" : "lkey",
-             "xtype" : "ComboBox",
-             "typeAhead" : false,
-             "editable" : false,
-             "width" : 200,
-             "$ xns" : "Roo.form",
-             "mode" : "local",
-             "items" : [
-              {
-               "xtype" : "SimpleStore",
-               "$ data" : "[\n   [ 'l', 'Language Names' ],\n   [ 'c', 'Country Names' ],\n    [ 'm', 'Currency Names' ]\n]",
-               "$ fields" : "['lkey','lval']",
-               "$ xns" : "Roo.data",
-               "* prop" : "store"
-              }
-             ]
-            },
-            {
-             "listeners" : {
-              "render" : "function (_self)\n{\n  _this.langgridCombo=_self;\n}",
-              "select" : "function (combo, record, index)\n{\n  _this.langgrid.getDataSource().reload(); \n}"
-             },
-             "listWidth" : 300,
-             "Number pageSize" : 400,
-             "triggerAction" : "all",
-             "Number minChars" : 2,
-             "fieldLabel" : "Language",
-             "selectOnFocus" : true,
-             "String queryParam" : "query[name_starts]",
-             "displayField" : "title",
-             "hiddenName" : "language",
-             "value" : "",
-             "valueField" : "code",
-             "xtype" : "ComboBox",
-             "allowBlank" : false,
-             "typeAhead" : true,
-             "editable" : true,
-             "width" : 200,
-             "$ xns" : "Roo.form",
-             "name" : "language_title",
-             "qtip" : "Select Language",
-             "items" : [
-              {
-               "listeners" : {
-                "beforeload" : "function (_self, options)\n{\n   options  =options ||  {};\n   options.params =options.params|| {};\n   options.params.ltype = 'l';\n   options.params.inlang = 'en';\n   \n    options.params._as_code_and_title = 1;\n   \n}"
-               },
-               "$ Object sortInfo" : "{ field : 'title', direction: 'ASC' }",
-               "xtype" : "Store",
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "items" : [
-                {
-                 "$ url" : "baseURL + '/Roo/i18n.php'",
-                 "xtype" : "HttpProxy",
-                 "method" : "GET",
-                 "$ xns" : "Roo.data",
-                 "* prop" : "proxy"
-                },
-                {
-                 "id" : "id",
-                 "root" : "data",
-                 "xtype" : "JsonReader",
-                 "$ xns" : "Roo.data",
-                 "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'ltype',\n        'type': 'string'\n    },\n    {\n        'name': 'lkey',\n        'type': 'string'\n    },\n    {\n        'name': 'inlang',\n        'type': 'string'\n    },\n    {\n        'name': 'lval',\n        'type': 'string'\n    } \n]",
-                 "* prop" : "reader",
-                 "totalProperty" : "total"
-                }
-               ]
-              }
-             ]
-            }
-           ]
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "Code",
-           "width" : 50,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "Boolean sortable" : true,
-           "* prop" : "colModel[]",
-           "dataIndex" : "lkey"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "English",
-           "width" : 150,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "Boolean sortable" : true,
-           "* prop" : "colModel[]",
-           "dataIndex" : "lval_en"
-          },
-          {
-           "xtype" : "ColumnModel",
-           "header" : "Translation",
-           "width" : 200,
-           "$ renderer" : "function(v) { return String.format('{0}', v); }",
-           "$ xns" : "Roo.grid",
-           "Boolean sortable" : true,
-           "* prop" : "colModel[]",
-           "dataIndex" : "lval",
-           "items" : [
-            {
-             "xtype" : "GridEditor",
-             "$ xns" : "Roo.grid",
-             "* prop" : "editor",
-             "items" : [
-              {
-               "xtype" : "TextField",
+               "allowBlank" : false,
                "$ xns" : "Roo.form",
                "* prop" : "field"
               }
@@ -415,12 +288,13 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Active?",
-           "width" : 150,
-           "$ renderer" : "function(v,x,r) { \n\n    return '<img class=\"x-grid-check-icon' + (v*1 ? '-checked' : '')  + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                                        \n    \n}",
+           "width" : 250,
+           "header" : "md5",
+           "$ renderer" : "function(v,x,r) \n{\n    return v ? v : '';\n\n}",
            "$ xns" : "Roo.grid",
-           "* prop" : "colModel[]",
-           "dataIndex" : "is_active"
+           "* prop" : "cm[]",
+           "Boolean hidden" : true,
+           "dataIndex" : "src_id_mdsum"
           }
          ]
         }

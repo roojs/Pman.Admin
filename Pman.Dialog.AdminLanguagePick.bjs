@@ -1,0 +1,118 @@
+{
+ "name" : "Pman.Dialog.AdminLanguagePick",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminLanguagePick.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "052ca52fc8eb1bdff3e34de3fa735e35" : "Select a Language",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
+ },
+ "named_strings" : {
+  "language_name_fieldLabel" : "4994a8ffeba4ac3140beb89e8d41f174"
+ },
+ "items" : [
+  {
+   "modal" : true,
+   "collapsible" : false,
+   "title" : "Select a Language",
+   "xtype" : "LayoutDialog",
+   "width" : 400,
+   "$ xns" : "Roo",
+   "closable" : false,
+   "resizable" : false,
+   "height" : 120,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "region" : "center",
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "listeners" : {
+        "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n       //_this.dialog.el.mask(\"Loading\");\n       //this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n\n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+        "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
+       },
+       "$ url" : "baseURL + '/Roo/INGORE.php'",
+       "xtype" : "Form",
+       "method" : "GET",
+       "style" : "margin:10px;",
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "alwaysQuery" : true,
+         "listWidth" : 200,
+         "triggerAction" : "all",
+         "fieldLabel" : "Language",
+         "displayField" : "title",
+         "hiddenName" : "lang",
+         "valueField" : "code",
+         "xtype" : "ComboBox",
+         "allowBlank" : false,
+         "editable" : false,
+         "width" : 200,
+         "$ xns" : "Roo.form",
+         "name" : "language_name",
+         "items" : [
+          {
+           "listeners" : {
+            "beforeload" : "function (_self, o)\n{\n    o.params['!code'] = 'en'; // exclude english from the list (it's the default?)\n}"
+           },
+           "xtype" : "Store",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Core/I18n/Lang'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "code",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ fields" : "[\n    {\n        'name': 'code',\n        'type': 'string'\n    },\n    {\n        'name': 'title',\n        'type': 'string'\n    }\n]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Cancel",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n     \n    var data =  _this.form.getValues();\n \n    if (!data.lang.length) {\n    \n        Roo.MessageBox.alert(\"Error\", \"Select language\");\n        return;\n    \n    }\n    _this.dialog.hide();\n            \n    var callbackData = data.lang;\n   // Roo.log(_this.data);\n    if(_this.data._with_name == true){\n        callbackData = {'lang' : data.lang , 'lang_name' : _this.form.findField('lang').lastSelectionText};\n    }\n    \n    _this.callback(callbackData);\n    \n\n}"
+     },
+     "text" : "OK",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

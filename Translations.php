@@ -1,5 +1,8 @@
 <?php
 
+die("NOT USED!?");
+// see core_template code..
+
 
 /**
  * Pman_Admin_Translation:
@@ -89,7 +92,7 @@ class Pman_Admin_Translations extends Pman
         $module = $_REQUEST['module'];
         
         
-         $this->loadOriginalStrings($module); // what needs translating..
+        $this->loadOriginalStrings($module); // what needs translating..
         
         $ff = $this->bootLoader;
         if (empty($ff->Pman['public_cache_dir'])) {
@@ -108,7 +111,7 @@ class Pman_Admin_Translations extends Pman
         foreach($this->original as $k=>$ar) {
             foreach($ar as $tr=>$trv) {
                 // $hint = isset($hints[$tr]) ? $hints[$tr] : '';
-                $key = md5($k.'-'.$tr);
+                $key = $trv;
                 $ret[] = array(
                     'id' => $lang.'/'.$key,
                     'msum' => $key,
@@ -174,16 +177,45 @@ class Pman_Admin_Translations extends Pman
         // since this can handle errors better.!!?
         $info = $this->moduleJavascriptFilesInfo($module);
         //print_r($info);
-        $tfile =$info->basedir . '/'. $info->translation_data;
+        
+        
+        
+        $this->original  = array();
+        $tfile = $info->basedir . '/'. $info->translation_data;
          //var_dump($tfile);
-        if (empty($tfile) || !file_exists($tfile)) {
-            return array();
-        }
+        //if (empty($tfile) || !file_exists($tfile)) {
+            
+            foreach($info->filesmtime as $f =>$mt) {
+                $bjs = preg_replace('/\.js$/','.bjs', $f);
+                if (!file_exists($bjs)) {
+                    continue;
+                }
+                $jd = json_decode(file_get_contents($bjs));
+                if (empty($jd->strings)) {
+                    continue;
+                }
+                foreach($jd->strings as $tkey => $val) {
+                    $line = array(
+                        'module' => $module,
+                        'tfile' => preg_replace('/\.js$/','',  basename($bjs)),
+                    )
+                    
+                    
+                }
+                
+                $this->original[str_replace('.bjs', '', basename($bjs)) ] = array_flip((array)$jd->strings);
+            }
+             
+            file_put_contents($tfile, json_encode($this->original));
+            
+            
+        //}
         
         
-        require_once 'Services/JSON.php';
-        $j = new Services_JSON();
-        $this->original = (array) $j->decode('{'. file_get_contents($tfile).'}');
+        print_R($this->original);exit;
+        
+        
+        $this->original = (array) json_decode( file_get_contents($tfile) );
         ksort($this->original);
 
         $this->originalKeys = array();
