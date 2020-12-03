@@ -119,6 +119,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             
             
         }
+        exit;
         //echo $data;
         $fh = fopen($csv, 'r');
         if (!$fh) {
