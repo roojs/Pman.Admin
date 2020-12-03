@@ -100,10 +100,14 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
         $tr->find(true);
-        
+        print_R($tr);
         exit;
         $tr->whereAdd("join_template_id_id.template='{$tr->escape($r['template'])}'");
-         
+        $tr->whereAdd("join_template_id_id.view_name='{$tr->escape($r['module'])}'");
+        $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['module'])}'");
+        $tr->setFrom(array(
+            
+        ))
     }
     
     
