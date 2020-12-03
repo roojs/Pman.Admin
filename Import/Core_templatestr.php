@@ -69,7 +69,10 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     
     function get($base = '',  $opts = array())
     {
-        $rows = $this->readXLS("/home/alan/Downloads/singapore journalists 2011v1.xls") ;
+        $rows = $this->readXLS("/tmp/pressrelease-translations.xls") ;
+        
+        print_R($rows);exit;
+        
         $ret = $this->processRows($rows);
         if ($this->cli) { 
             print_r($this->flat($ret));
