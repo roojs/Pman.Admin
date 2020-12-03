@@ -102,7 +102,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->find(true);
         
         exit;
-        $tr->whereAdd("join_template_id_id.template='{$tr->escape($r[');
+        $tr->whereAdd("join_template_id_id.template='{$tr->escape($r['template'])}'");
          
     }
     
