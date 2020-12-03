@@ -95,13 +95,11 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     var $seq = 1;
     function updateTranslation($r)
     {
-        print_R($r);
-        DB_DataObject::DebugLevel(1);
+        //print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
         $tr->find(true);
-        print_R($tr);
-        exit;
+       
         $tr->whereAdd("join_template_id_id.template='{$tr->escape($r['template'])}'");
         $tr->whereAdd("join_template_id_id.view_name='{$tr->escape($r['module'])}'");
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
