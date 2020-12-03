@@ -108,12 +108,10 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $csv = $this->tempName('csv');
         $cmd = "$ssconvert  -T Gnumeric_stf:stf_csv ". escapeshellarg($file) . ' '.$csv;
         
-        echo $cmd;
-        $data= `$cmd`;
+         $data= `$cmd`;
         
         clearstatcache();
-        var_dump($data);
-        if (!file_exists($csv)) {
+         if (!file_exists($csv)) {
             $this->jerr("Failed to make file . \n".
                         $cmd . "\n" .
                         $data
@@ -121,8 +119,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             
             
         }
-        exit;
-        //echo $data;
+         //echo $data;
         $fh = fopen($csv, 'r');
         if (!$fh) {
             $this->jerr("file invalid");
