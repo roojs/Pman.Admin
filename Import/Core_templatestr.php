@@ -71,7 +71,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     {
         $rows = $this->readXLS("/var/lib/php/sessions/pressrelease-translations.xls") ;
         
-        print_R($rows);exit;
+       
         
         $ret = $this->processRows($rows);
         if ($this->cli) { 
@@ -85,7 +85,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     { 
         $ret = array();
         foreach($rows as $r) {
-            $ret[] = $this->createJ($r);
+            $ret[] = $this->updateTranslation($r);
             
         }
         return $ret;
@@ -93,9 +93,15 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     
     
     var $seq = 1;
-    function createJ($r)
+    function updateTranslation($r)
     {
-       
+        DB_DataObject::DebugLevel(1);
+        $tr = DB_DataObject::Factory('core_templatestr');
+        $tr->autoJoin();
+        $tr->find(true);
+        
+        exit;
+        $tr->whereAdd("")
          
     }
     
