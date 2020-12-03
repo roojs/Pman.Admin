@@ -93,7 +93,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     var $seq = 1;
     function updateTranslation($r)
     {
-        //print_R($r); DB_DataObject::DebugLevel(1);
+        print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
 
@@ -106,6 +106,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tt = clone($tr);
             $tt->txt = $r['translation'];
             $tt->update($tr);
+            exit;
             return 1;
         }
         return 0;
