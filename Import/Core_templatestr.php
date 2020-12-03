@@ -110,6 +110,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         
         echo $cmd;
         $data= `$cmd`;
+        var_dump($data);
         if (!file_exists($csv)) {
             $this->jerr("Failed to make file . \n".
                         $cmd . "\n" .
