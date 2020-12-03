@@ -101,7 +101,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->find(true);
         
         exit;
-        $tr->whereAdd("")
+        $tr->whereAdd("");
          
     }
     
