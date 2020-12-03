@@ -74,10 +74,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
        
         
         $ret = $this->processRows($rows);
-        if ($this->cli) { 
-            print_r($this->flat($ret));
-        }
-        $this->jdata($this->flat($ret));
+         
+        $this->jdata($ret);
         exit;
         
     }
