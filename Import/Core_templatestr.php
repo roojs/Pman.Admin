@@ -108,7 +108,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tr= clone($tt);
             $tt->txt = $r['translation'];
             $tt->update($tr);
-            exit;
+             
             return 1;
         }
         return 0;
