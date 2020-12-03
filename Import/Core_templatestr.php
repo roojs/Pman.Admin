@@ -103,7 +103,9 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
         $tr->lang = $r['language'];
         if ($tr->find(true)) {
-            $tt = clone($tr);
+            $tt = DB_DataObject::Factory('core_templatestr');
+            $tt->get($tr->id);
+            $tr= clone($tt);
             $tt->txt = $r['translation'];
             $tt->update($tr);
             exit;
