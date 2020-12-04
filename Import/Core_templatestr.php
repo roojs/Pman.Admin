@@ -107,6 +107,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tt->get($tr->id);
             $tr= clone($tt);
             $tt->txt = $r['translation'];
+            $tt->updated = date('Y-m-d H:i:s');
             $tt->update($tr);
              
             return 1;
