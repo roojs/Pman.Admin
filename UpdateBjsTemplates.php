@@ -47,7 +47,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $this->syncLanguage();
         
         DB_DataObject::factory('core_template')->query(
-            "update from core_template set is_deleted =  1 where filetype = ''"
+            "update core_template set is_deleted =  1 where filetype = ''"
         );
         
         $this->jok('OK');
@@ -173,7 +173,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $delids = $del->fetchAll('id');
         if ($delids) {
             DB_DataObject::factory('core_template')->query(
-                'update from core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
+                'update core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
             );
         }
         
@@ -296,7 +296,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $delids = $del->fetchAll('id');
         if ($delids) {
             DB_DataObject::factory('core_template')->query(
-                'update from core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
+                'update core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
             );
         }
          
