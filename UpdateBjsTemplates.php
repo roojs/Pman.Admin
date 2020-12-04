@@ -163,7 +163,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         }
         
         $del = DB_DataObject::factory('core_template');
-        $del->whereAddIn('id', $ids, 'int');
+        $del->whereAddIn('!id', $ids, 'int');
         $del->whereAddIn('view_name', $this->modules(), 'string');
         $del->filetype = 'bjs';
         $delids = $del->fetchAll('id');
@@ -286,7 +286,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             //$tp->syncTemplatePage($pg);
         }
         $del = DB_DataObject::factory('core_template');
-        $del->whereAddIn('id', $ids, 'int');
+        $del->whereAddIn('!id', $ids, 'int');
         $del->whereAddIn('view_name', $this->modules(), 'string');
         $del->whereAddIn('filetype' , array( 'php', 'html' ), 'string');
         $delids = $del->fetchAll('id');
