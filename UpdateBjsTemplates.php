@@ -144,6 +144,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if($template->find(true)){
                     $o = clone ($template);
                 }
+                $template->is_deleted = 0;
+
                 $template->filetype = 'bjs';
                 $template->updated = $template->sqlValue("NOW()");
 
