@@ -245,13 +245,13 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             
             foreach($ar as $pg) {
-                
                  
                 $tp->syncTemplatePage(array(
                     'base' =>'Pman.'.$m, 
                     'template_dir' =>  "Pman/$m/templates",
                     'template' => $pg
                 ));
+                $ids[] = $temp->id;
             }
             // should clean up old templates..
             // php files..
@@ -266,11 +266,13 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             foreach($ar as $pg) {
                 
-                $tp->syncPhpGetText(array(
+                $temp = $tp->syncPhpGetText(array(
                     'base' =>'Pman.'.$m, 
                     'template_dir' =>  "Pman/$m",
                     'template' => $pg
                 ));
+                $ids[] = $temp->id;
+                
             }
             
             
@@ -279,7 +281,16 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             //$tp->syncTemplatePage($pg);
         }
-        
+        $del = DB_DataObject::factory('core_template');
+        $del->whereAddIn('id', $ids, 'int');
+        $del->whereAddIn('view_name', $this->modules(), 'string');
+        $del->whereAddIn('filetype' , array( 'php', 'html' ), 'string');
+        $delids = $del->fetchAll('id');
+        if ($delids) {
+            DB_DataObject::factory('core_template')->query(
+                'update from core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
+            );
+        }
          
     }
     
