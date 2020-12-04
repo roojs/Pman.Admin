@@ -135,7 +135,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $template->setFrom(array(
                     'template' => $fn,
                     'lang' => 'en',
-                    'view_name' => $view_name
+                    'view_name' => $view_name,
+                    
                 ));
 
                 $o = false;
@@ -143,7 +144,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if($template->find(true)){
                     $o = clone ($template);
                 }
-
+                $template->filetype = 'bjs';
                 $template->updated = $template->sqlValue("NOW()");
 
                 (empty($o)) ? $template->insert() : $template->update($o);
