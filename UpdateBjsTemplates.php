@@ -246,12 +246,14 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             foreach($ar as $pg) {
                  
-                $tp->syncTemplatePage(array(
+                $temp = $tp->syncTemplatePage(array(
                     'base' =>'Pman.'.$m, 
                     'template_dir' =>  "Pman/$m/templates",
                     'template' => $pg
                 ));
-                $ids[] = $temp->id;
+                if ($temp) {
+                    $ids[] = $temp->id;
+                }
             }
             // should clean up old templates..
             // php files..
@@ -271,7 +273,9 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     'template_dir' =>  "Pman/$m",
                     'template' => $pg
                 ));
-                $ids[] = $temp->id;
+                if ($temp) {
+                    $ids[] = $temp->id;
+                }
                 
             }
             
