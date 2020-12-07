@@ -6,13 +6,13 @@
  "permname" : "Admin.TranslationsInt",
  "modOrder" : "950",
  "strings" : {
+  "deccbe4e9083c3b5f7cd2632722765bb" : "Translate",
   "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
   "d41d8cd98f00b204e9800998ecf8427e" : "",
   "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
   "83dad8107f9459efe2b4fabcf5b63108" : "Select Language",
   "78463a384a5aa4fad5fa73e2f506ecfc" : "English",
-  "4e7c16d320ae129cc81b296e05748b3a" : "Translate App",
   "552bcc4e00cd663f09cc4efbaca1cd45" : "Select Translation of",
   "ca0dbad92a874b2f69b549293387925e" : "Code",
   "0a9e8bd9e8b301dfb2c21c355e0b377d" : "Languages and Countries"
@@ -25,7 +25,7 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Translate App",
+   "title" : "Translate",
    "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
    "items" : [
