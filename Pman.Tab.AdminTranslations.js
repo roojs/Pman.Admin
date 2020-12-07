@@ -8,11 +8,11 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
 
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
-  '0b8d92bc19b720bb1065649535463409' :"Translations",
   '69fd71b6f79260924a32a45850a13ab7' :"Translations (rescan this to update strings)",
   '9d1ead73e678fa2f51a70a933b0bf017' :"Not Found",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
+  '07a1d316d1065473f290c3c2b72a80f3' :"Application Words",
   'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
   'e2f9d206562d8f5ea421ad51100f7151' :"Displaying petition_entry{0} - {1} of {2}",
   'cd6ae20e52d83f601c5fa12b66f0f6d0' :"Rescan",
@@ -37,7 +37,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
    return {
    xtype : 'NestedLayoutPanel',
    region : 'center',
-   title : _this._strings['0b8d92bc19b720bb1065649535463409'] /* Translations */,
+   title : _this._strings['07a1d316d1065473f290c3c2b72a80f3'] /* Application Words */,
    xns : Roo,
    '|xns' : 'Roo',
    layout : {
