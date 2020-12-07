@@ -1,9 +1,9 @@
 {
- "name" : "Pman.Tab.AdminTranslations",
+ "name" : "Pman.Tab.AdminTranslationsInt",
  "parent" : "Pman.Tab.Admin",
- "title" : "Admin - Translations",
+ "title" : "Admin - AdminTranslationsInt",
  "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslationsInt.bjs",
- "permname" : "Admin.Translations",
+ "permname" : "Admin.TranslationsInt",
  "modOrder" : "950",
  "strings" : {
   "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
