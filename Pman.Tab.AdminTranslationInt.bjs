@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminTranslations",
  "parent" : "Pman.Tab.Admin",
  "title" : "Admin - Translations",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslationsInt.bjs",
  "permname" : "Admin.Translations",
  "modOrder" : "950",
  "strings" : {
