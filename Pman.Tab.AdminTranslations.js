@@ -26,7 +26,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   part     :  ["Admin", "Translations" ],
   order    : '950-Pman.Tab.AdminTranslations',
   region   : 'center',
-  parent   : 'Pman.Tab.Admin',
+  parent   : 'Pman.Tab.AdminTranslationsInt',
   name     : "Admin - Translations",
   disabled : false, 
   permname : 'Admin.Translations', 
