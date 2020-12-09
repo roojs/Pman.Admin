@@ -234,6 +234,14 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    p.template_id = sn.id;
            
                }
+               
+               
+               if (sn.id.match(/^table:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+                   p.on_table = sns[2];
+               }
+               
                if (sn.id.match(/^view:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
