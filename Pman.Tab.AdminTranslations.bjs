@@ -24,8 +24,8 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Application Words",
    "xtype" : "NestedLayoutPanel",
+   "title" : "Application Words",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -35,8 +35,8 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "$ xns" : "Roo",
        "width" : 450,
+       "$ xns" : "Roo",
        "split" : true,
        "* prop" : "west"
       },
@@ -158,9 +158,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "region" : "center",
        "fitToframe" : true,
        "background" : false,
-       "region" : "center",
        "title" : "Page",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -237,8 +237,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_templatestr.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -255,8 +255,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Original",
            "width" : 300,
+           "header" : "Original",
            "$ renderer" : "function(v,x,r) \n{\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -264,8 +264,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Translation",
            "width" : 200,
+           "header" : "Translation",
            "$ renderer" : "function(v,x,r) \n{ \n\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -288,8 +288,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "md5",
            "width" : 250,
+           "header" : "md5",
            "$ renderer" : "function(v,x,r) \n{\n    return v ? v : '';\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
