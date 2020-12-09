@@ -543,7 +543,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           
               o.params = o.params || {};
               o.params.lang =  sn.parentNode.attributes.id.split(':')[1];
-              o.params.template_id = sn.attributes.id * 1;
+             
               o.params.active = 1;
               o.params['!src_id'] = 0;
               
@@ -554,7 +554,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               
               if(sn.attributes.on_table){
                   o.params.on_table = sn.attributes.on_table;
-              }
+              } else {
+                   o.params.template_id = sn.attributes.id * 1;
+               }
               
           },
          update : function (_self, rec, operation)
