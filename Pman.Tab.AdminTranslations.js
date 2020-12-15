@@ -216,55 +216,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
          listeners : {
           click : function (_self, e)
            {
-               var tree = _this.treepanel.tree;
-           
-               var sn  = tree.getSelectionModel().getSelectedNode();
                
-               p = {
-                   csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',
-                   csvTitles : 'Code,Module,Template,Original,Language,Translation',
-                   limit : 9999,
-                   sort: 'template_id_view_name,template_id_template,src_id_txt',
-                   dir: 'ASC'
-               };
-               if (!sn ||  sn.id == 'transtree') {
-                   Roo.MessageBox.alert("Error", "Select language, module or page");
-                   return;
-               }
-               if (typeof(sn.id) == 'number') {
-                   p.template_id = sn.id;
-           
-               }
-               
-               
-               if (sn.id.match(/^table:/)) {
-                   var sns = sn.id.split(':');
-                   p.lang = sns[1];
-                   p.on_table = sns[2];
-                   p.csvCols = 'src_id_mdsum,on_table,on_id,on_col,src_id_txt,lang,txt';
-                   p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';
-               }
-               
-               if (sn.id.match(/^view:/)) {
-                   var sns = sn.id.split(':');
-                   p.lang = sns[1];
-                   p.template_id_view_name = sns[2];
-                   
-               }
-               if (sn.id.match(/^lang:/)) {
-                   var sns = sn.id.split(':');
-                   p.lang = sns[1];
-           
-              }
-               // transtree
-               // view: {lang} : {view_name}
-               // lang:
-                
-               new Pman.Download({
-                   url : baseURL + '/Roo/Core_templatestr',
-                   params : p,
-                   method : 'GET' 
-               });
                
                
                
