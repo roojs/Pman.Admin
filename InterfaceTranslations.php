@@ -17,10 +17,16 @@
  * 
  */
 
-require_once 'Pman/Admin/Translations.php';
+require_once 'Pman.php';
 
-class Pman_Admin_InterfaceTranslations extends Pman_Admin_Translations 
+class Pman_Admin_InterfaceTranslations extends Pman 
 {
+     var $prefix = '';
+    var $fn = '';
+    var $data = array();
+    
+    var $original = array() ; // filename => array( orig_string > orig_string)
+    var $originalKeys = array() ; // md5(filename-orig_string) => filename
      
     function getAuth()
     {
