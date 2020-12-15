@@ -97,7 +97,7 @@
           },
           {
            "listeners" : {
-            "click" : "function (_self, e)\n{\n    \n    \n    Pman.Dialog.Image.show({\n       _url : baseURL + '/Admin/Import/Core_templatestr',\n       \n    \n    }, function() {\n         _this.treepanel.tree.getRootNode().reload();\n    });\n    \n    \n    \n}"
+            "click" : "function (_self, e)\n{\n    \n    \n    Pman.Dialog.Image.show({\n       _url : baseURL + '/Admin/Import/Core_templatestr' \n       \n    \n    }, function() {\n         _this.treepanel.tree.getRootNode().reload();\n    });\n    \n    \n    \n}"
            },
            "text" : "Upload",
            "xtype" : "Button",
