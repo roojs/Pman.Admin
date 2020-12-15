@@ -58,15 +58,14 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         //$rows = $this->readXLS("/home/alan/Downloads/oll_example.xls") ;
         $rows = $this->readXLS($_FILES['imageUpload']['tmp_name']) ;
         
-        print_R($rows);exit;
-        //$ret = $this->processRows($rows);
+         //$ret = $this->processRows($rows);
         
          
-        $this->jok("DONE", false, array('extra'=> array()));
+        $this->jok("DONE", false, array('extra'=> $rows));
         
     }
     
-    
+    /*
     function get($base = '',  $opts = array())
     {
         $rows = $this->readXLS("/var/lib/php/sessions/pressrelease-translations.xls") ;
