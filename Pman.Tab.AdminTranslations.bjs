@@ -1,20 +1,21 @@
 {
  "name" : "Pman.Tab.AdminTranslations",
- "parent" : "Pman.Tab.Admin",
+ "parent" : "Pman.Tab.AdminTranslationsInt",
  "title" : "Admin - Translations",
  "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
  "permname" : "Admin.Translations",
  "modOrder" : "950",
  "strings" : {
   "0a52da7a03a6de3beefe54f8c03ad80d" : "Original",
-  "0b8d92bc19b720bb1065649535463409" : "Translations",
   "69fd71b6f79260924a32a45850a13ab7" : "Translations (rescan this to update strings)",
   "9d1ead73e678fa2f51a70a933b0bf017" : "Not Found",
   "801ab24683a4a8c433c6eb40c48bcd9d" : "Download",
   "6dd08874f83507e9c7b23f1a46b7fa7c" : "Translation",
+  "07a1d316d1065473f290c3c2b72a80f3" : "Application Words",
   "e3d388b2c43e5ba0905702620ae2abc1" : "Search for",
   "e2f9d206562d8f5ea421ad51100f7151" : "Displaying petition_entry{0} - {1} of {2}",
   "cd6ae20e52d83f601c5fa12b66f0f6d0" : "Rescan",
+  "91412465ea9169dfd901dd5e7c96dd99" : "Upload",
   "4d1c8263ba1036754f8db14a98f9f006" : "Reload",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "03c2e7e41ffc181a4e84080b4710e81e" : "New",
@@ -24,8 +25,8 @@
  "items" : [
   {
    "region" : "center",
+   "title" : "Application Words",
    "xtype" : "NestedLayoutPanel",
-   "title" : "Translations",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -35,8 +36,8 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "width" : 450,
        "$ xns" : "Roo",
+       "width" : 450,
        "split" : true,
        "* prop" : "west"
       },
@@ -96,7 +97,19 @@
           },
           {
            "listeners" : {
-            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n\n    var sn  = tree.getSelectionModel().getSelectedNode();\n    \n    p = {\n        csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',\n        csvTitles : 'Code,Module,Template,Original,Language,Translation',\n        limit : 9999,\n        sort: 'template_id_view_name,template_id_template,src_id_txt',\n        dir: 'ASC'\n    };\n    if (!sn ||  sn.id == 'transtree') {\n        Roo.MessageBox.alert(\"Error\", \"Select language, module or page\");\n        return;\n    }\n    if (typeof(sn.id) == 'number') {\n        p.template_id = sn.id;\n\n    }\n    if (sn.id.match(/^view:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n        p.template_id_view_name = sns[2];\n    }\n    if (sn.id.match(/^lang:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n\n   }\n    // transtree\n    // view: {lang} : {view_name}\n    // lang:\n     \n    new Pman.Download({\n        url : baseURL + '/Roo/Core_templatestr',\n        params : p,\n        method : 'GET' \n    });\n    \n    \n    \n    \n    \n}"
+            "click" : "function (_self, e)\n{\n    \n    \n    Pman.Dialog.Image.show({\n       _url : baseURL + '/Admin/Import/Core_templatestr',\n       \n    \n    }, function() {\n         _this.treepanel.tree.getRootNode().reload();\n    });\n    \n    \n    \n}"
+           },
+           "text" : "Upload",
+           "xtype" : "Button",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n\n    var sn  = tree.getSelectionModel().getSelectedNode();\n    \n    p = {\n        csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',\n        csvTitles : 'Code,Module,Template,Original,Language,Translation',\n        limit : 9999,\n        sort: 'template_id_view_name,template_id_template,src_id_txt',\n        dir: 'ASC'\n    };\n    if (!sn ||  sn.id == 'transtree') {\n        Roo.MessageBox.alert(\"Error\", \"Select language, module or page\");\n        return;\n    }\n    if (typeof(sn.id) == 'number') {\n        p.template_id = sn.id;\n\n    }\n    \n    \n    if (sn.id.match(/^table:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n        p.on_table = sns[2];\n        p.csvCols = 'src_id_mdsum,on_table,on_id,on_col,src_id_txt,lang,txt';\n        p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';\n    }\n    \n    if (sn.id.match(/^view:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n        p.template_id_view_name = sns[2];\n        \n    }\n    if (sn.id.match(/^lang:/)) {\n        var sns = sn.id.split(':');\n        p.lang = sns[1];\n\n   }\n    // transtree\n    // view: {lang} : {view_name}\n    // lang:\n     \n    new Pman.Download({\n        url : baseURL + '/Roo/Core_templatestr',\n        params : p,\n        method : 'GET' \n    });\n    \n    \n    \n    \n    \n}"
            },
            "text" : "Download",
            "xtype" : "Button",
@@ -227,7 +240,7 @@
           {
            "listeners" : {
             "update" : "function (_self, rec, operation)\n{\n    Roo.log(operation);\n    \n    if (operation != 'commit') {\n        return;\n    }\n    \n\n    _this.grid.getView().el.mask(\"Saving\");\n    new Pman.Request({\n        url : baseURL + '/Roo/Core_templatestr',\n        method: 'POST',\n        params : {\n            id : rec.get('id'),\n            txt : rec.get('txt')\n        },\n        success : function()\n        {\n            _this.grid.getView().el.unmask();\n                //g.getDataSource().reload();\n        },\n        failure : function()\n        {\n            _this.grid.getView().el.unmask();\n            Roo.MessageBox.alert(\"Error\", \"There was a problem saving the data - try reloading\");\n         }\n            \n    });\n    \n}",
-            "beforeload" : "function (_self, o)\n{\n   \n    var sn = _this.treepanel.tree.getSelectionModel().getSelectedNode();\n\n    if (!sn || typeof(sn.attributes) == 'undefined' || typeof(sn.attributes.leaf) == 'undefined' || !sn.attributes.leaf) { \n        _this.grid.ds.removeAll();\n        return false;\n    }\n\n    o.params = o.params || {};\n    o.params.lang =  sn.parentNode.attributes.id.split(':')[1];\n    o.params.template_id = sn.attributes.id * 1;\n    o.params.active = 1;\n    o.params['!src_id'] = 0;\n    \n    if (_this.searchBox && _this.searchBox.getValue().length) { \n        o.params['_search_txt'] = _this.searchBox.getValue();\n    }\n    \n    \n    if(sn.attributes.on_table){\n        o.params.on_table = sn.attributes.on_table;\n    }\n    \n}\n\n\n"
+            "beforeload" : "function (_self, o)\n{\n   \n    var sn = _this.treepanel.tree.getSelectionModel().getSelectedNode();\n\n    if (!sn || typeof(sn.attributes) == 'undefined' || typeof(sn.attributes.leaf) == 'undefined' || !sn.attributes.leaf) { \n        _this.grid.ds.removeAll();\n        return false;\n    }\n\n    o.params = o.params || {};\n    o.params.lang =  sn.parentNode.attributes.id.split(':')[1];\n   \n    o.params.active = 1;\n    o.params['!src_id'] = 0;\n    \n    if (_this.searchBox && _this.searchBox.getValue().length) { \n        o.params['_search_txt'] = _this.searchBox.getValue();\n    }\n    \n    \n    if(sn.attributes.on_table){\n        o.params.on_table = sn.attributes.on_table;\n    } else {\n         o.params.template_id = sn.attributes.id * 1;\n     }\n    \n}\n\n\n"
            },
            "xtype" : "Store",
            "remoteSort" : true,
@@ -237,8 +250,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_templatestr.php'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -255,8 +268,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 300,
            "header" : "Original",
+           "width" : 300,
            "$ renderer" : "function(v,x,r) \n{\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -264,8 +277,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 200,
            "header" : "Translation",
+           "width" : 200,
            "$ renderer" : "function(v,x,r) \n{ \n\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -288,8 +301,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 250,
            "header" : "md5",
+           "width" : 250,
            "$ renderer" : "function(v,x,r) \n{\n    return v ? v : '';\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",

@@ -46,6 +46,10 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $this->scanTables();
         $this->syncLanguage();
         
+        DB_DataObject::factory('core_template')->query(
+            "update core_template set is_deleted =  1 where filetype = ''"
+        );
+        
         $this->jok('OK');
         
     }
@@ -91,6 +95,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if($template->find(true)){
                     $o = clone ($template);
                 }
+                $template->filetype = 'bjs';
                 
                 $template->updated = $template->sqlValue("NOW()");
                 
@@ -109,6 +114,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     function scanPmanBJS()
     {
+        
+        $ids = array();
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
             
@@ -119,7 +126,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             if(!$dh){
                 continue;
             }
-            
+           
             while (($fn = readdir($dh)) !== false) {
             
                 if(empty($fn) || $fn[0] == '.' || !preg_match('/\.bjs$/', $fn)){
@@ -134,7 +141,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $template->setFrom(array(
                     'template' => $fn,
                     'lang' => 'en',
-                    'view_name' => $view_name
+                    'view_name' => $view_name,
+                    
                 ));
 
                 $o = false;
@@ -142,11 +150,13 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if($template->find(true)){
                     $o = clone ($template);
                 }
+                $template->is_deleted = 0;
 
+                $template->filetype = 'bjs';
                 $template->updated = $template->sqlValue("NOW()");
 
                 (empty($o)) ? $template->insert() : $template->update($o);
-
+                $ids[] = $template->id;
                 $data = json_decode(file_get_contents('Pman' . '/' . $m . '/' . $fn), true);
 
                 $template->words = empty($data['strings']) ? array() : $data['strings'];
@@ -155,6 +165,21 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $x->syncTemplateWords($template, false);
             }
         }
+        
+        $del = DB_DataObject::factory('core_template');
+        $del->whereAddIn('!id', $ids, 'int');
+        $del->whereAddIn('view_name', $this->modules(), 'string');
+        $del->filetype = 'bjs';
+        $delids = $del->fetchAll('id');
+        if ($delids) {
+            DB_DataObject::factory('core_template')->query(
+                'update core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
+            );
+        }
+        
+        
+        
+        
         
     }
     
@@ -224,13 +249,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             
             foreach($ar as $pg) {
-                
                  
-                $tp->syncTemplatePage(array(
+                $temp = $tp->syncTemplatePage(array(
                     'base' =>'Pman.'.$m, 
                     'template_dir' =>  "Pman/$m/templates",
                     'template' => $pg
                 ));
+                if ($temp) {
+                    $ids[] = $temp->id;
+                }
             }
             // should clean up old templates..
             // php files..
@@ -245,11 +272,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             foreach($ar as $pg) {
                 
-                $tp->syncPhpGetText(array(
+                $temp = $tp->syncPhpGetText(array(
                     'base' =>'Pman.'.$m, 
                     'template_dir' =>  "Pman/$m",
                     'template' => $pg
                 ));
+                if ($temp) {
+                    $ids[] = $temp->id;
+                }
+                
             }
             
             
@@ -258,7 +289,16 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             //$tp->syncTemplatePage($pg);
         }
-        
+        $del = DB_DataObject::factory('core_template');
+        $del->whereAddIn('!id', $ids, 'int');
+        $del->whereAddIn('view_name', $this->modules(), 'string');
+        $del->whereAddIn('filetype' , array( 'php', 'html' ), 'string');
+        $delids = $del->fetchAll('id');
+        if ($delids) {
+            DB_DataObject::factory('core_template')->query(
+                'update core_template set is_deleted =  1 where id in('. implode(',', $delids). ')'
+            );
+        }
          
     }
     

@@ -8,14 +8,15 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
 
  _strings : {
   '0a52da7a03a6de3beefe54f8c03ad80d' :"Original",
-  '0b8d92bc19b720bb1065649535463409' :"Translations",
   '69fd71b6f79260924a32a45850a13ab7' :"Translations (rescan this to update strings)",
   '9d1ead73e678fa2f51a70a933b0bf017' :"Not Found",
   '801ab24683a4a8c433c6eb40c48bcd9d' :"Download",
   '6dd08874f83507e9c7b23f1a46b7fa7c' :"Translation",
+  '07a1d316d1065473f290c3c2b72a80f3' :"Application Words",
   'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
   'e2f9d206562d8f5ea421ad51100f7151' :"Displaying petition_entry{0} - {1} of {2}",
   'cd6ae20e52d83f601c5fa12b66f0f6d0' :"Rescan",
+  '91412465ea9169dfd901dd5e7c96dd99' :"Upload",
   '4d1c8263ba1036754f8db14a98f9f006' :"Reload",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '03c2e7e41ffc181a4e84080b4710e81e' :"New",
@@ -26,7 +27,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   part     :  ["Admin", "Translations" ],
   order    : '950-Pman.Tab.AdminTranslations',
   region   : 'center',
-  parent   : 'Pman.Tab.Admin',
+  parent   : 'Pman.Tab.AdminTranslationsInt',
   name     : "Admin - Translations",
   disabled : false, 
   permname : 'Admin.Translations', 
@@ -37,7 +38,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
    return {
    xtype : 'NestedLayoutPanel',
    region : 'center',
-   title : _this._strings['0b8d92bc19b720bb1065649535463409'] /* Translations */,
+   title : _this._strings['07a1d316d1065473f290c3c2b72a80f3'] /* Application Words */,
    xns : Roo,
    '|xns' : 'Roo',
    layout : {
@@ -211,6 +212,34 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
         },
         {
          xtype : 'Button',
+         text : _this._strings['91412465ea9169dfd901dd5e7c96dd99'] /* Upload */,
+         listeners : {
+          click : function (_self, e)
+           {
+               
+               
+               Pman.Dialog.Image.show({
+                  _url : baseURL + '/Admin/Import/Core_templatestr',
+                  
+               
+               }, function() {
+                    _this.treepanel.tree.getRootNode().reload();
+               });
+               
+               
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Fill',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
          text : _this._strings['801ab24683a4a8c433c6eb40c48bcd9d'] /* Download */,
          listeners : {
           click : function (_self, e)
@@ -234,10 +263,21 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    p.template_id = sn.id;
            
                }
+               
+               
+               if (sn.id.match(/^table:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+                   p.on_table = sns[2];
+                   p.csvCols = 'src_id_mdsum,on_table,on_id,on_col,src_id_txt,lang,txt';
+                   p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';
+               }
+               
                if (sn.id.match(/^view:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
                    p.template_id_view_name = sns[2];
+                   
                }
                if (sn.id.match(/^lang:/)) {
                    var sns = sn.id.split(':');
@@ -543,7 +583,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
           
               o.params = o.params || {};
               o.params.lang =  sn.parentNode.attributes.id.split(':')[1];
-              o.params.template_id = sn.attributes.id * 1;
+             
               o.params.active = 1;
               o.params['!src_id'] = 0;
               
@@ -554,7 +594,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
               
               if(sn.attributes.on_table){
                   o.params.on_table = sn.attributes.on_table;
-              }
+              } else {
+                   o.params.template_id = sn.attributes.id * 1;
+               }
               
           },
          update : function (_self, rec, operation)
