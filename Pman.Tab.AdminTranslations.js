@@ -220,8 +220,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                
                Pman.Dialog.Image.show({
                   _url : baseURL + '/Admin/Import/Core_templatestr' 
-                  
-               
+                
                }, function() {
                     _this.treepanel.tree.getRootNode().reload();
                });
