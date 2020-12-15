@@ -165,7 +165,7 @@ Pman.Dialog.AdminLanguagePick = {
            listeners : {
             beforeload : function (_self, o)
              {
-                 o.params['!code'] = 'en'; // exclude english from the list (it's the default?)
+                //  o.params['!code'] = 'en'; // exclude english from the list (it's the default?)
              }
            },
            xns : Roo.data,

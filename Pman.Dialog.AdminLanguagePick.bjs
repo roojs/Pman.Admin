@@ -42,8 +42,8 @@
         "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
        },
        "$ url" : "baseURL + '/Roo/INGORE.php'",
-       "xtype" : "Form",
        "method" : "GET",
+       "xtype" : "Form",
        "style" : "margin:10px;",
        "$ xns" : "Roo.form",
        "items" : [
@@ -64,7 +64,7 @@
          "items" : [
           {
            "listeners" : {
-            "beforeload" : "function (_self, o)\n{\n    o.params['!code'] = 'en'; // exclude english from the list (it's the default?)\n}"
+            "beforeload" : "function (_self, o)\n{\n   //  o.params['!code'] = 'en'; // exclude english from the list (it's the default?)\n}"
            },
            "xtype" : "Store",
            "$ xns" : "Roo.data",
@@ -72,8 +72,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Core/I18n/Lang'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
