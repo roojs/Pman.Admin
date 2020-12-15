@@ -1,7 +1,6 @@
 <?php
 
-// see core_template code..
- 
+
 /**
  * Pman_Admin_Translation:
  * - the latest version of this....
