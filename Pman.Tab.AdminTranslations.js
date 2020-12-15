@@ -223,7 +223,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                   
                
                }, function() {
-                   _this.
+                    _this.treepanel.tree.getRootNode().reload();
                });
                
                
