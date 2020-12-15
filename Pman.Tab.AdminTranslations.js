@@ -16,6 +16,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
   'e3d388b2c43e5ba0905702620ae2abc1' :"Search for",
   'e2f9d206562d8f5ea421ad51100f7151' :"Displaying petition_entry{0} - {1} of {2}",
   'cd6ae20e52d83f601c5fa12b66f0f6d0' :"Rescan",
+  '91412465ea9169dfd901dd5e7c96dd99' :"Upload",
   '4d1c8263ba1036754f8db14a98f9f006' :"Reload",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '03c2e7e41ffc181a4e84080b4710e81e' :"New",
@@ -194,6 +195,76 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    syncLanguage();
                    return;
                }
+               
+               
+               
+               
+               
+           }
+         },
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Fill',
+         xns : Roo.Toolbar,
+         '|xns' : 'Roo.Toolbar'
+        },
+        {
+         xtype : 'Button',
+         text : _this._strings['91412465ea9169dfd901dd5e7c96dd99'] /* Upload */,
+         listeners : {
+          click : function (_self, e)
+           {
+               var tree = _this.treepanel.tree;
+           
+               var sn  = tree.getSelectionModel().getSelectedNode();
+               
+               p = {
+                   csvCols : 'src_id_mdsum,template_id_view_name,template_id_template,src_id_txt,lang,txt',
+                   csvTitles : 'Code,Module,Template,Original,Language,Translation',
+                   limit : 9999,
+                   sort: 'template_id_view_name,template_id_template,src_id_txt',
+                   dir: 'ASC'
+               };
+               if (!sn ||  sn.id == 'transtree') {
+                   Roo.MessageBox.alert("Error", "Select language, module or page");
+                   return;
+               }
+               if (typeof(sn.id) == 'number') {
+                   p.template_id = sn.id;
+           
+               }
+               
+               
+               if (sn.id.match(/^table:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+                   p.on_table = sns[2];
+                   p.csvCols = 'src_id_mdsum,on_table,on_id,on_col,src_id_txt,lang,txt';
+                   p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';
+               }
+               
+               if (sn.id.match(/^view:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+                   p.template_id_view_name = sns[2];
+                   
+               }
+               if (sn.id.match(/^lang:/)) {
+                   var sns = sn.id.split(':');
+                   p.lang = sns[1];
+           
+              }
+               // transtree
+               // view: {lang} : {view_name}
+               // lang:
+                
+               new Pman.Download({
+                   url : baseURL + '/Roo/Core_templatestr',
+                   params : p,
+                   method : 'GET' 
+               });
                
                
                
