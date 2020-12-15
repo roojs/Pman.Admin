@@ -78,6 +78,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         exit;
         
     }
+    */
     function processRows($rows)
     { 
         $ret = array();
