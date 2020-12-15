@@ -198,7 +198,7 @@ class Pman_Admin_Translations extends Pman
                     $line = array(
                         'module' => $module,
                         'tfile' => preg_replace('/\.js$/','',  basename($bjs)),
-                    )
+                    );
                     
                     
                 }
