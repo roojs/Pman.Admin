@@ -89,25 +89,25 @@ class Pman_Admin_InterfaceTranslations extends Pman
          //var_dump($tfile);
         //if (empty($tfile) || !file_exists($tfile)) {
             
-            foreach($info->filesmtime as $f =>$mt) {
-                $bjs = preg_replace('/\.js$/','.bjs', $f);
-                if (!file_exists($bjs)) {
-                    continue;
-                }
-                $jd = json_decode(file_get_contents($bjs));
-                if (empty($jd->strings)) {
-                    continue;
-                }
-                $this->original[str_replace('.bjs', '', basename($bjs)) ] = array_flip((array)$jd->strings);
+        foreach($info->filesmtime as $f =>$mt) {
+            $bjs = preg_replace('/\.js$/','.bjs', $f);
+            if (!file_exists($bjs)) {
+                continue;
             }
-             
-            file_put_contents($tfile, json_encode($this->original));
-            
+            $jd = json_decode(file_get_contents($bjs));
+            if (empty($jd->strings)) {
+                continue;
+            }
+            $this->original[str_replace('.bjs', '', basename($bjs)) ] = array_flip((array)$jd->strings);
+        }
+         
+        file_put_contents($tfile, json_encode($this->original));
+        
             
         //}
         
         
-        print_R($this->original);exit;
+        //print_R($this->original);exit;
         
         
         $this->original = (array) json_decode( file_get_contents($tfile) );
