@@ -17,7 +17,7 @@ Pman.Tab.AdminContactsManager = new Roo.XComponent({
   name     : "Pman.Tab.AdminContactsManager",
   disabled : false, 
   permname : 'Core.Person', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;

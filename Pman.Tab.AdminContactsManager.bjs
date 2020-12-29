@@ -2,7 +2,7 @@
  "name" : "Pman.Tab.AdminContactsManager",
  "parent" : "Pman.Tab.Admin",
  "title" : "Pman.Tab.AdminContactsManager",
- "path" : "/home/edward/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContactsManager.bjs",
  "permname" : "Core.Person",
  "modOrder" : "060",
  "strings" : {
@@ -23,16 +23,16 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "tabPosition" : "top",
        "width" : 250,
+       "tabPosition" : "top",
        "$ xns" : "Roo",
        "split" : true,
        "* prop" : "west"
       },
       {
        "xtype" : "LayoutRegion",
-       "tabPosition" : "top",
        "$ xns" : "Roo",
+       "tabPosition" : "top",
        "* prop" : "center"
       }
      ]
