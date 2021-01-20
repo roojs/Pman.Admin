@@ -124,7 +124,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     
     function updateTableTranslation($r)
     {
-        //print_R($r); DB_DataObject::DebugLevel(1);
+         print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
 
