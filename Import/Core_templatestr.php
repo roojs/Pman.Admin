@@ -130,8 +130,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
        
         $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
-        $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['column'])}'");
-       // $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
+        $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['talbe'])}'");
+        $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
         $tr->lang = $r['translation'];
         if ($tr->find(true) && strlen(trim($r['txt']))) {
             $tt = DB_DataObject::Factory('core_templatestr');
