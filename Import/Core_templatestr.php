@@ -83,6 +83,11 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     { 
         $ret = array();
         foreach($rows as $r) {
+            if (isset($r['table id'])) {
+                $ret[] = $this->updateTableTranslation($r);
+                continue;
+            }
+            
             $ret[] = $this->updateTranslation($r);
             
         }
@@ -107,6 +112,32 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tt->get($tr->id);
             $tr= clone($tt);
             $tt->txt = $r['translation'];
+            $tt->updated = date('Y-m-d H:i:s');
+            $tt->update($tr);
+             
+            return 1;
+        }
+        return 0;
+    }
+    
+    
+    
+    function updateTableTranslation($r)
+    {
+        //print_R($r); DB_DataObject::DebugLevel(1);
+        $tr = DB_DataObject::Factory('core_templatestr');
+        $tr->autoJoin();
+
+       
+        $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
+        $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['column'])}'");
+       // $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
+        $tr->lang = $r['translation'];
+        if ($tr->find(true) && strlen(trim($r['txt']))) {
+            $tt = DB_DataObject::Factory('core_templatestr');
+            $tt->get($tr->id);
+            $tr= clone($tt);
+            $tt->txt = $r['txt'];
             $tt->updated = date('Y-m-d H:i:s');
             $tt->update($tr);
              
