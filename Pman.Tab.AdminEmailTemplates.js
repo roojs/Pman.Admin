@@ -404,7 +404,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
       region : 'south',
       title : _this._strings['9e11143e29a031212f2cdefcf61f39e9'] /* View Message */,
       listeners : {
-       true : function (_self)
+       render : function (_self)
         {
             _this.viewPanel = _self;
         }

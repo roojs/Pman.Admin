@@ -256,7 +256,7 @@
       },
       {
        "listeners" : {
-        "true" : "function (_self)\n{\n    _this.viewPanel = _self;\n}"
+        "render" : "function (_self)\n{\n    _this.viewPanel = _self;\n}"
        },
        "background" : false,
        "region" : "south",
