@@ -59,7 +59,6 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
     },
     south : {
      xtype : 'LayoutRegion',
-     autoScroll : false,
      height : 300,
      split : true,
      titlebar : true,
@@ -447,40 +446,7 @@ Pman.Tab.AdminEmailTemplates = new Roo.XComponent({
                   this.removeAll();
                   return false;
               }
-            /*  
-              new Pman.Request({
-                  url : baseURL + '/Roo/crm_action.php',
-                  method : 'GET',
-                  params : {
-                      person_id : p.data.id,
-                      sort : 'action_dt',
-                      dir : 'DESC'
-                  },
-                  success : function(res) {
-                      if(res.success){
-                          var el = _this.cpanel.el.select('.crm-history-content').first();
-                          _this.historyTemplate.overwrite(el, res);
-                          el.select('.crm-history-log').on('click', Pman.Crm.auditToggle);
-                          //Roo.log(res);
-                      }
-                  },
-                  failure : function(e) {
-                      //Roo.log(e);
-                    _this.grid.ds.load({});
-                  }
-                  
-              });
-              */
-          
-          //_this.historyTemplate = new Roo.DomTemplate({url : rootURL+'/Pman/Crm/domtemplates/crm_history.html'})
-          
-          /*
-            new pman request ([
-            
-            } successs(data)
-                 el = _this.elemmnt.select('.services')
-                 _this.serviceTemplate.overwite(el, data)
-            */
+           
           }
         },
         xns : Roo.data,
