@@ -6,6 +6,7 @@
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
+  "aed6676e8238afe7cf55e3baf2ad72a2" : "Search Subject",
   "136fac3c5c5881e0a7d0039e57decd68" : "Select notify type",
   "bf1cb7e2a337a5e2ebf614009cbce9cc" : "Current Notifications",
   "8535bcc0f05358a583bb432bbadf7e0d" : "Select type",
@@ -34,8 +35,8 @@
     "render" : "function (_self)\n{\n    _this.nest = this;\n}"
    },
    "xtype" : "NestedLayoutPanel",
-   "$ xns" : "Roo",
    "String region" : "center",
+   "$ xns" : "Roo",
    "String title" : "Current Notifications",
    "Boolean background" : false,
    "items" : [
@@ -51,8 +52,8 @@
       },
       {
        "autoScroll" : true,
-       "xtype" : "LayoutRegion",
        "String collapsedTitle" : "View Details",
+       "xtype" : "LayoutRegion",
        "$ xns" : "Roo",
        "Boolean collapsible" : true,
        "split" : true,
@@ -65,9 +66,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n    \n}"
        },
-       "bool background" : true,
-       "fitToframe" : true,
+       "bool background" : false,
        "region" : "center",
+       "fitToframe" : true,
        "title" : "Current Notifications",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -86,7 +87,7 @@
          "items" : [
           {
            "listeners" : {
-            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params._evtype_align = 1;\n    \n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    } else  {\n        options.params['!event_id'] = 0;\n    }\n    \n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n    var from = _this.fromDateSel.getValue();\n    \n    if(from){\n        options.params.from = from.format('Y-m-d');\n    }\n    \n    var to = _this.toDateSel.getValue();\n    \n    if(to){\n        options.params.to = to.format('Y-m-d');\n    }\n    \n    var type = _this.typeCombo.getValue();\n    \n    if(type.length){\n        options.params.evtype = type;\n    }\n}"
+            "beforeload" : "function (_self, options)\n{\n    options.params = options.params || {};\n    \n    options.params._evtype_align = 1;\n    \n    if (!_this.toggleBtn.pressed) {\n        options.params['event_id'] = 0;\n    } else  {\n        options.params['!event_id'] = 0;\n    }\n    \n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n    \n    var from = _this.fromDateSel.getValue();\n    \n    if(from){\n        options.params.from = from.format('Y-m-d');\n    }\n    \n    var to = _this.toDateSel.getValue();\n    \n    if(to){\n        options.params.to = to.format('Y-m-d');\n    }\n    \n    var type = _this.typeCombo.getValue();\n    \n    if(type.length){\n        options.params.evtype = type;\n    }\n    options.params['search[contains]'] = _this.searchBox.getValue();\n    \n}"
            },
            "xtype" : "Store",
            "remoteSort" : true,
@@ -96,8 +97,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/core_notify.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -137,6 +138,15 @@
            "items" : [
             {
              "listeners" : {
+              "specialkey" : "function (_self, e)\n{\n    _this.grid.footer.onClick('first');\n}",
+              "render" : "function (_self)\n{\n    _this.searchBox = this;\n}"
+             },
+             "xtype" : "TextField",
+             "String emptyText" : "Search Subject",
+             "$ xns" : "Roo.form"
+            },
+            {
+             "listeners" : {
               "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
               "select" : "function (combo, record, index)\n{\n   _this.grid.footer.onClick('first');\n}"
              },
@@ -171,8 +181,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/core_notify.php'",
-                 "method" : "GET",
                  "xtype" : "HttpProxy",
+                 "method" : "GET",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -229,8 +239,8 @@
                "items" : [
                 {
                  "$ url" : "baseURL + '/Roo/core_enum.php'",
-                 "xtype" : "HttpProxy",
                  "method" : "GET",
+                 "xtype" : "HttpProxy",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy"
                 },
@@ -353,8 +363,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Ontable",
            "width" : 150,
+           "header" : "Ontable",
            "$ renderer" : "function(v,x,r) { return String.format('{0}:{1}', v,r.data.onid); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -362,8 +372,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Who to notify",
            "width" : 100,
+           "header" : "Who to notify",
            "$ renderer" : "function(v,x,r) {\n\n    var pt = r.data.person_table.toLowerCase() ;\n    var pt = pt.length ? pt : 'person';\n     var ecol = pt + '_id_email' ;\n     var ncol = pt + '_id_name' ;\n     return String.format('{0} <u>&lt;{1}&gt;</u>', r.data[ncol], r.data[ecol]); \n }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -371,8 +381,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Triggered by",
            "width" : 100,
+           "header" : "Triggered by",
            "$ renderer" : "function(v,x,r) {\n     return String.format(\n            '{0} : {1} {2}', \n            r.data.trigger_event_id_on_table, \n            r.data.trigger_event_id_on_id, \n            r.data.trigger_event_id_remarks\n        ); \n }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -380,8 +390,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "width" : 50,
            "header" : "Msgid",
+           "width" : 50,
            "$ renderer" : "function(v) { return String.format('{0}', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
@@ -389,8 +399,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Event",
            "width" : 300,
+           "header" : "Event",
            "$ renderer" : "function(v) { return String.format('<span qtip=\"{0}\">{0}</span>', v); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",

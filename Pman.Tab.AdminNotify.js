@@ -7,6 +7,7 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminNotify = new Roo.XComponent({
 
  _strings : {
+  'aed6676e8238afe7cf55e3baf2ad72a2' :"Search Subject",
   '136fac3c5c5881e0a7d0039e57decd68' :"Select notify type",
   'bf1cb7e2a337a5e2ebf614009cbce9cc' :"Current Notifications",
   '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
@@ -77,7 +78,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     items  : [
      {
       xtype : 'GridPanel',
-      background : true,
+      background : false,
       fitContainer : true,
       fitToframe : true,
       region : 'center',
@@ -124,6 +125,22 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
         xns : Roo,
         '|xns' : 'Roo',
         items  : [
+         {
+          xtype : 'TextField',
+          emptyText : _this._strings['aed6676e8238afe7cf55e3baf2ad72a2'] /* Search Subject */,
+          listeners : {
+           render : function (_self)
+            {
+                _this.searchBox = this;
+            },
+           specialkey : function (_self, e)
+            {
+                _this.grid.footer.onClick('first');
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
          {
           xtype : 'ComboBox',
           allowBlank : true,
@@ -393,6 +410,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
               if(type.length){
                   options.params.evtype = type;
               }
+              options.params['search[contains]'] = _this.searchBox.getValue();
+              
           }
         },
         xns : Roo.data,
