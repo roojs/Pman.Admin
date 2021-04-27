@@ -22,9 +22,9 @@ Pman.Dialog.AdminPerson = {
   'role_fieldLabel' : 'bbbabdbe1b262f75d99d62880b953be1' /* Role */ ,
   'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
+  'phone_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
   'office_id_name_fieldLabel' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  '150_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
   'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ ,
   'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ 
  },
@@ -246,8 +246,8 @@ Pman.Dialog.AdminPerson = {
          {
           xtype : 'TextField',
           fieldLabel : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
-          name : 150,
-          width : 200,
+          name : 'phone',
+          width : 150,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
