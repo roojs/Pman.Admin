@@ -95,7 +95,7 @@
         {
          "fieldLabel" : "Role / Position",
          "xtype" : "TextField",
-         "width" : 200,
+         "width" : 250,
          "$ xns" : "Roo.form",
          "name" : "role"
         },

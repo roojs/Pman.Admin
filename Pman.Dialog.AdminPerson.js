@@ -210,7 +210,7 @@ Pman.Dialog.AdminPerson = {
           xtype : 'TextField',
           fieldLabel : _this._strings['8a25a3ae30ab6e8ceb5b8c4009a3336f'] /* Role / Position */,
           name : 'role',
-          width : 200,
+          width : 250,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
