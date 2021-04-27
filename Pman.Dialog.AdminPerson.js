@@ -8,10 +8,10 @@ Pman.Dialog.AdminPerson = {
 
  _strings : {
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
+  '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
-  '8f1e77e0d2be21da93cd4d9a939148f7' :"Change Password",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -269,18 +269,20 @@ Pman.Dialog.AdminPerson = {
          },
          {
           xtype : 'FieldSet',
-          legend : _this._strings['8f1e77e0d2be21da93cd4d9a939148f7'] /* Change Password */,
+          legend : _this._strings['7573b7fd7836c9118dbfb69f3abf3858'] /* Change / Set Password */,
           xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          allowBlank : false,
-          fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
-          name : 'email',
-          width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
+          '|xns' : 'Roo.form',
+          items  : [
+           {
+            xtype : 'TextField',
+            allowBlank : false,
+            fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
+            name : 'email',
+            width : 200,
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           }
+          ]
          }
         ]
        }
