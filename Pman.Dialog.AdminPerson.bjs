@@ -230,7 +230,7 @@
        "xtype" : "Grid",
        "loadMask" : true,
        "$ xns" : "Roo.grid",
-       "* prop" : "grid",
+       "* prop" : "data",
        "items" : [
         {
          "listeners" : {
