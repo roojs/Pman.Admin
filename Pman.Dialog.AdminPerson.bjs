@@ -124,7 +124,7 @@
          "fieldLabel" : "Name",
          "xtype" : "TextField",
          "allowBlank" : true,
-         "width" : 300,
+         "width" : 250,
          "$ xns" : "Roo.form",
          "name" : "name"
         },

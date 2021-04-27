@@ -233,7 +233,7 @@ Pman.Dialog.AdminPerson = {
           allowBlank : true,
           fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
           name : 'name',
-          width : 300,
+          width : 250,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
