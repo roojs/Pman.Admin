@@ -278,7 +278,7 @@ Pman.Dialog.AdminPerson = {
           items  : [
            {
             xtype : 'SecurePass',
-            allowBlank : false,
+            allowBlank : true,
             fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
             name : 'passwd1',
             width : 200,
@@ -287,7 +287,7 @@ Pman.Dialog.AdminPerson = {
            },
            {
             xtype : 'TextField',
-            allowBlank : false,
+            allowBlank : true,
             fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
             name : 'passwd1',
             width : 200,
