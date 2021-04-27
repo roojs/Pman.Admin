@@ -7,7 +7,6 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminSettings = new Roo.XComponent({
 
  _strings : {
-  '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   '689202409e48743b914713f96d93947c' :"Value",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
@@ -86,31 +85,6 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
      xns : Roo,
      '|xns' : 'Roo',
      items  : [
-      {
-       xtype : 'Button',
-       cls : 'x-btn-text-icon',
-       icon : Roo.rootURL + 'images/default/tree/leaf.gif',
-       text : _this._strings['7dce122004969d56ae2e0245cb754d35'] /* Edit */,
-       listeners : {
-        click : function()
-         {
-             var s = _this.grid.getSelectionModel().getSelections();
-             if (!s.length || (s.length > 1))  {
-                 Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
-                 return;
-             }
-             if (!_this.dialog) {
-                 return;
-             }
-             _this.dialog.show(s[0].data, function() {
-                 _this.grid.footer.onClick('first');
-             }); 
-             
-         }
-       },
-       xns : Roo.Toolbar,
-       '|xns' : 'Roo.Toolbar'
-      },
       {
        xtype : 'Fill',
        xns : Roo.Toolbar,
