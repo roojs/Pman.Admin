@@ -211,24 +211,6 @@ Pman.Dialog.AdminPerson = {
           valueField : 'id',
           width : 250,
           listeners : {
-           add : function (combo)
-            {
-                var coid = _this.form.findField('company_id').getValue();
-                if (!coid ) {
-                
-                     Ext.MessageBox.alert("Error", "Select An Company First");
-                    return false;
-            
-                }
-                Pman.Dialog.Office.show(cfg, function(data) {
-                            _this.form.setValues({
-                                office_id_name : data.name,
-                                office_id : data.id
-                        });
-                    }); 
-                
-                
-            },
            beforequery : function (combo, query, forceAll, cancel, e)
             {
                     var coid = _this.form.findField('company_id').getValue();
