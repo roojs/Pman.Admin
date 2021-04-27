@@ -592,6 +592,15 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
+      dataIndex : 'phone',
+      header : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
+      renderer : function(v) { return String.format('{0}', v); },
+      width : 100,
+      xns : Roo.grid,
+      '|xns' : 'Roo.grid'
+     },
+     {
+      xtype : 'ColumnModel',
       dataIndex : 'email',
       header : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
       renderer : function(v) {
