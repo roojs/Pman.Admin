@@ -160,13 +160,13 @@
          "xtype" : "FieldSet",
          "$ xns" : "Roo.form",
          "String legend" : "Change / Set Password",
-         "String/Object/Function style" : "width:350px",
+         "String/Object/Function style" : "width:380px",
          "items" : [
           {
            "fieldLabel" : "Enter password",
            "xtype" : "SecurePass",
            "allowBlank" : false,
-           "width" : 150,
+           "width" : 200,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
           },
