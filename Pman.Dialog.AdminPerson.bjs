@@ -163,7 +163,7 @@
          "xtype" : "FieldSet",
          "$ xns" : "Roo.form",
          "String legend" : "Change / Set Password",
-         "String/Object/Function style" : "width:370px",
+         "String/Object/Function style" : "width:300px",
          "Number labelWidth" : 200,
          "items" : [
           {
