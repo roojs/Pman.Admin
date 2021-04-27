@@ -11,6 +11,7 @@ Pman.Dialog.AdminPerson = {
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
+  '8f1e77e0d2be21da93cd4d9a939148f7' :"Change Password",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -268,6 +269,7 @@ Pman.Dialog.AdminPerson = {
          },
          {
           xtype : 'FieldSet',
+          legend : _this._strings['8f1e77e0d2be21da93cd4d9a939148f7'] /* Change Password */,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
