@@ -29,8 +29,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'bbbabdbe1b262f75d99d62880b953be1' :"Role",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
-  'd4d25ad0a12e8d30e9d8d35230f6d1d3' :"Show Removed",
-  '9810aa2b9f44401be4bf73188ef2b67d' :"Fax"
+  'd4d25ad0a12e8d30e9d8d35230f6d1d3' :"Show Removed"
  },
  _named_strings : {
   'company_name_emptyText' : '99b344c8ae43e3e7213862b8f35c4e51' /* Select Company */ ,
@@ -586,15 +585,6 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'phone',
       header : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
-      renderer : function(v) { return String.format('{0}', v); },
-      width : 100,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'fax',
-      header : _this._strings['9810aa2b9f44401be4bf73188ef2b67d'] /* Fax */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 100,
       xns : Roo.grid,
