@@ -16,17 +16,15 @@ Pman.Dialog.AdminPerson = {
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'bbbabdbe1b262f75d99d62880b953be1' :"Role",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save",
-  '9810aa2b9f44401be4bf73188ef2b67d' :"Fax"
+  'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
   'role_fieldLabel' : 'bbbabdbe1b262f75d99d62880b953be1' /* Role */ ,
-  'fax_fieldLabel' : '9810aa2b9f44401be4bf73188ef2b67d' /* Fax */ ,
   'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
-  'phone_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
   'office_id_name_fieldLabel' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  '150_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
   'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ ,
   'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ 
  },
@@ -248,15 +246,7 @@ Pman.Dialog.AdminPerson = {
          {
           xtype : 'TextField',
           fieldLabel : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
-          name : 'phone',
-          width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          fieldLabel : _this._strings['9810aa2b9f44401be4bf73188ef2b67d'] /* Fax */,
-          name : 'fax',
+          name : 150,
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
