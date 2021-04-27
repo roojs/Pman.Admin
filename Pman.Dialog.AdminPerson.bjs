@@ -243,7 +243,7 @@
          "* prop" : "dataSource",
          "items" : [
           {
-           "$ url" : "baseURL + '/Roo/core_setting'",
+           "$ url" : "baseURL + '/Roo/core_person_settings'",
            "method" : "GET",
            "xtype" : "HttpProxy",
            "$ xns" : "Roo.data",

@@ -429,7 +429,7 @@ Pman.Dialog.AdminPerson = {
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/core_setting',
+         url : baseURL + '/Roo/core_person_settings',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
