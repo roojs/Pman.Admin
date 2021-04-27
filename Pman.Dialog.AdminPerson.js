@@ -477,7 +477,7 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'val',
+         dataIndex : 'data',
          header : _this._strings['689202409e48743b914713f96d93947c'] /* Value */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,

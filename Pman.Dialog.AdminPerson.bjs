@@ -316,7 +316,7 @@
          "$ renderer" : "function(v) { return String.format('{0}', v); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "val"
+         "dataIndex" : "data"
         },
         {
          "listeners" : {
