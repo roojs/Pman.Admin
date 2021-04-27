@@ -70,7 +70,7 @@ Pman.Dialog.AdminPerson = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 350,
+    height : 400,
     resizable : false,
     title : _this._strings['2b0d7f748b64304e6657207cb03cd8f2'] /* Edit / Create Staff Details */,
     width : 450,
