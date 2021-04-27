@@ -156,7 +156,11 @@ Pman.Dialog.AdminPerson = {
               if (action.type == 'setdata') {
                   _this.dialog.layout.getRegion('center').show(0);
                  //_this.dialog.el.mask("Loading");
-                  this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                 if ( _this.data.id* 1 > 0) { 
+                      this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                      return;
+                  }
+                  this.form.findField('company_id').setValue(Pman.Login.authUser.company_id);
                  return;
               }
               if (action.type == 'load') {
