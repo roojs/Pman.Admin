@@ -183,7 +183,7 @@
           {
            "fieldLabel" : "New password",
            "xtype" : "SecurePass",
-           "string inputType" : "",
+           "string inputType" : "password",
            "width" : 150,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
@@ -192,6 +192,7 @@
            "fieldLabel" : "Password (type again to confirm)",
            "xtype" : "TextField",
            "allowBlank" : true,
+           "String inputType" : "password",
            "width" : 150,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
