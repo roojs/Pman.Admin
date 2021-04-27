@@ -238,7 +238,7 @@ Pman.Dialog.AdminPerson = {
            proxy : {
             xtype : 'HttpProxy',
             method : 'GET',
-            url : baseURL + '/Roo/Office.php',
+            url : baseURL + '/Roo/core_office',
             xns : Roo.data,
             '|xns' : 'Roo.data'
            },
