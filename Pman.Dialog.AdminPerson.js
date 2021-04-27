@@ -280,7 +280,7 @@ Pman.Dialog.AdminPerson = {
             allowBlank : false,
             fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
             name : 'passwd1',
-            width : 200,
+            width : 150,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            },

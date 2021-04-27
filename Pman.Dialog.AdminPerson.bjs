@@ -165,7 +165,7 @@
            "fieldLabel" : "Enter password",
            "xtype" : "SecurePass",
            "allowBlank" : false,
-           "width" : 200,
+           "width" : 150,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
           },
