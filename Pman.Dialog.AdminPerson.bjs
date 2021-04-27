@@ -185,7 +185,6 @@
            "xtype" : "SecurePass",
            "width" : 150,
            "$ xns" : "Roo.form",
-           "`" : true,
            "name" : "passwd1"
           },
           {

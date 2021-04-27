@@ -309,7 +309,6 @@ Pman.Dialog.AdminPerson = {
           items  : [
            {
             xtype : 'SecurePass',
-            '`' : true,
             fieldLabel : _this._strings['3544848f820b9d94a3f3871a382cf138'] /* New password */,
             name : 'passwd1',
             width : 150,
