@@ -276,7 +276,7 @@ Pman.Dialog.AdminPerson = {
           '|xns' : 'Roo.form',
           items  : [
            {
-            xtype : 'TextField',
+            xtype : 'SecurePass',
             allowBlank : false,
             fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
             name : 'passwd1',

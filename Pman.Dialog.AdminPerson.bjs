@@ -163,7 +163,7 @@
          "items" : [
           {
            "fieldLabel" : "Enter password",
-           "xtype" : "TextField",
+           "xtype" : "SecurePass",
            "allowBlank" : false,
            "width" : 200,
            "$ xns" : "Roo.form",
