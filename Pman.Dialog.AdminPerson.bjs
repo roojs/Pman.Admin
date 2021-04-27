@@ -81,7 +81,7 @@
          "allowBlank" : false,
          "typeAhead" : true,
          "editable" : false,
-         "width" : 300,
+         "width" : 250,
          "$ xns" : "Roo.form",
          "name" : "office_id_name",
          "qtip" : "Select Office",

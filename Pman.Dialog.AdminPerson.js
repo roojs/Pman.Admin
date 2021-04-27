@@ -165,7 +165,7 @@ Pman.Dialog.AdminPerson = {
           triggerAction : 'all',
           typeAhead : true,
           valueField : 'id',
-          width : 300,
+          width : 250,
           listeners : {
            add : function (combo)
             {
