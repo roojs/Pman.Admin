@@ -166,6 +166,11 @@
         {
          "xtype" : "Hidden",
          "$ xns" : "Roo.form",
+         "name" : "company_id"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
          "name" : "id"
         },
         {
