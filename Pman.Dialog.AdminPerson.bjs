@@ -148,7 +148,7 @@
          "fieldLabel" : "Email",
          "xtype" : "TextField",
          "allowBlank" : false,
-         "width" : 200,
+         "width" : 250,
          "$ xns" : "Roo.form",
          "name" : "email"
         },
