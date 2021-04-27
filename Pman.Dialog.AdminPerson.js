@@ -310,6 +310,7 @@ Pman.Dialog.AdminPerson = {
            {
             xtype : 'SecurePass',
             fieldLabel : _this._strings['3544848f820b9d94a3f3871a382cf138'] /* New password */,
+            inputType : '',
             name : 'passwd1',
             width : 150,
             xns : Roo.form,

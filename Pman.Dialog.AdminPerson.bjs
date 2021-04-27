@@ -183,6 +183,7 @@
           {
            "fieldLabel" : "New password",
            "xtype" : "SecurePass",
+           "string inputType" : "",
            "width" : 150,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
