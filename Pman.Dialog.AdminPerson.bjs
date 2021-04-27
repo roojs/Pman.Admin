@@ -167,7 +167,7 @@
           {
            "fieldLabel" : "New password",
            "xtype" : "SecurePass",
-           "width" : 200,
+           "width" : 150,
            "$ xns" : "Roo.form",
            "`" : true,
            "name" : "passwd1"
@@ -176,7 +176,7 @@
            "fieldLabel" : "Password (type again to confirm)",
            "xtype" : "TextField",
            "allowBlank" : true,
-           "width" : 200,
+           "width" : 150,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
           }

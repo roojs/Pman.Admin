@@ -283,7 +283,7 @@ Pman.Dialog.AdminPerson = {
             '`' : true,
             fieldLabel : _this._strings['3544848f820b9d94a3f3871a382cf138'] /* New password */,
             name : 'passwd1',
-            width : 200,
+            width : 150,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            },
@@ -292,7 +292,7 @@ Pman.Dialog.AdminPerson = {
             allowBlank : true,
             fieldLabel : _this._strings['315fce99b77b7f392bf68d5eb14f88c7'] /* Password (type again to confirm) */,
             name : 'passwd1',
-            width : 200,
+            width : 150,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }
