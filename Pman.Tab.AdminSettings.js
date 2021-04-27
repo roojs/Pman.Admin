@@ -49,7 +49,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
    '|xns' : 'Roo',
    grid : {
     xtype : 'Grid',
-    autoExpandColumn : 'name',
+    autoExpandColumn : 'val',
     loadMask : true,
     listeners : {
      render : function() 
@@ -190,7 +190,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
       dataIndex : 'name',
       header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
       renderer : function(v) { return String.format('{0}', v); },
-      width : 75,
+      width : 150,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },
@@ -200,7 +200,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
       header : _this._strings['b5a7adde1af5c87d7fd797b6245c2a39'] /* Description */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
-      width : 120,
+      width : 150,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },
