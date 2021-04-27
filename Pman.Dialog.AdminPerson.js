@@ -305,6 +305,7 @@ Pman.Dialog.AdminPerson = {
             inputValue : 1,
             name : 'secure_password',
             valueOff : 0,
+            width : 220,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }
