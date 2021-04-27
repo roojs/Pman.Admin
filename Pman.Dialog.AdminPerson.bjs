@@ -279,7 +279,7 @@
           },
           {
            "listeners" : {
-            "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_setting'); \n}\n        "
+            "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_person_settings'); \n}\n        "
            },
            "text" : "Delete",
            "xtype" : "Button",

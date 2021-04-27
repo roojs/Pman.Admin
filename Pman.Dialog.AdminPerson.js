@@ -404,7 +404,7 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            click : function()
             {
-                 Pman.genericDelete(_this, 'core_setting'); 
+                 Pman.genericDelete(_this, 'core_person_settings'); 
             }
           },
           xns : Roo.Toolbar,
