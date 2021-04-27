@@ -189,7 +189,7 @@ Pman.Dialog.AdminPerson = {
         items  : [
          {
           xtype : 'ComboBox',
-          allowBlank : false,
+          allowBlank : true,
           displayField : 'name',
           editable : false,
           emptyText : _this._strings['be5f40c0d2692cf4e9f8be8d389737a5'] /* Department / Office */,
