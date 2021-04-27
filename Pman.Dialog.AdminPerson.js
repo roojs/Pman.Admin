@@ -298,6 +298,7 @@ Pman.Dialog.AdminPerson = {
            },
            {
             xtype : 'Checkbox',
+            name : 'secure_password',
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }

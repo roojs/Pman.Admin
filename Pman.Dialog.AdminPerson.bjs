@@ -181,6 +181,7 @@
            "name" : "passwd1"
           },
           {
+           "String name" : "secure_password",
            "xtype" : "Checkbox",
            "$ xns" : "Roo.form"
           }
