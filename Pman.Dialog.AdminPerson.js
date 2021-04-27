@@ -172,18 +172,6 @@ Pman.Dialog.AdminPerson = {
           typeAhead : true,
           valueField : 'id',
           width : 300,
-          listeners : {
-           add : function (combo)
-            {
-            
-                Pman.Dialog.Companies.show( {  id: 0 },  function(data) {
-                        _this.form.setValues({
-                                company_id_name : data.name,
-                                company_id : data.id
-                        });
-                }); 
-            }
-          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
