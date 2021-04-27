@@ -6,22 +6,19 @@
  "permname" : "",
  "modOrder" : "001",
  "strings" : {
-  "1c76cbfe21c6f44c1d1e59d54f3e4420" : "Company",
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "9675747b5ab12d05f18518761e68a533" : "Select Companies",
-  "df814135652a5a308fea15bff37ea284" : "Office",
   "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
+  "df814135652a5a308fea15bff37ea284" : "Office",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "bbbabdbe1b262f75d99d62880b953be1" : "Role",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "9810aa2b9f44401be4bf73188ef2b67d" : "Fax"
  },
  "named_strings" : {
-  "company_id_code_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "role_fieldLabel" : "bbbabdbe1b262f75d99d62880b953be1",
   "fax_fieldLabel" : "9810aa2b9f44401be4bf73188ef2b67d",
   "office_id_name_emptyText" : "c373dd4bd4ba0b5d3e0c7522c5629880",
@@ -29,11 +26,8 @@
   "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
   "office_id_name_fieldLabel" : "df814135652a5a308fea15bff37ea284",
   "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
-  "company_id_code_qtip" : "9675747b5ab12d05f18518761e68a533",
   "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880",
-  "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
-  "company_id_code_emptyText" : "9675747b5ab12d05f18518761e68a533",
-  "company_id_code_fieldLabel" : "1c76cbfe21c6f44c1d1e59d54f3e4420"
+  "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d"
  },
  "items" : [
   {
@@ -67,60 +61,6 @@
        "style" : "margin:10px;",
        "$ xns" : "Roo.form",
        "items" : [
-        {
-         "listWidth" : 400,
-         "triggerAction" : "all",
-         "fieldLabel" : "Company",
-         "forceSelection" : true,
-         "selectOnFocus" : true,
-         "pageSize" : 20,
-         "displayField" : "code",
-         "emptyText" : "Select Companies",
-         "hiddenName" : "company_id",
-         "minChars" : 2,
-         "valueField" : "id",
-         "xtype" : "ComboBox",
-         "allowBlank" : false,
-         "typeAhead" : true,
-         "editable" : false,
-         "width" : 300,
-         "$ xns" : "Roo.form",
-         "name" : "company_id_code",
-         "qtip" : "Select Companies",
-         "queryParam" : "query[code]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{code}</b> </div>",
-         "loadingText" : "Searching...",
-         "items" : [
-          {
-           "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n}\n"
-           },
-           "xtype" : "Store",
-           "remoteSort" : true,
-           "$ xns" : "Roo.data",
-           "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
-           "* prop" : "store",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/core_company.php'",
-             "method" : "GET",
-             "xtype" : "HttpProxy",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy"
-            },
-            {
-             "id" : "id",
-             "root" : "data",
-             "xtype" : "JsonReader",
-             "$ xns" : "Roo.data",
-             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"code\",\"type\":\"string\"}]",
-             "* prop" : "reader",
-             "totalProperty" : "total"
-            }
-           ]
-          }
-         ]
-        },
         {
          "listeners" : {
           "add" : "function (combo)\n{\n    var coid = _this.form.findField('company_id').getValue();\n    if (!coid ) {\n    \n         Ext.MessageBox.alert(\"Error\", \"Select An Company First\");\n        return false;\n\n    }\n    Pman.Dialog.Office.show(cfg, function(data) {\n                _this.form.setValues({\n                    office_id_name : data.name,\n                    office_id : data.id\n            });\n        }); \n    \n    \n}",
