@@ -234,7 +234,7 @@
        "items" : [
         {
          "listeners" : {
-          "beforeload" : "function (_self, o)\n{\n  \n    o.params = o.params ? o.params : {};\n    \n   \n}"
+          "beforeload" : "function (_self, o)\n{\n  \n    o.params = o.params ? o.params : {};\n    o.params.person_id = this.form.findField('id').getValue();\n    \n   \n}"
          },
          "xtype" : "Store",
          "remoteSort" : true,

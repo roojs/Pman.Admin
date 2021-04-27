@@ -420,6 +420,7 @@ Pman.Dialog.AdminPerson = {
           {
             
               o.params = o.params ? o.params : {};
+              o.params.person_id = this.form.findField('id').getValue();
               
              
           }
