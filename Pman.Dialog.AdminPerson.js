@@ -14,15 +14,15 @@ Pman.Dialog.AdminPerson = {
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
   '3544848f820b9d94a3f3871a382cf138' :"New password",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
+  '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
   '49ee3087348e8d44e1feda1917443987' :"Name",
-  'bbbabdbe1b262f75d99d62880b953be1' :"Role",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'role_fieldLabel' : 'bbbabdbe1b262f75d99d62880b953be1' /* Role */ ,
+  'role_fieldLabel' : '8a25a3ae30ab6e8ceb5b8c4009a3336f' /* Role / Position */ ,
   'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
   'phone_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
@@ -241,7 +241,7 @@ Pman.Dialog.AdminPerson = {
          },
          {
           xtype : 'TextField',
-          fieldLabel : _this._strings['bbbabdbe1b262f75d99d62880b953be1'] /* Role */,
+          fieldLabel : _this._strings['8a25a3ae30ab6e8ceb5b8c4009a3336f'] /* Role / Position */,
           name : 'role',
           width : 200,
           xns : Roo.form,
