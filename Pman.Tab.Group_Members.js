@@ -64,7 +64,8 @@ Pman.Tab.Group_Members = new  Pman.Tab.PersonList({
     },
     
     dialog: function () {
-        return Pman.Dialog.PersonStaff;
+        return Pman.Dialog.AdminPerson;
+        //return Pman.Dialog.PersonStaff;
     },
     bulkAdd : function() {
         //return Pman.Dialog.PersonBulkAdd

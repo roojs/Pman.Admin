@@ -1,0 +1,361 @@
+{
+ "name" : "Pman.Dialog.AdminPerson",
+ "parent" : "",
+ "title" : "",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.AdminPerson.bjs",
+ "permname" : "",
+ "modOrder" : "001",
+ "strings" : {
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "7573b7fd7836c9118dbfb69f3abf3858" : "Change / Set Password",
+  "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
+  "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
+  "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
+  "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "3544848f820b9d94a3f3871a382cf138" : "New password",
+  "689202409e48743b914713f96d93947c" : "Value",
+  "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
+  "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
+  "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
+  "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
+  "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
+  "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save"
+ },
+ "named_strings" : {
+  "secure_password_fieldLabel" : "abb1d799e06329cb0c38276ea918300b",
+  "role_fieldLabel" : "8a25a3ae30ab6e8ceb5b8c4009a3336f",
+  "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
+  "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
+  "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
+  "passwd1_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
+  "office_id_name_fieldLabel" : "be5f40c0d2692cf4e9f8be8d389737a5",
+  "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
+  "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880"
+ },
+ "items" : [
+  {
+   "Boolean modal" : true,
+   "collapsible" : false,
+   "title" : "Edit / Create Staff Details",
+   "xtype" : "LayoutDialog",
+   "width" : 450,
+   "$ xns" : "Roo",
+   "closable" : false,
+   "resizable" : false,
+   "height" : 400,
+   "items" : [
+    {
+     "xtype" : "LayoutRegion",
+     "$ xns" : "Roo",
+     "* prop" : "center"
+    },
+    {
+     "region" : "center",
+     "xtype" : "ContentPanel",
+     "$ xns" : "Roo",
+     "String title" : "Staff Details",
+     "items" : [
+      {
+       "listeners" : {
+        "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n        _this.dialog.layout.getRegion('center').showPanel(0);\n       //_this.dialog.el.mask(\"Loading\");\n       if ( _this.data.id* 1 > 0) { \n            this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n            return;\n        }\n        this.form.findField('company_id').setValue(Pman.Login.authUser.company_id);\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+        "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
+       },
+       "$ url" : "baseURL + '/Roo/core_person'",
+       "xtype" : "Form",
+       "method" : "POST",
+       "style" : "margin:10px;",
+       "$ xns" : "Roo.form",
+       "Number labelWidth" : 120,
+       "items" : [
+        {
+         "fieldLabel" : "Name",
+         "xtype" : "TextField",
+         "allowBlank" : true,
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "name"
+        },
+        {
+         "fieldLabel" : "Email",
+         "xtype" : "TextField",
+         "allowBlank" : false,
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "email"
+        },
+        {
+         "fieldLabel" : "Role / Position",
+         "xtype" : "TextField",
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "role"
+        },
+        {
+         "fieldLabel" : "Phone",
+         "xtype" : "TextField",
+         "width" : 150,
+         "$ xns" : "Roo.form",
+         "name" : "phone"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "company_id"
+        },
+        {
+         "listeners" : {
+          "beforequery" : "function (combo, query, forceAll, cancel, e)\n{\n        var coid = _this.form.findField('company_id').getValue();\n        if (coid < 1 ) {\n            Ext.MessageBox.alert(\"Error\", \"Select An Company First\");\n            return false;\n        }\n}"
+         },
+         "listWidth" : 400,
+         "triggerAction" : "all",
+         "fieldLabel" : "Department / Office",
+         "forceSelection" : true,
+         "selectOnFocus" : true,
+         "pageSize" : 20,
+         "displayField" : "name",
+         "emptyText" : "Department / Office",
+         "hiddenName" : "office_id",
+         "minChars" : 2,
+         "valueField" : "id",
+         "xtype" : "ComboBox",
+         "allowBlank" : true,
+         "typeAhead" : true,
+         "editable" : false,
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "office_id_name",
+         "qtip" : "Select Office",
+         "queryParam" : "query[name]",
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+         "loadingText" : "Searching...",
+         "items" : [
+          {
+           "listeners" : {
+            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    var coid = _this.form.findField('company_id').getValue();\n    o.params.company_id = coid;\n}\n"
+           },
+           "xtype" : "Store",
+           "remoteSort" : true,
+           "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_office'",
+             "xtype" : "HttpProxy",
+             "method" : "GET",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy"
+            },
+            {
+             "id" : "id",
+             "root" : "data",
+             "xtype" : "JsonReader",
+             "$ xns" : "Roo.data",
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+             "* prop" : "reader",
+             "totalProperty" : "total"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "id"
+        },
+        {
+         "xtype" : "FieldSet",
+         "$ xns" : "Roo.form",
+         "String legend" : "Change / Set Password",
+         "String/Object/Function style" : "width:370px",
+         "Number labelWidth" : 200,
+         "items" : [
+          {
+           "fieldLabel" : "New password",
+           "xtype" : "SecurePass",
+           "string inputType" : "password",
+           "width" : 150,
+           "$ xns" : "Roo.form",
+           "name" : "passwd1"
+          },
+          {
+           "fieldLabel" : "Password (type again to confirm)",
+           "xtype" : "TextField",
+           "allowBlank" : true,
+           "String inputType" : "password",
+           "width" : 150,
+           "$ xns" : "Roo.form",
+           "name" : "passwd1"
+          },
+          {
+           "listeners" : {
+            "check" : "function (_self, checked)\n{\n    this.form.findField('passwd1').insecure = false;\n        \n    if(!checked){\n        this.form.findField('passwd1').insecure = true;\n    }\n}"
+           },
+           "String name" : "secure_password",
+           "Boolean checked" : true,
+           "xtype" : "Checkbox",
+           "String valueOff" : 0,
+           "$ xns" : "Roo.form",
+           "String fieldLabel" : "Secure passwords",
+           "String inputValue" : 1
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "|activate" : "function() {\n    _this.panel = this;\n \n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
+     },
+     "region" : "center",
+     "fitToframe" : true,
+     "background" : true,
+     "title" : "System Settings",
+     "xtype" : "GridPanel",
+     "fitContainer" : true,
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "listeners" : {
+        "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n         return;\n     }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('refresh');\n    }); \n}\n",
+        "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
+       },
+       "autoExpandColumn" : "data",
+       "xtype" : "Grid",
+       "loadMask" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "grid",
+       "items" : [
+        {
+         "listeners" : {
+          "beforeload" : "function (_self, o)\n{\n  \n    o.params = o.params ? o.params : {};\n    o.params.person_id =  _this.form.findField('id').getValue();\n    \n   \n}"
+         },
+         "xtype" : "Store",
+         "remoteSort" : true,
+         "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
+         "$ xns" : "Roo.data",
+         "* prop" : "dataSource",
+         "items" : [
+          {
+           "$ url" : "baseURL + '/Roo/core_person_settings'",
+           "method" : "GET",
+           "xtype" : "HttpProxy",
+           "$ xns" : "Roo.data",
+           "* prop" : "proxy"
+          },
+          {
+           "id" : "id",
+           "root" : "data",
+           "xtype" : "JsonReader",
+           "$ xns" : "Roo.data",
+           "* prop" : "reader",
+           "totalProperty" : "total"
+          }
+         ]
+        },
+        {
+         "pageSize" : 25,
+         "xtype" : "PagingToolbar",
+         "emptyMsg" : "No Settings Found",
+         "$ xns" : "Roo",
+         "displayMsg" : "Displaying Settings  {0} - {1} of {2}",
+         "displayInfo" : true,
+         "* prop" : "footer"
+        },
+        {
+         "xtype" : "Toolbar",
+         "$ xns" : "Roo",
+         "* prop" : "toolbar",
+         "items" : [
+          {
+           "xtype" : "Fill",
+           "$ xns" : "Roo.Toolbar"
+          },
+          {
+           "listeners" : {
+            "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_person_settings'); \n}\n        "
+           },
+           "text" : "Delete",
+           "xtype" : "Button",
+           "cls" : "x-btn-text-icon",
+           "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+           "$ xns" : "Roo.Toolbar"
+          }
+         ]
+        },
+        {
+         "xtype" : "ColumnModel",
+         "sortable" : true,
+         "header" : "Module",
+         "width" : 120,
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "scope"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "sortable" : true,
+         "header" : "Description",
+         "width" : 150,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "description"
+        },
+        {
+         "xtype" : "ColumnModel",
+         "sortable" : true,
+         "header" : "Value",
+         "width" : 200,
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "data"
+        },
+        {
+         "listeners" : {
+          "afterselectionchange" : "function (_self)\n{\n    // load project members.\n}"
+         },
+         "xtype" : "RowSelectionModel",
+         "singleSelect" : true,
+         "$ xns" : "Roo.grid",
+         "* prop" : "sm"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    _this.dialog.hide();\n}"
+     },
+     "text" : "Cancel",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    },
+    {
+     "listeners" : {
+      "click" : "function (_self, e)\n{\n    // do some checks?\n     if (this.form.findField('passwd1')) {\n        \n        var p1 = this.form.findField('passwd1').getValue();\n        var p2 = this.form.findField('passwd2').getValue();\n        \n        if (this.sendAfterSave && !p1.length) {\n            Ext.MessageBox.alert(\"Error\", \"You must create a password to send introduction mail\");\n            return;\n        }\n        \n        if (Pman.Login.authUser.id < 0 && !p1.length) {\n            Ext.MessageBox.alert(\"Error\", \"You must create a password for the admin account\");\n            return;\n        }\n        \n        \n        if (p1.length || p2.length) {\n            if (p1 != p2) {\n                Ext.MessageBox.alert(\"Error\", \"Passwords do not match\");\n                return;\n            }\n        }\n        \n    \n    }\n    \n \n    _this.form.doAction(\"submit\");\n\n}"
+     },
+     "text" : "Save",
+     "xtype" : "Button",
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]"
+    }
+   ]
+  }
+ ]
+}

@@ -595,6 +595,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'fax',
       header : _this._strings['9810aa2b9f44401be4bf73188ef2b67d'] /* Fax */,
+      hidden : true,
       renderer : function(v) { return String.format('{0}', v); },
       width : 100,
       xns : Roo.grid,
