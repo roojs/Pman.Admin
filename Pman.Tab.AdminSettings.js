@@ -14,7 +14,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   '49ee3087348e8d44e1feda1917443987' :"Name",
-  'ca0dbad92a874b2f69b549293387925e' :"Code"
+  'b5a7adde1af5c87d7fd797b6245c2a39' :"Description"
  },
 
   part     :  ["Admin", "Settings" ],
@@ -195,8 +195,8 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'code',
-      header : _this._strings['ca0dbad92a874b2f69b549293387925e'] /* Code */,
+      dataIndex : 'Description',
+      header : _this._strings['b5a7adde1af5c87d7fd797b6245c2a39'] /* Description */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
       width : 120,

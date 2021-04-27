@@ -13,7 +13,7 @@
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
   "49ee3087348e8d44e1feda1917443987" : "Name",
-  "ca0dbad92a874b2f69b549293387925e" : "Code"
+  "b5a7adde1af5c87d7fd797b6245c2a39" : "Description"
  },
  "items" : [
   {
@@ -127,12 +127,12 @@
       {
        "xtype" : "ColumnModel",
        "sortable" : true,
-       "header" : "Code",
+       "header" : "Description",
        "width" : 120,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "code"
+       "dataIndex" : "Description"
       },
       {
        "xtype" : "ColumnModel",
