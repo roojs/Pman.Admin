@@ -9,7 +9,7 @@ Pman.Dialog.AdminPerson = {
  _strings : {
   '1c76cbfe21c6f44c1d1e59d54f3e4420' :"Company",
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
-  'c8972faa3b9e1c7250db23c57c85aa23' :"Edit / Create Contact Details",
+  '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
@@ -66,7 +66,7 @@ Pman.Dialog.AdminPerson = {
     collapsible : false,
     height : 290,
     resizable : false,
-    title : _this._strings['c8972faa3b9e1c7250db23c57c85aa23'] /* Edit / Create Contact Details */,
+    title : _this._strings['2b0d7f748b64304e6657207cb03cd8f2'] /* Edit / Create Staff Details */,
     width : 450,
     xns : Roo,
     '|xns' : 'Roo',
