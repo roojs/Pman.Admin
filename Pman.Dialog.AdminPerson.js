@@ -9,6 +9,7 @@ Pman.Dialog.AdminPerson = {
  _strings : {
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
+  'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
@@ -22,6 +23,7 @@ Pman.Dialog.AdminPerson = {
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
+  'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
   'role_fieldLabel' : '8a25a3ae30ab6e8ceb5b8c4009a3336f' /* Role / Position */ ,
   'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
@@ -298,7 +300,10 @@ Pman.Dialog.AdminPerson = {
            },
            {
             xtype : 'Checkbox',
+            fieldLabel : _this._strings['abb1d799e06329cb0c38276ea918300b'] /* Secure passwords */,
+            inputValue : 1,
             name : 'secure_password',
+            valueOff : 0,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }
