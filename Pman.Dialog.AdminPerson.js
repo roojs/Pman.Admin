@@ -351,9 +351,9 @@ Pman.Dialog.AdminPerson = {
       },
       xns : Roo,
       '|xns' : 'Roo',
-      data : {
+      grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'val',
+       autoExpandColumn : 'data',
        loadMask : true,
        listeners : {
         render : function() 
