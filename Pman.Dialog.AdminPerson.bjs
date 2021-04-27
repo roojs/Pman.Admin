@@ -347,7 +347,7 @@
     },
     {
      "listeners" : {
-      "click" : "function (_self, e)\n{\n    // do some checks?\n     \n    \n    _this.dialog.el.mask(\"Saving\");\n    _this.form.doAction(\"submit\");\n\n}"
+      "click" : "function (_self, e)\n{\n    // do some checks?\n     if (this.form.findField('passwd1')) {\n        \n        var p1 = this.form.findField('passwd1').getValue();\n        var p2 = this.form.findField('passwd2').getValue();\n        \n        if (this.sendAfterSave && !p1.length) {\n            Ext.MessageBox.alert(\"Error\", \"You must create a password to send introduction mail\");\n            return;\n        }\n        \n        if (Pman.Login.authUser.id < 0 && !p1.length) {\n            Ext.MessageBox.alert(\"Error\", \"You must create a password for the admin account\");\n            return;\n        }\n        \n        \n        if (p1.length || p2.length) {\n            if (p1 != p2) {\n                Ext.MessageBox.alert(\"Error\", \"Passwords do not match\");\n                return;\n            }\n        }\n        \n    \n    }\n    \n \n    _this.form.doAction(\"submit\");\n\n}"
      },
      "text" : "Save",
      "xtype" : "Button",
