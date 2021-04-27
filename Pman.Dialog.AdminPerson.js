@@ -130,8 +130,9 @@ Pman.Dialog.AdminPerson = {
          actioncomplete : function(_self,action)
           {
               if (action.type == 'setdata') {
+                  _this.dialog.layout.getRegion('center').show(0);
                  //_this.dialog.el.mask("Loading");
-                 //this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                  this.load({ method: 'GET', params: { '_id' : _this.data.id }});
                  return;
               }
               if (action.type == 'load') {
