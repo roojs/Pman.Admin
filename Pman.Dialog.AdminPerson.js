@@ -109,6 +109,7 @@ Pman.Dialog.AdminPerson = {
       items  : [
        {
         xtype : 'Form',
+        labelWidth : 120,
         method : 'POST',
         style : 'margin:10px;',
         url : baseURL + '/Roo/core_person',

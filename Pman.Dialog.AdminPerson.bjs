@@ -60,6 +60,7 @@
        "method" : "POST",
        "style" : "margin:10px;",
        "$ xns" : "Roo.form",
+       "Number labelWidth" : 120,
        "items" : [
         {
          "listeners" : {
