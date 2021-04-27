@@ -71,6 +71,7 @@ Pman.Dialog.AdminPerson = {
     closable : false,
     collapsible : false,
     height : 400,
+    modal : true,
     resizable : false,
     title : _this._strings['2b0d7f748b64304e6657207cb03cd8f2'] /* Edit / Create Staff Details */,
     width : 450,

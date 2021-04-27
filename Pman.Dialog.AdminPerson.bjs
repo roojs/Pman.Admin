@@ -43,6 +43,7 @@
  },
  "items" : [
   {
+   "Boolean modal" : true,
    "collapsible" : false,
    "title" : "Edit / Create Staff Details",
    "xtype" : "LayoutDialog",
