@@ -12,6 +12,7 @@
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
   "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
+  "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
   "49ee3087348e8d44e1feda1917443987" : "Name",
@@ -24,7 +25,7 @@
   "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
   "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
-  "passwd1_fieldLabel" : "483bc24d842fe8f3ec3a6f92fbd31922",
+  "passwd1_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
   "office_id_name_fieldLabel" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880",
@@ -171,7 +172,7 @@
            "name" : "passwd1"
           },
           {
-           "fieldLabel" : "Enter password",
+           "fieldLabel" : "Password (type again to confirm)",
            "xtype" : "TextField",
            "allowBlank" : true,
            "width" : 200,
