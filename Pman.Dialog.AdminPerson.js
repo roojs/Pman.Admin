@@ -458,19 +458,10 @@ Pman.Dialog.AdminPerson = {
        colModel : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'module',
+         dataIndex : 'scope',
          header : _this._strings['e55f75a29310d7b60f7ac1d390c8ae42'] /* Module */,
          sortable : true,
          width : 120,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'name',
-         header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v); },
-         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
