@@ -11,18 +11,18 @@
   "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
-  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "3544848f820b9d94a3f3871a382cf138" : "New password",
   "689202409e48743b914713f96d93947c" : "Value",
-  "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
   "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
+  "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
   "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
   "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
   "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
   "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
@@ -32,14 +32,14 @@
  "named_strings" : {
   "secure_password_fieldLabel" : "abb1d799e06329cb0c38276ea918300b",
   "role_fieldLabel" : "8a25a3ae30ab6e8ceb5b8c4009a3336f",
-  "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
+  "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
   "passwd1_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
   "office_id_name_fieldLabel" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
-  "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880",
-  "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d"
+  "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
+  "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880"
  },
  "items" : [
   {
@@ -76,6 +76,41 @@
        "$ xns" : "Roo.form",
        "Number labelWidth" : 120,
        "items" : [
+        {
+         "fieldLabel" : "Name",
+         "xtype" : "TextField",
+         "allowBlank" : true,
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "name"
+        },
+        {
+         "fieldLabel" : "Email",
+         "xtype" : "TextField",
+         "allowBlank" : false,
+         "width" : 250,
+         "$ xns" : "Roo.form",
+         "name" : "email"
+        },
+        {
+         "fieldLabel" : "Role / Position",
+         "xtype" : "TextField",
+         "width" : 200,
+         "$ xns" : "Roo.form",
+         "name" : "role"
+        },
+        {
+         "fieldLabel" : "Phone",
+         "xtype" : "TextField",
+         "width" : 150,
+         "$ xns" : "Roo.form",
+         "name" : "phone"
+        },
+        {
+         "xtype" : "Hidden",
+         "$ xns" : "Roo.form",
+         "name" : "company_id"
+        },
         {
          "listeners" : {
           "beforequery" : "function (combo, query, forceAll, cancel, e)\n{\n        var coid = _this.form.findField('company_id').getValue();\n        if (coid < 1 ) {\n            Ext.MessageBox.alert(\"Error\", \"Select An Company First\");\n            return false;\n        }\n}"
@@ -115,8 +150,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/core_office'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -132,41 +167,6 @@
            ]
           }
          ]
-        },
-        {
-         "fieldLabel" : "Name",
-         "xtype" : "TextField",
-         "allowBlank" : true,
-         "width" : 250,
-         "$ xns" : "Roo.form",
-         "name" : "name"
-        },
-        {
-         "fieldLabel" : "Role / Position",
-         "xtype" : "TextField",
-         "width" : 200,
-         "$ xns" : "Roo.form",
-         "name" : "role"
-        },
-        {
-         "fieldLabel" : "Phone",
-         "xtype" : "TextField",
-         "width" : 150,
-         "$ xns" : "Roo.form",
-         "name" : "phone"
-        },
-        {
-         "fieldLabel" : "Email",
-         "xtype" : "TextField",
-         "allowBlank" : false,
-         "width" : 250,
-         "$ xns" : "Roo.form",
-         "name" : "email"
-        },
-        {
-         "xtype" : "Hidden",
-         "$ xns" : "Roo.form",
-         "name" : "company_id"
         },
         {
          "xtype" : "Hidden",

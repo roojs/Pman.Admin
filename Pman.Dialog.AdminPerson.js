@@ -12,18 +12,18 @@ Pman.Dialog.AdminPerson = {
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
-  '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
+  '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '3544848f820b9d94a3f3871a382cf138' :"New password",
   '689202409e48743b914713f96d93947c' :"Value",
-  'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
+  'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
+  '49ee3087348e8d44e1feda1917443987' :"Name",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
@@ -33,14 +33,14 @@ Pman.Dialog.AdminPerson = {
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
   'role_fieldLabel' : '8a25a3ae30ab6e8ceb5b8c4009a3336f' /* Role / Position */ ,
-  'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
+  'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'phone_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
   'passwd1_fieldLabel' : '315fce99b77b7f392bf68d5eb14f88c7' /* Password (type again to confirm) */ ,
   'office_id_name_fieldLabel' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ ,
-  'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ 
+  'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ ,
+  'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ 
  },
 
  dialog : false,
@@ -189,6 +189,46 @@ Pman.Dialog.AdminPerson = {
         '|xns' : 'Roo.form',
         items  : [
          {
+          xtype : 'TextField',
+          allowBlank : true,
+          fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
+          name : 'name',
+          width : 250,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
+          name : 'email',
+          width : 250,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          fieldLabel : _this._strings['8a25a3ae30ab6e8ceb5b8c4009a3336f'] /* Role / Position */,
+          name : 'role',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          fieldLabel : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
+          name : 'phone',
+          width : 150,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Hidden',
+          name : 'company_id',
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'name',
@@ -252,46 +292,6 @@ Pman.Dialog.AdminPerson = {
             '|xns' : 'Roo.data'
            }
           }
-         },
-         {
-          xtype : 'TextField',
-          allowBlank : true,
-          fieldLabel : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-          name : 'name',
-          width : 250,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          fieldLabel : _this._strings['8a25a3ae30ab6e8ceb5b8c4009a3336f'] /* Role / Position */,
-          name : 'role',
-          width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          fieldLabel : _this._strings['bcc254b55c4a1babdf1dcb82c207506b'] /* Phone */,
-          name : 'phone',
-          width : 150,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          allowBlank : false,
-          fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
-          name : 'email',
-          width : 250,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
-          name : 'company_id',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',
