@@ -17,13 +17,15 @@ Pman.Dialog.AdminPerson = {
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'bbbabdbe1b262f75d99d62880b953be1' :"Role",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  '483bc24d842fe8f3ec3a6f92fbd31922' :"Enter password"
  },
  _named_strings : {
   'role_fieldLabel' : 'bbbabdbe1b262f75d99d62880b953be1' /* Role */ ,
   'office_id_name_emptyText' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'name_fieldLabel' : '49ee3087348e8d44e1feda1917443987' /* Name */ ,
   'phone_fieldLabel' : 'bcc254b55c4a1babdf1dcb82c207506b' /* Phone */ ,
+  'passwd1_fieldLabel' : '483bc24d842fe8f3ec3a6f92fbd31922' /* Enter password */ ,
   'office_id_name_fieldLabel' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ ,
@@ -276,8 +278,8 @@ Pman.Dialog.AdminPerson = {
            {
             xtype : 'TextField',
             allowBlank : false,
-            fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
-            name : 'email',
+            fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
+            name : 'passwd1',
             width : 200,
             xns : Roo.form,
             '|xns' : 'Roo.form'
