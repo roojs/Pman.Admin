@@ -154,6 +154,10 @@
          "name" : "id"
         },
         {
+         "xtype" : "FieldSet",
+         "$ xns" : "Roo.form"
+        },
+        {
          "fieldLabel" : "Email",
          "xtype" : "TextField",
          "allowBlank" : false,
