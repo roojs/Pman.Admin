@@ -300,6 +300,7 @@ Pman.Dialog.AdminPerson = {
            },
            {
             xtype : 'Checkbox',
+            checked : true,
             fieldLabel : _this._strings['abb1d799e06329cb0c38276ea918300b'] /* Secure passwords */,
             inputValue : 1,
             name : 'secure_password',

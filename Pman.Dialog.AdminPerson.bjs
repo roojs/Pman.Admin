@@ -184,6 +184,7 @@
           },
           {
            "String name" : "secure_password",
+           "Boolean checked" : true,
            "xtype" : "Checkbox",
            "String valueOff" : 0,
            "$ xns" : "Roo.form",
