@@ -295,6 +295,11 @@ Pman.Dialog.AdminPerson = {
             width : 150,
             xns : Roo.form,
             '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'Checkbox',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
            }
           ]
          }
