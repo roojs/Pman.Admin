@@ -272,7 +272,7 @@ Pman.Dialog.AdminPerson = {
          {
           xtype : 'FieldSet',
           legend : _this._strings['7573b7fd7836c9118dbfb69f3abf3858'] /* Change / Set Password */,
-          style : 'width:300px',
+          style : 'width:400px',
           xns : Roo.form,
           '|xns' : 'Roo.form',
           items  : [
