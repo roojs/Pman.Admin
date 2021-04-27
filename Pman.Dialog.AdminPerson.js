@@ -305,7 +305,6 @@ Pman.Dialog.AdminPerson = {
             inputValue : 1,
             name : 'secure_password',
             valueOff : 0,
-            width : 220,
             listeners : {
              check : function (_self, checked)
               {
