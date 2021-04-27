@@ -183,6 +183,9 @@
            "name" : "passwd1"
           },
           {
+           "listeners" : {
+            "check" : "function (_self, checked)\n{\n    this.form.findField('passwd1').insecure = false;\n        \n    if(!checked){\n        this.form.findField('passwd1').insecure = true;\n    }\n}"
+           },
            "String name" : "secure_password",
            "Boolean checked" : true,
            "Number width" : 220,

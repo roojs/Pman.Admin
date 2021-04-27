@@ -306,6 +306,16 @@ Pman.Dialog.AdminPerson = {
             name : 'secure_password',
             valueOff : 0,
             width : 220,
+            listeners : {
+             check : function (_self, checked)
+              {
+                  this.form.findField('passwd1').insecure = false;
+                      
+                  if(!checked){
+                      this.form.findField('passwd1').insecure = true;
+                  }
+              }
+            },
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }
