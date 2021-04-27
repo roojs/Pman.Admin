@@ -283,6 +283,15 @@ Pman.Dialog.AdminPerson = {
             width : 200,
             xns : Roo.form,
             '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'TextField',
+            allowBlank : false,
+            fieldLabel : _this._strings['483bc24d842fe8f3ec3a6f92fbd31922'] /* Enter password */,
+            name : 'passwd1',
+            width : 200,
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
            }
           ]
          }

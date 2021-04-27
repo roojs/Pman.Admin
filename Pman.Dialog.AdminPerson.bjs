@@ -168,6 +168,14 @@
            "width" : 200,
            "$ xns" : "Roo.form",
            "name" : "passwd1"
+          },
+          {
+           "fieldLabel" : "Enter password",
+           "xtype" : "TextField",
+           "allowBlank" : false,
+           "width" : 200,
+           "$ xns" : "Roo.form",
+           "name" : "passwd1"
           }
          ]
         }
