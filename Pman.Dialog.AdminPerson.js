@@ -346,6 +346,15 @@ Pman.Dialog.AdminPerson = {
           name : 'id',
           xns : Roo.form,
           '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
+          name : 'email',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          }
         ]
        }

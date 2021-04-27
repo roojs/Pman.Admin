@@ -223,6 +223,14 @@
          "xtype" : "Hidden",
          "$ xns" : "Roo.form",
          "name" : "id"
+        },
+        {
+         "fieldLabel" : "Email",
+         "xtype" : "TextField",
+         "allowBlank" : false,
+         "width" : 200,
+         "$ xns" : "Roo.form",
+         "name" : "email"
         }
        ]
       }
