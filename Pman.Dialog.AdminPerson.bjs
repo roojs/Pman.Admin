@@ -20,6 +20,7 @@
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
+  "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
   "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
@@ -60,6 +61,7 @@
      "region" : "center",
      "xtype" : "ContentPanel",
      "$ xns" : "Roo",
+     "String title" : "Staff Details",
      "items" : [
       {
        "listeners" : {
