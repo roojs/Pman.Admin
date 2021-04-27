@@ -196,7 +196,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'Description',
+      dataIndex : 'description',
       header : _this._strings['b5a7adde1af5c87d7fd797b6245c2a39'] /* Description */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,

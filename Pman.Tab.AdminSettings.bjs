@@ -133,7 +133,7 @@
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "Description"
+       "dataIndex" : "description"
       },
       {
        "xtype" : "ColumnModel",
