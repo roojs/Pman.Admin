@@ -181,7 +181,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
       dataIndex : 'module',
       header : _this._strings['e55f75a29310d7b60f7ac1d390c8ae42'] /* Module */,
       sortable : true,
-      width : 70,
+      width : 120,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },

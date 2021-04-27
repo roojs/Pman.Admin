@@ -111,7 +111,7 @@
        "xtype" : "ColumnModel",
        "sortable" : true,
        "header" : "Module",
-       "width" : 70,
+       "width" : 120,
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "module"
