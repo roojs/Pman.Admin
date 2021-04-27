@@ -320,7 +320,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
         listeners : {
          drop : function (source, e, data)
           {
-              // Roo.log("DROP");
+                Roo.log("DROP");
               var t = Roo.lib.Event.getTarget(e); 
               var ri = _this.grid.view.findRowIndex(t);
               var rid  = false;
@@ -388,7 +388,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
           },
          over : function (source, e, data)
           {
-              // Roo.log("dragover");
+               Roo.log("dragover");
                
               //Roo.log(e);
               var t = Roo.lib.Event.getTarget(e); 
