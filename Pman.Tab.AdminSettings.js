@@ -8,14 +8,13 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
 
  _strings : {
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
-  '577d7068826de925ea2aec01dbadf5e4' :"Client",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
-  'ca0dbad92a874b2f69b549293387925e' :"Code",
-  '49ee3087348e8d44e1feda1917443987' :"Name"
+  '49ee3087348e8d44e1feda1917443987' :"Name",
+  'ca0dbad92a874b2f69b549293387925e' :"Code"
  },
 
   part     :  ["Admin", "Settings" ],
@@ -188,7 +187,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
      {
       xtype : 'ColumnModel',
       dataIndex : 'name',
-      header : _this._strings['577d7068826de925ea2aec01dbadf5e4'] /* Client */,
+      header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 75,
       xns : Roo.grid,
