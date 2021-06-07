@@ -102,25 +102,25 @@ Pman.Dialog.AdminPerson = {
        click : function (_self, e)
         {
             // do some checks?
-             if (this.form.findField('passwd1')) {
+             if (_this.form.findField('passwd1')) {
                 
-                var p1 = this.form.findField('passwd1').getValue();
-                var p2 = this.form.findField('passwd2').getValue();
+                var p1 = _this.form.findField('passwd1').getValue();
+                var p2 = _this.form.findField('passwd2').getValue();
                 
-                if (this.sendAfterSave && !p1.length) {
-                    Ext.MessageBox.alert("Error", "You must create a password to send introduction mail");
+                if (_this.sendAfterSave && !p1.length) {
+                    Roo.MessageBox.alert("Error", "You must create a password to send introduction mail");
                     return;
                 }
                 
                 if (Pman.Login.authUser.id < 0 && !p1.length) {
-                    Ext.MessageBox.alert("Error", "You must create a password for the admin account");
+                    Roo.MessageBox.alert("Error", "You must create a password for the admin account");
                     return;
                 }
                 
                 
                 if (p1.length || p2.length) {
                     if (p1 != p2) {
-                        Ext.MessageBox.alert("Error", "Passwords do not match");
+                        Roo.MessageBox.alert("Error", "Passwords do not match");
                         return;
                     }
                 }
