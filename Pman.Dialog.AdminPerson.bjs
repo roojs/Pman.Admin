@@ -34,8 +34,9 @@
   "role_fieldLabel" : "8a25a3ae30ab6e8ceb5b8c4009a3336f",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
   "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
+  "passwd2_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
   "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
-  "passwd1_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
+  "passwd1_fieldLabel" : "3544848f820b9d94a3f3871a382cf138",
   "office_id_name_fieldLabel" : "be5f40c0d2692cf4e9f8be8d389737a5",
   "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
@@ -195,7 +196,7 @@
            "String inputType" : "password",
            "width" : 150,
            "$ xns" : "Roo.form",
-           "name" : "passwd1"
+           "name" : "passwd2"
           },
           {
            "listeners" : {
