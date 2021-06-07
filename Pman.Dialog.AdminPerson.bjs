@@ -66,12 +66,12 @@
      "items" : [
       {
        "listeners" : {
-        "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n        _this.dialog.layout.getRegion('center').showPanel(0);\n       //_this.dialog.el.mask(\"Loading\");\n       if ( _this.data.id* 1 > 0) { \n            this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n            return;\n        }\n        this.form.findField('company_id').setValue(Pman.Login.authUser.company_id);\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
+        "|actioncomplete" : "function(_self,action)\n{\n    if (action.type == 'setdata') {\n        _this.dialog.layout.getRegion('center').showPanel(0);\n       //_this.dialog.el.mask(\"Loading\");\n       if ( _this.data.id* 1 > 0) { \n            this.load({ method: 'GET', params: { '_id' : _this.data.id }});\n            return;\n        }\n        this.findField('company_id').setValue(Pman.Login.authUser.company_id);\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        return;\n    }\n    if (action.type =='submit') {\n    \n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n    \n         if (_this.callback) {\n            _this.callback.call(_this, _this.form.getValues());\n         }\n         _this.form.reset();\n         return;\n    }\n}\n",
         "|rendered" : "function (form)\n{\n    _this.form= form;\n}\n"
        },
        "$ url" : "baseURL + '/Roo/core_person'",
-       "xtype" : "Form",
        "method" : "POST",
+       "xtype" : "Form",
        "style" : "margin:10px;",
        "$ xns" : "Roo.form",
        "Number labelWidth" : 120,
@@ -150,8 +150,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/core_office'",
-             "xtype" : "HttpProxy",
              "method" : "GET",
+             "xtype" : "HttpProxy",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -219,9 +219,9 @@
      "listeners" : {
       "|activate" : "function() {\n    _this.panel = this;\n \n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
      },
+     "background" : true,
      "region" : "center",
      "fitToframe" : true,
-     "background" : true,
      "title" : "System Settings",
      "xtype" : "GridPanel",
      "fitContainer" : true,
@@ -250,8 +250,8 @@
          "items" : [
           {
            "$ url" : "baseURL + '/Roo/core_person_settings'",
-           "method" : "GET",
            "xtype" : "HttpProxy",
+           "method" : "GET",
            "$ xns" : "Roo.data",
            "* prop" : "proxy"
           },

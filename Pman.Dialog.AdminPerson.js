@@ -54,7 +54,7 @@ Pman.Dialog.AdminPerson = {
 
   this.callback = cb;
   this.data = data;
-  this.dialog.show(this.data._el);
+  this.dialog.show.apply(this.dialog,  Array.prototype.slice.call(arguments).slice(2));
   if (this.form) {
    this.form.reset();
    this.form.setValues(data);
@@ -161,7 +161,7 @@ Pman.Dialog.AdminPerson = {
                       this.load({ method: 'GET', params: { '_id' : _this.data.id }});
                       return;
                   }
-                  this.form.findField('company_id').setValue(Pman.Login.authUser.company_id);
+                  this.findField('company_id').setValue(Pman.Login.authUser.company_id);
                  return;
               }
               if (action.type == 'load') {
