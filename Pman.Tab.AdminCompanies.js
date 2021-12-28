@@ -37,6 +37,7 @@ Pman.Tab.AdminCompanies = new Roo.XComponent({
    var MODULE = this;
    return {
    xtype : 'NestedLayoutPanel',
+   background : true,
    region : 'center',
    title : _this._strings['edefbda3a2bdd979e42d8944b7325b79'] /* Companies */,
    xns : Roo,
