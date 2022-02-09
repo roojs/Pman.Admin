@@ -454,7 +454,7 @@ Pman.Tab.AdminPermManager = new Roo.XComponent({
                  return '<b>' + "Not in a Group" + '</b>';
              }
              if ((r.data.id == 0) && (_this.type == 0)) {
-                 return '<b>' + "All Staff (Default Permissions)" + '</b>';
+                 return '<b>' + "All Staff" + '</b>';
              }
              if ((r.data.id == 0) && (_this.type == 2)) {
                  return '<b>' + "Everybody" + '</b>';
