@@ -162,7 +162,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                         'scanPmanBJS',
                         'scanPmanTemplates',
                         'scanTables',
-                        'syncLanguage', 
+                        'syncLanguage'  
                ]
                
                
