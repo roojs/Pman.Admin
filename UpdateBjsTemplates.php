@@ -30,11 +30,24 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         return true;
     }
      
-    function get($tbl, $opts=array())
+    function get($step, $opts=array())
     {
         PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, array($this, 'onPearError'));
         $this->opts = $opts;
-        $this->updateData();
+        
+        switch($step) {
+            case 'scanProjectBJS':
+            case 'scanPmanBJS':
+            case 'scanPmanTemplates':
+            case 'scanTables':
+            case 'syncLnaguage':
+                  $this->{$step}();
+                  $this->jok("DONE - " . $step);
+            default:
+                $this->jerr("invalid step");
+        }
+        
+         
     }
     
     function updateData()
