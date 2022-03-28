@@ -216,7 +216,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        }, 
                        success : function()
                        {
-                           _this.treepanel.tree.getRootNode().reload();
+                          (function() {
+                               _this.grid.footer.onClick('first');
+                           }).defer(100);
                        }
                    });
                };
