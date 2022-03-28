@@ -233,7 +233,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    return;
                }
                
-                if(typeof(sn.attributes.id) != 'undefined' && sn.attributes.id > 0){
+                if(typeof(sn.attributes.id) != 'undefined' && sn.attributes.id * 1> 0){
                    syncSingleTemplate(sn.attributes.id);
                    return;
                }
