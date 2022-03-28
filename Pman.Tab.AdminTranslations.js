@@ -182,7 +182,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                syncTemplate();
                                return;
                            }
-                           Pman.MessageBox.hide();
+                           Roo.MessageBox.hide();
                            _this.treepanel.tree.getRootNode().reload();
                        }
                    });
