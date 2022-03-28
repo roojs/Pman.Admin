@@ -40,7 +40,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             case 'scanPmanBJS':
             case 'scanPmanTemplates':
             case 'scanTables':
-            case 'syncLnaguage':
+            case 'syncLanguage':
                   $this->{$step}();
                   $this->jok("DONE - " . $step);
             default:
