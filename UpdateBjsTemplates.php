@@ -250,7 +250,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $tp = DB_DAtaObject::Factory('core_template');
         
         foreach ($this->modules() as $m){
-            
+            var_dump($m);
             // templates...
             $ar = $this->scanDir(array(
                  'tdir' => "Pman/$m/templates",
