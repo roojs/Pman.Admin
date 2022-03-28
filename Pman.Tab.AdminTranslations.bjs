@@ -25,8 +25,8 @@
  "items" : [
   {
    "region" : "center",
-   "title" : "Application Words",
    "xtype" : "NestedLayoutPanel",
+   "title" : "Application Words",
    "$ xns" : "Roo",
    "items" : [
     {
@@ -36,8 +36,8 @@
      "items" : [
       {
        "xtype" : "LayoutRegion",
-       "$ xns" : "Roo",
        "width" : 450,
+       "$ xns" : "Roo",
        "split" : true,
        "* prop" : "west"
       },
@@ -85,7 +85,7 @@
           },
           {
            "listeners" : {
-            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n    Roo.log(tree);\n    var sn  = tree.getSelectionModel().getSelectedNode();\n\n    if (!sn) {\n        Roo.MessageBox.alert(\"Error\", \"Select a node\");\n        return;\n    }\n    \n    var syncTemplate = function(){\n        new Pman.Request({\n            url : baseURL + '/Admin/UpdateBjsTemplates',\n            method : 'GET',\n            mask : 'Processing...',\n            timeout : 9000000,\n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    \n    };\n    \n    \n    var syncLanguage = function(){\n        new Pman.Request({\n            url : baseURL + '/Roo/Core_templatestr',\n            method : 'POST',\n            mask : 'Processing...',\n            params : {\n                _rescan : sn.attributes.id.split(':')[1]\n            }, \n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    };\n    \n    if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){\n        syncTemplate();\n        return;\n    }\n    \n    if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){\n        syncLanguage();\n        return;\n    }\n    \n    \n    \n    \n    \n}"
+            "click" : "function (_self, e)\n{\n    var tree = _this.treepanel.tree;\n    Roo.log(tree);\n    var sn  = tree.getSelectionModel().getSelectedNode();\n\n    if (!sn) {\n        Roo.MessageBox.alert(\"Error\", \"Select a node\");\n        return;\n    }\n    \n    \n    var steps = [ \n           'scanProjectBJS',\n             'scanPmanBJS',\n             'scanPmanTemplates',\n             'scanTables',\n             'syncLnaguage',\n    ]\n    \n    \n    var syncTemplate = function(){\n    \n        var step = steps.shift();\n        \n    \n        new Pman.Request({\n            url : baseURL + '/Admin/UpdateBjsTemplates/' + step,\n            method : 'GET',\n            mask : 'Processing...',\n            timeout : 9000000,\n            success : function()\n            {\n               if (steps.length > 0 ) { \n                    syncTemplate();\n                    return;\n                }\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    \n    };\n    \n    \n    var syncLanguage = function(){\n        new Pman.Request({\n            url : baseURL + '/Roo/Core_templatestr',\n            method : 'POST',\n            mask : 'Processing...',\n            params : {\n                _rescan : sn.attributes.id.split(':')[1]\n            }, \n            success : function()\n            {\n                _this.treepanel.tree.getRootNode().reload();\n            }\n        });\n    };\n    \n    if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){\n        syncTemplate();\n        return;\n    }\n    \n    if(typeof(sn.attributes.language) != 'undefined' && sn.attributes.language){\n        syncLanguage();\n        return;\n    }\n    \n    \n    \n    \n    \n}"
            },
            "text" : "Rescan",
            "xtype" : "Button",
@@ -171,9 +171,9 @@
        "listeners" : {
         "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
        },
+       "fitToframe" : true,
        "background" : false,
        "region" : "center",
-       "fitToframe" : true,
        "title" : "Page",
        "xtype" : "GridPanel",
        "fitContainer" : true,
@@ -250,8 +250,8 @@
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_templatestr.php'",
-             "method" : "GET",
              "xtype" : "HttpProxy",
+             "method" : "GET",
              "$ xns" : "Roo.data",
              "* prop" : "proxy"
             },
@@ -268,8 +268,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Original",
            "width" : 300,
+           "header" : "Original",
            "$ renderer" : "function(v,x,r) \n{\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -277,8 +277,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "Translation",
            "width" : 200,
+           "header" : "Translation",
            "$ renderer" : "function(v,x,r) \n{ \n\n    var c = '#666';\n    if (r.data.updated  < r.data.src_id_updated) {\n        c = 'red';\n    }\n    \n    return String.format('<div style=\"color:'+c+'\";>{0}</div>', v)\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",
@@ -301,8 +301,8 @@
           },
           {
            "xtype" : "ColumnModel",
-           "header" : "md5",
            "width" : 250,
+           "header" : "md5",
            "$ renderer" : "function(v,x,r) \n{\n    return v ? v : '';\n\n}",
            "$ xns" : "Roo.grid",
            "* prop" : "cm[]",

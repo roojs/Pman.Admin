@@ -156,14 +156,32 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    return;
                }
                
+               
+               var steps = [ 
+                      'scanProjectBJS',
+                        'scanPmanBJS',
+                        'scanPmanTemplates',
+                        'scanTables',
+                        'syncLnaguage',
+               ]
+               
+               
                var syncTemplate = function(){
+               
+                   var step = steps.shift();
+                   
+               
                    new Pman.Request({
-                       url : baseURL + '/Admin/UpdateBjsTemplates',
+                       url : baseURL + '/Admin/UpdateBjsTemplates/' + step,
                        method : 'GET',
                        mask : 'Processing...',
                        timeout : 9000000,
                        success : function()
                        {
+                          if (steps.length > 0 ) { 
+                               syncTemplate();
+                               return;
+                           }
                            _this.treepanel.tree.getRootNode().reload();
                        }
                    });
