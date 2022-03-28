@@ -205,6 +205,23 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    });
                };
                
+              var syncSingleTemplate = function(id){
+                   new Pman.Request({
+                       url : baseURL + '/Roo/Core_template',
+                       method : 'POST',
+                       mask : 'Processing...',
+                       params : {
+                           id : id,
+                           _rescan : 1
+                       }, 
+                       success : function()
+                       {
+                           _this.treepanel.tree.getRootNode().reload();
+                       }
+                   });
+               };
+               
+               
                if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){
                    Roo.MessageBox.progress("Syncing templates", "Starting");
                    syncTemplate();
@@ -216,6 +233,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    return;
                }
                
+                if(typeof(sn.attributes.id) != 'undefined' && sn.attributes.id > 0){
+                   syncSingleTemplate(sn.attributes.id);
+                   return;
+               }
                
                
                
