@@ -169,7 +169,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                var syncTemplate = function(){
                
                    var step = steps.shift();
-                   
+                   Pman.MessageBox.updateProgress( (5.0 - steps.length) / 1.0, "Running " + step);
                
                    new Pman.Request({
                        url : baseURL + '/Admin/UpdateBjsTemplates/' + step,
@@ -182,6 +182,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                syncTemplate();
                                return;
                            }
+                           Pman.MessageBox.hide();
                            _this.treepanel.tree.getRootNode().reload();
                        }
                    });
@@ -205,6 +206,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                };
                
                if(typeof(sn.isRoot) != 'undefined' && sn.isRoot){
+                   Roo.MessageBox.progress("Syncing templates", "Starting");
                    syncTemplate();
                    return;
                }
