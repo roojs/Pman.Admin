@@ -174,7 +174,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    new Pman.Request({
                        url : baseURL + '/Admin/UpdateBjsTemplates/' + step,
                        method : 'GET',
-                       mask : 'Processing...',
+                       //mask : 'Processing...',
                        timeout : 9000000,
                        success : function()
                        {
