@@ -163,7 +163,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                         'scanPmanTemplates',
                         'scanTables',
                         'syncLanguage'  
-               ]
+               ];
                
                
                var syncTemplate = function(){
