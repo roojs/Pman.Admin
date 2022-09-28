@@ -578,7 +578,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
        },
        sm : {
         xtype : 'RowSelectionModel',
-        singleSelect : true,
+        singleSelect : false,
         listeners : {
          afterselectionchange : function (_self)
           {
