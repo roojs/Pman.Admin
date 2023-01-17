@@ -157,18 +157,27 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     'view_name' => $view_name,
                     
                 ));
+                
+                
 
                 $o = false;
 
                 if($template->find(true)){
                     $o = clone ($template);
                 }
+                $updated = empty($template->updated) ? '1970-01-01' : $template->updated ;
+                
                 $template->is_deleted = 0;
 
                 $template->filetype = 'bjs';
                 $template->updated = $template->sqlValue("NOW()");
 
                 (empty($o)) ? $template->insert() : $template->update($o);
+                
+                if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
+                    continue;
+                }
+                
                 $ids[] = $template->id;
                 $data = json_decode(file_get_contents('Pman' . '/' . $m . '/' . $fn), true);
 
