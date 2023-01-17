@@ -1,372 +1,678 @@
 {
- "name" : "Pman.Tab.AdminContacts",
- "parent" : "Pman.Tab.AdminContactsManager",
- "title" : "Pman.Tab.AdminContacts",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
- "permname" : "Core.Person",
- "modOrder" : "001",
- "strings" : {
-  "99b344c8ae43e3e7213862b8f35c4e51" : "Select Company",
-  "1c76cbfe21c6f44c1d1e59d54f3e4420" : "Company",
-  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
-  "8444e81d652b084d70c71cd7d19ac0cf" : "Displaying Person{0} - {1} of {2}",
-  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
-  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
-  "9e727fdd3aec8274f46685441900280d" : "Project",
-  "7dce122004969d56ae2e0245cb754d35" : "Edit",
-  "4110db87ce3ac86d603d03d691616b1e" : "Drag person to add or remove from group",
-  "b47a519aebda8fdb4b59bdae6eb2bff0" : "Show No Company",
-  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
-  "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
-  "9675747b5ab12d05f18518761e68a533" : "Select Companies",
-  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
-  "f1174ecbbc232f948717979daf04cf08" : "No Person found",
-  "ec3249f16ee5880d4c1acb752e5c925f" : "Switch to Selected User",
-  "a93806efd0cc7a149f0f03e2b9a0f862" : "Bulk Add",
-  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
-  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
-  "bbbabdbe1b262f75d99d62880b953be1" : "Role",
-  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
-  "d4d25ad0a12e8d30e9d8d35230f6d1d3" : "Show Removed",
-  "9810aa2b9f44401be4bf73188ef2b67d" : "Fax"
- },
- "named_strings" : {
-  "company_name_emptyText" : "99b344c8ae43e3e7213862b8f35c4e51",
-  "company_name_qtip" : "9675747b5ab12d05f18518761e68a533",
-  "company_name_loadingText" : "1243daf593fa297e07ab03bf06d925af"
- },
  "items" : [
   {
-   "listeners" : {
-    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-   },
-   "bool background" : false,
-   "autoScroll" : true,
-   "fitToframe" : true,
-   "region" : "center",
-   "title" : "Person",
-   "xtype" : "GridPanel",
-   "fitContainer" : true,
    "$ xns" : "Roo",
-   "tableName" : "Person",
+   "autoScroll" : true,
+   "bool background" : false,
+   "fitContainer" : true,
+   "fitToframe" : true,
    "items" : [
     {
-     "listeners" : {
-      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n        return;\n    }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-      "|render" : "function() \n{\n    _this.grid = this; \n    if (!_this.dialog) {\n        _this.dialog = Pman.Dialog.PersonEdit;\n        \n    }\n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}",
-      "cellclick" : "function (_self, rowIndex, columnIndex, e)\n{\n\n        var di = this.colModel.getDataIndex(columnIndex);\n        if (di != 'active') {\n            return;\n        }\n         \n        var rec = _this.grid.ds.getAt(rowIndex);\n        \n        rec.set('active', rec.data.active ? 0 : 1);\n        rec.commit();\n         \n        \n}"
-     },
-     "autoExpandColumn" : "name",
-     "xtype" : "Grid",
-     "ddGroup" : "groupDD",
-     "enableDrag" : true,
-     "loadMask" : true,
      "$ xns" : "Roo.grid",
      "* prop" : "grid",
+     "autoExpandColumn" : "name",
+     "ddGroup" : "groupDD",
+     "enableDrag" : true,
      "items" : [
       {
-       "listeners" : {
-        "update" : "function (_self, record, operation)\n{\n    if (operation != 'commit') {\n        return;\n    }\n    // only used to change active status.\n    \n    new Pman.Request({\n        url : baseURL + '/Roo/Person.php',\n        method :'POST',\n        params : {\n            id : record.data.id,\n            active: record.data.active\n            \n        },\n        success : function() {\n            // do nothing\n            \n            _this.grid.ds.remove(record);\n            \n        },\n        failure : function() \n        {\n            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {\n                _this.grid.footer.onClick('first');\n            });\n        }\n    });\n}",
-        "beforeload" : "function (_self, o)\n{\n    if(!_this.active_company_button.pressed){\n        o.params['!company_id_comptype'] = 'OWNER';\n    }\n    \n    o.params['query[search]'] = _this.searchBox.getValue();\n    \n    if (!_this.activeButton) {return; false;}\n    \n    if (_this.companyCombo &&   _this.companyCombo.getValue()) {\n        o.params.company_id =   _this.companyCombo.getValue();\n    }\n    \n    \n    o.params.active = _this.activeButton.pressed ? 0 : 1;\n    \n    if(_this.active_company_button.pressed){\n        o.params.company_id = 0;\n    }\n    \n    var c = Pman.Tab.AdminContactsManager.layout.getRegion('west').getActivePanel();\n    \n    if (!c) { \n        return false;\n    }\n    \n    var tms = c.grid.getSelectionModel().getSelected();\n    \n    if (!tms) {\n        return false;\n    }\n    \n    if(c.tableName == 'Groups'){\n        o.params['query[in_group]'] = tms.data.id;\n        o.params['query[type]'] = 2; // group type..\n    }else{\n        o.params['query[in_country]'] = (tms.data.country*1 == -1) ? '' : tms.data.country;\n        o.params['query[in_group]'] = 0;\n        o.params['query[type]'] = 2;\n    }\n    /*\n    if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {\n        \n        \n        \n    }\n    \n    if(Pman.Tab.AdminCountries && Pman.Tab.AdminCountries.grid){\n        var tms = Pman.Tab.AdminCountries.grid.getSelectionModel().getSelected();\n        \n        if (!tms) {\n            return false;\n        }\n        \n    }\n    */\n    //o.params['query[name]'] = _this.searchBox.getValue();\n  \n}"
-       },
-       "xtype" : "Store",
-       "remoteSort" : true,
        "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
        "$ xns" : "Roo.data",
        "* prop" : "dataSource",
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/core_person'",
-         "xtype" : "HttpProxy",
-         "method" : "GET",
          "$ xns" : "Roo.data",
-         "* prop" : "proxy"
+         "* prop" : "proxy",
+         "method" : "GET",
+         "xtype" : "HttpProxy"
         },
         {
-         "id" : "id",
-         "root" : "data",
-         "xtype" : "JsonReader",
          "$ xns" : "Roo.data",
          "* prop" : "reader",
-         "totalProperty" : "total"
+         "id" : "id",
+         "root" : "data",
+         "totalProperty" : "total",
+         "xtype" : "JsonReader"
         }
-       ]
+       ],
+       "listeners" : {
+        "beforeload" : [
+         "function (_self, o)",
+         "{",
+         "    if(!_this.active_company_button.pressed){",
+         "        o.params['!company_id_comptype'] = 'OWNER';",
+         "    }",
+         "    ",
+         "    o.params['query[search]'] = _this.searchBox.getValue();",
+         "    ",
+         "    if (!_this.activeButton) {return; false;}",
+         "    ",
+         "    if (_this.companyCombo &&   _this.companyCombo.getValue()) {",
+         "        o.params.company_id =   _this.companyCombo.getValue();",
+         "    }",
+         "    ",
+         "    ",
+         "    o.params.active = _this.activeButton.pressed ? 0 : 1;",
+         "    ",
+         "    if(_this.active_company_button.pressed){",
+         "        o.params.company_id = 0;",
+         "    }",
+         "    ",
+         "    var c = Pman.Tab.AdminContactsManager.layout.getRegion('west').getActivePanel();",
+         "    ",
+         "    if (!c) { ",
+         "        return false;",
+         "    }",
+         "    ",
+         "    var tms = c.grid.getSelectionModel().getSelected();",
+         "    ",
+         "    if (!tms) {",
+         "        return false;",
+         "    }",
+         "    ",
+         "    if(c.tableName == 'Groups'){",
+         "        o.params['query[in_group]'] = tms.data.id;",
+         "        o.params['query[type]'] = 2; // group type..",
+         "    }else{",
+         "        o.params['query[in_country]'] = (tms.data.country*1 == -1) ? '' : tms.data.country;",
+         "        o.params['query[in_group]'] = 0;",
+         "        o.params['query[type]'] = 2;",
+         "    }",
+         "    /*",
+         "    if (Pman.Tab.AdminContactsGroup && Pman.Tab.AdminContactsGroup.grid) {",
+         "        ",
+         "        ",
+         "        ",
+         "    }",
+         "    ",
+         "    if(Pman.Tab.AdminCountries && Pman.Tab.AdminCountries.grid){",
+         "        var tms = Pman.Tab.AdminCountries.grid.getSelectionModel().getSelected();",
+         "        ",
+         "        if (!tms) {",
+         "            return false;",
+         "        }",
+         "        ",
+         "    }",
+         "    */",
+         "    //o.params['query[name]'] = _this.searchBox.getValue();",
+         "  ",
+         "}"
+        ],
+        "update" : [
+         "function (_self, record, operation)",
+         "{",
+         "    if (operation != 'commit') {",
+         "        return;",
+         "    }",
+         "    // only used to change active status.",
+         "    ",
+         "    new Pman.Request({",
+         "        url : baseURL + '/Roo/Person.php',",
+         "        method :'POST',",
+         "        params : {",
+         "            id : record.data.id,",
+         "            active: record.data.active",
+         "            ",
+         "        },",
+         "        success : function() {",
+         "            // do nothing",
+         "            ",
+         "            _this.grid.ds.remove(record);",
+         "            ",
+         "        },",
+         "        failure : function() ",
+         "        {",
+         "            Roo.MessageBox.alert(\"Error\", \"saving failed\", function() {",
+         "                _this.grid.footer.onClick('first');",
+         "            });",
+         "        }",
+         "    });",
+         "}"
+        ]
+       },
+       "remoteSort" : true,
+       "xtype" : "Store"
       },
       {
-       "pageSize" : 25,
-       "xtype" : "PagingToolbar",
-       "emptyMsg" : "No Person found",
        "$ xns" : "Roo",
+       "* prop" : "footer",
        "displayInfo" : true,
        "displayMsg" : "Displaying Person{0} - {1} of {2}",
-       "* prop" : "footer",
+       "emptyMsg" : "No Person found",
        "items" : [
         {
+         "$ xns" : "Roo.Toolbar",
          "text" : "Drag person to add or remove from group",
-         "xtype" : "TextItem",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "TextItem"
         }
-       ]
+       ],
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar"
       },
       {
-       "xtype" : "Toolbar",
        "$ xns" : "Roo",
        "* prop" : "toolbar",
        "items" : [
         {
+         "$ xns" : "Roo.Toolbar",
          "text" : "Search",
-         "xtype" : "TextItem",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "TextItem"
         },
         {
-         "listeners" : {
-          "specialkey" : "function (_self, e)\n{\n  if (e.getKey() == 13) {\n    _this.grid.footer.onClick('first');\n  }\n}",
-          "show" : "function (_self,e)\n{\n    if (e.getCharCode() != 13) {\n        return;\n    }\n    _this.grid.footer.onClick('first');\n}",
-          "render" : "function (_self)\n{\n    _this.searchBox = _self;\n}"
-         },
-         "xtype" : "TextField",
-         "$ xns" : "Roo.form"
-        },
-        {
-         "listeners" : {
-          "render" : "function (_self)\n{\n  _this.companyCombo = _self;\n}",
-          "select" : "function (combo, record, index)\n{\n   _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );\n}"
-         },
-         "listWidth" : 400,
-         "triggerAction" : "all",
-         "forceSelection" : true,
-         "selectOnFocus" : true,
-         "pageSize" : 20,
-         "emptyText" : "Select Company",
-         "displayField" : "name",
-         "hiddenName" : "company_id",
-         "minChars" : 2,
-         "valueField" : "id",
-         "xtype" : "ComboBox",
-         "typeAhead" : true,
-         "editable" : true,
-         "width" : 150,
          "$ xns" : "Roo.form",
-         "name" : "company_name",
-         "qtip" : "Select Companies",
-         "queryParam" : "query[name]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
-         "loadingText" : "Searching...",
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.searchBox = _self;",
+           "}"
+          ],
+          "show" : [
+           "function (_self,e)",
+           "{",
+           "    if (e.getCharCode() != 13) {",
+           "        return;",
+           "    }",
+           "    _this.grid.footer.onClick('first');",
+           "}"
+          ],
+          "specialkey" : [
+           "function (_self, e)",
+           "{",
+           "  if (e.getKey() == 13) {",
+           "    _this.grid.footer.onClick('first');",
+           "  }",
+           "}"
+          ]
+         },
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "displayField" : "name",
+         "editable" : true,
+         "emptyText" : "Select Company",
+         "forceSelection" : true,
+         "hiddenName" : "company_id",
          "items" : [
           {
-           "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    // set more here\n}\n"
-           },
-           "xtype" : "Store",
-           "remoteSort" : true,
            "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/core_company'",
-             "xtype" : "HttpProxy",
-             "method" : "GET",
              "$ xns" : "Roo.data",
-             "* prop" : "proxy"
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
             },
             {
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"code\",\"type\":\"string\"}]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
              "id" : "id",
              "root" : "data",
-             "xtype" : "JsonReader",
-             "$ xns" : "Roo.data",
-             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"code\",\"type\":\"string\"}]",
-             "* prop" : "reader",
-             "totalProperty" : "total"
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
             }
-           ]
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    // set more here",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
           }
-         ]
+         ],
+         "listWidth" : 400,
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "  _this.companyCombo = _self;",
+           "}"
+          ],
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "   _this.grid.footer.onClick.defer(300,_this.grid.footer,[ 'first'] );",
+           "}"
+          ]
+         },
+         "loadingText" : "Searching...",
+         "minChars" : 2,
+         "name" : "company_name",
+         "pageSize" : 20,
+         "qtip" : "Select Companies",
+         "queryParam" : "query[name]",
+         "selectOnFocus" : true,
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> </div>",
+         "triggerAction" : "all",
+         "typeAhead" : true,
+         "valueField" : "id",
+         "width" : 150,
+         "xtype" : "ComboBox"
         },
         {
-         "listeners" : {
-          "|click" : "function (_self, e)\n{\n_this.grid.footer.onClick('first');\n}"
-         },
-         "xtype" : "Button",
-         "cls" : "x-btn-icon",
          "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
-         "$ xns" : "Roo.Toolbar"
-        },
-        {
-         "listeners" : {
-          "|click" : "function (_self, e)\n{\n_this.searchBox.setValue('');\n    _this.grid.footer.onClick('first');\n}"
-         },
-         "xtype" : "Button",
+         "$ xns" : "Roo.Toolbar",
          "cls" : "x-btn-icon",
-         "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "listeners" : {
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "_this.grid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
         },
         {
+         "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-icon",
          "listeners" : {
-          "toggle" : "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Active\" : \"Show Removed\");\n   \n   \n}",
-          "render" : "function (_self)\n{\n  _this.activeButton = _self;\n}"
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "_this.searchBox.setValue('');",
+           "    _this.grid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
+         "$ xns" : "Roo.Toolbar",
+         "enableToggle" : true,
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "  _this.activeButton = _self;",
+           "}"
+          ],
+          "toggle" : [
+           "function (_self, pressed)",
+           "{",
+           "   _this.grid.footer.onClick('first');",
+           "   this.setText(pressed ? \"Show Active\" : \"Show Removed\");",
+           "   ",
+           "   ",
+           "}"
+          ]
          },
          "text" : "Show Removed",
-         "enableToggle" : true,
-         "xtype" : "Button",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
+         "$ xns" : "Roo.Toolbar",
+         "enableToggle" : true,
          "listeners" : {
-          "toggle" : "function (_self, pressed)\n{\n   _this.grid.footer.onClick('first');\n   this.setText(pressed ? \"Show Company\" : \"Show No Company\");\n   \n   \n}",
-          "render" : "function (_self)\n{\n  _this.active_company_button = _self;\n}"
+          "render" : [
+           "function (_self)",
+           "{",
+           "  _this.active_company_button = _self;",
+           "}"
+          ],
+          "toggle" : [
+           "function (_self, pressed)",
+           "{",
+           "   _this.grid.footer.onClick('first');",
+           "   this.setText(pressed ? \"Show Company\" : \"Show No Company\");",
+           "   ",
+           "   ",
+           "}"
+          ]
          },
          "text" : "Show No Company",
-         "enableToggle" : true,
-         "xtype" : "Button",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
+         "$ xns" : "Roo.Toolbar",
          "listeners" : {
-          "click" : "function (_self, e)\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if(s.length != 1){\n        Roo.MessageBox.alert(\"Error\", \"Select a Person\");\n        return;\n    }\n    \n    new Pman.Request({\n        url : baseURL + '/Login.php',\n        method : 'GET',\n        params : {\n            'switch' : s[0].data.id\n        },\n        success : function (){\n            document.location = baseURL + '?ts=' + Math.random();\n        },\n        failure : function (d){\n            Roo.log(d);\n            Roo.MessageBox.alert(\"Error\", d);\n        }\n    });\n}"
+          "click" : [
+           "function (_self, e)",
+           "{",
+           "    var s = _this.grid.getSelectionModel().getSelections();",
+           "    if(s.length != 1){",
+           "        Roo.MessageBox.alert(\"Error\", \"Select a Person\");",
+           "        return;",
+           "    }",
+           "    ",
+           "    new Pman.Request({",
+           "        url : baseURL + '/Login.php',",
+           "        method : 'GET',",
+           "        params : {",
+           "            'switch' : s[0].data.id",
+           "        },",
+           "        success : function (){",
+           "            document.location = baseURL + '?ts=' + Math.random();",
+           "        },",
+           "        failure : function (d){",
+           "            Roo.log(d);",
+           "            Roo.MessageBox.alert(\"Error\", d);",
+           "        }",
+           "    });",
+           "}"
+          ]
          },
          "text" : "Switch to Selected User",
-         "xtype" : "Button",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
-         "xtype" : "Fill",
-         "$ xns" : "Roo.Toolbar"
+         "$ xns" : "Roo.Toolbar",
+         "xtype" : "Fill"
         },
         {
+         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
          "listeners" : {
-          "|click" : "function()\n{\n    \n    _this.dialog.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+          "|click" : [
+           "function()",
+           "{",
+           "    ",
+           "    _this.dialog.show( { id : 0 } , function() {",
+           "        _this.grid.footer.onClick('first');",
+           "   }); ",
+           "}",
+           ""
+          ]
          },
          "text" : "Add",
-         "xtype" : "Button",
-         "cls" : "x-btn-text-icon",
-         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
+         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
          "listeners" : {
-          "|click" : "function()\n{\n    \n    Pman.Dialog.PersonBulkAdd.show( { id : 0 } , function() {\n        _this.grid.footer.onClick('first');\n   }); \n}\n"
+          "|click" : [
+           "function()",
+           "{",
+           "    ",
+           "    Pman.Dialog.PersonBulkAdd.show( { id : 0 } , function() {",
+           "        _this.grid.footer.onClick('first');",
+           "   }); ",
+           "}",
+           ""
+          ]
          },
          "text" : "Bulk Add",
-         "xtype" : "Button",
-         "cls" : "x-btn-text-icon",
-         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
+         "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
          "listeners" : {
-          "|click" : "function()\n{\n    var s = _this.grid.getSelectionModel().getSelections();\n    if (!s.length || (s.length > 1))  {\n        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");\n        return;\n    }\n  \n    _this.dialog.show(s[0].data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n    \n}\n"
+          "|click" : [
+           "function()",
+           "{",
+           "    var s = _this.grid.getSelectionModel().getSelections();",
+           "    if (!s.length || (s.length > 1))  {",
+           "        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");",
+           "        return;",
+           "    }",
+           "  ",
+           "    _this.dialog.show(s[0].data, function() {",
+           "        _this.grid.footer.onClick('first');",
+           "    }); ",
+           "    ",
+           "}",
+           ""
+          ]
          },
          "text" : "Edit",
-         "xtype" : "Button",
-         "cls" : "x-btn-text-icon",
-         "$ icon" : "Roo.rootURL + 'images/default/tree/leaf.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         },
         {
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
          "listeners" : {
-          "|click" : "function()\n{\n     Pman.genericDelete(_this, 'Person'); \n}\n        "
+          "|click" : [
+           "function()",
+           "{",
+           "     Pman.genericDelete(_this, 'Person'); ",
+           "}",
+           "        "
+          ]
          },
          "text" : "Delete",
-         "xtype" : "Button",
-         "cls" : "x-btn-text-icon",
-         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         }
-       ]
+       ],
+       "xtype" : "Toolbar"
       },
       {
-       "hidden" : true,
-       "xtype" : "ColumnModel",
-       "sortable" : true,
+       "$ renderer" : [
+        "function(v,x,r) { ",
+        "      return String.format('<span qtip=\"{0}\">{1}</span>', ",
+        "                    r.data.project_id_name,",
+        "                    v);",
+        " }"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "project_id_code",
        "header" : "Project",
+       "hidden" : true,
+       "sortable" : true,
        "width" : 75,
-       "$ renderer" : "function(v,x,r) { \n      return String.format('<span qtip=\"{0}\">{1}</span>', \n                    r.data.project_id_name,\n                    v);\n }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "project_id_code"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "sortable" : true,
+       "$ renderer" : [
+        "function(v,x,r) {",
+        "    if (r.data.office_id) {",
+        "        return String.format('{0} - {1}', v, r.data.office_id_name); ",
+        "    } ",
+        "    return String.format('{0}', v); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "company_id_comptype",
        "header" : "Type",
+       "sortable" : true,
        "width" : 50,
-       "$ renderer" : "function(v,x,r) {\n    if (r.data.office_id) {\n        return String.format('{0} - {1}', v, r.data.office_id_name); \n    } \n    return String.format('{0}', v); \n}",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "company_id_comptype"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "sortable" : true,
+       "$ renderer" : [
+        "function(v,x,r) {",
+        "    if (r.data.office_id) {",
+        "        return String.format('{0} - {1}', v, r.data.office_id_name); ",
+        "    } ",
+        "    return String.format('{0}', v); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "company_id_name",
        "header" : "Company",
-       "width" : 150,
-       "$ renderer" : "function(v,x,r) {\n    if (r.data.office_id) {\n        return String.format('{0} - {1}', v, r.data.office_id_name); \n    } \n    return String.format('{0}', v); \n}",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "company_id_name"
-      },
-      {
-       "xtype" : "ColumnModel",
        "sortable" : true,
+       "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "name",
        "header" : "Name",
+       "sortable" : true,
        "width" : 200,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "name"
-      },
-      {
-       "xtype" : "ColumnModel",
-       "width" : 100,
+       "dataIndex" : "role",
        "header" : "Role",
+       "width" : 100,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "role"
-      },
-      {
-       "xtype" : "ColumnModel",
-       "width" : 100,
+       "dataIndex" : "phone",
        "header" : "Phone",
-       "$ renderer" : "function(v) { return String.format('{0}', v); }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "phone"
+       "width" : 100,
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "header" : "Fax",
-       "width" : 100,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "Boolean hidden" : true,
-       "dataIndex" : "fax"
+       "dataIndex" : "fax",
+       "header" : "Fax",
+       "width" : 100,
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "sortable" : true,
+       "$ renderer" : [
+        "function(v) {",
+        "   return (v.length && v.indexOf('@') > 0 ) ? ",
+        "                    String.format('<a href=\"mailto:{0}\">{0}</a>',v) : v;",
+        " }"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "email",
        "header" : "Email",
+       "sortable" : true,
        "width" : 200,
-       "$ renderer" : "function(v) {\n   return (v.length && v.indexOf('@') > 0 ) ? \n                    String.format('<a href=\"mailto:{0}\">{0}</a>',v) : v;\n }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "email"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "width" : 75,
-       "header" : "Active",
-       "$ renderer" : "function(v) {  \n    var state = v> 0 ?  '-checked' : '';\n\n    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';\n                \n }",
+       "$ renderer" : [
+        "function(v) {  ",
+        "    var state = v> 0 ?  '-checked' : '';",
+        "",
+        "    return '<img class=\"x-grid-check-icon' + state + '\" src=\"' + Roo.BLANK_IMAGE_URL + '\"/>';",
+        "                ",
+        " }"
+       ],
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "active"
+       "dataIndex" : "active",
+       "header" : "Active",
+       "width" : 75,
+       "xtype" : "ColumnModel"
       }
-     ]
+     ],
+     "listeners" : {
+      "cellclick" : [
+       "function (_self, rowIndex, columnIndex, e)",
+       "{",
+       "",
+       "        var di = this.colModel.getDataIndex(columnIndex);",
+       "        if (di != 'active') {",
+       "            return;",
+       "        }",
+       "         ",
+       "        var rec = _this.grid.ds.getAt(rowIndex);",
+       "        ",
+       "        rec.set('active', rec.data.active ? 0 : 1);",
+       "        rec.commit();",
+       "         ",
+       "        ",
+       "}"
+      ],
+      "|render" : [
+       "function() ",
+       "{",
+       "    _this.grid = this; ",
+       "    if (!_this.dialog) {",
+       "        _this.dialog = Pman.Dialog.PersonEdit;",
+       "        ",
+       "    }",
+       "    //_this.dialog = Pman.Dialog.FILL_IN",
+       "    if (_this.panel.active) {",
+       "       this.footer.onClick('first');",
+       "    }",
+       "}"
+      ],
+      "|rowdblclick" : [
+       "function (_self, rowIndex, e)",
+       "{",
+       "    if (!_this.dialog) {",
+       "        return;",
+       "    }",
+       "    _this.dialog.show( this.getDataSource().getAt(rowIndex), function() {",
+       "        _this.grid.footer.onClick('first');",
+       "    }); ",
+       "}",
+       ""
+      ]
+     },
+     "loadMask" : true,
+     "xtype" : "Grid"
     }
-   ]
+   ],
+   "listeners" : {
+    "|activate" : [
+     "function() {",
+     "    _this.panel = this;",
+     "    if (_this.grid) {",
+     "        _this.grid.footer.onClick('first');",
+     "    }",
+     "}"
+    ]
+   },
+   "region" : "center",
+   "tableName" : "Person",
+   "title" : "Person",
+   "xtype" : "GridPanel"
   }
- ]
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Tab.AdminContacts",
+ "named_strings" : {
+  "company_name_emptyText" : "99b344c8ae43e3e7213862b8f35c4e51",
+  "company_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "company_name_qtip" : "9675747b5ab12d05f18518761e68a533"
+ },
+ "parent" : "Pman.Tab.AdminContactsManager",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
+ "permname" : "Core.Person",
+ "strings" : {
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
+  "1c76cbfe21c6f44c1d1e59d54f3e4420" : "Company",
+  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
+  "4110db87ce3ac86d603d03d691616b1e" : "Drag person to add or remove from group",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
+  "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "8444e81d652b084d70c71cd7d19ac0cf" : "Displaying Person{0} - {1} of {2}",
+  "9675747b5ab12d05f18518761e68a533" : "Select Companies",
+  "9810aa2b9f44401be4bf73188ef2b67d" : "Fax",
+  "99b344c8ae43e3e7213862b8f35c4e51" : "Select Company",
+  "9e727fdd3aec8274f46685441900280d" : "Project",
+  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
+  "a93806efd0cc7a149f0f03e2b9a0f862" : "Bulk Add",
+  "b47a519aebda8fdb4b59bdae6eb2bff0" : "Show No Company",
+  "bbbabdbe1b262f75d99d62880b953be1" : "Role",
+  "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+  "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+  "d4d25ad0a12e8d30e9d8d35230f6d1d3" : "Show Removed",
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "ec3249f16ee5880d4c1acb752e5c925f" : "Switch to Selected User",
+  "f1174ecbbc232f948717979daf04cf08" : "No Person found",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
+ },
+ "title" : "Pman.Tab.AdminContacts"
 }

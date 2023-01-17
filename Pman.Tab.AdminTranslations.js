@@ -307,7 +307,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                }
                
                
-               if (sn.id.match(/^table:/)) {
+               if (typeof(sn.id) == 'string' && sn.id.match(/^table:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
                    p.on_table = sns[2];
@@ -315,13 +315,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';
                }
                
-               if (sn.id.match(/^view:/)) {
+               if (typeof(sn.id) == 'string' && sn.id.match(/^view:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
                    p.template_id_view_name = sns[2];
                    
                }
-               if (sn.id.match(/^lang:/)) {
+               if (typeof(sn.id) == 'string' &&  sn.id.match(/^lang:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
            
