@@ -260,7 +260,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 'skipdir' => array('images','css','js'),
                 
             ));
-             print_r($ar);
+           //  print_r($ar);
             
             foreach($ar as $pg) {
                  
