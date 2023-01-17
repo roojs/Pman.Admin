@@ -227,8 +227,9 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         if (empty($ff->Pman_Core)) {
             $this->jerr("config[Pman_Core] is not set");
         }
-        
-        $opt_lang = empty($ff->Pman_Core_I18N) ? array( 'l' => array()) : $ff->Pman_Core_I18N;
+         $ff = HTML_FlexyFramework::get();
+     
+        $opt_lang = empty($ff->Pman_Admin['languages']) ? array( 'l' => array()) : $ff->Pman_Admin['languages'];
         
         if($this->cli){
             echo "Sync the Languages template.....\n";
