@@ -112,7 +112,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             if (!isset($r[$lang])) {
                 continue;
             }
-            $rr = clone($r);
+            $rr = $r;
             $r['language'] = $lang;
             $r['translation'] = $r[$lang];
             $this->updateTranslationRow($r);
