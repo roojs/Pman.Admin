@@ -113,9 +113,9 @@ class Pman_Admin_Import_Core_templatestr extends Pman
                 continue;
             }
             $rr = $r;
-            $r['language'] = $lang;
-            $r['translation'] = $r[$lang];
-            $this->updateTranslationRow($r);
+            $rr['language'] = $lang;
+            $rr['translation'] = $r[$lang];
+            $this->updateTranslationRow($rr);
         }
         
         
