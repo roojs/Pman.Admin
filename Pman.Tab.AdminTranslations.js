@@ -303,7 +303,9 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                }
                if (typeof(sn.id) == 'number') {
                    p.template_id = sn.id;
-           
+                   var sns = sn.parentNode.id.split(':');
+                   p.lang = sns[1];
+                   
                }
                
                
