@@ -93,10 +93,39 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         }
         return $ret;
     }        
-    
+    function updateTranslation($r)
+    {
+        // determine the type of file:
+        
+        if (empty($r['template']) || empty($r['module']) || empty($r['code'])) {
+            $this->jerr("missing template / module or code column");
+        }
+        if (isset($r['language'])) {
+            $this->updateTableTranslationRow($r);
+            return;
+        }
+        $ff = HTML_FlexyFramework::get();
+        if (!isset($ff->Pman_Admin['languages'])) {
+            $this->jerr("invalid language configuration");
+        }
+        
+        
+        foreach($ff->Pman_Admin['languages'] as $lang) {
+            if (!isset($r[strtolower($lang)])) {
+                //echo "SKIP $lang\n";
+                continue;
+            }
+            $rr = $r;
+            $rr['language'] = $lang;
+            $rr['translation'] = $r[strtolower($lang)];
+            $this->updateTranslationRow($rr);
+        }
+        
+        
+    }
     
     var $seq = 1;
-    function updateTranslation($r)
+    function updateTranslationRow($r)
     {
         //print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
@@ -114,7 +143,6 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tt->txt = $r['translation'];
             $tt->updated = date('Y-m-d H:i:s');
             $tt->update($tr);
-             
             return 1;
         }
         return 0;

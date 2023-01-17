@@ -295,7 +295,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    csvTitles : 'Code,Module,Template,Original,Language,Translation',
                    limit : 9999,
                    sort: 'template_id_view_name,template_id_template,src_id_txt',
-                   dir: 'ASC'
+                   dir: 'ASC',
+                   active : 1
                };
                if (!sn ||  sn.id == 'transtree') {
                    Roo.MessageBox.alert("Error", "Select language, module or page");
