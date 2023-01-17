@@ -235,7 +235,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             echo "Sync the Languages template.....\n";
         }
         
-        foreach($opt_lang['l'] as $l) {
+        foreach($opt_lang as $l) {
             if($this->cli){
                 echo "Sync $l Language.....\n";
             }
@@ -260,7 +260,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 'skipdir' => array('images','css','js'),
                 
             ));
-            //print_r($ar);
+             print_r($ar);
             
             foreach($ar as $pg) {
                  
