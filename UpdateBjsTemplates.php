@@ -50,7 +50,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
          
     }
     
-    function updateData()
+    function updateData() // this does everything?? not used?
+    
     {   
         $this->scanProjectBJS();
         $this->scanPmanBJS();
@@ -67,7 +68,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         
     }
     
-    function scanProjectBJS()
+    function scanProjectBJS()  // this is probably not used (replace by the CMS scanner)
     {
         $ff = HTML_FlexyFramework::get();
         
