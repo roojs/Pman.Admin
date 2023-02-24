@@ -68,7 +68,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         
     }
     
-    function scanProjectBJS()
+    function scanProjectBJS()  // this is probably not used (replace by the CMS scanner)
     {
         $ff = HTML_FlexyFramework::get();
         
