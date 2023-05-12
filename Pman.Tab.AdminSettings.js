@@ -9,7 +9,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
  _strings : {
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   '689202409e48743b914713f96d93947c' :"Value",
-  'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
+  '1eeda1a87b9a7b3fe7f6965727a386c0' :"Column Manager",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
@@ -34,7 +34,7 @@ Pman.Tab.AdminSettings = new Roo.XComponent({
    fitContainer : true,
    fitToframe : true,
    region : 'center',
-   title : _this._strings['e4709a73a287a5f033f5b1b5142cb74d'] /* System Settings */,
+   title : _this._strings['1eeda1a87b9a7b3fe7f6965727a386c0'] /* Column Manager */,
    listeners : {
     activate : function() {
          _this.panel = this;

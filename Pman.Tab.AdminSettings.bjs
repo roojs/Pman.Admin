@@ -1,151 +1,198 @@
 {
- "name" : "Pman.Tab.AdminSettings",
- "parent" : "Pman.Tab.Admin",
- "title" : "",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminSettings.bjs",
- "permname" : "",
- "modOrder" : "600",
- "strings" : {
-  "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
-  "689202409e48743b914713f96d93947c" : "Value",
-  "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
-  "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
-  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
-  "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
-  "49ee3087348e8d44e1feda1917443987" : "Name",
-  "b5a7adde1af5c87d7fd797b6245c2a39" : "Description"
- },
  "items" : [
   {
-   "listeners" : {
-    "|activate" : "function() {\n    _this.panel = this;\n \n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-   },
-   "fitToframe" : true,
-   "background" : true,
-   "region" : "center",
-   "title" : "System Settings",
-   "xtype" : "GridPanel",
-   "fitContainer" : true,
    "$ xns" : "Roo",
+   "background" : true,
+   "fitContainer" : true,
+   "fitToframe" : true,
    "items" : [
     {
-     "listeners" : {
-      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) {\n         return;\n     }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('refresh');\n    }); \n}\n",
-      "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
-     },
-     "autoExpandColumn" : "val",
-     "xtype" : "Grid",
-     "loadMask" : true,
      "$ xns" : "Roo.grid",
      "* prop" : "grid",
+     "autoExpandColumn" : "val",
      "items" : [
       {
-       "listeners" : {
-        "beforeload" : "function (_self, o)\n{\n  \n    o.params = o.params ? o.params : {};\n    \n   \n}"
-       },
-       "xtype" : "Store",
-       "remoteSort" : true,
        "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
        "$ xns" : "Roo.data",
        "* prop" : "dataSource",
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/core_setting'",
-         "xtype" : "HttpProxy",
-         "method" : "GET",
          "$ xns" : "Roo.data",
-         "* prop" : "proxy"
+         "* prop" : "proxy",
+         "method" : "GET",
+         "xtype" : "HttpProxy"
         },
         {
-         "id" : "id",
-         "root" : "data",
-         "xtype" : "JsonReader",
          "$ xns" : "Roo.data",
          "* prop" : "reader",
-         "totalProperty" : "total"
+         "id" : "id",
+         "root" : "data",
+         "totalProperty" : "total",
+         "xtype" : "JsonReader"
         }
-       ]
+       ],
+       "listeners" : {
+        "beforeload" : [
+         "function (_self, o)",
+         "{",
+         "  ",
+         "    o.params = o.params ? o.params : {};",
+         "    ",
+         "   ",
+         "}"
+        ]
+       },
+       "remoteSort" : true,
+       "xtype" : "Store"
       },
       {
-       "pageSize" : 25,
-       "xtype" : "PagingToolbar",
-       "emptyMsg" : "No Settings Found",
        "$ xns" : "Roo",
-       "displayMsg" : "Displaying Settings  {0} - {1} of {2}",
+       "* prop" : "footer",
        "displayInfo" : true,
-       "* prop" : "footer"
+       "displayMsg" : "Displaying Settings  {0} - {1} of {2}",
+       "emptyMsg" : "No Settings Found",
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar"
       },
       {
-       "xtype" : "Toolbar",
        "$ xns" : "Roo",
        "* prop" : "toolbar",
        "items" : [
         {
-         "xtype" : "Fill",
-         "$ xns" : "Roo.Toolbar"
+         "$ xns" : "Roo.Toolbar",
+         "xtype" : "Fill"
         },
         {
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
          "listeners" : {
-          "|click" : "function()\n{\n     Pman.genericDelete(_this, 'core_setting'); \n}\n        "
+          "|click" : [
+           "function()",
+           "{",
+           "     Pman.genericDelete(_this, 'core_setting'); ",
+           "}",
+           "        "
+          ]
          },
          "text" : "Delete",
-         "xtype" : "Button",
-         "cls" : "x-btn-text-icon",
-         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
-         "$ xns" : "Roo.Toolbar"
+         "xtype" : "Button"
         }
-       ]
+       ],
+       "xtype" : "Toolbar"
       },
       {
-       "xtype" : "ColumnModel",
-       "sortable" : true,
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "module",
        "header" : "Module",
+       "sortable" : true,
        "width" : 120,
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "module"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "width" : 150,
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "name",
        "header" : "Name",
-       "$ renderer" : "function(v) { return String.format('{0}', v); }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "name"
-      },
-      {
-       "xtype" : "ColumnModel",
-       "sortable" : true,
-       "header" : "Description",
        "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "description"
-      },
-      {
-       "xtype" : "ColumnModel",
+       "dataIndex" : "description",
+       "header" : "Description",
        "sortable" : true,
-       "header" : "Value",
-       "width" : 200,
+       "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "val"
+       "dataIndex" : "val",
+       "header" : "Value",
+       "sortable" : true,
+       "width" : 200,
+       "xtype" : "ColumnModel"
       },
       {
-       "listeners" : {
-        "afterselectionchange" : "function (_self)\n{\n    // load project members.\n}"
-       },
-       "xtype" : "RowSelectionModel",
-       "singleSelect" : true,
        "$ xns" : "Roo.grid",
-       "* prop" : "sm"
+       "* prop" : "sm",
+       "listeners" : {
+        "afterselectionchange" : [
+         "function (_self)",
+         "{",
+         "    // load project members.",
+         "}"
+        ]
+       },
+       "singleSelect" : true,
+       "xtype" : "RowSelectionModel"
       }
-     ]
+     ],
+     "listeners" : {
+      "|render" : [
+       "function() ",
+       "{",
+       "    _this.grid = this; ",
+       "    //_this.dialog = Pman.Dialog.FILL_IN",
+       "    if (_this.panel.active) {",
+       "       this.footer.onClick('first');",
+       "    }",
+       "}"
+      ],
+      "|rowdblclick" : [
+       "function (_self, rowIndex, e)",
+       "{",
+       "    if (!_this.dialog) {",
+       "         return;",
+       "     }",
+       "    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {",
+       "        _this.grid.footer.onClick('refresh');",
+       "    }); ",
+       "}",
+       ""
+      ]
+     },
+     "loadMask" : true,
+     "xtype" : "Grid"
     }
-   ]
+   ],
+   "listeners" : {
+    "|activate" : [
+     "function() {",
+     "    _this.panel = this;",
+     " ",
+     "    if (_this.grid) {",
+     "        _this.grid.footer.onClick('first');",
+     "    }",
+     "}"
+    ]
+   },
+   "region" : "center",
+   "title" : "Column Manager",
+   "xtype" : "GridPanel"
   }
- ]
+ ],
+ "modOrder" : "600",
+ "name" : "Pman.Tab.AdminSettings",
+ "parent" : "Pman.Tab.Admin",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminSettings.bjs",
+ "permname" : "",
+ "strings" : {
+  "1eeda1a87b9a7b3fe7f6965727a386c0" : "Column Manager",
+  "49ee3087348e8d44e1feda1917443987" : "Name",
+  "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
+  "689202409e48743b914713f96d93947c" : "Value",
+  "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
+  "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",
+  "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
+ },
+ "title" : ""
 }
