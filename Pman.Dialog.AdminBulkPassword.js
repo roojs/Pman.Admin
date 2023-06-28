@@ -8,20 +8,12 @@ Pman.Dialog.AdminBulkPassword = {
 
  _strings : {
   '9a621c29402e2e7c826814b0454bbc87' :"email and new password separeted by a space (note you can not change your password this way)",
-  'd94b42030b9785fd754d5c1754961269' :"Discard",
-  'b273168a70495707e723f007feff42f4' :"Forward Email to",
-  'c4ca4238a0b923820dcc509a6f75849b' :"1",
-  '6501c88a27621469bbde6c7d962e056a' :"Check to stop you getting the email",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'e47ca954fb02edc53af1507ac17d12a0' :"Bulk Change Passwords",
   'e0aa021e21dddbd6d8cecec71e9cf564' :"OK"
  },
  _named_strings : {
-  'away_discard_value' : 'c4ca4238a0b923820dcc509a6f75849b' /* 1 */ ,
-  'away_discard_boxLabel' : '6501c88a27621469bbde6c7d962e056a' /* Check to stop you getting the email */ ,
-  'away_text_fieldLabel' : 'b273168a70495707e723f007feff42f4' /* Forward Email to */ ,
-  'away_fwds_fieldLabel' : 'b273168a70495707e723f007feff42f4' /* Forward Email to */ ,
-  'away_discard_fieldLabel' : 'd94b42030b9785fd754d5c1754961269' /* Discard */ 
+  'away_text_fieldLabel' : '9a621c29402e2e7c826814b0454bbc87' /* email and new password separeted by a space (note you can not change your password this way) */ 
  },
 
  dialog : false,
@@ -176,124 +168,7 @@ Pman.Dialog.AdminBulkPassword = {
           actionMode : 'fieldEl',
           fieldLabel : _this._strings['9a621c29402e2e7c826814b0454bbc87'] /* email and new password separeted by a space (note you can not change your password this way) */,
           name : 'away_text',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Row',
-          labelAlign : 'top',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          items  : [
-           {
-            xtype : 'ComboBoxArray',
-            actionMode : 'fieldEl',
-            fieldLabel : _this._strings['b273168a70495707e723f007feff42f4'] /* Forward Email to */,
-            hiddenName : 'away_combo',
-            name : 'away_fwds',
-            width : 440,
-            listeners : {
-             render : function (_self)
-              {
-                  _this.awayCombo = _self;
-              }
-            },
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            combo : {
-             xtype : 'ComboBox',
-             allowBlank : true,
-             alwaysQuery : true,
-             displayField : 'login',
-             editable : true,
-             forceSelection : true,
-             idField : 'code',
-             listWidth : 300,
-             minChars : 2,
-             nameField : 'login',
-             pageSize : 20,
-             queryParam : 'query[starts_with]',
-             triggerAction : 'all',
-             valueField : 'login_email',
-             width : 150,
-             xns : Roo.form,
-             '|xns' : 'Roo.form',
-             store : {
-              xtype : 'Store',
-              remoteSort : true,
-              sortInfo : { field: 'login', direction :'ASC' },
-              listeners : {
-               beforeload : function (_self, o)
-                {
-                    o.params = o.params || {};
-                    o.params._getuser = 1;
-                    o.params.dom_id_domain = _this.data.domain;
-                }
-              },
-              xns : Roo.data,
-              '|xns' : 'Roo.data',
-              proxy : {
-               xtype : 'HttpProxy',
-               method : 'GET',
-               url : baseURL + '/Roo/Users.php',
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
-              },
-              reader : {
-               xtype : 'JsonReader',
-               fields : [
-                   {
-                       'name': 'login',
-                       'type': 'string'
-                   },
-                   {
-                       'name': 'login_email',
-                       'type': 'string'
-                   }
-               ],
-               id : 'code',
-               root : 'data',
-               totalProperty : 'total',
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
-              }
-             }
-            }
-           },
-           {
-            xtype : 'TextArea',
-            actionMode : 'fieldEl',
-            fieldLabel : _this._strings['b273168a70495707e723f007feff42f4'] /* Forward Email to */,
-            name : 'away_text',
-            listeners : {
-             render : function (_self)
-              {
-                  _this.awayText = _self;
-              }
-            },
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           }
-          ]
-         },
-         {
-          xtype : 'Checkbox',
-          boxLabel : _this._strings['6501c88a27621469bbde6c7d962e056a'] /* Check to stop you getting the email */,
-          fieldLabel : _this._strings['d94b42030b9785fd754d5c1754961269'] /* Discard */,
-          name : 'away_discard',
-          value : 1,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
-          name : 'away_fwd',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
-          name : 'id',
+          width : 400,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          }
