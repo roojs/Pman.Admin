@@ -18,8 +18,8 @@ Pman.Dialog.AdminBulkPassword = {
  _named_strings : {
   'away_discard_value' : 'c4ca4238a0b923820dcc509a6f75849b' /* 1 */ ,
   'away_discard_boxLabel' : '6501c88a27621469bbde6c7d962e056a' /* Check to stop you getting the email */ ,
-  'away_fwds_fieldLabel' : 'b273168a70495707e723f007feff42f4' /* Forward Email to */ ,
   'away_text_fieldLabel' : 'b273168a70495707e723f007feff42f4' /* Forward Email to */ ,
+  'away_fwds_fieldLabel' : 'b273168a70495707e723f007feff42f4' /* Forward Email to */ ,
   'away_discard_fieldLabel' : 'd94b42030b9785fd754d5c1754961269' /* Discard */ 
  },
 
@@ -170,6 +170,14 @@ Pman.Dialog.AdminBulkPassword = {
         xns : Roo.form,
         '|xns' : 'Roo.form',
         items  : [
+         {
+          xtype : 'TextArea',
+          actionMode : 'fieldEl',
+          fieldLabel : _this._strings['b273168a70495707e723f007feff42f4'] /* Forward Email to */,
+          name : 'away_text',
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
          {
           xtype : 'Row',
           labelAlign : 'top',
