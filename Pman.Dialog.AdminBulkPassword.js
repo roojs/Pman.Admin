@@ -13,7 +13,7 @@ Pman.Dialog.AdminBulkPassword = {
   'e0aa021e21dddbd6d8cecec71e9cf564' :"OK"
  },
  _named_strings : {
-  'away_text_fieldLabel' : '6dac324294c8f0378abea84fa382b60c' /* email and new password separeted by a space <br/>(note you can not change your password this way) */ 
+  '_bulk_update_passwords_fieldLabel' : '6dac324294c8f0378abea84fa382b60c' /* email and new password separeted by a space <br/>(note you can not change your password this way) */ 
  },
 
  dialog : false,
@@ -95,7 +95,7 @@ Pman.Dialog.AdminBulkPassword = {
         labelAlign : 'top',
         labelWidth : 100,
         style : 'margin:5px',
-        url : baseURL + '/Roo/Users',
+        url : baseURL + '/Roo/Core_person',
         listeners : {
          actioncomplete : function (_self, action)
           { 
@@ -136,7 +136,7 @@ Pman.Dialog.AdminBulkPassword = {
           actionMode : 'fieldEl',
           fieldLabel : _this._strings['6dac324294c8f0378abea84fa382b60c'] /* email and new password separeted by a space <br/>(note you can not change your password this way) */,
           height : 300,
-          name : 'away_text',
+          name : '_bulk_update_passwords',
           width : 450,
           xns : Roo.form,
           '|xns' : 'Roo.form'
