@@ -169,7 +169,7 @@ Pman.Dialog.AdminBulkPassword = {
           fieldLabel : _this._strings['9a621c29402e2e7c826814b0454bbc87'] /* email and new password separeted by a space (note you can not change your password this way) */,
           height : 300,
           name : 'away_text',
-          width : 400,
+          width : 450,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          }
