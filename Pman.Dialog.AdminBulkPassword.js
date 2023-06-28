@@ -7,6 +7,7 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminBulkPassword = {
 
  _strings : {
+  '9a621c29402e2e7c826814b0454bbc87' :"email and new password separeted by a space (note you can not change your password this way)",
   'd94b42030b9785fd754d5c1754961269' :"Discard",
   'b273168a70495707e723f007feff42f4' :"Forward Email to",
   'c4ca4238a0b923820dcc509a6f75849b' :"1",
@@ -131,7 +132,7 @@ Pman.Dialog.AdminBulkPassword = {
       items  : [
        {
         xtype : 'Form',
-        labelAlign : 'right',
+        labelAlign : 'top',
         labelWidth : 100,
         style : 'margin:5px',
         url : baseURL + '/Roo/Users',
@@ -173,7 +174,7 @@ Pman.Dialog.AdminBulkPassword = {
          {
           xtype : 'TextArea',
           actionMode : 'fieldEl',
-          fieldLabel : _this._strings['b273168a70495707e723f007feff42f4'] /* Forward Email to */,
+          fieldLabel : _this._strings['9a621c29402e2e7c826814b0454bbc87'] /* email and new password separeted by a space (note you can not change your password this way) */,
           name : 'away_text',
           xns : Roo.form,
           '|xns' : 'Roo.form'
