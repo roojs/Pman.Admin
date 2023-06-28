@@ -42,7 +42,7 @@ Pman.Dialog.AdminBulkPassword = {
    this.dialog = Roo.factory({
     xtype : 'LayoutDialog',
     closable : false,
-    height : 400,
+    height : 420,
     modal : true,
     resizable : false,
     title : _this._strings['e47ca954fb02edc53af1507ac17d12a0'] /* Bulk Change Passwords */,
