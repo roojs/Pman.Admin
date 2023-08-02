@@ -219,6 +219,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             if($this->cli){
                 echo "Sync tables.....\n";
             }
+
+            var_dump($ff->Pman_Core['DataObjects_Core_templatestr']['tables']);
             
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
                 $t = DB_DataObject::factory($table);
