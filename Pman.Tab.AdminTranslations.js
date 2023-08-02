@@ -313,7 +313,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                    p.lang = sns[1];
                    p.on_table = sns[2];
                    p.csvCols = 'src_id_mdsum,on_table,on_id,on_col,src_id_txt,lang,txt';
-                   p.csvTitles = 'Code,Table,Table id,Column,Language,Translation';
+                   p.csvTitles = 'Code,Table,Table id,Column,Original,Language,Translation';
                }
                
                if (typeof(sn.id) == 'string' && sn.id.match(/^view:/)) {
