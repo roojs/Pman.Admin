@@ -174,7 +174,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
                 (empty($o)) ? $template->insert() : $template->update($o);
 
-                var_dumP('scanPmanBJS');
                 
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
@@ -185,8 +184,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
                 $template->words = empty($data['strings']) ? array() : $data['strings'];
 
-                var_dumP('scanPmanBJS');
-                exit;
                 $x = DB_DataObject::Factory('core_templatestr');
                 $x->syncTemplateWords($template, false);
             }
