@@ -101,20 +101,22 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $this->jerr("missing template / module or code column");
         }
 
-        if (isset($r['language'])) {
-            // table translation
-            if($r['module'] == 'database') {
-                $arr = explode(':', $r['template']);
-                $r['table'] = $arr[0];
-                $r['column'] = $arr[1];
-                $this->updateTableTranslation($r);
-            }
-            // template translation
-            else {
-                $this->updateTranslationRow($r);
-            }
-            return;
+        if (!isset($r['language'])) {
+            $this->jerr("empty language");
         }
+
+        // table translation
+        if($r['module'] == 'database') {
+            $arr = explode(':', $r['template']);
+            $r['table'] = $arr[0];
+            $r['column'] = $arr[1];
+            $this->updateTableTranslation($r);
+        }
+        // template translation
+        else {
+            $this->updateTranslationRow($r);
+        }
+        return;
 
         $ff = HTML_FlexyFramework::get();
         if (!isset($ff->Pman_Admin['languages'])) {
