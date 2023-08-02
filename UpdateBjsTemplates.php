@@ -174,7 +174,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
                 (empty($o)) ? $template->insert() : $template->update($o);
 
-                
+                die('BJS');
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
                 }
