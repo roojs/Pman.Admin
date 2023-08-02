@@ -147,14 +147,12 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     
     function updateTableTranslation($r)
     {
-        $ret = 0;
-
       //   print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
 
 
-        // update duplicate with same on_table, on_col and mdsum
+        // update duplicate with same on_table, on_col, mdsum and lang
         // $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
         $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['table'])}'");
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
@@ -163,19 +161,23 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
         $duplicate = $tr->fetchAll('id');
 
-        $t = DB_DataObject::factory($this->tableName());
-        // deactivate the parent data
-        $t->query(
-        "UPDATE 
-            core_templatestr
-        SET 
-            txt = '" . $r['translation'] . "',
-            updated = '" . date('Y-m-d H:i:s') . "' 
-        WHERE 
-            id IN (" . implode(',', $duplicate) . ")"
-        );
+        if(!empty($duplicate)) {
 
-        return $ret;
+            $t = DB_DataObject::factory($this->tableName());
+            // deactivate the parent data
+            $t->query(
+            "UPDATE 
+                core_templatestr
+            SET 
+                txt = '" . $r['translation'] . "',
+                updated = '" . date('Y-m-d H:i:s') . "' 
+            WHERE 
+                id IN (" . implode(',', $duplicate) . ")"
+            );
+            return 1;
+        }
+
+        return 0t;
     }
     
     
