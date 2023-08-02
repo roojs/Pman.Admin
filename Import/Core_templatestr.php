@@ -102,7 +102,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         }
 
         if (!isset($r['language'])) {
-            $this->jerr("empty language");
+            $this->jerr("missing language");
         }
 
         // table translation
@@ -117,25 +117,6 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $this->updateTranslationRow($r);
         }
         return;
-
-        $ff = HTML_FlexyFramework::get();
-        if (!isset($ff->Pman_Admin['languages'])) {
-            $this->jerr("invalid language configuration");
-        }
-        
-        
-        foreach($ff->Pman_Admin['languages'] as $lang) {
-            if (!isset($r[strtolower($lang)])) {
-                //echo "SKIP $lang\n";
-                continue;
-            }
-            $rr = $r;
-            $rr['language'] = $lang;
-            $rr['translation'] = $r[strtolower($lang)];
-            $this->updateTranslationRow($rr);
-        }
-        
-        
     }
     
     var $seq = 1;
