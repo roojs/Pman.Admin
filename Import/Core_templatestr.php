@@ -159,6 +159,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
         $tr->lang = $r['language'];
+
+        $duplicate = array();
         foreach($tr->fetchAll() as $ts) {
             $tt = DB_DataObject::Factory('core_templatestr');
             $tt->get($ts->id);
@@ -174,7 +176,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         // deactivate the parent data
         $t->query("UPDATE core_templatestr
                   SET txt = '" . $r['translation'] . "',
-                  updated = '" . date('Y-m-d H:i:s') . "'
+                  updated = '" . date('Y-m-d H:i:s') . "' 
                   WHERE id in (" . implode(',' ,$deactive) . ")
                  ");
         return $ret;
