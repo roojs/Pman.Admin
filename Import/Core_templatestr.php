@@ -101,11 +101,12 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $this->jerr("missing template / module or code column");
         }
 
-        die('a');
         if (isset($r['language'])) {
+            die('b');
             $this->updateTableTranslationRow($r);
             return;
         }
+        die('c');
         $ff = HTML_FlexyFramework::get();
         if (!isset($ff->Pman_Admin['languages'])) {
             $this->jerr("invalid language configuration");
