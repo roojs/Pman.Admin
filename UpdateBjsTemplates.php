@@ -128,8 +128,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     function scanPmanBJS()
     {
-        var_dumP('scanPmanBJS');
-        exit;
         $ids = array();
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
@@ -176,6 +174,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
                 (empty($o)) ? $template->insert() : $template->update($o);
                 
+                var_dumP('scanPmanBJS');
+                exit;
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
                 }
