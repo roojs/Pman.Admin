@@ -102,9 +102,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         }
 
         if (isset($r['language'])) {
-            var_dump($r);
-            die('b');
-            $this->updateTableTranslationRow($r);
+            $this->updateTranslationRow($r);
             return;
         }
 
