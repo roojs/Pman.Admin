@@ -107,7 +107,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
                 $arr = explode(':', $r['template']);
                 $r['table'] = $arr[0];
                 $r['column'] = $arr[1];
-                $this->updateTableTranslationRow($r);
+                $this->updateTableTranslation($r);
             }
             // template translation
             else {
