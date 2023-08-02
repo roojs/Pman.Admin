@@ -164,7 +164,6 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         if(!empty($duplicate)) {
 
             $t = DB_DataObject::factory($this->tableName());
-            // deactivate the parent data
             $t->query(
             "UPDATE 
                 core_templatestr
@@ -177,7 +176,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             return 1;
         }
 
-        return 0t;
+        return 0;
     }
     
     
