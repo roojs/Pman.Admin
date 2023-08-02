@@ -161,23 +161,18 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->lang = $r['language'];
 
         $duplicate = $tr->fetchAll('id');
-        foreach($tr->fetchAll() as $ts) {
-            $tt = DB_DataObject::Factory('core_templatestr');
-            $tt->get($ts->id);
-            $old = clone($tt);
-            $tt->txt = $r['translation'];
-            $tt->updated = date('Y-m-d H:i:s');
-            $tt->update($old);
-
-            $ret = 1;
-        }
 
         $t = DB_DataObject::factory($this->tableName());
         // deactivate the parent data
-        $t->query("UPDATE core_templatestr
-                  SET txt = '" . $r['translation'] . "',
-                  updated = '" . date('Y-m-d H:i:s') . "' 
-                  WHERE id in (" . implode(',' ,$deactive) . ")
+        $t->query(
+        "UPDATE 
+            core_templatestr
+        SET 
+            txt = '" . $r['translation'] . "',
+            updated = '" . date('Y-m-d H:i:s') . "' 
+        WHERE 
+            id IN (" . implode(',', $duplicate) . ")
+            
                  ");
         return $ret;
     }
