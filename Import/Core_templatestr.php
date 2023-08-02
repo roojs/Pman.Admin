@@ -111,7 +111,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             }
             // template translation
             else {
-                $this->updateTranslationRow($r);
+                // $this->updateTranslationRow($r);
             }
             return;
         }
