@@ -103,7 +103,10 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
         if (isset($r['language'])) {
             if($r['module'] == 'database') {
-                var_dump('databsae');
+                $arr = explode(':', $r['template']);
+                $r['table'] = $arr[0];
+                $r['column'] = $arr[1];
+                var_dump($r);
             }
             // $this->updateTranslationRow($r);
             return;
