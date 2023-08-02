@@ -153,7 +153,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
 
-       
+
+        // update duplicate with same on_table, on_col and mdsum
         // $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
         $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['table'])}'");
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
