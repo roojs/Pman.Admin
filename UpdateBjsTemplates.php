@@ -177,6 +177,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
                 }
+                var_dumP('scanPmanBJS');
                 
                 $ids[] = $template->id;
                 $data = json_decode(file_get_contents('Pman' . '/' . $m . '/' . $fn), true);
