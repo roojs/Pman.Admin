@@ -163,7 +163,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
         if(!empty($duplicate)) {
 
-            $t = DB_DataObject::factory($this->tableName());
+            $t = DB_DataObject::factory('core_templatestr');
             $t->query(
             "UPDATE 
                 core_templatestr
