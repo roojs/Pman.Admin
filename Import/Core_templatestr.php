@@ -161,7 +161,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->autoJoin();
 
        
-        // $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'"); // don't have duplicate for same on_table, on_col and mdsum
+        // $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'"); // also update duplicate with same on_table, on_col and mdsum
         $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['table'])}'");
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
