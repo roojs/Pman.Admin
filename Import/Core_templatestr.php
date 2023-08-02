@@ -171,9 +171,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             txt = '" . $r['translation'] . "',
             updated = '" . date('Y-m-d H:i:s') . "' 
         WHERE 
-            id IN (" . implode(',', $duplicate) . ")
-            
-                 ");
+            id IN (" . implode(',', $duplicate) . ")"
+        );
         return $ret;
     }
     
