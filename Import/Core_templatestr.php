@@ -100,6 +100,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         if (empty($r['template']) || empty($r['module']) || empty($r['code'])) {
             $this->jerr("missing template / module or code column");
         }
+
+        die('a');
         if (isset($r['language'])) {
             $this->updateTableTranslationRow($r);
             return;
