@@ -160,7 +160,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
         $tr->lang = $r['language'];
 
-        $duplicate = array();
+        $duplicate = $tr->fetchAll('id');
         foreach($tr->fetchAll() as $ts) {
             $tt = DB_DataObject::Factory('core_templatestr');
             $tt->get($ts->id);
