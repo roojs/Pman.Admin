@@ -178,16 +178,6 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
             $ret = 1;
         }
-        if ($tr->find(true) && strlen(trim($r['txt']))) {
-            $tt = DB_DataObject::Factory('core_templatestr');
-            $tt->get($tr->id);
-            $tr= clone($tt);
-            $tt->txt = $r['txt'];
-            $tt->updated = date('Y-m-d H:i:s');
-            $tt->update($tr);
-             
-            return 1;
-        }
         return $ret;
     }
     
