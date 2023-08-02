@@ -221,6 +221,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             }
 
             var_dump($ff->Pman_Core['DataObjects_Core_templatestr']['tables']);
+            die('a');
             
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
                 $t = DB_DataObject::factory($table);
