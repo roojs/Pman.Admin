@@ -325,7 +325,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                if (typeof(sn.id) == 'string' &&  sn.id.match(/^lang:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
-                   
+                   p.csvCols = 'src_id_mdsum,template_id_view_name,template_id_template,on_table,on_id,on_col,src_id_txt,lang,txt';
+                   p.csvTitles = 'Code,Module,Template,Table,Table id,Column,Language,Translation';
            
               }
                // transtree
