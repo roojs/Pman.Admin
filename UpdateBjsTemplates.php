@@ -128,7 +128,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     function scanPmanBJS()
     {
-        
+        var_dumP('scanPmanBJS');
+        exit;
         $ids = array();
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
