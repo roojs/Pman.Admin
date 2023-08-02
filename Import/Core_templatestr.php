@@ -172,7 +172,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $tt = DB_DataObject::Factory('core_templatestr');
             $tt->get($ts->id);
             $old = clone($tt);
-            $tt->txt = $r['txt'];
+            $tt->txt = $r['translation'];
             $tt->updated = date('Y-m-d H:i:s');
             $tt->update($old);
 
