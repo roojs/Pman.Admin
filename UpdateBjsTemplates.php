@@ -177,14 +177,14 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
                 }
-                var_dumP('scanPmanBJS');
-                exit;
                 
                 $ids[] = $template->id;
                 $data = json_decode(file_get_contents('Pman' . '/' . $m . '/' . $fn), true);
 
                 $template->words = empty($data['strings']) ? array() : $data['strings'];
 
+                var_dumP('scanPmanBJS');
+                exit;
                 $x = DB_DataObject::Factory('core_templatestr');
                 $x->syncTemplateWords($template, false);
             }
