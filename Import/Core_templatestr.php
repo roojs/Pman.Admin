@@ -169,6 +169,14 @@ class Pman_Admin_Import_Core_templatestr extends Pman
 
             $ret = 1;
         }
+
+        $t = DB_DataObject::factory($this->tableName());
+        // deactivate the parent data
+        $t->query("UPDATE core_templatestr
+                  SET txt = '" . $r['translation'] . "',
+                  updated = '" . date('Y-m-d H:i:s') . "'
+                  WHERE id in (" . implode(',' ,$deactive) . ")
+                 ");
         return $ret;
     }
     
