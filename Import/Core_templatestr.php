@@ -105,7 +105,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $this->updateTableTranslationRow($r);
             return;
         }
-        die('c');
+        
         $ff = HTML_FlexyFramework::get();
         if (!isset($ff->Pman_Admin['languages'])) {
             $this->jerr("invalid language configuration");
