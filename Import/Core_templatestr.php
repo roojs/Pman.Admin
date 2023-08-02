@@ -156,6 +156,8 @@ class Pman_Admin_Import_Core_templatestr extends Pman
     
     function updateTableTranslation($r)
     {
+        $ret = 0;
+
       //   print_R($r); DB_DataObject::DebugLevel(1);
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
@@ -166,6 +168,16 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
         $tr->lang = $r['language'];
+        foreach($tr->fetchAll() as $ts) {
+            $tt = DB_DataObject::Factory('core_templatestr');
+            $tt->get($ts->id);
+            $old = clone($tt);
+            $tt->txt = $r['txt'];
+            $tt->updated = date('Y-m-d H:i:s');
+            $tt->update($old);
+
+            $ret = 1;
+        }
         if ($tr->find(true) && strlen(trim($r['txt']))) {
             $tt = DB_DataObject::Factory('core_templatestr');
             $tt->get($tr->id);
@@ -176,7 +188,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
              
             return 1;
         }
-        return 0;
+        return $ret;
     }
     
     
