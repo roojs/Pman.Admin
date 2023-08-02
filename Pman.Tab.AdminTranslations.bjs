@@ -277,6 +277,7 @@
              "    if (typeof(sn.id) == 'string' &&  sn.id.match(/^lang:/)) {",
              "        var sns = sn.id.split(':');",
              "        p.lang = sns[1];",
+             "        ",
              "",
              "   }",
              "    // transtree",
@@ -792,7 +793,7 @@
  "modOrder" : "950",
  "name" : "Pman.Tab.AdminTranslations",
  "parent" : "Pman.Tab.AdminTranslationsInt",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminTranslations.bjs",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminTranslations.bjs",
  "permname" : "Admin.Translations",
  "strings" : {
   "03c2e7e41ffc181a4e84080b4710e81e" : "New",

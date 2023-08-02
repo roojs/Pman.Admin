@@ -325,6 +325,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                if (typeof(sn.id) == 'string' &&  sn.id.match(/^lang:/)) {
                    var sns = sn.id.split(':');
                    p.lang = sns[1];
+                   
            
               }
                // transtree
