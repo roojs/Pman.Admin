@@ -226,6 +226,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     $cts->onTableChange($this, $d, 'update');
                 }
             }
+            die('b');
         }
     }
     
