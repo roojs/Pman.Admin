@@ -220,6 +220,12 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             if($this->cli){
                 echo "Sync tables.....\n";
             }
+
+            // deactivate the parent data
+            $t->query(
+                "UPDATE core_templatestr
+                SET active = 0 WHERE id in (" . implode(',' ,$unused) . ")"
+            );
             
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
                 $t = DB_DataObject::factory($table);
@@ -227,8 +233,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     $cts->onTableChange($this, $d, 'update');
                 }
             }
-
-            $cts->syncTableWords();
         }
     }
     
