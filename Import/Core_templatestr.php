@@ -100,28 +100,23 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         if (empty($r['template']) || empty($r['module']) || empty($r['code'])) {
             $this->jerr("missing template / module or code column");
         }
-        if (isset($r['language'])) {
-            $this->updateTableTranslationRow($r);
-            return;
+
+        if (!isset($r['language'])) {
+            $this->jerr("missing language");
         }
-        $ff = HTML_FlexyFramework::get();
-        if (!isset($ff->Pman_Admin['languages'])) {
-            $this->jerr("invalid language configuration");
+
+        // table translation
+        if($r['module'] == 'database') {
+            $arr = explode(':', $r['template']);
+            $r['table'] = $arr[0];
+            $r['column'] = $arr[1];
+            $this->updateTableTranslation($r);
         }
-        
-        
-        foreach($ff->Pman_Admin['languages'] as $lang) {
-            if (!isset($r[strtolower($lang)])) {
-                //echo "SKIP $lang\n";
-                continue;
-            }
-            $rr = $r;
-            $rr['language'] = $lang;
-            $rr['translation'] = $r[strtolower($lang)];
-            $this->updateTranslationRow($rr);
+        // template translation
+        else {
+            $this->updateTranslationRow($r);
         }
-        
-        
+        return;
     }
     
     var $seq = 1;
@@ -156,22 +151,31 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $tr = DB_DataObject::Factory('core_templatestr');
         $tr->autoJoin();
 
-       
-        $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
+
+        // update duplicate with same on_table, on_col, mdsum and lang
+        // $tr->whereAdd("core_templatestr.on_id='{$tr->escape($r['table id'])}'");
         $tr->whereAdd("core_templatestr.on_table='{$tr->escape($r['table'])}'");
         $tr->whereAdd("core_templatestr.on_col='{$tr->escape($r['column'])}'");
         $tr->whereAdd("join_src_id_id.mdsum='{$tr->escape($r['code'])}'");
-        $tr->lang = $r['translation'];
-        if ($tr->find(true) && strlen(trim($r['txt']))) {
-            $tt = DB_DataObject::Factory('core_templatestr');
-            $tt->get($tr->id);
-            $tr= clone($tt);
-            $tt->txt = $r['txt'];
-            $tt->updated = date('Y-m-d H:i:s');
-            $tt->update($tr);
-             
+        $tr->lang = $r['language'];
+
+        $duplicate = $tr->fetchAll('id');
+
+        if(!empty($duplicate)) {
+
+            $t = DB_DataObject::factory('core_templatestr');
+            $t->query(
+            "UPDATE 
+                core_templatestr
+            SET 
+                txt = '" . $r['translation'] . "',
+                updated = '" . date('Y-m-d H:i:s') . "' 
+            WHERE 
+                id IN (" . implode(',', $duplicate) . ")"
+            );
             return 1;
         }
+
         return 0;
     }
     
