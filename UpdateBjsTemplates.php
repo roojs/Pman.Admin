@@ -222,6 +222,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             }
 
             // deactivate all table translation
+            $t = DB_DataObject::factory('core_templatestr');
             $t->query(
                 "UPDATE core_templatestr
                 SET active = 0 
