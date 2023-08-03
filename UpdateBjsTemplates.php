@@ -219,7 +219,16 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             if($this->cli){
                 echo "Sync tables.....\n";
             }
+
+            // deactivate all table translation
+            $t = DB_DataObject::factory('core_templatestr');
+            $t->query(
+                "UPDATE core_templatestr
+                SET active = 0 
+                WHERE on_table != ''"
+            );
             
+            // activate the used table translation
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
                 $t = DB_DataObject::factory($table);
                 foreach($t->fetchAll() as $d) {
