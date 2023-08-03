@@ -128,7 +128,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
     
     function scanPmanBJS()
     {
-        
         $ids = array();
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
@@ -174,7 +173,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 $template->updated = $template->sqlValue("NOW()");
 
                 (empty($o)) ? $template->insert() : $template->update($o);
-                
+
                 if (strtotime($updated) >= filemtime('Pman' . '/' . $m . '/' . $fn)) {
                     continue;
                 }
