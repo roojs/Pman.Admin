@@ -231,6 +231,12 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             
             // activate the used table translation
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
+                if($table == 'core_enum') {
+                    die('b');
+                }
+                else {
+                    continue;
+                }
                 $t = DB_DataObject::factory($table);
                 foreach($t->fetchAll() as $d) {
                     $cts->onTableChange($this, $d, 'update');
