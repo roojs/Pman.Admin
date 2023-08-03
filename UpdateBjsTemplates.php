@@ -227,7 +227,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     $ar = explode(',', $table);
                     $tableName = $ar[0];
                 }
-                $t = DB_DataObject::factory($table);
+                $t = DB_DataObject::factory($tableName);
                 foreach($t->fetchAll() as $d) {
                     $cts->onTableChange($this, $d, 'update');
                 }
