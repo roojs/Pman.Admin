@@ -224,7 +224,7 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
                 $tableName = $table;
                 if(strpos($table, ',') !== false) {
-                    $ar = explode(',' $table);
+                    $ar = explode(',', $table);
                     $tableName = $ar[0];
                 }
                 $t = DB_DataObject::factory($table);
