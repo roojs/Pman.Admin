@@ -221,10 +221,11 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 echo "Sync tables.....\n";
             }
 
-            // deactivate the parent data
+            // deactivate the table translation
             $t->query(
                 "UPDATE core_templatestr
-                SET active = 0 WHERE id in (" . implode(',' ,$unused) . ")"
+                SET active = 0 
+                WHERE on_table != ''"
             );
             
             foreach($ff->Pman_Core['DataObjects_Core_templatestr']['tables'] as $table=>$cols){
