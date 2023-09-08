@@ -12,7 +12,7 @@ class Pman_Admin_GroupRights extends Pman
         parent::getAuth(); // load company!
         $au = $this->getAuthUser();
         if (!$au) {
-            $this->jerr("Not authenticated", array('authFailure' => true));
+            $this->jerror("LOGIN-NOAUTH", "Not authenticated", array('authFailure' => true));
         }
         
         if ($au->company()->comptype !='OWNER') {
