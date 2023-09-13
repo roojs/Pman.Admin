@@ -131,8 +131,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         $ids = array();
         foreach ($this->modules() as $m){
             $view_name = "Pman.$m";
-
-            var_dump($view_name);
             
             $dh = opendir("Pman/$m");
         
