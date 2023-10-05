@@ -1,0 +1,176 @@
+{
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "Boolean closable" : true,
+   "collapsible" : false,
+   "height" : 200,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/core_notify_server'",
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "Hostname",
+         "name" : "hostname",
+         "width" : 200,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "Helo Name",
+         "name" : "helo",
+         "width" : 200,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "Pool Name",
+         "name" : "poolname",
+         "width" : 200,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "String fieldLabel" : "Is Active?",
+         "String name" : "is_active",
+         "xtype" : "Checkbox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "name" : "id",
+         "xtype" : "Hidden"
+        }
+       ],
+       "labelWidth" : 150,
+       "listeners" : {
+        "actionfailed" : [
+         "function (_self, action)",
+         "{",
+         "    _this.dialog.el.unmask();",
+         "    ",
+         "    Pman.standardActionFailed(_self, action);",
+         "}"
+        ],
+        "|actioncomplete" : [
+         "function(_self,action)",
+         "{",
+         "    if (action.type == 'setdata') {",
+         "       ",
+         "       if (_this.data.clone_of) {",
+         "           _this.dialog.el.mask(\"Loading\");",
+         "            this.load({ method: 'GET', params: { '_id' : _this.data.clone_of }});",
+         "       }",
+         "       return;",
+         "    }",
+         "    if (action.type == 'load') {",
+         "        _this.dialog.el.unmask();",
+         "        // unset the id..",
+         "        ",
+         "        return;",
+         "    }",
+         "    if (action.type =='submit') {",
+         "    ",
+         "        _this.dialog.el.unmask();",
+         "        _this.dialog.hide();",
+         "        ",
+         "         ",
+         "        _this.form.reset();",
+         "         ",
+         "         _this.callback.call(_this, action.result.data);",
+         "  ",
+         "        ",
+         "         return;",
+         "    }",
+         "}",
+         ""
+        ],
+        "|rendered" : [
+         "function (form)",
+         "{",
+         "    _this.form= form;",
+         "}",
+         ""
+        ]
+       },
+       "method" : "POST",
+       "style" : "margin:10px;",
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "   _this.dialog.hide();",
+       "",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       " ",
+       "    _this.form.doAction(\"submit\");",
+       "",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "title" : "Add / Edit Server",
+   "width" : 500,
+   "xtype" : "LayoutDialog"
+  }
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.CoreNotifyServer",
+ "named_strings" : {
+  "helo_fieldLabel" : "2059e6f007c7ec60d08be149f4196c0c",
+  "hostname_fieldLabel" : "c8f4b8c435b3d99a66e1b91bec60737c",
+  "is_active_fieldLabel" : "e253f01e45700c07327115a5e6d677bf",
+  "poolname_fieldLabel" : "7e240928383acb93e5066a6149430337"
+ },
+ "parent" : "",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.CoreNotifyServer.bjs",
+ "permname" : "",
+ "strings" : {
+  "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
+  "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
+  "7e240928383acb93e5066a6149430337" : "Pool Name",
+  "c8f4b8c435b3d99a66e1b91bec60737c" : "Hostname",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "e253f01e45700c07327115a5e6d677bf" : "Is Active?",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+ },
+ "title" : ""
+}
