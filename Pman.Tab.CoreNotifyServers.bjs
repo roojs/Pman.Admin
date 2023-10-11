@@ -98,7 +98,7 @@
             "beforeload" : [
              "function (_self, options)",
              "{",
-             "   ",
+             "   options.params._with_queue_size  =1 ;",
              "    ",
              "}"
             ]
@@ -320,7 +320,7 @@
           {
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
-           "dataIndex" : "error_msg",
+           "dataIndex" : "error_str",
            "header" : "Error",
            "width" : 150,
            "xtype" : "ColumnModel"

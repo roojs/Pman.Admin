@@ -165,7 +165,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
         listeners : {
          beforeload : function (_self, options)
           {
-             
+             options.params._with_queue_size  =1 ;
               
           }
         },
@@ -358,7 +358,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'error_msg',
+         dataIndex : 'error_str',
          header : _this._strings['902b0d55fddef6f8d651fe1035b7d4bd'] /* Error */,
          width : 150,
          xns : Roo.grid,
