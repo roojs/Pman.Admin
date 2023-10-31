@@ -380,7 +380,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
               options.params._evtype_align = 1;
               
               if (!_this.toggleBtn.pressed) {
-                  options.params['event_id'] = 0;
+                  options.params.event_id = 0;
+                  options.params['query[status]'] = 'PENDING';
               } else  {
                   options.params['!event_id'] = 0;
               }
