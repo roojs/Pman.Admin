@@ -31,7 +31,7 @@
         {
          "$ xns" : "Roo.grid",
          "* prop" : "grid",
-         "autoExpandColumn" : "hostname",
+         "autoExpandColumn" : "email",
          "items" : [
           {
            "$ xns" : "Roo",

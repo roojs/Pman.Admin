@@ -81,7 +81,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'hostname',
+       autoExpandColumn : 'email',
        loadMask : true,
        listeners : {
         render : function() 
