@@ -147,7 +147,7 @@
    ],
    "modal" : true,
    "resizable" : false,
-   "title" : "Add / Edit Server",
+   "title" : "Add / Edit Sender",
    "width" : 500,
    "xtype" : "LayoutDialog"
   }
@@ -165,8 +165,8 @@
  "permname" : "",
  "strings" : {
   "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
-  "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
   "7e240928383acb93e5066a6149430337" : "Pool Name",
+  "b46cf6d1278a6e8ba1e1fb3290ad9166" : "Add / Edit Sender",
   "c8f4b8c435b3d99a66e1b91bec60737c" : "Hostname",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e253f01e45700c07327115a5e6d677bf" : "Is Active?",

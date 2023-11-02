@@ -7,7 +7,7 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminNotifySender = {
 
  _strings : {
-  '7082f08d3a32017e44122c3c708ce06a' :"Add / Edit Server",
+  'b46cf6d1278a6e8ba1e1fb3290ad9166' :"Add / Edit Sender",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
@@ -52,7 +52,7 @@ Pman.Dialog.AdminNotifySender = {
     height : 200,
     modal : true,
     resizable : false,
-    title : _this._strings['7082f08d3a32017e44122c3c708ce06a'] /* Add / Edit Server */,
+    title : _this._strings['b46cf6d1278a6e8ba1e1fb3290ad9166'] /* Add / Edit Sender */,
     width : 500,
     xns : Roo,
     '|xns' : 'Roo',
