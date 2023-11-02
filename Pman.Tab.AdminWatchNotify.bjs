@@ -22,7 +22,7 @@
     "activate" : [
      "function (_self)",
      "{",
-     "    _this.layout.getRegion('center').showPanel(0);",
+     "    this.layout.getRegion('center').showPanel(0);",
      "}"
     ]
    },
