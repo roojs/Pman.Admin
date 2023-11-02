@@ -15,7 +15,7 @@
      "$ xns" : "Roo",
      "items" : [
       {
-       "$ url" : "baseURL + '/Roo/core_notify_server'",
+       "$ url" : "baseURL + '/Roo/core_notify_sender'",
        "$ xns" : "Roo.form",
        "items" : [
         {

@@ -102,7 +102,7 @@ Pman.Dialog.AdminNotifySender = {
         labelWidth : 150,
         method : 'POST',
         style : 'margin:10px;',
-        url : baseURL + '/Roo/core_notify_server',
+        url : baseURL + '/Roo/core_notify_sender',
         listeners : {
          actioncomplete : function(_self,action)
           {
