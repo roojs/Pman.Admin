@@ -8,18 +8,16 @@ Pman.Dialog.AdminNotifySender = {
 
  _strings : {
   'b46cf6d1278a6e8ba1e1fb3290ad9166' :"Add / Edit Sender",
+  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
   'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
-  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'hostname_fieldLabel' : 'c8f4b8c435b3d99a66e1b91bec60737c' /* Hostname */ ,
   'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'poolname_fieldLabel' : '7e240928383acb93e5066a6149430337' /* Pool Name */ ,
-  'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ 
+  'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ 
  },
 
  dialog : false,
@@ -151,17 +149,9 @@ Pman.Dialog.AdminNotifySender = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
-          name : 'hostname',
-          width : 200,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'TextField',
-          allowBlank : false,
-          fieldLabel : _this._strings['2059e6f007c7ec60d08be149f4196c0c'] /* Helo Name */,
-          name : 'helo',
+          fieldLabel : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
+          name : 'email',
+          vtype : 'email',
           width : 200,
           xns : Roo.form,
           '|xns' : 'Roo.form'
