@@ -44,7 +44,7 @@
               "click" : [
                "function() ",
                "{",
-               "    Pman.Dialog.CoreNotifySender.show(",
+               "    Pman.Dialog.AdminNotifySender.show(",
                "         {}, function() {",
                "        _this.sgrid.footer.onClick('first');",
                "    }); ",
@@ -193,7 +193,7 @@
            "function (_self, rowIndex, e)",
            "{",
            "    ",
-           "    Pman.Dialog.CoreNotifySender.show(",
+           "    Pman.Dialog.AdminNotifySender.show(",
            "         this.getDataSource().getAt(rowIndex).data, function() {",
            "        _this.sgrid.footer.onClick('first');",
            "    }); ",

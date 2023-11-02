@@ -101,7 +101,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
         rowdblclick : function (_self, rowIndex, e)
          {
              
-             Pman.Dialog.CoreNotifySender.show(
+             Pman.Dialog.AdminNotifySender.show(
                   this.getDataSource().getAt(rowIndex).data, function() {
                  _this.sgrid.footer.onClick('first');
              }); 
@@ -129,7 +129,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
           listeners : {
            click : function() 
             {
-                Pman.Dialog.CoreNotifySender.show(
+                Pman.Dialog.AdminNotifySender.show(
                      {}, function() {
                     _this.sgrid.footer.onClick('first');
                 }); 
