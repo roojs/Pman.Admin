@@ -8,6 +8,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
 
  _strings : {
   'ed93b54403043468c325323b79c676e2' :"Senders",
+  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
@@ -22,9 +23,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'f8981aa743c09c2778adafe34ba52d62' :"Notify Senders",
-  '825bd435c12978e8492330c2a0d823db' :"Helo",
-  '1063e38cb53d94d386f21227fcd84717' :"Remove",
-  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname"
+  '1063e38cb53d94d386f21227fcd84717' :"Remove"
  },
 
   part     :  ["Admin", "NotifySender" ],
@@ -161,7 +160,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'hostname', direction: 'ASC' },
+        sortInfo : { field : 'email', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {
@@ -203,16 +202,8 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'hostname',
-         header : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'helo',
-         header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
+         dataIndex : 'email',
+         header : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
          width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
