@@ -224,8 +224,8 @@
         ]
        },
        "region" : "center",
-       "tableName" : "core_notify_server",
-       "title" : "Servers",
+       "tableName" : "core_notify_sender",
+       "title" : "Senders",
        "xtype" : "GridPanel"
       },
       {
@@ -373,7 +373,6 @@
   "774ff60df30a64fad1d29f6c2daa8691" : "No Servers found",
   "825bd435c12978e8492330c2a0d823db" : "Helo",
   "902b0d55fddef6f8d651fe1035b7d4bd" : "Error",
-  "ac659513b2353187192e88c5d1988228" : "Servers",
   "b26686c0a708faee42861d8b905e882e" : "Last Sent",
   "be6838286e448ad65c5b55d690e2c38b" : "In Queue",
   "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
@@ -382,6 +381,7 @@
   "def36b726efed529b13ba240dd331a12" : "Pool",
   "eae639a70006feff484a39363c977e24" : "Domain",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "ed93b54403043468c325323b79c676e2" : "Senders",
   "f29ddbfb905eb2593fdcdfb243f9af85" : "Added",
   "f8981aa743c09c2778adafe34ba52d62" : "Notify Senders"
  },

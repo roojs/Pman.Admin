@@ -7,7 +7,7 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminNotifySender = new Roo.XComponent({
 
  _strings : {
-  'ac659513b2353187192e88c5d1988228' :"Servers",
+  'ed93b54403043468c325323b79c676e2' :"Senders",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
@@ -68,8 +68,8 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      tableName : 'core_notify_server',
-      title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
+      tableName : 'core_notify_sender',
+      title : _this._strings['ed93b54403043468c325323b79c676e2'] /* Senders */,
       listeners : {
        activate : function() {
             _this.spanel = this;
