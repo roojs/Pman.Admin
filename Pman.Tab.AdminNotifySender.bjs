@@ -79,7 +79,7 @@
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/core_notify_server'",
+             "$ url" : "baseURL + '/Roo/core_notify_sender'",
              "$ xns" : "Roo.data",
              "* prop" : "proxy",
              "method" : "GET",

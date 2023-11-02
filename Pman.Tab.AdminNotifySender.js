@@ -173,7 +173,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/core_notify_server',
+         url : baseURL + '/Roo/core_notify_sender',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
