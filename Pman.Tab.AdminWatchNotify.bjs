@@ -1,35 +1,43 @@
 {
- "name" : "Pman.Tab.AdminWatchNotify",
- "parent" : "Pman.Tab.Admin",
- "title" : "Notifications",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
- "permname" : "",
- "modOrder" : "860",
- "strings" : {
-  "a274f4d4670213a9045ce258c6c56b80" : "Notifications"
- },
  "items" : [
   {
-   "bool background" : false,
-   "region" : "center",
-   "title" : "Notifications",
-   "xtype" : "NestedLayoutPanel",
    "$ xns" : "Roo",
+   "bool background" : false,
    "items" : [
     {
-     "xtype" : "BorderLayout",
      "$ xns" : "Roo",
      "* prop" : "layout",
      "items" : [
       {
-       "xtype" : "LayoutRegion",
-       "tabPosition" : "top",
        "$ xns" : "Roo",
-       "* prop" : "center"
+       "* prop" : "center",
+       "tabPosition" : "top",
+       "xtype" : "LayoutRegion"
       }
-     ]
+     ],
+     "xtype" : "BorderLayout"
     }
-   ]
+   ],
+   "listeners" : {
+    "activate" : [
+     "function (_self)",
+     "{",
+     "",
+     "}"
+    ]
+   },
+   "region" : "center",
+   "title" : "Notifications",
+   "xtype" : "NestedLayoutPanel"
   }
- ]
+ ],
+ "modOrder" : "860",
+ "name" : "Pman.Tab.AdminWatchNotify",
+ "parent" : "Pman.Tab.Admin",
+ "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminWatchNotify.bjs",
+ "permname" : "",
+ "strings" : {
+  "a274f4d4670213a9045ce258c6c56b80" : "Notifications"
+ },
+ "title" : "Notifications"
 }
