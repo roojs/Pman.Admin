@@ -29,7 +29,7 @@ Pman.Tab.AdminWatchNotify = new Roo.XComponent({
    listeners : {
     activate : function (_self)
      {
-     
+         _this.layout.getRegion('center').showPanel(0);
      }
    },
    xns : Roo,
