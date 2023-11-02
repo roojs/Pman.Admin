@@ -101,7 +101,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
         rowdblclick : function (_self, rowIndex, e)
          {
              
-             Pman.Dialog.CoreNotifyServer.show(
+             Pman.Dialog.CoreNotifySender.show(
                   this.getDataSource().getAt(rowIndex).data, function() {
                  _this.sgrid.footer.onClick('first');
              }); 
@@ -129,7 +129,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
           listeners : {
            click : function() 
             {
-                Pman.Dialog.CoreNotifyServer.show(
+                Pman.Dialog.CoreNotifySender.show(
                      {}, function() {
                     _this.sgrid.footer.onClick('first');
                 }); 
@@ -149,7 +149,7 @@ Pman.Tab.AdminNotifySender = new Roo.XComponent({
           listeners : {
            click : function (_self, e)
             {
-                   Pman.genericDelete(_this.spanel, 'core_notify_server');
+                   Pman.genericDelete(_this.spanel, 'core_notify_sender');
             }
           },
           xns : Roo.Toolbar,
