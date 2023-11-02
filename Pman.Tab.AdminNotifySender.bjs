@@ -253,7 +253,7 @@
            "* prop" : "dataSource",
            "items" : [
             {
-             "$ url" : "baseURL + '/Roo/core_notify_blacklist'",
+             "$ url" : "baseURL + '/Roo/core_notify_blacklist_sender'",
              "$ xns" : "Roo.data",
              "* prop" : "proxy",
              "method" : "GET",
