@@ -238,7 +238,7 @@
         {
          "$ xns" : "Roo.grid",
          "* prop" : "grid",
-         "autoExpandColumn" : "error_msg",
+         "autoExpandColumn" : "error_str",
          "items" : [
           {
            "$ xns" : "Roo",
@@ -313,6 +313,7 @@
            "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); }",
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
+           "Boolean sortable" : true,
            "dataIndex" : "added_dt",
            "header" : "Added",
            "width" : 120,
@@ -321,6 +322,7 @@
           {
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
+           "Boolean sortable" : true,
            "dataIndex" : "domain_id_domain",
            "header" : "Domain",
            "width" : 150,
@@ -329,6 +331,7 @@
           {
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
+           "Boolean sortable" : true,
            "dataIndex" : "error_str",
            "header" : "Error",
            "width" : 150,

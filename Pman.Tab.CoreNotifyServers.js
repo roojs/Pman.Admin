@@ -267,7 +267,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'error_msg',
+       autoExpandColumn : 'error_str',
        loadMask : true,
        listeners : {
         render : function() 
@@ -350,6 +350,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          dataIndex : 'added_dt',
          header : _this._strings['f29ddbfb905eb2593fdcdfb243f9af85'] /* Added */,
          renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y H:i:s') : ''); },
+         sortable : true,
          width : 120,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
@@ -358,6 +359,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          xtype : 'ColumnModel',
          dataIndex : 'domain_id_domain',
          header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+         sortable : true,
          width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
@@ -366,6 +368,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          xtype : 'ColumnModel',
          dataIndex : 'error_str',
          header : _this._strings['902b0d55fddef6f8d651fe1035b7d4bd'] /* Error */,
+         sortable : true,
          width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
