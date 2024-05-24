@@ -1,4 +1,5 @@
 {
+ "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -250,6 +251,14 @@
             {
              "$ xns" : "Roo.Toolbar",
              "String text" : "Remove",
+             "listeners" : {
+              "click" : [
+               "function (_self, e)",
+               "{",
+               "    Pman.Delete.progress(_this.bpanel, 'core_notify_blacklist');",
+               "}"
+              ]
+             },
              "xtype" : "Button"
             }
            ],
@@ -363,7 +372,6 @@
  "modOrder" : "900",
  "name" : "Pman.Tab.CoreNotifyServers",
  "parent" : "Pman.Tab.AdminWatchNotify",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.CoreNotifyServers.bjs",
  "permname" : "",
  "strings" : {
   "1063e38cb53d94d386f21227fcd84717" : "Remove",

@@ -301,6 +301,12 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          {
           xtype : 'Button',
           text : _this._strings['1063e38cb53d94d386f21227fcd84717'] /* Remove */,
+          listeners : {
+           click : function (_self, e)
+            {
+                Pman.Delete.progress(_this.bpanel, 'core_notify_blacklist');
+            }
+          },
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'
          }
