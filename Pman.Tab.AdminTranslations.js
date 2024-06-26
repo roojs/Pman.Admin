@@ -165,11 +165,13 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                         'syncLanguage'  
                ];
                
+               var total = steps.length;
+               
                
                var syncTemplate = function(){
                
                    var step = steps.shift();
-                   Roo.MessageBox.updateProgress( (5.0 - steps.length) / 5.0, "Running " + step);
+                   Roo.MessageBox.updateProgress( (5.0 - total) / 5.0, "Running " + step);
                
                    new Pman.Request({
                        url : baseURL + '/Admin/UpdateBjsTemplates/' + step,
@@ -183,6 +185,8 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                    Roo.each(res.data, function(t) {
                                        steps.unshift('scanTable:' + t);
                                    });
+                                   
+                                   total = steps.length;
                                }
                                syncTemplate();
                                return;
