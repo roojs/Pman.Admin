@@ -184,7 +184,6 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                                        steps.unshift('scanTable:' + t);
                                    });
                                }
-                               Roo.log(steps);
                                syncTemplate();
                                return;
                            }

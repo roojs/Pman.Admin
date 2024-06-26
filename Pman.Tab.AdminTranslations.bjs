@@ -136,7 +136,6 @@
              "                            steps.unshift('scanTable:' + t);",
              "                        });",
              "                    }",
-             "                    Roo.log(steps);",
              "                    syncTemplate();",
              "                    return;",
              "                }",
