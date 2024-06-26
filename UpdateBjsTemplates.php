@@ -44,6 +44,12 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                   $this->{$step}();
                   $this->jok("DONE - " . $step);
             default:
+                if(substr($step, 0, 11) == 'scanTables:') {
+                    $arr = explode(':', $step);
+                    $table = $arr[1];
+                    $this->scanTable($table);
+                    $this->jok("DONE - scanTable " . $table);
+                }
                 $this->jerr("invalid step");
         }
         
