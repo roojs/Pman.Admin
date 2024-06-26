@@ -161,7 +161,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                       'scanProjectBJS',
                         'scanPmanBJS',
                         'scanPmanTemplates',
-                        'scanTables',
+                        'getTables',
                         'syncLanguage'  
                ];
                
@@ -179,7 +179,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        success : function(res)
                        {
                           if (steps.length > 0 ) { 
-                               if(step == 'scanTables') {
+                               if(step == 'getTables') {
                                    steps = res.data.concat(steps);
                                }
                                Roo.log(steps);
