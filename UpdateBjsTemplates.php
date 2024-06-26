@@ -267,6 +267,8 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
     function scanTable($table)
     {
+        $cts = DB_DataObject::factory('core_templatestr');
+        
         // activate the used table translation
         $t = DB_DataObject::factory($table);
         foreach($t->fetchAll() as $d) {
