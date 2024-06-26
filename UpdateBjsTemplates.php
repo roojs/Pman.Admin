@@ -240,7 +240,15 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
 
     function getTables()
     {
-        $this->jdata(array_keys($ff->Pman_Core['DataObjects_Core_templatestr']['tables']));
+        $ff = HTML_FlexyFramework::get();
+        
+        if (empty($ff->Pman_Core)) {
+            $this->jerr("config[Pman_Core] is not set");
+        }
+        
+        if(isset($ff->Pman_Core['DataObjects_Core_templatestr']['tables'])){
+            $this->jdata(array_keys($ff->Pman_Core['DataObjects_Core_templatestr']['tables']));
+        }
     }
     
     function syncLanguage()
