@@ -47,7 +47,6 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                 if(substr($step, 0, 10) == 'scanTable:') {
                     $arr = explode(':', $step);
                     $table = $arr[1];
-                    $this->jerr($table);
                     $this->scanTable($table);
                     $this->jok("DONE - scanTable " . $table);
                 }
