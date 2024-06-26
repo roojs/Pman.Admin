@@ -171,7 +171,7 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                var syncTemplate = function(){
                
                    var step = steps.shift();
-                   Roo.MessageBox.updateProgress( (5.0 - total) / 5.0, "Running " + step);
+                   Roo.MessageBox.updateProgress( (total - steps.length) / total, "Running " + step);
                
                    new Pman.Request({
                        url : baseURL + '/Admin/UpdateBjsTemplates/' + step,
