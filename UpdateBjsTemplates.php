@@ -39,11 +39,17 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             case 'scanProjectBJS':
             case 'scanPmanBJS':
             case 'scanPmanTemplates':
-            case 'scanTables':
+            case 'getTables':
             case 'syncLanguage':
                   $this->{$step}();
                   $this->jok("DONE - " . $step);
             default:
+                if(substr($step, 0, 10) == 'scanTable:') {
+                    $arr = explode(':', $step);
+                    $table = $arr[1];
+                    $this->scanTable($table);
+                    $this->jok("DONE - scanTable " . $table);
+                }
                 $this->jerr("invalid step");
         }
         
@@ -235,6 +241,38 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
                     $cts->onTableChange($this, $d, 'update');
                 }
             }
+        }
+    }
+
+    function getTables()
+    {
+        $ff = HTML_FlexyFramework::get();
+        
+        if (empty($ff->Pman_Core)) {
+            $this->jerr("config[Pman_Core] is not set");
+        }
+
+        // deactivate all table translation
+        $t = DB_DataObject::factory('core_templatestr');
+        $t->query(
+            "UPDATE core_templatestr
+            SET active = 0 
+            WHERE on_table != ''"
+        );
+        
+        if(isset($ff->Pman_Core['DataObjects_Core_templatestr']['tables'])){
+            $this->jdata(array_keys($ff->Pman_Core['DataObjects_Core_templatestr']['tables']));
+        }
+    }
+
+    function scanTable($table)
+    {
+        $cts = DB_DataObject::factory('core_templatestr');
+        
+        // activate the used table translation
+        $t = DB_DataObject::factory($table);
+        foreach($t->fetchAll() as $d) {
+            $cts->onTableChange($this, $d, 'update');
         }
     }
     
