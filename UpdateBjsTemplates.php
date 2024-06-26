@@ -251,9 +251,26 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
         if (empty($ff->Pman_Core)) {
             $this->jerr("config[Pman_Core] is not set");
         }
+
+        // deactivate all table translation
+        $t = DB_DataObject::factory('core_templatestr');
+        $t->query(
+            "UPDATE core_templatestr
+            SET active = 0 
+            WHERE on_table != ''"
+        );
         
         if(isset($ff->Pman_Core['DataObjects_Core_templatestr']['tables'])){
             $this->jdata(array_keys($ff->Pman_Core['DataObjects_Core_templatestr']['tables']));
+        }
+    }
+
+    function scanTables($table)
+    {
+        // activate the used table translation
+        $t = DB_DataObject::factory($table);
+        foreach($t->fetchAll() as $d) {
+            $cts->onTableChange($this, $d, 'update');
         }
     }
     
