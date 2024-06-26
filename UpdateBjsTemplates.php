@@ -237,6 +237,11 @@ class Pman_Admin_UpdateBjsTemplates extends Pman
             }
         }
     }
+
+    function getTables()
+    {
+        $this->jdata(array_keys($ff->Pman_Core['DataObjects_Core_templatestr']['tables']));
+    }
     
     function syncLanguage()
     {
