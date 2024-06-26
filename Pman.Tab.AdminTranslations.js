@@ -176,9 +176,10 @@ Pman.Tab.AdminTranslations = new Roo.XComponent({
                        method : 'GET',
                        //mask : 'Processing...',
                        timeout : 9000000,
-                       success : function()
+                       success : function(res)
                        {
                           if (steps.length > 0 ) { 
+                               Roo.log(res);
                                syncTemplate();
                                return;
                            }
