@@ -241,7 +241,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $blank = 0;
             $rrow = array();
             foreach($row as $i=>$c) {
-                $c = preg_replace('/[\t \n]+/', ' ', $c);
+                $c = preg_replace('/[\t ]+/', ' ', $c);
                 var_dump($c);
                 $rrow[$head[$i]] = trim($c);
             }
