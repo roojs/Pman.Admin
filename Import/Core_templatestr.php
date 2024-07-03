@@ -224,6 +224,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
                 
                 $head = array();
                 foreach($row as $i=>$c) {
+                    var_dump($c);
                    $c = preg_replace('/[\t \n]+/', ' ', $c);
                    $head[$i] = strtolower(trim($c));
                 }
@@ -249,6 +250,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
             $rows[] = $rrow;
         }
         unlink($csv);
+        die('test');
         return $rows;
         
         
