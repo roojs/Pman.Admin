@@ -281,7 +281,6 @@
          "String mode" : "local",
          "allowBlank" : true,
          "displayField" : "val",
-         "editable" : true,
          "fieldLabel" : "Match Event",
          "items" : [
           {
