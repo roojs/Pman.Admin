@@ -344,7 +344,7 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'ComboBox',
-          allowBlank : false,
+          allowBlank : true,
           displayField : 'name',
           editable : false,
           emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person */,
