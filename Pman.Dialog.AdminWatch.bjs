@@ -278,6 +278,7 @@
         },
         {
          "$ xns" : "Roo.form",
+         "String mode" : "local",
          "allowBlank" : true,
          "displayField" : "action",
          "editable" : true,
