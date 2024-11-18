@@ -280,7 +280,7 @@
          "$ xns" : "Roo.form",
          "String mode" : "local",
          "allowBlank" : true,
-         "displayField" : "action",
+         "displayField" : "val",
          "editable" : true,
          "fieldLabel" : "Match Event",
          "items" : [
@@ -297,6 +297,13 @@
            "function (_self)",
            "{",
            "  _this.actionSel = _self;",
+           "    fetch(rootURL + '/Pman/Crm/watchable_events.json')",
+           "    .then((res) => res.json())",
+           "    .then((json) => {",
+           "        Roo.each(json, m => {",
+           "            _self.store.add(new Roo.data.Record({val: m}));",
+           "        });",
+           "    });",
            "}"
           ]
          },

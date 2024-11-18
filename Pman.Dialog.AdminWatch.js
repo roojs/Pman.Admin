@@ -399,7 +399,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
-          displayField : 'action',
+          displayField : 'val',
           editable : true,
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
           listWidth : 300,
@@ -412,6 +412,13 @@ Pman.Dialog.AdminWatch = {
            render : function (_self)
             {
               _this.actionSel = _self;
+                fetch(rootURL + '/Pman/Crm/watchable_events.json')
+                .then((res) => res.json())
+                .then((json) => {
+                    Roo.each(json, m => {
+                        _self.store.add(new Roo.data.Record({val: m}));
+                    });
+                });
             }
           },
           xns : Roo.form,
