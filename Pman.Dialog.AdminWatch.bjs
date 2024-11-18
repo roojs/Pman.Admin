@@ -282,7 +282,6 @@
          "displayField" : "action",
          "editable" : true,
          "fieldLabel" : "Match Event",
-         "forceSelection" : false,
          "items" : [
           {
            "$ Array fields" : "['val']",
@@ -309,7 +308,7 @@
          "name" : "event",
          "triggerAction" : "all",
          "valueField" : "val",
-         "width" : 150,
+         "width" : 300,
          "xtype" : "ComboBox"
         },
         {
@@ -344,7 +343,7 @@
          "name" : "medium",
          "triggerAction" : "all",
          "valueField" : "val",
-         "width" : 200,
+         "width" : 300,
          "xtype" : "ComboBox"
         },
         {

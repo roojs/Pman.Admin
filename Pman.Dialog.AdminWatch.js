@@ -402,12 +402,11 @@ Pman.Dialog.AdminWatch = {
           displayField : 'action',
           editable : true,
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
-          forceSelection : false,
           listWidth : 300,
           name : 'event',
           triggerAction : 'all',
           valueField : 'val',
-          width : 150,
+          width : 300,
           listeners : {
            render : function (_self)
             {
@@ -437,7 +436,7 @@ Pman.Dialog.AdminWatch = {
           name : 'medium',
           triggerAction : 'all',
           valueField : 'val',
-          width : 200,
+          width : 300,
           listeners : {
            render : function (_self)
             {
