@@ -24,7 +24,6 @@ Pman.Dialog.AdminWatch = {
   '314b26dabb519a609db698728284683f' :"Select Table"
  },
  _named_strings : {
-  'event_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
   'person_id_name_qtip' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'medium_fieldLabel' : '004bf6c9a40003140292e97330236c53' /* Action */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
@@ -34,7 +33,6 @@ Pman.Dialog.AdminWatch = {
   'onid_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
   'no_minutes_fieldLabel' : '61f71a6a41f9dd2d2f1b6bca465216e5' /* Delay action for no. of minutes */ ,
   'ontable_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'event_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'event_fieldLabel' : '078d0022ba7fe5e7b7e985f59db8fb19' /* Match Event */ ,
   'active_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'ontable_fieldLabel' : '51c45b795d5d18a3e4e0c37e8b20a141' /* Table */ ,
@@ -406,17 +404,9 @@ Pman.Dialog.AdminWatch = {
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
           forceSelection : false,
           listWidth : 300,
-          loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
-          minChars : 2,
           name : 'event',
-          pageSize : 20,
-          qtip : _this._strings['a8929eb5c1553d3f70497f862d25d0ce'] /* Select Action */,
-          queryParam : 'query[action]',
-          selectOnFocus : true,
-          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{action}</b> </div>',
           triggerAction : 'all',
-          typeAhead : true,
-          valueField : 'action',
+          valueField : 'val',
           width : 150,
           listeners : {
            render : function (_self)
@@ -431,149 +421,10 @@ Pman.Dialog.AdminWatch = {
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { field : 'action' , direction : 'ASC' },
-           listeners : {
-            beforeload : function (_self, o)
-             {
-                 o.params = o.params || {};
-                 // staff can see all logs, other companies can only see their own.
-                 if (typeof(Pman.Login) !='undefined' && Pman.Login.authUser.company_id_comptype != 'OWNER') {
-                     o.params.company_id = Pman.Login.authUser.company_id;
-                 }
-                 o.params._distinct = 'action';
-                 o.params._columns ='action';
-             }
-           },
+           xtype : 'SimpleStore',
+           fields : ['val'],
            xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/Events.php',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : [
-                {
-                    'name': 'id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_name',
-                    'type': 'string'
-                },
-                {
-                    'name': 'event_when',
-                    'type': 'date',
-                    'dateFormat': 'Y-m-d'
-                },
-                {
-                    'name': 'action',
-                    'type': 'string'
-                },
-                {
-                    'name': 'ipaddr',
-                    'type': 'string'
-                },
-                {
-                    'name': 'on_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'on_table',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'remarks',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_office_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_name',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_phone',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_fax',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_email',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_company_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_role',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_active',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_remarks',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_passwd',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_owner_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_lang',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_no_reset_sent',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_action_type',
-                    'type': 'string'
-                },
-                {
-                    'name': 'person_id_project_id',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_deleted_by',
-                    'type': 'int'
-                },
-                {
-                    'name': 'person_id_deleted_dt',
-                    'type': 'date'
-                }
-            ],
-            id : 'id',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
+           '|xns' : 'Roo.data'
           }
          },
          {
