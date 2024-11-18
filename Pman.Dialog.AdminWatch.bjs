@@ -489,6 +489,13 @@
         },
         {
          "$ xns" : "Roo.form",
+         "fieldLabel" : "ID",
+         "name" : "no_minutes",
+         "width" : 75,
+         "xtype" : "NumberField"
+        },
+        {
+         "$ xns" : "Roo.form",
          "fieldLabel" : "Last Event Only",
          "name" : "last_event_only",
          "xtype" : "Checkbox"
@@ -598,6 +605,7 @@
   "event_qtip" : "a8929eb5c1553d3f70497f862d25d0ce",
   "last_event_only_fieldLabel" : "993de4d53bd43053ce1b26eca5fd1051",
   "medium_fieldLabel" : "004bf6c9a40003140292e97330236c53",
+  "no_minutes_fieldLabel" : "b718adec73e04ce3ec720dd11a06a308",
   "onid_fieldLabel" : "b718adec73e04ce3ec720dd11a06a308",
   "ontable_emptyText" : "314b26dabb519a609db698728284683f",
   "ontable_fieldLabel" : "51c45b795d5d18a3e4e0c37e8b20a141",

@@ -31,6 +31,7 @@ Pman.Dialog.AdminWatch = {
   'last_event_only_fieldLabel' : '993de4d53bd43053ce1b26eca5fd1051' /* Last Event Only */ ,
   'ontable_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
   'onid_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
+  'no_minutes_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
   'ontable_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'event_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'event_fieldLabel' : '078d0022ba7fe5e7b7e985f59db8fb19' /* Match Event */ ,
@@ -594,6 +595,14 @@ Pman.Dialog.AdminWatch = {
            xns : Roo.data,
            '|xns' : 'Roo.data'
           }
+         },
+         {
+          xtype : 'NumberField',
+          fieldLabel : _this._strings['b718adec73e04ce3ec720dd11a06a308'] /* ID */,
+          name : 'no_minutes',
+          width : 75,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Checkbox',
