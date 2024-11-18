@@ -418,10 +418,6 @@ Pman.Dialog.AdminWatch = {
                         _self.store.add(new Roo.data.Record({val: m.split(':')[1]}));
                     });
                 });
-            },
-           select : function (combo, record, index)
-            {
-            
             }
           },
           xns : Roo.form,
