@@ -489,6 +489,7 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Boolean allowDecimals" : false,
          "fieldLabel" : "Delay action for no. of minutes",
          "name" : "no_minutes",
          "width" : 75,

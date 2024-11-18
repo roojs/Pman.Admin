@@ -599,6 +599,7 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'NumberField',
+          allowDecimals : false,
           fieldLabel : _this._strings['61f71a6a41f9dd2d2f1b6bca465216e5'] /* Delay action for no. of minutes */,
           name : 'no_minutes',
           width : 75,
