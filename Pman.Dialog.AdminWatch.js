@@ -69,7 +69,7 @@ Pman.Dialog.AdminWatch = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 330,
+    height : 300,
     modal : true,
     resizable : false,
     title : _this._strings['75c5929bbdd5b4e3fb09d3d3a4e73a04'] /* Edit / Create core_watch */,
