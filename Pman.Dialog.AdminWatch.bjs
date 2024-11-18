@@ -467,21 +467,33 @@
         },
         {
          "$ xns" : "Roo.form",
+         "String mode" : "local",
          "allowBlank" : true,
          "displayField" : "val",
-         "editable" : true,
          "fieldLabel" : "Action",
-         "forceSelection" : false,
          "items" : [
           {
-           "$ data" : "[ [ 'email' ], [ 'APPROVAL' ], ['ENDOFDAYMAIL'] ]",
-           "$ fields" : "[ 'val' ]",
+           "$ Array fields" : "['val']",
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "xtype" : "SimpleStore"
           }
          ],
-         "listWidth" : 200,
+         "listWidth" : 300,
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    fetch(rootURL + '/Pman/Crm/watchable_actions.json')",
+           "    .then((res) => res.json())",
+           "    .then((json) => {",
+           "        Roo.each(json, m => {",
+           "            _self.store.add(new Roo.data.Record({val: m}));",
+           "        });",
+           "    });",
+           "}"
+          ]
+         },
          "name" : "medium",
          "triggerAction" : "all",
          "valueField" : "val",

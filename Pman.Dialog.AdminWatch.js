@@ -580,20 +580,30 @@ Pman.Dialog.AdminWatch = {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'val',
-          editable : true,
           fieldLabel : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
-          forceSelection : false,
-          listWidth : 200,
+          listWidth : 300,
+          mode : 'local',
           name : 'medium',
           triggerAction : 'all',
           valueField : 'val',
           width : 200,
+          listeners : {
+           render : function (_self)
+            {
+                fetch(rootURL + '/Pman/Crm/watchable_actions.json')
+                .then((res) => res.json())
+                .then((json) => {
+                    Roo.each(json, m => {
+                        _self.store.add(new Roo.data.Record({val: m}));
+                    });
+                });
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
            xtype : 'SimpleStore',
-           data : [ [ 'email' ], [ 'APPROVAL' ], ['ENDOFDAYMAIL'] ],
-           fields : [ 'val' ],
+           fields : ['val'],
            xns : Roo.data,
            '|xns' : 'Roo.data'
           }
