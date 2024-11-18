@@ -19,6 +19,7 @@ Pman.Dialog.AdminWatch = {
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
   '004bf6c9a40003140292e97330236c53' :"Action",
+  '61f71a6a41f9dd2d2f1b6bca465216e5' :"Delay action for no. of minutes",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '314b26dabb519a609db698728284683f' :"Select Table"
  },
@@ -31,7 +32,7 @@ Pman.Dialog.AdminWatch = {
   'last_event_only_fieldLabel' : '993de4d53bd43053ce1b26eca5fd1051' /* Last Event Only */ ,
   'ontable_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
   'onid_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
-  'no_minutes_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
+  'no_minutes_fieldLabel' : '61f71a6a41f9dd2d2f1b6bca465216e5' /* Delay action for no. of minutes */ ,
   'ontable_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'event_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'event_fieldLabel' : '078d0022ba7fe5e7b7e985f59db8fb19' /* Match Event */ ,
@@ -598,7 +599,7 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'NumberField',
-          fieldLabel : _this._strings['b718adec73e04ce3ec720dd11a06a308'] /* ID */,
+          fieldLabel : _this._strings['61f71a6a41f9dd2d2f1b6bca465216e5'] /* Delay action for no. of minutes */,
           name : 'no_minutes',
           width : 75,
           xns : Roo.form,
