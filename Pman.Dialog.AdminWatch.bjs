@@ -298,12 +298,6 @@
            "{",
            "  _this.actionSel = _self;",
            "}"
-          ],
-          "|select" : [
-           "function (combo, record, index)",
-           "{",
-           "  _this.grid.footer.onClick('first');",
-           "}"
           ]
          },
          "name" : "event",

@@ -412,10 +412,6 @@ Pman.Dialog.AdminWatch = {
            render : function (_self)
             {
               _this.actionSel = _self;
-            },
-           select : function (combo, record, index)
-            {
-              _this.grid.footer.onClick('first');
             }
           },
           xns : Roo.form,
