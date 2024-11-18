@@ -337,6 +337,7 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'NumberField',
+          allowDecimals : false,
           fieldLabel : _this._strings['b718adec73e04ce3ec720dd11a06a308'] /* ID */,
           name : 'onid',
           width : 75,
