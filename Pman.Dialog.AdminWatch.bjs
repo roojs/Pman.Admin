@@ -490,7 +490,7 @@
         {
          "$ xns" : "Roo.form",
          "fieldLabel" : "Active?",
-         "name" : "active",
+         "name" : "last_event_only",
          "xtype" : "Checkbox"
         },
         {
@@ -596,6 +596,7 @@
   "event_fieldLabel" : "078d0022ba7fe5e7b7e985f59db8fb19",
   "event_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "event_qtip" : "a8929eb5c1553d3f70497f862d25d0ce",
+  "last_event_only_fieldLabel" : "ae739a236065a45c64ad51aacb19498c",
   "medium_fieldLabel" : "004bf6c9a40003140292e97330236c53",
   "onid_fieldLabel" : "b718adec73e04ce3ec720dd11a06a308",
   "ontable_emptyText" : "314b26dabb519a609db698728284683f",

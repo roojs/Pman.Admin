@@ -27,6 +27,7 @@ Pman.Dialog.AdminWatch = {
   'medium_fieldLabel' : '004bf6c9a40003140292e97330236c53' /* Action */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : '78c97ad77a6194c421b797c4cd030f75' /* Notify Who */ ,
+  'last_event_only_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'ontable_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
   'onid_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
   'ontable_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
@@ -596,7 +597,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'Checkbox',
           fieldLabel : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
-          name : 'active',
+          name : 'last_event_only',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
