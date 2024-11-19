@@ -405,7 +405,7 @@ Pman.Dialog.AdminWatch = {
           mode : 'local',
           name : 'event',
           triggerAction : 'all',
-          valueField : 'val',
+          valueField : 'action',
           width : 300,
           listeners : {
            render : function (_self)

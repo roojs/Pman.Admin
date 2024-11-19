@@ -316,7 +316,7 @@
          },
          "name" : "event",
          "triggerAction" : "all",
-         "valueField" : "val",
+         "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
         },
