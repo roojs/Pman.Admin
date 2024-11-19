@@ -404,7 +404,7 @@ Pman.Dialog.AdminWatch = {
           listWidth : 300,
           mode : 'local',
           name : 'event',
-          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{on_table}</b> </div>',
+          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
           triggerAction : 'all',
           valueField : 'action',
           width : 300,
