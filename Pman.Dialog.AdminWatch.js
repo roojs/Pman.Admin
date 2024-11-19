@@ -404,6 +404,7 @@ Pman.Dialog.AdminWatch = {
           listWidth : 300,
           mode : 'local',
           name : 'event',
+          tpl : '',
           triggerAction : 'all',
           valueField : 'action',
           width : 300,

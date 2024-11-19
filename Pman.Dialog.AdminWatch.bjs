@@ -315,6 +315,7 @@
           ]
          },
          "name" : "event",
+         "string tpl" : "",
          "triggerAction" : "all",
          "valueField" : "action",
          "width" : 300,
