@@ -414,7 +414,7 @@ Pman.Dialog.AdminWatch = {
                 Roo.log(_this);
                 Roo.log(Pman);
                 _this.actionSel = _self;
-                fetch(rootURL + '/Pman/Crm/watchable_events.json')
+                fetch(rootURL + '/Pman/Crm/watchable_event.json')
                 .then((res) => res.json())
                 .then((json) => {
                     Roo.each(json, m => {
