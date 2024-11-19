@@ -280,7 +280,7 @@
          "$ xns" : "Roo.form",
          "String mode" : "local",
          "allowBlank" : true,
-         "displayField" : "val",
+         "displayField" : "action",
          "fieldLabel" : "Match Event",
          "items" : [
           {

@@ -399,7 +399,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
-          displayField : 'val',
+          displayField : 'action',
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
           listWidth : 300,
           mode : 'local',
