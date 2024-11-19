@@ -421,7 +421,7 @@ Pman.Dialog.AdminWatch = {
             },
            select : function (combo, record, index)
             {
-            
+                Roo.log(record);
             }
           },
           xns : Roo.form,
