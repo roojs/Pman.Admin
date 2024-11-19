@@ -411,7 +411,9 @@ Pman.Dialog.AdminWatch = {
           listeners : {
            render : function (_self)
             {
-              _this.actionSel = _self;
+                Roo.log(_this);
+                Roo.log(Pman);
+                _this.actionSel = _self;
                 fetch(rootURL + '/Pman/Crm/watchable_events.json')
                 .then((res) => res.json())
                 .then((json) => {
