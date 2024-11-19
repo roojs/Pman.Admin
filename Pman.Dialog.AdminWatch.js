@@ -423,8 +423,7 @@ Pman.Dialog.AdminWatch = {
             },
            select : function (combo, record, index)
             {
-                Roo.log('SELECT');
-                Roo.log(record);
+                _this.form.findField('ontable').setValue(record.data.table);
             }
           },
           xns : Roo.form,
