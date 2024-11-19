@@ -415,7 +415,8 @@ Pman.Dialog.AdminWatch = {
                 .then((res) => res.json())
                 .then((json) => {
                     Roo.each(json, m => {
-                        _self.store.add(new Roo.data.Record({val: m.split(':')[1]}));
+                        arr = m.split(':');
+                        _self.store.add(new Roo.data.Record({table: arr[0], action: arr[1]}));
                     });
                 });
             },
