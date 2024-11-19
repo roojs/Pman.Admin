@@ -292,6 +292,12 @@
          ],
          "listWidth" : 300,
          "listeners" : {
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "",
+           "}"
+          ],
           "|render" : [
            "function (_self)",
            "{",
