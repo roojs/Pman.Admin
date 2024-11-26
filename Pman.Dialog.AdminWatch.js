@@ -402,27 +402,12 @@ Pman.Dialog.AdminWatch = {
           displayField : 'action',
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
           listWidth : 300,
-          mode : 'local',
           name : 'event',
           tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
           triggerAction : 'all',
           valueField : 'action',
           width : 300,
           listeners : {
-           render : function (_self)
-            {
-                Roo.log(_this);
-                Roo.log(Pman);
-                _this.actionSel = _self;
-                fetch(rootURL + '/Pman/Crm/watchable_events.json')
-                .then((res) => res.json())
-                .then((json) => {
-                    Roo.each(json, m => {
-                        arr = m.split(':');
-                        _self.store.add(new Roo.data.Record({table: arr[0], action: arr[1]}));
-                    });
-                });
-            },
            select : function (combo, record, index)
             {
                 _this.form.findField('ontable').setValue(record.data.table);
@@ -431,44 +416,75 @@ Pman.Dialog.AdminWatch = {
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
-           xtype : 'SimpleStore',
-           fields : ['val'],
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'action' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 o.params._watchable_events = 1;
+             }
+           },
            xns : Roo.data,
-           '|xns' : 'Roo.data'
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/core_watch',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : ["table", "action"],
+            id : 'action',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
           }
          },
          {
           xtype : 'ComboBox',
           allowBlank : true,
-          displayField : 'val',
+          displayField : 'action',
           fieldLabel : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
           listWidth : 300,
-          mode : 'local',
           name : 'medium',
           triggerAction : 'all',
-          valueField : 'val',
+          valueField : 'action',
           width : 300,
-          listeners : {
-           render : function (_self)
-            {
-                Roo.log(Pman);
-                Roo.log(_this);
-                fetch(rootURL + '/Pman/Crm/watchable_actions.json')
-                .then((res) => res.json())
-                .then((json) => {
-                    Roo.each(json, m => {
-                        _self.store.add(new Roo.data.Record({val: m}));
-                    });
-                });
-            }
-          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
-           xtype : 'SimpleStore',
-           fields : ['val'],
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'action' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 o.params._watchable_actions = 1;
+             }
+           },
            xns : Roo.data,
-           '|xns' : 'Roo.data'
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/core_watch',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : ["action"],
+            id : 'action',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
           }
          },
          {

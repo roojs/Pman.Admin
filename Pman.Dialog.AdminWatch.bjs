@@ -278,16 +278,43 @@
         },
         {
          "$ xns" : "Roo.form",
-         "String mode" : "local",
          "allowBlank" : true,
          "displayField" : "action",
          "fieldLabel" : "Match Event",
          "items" : [
           {
-           "$ Array fields" : "['val']",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
-           "xtype" : "SimpleStore"
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"table\", \"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_events = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
           }
          ],
          "listWidth" : 300,
@@ -296,22 +323,6 @@
            "function (combo, record, index)",
            "{",
            "    _this.form.findField('ontable').setValue(record.data.table);",
-           "}"
-          ],
-          "|render" : [
-           "function (_self)",
-           "{",
-           "    Roo.log(_this);",
-           "    Roo.log(Pman);",
-           "    _this.actionSel = _self;",
-           "    fetch(rootURL + '/Pman/Crm/watchable_events.json')",
-           "    .then((res) => res.json())",
-           "    .then((json) => {",
-           "        Roo.each(json, m => {",
-           "            arr = m.split(':');",
-           "            _self.store.add(new Roo.data.Record({table: arr[0], action: arr[1]}));",
-           "        });",
-           "    });",
            "}"
           ]
          },
@@ -324,38 +335,49 @@
         },
         {
          "$ xns" : "Roo.form",
-         "String mode" : "local",
          "allowBlank" : true,
-         "displayField" : "val",
+         "displayField" : "action",
          "fieldLabel" : "Action",
          "items" : [
           {
-           "$ Array fields" : "['val']",
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
-           "xtype" : "SimpleStore"
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_actions = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
           }
          ],
          "listWidth" : 300,
-         "listeners" : {
-          "render" : [
-           "function (_self)",
-           "{",
-           "    Roo.log(Pman);",
-           "    Roo.log(_this);",
-           "    fetch(rootURL + '/Pman/Crm/watchable_actions.json')",
-           "    .then((res) => res.json())",
-           "    .then((json) => {",
-           "        Roo.each(json, m => {",
-           "            _self.store.add(new Roo.data.Record({val: m}));",
-           "        });",
-           "    });",
-           "}"
-          ]
-         },
          "name" : "medium",
          "triggerAction" : "all",
-         "valueField" : "val",
+         "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
         },
