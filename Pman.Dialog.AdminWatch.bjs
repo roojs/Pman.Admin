@@ -327,7 +327,7 @@
           ]
          },
          "name" : "event",
-         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>",
+         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}::{action} </div>",
          "triggerAction" : "all",
          "valueField" : "action",
          "width" : 300,

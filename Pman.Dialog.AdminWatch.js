@@ -403,7 +403,7 @@ Pman.Dialog.AdminWatch = {
           fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
           listWidth : 300,
           name : 'event',
-          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
+          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}::{action} </div>',
           triggerAction : 'all',
           valueField : 'action',
           width : 300,
