@@ -391,12 +391,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "fieldLabel" : "Last Event Only",
-         "name" : "last_event_only",
-         "xtype" : "Checkbox"
-        },
-        {
-         "$ xns" : "Roo.form",
          "fieldLabel" : "Active?",
          "name" : "active",
          "xtype" : "Checkbox"
@@ -496,7 +490,6 @@
  "named_strings" : {
   "active_fieldLabel" : "ae739a236065a45c64ad51aacb19498c",
   "event_fieldLabel" : "078d0022ba7fe5e7b7e985f59db8fb19",
-  "last_event_only_fieldLabel" : "993de4d53bd43053ce1b26eca5fd1051",
   "medium_fieldLabel" : "004bf6c9a40003140292e97330236c53",
   "no_minutes_fieldLabel" : "61f71a6a41f9dd2d2f1b6bca465216e5",
   "onid_fieldLabel" : "b718adec73e04ce3ec720dd11a06a308",
@@ -522,7 +515,6 @@
   "61f71a6a41f9dd2d2f1b6bca465216e5" : "Delay action for no. of minutes",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
   "78c97ad77a6194c421b797c4cd030f75" : "Notify Who",
-  "993de4d53bd43053ce1b26eca5fd1051" : "Last Event Only",
   "a8929eb5c1553d3f70497f862d25d0ce" : "Select Action",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
   "b718adec73e04ce3ec720dd11a06a308" : "ID",
