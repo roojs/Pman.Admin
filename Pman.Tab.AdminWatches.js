@@ -407,6 +407,13 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       dataIndex : 'medium',
       header : _this._strings['56abc507eda6d3226af192bf9b0e5d1f'] /* What happens */,
       renderer : function(v) {
+          var ar = v.split('::');
+          if (ar.length > 1) {
+              var act = ar[1].replace(/^notify/,'');
+      
+              return String.format('<span qtip="{0}">{1}<span>', v, act);
+          }
+          
           var ar = v.split(':');
           if (ar.length > 1) {
               var act = ar[1].replace(/^notify/,'');
