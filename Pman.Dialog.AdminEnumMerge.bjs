@@ -1,138 +1,226 @@
 {
- "name" : "Pman.Dialog.AdminEnumMerge",
- "parent" : "",
- "title" : "",
- "path" : "/home/benny/gitlive/web.hhyc_membership_system/Pman.Admin/Pman.Dialog.AdminEnumMerge.bjs",
- "permname" : "",
- "modOrder" : "001",
- "strings" : {
-  "0b3e4317865feb6f0224397600b7cafc" : "Merge Core Enum",
-  "03e956f1dca2b4d525df03cb1899cb6f" : "Merge with",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK"
- },
  "items" : [
   {
-   "listeners" : {
-    "show" : "function (_self)\n{\n    _this.merge.focus();\n}"
-   },
-   "modal" : true,
-   "collapsible" : false,
-   "background" : true,
-   "title" : "Merge Core Enum",
-   "xtype" : "LayoutDialog",
-   "width" : 400,
    "$ xns" : "Roo",
+   "background" : true,
    "closable" : false,
-   "resizable" : false,
+   "collapsible" : false,
    "height" : 150,
    "items" : [
     {
-     "xtype" : "LayoutRegion",
      "$ xns" : "Roo",
+     "* prop" : "center",
      "titlebar" : false,
-     "* prop" : "center"
+     "xtype" : "LayoutRegion"
     },
     {
-     "fitToFrame" : true,
-     "background" : true,
-     "region" : "center",
-     "xtype" : "ContentPanel",
      "$ xns" : "Roo",
+     "background" : true,
+     "fitToFrame" : true,
      "items" : [
       {
-       "listeners" : {
-        "|actioncomplete" : "function (_self, action)\n{\n  if (action.type == 'setdata') {\n\n       return;\n    }\n    if (action.type == 'load') {\n        _this.dialog.el.unmask();\n        return;\n    }\n    if (action.type == 'submit' ) {\n        _this.dialog.el.unmask();\n        _this.dialog.hide();\n\n        if (_this.callback) {\n           _this.callback.call(_this, action.result.data);\n        }\n        _this.form.reset();\n    }\n}\n",
-        "|rendered" : "function (form)\n{\n   _this.form = form;\n}"
-       },
        "$ url" : "baseURL + '/Roo/core_enum.php'",
-       "xtype" : "Form",
-       "method" : "POST",
-       "style" : "margin: 5px",
        "$ xns" : "Roo.form",
        "items" : [
         {
-         "listeners" : {
-          "render" : "function (_self)\n{\n    _this.merge = this;\n}"
-         },
-         "alwaysQuery" : true,
-         "Number pageSize" : 50,
+         "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
-         "triggerAction" : "all",
+         "Number listWidth" : 250,
+         "Number pageSize" : 50,
+         "alwaysQuery" : true,
+         "displayField" : "display_name",
+         "editable" : true,
          "fieldLabel" : "Merge with",
          "forceSelection" : true,
-         "selectOnFocus" : true,
-         "xtype" : "ComboBox",
-         "minChars" : 2,
          "hiddenName" : "_merge_id",
-         "displayField" : "display_name",
-         "valueField" : "id",
-         "editable" : true,
-         "Number listWidth" : 250,
-         "width" : 250,
-         "$ xns" : "Roo.form",
-         "name" : "merge_display_name",
-         "queryParam" : "query[search]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>",
          "items" : [
           {
-           "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    \n    o.params.active = 1;\n    o.params.etype = _this.data.etype;\n    o.params['!id'] = _this.data.id;\n    \n}\n"
-           },
-           "xtype" : "Store",
-           "remoteSort" : true,
-           "$ xns" : "Roo.data",
            "$ sortInfo" : "{ direction : 'ASC', field: 'display_name' }",
+           "$ xns" : "Roo.data",
            "* prop" : "store",
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Core_enum.php'",
-             "xtype" : "HttpProxy",
-             "method" : "GET",
              "$ xns" : "Roo.data",
-             "* prop" : "proxy"
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
             },
             {
+             "$ fields" : [
+              "[",
+              "    {",
+              "        \"name\":\"id\",",
+              "        \"type\":\"int\"",
+              "    },",
+              "    {",
+              "        \"name\":\"display_name\",",
+              "        \"type\":\"string\"",
+              "    }",
+              "]"
+             ],
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
              "id" : "id",
              "root" : "data",
-             "xtype" : "JsonReader",
-             "$ xns" : "Roo.data",
-             "$ fields" : "[\n    {\n        \"name\":\"id\",\n        \"type\":\"int\"\n    },\n    {\n        \"name\":\"display_name\",\n        \"type\":\"string\"\n    }\n]",
-             "* prop" : "reader",
-             "totalProperty" : "total"
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
             }
-           ]
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    ",
+             "    o.params.active = 1;",
+             "    o.params.etype = _this.data.etype;",
+             "    o.params['!id'] = _this.data.id;",
+             "    ",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
           }
-         ]
+         ],
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.merge = this;",
+           "}"
+          ]
+         },
+         "minChars" : 2,
+         "name" : "merge_display_name",
+         "queryParam" : "query[search]",
+         "selectOnFocus" : true,
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{display_name}</b> </div>",
+         "triggerAction" : "all",
+         "valueField" : "id",
+         "width" : 250,
+         "xtype" : "ComboBox"
         },
         {
-         "xtype" : "Hidden",
          "$ xns" : "Roo.form",
-         "name" : "id"
+         "name" : "id",
+         "xtype" : "Hidden"
         }
-       ]
+       ],
+       "listeners" : {
+        "|actioncomplete" : [
+         "function (_self, action)",
+         "{",
+         "  if (action.type == 'setdata') {",
+         "",
+         "       return;",
+         "    }",
+         "    if (action.type == 'load') {",
+         "        _this.dialog.el.unmask();",
+         "        return;",
+         "    }",
+         "    if (action.type == 'submit' ) {",
+         "        _this.dialog.el.unmask();",
+         "        _this.dialog.hide();",
+         "",
+         "        if (_this.callback) {",
+         "           _this.callback.call(_this, action.result.data);",
+         "        }",
+         "        _this.form.reset();",
+         "    }",
+         "}",
+         ""
+        ],
+        "|rendered" : [
+         "function (form)",
+         "{",
+         "   _this.form = form;",
+         "}"
+        ]
+       },
+       "method" : "POST",
+       "style" : "margin: 5px",
+       "xtype" : "Form"
       }
-     ]
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
     },
     {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
      "listeners" : {
-      "|click" : "function() {\n    _this.form.reset();\n    _this.dialog.hide();\n}"
+      "|click" : [
+       "function() {",
+       "    _this.form.reset();",
+       "    _this.dialog.hide();",
+       "}"
+      ]
      },
      "text" : "Cancel",
-     "xtype" : "Button",
-     "$ xns" : "Roo",
-     "* prop" : "buttons[]"
+     "xtype" : "Button"
     },
     {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
      "listeners" : {
-      "|click" : "function() \n{\n    if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){\n        Roo.MessageBox.confirm(\n            \"Confirm\", \n            \"Are you sure '\" + _this.data.display_name + \"' Merge with '\" + _this.form.findField('_merge_id').getRawValue() + \"'\", \n            function(res) {\n                if(res != 'yes') {\n                    return;\n                }\n                \n                _this.form.doAction('submit');\n                return;\n            }\n        );\n        \n        return;\n    }\n    _this.form.doAction('submit');\n    \n}"
+      "|click" : [
+       "function() ",
+       "{",
+       "    if(typeof(_this.data._confirm) != 'undefined' && _this.data._confirm * 1 == 1){",
+       "        Roo.MessageBox.confirm(",
+       "            \"Confirm\", ",
+       "            \"Are you sure '\" + _this.data.display_name + \"' Merge with '\" + _this.form.findField('_merge_id').getRawValue() + \"'\", ",
+       "            function(res) {",
+       "                if(res != 'yes') {",
+       "                    return;",
+       "                }",
+       "                ",
+       "                _this.form.doAction('submit');",
+       "                return;",
+       "            }",
+       "        );",
+       "        ",
+       "        return;",
+       "    }",
+       "    _this.form.doAction('submit');",
+       "    ",
+       "}"
+      ]
      },
      "text" : "OK",
-     "xtype" : "Button",
-     "$ xns" : "Roo",
-     "* prop" : "buttons[]"
+     "xtype" : "Button"
     }
-   ]
+   ],
+   "listeners" : {
+    "show" : [
+     "function (_self)",
+     "{",
+     "    _this.merge.focus();",
+     "}"
+    ]
+   },
+   "modal" : true,
+   "resizable" : false,
+   "title" : "Merge Core Enum",
+   "width" : 400,
+   "xtype" : "LayoutDialog"
   }
- ]
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.AdminEnumMerge",
+ "named_strings" : {
+  "merge_display_name_fieldLabel" : "03e956f1dca2b4d525df03cb1899cb6f"
+ },
+ "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminEnumMerge.bjs",
+ "permname" : "",
+ "strings" : {
+  "03e956f1dca2b4d525df03cb1899cb6f" : "Merge with",
+  "0b3e4317865feb6f0224397600b7cafc" : "Merge Core Enum",
+  "e0aa021e21dddbd6d8cecec71e9cf564" : "OK",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+ },
+ "title" : ""
 }
