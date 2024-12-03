@@ -197,6 +197,7 @@
           {
            "$ xns" : "Roo.form",
            "Number/String width" : 100,
+           "String labelAlign" : "center",
            "items" : [
             {
              "$ xns" : "Roo.form",
