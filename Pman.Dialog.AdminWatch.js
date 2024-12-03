@@ -9,7 +9,6 @@ Pman.Dialog.AdminWatch = {
  _strings : {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   '7f24a390dca58f5f8bbb72b2d2086250' :"Delay action for",
-  'ae739a236065a45c64ad51aacb19498c' :"Active?",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
@@ -17,6 +16,7 @@ Pman.Dialog.AdminWatch = {
   '75c5929bbdd5b4e3fb09d3d3a4e73a04' :"Edit / Create core_watch",
   '004bf6c9a40003140292e97330236c53' :"Action",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
+  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
@@ -26,8 +26,8 @@ Pman.Dialog.AdminWatch = {
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'no_minutes_fieldLabel' : '7f24a390dca58f5f8bbb72b2d2086250' /* Delay action for */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
+  'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'Do this action_fieldLabel' : '004bf6c9a40003140292e97330236c53' /* Action */ ,
-  'Active_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -310,8 +310,8 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'Checkbox',
-          fieldLabel : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
-          name : 'Active',
+          fieldLabel : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
+          name : 'active',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
