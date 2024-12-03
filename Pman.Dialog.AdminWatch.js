@@ -328,7 +328,7 @@ Pman.Dialog.AdminWatch = {
              {
               xtype : 'ComboBox',
               displayField : 'hour',
-              hiddenName : '\"\"',
+              hiddenName : 'delay_h',
               listWidth : 100,
               mode : 'local',
               name : 'delay_hours',
