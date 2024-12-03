@@ -237,6 +237,7 @@
                ]
               }
              ],
+             "string tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{minute}</b> </div>",
              "xtype" : "ComboBox"
             }
            ],
@@ -271,6 +272,7 @@
                ]
               }
              ],
+             "string tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{minute}</b> </div>",
              "xtype" : "ComboBox"
             }
            ],
