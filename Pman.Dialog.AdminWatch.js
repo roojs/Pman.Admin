@@ -26,8 +26,8 @@ Pman.Dialog.AdminWatch = {
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'no_minutes_fieldLabel' : '7f24a390dca58f5f8bbb72b2d2086250' /* Delay action for */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
-  'active_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'Do this action_fieldLabel' : '004bf6c9a40003140292e97330236c53' /* Action */ ,
+  'Active_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -311,7 +311,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'Checkbox',
           fieldLabel : _this._strings['ae739a236065a45c64ad51aacb19498c'] /* Active? */,
-          name : 'active',
+          name : 'Active',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

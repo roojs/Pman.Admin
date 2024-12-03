@@ -202,7 +202,7 @@
         {
          "$ xns" : "Roo.form",
          "fieldLabel" : "Active?",
-         "name" : "active",
+         "name" : "Active",
          "xtype" : "Checkbox"
         },
         {
@@ -303,8 +303,8 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminWatch",
  "named_strings" : {
+  "Active_fieldLabel" : "ae739a236065a45c64ad51aacb19498c",
   "Do this action_fieldLabel" : "004bf6c9a40003140292e97330236c53",
-  "active_fieldLabel" : "ae739a236065a45c64ad51aacb19498c",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
   "no_minutes_fieldLabel" : "7f24a390dca58f5f8bbb72b2d2086250",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
