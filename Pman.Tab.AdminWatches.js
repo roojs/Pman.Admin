@@ -440,7 +440,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'event',
       header : _this._strings['c122d95a9c28f9a54baef2c7784bb038'] /* Watch Event */,
-      width : 150,
+      width : 75,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },

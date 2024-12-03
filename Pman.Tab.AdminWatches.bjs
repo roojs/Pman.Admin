@@ -391,7 +391,7 @@
        "* prop" : "colModel[]",
        "dataIndex" : "event",
        "header" : "Watch Event",
-       "width" : 150,
+       "width" : 75,
        "xtype" : "ColumnModel"
       },
       {
