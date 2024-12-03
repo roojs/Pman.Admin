@@ -215,9 +215,10 @@
              "$ xns" : "Roo.form",
              "items" : [
               {
-               "$ Array data" : [
+               "$ Array data" : "[0,1,2,3,4,5,6,7,8,9,11]",
+               "$ Array fields" : [
                 "[",
-                "0,1,2,3,4,5,6,7,8,9,11",
+                "",
                 "]"
                ],
                "$ xns" : "Roo.data",

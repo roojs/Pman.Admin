@@ -331,8 +331,9 @@ Pman.Dialog.AdminWatch = {
               '|xns' : 'Roo.form',
               store : {
                xtype : 'SimpleStore',
-               data : [
-               0,1,2,3,4,5,6,7,8,9,11
+               data : [0,1,2,3,4,5,6,7,8,9,11],
+               fields : [
+               
                ],
                xns : Roo.data,
                '|xns' : 'Roo.data'
