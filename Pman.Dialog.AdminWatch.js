@@ -11,7 +11,6 @@ Pman.Dialog.AdminWatch = {
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
   '7f24a390dca58f5f8bbb72b2d2086250' :"Delay action for",
   '44fdec47036f482b68b748f9d786801b' :"days",
-  '640fd0cc0ffa0316ae087652871f4486' :"minutes",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
@@ -32,7 +31,6 @@ Pman.Dialog.AdminWatch = {
   'delay_days_emptyText' : '44fdec47036f482b68b748f9d786801b' /* days */ ,
   'delay_hours_emptyText' : '73cdddd7730abfc13a55efb9f5685a3b' /* hours */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
-  'delay_minutes_emptyText' : '640fd0cc0ffa0316ae087652871f4486' /* minutes */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -374,7 +372,6 @@ Pman.Dialog.AdminWatch = {
               xtype : 'ComboBox',
               displayField : 'minute',
               editable : false,
-              emptyText : _this._strings['640fd0cc0ffa0316ae087652871f4486'] /* minutes */,
               listWidth : 75,
               mode : 'local',
               name : 'delay_minutes',
