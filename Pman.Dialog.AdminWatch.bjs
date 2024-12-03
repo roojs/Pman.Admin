@@ -244,6 +244,7 @@
              "String displayField" : "minute",
              "String mode" : "local",
              "String name" : "delay_minutes",
+             "String triggerAction" : "all",
              "String valueField" : "minute",
              "items" : [
               {

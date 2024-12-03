@@ -357,6 +357,7 @@ Pman.Dialog.AdminWatch = {
               listWidth : 100,
               mode : 'local',
               name : 'delay_minutes',
+              triggerAction : 'all',
               valueField : 'minute',
               width : 100,
               xns : Roo.form,
