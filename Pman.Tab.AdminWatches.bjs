@@ -289,7 +289,7 @@
         },
         {
          "$ xns" : "Roo.Toolbar",
-         "String text" : "Copy release",
+         "String text" : "Copy",
          "listeners" : {
           "click" : [
            "function (_self, e)",
@@ -297,10 +297,6 @@
            "    var s = _this.grid.getSelectionModel().getSelections();",
            "    if (!s.length || (s.length > 1))  {",
            "        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");",
-           "        return;",
-           "    }",
-           "    if(![-2, -1, 0, 1].includes(s[0].data.publish_status)) {",
-           "        Roo.MessageBox.alert(\"Error\", \"You can only copy draft, published, embargoed or deleted release\");",
            "        return;",
            "    }",
            "    ",
@@ -451,6 +447,12 @@
        "header" : "Delay for minutes",
        "width" : 100,
        "xtype" : "ColumnModel"
+      },
+      {
+       "$ xns" : "Roo.grid",
+       "* prop" : "sm",
+       "singleSelect" : true,
+       "xtype" : "RowSelectionModel"
       }
      ],
      "listeners" : {
@@ -516,8 +518,8 @@
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
   "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
+  "5fb63579fc981698f97d55bfecb213ea" : "Copy",
   "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
-  "93ccd523af332bc0861a0d53225eb942" : "Copy release",
   "a297b2e935563efded23802aaa1ca3d8" : "Delay for days",
   "a4e70e911022ccc98ab8055a09222cf2" : "No core_watch found",
   "a62bff18adcc86e8ed1a3dbd3778afe4" : "Delay for hours",
