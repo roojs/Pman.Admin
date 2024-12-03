@@ -331,7 +331,7 @@ Pman.Dialog.AdminWatch = {
               listWidth : 100,
               mode : 'local',
               name : 'delay_hours',
-              tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{minute}</b> </div>',
+              tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{hour}</b> </div>',
               triggerAction : 'all',
               valueField : 'hour',
               width : 100,
