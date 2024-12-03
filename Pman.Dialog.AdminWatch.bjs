@@ -253,6 +253,7 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
+             "Boolean editable" : false,
              "Number listWidth" : 50,
              "Number width" : 50,
              "String displayField" : "minute",
