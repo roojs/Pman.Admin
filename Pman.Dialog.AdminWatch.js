@@ -9,7 +9,7 @@ Pman.Dialog.AdminWatch = {
  _strings : {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
-  '7f24a390dca58f5f8bbb72b2d2086250' :"Delay action for",
+  'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
   '44fdec47036f482b68b748f9d786801b' :"days",
   '640fd0cc0ffa0316ae087652871f4486' :"minutes",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
@@ -317,7 +317,7 @@ Pman.Dialog.AdminWatch = {
             items  : [
              {
               xtype : 'TextItem',
-              html : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
+              html : _this._strings['f08758b0c1d06ae425a00e4166b5d8a5'] /* Delay action for: */,
               xns : Roo.form,
               '|xns' : 'Roo.form'
              }
@@ -325,7 +325,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 45,
+            labelWidth : 30,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',
@@ -343,7 +343,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 45,
+            labelWidth : 30,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',

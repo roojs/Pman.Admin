@@ -200,7 +200,7 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
-             "String html" : "Delay action for",
+             "String html" : "Delay action for:",
              "xtype" : "TextItem"
             }
            ],
@@ -208,7 +208,7 @@
           },
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 45,
+           "Number labelWidth" : 30,
            "Number/String width" : 100,
            "items" : [
             {
@@ -224,7 +224,7 @@
           },
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 45,
+           "Number labelWidth" : 30,
            "Number/String width" : 100,
            "items" : [
             {
@@ -429,12 +429,12 @@
   "640fd0cc0ffa0316ae087652871f4486" : "minutes",
   "73cdddd7730abfc13a55efb9f5685a3b" : "hours",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
-  "7f24a390dca58f5f8bbb72b2d2086250" : "Delay action for",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e675e43625096ce5f316055dfd1df7ea" : "When this occurs",
   "ea221a6fb492303155561b1ce1ae0f6c" : "Notify this person",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "f08758b0c1d06ae425a00e4166b5d8a5" : "Delay action for:"
  },
  "title" : ""
 }
