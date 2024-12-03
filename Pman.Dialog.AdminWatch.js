@@ -415,7 +415,7 @@ Pman.Dialog.AdminWatch = {
               name : 'language_name',
               tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>',
               triggerAction : 'all',
-              valueField : 'code',
+              valueField : 'title',
               width : 200,
               listeners : {
                select : function (combo, record, index)
@@ -432,7 +432,7 @@ Pman.Dialog.AdminWatch = {
               store : {
                xtype : 'SimpleStore',
                data : (function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []})(),
-               fields : ['code', 'title'],
+               fields : ['title'],
                xns : Roo.data,
                '|xns' : 'Roo.data'
               }
