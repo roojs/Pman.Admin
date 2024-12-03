@@ -77,6 +77,14 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Boolean allowDecimals" : false,
+         "fieldLabel" : "on this ID (optional)",
+         "name" : "onid",
+         "width" : 75,
+         "xtype" : "NumberField"
+        },
+        {
+         "$ xns" : "Roo.form",
          "allowBlank" : true,
          "displayField" : "action",
          "fieldLabel" : "Action",
@@ -125,19 +133,11 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Boolean allowDecimals" : false,
-         "fieldLabel" : "on this ID (optional)",
-         "name" : "onid",
-         "width" : 75,
-         "xtype" : "NumberField"
-        },
-        {
-         "$ xns" : "Roo.form",
          "allowBlank" : true,
          "displayField" : "name",
          "editable" : false,
          "emptyText" : "Select Person",
-         "fieldLabel" : "Notify Who",
+         "fieldLabel" : "Notify this person",
          "forceSelection" : true,
          "hiddenName" : "person_id",
          "items" : [
@@ -309,7 +309,7 @@
   "no_minutes_fieldLabel" : "61f71a6a41f9dd2d2f1b6bca465216e5",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
-  "person_id_name_fieldLabel" : "78c97ad77a6194c421b797c4cd030f75",
+  "person_id_name_fieldLabel" : "ea221a6fb492303155561b1ce1ae0f6c",
   "person_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "person_id_name_qtip" : "340c2ee497b85d5954b01c64de7f44f6"
  },
@@ -323,10 +323,10 @@
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "61f71a6a41f9dd2d2f1b6bca465216e5" : "Delay action for no. of minutes",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
-  "78c97ad77a6194c421b797c4cd030f75" : "Notify Who",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e675e43625096ce5f316055dfd1df7ea" : "When this occurs",
+  "ea221a6fb492303155561b1ce1ae0f6c" : "Notify this person",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },
  "title" : ""

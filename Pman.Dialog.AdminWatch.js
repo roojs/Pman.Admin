@@ -10,7 +10,7 @@ Pman.Dialog.AdminWatch = {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'ae739a236065a45c64ad51aacb19498c' :"Active?",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
-  '78c97ad77a6194c421b797c4cd030f75' :"Notify Who",
+  'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '75c5929bbdd5b4e3fb09d3d3a4e73a04' :"Edit / Create core_watch",
@@ -22,7 +22,7 @@ Pman.Dialog.AdminWatch = {
  _named_strings : {
   'person_id_name_qtip' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
-  'person_id_name_fieldLabel' : '78c97ad77a6194c421b797c4cd030f75' /* Notify Who */ ,
+  'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'no_minutes_fieldLabel' : '61f71a6a41f9dd2d2f1b6bca465216e5' /* Delay action for no. of minutes */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
@@ -195,6 +195,15 @@ Pman.Dialog.AdminWatch = {
           }
          },
          {
+          xtype : 'NumberField',
+          allowDecimals : false,
+          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
+          name : 'onid',
+          width : 75,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'action',
@@ -237,21 +246,12 @@ Pman.Dialog.AdminWatch = {
           }
          },
          {
-          xtype : 'NumberField',
-          allowDecimals : false,
-          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
-          name : 'onid',
-          width : 75,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'name',
           editable : false,
           emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person */,
-          fieldLabel : _this._strings['78c97ad77a6194c421b797c4cd030f75'] /* Notify Who */,
+          fieldLabel : _this._strings['ea221a6fb492303155561b1ce1ae0f6c'] /* Notify this person */,
           forceSelection : true,
           hiddenName : 'person_id',
           listWidth : 500,
