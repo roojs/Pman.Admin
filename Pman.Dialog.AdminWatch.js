@@ -436,7 +436,10 @@ Pman.Dialog.AdminWatch = {
               '|xns' : 'Roo.form',
               store : {
                xtype : 'SimpleStore',
-               data : (function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []})(),
+               data : (function() {
+                   Roo.log(Pman.I18n.simpleStoreData('l'));
+                   return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []
+               })(),
                fields : ['code', 'title'],
                xns : Roo.data,
                '|xns' : 'Roo.data'

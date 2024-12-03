@@ -304,7 +304,12 @@
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",
-               "| data" : "(function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []})()"
+               "| data" : [
+                "(function() {",
+                "    Roo.log(Pman.I18n.simpleStoreData('l'));",
+                "    return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []",
+                "})()"
+               ]
               }
              ],
              "listWidth" : 200,
