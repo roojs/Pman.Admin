@@ -21,6 +21,63 @@
         {
          "$ xns" : "Roo.form",
          "allowBlank" : true,
+         "displayField" : "action",
+         "fieldLabel" : "Match Event",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"table\", \"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_events = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 300,
+         "listeners" : {
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "    _this.form.findField('ontable').setValue(record.data.table);",
+           "}"
+          ]
+         },
+         "name" : "event",
+         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>",
+         "triggerAction" : "all",
+         "valueField" : "action",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : true,
          "displayField" : "on_table",
          "editable" : false,
          "emptyText" : "Select Table",
@@ -273,63 +330,6 @@
          "triggerAction" : "all",
          "typeAhead" : true,
          "valueField" : "id",
-         "width" : 300,
-         "xtype" : "ComboBox"
-        },
-        {
-         "$ xns" : "Roo.form",
-         "allowBlank" : true,
-         "displayField" : "action",
-         "fieldLabel" : "Match Event",
-         "items" : [
-          {
-           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
-           "$ xns" : "Roo.data",
-           "* prop" : "store",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/core_watch'",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy",
-             "method" : "GET",
-             "xtype" : "HttpProxy"
-            },
-            {
-             "$ fields" : "[\"table\", \"action\"]",
-             "$ xns" : "Roo.data",
-             "* prop" : "reader",
-             "id" : "action",
-             "root" : "data",
-             "totalProperty" : "total",
-             "xtype" : "JsonReader"
-            }
-           ],
-           "listeners" : {
-            "|beforeload" : [
-             "function (_self, o){",
-             "    o.params = o.params || {};",
-             "    o.params._watchable_events = 1;",
-             "}",
-             ""
-            ]
-           },
-           "remoteSort" : true,
-           "xtype" : "Store"
-          }
-         ],
-         "listWidth" : 300,
-         "listeners" : {
-          "select" : [
-           "function (combo, record, index)",
-           "{",
-           "    _this.form.findField('ontable').setValue(record.data.table);",
-           "}"
-          ]
-         },
-         "name" : "event",
-         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>",
-         "triggerAction" : "all",
-         "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
         },

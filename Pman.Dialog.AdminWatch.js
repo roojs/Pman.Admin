@@ -155,6 +155,55 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
+          displayField : 'action',
+          fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
+          listWidth : 300,
+          name : 'event',
+          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
+          triggerAction : 'all',
+          valueField : 'action',
+          width : 300,
+          listeners : {
+           select : function (combo, record, index)
+            {
+                _this.form.findField('ontable').setValue(record.data.table);
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'action' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 o.params._watchable_events = 1;
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/core_watch',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : ["table", "action"],
+            id : 'action',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          }
+         },
+         {
+          xtype : 'ComboBox',
+          allowBlank : true,
           displayField : 'on_table',
           editable : false,
           emptyText : _this._strings['314b26dabb519a609db698728284683f'] /* Select Table */,
@@ -387,55 +436,6 @@ Pman.Dialog.AdminWatch = {
             xtype : 'JsonReader',
             fields : [{"name":"id","type":"int"},{"name":"name","type":"string"}],
             id : 'id',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
-         },
-         {
-          xtype : 'ComboBox',
-          allowBlank : true,
-          displayField : 'action',
-          fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
-          listWidth : 300,
-          name : 'event',
-          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
-          triggerAction : 'all',
-          valueField : 'action',
-          width : 300,
-          listeners : {
-           select : function (combo, record, index)
-            {
-                _this.form.findField('ontable').setValue(record.data.table);
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'action' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-                 o.params._watchable_events = 1;
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_watch',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : ["table", "action"],
-            id : 'action',
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
