@@ -302,7 +302,35 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'Row',
           xns : Roo.form,
-          '|xns' : 'Roo.form'
+          '|xns' : 'Roo.form',
+          items  : [
+           {
+            xtype : 'Column',
+            xns : Roo.form,
+            '|xns' : 'Roo.form',
+            items  : [
+             {
+              xtype : 'NumberField',
+              allowDecimals : false,
+              fieldLabel : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
+              name : 'no_minutes',
+              width : 75,
+              xns : Roo.form,
+              '|xns' : 'Roo.form'
+             }
+            ]
+           },
+           {
+            xtype : 'Column',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'Column',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           }
+          ]
          },
          {
           xtype : 'NumberField',
