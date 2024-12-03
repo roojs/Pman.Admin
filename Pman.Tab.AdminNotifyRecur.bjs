@@ -1,246 +1,379 @@
 {
- "name" : "Pman.Tab.AdminNotifyRecur",
- "parent" : "Pman.Tab.AdminWatchNotify",
- "title" : "Pman.Tab.AdminNotifyRecur",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotifyRecur.bjs",
- "permname" : "",
- "modOrder" : "800",
- "strings" : {
-  "04df30d61712300fd31c24e2c7c8f9bc" : "Select core_notify",
-  "be3c26f9baf09972ddc410c5c7c63403" : "Displaying core_notify_recur{0} - {1} of {2}",
-  "808e3eefe289c698ec4def4a54ac36af" : "Last Notification created",
-  "13a831874352b548ac7b5e63a860aa1b" : "Tz",
-  "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
-  "c956c97343a45cca5d492e70c56daa8e" : "Select person",
-  "25af45209313b11d55424103567a1347" : "Dtend",
-  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
-  "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found",
-  "83b9a425d6b152330823ab8357f441ae" : "Dtstart",
-  "ac2c474467a60fa4e2c88158a6d2abf9" : "Freq day",
-  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
-  "6ffde0d71e2b678e619e4a642d0b22a6" : "Freq hour",
-  "4c3880bb027f159e801041b1021e88e8" : "Method",
-  "d8d80ec41fc8cca7569ac2d2937bd97b" : "Affects",
-  "84307c751e4541f54714472e3df742dd" : "Freq"
- },
  "items" : [
   {
-   "listeners" : {
-    "|activate" : "function() {\n    _this.panel = this;\n    if (_this.grid) {\n        _this.grid.footer.onClick('first');\n    }\n}"
-   },
-   "fitToframe" : true,
-   "background" : true,
-   "region" : "center",
-   "title" : "Recurrent Notifications",
-   "xtype" : "GridPanel",
-   "fitContainer" : true,
    "$ xns" : "Roo",
-   "tableName" : "core_notify_recur",
+   "background" : true,
+   "fitContainer" : true,
+   "fitToframe" : true,
    "items" : [
     {
-     "listeners" : {
-      "|rowdblclick" : "function (_self, rowIndex, e)\n{\n    if (!_this.dialog) { return; }\n    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {\n        _this.grid.footer.onClick('first');\n    }); \n}\n",
-      "|render" : "function() \n{\n    _this.grid = this; \n    //_this.dialog = Pman.Dialog.FILL_IN\n    if (_this.panel.active) {\n       this.footer.onClick('first');\n    }\n}"
-     },
-     "autoExpandColumn" : "person_id_name",
-     "xtype" : "Grid",
-     "loadMask" : true,
      "$ xns" : "Roo.grid",
      "* prop" : "grid",
+     "autoExpandColumn" : "person_id_name",
      "items" : [
       {
-       "xtype" : "Toolbar",
        "$ xns" : "Roo",
        "* prop" : "toolbar",
        "items" : [
         {
-         "listeners" : {
-          "render" : "function (_self)\n{\n   _this.personCombo = _self;\n}",
-          "select" : "function (combo, record, index)\n{\n   (function() { _this.grid.footer.onClick('first'); }).defer(100);\n}"
-         },
-         "listWidth" : 400,
-         "triggerAction" : "all",
-         "forceSelection" : true,
-         "selectOnFocus" : true,
-         "pageSize" : 20,
-         "displayField" : "person_id_name",
-         "emptyText" : "Select person",
-         "hiddenName" : "id",
-         "minChars" : 2,
-         "valueField" : "person_id",
-         "xtype" : "ComboBox",
-         "allowBlank" : true,
-         "editable" : true,
-         "width" : 300,
          "$ xns" : "Roo.form",
-         "name" : "name",
-         "qtip" : "Select core_notify",
-         "queryParam" : "query[person_id_name]",
-         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
-         "loadingText" : "Searching...",
+         "allowBlank" : true,
+         "displayField" : "person_id_name",
+         "editable" : true,
+         "emptyText" : "Select person",
+         "forceSelection" : true,
+         "hiddenName" : "id",
          "items" : [
           {
-           "listeners" : {
-            "|beforeload" : "function (_self, o){\n    o.params = o.params || {};\n    o.params._distinct='person_id';\n    o.params._columns='person_id,person_id_name,person_id_email';\n    o.params['!person_id_name'] = '';\n    \n    // set more here\n}\n"
-           },
-           "xtype" : "Store",
-           "remoteSort" : true,
            "$ sortInfo" : "{ direction : 'ASC', field: 'person_id_name' }",
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/core_notify_recur.php'",
-             "xtype" : "HttpProxy",
-             "method" : "GET",
              "$ xns" : "Roo.data",
-             "* prop" : "proxy"
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
             },
             {
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
              "id" : "id",
              "root" : "data",
-             "xtype" : "JsonReader",
-             "$ xns" : "Roo.data",
-             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"ontable\",\"type\":\"string\"}]",
-             "* prop" : "reader",
-             "totalProperty" : "total"
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
             }
-           ]
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._distinct='person_id';",
+             "    o.params._columns='person_id,person_id_name,person_id_email';",
+             "    o.params['!person_id_name'] = '';",
+             "    ",
+             "    // set more here",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
           }
-         ]
+         ],
+         "listWidth" : 400,
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "   _this.personCombo = _self;",
+           "}"
+          ],
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "   (function() { _this.grid.footer.onClick('first'); }).defer(100);",
+           "}"
+          ]
+         },
+         "loadingText" : "Searching...",
+         "minChars" : 2,
+         "name" : "name",
+         "pageSize" : 20,
+         "qtip" : "Select core_notify",
+         "queryParam" : "query[person_id_name]",
+         "selectOnFocus" : true,
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{person_id_name}</b> {person_id_email}</div>",
+         "triggerAction" : "all",
+         "valueField" : "person_id",
+         "width" : 300,
+         "xtype" : "ComboBox"
         }
-       ]
+       ],
+       "xtype" : "Toolbar"
       },
       {
-       "listeners" : {
-        "beforeload" : "function (_self, options)\n{\n    if (!_this.personCombo) {\n        return false;\n    }\n    var p = _this.personCombo.getValue();\n    if (p*1) { \n        options.params.person_id = p;\n    }\n}"
-       },
-       "xtype" : "Store",
-       "remoteSort" : true,
        "$ sortInfo" : "{ field : 'person_id_name', direction: 'ASC' }",
        "$ xns" : "Roo.data",
        "* prop" : "dataSource",
        "items" : [
         {
          "$ url" : "baseURL + '/Roo/core_notify_recur.php'",
-         "method" : "GET",
-         "xtype" : "HttpProxy",
          "$ xns" : "Roo.data",
-         "* prop" : "proxy"
+         "* prop" : "proxy",
+         "method" : "GET",
+         "xtype" : "HttpProxy"
         },
         {
+         "$ fields" : [
+          "[",
+          "    {",
+          "        'name': 'id',",
+          "        'type': 'int'",
+          "    },",
+          "    {",
+          "        'name': 'person_id',",
+          "        'type': 'int'",
+          "    },",
+          "    {",
+          "        'name': 'dtstart',",
+          "        'type': 'date',",
+          "        'dateFormat': 'Y-m-d'",
+          "    },",
+          "    {",
+          "        'name': 'dtend',",
+          "        'type': 'date',",
+          "        'dateFormat': 'Y-m-d'",
+          "    },",
+          "    {",
+          "        'name': 'max_applied_dt',",
+          "        'type': 'date',",
+          "        'dateFormat': 'Y-m-d'",
+          "    },",
+          "    {",
+          "        'name': 'updated_dt',",
+          "        'type': 'date',",
+          "        'dateFormat': 'Y-m-d'",
+          "    },",
+          "    {",
+          "        'name': 'last_applied_dt',",
+          "        'type': 'date',",
+          "        'dateFormat': 'Y-m-d'",
+          "    },",
+          "    {",
+          "        'name': 'tz',",
+          "        'type': 'string'",
+          "    },",
+          "    {",
+          "        'name': 'freq',",
+          "        'type': 'string'",
+          "    },",
+          "    {",
+          "        'name': 'freq_day',",
+          "        'type': 'string'",
+          "    },",
+          "    {",
+          "        'name': 'freq_hour',",
+          "        'type': 'string'",
+          "    },",
+          "    {",
+          "        'name': 'onid',",
+          "        'type': 'int'",
+          "    },",
+          "    {",
+          "        'name': 'ontable',",
+          "        'type': 'string'",
+          "    },",
+          "    {",
+          "        'name': 'last_event_id',",
+          "        'type': 'int'",
+          "    },",
+          "    {",
+          "        'name': 'method',",
+          "        'type': 'string'",
+          "    }",
+          "]"
+         ],
+         "$ xns" : "Roo.data",
+         "* prop" : "reader",
          "id" : "id",
          "root" : "data",
-         "xtype" : "JsonReader",
-         "$ xns" : "Roo.data",
-         "$ fields" : "[\n    {\n        'name': 'id',\n        'type': 'int'\n    },\n    {\n        'name': 'person_id',\n        'type': 'int'\n    },\n    {\n        'name': 'dtstart',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'dtend',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'max_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'updated_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'last_applied_dt',\n        'type': 'date',\n        'dateFormat': 'Y-m-d'\n    },\n    {\n        'name': 'tz',\n        'type': 'string'\n    },\n    {\n        'name': 'freq',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_day',\n        'type': 'string'\n    },\n    {\n        'name': 'freq_hour',\n        'type': 'string'\n    },\n    {\n        'name': 'onid',\n        'type': 'int'\n    },\n    {\n        'name': 'ontable',\n        'type': 'string'\n    },\n    {\n        'name': 'last_event_id',\n        'type': 'int'\n    },\n    {\n        'name': 'method',\n        'type': 'string'\n    }\n]",
-         "* prop" : "reader",
-         "totalProperty" : "total"
+         "totalProperty" : "total",
+         "xtype" : "JsonReader"
         }
-       ]
+       ],
+       "listeners" : {
+        "beforeload" : [
+         "function (_self, options)",
+         "{",
+         "    if (!_this.personCombo) {",
+         "        return false;",
+         "    }",
+         "    var p = _this.personCombo.getValue();",
+         "    if (p*1) { ",
+         "        options.params.person_id = p;",
+         "    }",
+         "}"
+        ]
+       },
+       "remoteSort" : true,
+       "xtype" : "Store"
       },
       {
-       "pageSize" : 25,
-       "xtype" : "PagingToolbar",
-       "emptyMsg" : "No core_notify_recur found",
        "$ xns" : "Roo",
+       "* prop" : "footer",
        "displayInfo" : true,
        "displayMsg" : "Displaying core_notify_recur{0} - {1} of {2}",
-       "* prop" : "footer"
+       "emptyMsg" : "No core_notify_recur found",
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar"
       },
       {
-       "xtype" : "ColumnModel",
+       "$ renderer" : [
+        "function(v,x,r) { ",
+        "    return String.format('{0} <a href=\"mailto:{1}\">{1}</a>', v,r.data.person_id_email); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "person_id_name",
        "header" : "Person",
        "width" : 75,
-       "$ renderer" : "function(v,x,r) { \n    return String.format('{0} <a href=\"mailto:{1}\">{1}</a>', v,r.data.person_id_email); \n}",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "person_id_name"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "width" : 75,
+       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "dtstart",
        "header" : "Dtstart",
-       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "dtstart"
-      },
-      {
-       "xtype" : "ColumnModel",
        "width" : 75,
-       "header" : "Dtend",
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "dtend"
+       "dataIndex" : "dtend",
+       "header" : "Dtend",
+       "width" : 75,
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
+       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "last_applied_dt",
        "header" : "Last Notification created",
        "width" : 75,
-       "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "last_applied_dt"
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "tz",
        "header" : "Tz",
        "width" : 75,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "tz"
-      },
-      {
-       "xtype" : "ColumnModel",
+       "dataIndex" : "freq",
        "header" : "Freq",
        "width" : 100,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "freq"
-      },
-      {
-       "xtype" : "ColumnModel",
+       "dataIndex" : "freq_day",
        "header" : "Freq day",
        "width" : 200,
+       "xtype" : "ColumnModel"
+      },
+      {
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "freq_day"
-      },
-      {
-       "xtype" : "ColumnModel",
-       "width" : 200,
+       "dataIndex" : "freq_hour",
        "header" : "Freq hour",
-       "$ renderer" : "function(v) { return String.format('{0}', v); }",
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "freq_hour"
+       "width" : 200,
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "header" : "Affects",
-       "width" : 75,
        "$ renderer" : "function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "onid"
+       "dataIndex" : "onid",
+       "header" : "Affects",
+       "width" : 75,
+       "xtype" : "ColumnModel"
       },
       {
-       "xtype" : "ColumnModel",
-       "header" : "Method",
-       "width" : 75,
        "$ renderer" : "function(v) { return String.format('{0}', v); }",
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "method"
+       "dataIndex" : "method",
+       "header" : "Method",
+       "width" : 75,
+       "xtype" : "ColumnModel"
       }
-     ]
+     ],
+     "listeners" : {
+      "|render" : [
+       "function() ",
+       "{",
+       "    _this.grid = this; ",
+       "    //_this.dialog = Pman.Dialog.FILL_IN",
+       "    if (_this.panel.active) {",
+       "       this.footer.onClick('first');",
+       "    }",
+       "}"
+      ],
+      "|rowdblclick" : [
+       "function (_self, rowIndex, e)",
+       "{",
+       "    if (!_this.dialog) { return; }",
+       "    _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {",
+       "        _this.grid.footer.onClick('first');",
+       "    }); ",
+       "}",
+       ""
+      ]
+     },
+     "loadMask" : true,
+     "xtype" : "Grid"
     }
-   ]
+   ],
+   "listeners" : {
+    "|activate" : [
+     "function() {",
+     "    _this.panel = this;",
+     "    if (_this.grid) {",
+     "        _this.grid.footer.onClick('first');",
+     "    }",
+     "}"
+    ]
+   },
+   "region" : "center",
+   "tableName" : "core_notify_recur",
+   "title" : "Recurrent Notifications",
+   "xtype" : "GridPanel"
   }
- ]
+ ],
+ "modOrder" : "800",
+ "name" : "Pman.Tab.AdminNotifyRecur",
+ "named_strings" : {
+  "name_emptyText" : "c956c97343a45cca5d492e70c56daa8e",
+  "name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "name_qtip" : "04df30d61712300fd31c24e2c7c8f9bc"
+ },
+ "parent" : "Pman.Tab.AdminWatchNotify",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminNotifyRecur.bjs",
+ "permname" : "",
+ "strings" : {
+  "04df30d61712300fd31c24e2c7c8f9bc" : "Select core_notify",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "13a831874352b548ac7b5e63a860aa1b" : "Tz",
+  "25af45209313b11d55424103567a1347" : "Dtend",
+  "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
+  "4c3880bb027f159e801041b1021e88e8" : "Method",
+  "6ffde0d71e2b678e619e4a642d0b22a6" : "Freq hour",
+  "808e3eefe289c698ec4def4a54ac36af" : "Last Notification created",
+  "83b9a425d6b152330823ab8357f441ae" : "Dtstart",
+  "84307c751e4541f54714472e3df742dd" : "Freq",
+  "ac2c474467a60fa4e2c88158a6d2abf9" : "Freq day",
+  "be3c26f9baf09972ddc410c5c7c63403" : "Displaying core_notify_recur{0} - {1} of {2}",
+  "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
+  "c956c97343a45cca5d492e70c56daa8e" : "Select person",
+  "d8d80ec41fc8cca7569ac2d2937bd97b" : "Affects",
+  "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found"
+ },
+ "title" : "Pman.Tab.AdminNotifyRecur"
 }
