@@ -18,6 +18,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'a297b2e935563efded23802aaa1ca3d8' :"Delay for days",
   '1139510b5c3ddc9486739bed9ebb16d9' :"Delay for minutes",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
+  '93ccd523af332bc0861a0d53225eb942' :"Copy release",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
@@ -204,6 +205,47 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
              _this.dialog.show( { id : 0 } , function() {
                  _this.grid.footer.onClick('first');
             }); 
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
+       text : _this._strings['93ccd523af332bc0861a0d53225eb942'] /* Copy release */,
+       listeners : {
+        click : function (_self, e)
+         {
+             var s = _this.grid.getSelectionModel().getSelections();
+             if (!s.length || (s.length > 1))  {
+                 Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                 return;
+             }
+             if(![-2, -1, 0, 1].includes(s[0].data.publish_status)) {
+                 Roo.MessageBox.alert("Error", "You can only copy draft, published, embargoed or deleted release");
+                 return;
+             }
+             
+             Roo.MessageBox.confirm(
+                 "Copy", 
+                 "Are you sure to copy release #" + s[0].data.id,
+                 function (res) {
+                     if(res == "yes") {
+                         new Pman.Request({
+                             url : baseURL + '/Roo/Pressrelease_entry',
+                             method : 'POST',
+                             params: {
+                                 _copy_release: s[0].data.id
+                             },
+                             mask : 'copying',
+                             success: function()
+                             {
+                                 _this.grid.footer.onClick('first');
+                             }
+                         });
+                     }
+                 }
+             );
          }
        },
        xns : Roo.Toolbar,
