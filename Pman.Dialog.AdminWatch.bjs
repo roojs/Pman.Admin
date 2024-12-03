@@ -216,8 +216,8 @@
             {
              "$ xns" : "Roo.form",
              "Boolean editable" : false,
-             "Number listWidth" : 50,
-             "Number width" : 50,
+             "Number listWidth" : 75,
+             "Number width" : 75,
              "String displayField" : "hour",
              "String hiddenName" : "delay_h",
              "String mode" : "local",
@@ -255,8 +255,8 @@
             {
              "$ xns" : "Roo.form",
              "Boolean editable" : false,
-             "Number listWidth" : 50,
-             "Number width" : 50,
+             "Number listWidth" : 75,
+             "Number width" : 75,
              "String displayField" : "minute",
              "String hiddenName" : "delay_m",
              "String mode" : "local",
