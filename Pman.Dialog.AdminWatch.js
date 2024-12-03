@@ -370,7 +370,13 @@ Pman.Dialog.AdminWatch = {
               '|xns' : 'Roo.form',
               store : {
                xtype : 'SimpleStore',
-               data : [0,1,2,3,4,5,6,7,8,9,11,12],
+               data : (function() {
+                   var data = [];
+                   for(var i = 0; i < 60; i ++) {
+                       data.push(i);
+                   }
+                   return data;
+               })(),
                fields : ['minute'],
                xns : Roo.data,
                '|xns' : 'Roo.data'

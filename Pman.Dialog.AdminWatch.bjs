@@ -260,7 +260,15 @@
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",
-               "| Array data" : "[0,1,2,3,4,5,6,7,8,9,11,12]"
+               "| Array data" : [
+                "(function() {",
+                "    var data = [];",
+                "    for(var i = 0; i < 60; i ++) {",
+                "        data.push(i);",
+                "    }",
+                "    return data;",
+                "})()"
+               ]
               }
              ],
              "xtype" : "ComboBox"
