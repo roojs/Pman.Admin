@@ -395,9 +395,7 @@ Pman.Dialog.AdminWatch = {
                data : (function() {
                    var data = [];
                    for(var i = 0; i < 60; i ++) {
-                       data.push({
-                           'minute': i
-                       });
+                       data.push([i]);
                    }
                    return data;
                })(),
