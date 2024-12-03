@@ -249,7 +249,7 @@
           },
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 30,
+           "Number labelWidth" : 40,
            "Number/String width" : 100,
            "items" : [
             {
