@@ -329,7 +329,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 50,
+            labelWidth : 30,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',
@@ -365,7 +365,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 50,
+            labelWidth : 30,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',
