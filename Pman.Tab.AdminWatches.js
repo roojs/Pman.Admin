@@ -18,11 +18,11 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'a297b2e935563efded23802aaa1ca3d8' :"Delay for days",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
-  '6a7e73161603d87b26a8eac49dab0a9c' :"Hours",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  'a62bff18adcc86e8ed1a3dbd3778afe4' :"Delay for hours",
   '314b26dabb519a609db698728284683f' :"Select Table"
  },
  _named_strings : {
@@ -449,14 +449,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      {
       xtype : 'ColumnModel',
       dataIndex : 'delay_hours',
-      header : _this._strings['6a7e73161603d87b26a8eac49dab0a9c'] /* Hours */,
-      renderer : function(v,x,r) { 
-          if (typeof(r.data.event_right_display_name) != 'undefined') {
-              return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     
-          }
-          return String.format('{0}', v); 
-          
-      },
+      header : _this._strings['a62bff18adcc86e8ed1a3dbd3778afe4'] /* Delay for hours */,
       width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
@@ -465,14 +458,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'event',
       header : _this._strings['c122d95a9c28f9a54baef2c7784bb038'] /* Watch Event */,
-      renderer : function(v,x,r) { 
-          if (typeof(r.data.event_right_display_name) != 'undefined') {
-              return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     
-          }
-          return String.format('{0}', v); 
-          
-      },
-      width : 150,
+      width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      }
