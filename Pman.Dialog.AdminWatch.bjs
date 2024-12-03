@@ -259,7 +259,7 @@
              "Number listWidth" : 75,
              "Number width" : 75,
              "String displayField" : "minute",
-             "String emptyText" : "hour",
+             "String emptyText" : "minute",
              "String hiddenName" : "delay_m",
              "String mode" : "local",
              "String name" : "delay_minutes",
@@ -397,7 +397,7 @@
  "named_strings" : {
   "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
   "delay_hours_emptyText" : "896c55cc5e46fab38ce9f51ebf7bfcd3",
-  "delay_minutes_emptyText" : "896c55cc5e46fab38ce9f51ebf7bfcd3",
+  "delay_minutes_emptyText" : "0a7d55be9d12a369a6a8da0fb517fba4",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "no_minutes_fieldLabel" : "7f24a390dca58f5f8bbb72b2d2086250",
@@ -411,6 +411,7 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminWatch.bjs",
  "permname" : "",
  "strings" : {
+  "0a7d55be9d12a369a6a8da0fb517fba4" : "minute",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
