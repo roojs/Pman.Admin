@@ -9,6 +9,7 @@ Pman.Dialog.AdminWatch = {
  _strings : {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
+  '896c55cc5e46fab38ce9f51ebf7bfcd3' :"hour",
   '7f24a390dca58f5f8bbb72b2d2086250' :"Delay action for",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
@@ -26,7 +27,9 @@ Pman.Dialog.AdminWatch = {
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'no_minutes_fieldLabel' : '7f24a390dca58f5f8bbb72b2d2086250' /* Delay action for */ ,
+  'delay_hours_emptyText' : '896c55cc5e46fab38ce9f51ebf7bfcd3' /* hour */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
+  'delay_minutes_emptyText' : '896c55cc5e46fab38ce9f51ebf7bfcd3' /* hour */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -331,6 +334,7 @@ Pman.Dialog.AdminWatch = {
               xtype : 'ComboBox',
               displayField : 'hour',
               editable : false,
+              emptyText : _this._strings['896c55cc5e46fab38ce9f51ebf7bfcd3'] /* hour */,
               hiddenName : 'delay_h',
               listWidth : 75,
               mode : 'local',
@@ -368,6 +372,7 @@ Pman.Dialog.AdminWatch = {
               xtype : 'ComboBox',
               displayField : 'minute',
               editable : false,
+              emptyText : _this._strings['896c55cc5e46fab38ce9f51ebf7bfcd3'] /* hour */,
               hiddenName : 'delay_m',
               listWidth : 75,
               mode : 'local',
