@@ -214,6 +214,7 @@
             {
              "$ xns" : "Roo.form",
              "String displayField" : "hour",
+             "String mode" : "local",
              "String valueField" : "hour",
              "items" : [
               {
