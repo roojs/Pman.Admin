@@ -354,11 +354,8 @@ Pman.Dialog.AdminWatch = {
                data : (function() {
                    var data = [];
                    for(var i = 0; i < 12; i ++) {
-                       data.push({
-                           'hour': i
-                       });
+                       data.push([i]);
                    }
-                   Roo.log(data);
                    return data;
                })(),
                fields : ['hour'],
@@ -380,7 +377,6 @@ Pman.Dialog.AdminWatch = {
               displayField : 'minute',
               editable : false,
               emptyText : _this._strings['640fd0cc0ffa0316ae087652871f4486'] /* minutes */,
-              hiddenName : 'delay_m',
               listWidth : 75,
               mode : 'local',
               name : 'delay_minutes',

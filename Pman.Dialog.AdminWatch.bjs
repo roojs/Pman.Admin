@@ -236,11 +236,8 @@
                 "(function() {",
                 "    var data = [];",
                 "    for(var i = 0; i < 12; i ++) {",
-                "        data.push({",
-                "            'hour': i",
-                "        });",
+                "        data.push([i]);",
                 "    }",
-                "    Roo.log(data);",
                 "    return data;",
                 "})()"
                ]
@@ -264,7 +261,6 @@
              "Number width" : 75,
              "String displayField" : "minute",
              "String emptyText" : "minutes",
-             "String hiddenName" : "delay_m",
              "String mode" : "local",
              "String name" : "delay_minutes",
              "String triggerAction" : "all",
