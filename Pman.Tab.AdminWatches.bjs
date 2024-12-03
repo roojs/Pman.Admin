@@ -391,7 +391,7 @@
        "* prop" : "colModel[]",
        "dataIndex" : "delay_days",
        "header" : "Delay for days",
-       "width" : 75,
+       "width" : 100,
        "xtype" : "ColumnModel"
       },
       {
@@ -408,7 +408,7 @@
        "* prop" : "colModel[]",
        "dataIndex" : "delay_hours",
        "header" : "Hours",
-       "width" : 150,
+       "width" : 100,
        "xtype" : "ColumnModel"
       },
       {

@@ -442,7 +442,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'delay_days',
       header : _this._strings['a297b2e935563efded23802aaa1ca3d8'] /* Delay for days */,
-      width : 75,
+      width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },
@@ -457,7 +457,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
           return String.format('{0}', v); 
           
       },
-      width : 150,
+      width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },
