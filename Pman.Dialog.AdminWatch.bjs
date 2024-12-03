@@ -252,6 +252,7 @@
              "Number listWidth" : 100,
              "Number width" : 100,
              "String displayField" : "minute",
+             "String hiddenName" : "delay_m",
              "String mode" : "local",
              "String name" : "delay_minutes",
              "String triggerAction" : "all",
