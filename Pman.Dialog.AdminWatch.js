@@ -325,6 +325,11 @@ Pman.Dialog.AdminWatch = {
             ]
            },
            {
+            xtype : 'DayPicker',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
             xtype : 'Column',
             hideLabels : true,
             width : 100,

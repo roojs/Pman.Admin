@@ -210,6 +210,10 @@
           },
           {
            "$ xns" : "Roo.form",
+           "xtype" : "DayPicker"
+          },
+          {
+           "$ xns" : "Roo.form",
            "Boolean hideLabels" : true,
            "Number/String width" : 100,
            "items" : [
