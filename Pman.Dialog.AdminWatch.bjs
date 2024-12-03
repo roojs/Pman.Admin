@@ -77,8 +77,56 @@
         },
         {
          "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "displayField" : "action",
+         "fieldLabel" : "Action",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_actions = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 300,
+         "name" : "Do this action",
+         "triggerAction" : "all",
+         "valueField" : "action",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
-         "fieldLabel" : "on this ID",
+         "fieldLabel" : "on this ID (optional)",
          "name" : "onid",
          "width" : 75,
          "xtype" : "NumberField"
@@ -140,54 +188,6 @@
          "triggerAction" : "all",
          "typeAhead" : true,
          "valueField" : "id",
-         "width" : 300,
-         "xtype" : "ComboBox"
-        },
-        {
-         "$ xns" : "Roo.form",
-         "allowBlank" : true,
-         "displayField" : "action",
-         "fieldLabel" : "Action",
-         "items" : [
-          {
-           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
-           "$ xns" : "Roo.data",
-           "* prop" : "store",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/core_watch'",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy",
-             "method" : "GET",
-             "xtype" : "HttpProxy"
-            },
-            {
-             "$ fields" : "[\"action\"]",
-             "$ xns" : "Roo.data",
-             "* prop" : "reader",
-             "id" : "action",
-             "root" : "data",
-             "totalProperty" : "total",
-             "xtype" : "JsonReader"
-            }
-           ],
-           "listeners" : {
-            "|beforeload" : [
-             "function (_self, o){",
-             "    o.params = o.params || {};",
-             "    o.params._watchable_actions = 1;",
-             "}",
-             ""
-            ]
-           },
-           "remoteSort" : true,
-           "xtype" : "Store"
-          }
-         ],
-         "listWidth" : 300,
-         "name" : "medium",
-         "triggerAction" : "all",
-         "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
         },
@@ -303,11 +303,11 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminWatch",
  "named_strings" : {
+  "Do this action_fieldLabel" : "004bf6c9a40003140292e97330236c53",
   "active_fieldLabel" : "ae739a236065a45c64ad51aacb19498c",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
-  "medium_fieldLabel" : "004bf6c9a40003140292e97330236c53",
   "no_minutes_fieldLabel" : "61f71a6a41f9dd2d2f1b6bca465216e5",
-  "onid_fieldLabel" : "d9aaeee5e398ce12e95d950eef815ce9",
+  "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
   "person_id_name_fieldLabel" : "78c97ad77a6194c421b797c4cd030f75",
   "person_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
@@ -320,12 +320,12 @@
   "004bf6c9a40003140292e97330236c53" : "Action",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
+  "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "61f71a6a41f9dd2d2f1b6bca465216e5" : "Delay action for no. of minutes",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
   "78c97ad77a6194c421b797c4cd030f75" : "Notify Who",
   "ae739a236065a45c64ad51aacb19498c" : "Active?",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
-  "d9aaeee5e398ce12e95d950eef815ce9" : "on this ID",
   "e675e43625096ce5f316055dfd1df7ea" : "When this occurs",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },
