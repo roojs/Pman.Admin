@@ -196,7 +196,7 @@
          "items" : [
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 100,
+           "Number labelWidth" : 97,
            "Number/String width" : 175,
            "items" : [
             {
