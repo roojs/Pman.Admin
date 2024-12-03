@@ -197,7 +197,7 @@
           {
            "$ xns" : "Roo.form",
            "Number/String width" : 100,
-           "String labelAlign" : "center",
+           "String/Object/Function style" : "?String/Object/Function?",
            "items" : [
             {
              "$ xns" : "Roo.form",
