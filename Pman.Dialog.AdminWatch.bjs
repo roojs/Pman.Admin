@@ -210,6 +210,12 @@
           },
           {
            "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "xtype" : "ComboBox"
+            }
+           ],
            "xtype" : "Column"
           },
           {

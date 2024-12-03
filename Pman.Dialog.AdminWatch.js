@@ -323,7 +323,14 @@ Pman.Dialog.AdminWatch = {
            {
             xtype : 'Column',
             xns : Roo.form,
-            '|xns' : 'Roo.form'
+            '|xns' : 'Roo.form',
+            items  : [
+             {
+              xtype : 'ComboBox',
+              xns : Roo.form,
+              '|xns' : 'Roo.form'
+             }
+            ]
            },
            {
             xtype : 'Column',
