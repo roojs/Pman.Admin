@@ -312,7 +312,7 @@ Pman.Dialog.AdminWatch = {
           items  : [
            {
             xtype : 'Column',
-            labelWidth : 97,
+            labelWidth : 95,
             width : 175,
             xns : Roo.form,
             '|xns' : 'Roo.form',
