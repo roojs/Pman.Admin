@@ -503,6 +503,7 @@ Pman.Dialog.AdminWatch = {
          },
          {
           xtype : 'Hidden',
+          name : 'ontable',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

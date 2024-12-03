@@ -397,6 +397,7 @@
         },
         {
          "$ xns" : "Roo.form",
+         "String name" : "ontable",
          "xtype" : "Hidden"
         },
         {
