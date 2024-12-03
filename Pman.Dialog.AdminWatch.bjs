@@ -196,7 +196,15 @@
          "items" : [
           {
            "$ xns" : "Roo.form",
-           "xtype" : "TextItem"
+           "Number/String width" : 100,
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "String html" : "Delay action for",
+             "xtype" : "TextItem"
+            }
+           ],
+           "xtype" : "Column"
           },
           {
            "$ xns" : "Roo.form",

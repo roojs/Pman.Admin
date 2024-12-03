@@ -311,9 +311,18 @@ Pman.Dialog.AdminWatch = {
           '|xns' : 'Roo.form',
           items  : [
            {
-            xtype : 'TextItem',
+            xtype : 'Column',
+            width : 100,
             xns : Roo.form,
-            '|xns' : 'Roo.form'
+            '|xns' : 'Roo.form',
+            items  : [
+             {
+              xtype : 'TextItem',
+              html : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
+              xns : Roo.form,
+              '|xns' : 'Roo.form'
+             }
+            ]
            },
            {
             xtype : 'Column',
