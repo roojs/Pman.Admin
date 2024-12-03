@@ -226,7 +226,15 @@
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",
-               "| Array data" : "[0,1,2,3,4,5,6,7,8,9,11]"
+               "| Array data" : [
+                "(function() {",
+                "    var data = [];",
+                "    for(var i = 0; i < 12; i ++) {",
+                "        data.push(i);",
+                "    }",
+                "    return data;",
+                "})()"
+               ]
               }
              ],
              "xtype" : "ComboBox"
@@ -248,11 +256,11 @@
              "String valueField" : "minute",
              "items" : [
               {
-               "$ Array data" : "[0,1,2,3,4,5,6,7,8,9,11,12]",
                "$ Array fields" : "['minute']",
                "$ xns" : "Roo.data",
                "* prop" : "store",
-               "xtype" : "SimpleStore"
+               "xtype" : "SimpleStore",
+               "| Array data" : "[0,1,2,3,4,5,6,7,8,9,11,12]"
               }
              ],
              "xtype" : "ComboBox"
