@@ -213,6 +213,8 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
+             "Number listWidth" : "?Number?",
+             "Number width" : 100,
              "String displayField" : "hour",
              "String mode" : "local",
              "String name" : "delay_hours",

@@ -328,10 +328,12 @@ Pman.Dialog.AdminWatch = {
              {
               xtype : 'ComboBox',
               displayField : 'hour',
+              listWidth : ?number?,
               mode : 'local',
               name : 'delay_hours',
               triggerAction : 'all',
               valueField : 'hour',
+              width : 100,
               xns : Roo.form,
               '|xns' : 'Roo.form',
               store : {
