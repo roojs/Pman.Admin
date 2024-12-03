@@ -7,13 +7,13 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminWatch = {
 
  _strings : {
+  'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'ae739a236065a45c64ad51aacb19498c' :"Active?",
-  'b718adec73e04ce3ec720dd11a06a308' :"ID",
+  'd9aaeee5e398ce12e95d950eef815ce9' :"on this ID",
   '78c97ad77a6194c421b797c4cd030f75' :"Notify Who",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '75c5929bbdd5b4e3fb09d3d3a4e73a04' :"Edit / Create core_watch",
-  '078d0022ba7fe5e7b7e985f59db8fb19' :"Match Event",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
   '004bf6c9a40003140292e97330236c53' :"Action",
   '61f71a6a41f9dd2d2f1b6bca465216e5' :"Delay action for no. of minutes",
@@ -24,9 +24,9 @@ Pman.Dialog.AdminWatch = {
   'medium_fieldLabel' : '004bf6c9a40003140292e97330236c53' /* Action */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : '78c97ad77a6194c421b797c4cd030f75' /* Notify Who */ ,
-  'onid_fieldLabel' : 'b718adec73e04ce3ec720dd11a06a308' /* ID */ ,
+  'onid_fieldLabel' : 'd9aaeee5e398ce12e95d950eef815ce9' /* on this ID */ ,
   'no_minutes_fieldLabel' : '61f71a6a41f9dd2d2f1b6bca465216e5' /* Delay action for no. of minutes */ ,
-  'event_fieldLabel' : '078d0022ba7fe5e7b7e985f59db8fb19' /* Match Event */ ,
+  'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
   'active_fieldLabel' : 'ae739a236065a45c64ad51aacb19498c' /* Active? */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -149,7 +149,7 @@ Pman.Dialog.AdminWatch = {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'action',
-          fieldLabel : _this._strings['078d0022ba7fe5e7b7e985f59db8fb19'] /* Match Event */,
+          fieldLabel : _this._strings['e675e43625096ce5f316055dfd1df7ea'] /* When this occurs */,
           listWidth : 300,
           name : 'event',
           tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
@@ -197,7 +197,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'NumberField',
           allowDecimals : false,
-          fieldLabel : _this._strings['b718adec73e04ce3ec720dd11a06a308'] /* ID */,
+          fieldLabel : _this._strings['d9aaeee5e398ce12e95d950eef815ce9'] /* on this ID */,
           name : 'onid',
           width : 75,
           xns : Roo.form,
