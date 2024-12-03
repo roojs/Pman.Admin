@@ -193,6 +193,10 @@
         },
         {
          "$ xns" : "Roo.form",
+         "xtype" : "Row"
+        },
+        {
+         "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
          "fieldLabel" : "Delay action for",
          "name" : "no_minutes",

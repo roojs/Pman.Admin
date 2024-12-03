@@ -300,6 +300,11 @@ Pman.Dialog.AdminWatch = {
           }
          },
          {
+          xtype : 'Row',
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
           xtype : 'NumberField',
           allowDecimals : false,
           fieldLabel : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
