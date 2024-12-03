@@ -397,6 +397,10 @@
         },
         {
          "$ xns" : "Roo.form",
+         "xtype" : "Hidden"
+        },
+        {
+         "$ xns" : "Roo.form",
          "name" : "id",
          "xtype" : "Hidden"
         }
