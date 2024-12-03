@@ -12,6 +12,7 @@ Pman.Dialog.AdminWatch = {
   '7f24a390dca58f5f8bbb72b2d2086250' :"Delay action for",
   '44fdec47036f482b68b748f9d786801b' :"days",
   '640fd0cc0ffa0316ae087652871f4486' :"minutes",
+  '4994a8ffeba4ac3140beb89e8d41f174' :"Language",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
@@ -31,6 +32,7 @@ Pman.Dialog.AdminWatch = {
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'delay_days_emptyText' : '44fdec47036f482b68b748f9d786801b' /* days */ ,
   'delay_hours_emptyText' : '73cdddd7730abfc13a55efb9f5685a3b' /* hours */ ,
+  'language_name_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
   'delay_minutes_emptyText' : '640fd0cc0ffa0316ae087652871f4486' /* minutes */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
@@ -402,6 +404,40 @@ Pman.Dialog.AdminWatch = {
                    return data;
                })(),
                fields : ['minute'],
+               xns : Roo.data,
+               '|xns' : 'Roo.data'
+              }
+             },
+             {
+              xtype : 'ComboBox',
+              allowBlank : false,
+              displayField : 'title',
+              editable : false,
+              fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
+              hiddenName : 'language',
+              listWidth : 200,
+              mode : 'local',
+              name : 'language_name',
+              tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>',
+              triggerAction : 'all',
+              valueField : 'code',
+              width : 200,
+              listeners : {
+               select : function (combo, record, index)
+                {
+                    var dir = record.data.code == 'ar' ? 'rtl' : 'ltr';
+                    
+                    _this.form2.findField('headline').el.setStyle('direction', dir);
+                    _this.form2.findField('subheadline').el.setStyle('direction', dir);
+                    
+                }
+              },
+              xns : Roo.form,
+              '|xns' : 'Roo.form',
+              store : {
+               xtype : 'SimpleStore',
+               data : (function() {return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []})(),
+               fields : ['code', 'title'],
                xns : Roo.data,
                '|xns' : 'Roo.data'
               }
