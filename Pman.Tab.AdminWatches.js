@@ -21,6 +21,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  'a62bff18adcc86e8ed1a3dbd3778afe4' :"Delay for hours",
   '314b26dabb519a609db698728284683f' :"Select Table"
  },
  _named_strings : {
@@ -438,8 +439,8 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'event',
-      header : _this._strings['c122d95a9c28f9a54baef2c7784bb038'] /* Watch Event */,
+      dataIndex : 'delay_hours',
+      header : _this._strings['a62bff18adcc86e8ed1a3dbd3778afe4'] /* Delay for hours */,
       width : 75,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
