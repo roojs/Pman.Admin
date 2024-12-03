@@ -259,14 +259,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Boolean allowDecimals" : false,
-         "fieldLabel" : "Delay action for",
-         "name" : "no_minutes",
-         "width" : 75,
-         "xtype" : "NumberField"
-        },
-        {
-         "$ xns" : "Roo.form",
          "fieldLabel" : "Active",
          "name" : "active",
          "xtype" : "Checkbox"

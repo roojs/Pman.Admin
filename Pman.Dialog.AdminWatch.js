@@ -358,7 +358,7 @@ Pman.Dialog.AdminWatch = {
               '|xns' : 'Roo.form',
               store : {
                xtype : 'SimpleStore',
-               data : [0,1,2,3,4,5,6,7,8,9,11],
+               data : [0,1,2,3,4,5,6,7,8,9,11,12],
                fields : [minute],
                xns : Roo.data,
                '|xns' : 'Roo.data'
@@ -367,15 +367,6 @@ Pman.Dialog.AdminWatch = {
             ]
            }
           ]
-         },
-         {
-          xtype : 'NumberField',
-          allowDecimals : false,
-          fieldLabel : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
-          name : 'no_minutes',
-          width : 75,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Checkbox',
