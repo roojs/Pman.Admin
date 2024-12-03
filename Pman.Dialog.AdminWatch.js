@@ -312,6 +312,7 @@ Pman.Dialog.AdminWatch = {
           items  : [
            {
             xtype : 'Column',
+            width : '?Number/String?',
             xns : Roo.form,
             '|xns' : 'Roo.form',
             items  : [
@@ -321,7 +322,7 @@ Pman.Dialog.AdminWatch = {
               emptyText : _this._strings['44fdec47036f482b68b748f9d786801b'] /* days */,
               fieldLabel : _this._strings['7f24a390dca58f5f8bbb72b2d2086250'] /* Delay action for */,
               name : 'delay_days',
-              width : 75,
+              width : 50,
               xns : Roo.form,
               '|xns' : 'Roo.form'
              }

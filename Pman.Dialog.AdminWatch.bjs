@@ -196,6 +196,7 @@
          "items" : [
           {
            "$ xns" : "Roo.form",
+           "Number/String width" : "?Number/String?",
            "items" : [
             {
              "$ xns" : "Roo.form",
@@ -203,7 +204,7 @@
              "String emptyText" : "days",
              "fieldLabel" : "Delay action for",
              "name" : "delay_days",
-             "width" : 75,
+             "width" : 50,
              "xtype" : "NumberField"
             }
            ],
