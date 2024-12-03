@@ -385,6 +385,48 @@
        "header" : "Active",
        "width" : 75,
        "xtype" : "ColumnModel"
+      },
+      {
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "event",
+       "header" : "Watch Event",
+       "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : [
+        "function(v,x,r) { ",
+        "    if (typeof(r.data.event_right_display_name) != 'undefined') {",
+        "        return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     ",
+        "    }",
+        "    return String.format('{0}', v); ",
+        "    ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "event",
+       "header" : "Watch Event",
+       "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : [
+        "function(v,x,r) { ",
+        "    if (typeof(r.data.event_right_display_name) != 'undefined') {",
+        "        return String.format('{0}: {1}', r.data.event_left, r.data.event_right_display_name);     ",
+        "    }",
+        "    return String.format('{0}', v); ",
+        "    ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "event",
+       "header" : "Watch Event",
+       "width" : 150,
+       "xtype" : "ColumnModel"
       }
      ],
      "listeners" : {
