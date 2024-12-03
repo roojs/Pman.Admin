@@ -327,6 +327,8 @@ Pman.Dialog.AdminWatch = {
             items  : [
              {
               xtype : 'ComboBox',
+              displayField : 'hour',
+              valueField : 'hour',
               xns : Roo.form,
               '|xns' : 'Roo.form',
               store : {

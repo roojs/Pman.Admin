@@ -213,6 +213,8 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
+             "String displayField" : "hour",
+             "String valueField" : "hour",
              "items" : [
               {
                "$ Array data" : "[0,1,2,3,4,5,6,7,8,9,11]",
