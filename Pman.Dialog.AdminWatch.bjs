@@ -196,6 +196,10 @@
          "items" : [
           {
            "$ xns" : "Roo.form",
+           "xtype" : "TextItem"
+          },
+          {
+           "$ xns" : "Roo.form",
            "Number labelWidth" : 95,
            "Number/String width" : 175,
            "items" : [
