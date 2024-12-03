@@ -350,10 +350,10 @@ Pman.Dialog.AdminWatch = {
             items  : [
              {
               xtype : 'ComboBox',
-              displayField : 'hour',
+              displayField : 'minute',
               mode : 'local',
-              name : 'delay_hours',
-              valueField : 'hour',
+              name : 'delay_minutes',
+              valueField : 'minute',
               xns : Roo.form,
               '|xns' : 'Roo.form',
               store : {
