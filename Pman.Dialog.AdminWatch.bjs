@@ -216,6 +216,7 @@
              "String displayField" : "hour",
              "String mode" : "local",
              "String name" : "delay_hours",
+             "String triggerAction" : "all",
              "String valueField" : "hour",
              "items" : [
               {

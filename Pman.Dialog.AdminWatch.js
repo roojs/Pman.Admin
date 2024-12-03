@@ -330,6 +330,7 @@ Pman.Dialog.AdminWatch = {
               displayField : 'hour',
               mode : 'local',
               name : 'delay_hours',
+              triggerAction : 'all',
               valueField : 'hour',
               xns : Roo.form,
               '|xns' : 'Roo.form',
