@@ -213,7 +213,7 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
-             "Number listWidth" : "?Number?",
+             "Number listWidth" : 100,
              "Number width" : 100,
              "String displayField" : "hour",
              "String mode" : "local",
@@ -239,6 +239,8 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
+             "Number listWidth" : 100,
+             "Number width" : 100,
              "String displayField" : "minute",
              "String mode" : "local",
              "String name" : "delay_minutes",
