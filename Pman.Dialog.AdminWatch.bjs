@@ -233,6 +233,25 @@
           },
           {
            "$ xns" : "Roo.form",
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "String displayField" : "hour",
+             "String mode" : "local",
+             "String name" : "delay_hours",
+             "String valueField" : "hour",
+             "items" : [
+              {
+               "$ Array data" : "[0,1,2,3,4,5,6,7,8,9,11]",
+               "$ Array fields" : "[hour]",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "xtype" : "SimpleStore"
+              }
+             ],
+             "xtype" : "ComboBox"
+            }
+           ],
            "xtype" : "Column"
           }
          ],

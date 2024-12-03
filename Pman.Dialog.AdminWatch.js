@@ -346,7 +346,25 @@ Pman.Dialog.AdminWatch = {
            {
             xtype : 'Column',
             xns : Roo.form,
-            '|xns' : 'Roo.form'
+            '|xns' : 'Roo.form',
+            items  : [
+             {
+              xtype : 'ComboBox',
+              displayField : 'hour',
+              mode : 'local',
+              name : 'delay_hours',
+              valueField : 'hour',
+              xns : Roo.form,
+              '|xns' : 'Roo.form',
+              store : {
+               xtype : 'SimpleStore',
+               data : [0,1,2,3,4,5,6,7,8,9,11],
+               fields : [hour],
+               xns : Roo.data,
+               '|xns' : 'Roo.data'
+              }
+             }
+            ]
            }
           ]
          },
