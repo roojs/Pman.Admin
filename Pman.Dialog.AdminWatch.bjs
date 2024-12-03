@@ -213,6 +213,18 @@
            "items" : [
             {
              "$ xns" : "Roo.form",
+             "items" : [
+              {
+               "$ Array data" : [
+                "[",
+                "",
+                "]"
+               ],
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "xtype" : "SimpleStore"
+              }
+             ],
              "xtype" : "ComboBox"
             }
            ],
