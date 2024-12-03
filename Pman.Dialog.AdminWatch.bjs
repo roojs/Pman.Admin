@@ -216,6 +216,7 @@
              "Number listWidth" : 100,
              "Number width" : 100,
              "String displayField" : "hour",
+             "String hiddenName" : "\"\"",
              "String mode" : "local",
              "String name" : "delay_hours",
              "String triggerAction" : "all",
@@ -226,7 +227,7 @@
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",
-               "| Array data" : [
+               "| data" : [
                 "(function() {",
                 "    var data = [];",
                 "    for(var i = 0; i < 12; i ++) {",
@@ -261,7 +262,7 @@
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",
-               "| Array data" : [
+               "| data" : [
                 "(function() {",
                 "    var data = [];",
                 "    for(var i = 0; i < 60; i ++) {",
