@@ -16,6 +16,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   '5e97bbccf01aa772225ef15435177395' :"(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   'a4e70e911022ccc98ab8055a09222cf2' :"No core_watch found",
   'a297b2e935563efded23802aaa1ca3d8' :"Delay for days",
+  '1139510b5c3ddc9486739bed9ebb16d9' :"Delay for minutes",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
@@ -456,8 +457,8 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'event',
-      header : _this._strings['c122d95a9c28f9a54baef2c7784bb038'] /* Watch Event */,
+      dataIndex : 'delay_minutes',
+      header : _this._strings['1139510b5c3ddc9486739bed9ebb16d9'] /* Delay for minutes */,
       width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'

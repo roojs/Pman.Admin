@@ -405,8 +405,8 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "event",
-       "header" : "Watch Event",
+       "dataIndex" : "delay_minutes",
+       "header" : "Delay for minutes",
        "width" : 100,
        "xtype" : "ColumnModel"
       }
@@ -466,6 +466,7 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminWatches.bjs",
  "permname" : "",
  "strings" : {
+  "1139510b5c3ddc9486739bed9ebb16d9" : "Delay for minutes",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "1a86349be7851cf03d6fe959b94ed6fb" : "Watch ID",
   "314b26dabb519a609db698728284683f" : "Select Table",
