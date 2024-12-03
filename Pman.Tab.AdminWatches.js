@@ -222,26 +222,18 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                  return;
              }
              
-             Roo.MessageBox.confirm(
-                 "Copy", 
-                 "Are you sure to copy release #" + s[0].data.id,
-                 function (res) {
-                     if(res == "yes") {
-                         new Pman.Request({
-                             url : baseURL + '/Roo/Pressrelease_entry',
-                             method : 'POST',
-                             params: {
-                                 _copy_release: s[0].data.id
-                             },
-                             mask : 'copying',
-                             success: function()
-                             {
-                                 _this.grid.footer.onClick('first');
-                             }
-                         });
-                     }
+             new Pman.Request({
+                 url : baseURL + '/Roo/Core_watch',
+                 method : 'POST',
+                 params: {
+                     _copy: s[0].data.id
+                 },
+                 mask : 'copying',
+                 success: function()
+                 {
+                     _this.grid.footer.onClick('first');
                  }
-             );
+             });
          }
        },
        xns : Roo.Toolbar,
