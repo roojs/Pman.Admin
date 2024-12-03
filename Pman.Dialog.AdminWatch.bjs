@@ -290,48 +290,6 @@
              ],
              "string tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{minute}</b> </div>",
              "xtype" : "ComboBox"
-            },
-            {
-             "$ xns" : "Roo.form",
-             "allowBlank" : false,
-             "displayField" : "title",
-             "editable" : false,
-             "fieldLabel" : "Language",
-             "hiddenName" : "language",
-             "items" : [
-              {
-               "$ fields" : "['code', 'title']",
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "xtype" : "SimpleStore",
-               "| data" : [
-                "(function() {",
-                "    Roo.log(Pman.I18n.simpleStoreData('l'));",
-                "    return typeof(Pman) == 'object'  ? Pman.I18n.simpleStoreData('l') : []",
-                "})()"
-               ]
-              }
-             ],
-             "listWidth" : 200,
-             "listeners" : {
-              "select" : [
-               "function (combo, record, index)",
-               "{",
-               "    var dir = record.data.code == 'ar' ? 'rtl' : 'ltr';",
-               "    ",
-               "    _this.form2.findField('headline').el.setStyle('direction', dir);",
-               "    _this.form2.findField('subheadline').el.setStyle('direction', dir);",
-               "    ",
-               "}"
-              ]
-             },
-             "mode" : "local",
-             "name" : "language_name",
-             "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{title}</b> </div>",
-             "triggerAction" : "all",
-             "valueField" : "code",
-             "width" : 200,
-             "xtype" : "ComboBox"
             }
            ],
            "xtype" : "Column"
@@ -449,7 +407,6 @@
   "delay_hours_emptyText" : "73cdddd7730abfc13a55efb9f5685a3b",
   "delay_minutes_emptyText" : "640fd0cc0ffa0316ae087652871f4486",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
-  "language_name_fieldLabel" : "4994a8ffeba4ac3140beb89e8d41f174",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
@@ -465,7 +422,6 @@
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "44fdec47036f482b68b748f9d786801b" : "days",
-  "4994a8ffeba4ac3140beb89e8d41f174" : "Language",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "640fd0cc0ffa0316ae087652871f4486" : "minutes",
   "73cdddd7730abfc13a55efb9f5685a3b" : "hours",
