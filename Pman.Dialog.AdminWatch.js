@@ -358,6 +358,7 @@ Pman.Dialog.AdminWatch = {
                            'hour': i
                        });
                    }
+                   Roo.log(data);
                    return data;
                })(),
                fields : ['hour'],

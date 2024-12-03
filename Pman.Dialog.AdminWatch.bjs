@@ -240,6 +240,7 @@
                 "            'hour': i",
                 "        });",
                 "    }",
+                "    Roo.log(data);",
                 "    return data;",
                 "})()"
                ]
