@@ -348,6 +348,17 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
+      dataIndex : 'person_id_name',
+      header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person */,
+      renderer : function(v,x,r) { 
+          return String.format('{0} <a href="mailto:{1}">{1}</a>', v,r.data.person_id_email); 
+      },
+      width : 75,
+      xns : Roo.grid,
+      '|xns' : 'Roo.grid'
+     },
+     {
+      xtype : 'ColumnModel',
       dataIndex : 'medium',
       header : _this._strings['56abc507eda6d3226af192bf9b0e5d1f'] /* What happens */,
       renderer : function(v) {
