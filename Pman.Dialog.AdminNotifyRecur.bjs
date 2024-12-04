@@ -20,6 +20,8 @@
        "items" : [
         {
          "$ xns" : "Roo.form",
+         "Number width" : 75,
+         "String name" : "dtstart",
          "xtype" : "DateField"
         },
         {

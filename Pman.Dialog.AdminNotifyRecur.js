@@ -258,6 +258,8 @@ Pman.Dialog.AdminNotifyRecur = {
         items  : [
          {
           xtype : 'DateField',
+          name : 'dtstart',
+          width : 75,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
