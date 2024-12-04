@@ -240,7 +240,7 @@
              "String valueField" : "unit",
              "items" : [
               {
-               "$ Array fields" : "['hour']",
+               "$ Array fields" : "['unit']",
                "$ xns" : "Roo.data",
                "* prop" : "store",
                "xtype" : "SimpleStore",

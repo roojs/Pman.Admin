@@ -366,7 +366,7 @@ Pman.Dialog.AdminWatch = {
                    }
                    return data;
                })(),
-               fields : ['hour'],
+               fields : ['unit'],
                xns : Roo.data,
                '|xns' : 'Roo.data'
               }
