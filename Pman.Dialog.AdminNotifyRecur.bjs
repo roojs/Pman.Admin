@@ -107,22 +107,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Boolean allowDecimals" : false,
-         "fieldLabel" : "on this ID (optional)",
-         "listeners" : {
-          "change" : [
-           "function (_self, newValue, oldValue)",
-           "{",
-           "    _this.form.findField('medium').setValue('');",
-           "}"
-          ]
-         },
-         "name" : "onid",
-         "width" : 75,
-         "xtype" : "NumberField"
-        },
-        {
-         "$ xns" : "Roo.form",
          "allowBlank" : true,
          "displayField" : "name",
          "editable" : true,
@@ -235,6 +219,22 @@
          "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean allowDecimals" : false,
+         "fieldLabel" : "on this ID (optional)",
+         "listeners" : {
+          "change" : [
+           "function (_self, newValue, oldValue)",
+           "{",
+           "    _this.form.findField('medium').setValue('');",
+           "}"
+          ]
+         },
+         "name" : "onid",
+         "width" : 75,
+         "xtype" : "NumberField"
         },
         {
          "$ xns" : "Roo.form",

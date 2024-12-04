@@ -11,8 +11,8 @@ Pman.Dialog.AdminNotifyRecur = {
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
   'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
   '663747a4d13b0c3fa242dac0e6f242fd' :"At Hour(s)",
-  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
+  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '5da618e8e4b89c66fe86e32cdafde142' :"From",
@@ -231,21 +231,6 @@ Pman.Dialog.AdminNotifyRecur = {
           }
          },
          {
-          xtype : 'NumberField',
-          allowDecimals : false,
-          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
-          name : 'onid',
-          width : 75,
-          listeners : {
-           change : function (_self, newValue, oldValue)
-            {
-                _this.form.findField('medium').setValue('');
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
           xtype : 'ComboBox',
           allowBlank : true,
           displayField : 'name',
@@ -347,6 +332,21 @@ Pman.Dialog.AdminNotifyRecur = {
             '|xns' : 'Roo.data'
            }
           }
+         },
+         {
+          xtype : 'NumberField',
+          allowDecimals : false,
+          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
+          name : 'onid',
+          width : 75,
+          listeners : {
+           change : function (_self, newValue, oldValue)
+            {
+                _this.form.findField('medium').setValue('');
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',
