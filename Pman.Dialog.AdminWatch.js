@@ -199,6 +199,12 @@ Pman.Dialog.AdminWatch = {
           fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
           name : 'onid',
           width : 75,
+          listeners : {
+           change : function (_self, newValue, oldValue)
+            {
+            
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
