@@ -136,75 +136,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "items" : [
-          {
-           "$ xns" : "Roo.form",
-           "Number/String width" : 100,
-           "String/Object/Function style" : "margin-top:3px;",
-           "items" : [
-            {
-             "$ xns" : "Roo.form",
-             "String html" : "Delay action for:",
-             "xtype" : "TextItem"
-            }
-           ],
-           "xtype" : "Column"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Boolean hideLabels" : true,
-           "Number/String width" : 100,
-           "items" : [
-            {
-             "$ xns" : "Roo.form",
-             "Boolean allowDecimals" : false,
-             "name" : "delay_value",
-             "width" : 75,
-             "xtype" : "NumberField"
-            }
-           ],
-           "xtype" : "Column"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Boolean hideLabels" : true,
-           "Number/String width" : 100,
-           "items" : [
-            {
-             "$ xns" : "Roo.form",
-             "Boolean editable" : false,
-             "Number listWidth" : 75,
-             "Number width" : 75,
-             "String displayField" : "unit",
-             "String mode" : "local",
-             "String name" : "delay_unit",
-             "String triggerAction" : "all",
-             "String valueField" : "unit",
-             "items" : [
-              {
-               "$ Array fields" : "['unit']",
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "xtype" : "SimpleStore",
-               "| data" : [
-                "[",
-                "    ['days'],",
-                "    ['hours'],",
-                "    ['minutes']",
-                "]"
-               ]
-              }
-             ],
-             "xtype" : "ComboBox"
-            }
-           ],
-           "xtype" : "Column"
-          }
-         ],
-         "xtype" : "Row"
-        },
-        {
-         "$ xns" : "Roo.form",
          "fieldLabel" : "Active",
          "name" : "active",
          "xtype" : "Checkbox"
@@ -327,8 +258,7 @@
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e80cc078107aba9b2c3c5fe1c5758b47" : "Edit / Create Recurrent Notifications",
   "ea221a6fb492303155561b1ce1ae0f6c" : "Notify this person",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "f08758b0c1d06ae425a00e4166b5d8a5" : "Delay action for:"
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },
  "title" : ""
 }

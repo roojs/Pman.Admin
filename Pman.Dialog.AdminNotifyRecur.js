@@ -8,7 +8,6 @@ Pman.Dialog.AdminNotifyRecur = {
 
  _strings : {
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
-  'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
   'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
@@ -246,78 +245,6 @@ Pman.Dialog.AdminNotifyRecur = {
             '|xns' : 'Roo.data'
            }
           }
-         },
-         {
-          xtype : 'Row',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          items  : [
-           {
-            xtype : 'Column',
-            style : 'margin-top:3px;',
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'TextItem',
-              html : _this._strings['f08758b0c1d06ae425a00e4166b5d8a5'] /* Delay action for: */,
-              xns : Roo.form,
-              '|xns' : 'Roo.form'
-             }
-            ]
-           },
-           {
-            xtype : 'Column',
-            hideLabels : true,
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'NumberField',
-              allowDecimals : false,
-              name : 'delay_value',
-              width : 75,
-              xns : Roo.form,
-              '|xns' : 'Roo.form'
-             }
-            ]
-           },
-           {
-            xtype : 'Column',
-            hideLabels : true,
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'ComboBox',
-              displayField : 'unit',
-              editable : false,
-              listWidth : 75,
-              mode : 'local',
-              name : 'delay_unit',
-              triggerAction : 'all',
-              valueField : 'unit',
-              width : 75,
-              xns : Roo.form,
-              '|xns' : 'Roo.form',
-              store : {
-               xtype : 'SimpleStore',
-               data : [
-                   ['days'],
-                   ['hours'],
-                   ['minutes']
-               ],
-               fields : ['unit'],
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
-              }
-             }
-            ]
-           }
-          ]
          },
          {
           xtype : 'Checkbox',
