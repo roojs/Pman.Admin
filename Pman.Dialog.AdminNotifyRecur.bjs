@@ -37,7 +37,7 @@
          "allowBlank" : false,
          "displayField" : "title",
          "editable" : false,
-         "fieldLabel" : "Country",
+         "fieldLabel" : "On Day(s)",
          "hiddenName" : "freq_day",
          "items" : [
           {
@@ -70,7 +70,7 @@
          "allowBlank" : false,
          "displayField" : "title",
          "editable" : false,
-         "fieldLabel" : "Country",
+         "fieldLabel" : "At Hour(s)",
          "hiddenName" : "freq_hour",
          "items" : [
           {
@@ -333,8 +333,8 @@
  "named_strings" : {
   "dtend_fieldLabel" : "3728af837fe70019577ddb0ed7125ee5",
   "dtstart_fieldLabel" : "5da618e8e4b89c66fe86e32cdafde142",
-  "freq_day_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
-  "freq_hour_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
+  "freq_day_name_fieldLabel" : "9c26aac21b2c6584fc83fd67dd7c5884",
+  "freq_hour_name_fieldLabel" : "663747a4d13b0c3fa242dac0e6f242fd",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
@@ -350,8 +350,9 @@
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "3728af837fe70019577ddb0ed7125ee5" : "Until",
-  "59716c97497eb9694541f7c3d37b1a4d" : "Country",
   "5da618e8e4b89c66fe86e32cdafde142" : "From",
+  "663747a4d13b0c3fa242dac0e6f242fd" : "At Hour(s)",
+  "9c26aac21b2c6584fc83fd67dd7c5884" : "On Day(s)",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e80cc078107aba9b2c3c5fe1c5758b47" : "Edit / Create Recurrent Notifications",
