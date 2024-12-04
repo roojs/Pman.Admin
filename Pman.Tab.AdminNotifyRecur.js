@@ -76,8 +76,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
       },
      rowdblclick : function (_self, rowIndex, e)
       {
-          if (!_this.dialog) { return; }
-          _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
+          Pman.Dialog.AdminNotifyRecur.show( this.getDataSource().getAt(rowIndex).data, function() {
               _this.grid.footer.onClick('first');
           }); 
       }
