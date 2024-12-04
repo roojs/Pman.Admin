@@ -153,6 +153,7 @@ Pman.Dialog.AdminNotifyRecur = {
           fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
           format : 'Y-m-d',
           name : 'dtstart',
+          useIso : true,
           width : 100,
           xns : Roo.form,
           '|xns' : 'Roo.form'
@@ -163,6 +164,7 @@ Pman.Dialog.AdminNotifyRecur = {
           fieldLabel : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
           format : 'Y-m-d',
           name : 'dtend',
+          useIso : true,
           width : 100,
           xns : Roo.form,
           '|xns' : 'Roo.form'
