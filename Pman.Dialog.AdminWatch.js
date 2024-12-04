@@ -357,9 +357,9 @@ Pman.Dialog.AdminWatch = {
               store : {
                xtype : 'SimpleStore',
                data : [
-                   ['day'],
-                   ['hour'],
-                   ['minute']
+                   ['days'],
+                   ['hours'],
+                   ['minutes']
                ],
                fields : ['unit'],
                xns : Roo.data,
