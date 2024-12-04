@@ -21,6 +21,7 @@
         {
          "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
+         "Boolean useIso" : true,
          "Number width" : 75,
          "String fieldLabel" : "From",
          "String name" : "dtstart",
@@ -29,6 +30,7 @@
         {
          "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
+         "Boolean useIso" : true,
          "Number width" : 75,
          "String fieldLabel" : "Until",
          "String name" : "dtend",
