@@ -107,7 +107,7 @@
         },
         {
          "$ xns" : "Roo.form",
-         "allowBlank" : true,
+         "allowBlank" : false,
          "displayField" : "name",
          "editable" : true,
          "emptyText" : "Select Person",

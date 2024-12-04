@@ -232,7 +232,7 @@ Pman.Dialog.AdminNotifyRecur = {
          },
          {
           xtype : 'ComboBox',
-          allowBlank : true,
+          allowBlank : false,
           displayField : 'name',
           editable : true,
           emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person */,
