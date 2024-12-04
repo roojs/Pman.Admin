@@ -196,7 +196,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
        listeners : {
         click : function()
          {
-              Pman.genericDelete(_this, 'core_watch'); 
+              Pman.genericDelete(_this, 'core_notify_recur'); 
          }
        },
        xns : Roo.Toolbar,
