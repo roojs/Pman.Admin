@@ -215,9 +215,8 @@
             {
              "$ xns" : "Roo.form",
              "Boolean allowDecimals" : false,
-             "fieldLabel" : "days",
-             "name" : "delay_days",
-             "width" : 50,
+             "name" : "delay_value",
+             "width" : 100,
              "xtype" : "NumberField"
             }
            ],
@@ -407,7 +406,6 @@
  "name" : "Pman.Dialog.AdminWatch",
  "named_strings" : {
   "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
-  "delay_days_fieldLabel" : "44fdec47036f482b68b748f9d786801b",
   "delay_hours_fieldLabel" : "73cdddd7730abfc13a55efb9f5685a3b",
   "delay_minutes_fieldLabel" : "640fd0cc0ffa0316ae087652871f4486",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
@@ -425,7 +423,6 @@
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
-  "44fdec47036f482b68b748f9d786801b" : "days",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "640fd0cc0ffa0316ae087652871f4486" : "minutes",
   "73cdddd7730abfc13a55efb9f5685a3b" : "hours",

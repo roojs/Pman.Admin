@@ -10,7 +10,6 @@ Pman.Dialog.AdminWatch = {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
   'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
-  '44fdec47036f482b68b748f9d786801b' :"days",
   '640fd0cc0ffa0316ae087652871f4486' :"minutes",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
@@ -25,7 +24,6 @@ Pman.Dialog.AdminWatch = {
  _named_strings : {
   'medium_fieldLabel' : 'c66ff5dd15feb3cb2e414df869721b9a' /* Do this action */ ,
   'person_id_name_qtip' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
-  'delay_days_fieldLabel' : '44fdec47036f482b68b748f9d786801b' /* days */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
@@ -334,9 +332,8 @@ Pman.Dialog.AdminWatch = {
              {
               xtype : 'NumberField',
               allowDecimals : false,
-              fieldLabel : _this._strings['44fdec47036f482b68b748f9d786801b'] /* days */,
-              name : 'delay_days',
-              width : 50,
+              name : 'delay_value',
+              width : 100,
               xns : Roo.form,
               '|xns' : 'Roo.form'
              }
