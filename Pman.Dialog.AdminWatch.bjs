@@ -79,14 +79,6 @@
          "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
          "fieldLabel" : "on this ID (optional)",
-         "listeners" : {
-          "change" : [
-           "function (_self, newValue, oldValue)",
-           "{",
-           "    _this.form.findField('medium').setValue('');",
-           "}"
-          ]
-         },
          "name" : "onid",
          "width" : 75,
          "xtype" : "NumberField"
@@ -125,11 +117,6 @@
              "function (_self, o){",
              "    o.params = o.params || {};",
              "    o.params._watchable_actions = 1;",
-             "    // if empty onid",
-             "    if(!(_this.form.findField('onid').getValue() * 1)) {",
-             "        // only allow static action",
-             "        o.params._watchable_static_actions = 1;",
-             "    }",
              "}",
              ""
             ]
