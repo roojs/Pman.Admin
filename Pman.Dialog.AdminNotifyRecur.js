@@ -8,19 +8,19 @@ Pman.Dialog.AdminNotifyRecur = {
 
  _strings : {
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
+  'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
-  'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'medium_fieldLabel' : 'c66ff5dd15feb3cb2e414df869721b9a' /* Do this action */ ,
   'person_id_name_qtip' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
-  'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
+  'medium_fieldLabel' : 'c66ff5dd15feb3cb2e414df869721b9a' /* Do this action */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
+  'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -151,48 +151,6 @@ Pman.Dialog.AdminNotifyRecur = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
-          displayField : 'action',
-          fieldLabel : _this._strings['c66ff5dd15feb3cb2e414df869721b9a'] /* Do this action */,
-          listWidth : 300,
-          name : 'medium',
-          triggerAction : 'all',
-          valueField : 'action',
-          width : 300,
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'action' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-                 o.params._watchable_actions = 1;
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_watch',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : ["action"],
-            id : 'action',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
-         },
-         {
-          xtype : 'ComboBox',
-          allowBlank : true,
           displayField : 'name',
           editable : true,
           emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person */,
@@ -237,6 +195,48 @@ Pman.Dialog.AdminNotifyRecur = {
             xtype : 'JsonReader',
             fields : [{"name":"id","type":"int"},{"name":"name","type":"string"}],
             id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          }
+         },
+         {
+          xtype : 'ComboBox',
+          allowBlank : true,
+          displayField : 'action',
+          fieldLabel : _this._strings['c66ff5dd15feb3cb2e414df869721b9a'] /* Do this action */,
+          listWidth : 300,
+          name : 'medium',
+          triggerAction : 'all',
+          valueField : 'action',
+          width : 300,
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'action' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 o.params._watchable_actions = 1;
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/core_watch',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : ["action"],
+            id : 'action',
             root : 'data',
             totalProperty : 'total',
             xns : Roo.data,
