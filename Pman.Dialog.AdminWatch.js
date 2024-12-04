@@ -147,6 +147,7 @@ Pman.Dialog.AdminWatch = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
+          alwaysQuery : true,
           displayField : 'action',
           fieldLabel : _this._strings['e675e43625096ce5f316055dfd1df7ea'] /* When this occurs */,
           listWidth : 300,
