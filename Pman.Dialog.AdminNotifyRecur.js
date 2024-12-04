@@ -10,7 +10,6 @@ Pman.Dialog.AdminNotifyRecur = {
   '3728af837fe70019577ddb0ed7125ee5' :"Until",
   '59716c97497eb9694541f7c3d37b1a4d' :"Country",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
-  '157e432ec303efd7d537b653cb255ccc' :"on day(s)",
   'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
@@ -145,80 +144,6 @@ Pman.Dialog.AdminNotifyRecur = {
         },
         xns : Roo.form,
         '|xns' : 'Roo.form',
-        colModel : [
-         {
-          xtype : 'ColumnModel',
-          dataIndex : 'freq_day',
-          header : _this._strings['157e432ec303efd7d537b653cb255ccc'] /* on day(s) */,
-          renderer : function(v,x,r) { 
-              
-              if (v.length) {
-               
-                  var cm = _this.grid.colModel;
-                 
-                  var ci = cm.getColumnByDataIndex(this.name);
-                 
-                   var tv = [];
-                  var vals = Roo.decode(v);
-                  Roo.each(vals, function(k) {
-                      var r = this.findRecord(this.valueField, k);
-                      if(r){
-                          tv.push(r.data[this.displayField]);
-                      }else if(this.valueNotFoundText !== undefined){
-                          tv.push( this.valueNotFoundText );
-                      }
-                  },ci.editor.field);
-          
-                  r.data[this.name + '_name'] = tv.join(', ');
-                  return String.format('{0}',tv.join(', '));
-          
-                  
-              
-              }
-              r.data[this.name + '_name'] = '';
-              return String.format('{0}', r.data.freq_day_name || v); 
-              
-          },
-          width : 150,
-          xns : Roo.grid,
-          '|xns' : 'Roo.grid',
-          editor : {
-           xtype : 'GridEditor',
-           xns : Roo.grid,
-           '|xns' : 'Roo.grid',
-           field : {
-            xtype : 'ComboCheck',
-            allowBlank : false,
-            displayField : 'title',
-            editable : false,
-            fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
-            hiddenName : 'freq_day',
-            listWidth : 300,
-            mode : 'local',
-            name : 'freq_day_name',
-            pageSize : 40,
-            triggerAction : 'all',
-            valueField : 'code',
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            store : {
-             xtype : 'SimpleStore',
-             data : (function() { 
-                 var ret = [];
-                 Roo.each(Date.dayNames, function(d) {
-                     ret.push([ d.substring(0,3).toUpperCase(), d ]);
-                 });
-                 return ret;
-             })(),
-             fields : ['code', 'title'],
-             sortInfo : { field : 'title', direction: 'ASC' },
-             xns : Roo.data,
-             '|xns' : 'Roo.data'
-            }
-           }
-          }
-         }
-        ],
         items  : [
          {
           xtype : 'DateField',
