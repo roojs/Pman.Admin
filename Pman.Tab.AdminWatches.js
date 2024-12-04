@@ -477,9 +477,8 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'no_minutes',
       header : _this._strings['8f497c1a3d15af9e0c215019f26b887d'] /* Delay */,
-      renderer : function()
-      {
-      
+      renderer : function(v, x, r) {
+          return String.format('{0} {1}', r.data.delay_value, r.data.delay_unit);
       },
       width : 100,
       xns : Roo.grid,
