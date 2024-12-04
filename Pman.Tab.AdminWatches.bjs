@@ -417,6 +417,12 @@
        "xtype" : "ColumnModel"
       },
       {
+       "$ Function renderer" : [
+        "function()",
+        "{",
+        "",
+        "}"
+       ],
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "no_minutes",
