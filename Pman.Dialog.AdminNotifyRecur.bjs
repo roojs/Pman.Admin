@@ -24,7 +24,7 @@
          "Boolean useIso" : true,
          "Number width" : 75,
          "String fieldLabel" : "From",
-         "String name" : "dtstart",
+         "String name" : "dtstart_day",
          "xtype" : "DateField"
         },
         {
@@ -33,7 +33,7 @@
          "Boolean useIso" : true,
          "Number width" : 75,
          "String fieldLabel" : "Until",
-         "String name" : "dtend",
+         "String name" : "dtend_day",
          "xtype" : "DateField"
         },
         {
@@ -331,8 +331,8 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminNotifyRecur",
  "named_strings" : {
-  "dtend_fieldLabel" : "3728af837fe70019577ddb0ed7125ee5",
-  "dtstart_fieldLabel" : "5da618e8e4b89c66fe86e32cdafde142",
+  "dtend_day_fieldLabel" : "3728af837fe70019577ddb0ed7125ee5",
+  "dtstart_day_fieldLabel" : "5da618e8e4b89c66fe86e32cdafde142",
   "freq_day_name_fieldLabel" : "9c26aac21b2c6584fc83fd67dd7c5884",
   "freq_hour_name_fieldLabel" : "663747a4d13b0c3fa242dac0e6f242fd",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
