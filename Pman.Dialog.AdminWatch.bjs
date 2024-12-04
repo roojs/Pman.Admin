@@ -148,6 +148,14 @@
           }
          ],
          "listWidth" : 500,
+         "listeners" : {
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "",
+           "}"
+          ]
+         },
          "loadingText" : "Searching...",
          "minChars" : 2,
          "name" : "person_id_name",
