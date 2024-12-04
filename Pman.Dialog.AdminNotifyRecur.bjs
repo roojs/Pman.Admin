@@ -20,6 +20,7 @@
        "items" : [
         {
          "$ xns" : "Roo.form",
+         "Boolean allowBlank" : false,
          "Number width" : 75,
          "String fieldLabel" : "From",
          "String name" : "dtstart",
@@ -27,6 +28,7 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Boolean allowBlank" : false,
          "Number width" : 75,
          "String fieldLabel" : "Until",
          "String name" : "dtend",

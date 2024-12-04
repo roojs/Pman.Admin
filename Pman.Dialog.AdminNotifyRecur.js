@@ -149,6 +149,7 @@ Pman.Dialog.AdminNotifyRecur = {
         items  : [
          {
           xtype : 'DateField',
+          allowBlank : false,
           fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
           name : 'dtstart',
           width : 75,
@@ -157,6 +158,7 @@ Pman.Dialog.AdminNotifyRecur = {
          },
          {
           xtype : 'DateField',
+          allowBlank : false,
           fieldLabel : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
           name : 'dtend',
           width : 75,
