@@ -8,6 +8,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
 
  _strings : {
   '04df30d61712300fd31c24e2c7c8f9bc' :"Select core_notify",
+  'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'be3c26f9baf09972ddc410c5c7c63403' :"Displaying core_notify_recur{0} - {1} of {2}",
   '808e3eefe289c698ec4def4a54ac36af' :"Last Notification created",
   '13a831874352b548ac7b5e63a860aa1b' :"Tz",
@@ -21,6 +22,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '6ffde0d71e2b678e619e4a642d0b22a6' :"Freq hour",
   '4c3880bb027f159e801041b1021e88e8' :"Method",
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'd8d80ec41fc8cca7569ac2d2937bd97b' :"Affects",
   '84307c751e4541f54714472e3df742dd' :"Freq"
  },
@@ -161,6 +163,44 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
          '|xns' : 'Roo.data'
         }
        }
+      },
+      {
+       xtype : 'Fill',
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
+       cls : 'x-btn-text-icon',
+       icon : Roo.rootURL + 'images/default/dd/drop-add.gif',
+       text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+       listeners : {
+        click : function()
+         {
+             if (!_this.dialog) {
+                  return;
+              }
+             _this.dialog.show( { id : 0 } , function() {
+                 _this.grid.footer.onClick('first');
+            }); 
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
+       cls : 'x-btn-text-icon',
+       icon : rootURL + '/Pman/templates/images/trash.gif',
+       text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
+       listeners : {
+        click : function()
+         {
+              Pman.genericDelete(_this, 'core_watch'); 
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
       }
      ]
     },

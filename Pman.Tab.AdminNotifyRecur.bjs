@@ -90,6 +90,47 @@
          "valueField" : "person_id",
          "width" : 300,
          "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.Toolbar",
+         "xtype" : "Fill"
+        },
+        {
+         "$ icon" : "Roo.rootURL + 'images/default/dd/drop-add.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
+         "listeners" : {
+          "|click" : [
+           "function()",
+           "{",
+           "    if (!_this.dialog) {",
+           "         return;",
+           "     }",
+           "    _this.dialog.show( { id : 0 } , function() {",
+           "        _this.grid.footer.onClick('first');",
+           "   }); ",
+           "}",
+           ""
+          ]
+         },
+         "text" : "Add",
+         "xtype" : "Button"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
+         "listeners" : {
+          "|click" : [
+           "function()",
+           "{",
+           "     Pman.genericDelete(_this, 'core_watch'); ",
+           "}",
+           "        "
+          ]
+         },
+         "text" : "Delete",
+         "xtype" : "Button"
         }
        ],
        "xtype" : "Toolbar"
@@ -373,7 +414,9 @@
   "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
   "c956c97343a45cca5d492e70c56daa8e" : "Select person",
   "d8d80ec41fc8cca7569ac2d2937bd97b" : "Affects",
-  "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found"
+  "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+  "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found",
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
  },
  "title" : "Pman.Tab.AdminNotifyRecur"
 }
