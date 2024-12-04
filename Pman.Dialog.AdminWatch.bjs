@@ -234,7 +234,7 @@
              "Number width" : 75,
              "String displayField" : "unit",
              "String mode" : "local",
-             "String name" : "delay_hours",
+             "String name" : "delay_unit",
              "String triggerAction" : "all",
              "String valueField" : "unit",
              "items" : [

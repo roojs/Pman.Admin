@@ -348,7 +348,7 @@ Pman.Dialog.AdminWatch = {
               editable : false,
               listWidth : 75,
               mode : 'local',
-              name : 'delay_hours',
+              name : 'delay_unit',
               triggerAction : 'all',
               valueField : 'unit',
               width : 75,
