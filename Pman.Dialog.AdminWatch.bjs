@@ -237,7 +237,7 @@
              "String mode" : "local",
              "String name" : "delay_hours",
              "String triggerAction" : "all",
-             "String valueField" : "hour",
+             "String valueField" : "unit",
              "items" : [
               {
                "$ Array fields" : "['hour']",
