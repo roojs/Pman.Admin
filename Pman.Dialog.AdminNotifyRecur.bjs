@@ -1,9 +1,393 @@
 {
- "items" : [],
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "closable" : false,
+   "collapsible" : false,
+   "height" : 250,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/core_watch.php'",
+       "$ xns" : "Roo.form",
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "displayField" : "action",
+         "fieldLabel" : "When this occurs",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"table\", \"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_events = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 300,
+         "listeners" : {
+          "select" : [
+           "function (combo, record, index)",
+           "{",
+           "    _this.form.findField('ontable').setValue(record.data.table);",
+           "}"
+          ]
+         },
+         "name" : "event",
+         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>",
+         "triggerAction" : "all",
+         "valueField" : "action",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean allowDecimals" : false,
+         "fieldLabel" : "on this ID (optional)",
+         "name" : "onid",
+         "width" : 75,
+         "xtype" : "NumberField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "displayField" : "action",
+         "fieldLabel" : "Do this action",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_actions = 1;",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 300,
+         "name" : "medium",
+         "triggerAction" : "all",
+         "valueField" : "action",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "displayField" : "name",
+         "editable" : true,
+         "emptyText" : "Select Person",
+         "fieldLabel" : "Notify this person",
+         "forceSelection" : true,
+         "hiddenName" : "person_id",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_person'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "id",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    // set more here",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 500,
+         "loadingText" : "Searching...",
+         "minChars" : 2,
+         "name" : "person_id_name",
+         "pageSize" : 20,
+         "qtip" : "Select Person",
+         "queryParam" : "query[name]",
+         "selectOnFocus" : true,
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> ({company_id_name}) &lt;{email}&gt;</div>",
+         "triggerAction" : "all",
+         "typeAhead" : true,
+         "valueField" : "id",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "$ xns" : "Roo.form",
+           "Number/String width" : 100,
+           "String/Object/Function style" : "margin-top:3px;",
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "String html" : "Delay action for:",
+             "xtype" : "TextItem"
+            }
+           ],
+           "xtype" : "Column"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "Boolean hideLabels" : true,
+           "Number/String width" : 100,
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "Boolean allowDecimals" : false,
+             "name" : "delay_value",
+             "width" : 75,
+             "xtype" : "NumberField"
+            }
+           ],
+           "xtype" : "Column"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "Boolean hideLabels" : true,
+           "Number/String width" : 100,
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "Boolean editable" : false,
+             "Number listWidth" : 75,
+             "Number width" : 75,
+             "String displayField" : "unit",
+             "String mode" : "local",
+             "String name" : "delay_unit",
+             "String triggerAction" : "all",
+             "String valueField" : "unit",
+             "items" : [
+              {
+               "$ Array fields" : "['unit']",
+               "$ xns" : "Roo.data",
+               "* prop" : "store",
+               "xtype" : "SimpleStore",
+               "| data" : [
+                "[",
+                "    ['days'],",
+                "    ['hours'],",
+                "    ['minutes']",
+                "]"
+               ]
+              }
+             ],
+             "xtype" : "ComboBox"
+            }
+           ],
+           "xtype" : "Column"
+          }
+         ],
+         "xtype" : "Row"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "fieldLabel" : "Active",
+         "name" : "active",
+         "xtype" : "Checkbox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "String name" : "ontable",
+         "xtype" : "Hidden"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "name" : "id",
+         "xtype" : "Hidden"
+        }
+       ],
+       "listeners" : {
+        "|actioncomplete" : [
+         "function(_self,action)",
+         "{",
+         "    if (action.type == 'setdata') {",
+         "       //_this.dialog.el.mask(\"Loading\");",
+         "       if (_this.data.id) {",
+         "           this.load({ method: 'GET', params: { '_id' : _this.data.id }});",
+         "       }",
+         "       return;",
+         "    }",
+         "    if (action.type == 'load') {",
+         "         return;",
+         "    }",
+         "    if (action.type =='submit') {",
+         "    ",
+         "            _this.dialog.hide();",
+         "    ",
+         "         if (_this.callback) {",
+         "            _this.callback.call(_this, _this.form.getValues());",
+         "         }",
+         "         _this.form.reset();",
+         "         return;",
+         "    }",
+         "}",
+         ""
+        ],
+        "|rendered" : [
+         "function (form)",
+         "{",
+         "    _this.form= form;",
+         "}",
+         ""
+        ]
+       },
+       "method" : "POST",
+       "style" : "margin:10px;",
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    _this.dialog.hide();",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    // do some checks?",
+       "     ",
+       "    ",
+       " ",
+       "    _this.form.doAction(\"submit\");",
+       "",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "title" : "Edit / Create core_watch",
+   "width" : 500,
+   "xtype" : "LayoutDialog"
+  }
+ ],
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminNotifyRecur",
+ "named_strings" : {
+  "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
+  "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
+  "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
+  "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
+  "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
+  "person_id_name_fieldLabel" : "ea221a6fb492303155561b1ce1ae0f6c",
+  "person_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "person_id_name_qtip" : "340c2ee497b85d5954b01c64de7f44f6"
+ },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminNotifyRecur.bjs",
  "permname" : "",
+ "strings" : {
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
+  "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
+  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
+  "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
+  "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "e675e43625096ce5f316055dfd1df7ea" : "When this occurs",
+  "ea221a6fb492303155561b1ce1ae0f6c" : "Notify this person",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "f08758b0c1d06ae425a00e4166b5d8a5" : "Delay action for:"
+ },
  "title" : ""
 }
