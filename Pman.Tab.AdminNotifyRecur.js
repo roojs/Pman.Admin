@@ -10,8 +10,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   '04df30d61712300fd31c24e2c7c8f9bc' :"Select core_notify",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   'be3c26f9baf09972ddc410c5c7c63403' :"Displaying core_notify_recur{0} - {1} of {2}",
-  '808e3eefe289c698ec4def4a54ac36af' :"Last Notification created",
-  '13a831874352b548ac7b5e63a860aa1b' :"Tz",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
   'c956c97343a45cca5d492e70c56daa8e' :"Select person",
   '25af45209313b11d55424103567a1347' :"Dtend",
@@ -21,10 +19,8 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   'ac2c474467a60fa4e2c88158a6d2abf9' :"Freq day",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '6ffde0d71e2b678e619e4a642d0b22a6' :"Freq hour",
-  '4c3880bb027f159e801041b1021e88e8' :"Method",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
-  'd8d80ec41fc8cca7569ac2d2937bd97b' :"Affects",
-  '84307c751e4541f54714472e3df742dd' :"Freq"
+  'd8d80ec41fc8cca7569ac2d2937bd97b' :"Affects"
  },
  _named_strings : {
   'name_qtip' : '04df30d61712300fd31c24e2c7c8f9bc' /* Select core_notify */ ,
@@ -333,33 +329,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'last_applied_dt',
-      header : _this._strings['808e3eefe289c698ec4def4a54ac36af'] /* Last Notification created */,
-      renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
-      width : 75,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'tz',
-      header : _this._strings['13a831874352b548ac7b5e63a860aa1b'] /* Tz */,
-      renderer : function(v) { return String.format('{0}', v); },
-      width : 75,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'freq',
-      header : _this._strings['84307c751e4541f54714472e3df742dd'] /* Freq */,
-      renderer : function(v) { return String.format('{0}', v); },
-      width : 100,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
       dataIndex : 'freq_day',
       header : _this._strings['ac2c474467a60fa4e2c88158a6d2abf9'] /* Freq day */,
       renderer : function(v) { return String.format('{0}', v); },
@@ -381,15 +350,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
       dataIndex : 'onid',
       header : _this._strings['d8d80ec41fc8cca7569ac2d2937bd97b'] /* Affects */,
       renderer : function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); },
-      width : 75,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'method',
-      header : _this._strings['4c3880bb027f159e801041b1021e88e8'] /* Method */,
-      renderer : function(v) { return String.format('{0}', v); },
       width : 75,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
