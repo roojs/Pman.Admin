@@ -67,6 +67,44 @@
         },
         {
          "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "displayField" : "title",
+         "editable" : false,
+         "fieldLabel" : "Country",
+         "hiddenName" : "freq_hour",
+         "items" : [
+          {
+           "$ fields" : "['code', 'title']",
+           "$ sortInfo" : "{ field : 'title', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "xtype" : "SimpleStore",
+           "| data" : [
+            "(function() { ",
+            "    var ret = [];",
+            "    for (var i = 5; i < 25; i++) {",
+            "        var h = i < 10 ? ('0' + i) : i;",
+            "        var mer = i < 12 || i > 23 ? 'am' : 'pm';",
+            "        var dh = i < 13 ? i : i-12;",
+            "        ",
+            "        ret.push([ h+':00', dh+':00' + mer ]);",
+            "        ret.push([ h+':30', dh+':30' + mer ]);        ",
+            "    }",
+            "    return ret;",
+            "})()"
+           ]
+          }
+         ],
+         "listWidth" : 300,
+         "mode" : "local",
+         "name" : "freq_hour_name",
+         "pageSize" : 40,
+         "triggerAction" : "all",
+         "valueField" : "code",
+         "xtype" : "ComboCheck"
+        },
+        {
+         "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
          "fieldLabel" : "on this ID (optional)",
          "listeners" : {
@@ -296,6 +334,7 @@
   "dtend_fieldLabel" : "3728af837fe70019577ddb0ed7125ee5",
   "dtstart_fieldLabel" : "5da618e8e4b89c66fe86e32cdafde142",
   "freq_day_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
+  "freq_hour_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",

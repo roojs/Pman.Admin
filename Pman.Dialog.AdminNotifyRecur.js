@@ -25,6 +25,7 @@ Pman.Dialog.AdminNotifyRecur = {
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
+  'freq_hour_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ ,
   'dtstart_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
   'freq_day_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ ,
   'dtend_fieldLabel' : '3728af837fe70019577ddb0ed7125ee5' /* Until */ ,
@@ -183,6 +184,41 @@ Pman.Dialog.AdminNotifyRecur = {
                Roo.each(Date.dayNames, function(d) {
                    ret.push([ d.substring(0,3).toUpperCase(), d ]);
                });
+               return ret;
+           })(),
+           fields : ['code', 'title'],
+           sortInfo : { field : 'title', direction: 'ASC' },
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
+         },
+         {
+          xtype : 'ComboCheck',
+          allowBlank : false,
+          displayField : 'title',
+          editable : false,
+          fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
+          hiddenName : 'freq_hour',
+          listWidth : 300,
+          mode : 'local',
+          name : 'freq_hour_name',
+          pageSize : 40,
+          triggerAction : 'all',
+          valueField : 'code',
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'SimpleStore',
+           data : (function() { 
+               var ret = [];
+               for (var i = 5; i < 25; i++) {
+                   var h = i < 10 ? ('0' + i) : i;
+                   var mer = i < 12 || i > 23 ? 'am' : 'pm';
+                   var dh = i < 13 ? i : i-12;
+                   
+                   ret.push([ h+':00', dh+':00' + mer ]);
+                   ret.push([ h+':30', dh+':30' + mer ]);        
+               }
                return ret;
            })(),
            fields : ['code', 'title'],
