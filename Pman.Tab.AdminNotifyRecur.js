@@ -15,13 +15,13 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   '25af45209313b11d55424103567a1347' :"Dtend",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'effad6ff1d36887ce57d05300912bf61' :"No core_notify_recur found",
+  '21bddcad370deebd6d6544016b18ed23' :"On ID",
   '56abc507eda6d3226af192bf9b0e5d1f' :"What happens",
   '83b9a425d6b152330823ab8357f441ae' :"Dtstart",
   'ac2c474467a60fa4e2c88158a6d2abf9' :"Freq day",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
   '6ffde0d71e2b678e619e4a642d0b22a6' :"Freq hour",
-  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
-  'd8d80ec41fc8cca7569ac2d2937bd97b' :"Affects"
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete"
  },
  _named_strings : {
   'name_qtip' : '04df30d61712300fd31c24e2c7c8f9bc' /* Select core_notify */ ,
@@ -360,7 +360,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
      {
       xtype : 'ColumnModel',
       dataIndex : 'onid',
-      header : _this._strings['d8d80ec41fc8cca7569ac2d2937bd97b'] /* Affects */,
+      header : _this._strings['21bddcad370deebd6d6544016b18ed23'] /* On ID */,
       renderer : function(v,x,r) { return String.format('{0}', v); },
       width : 75,
       xns : Roo.grid,

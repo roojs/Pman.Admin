@@ -314,7 +314,7 @@
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "onid",
-       "header" : "Affects",
+       "header" : "On ID",
        "width" : 75,
        "xtype" : "ColumnModel"
       }
@@ -373,6 +373,7 @@
  "strings" : {
   "04df30d61712300fd31c24e2c7c8f9bc" : "Select core_notify",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "21bddcad370deebd6d6544016b18ed23" : "On ID",
   "25af45209313b11d55424103567a1347" : "Dtend",
   "40bed7cf9b3d4bb3a3d7a7e3eb18c5eb" : "Person",
   "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
@@ -382,7 +383,6 @@
   "be3c26f9baf09972ddc410c5c7c63403" : "Displaying core_notify_recur{0} - {1} of {2}",
   "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
   "c956c97343a45cca5d492e70c56daa8e" : "Select person",
-  "d8d80ec41fc8cca7569ac2d2937bd97b" : "Affects",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "effad6ff1d36887ce57d05300912bf61" : "No core_notify_recur found",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
