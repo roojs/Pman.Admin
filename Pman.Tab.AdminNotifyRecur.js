@@ -15,6 +15,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   '25af45209313b11d55424103567a1347' :"Dtend",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'effad6ff1d36887ce57d05300912bf61' :"No core_notify_recur found",
+  '56abc507eda6d3226af192bf9b0e5d1f' :"What happens",
   '83b9a425d6b152330823ab8357f441ae' :"Dtstart",
   'ac2c474467a60fa4e2c88158a6d2abf9' :"Freq day",
   '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
@@ -342,6 +343,31 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
       header : _this._strings['6ffde0d71e2b678e619e4a642d0b22a6'] /* Freq hour */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 200,
+      xns : Roo.grid,
+      '|xns' : 'Roo.grid'
+     },
+     {
+      xtype : 'ColumnModel',
+      dataIndex : 'medium',
+      header : _this._strings['56abc507eda6d3226af192bf9b0e5d1f'] /* What happens */,
+      renderer : function(v) {
+          var ar = v.split('::');
+          if (ar.length > 1) {
+              var act = ar[1].replace(/^notify/,'');
+      
+              return String.format('<span qtip="{0}">{1}<span>', v, act);
+          }
+          
+          var ar = v.split(':');
+          if (ar.length > 1) {
+              var act = ar[1].replace(/^notify/,'');
+      
+              return String.format('<span qtip="{0}">{1}<span>', v, act);
+          }
+      
+          return String.format('{0}', v);
+       },
+      width : 300,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      },
