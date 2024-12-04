@@ -183,6 +183,7 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Boolean alwaysQuery" : true,
          "allowBlank" : true,
          "displayField" : "action",
          "fieldLabel" : "Do this action",

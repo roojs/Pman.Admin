@@ -302,6 +302,7 @@ Pman.Dialog.AdminNotifyRecur = {
          {
           xtype : 'ComboBox',
           allowBlank : true,
+          alwaysQuery : true,
           displayField : 'action',
           fieldLabel : _this._strings['c66ff5dd15feb3cb2e414df869721b9a'] /* Do this action */,
           listWidth : 300,
