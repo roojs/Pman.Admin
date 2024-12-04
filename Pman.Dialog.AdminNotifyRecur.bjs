@@ -168,7 +168,7 @@
         {
          "$ xns" : "Roo.form",
          "Boolean alwaysQuery" : true,
-         "allowBlank" : true,
+         "allowBlank" : false,
          "displayField" : "action",
          "fieldLabel" : "Do this action",
          "items" : [
