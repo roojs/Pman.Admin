@@ -9,14 +9,13 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
  _strings : {
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '1a86349be7851cf03d6fe959b94ed6fb' :"Watch ID",
+  '8f497c1a3d15af9e0c215019f26b887d' :"Delay",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'c4523f19258f444b936df7f96f57c7b9' :"Watch Table",
   '498f79c4c5bbde77f1bceb6c86fd0f6d' :"Show",
   '56abc507eda6d3226af192bf9b0e5d1f' :"What happens",
   '5e97bbccf01aa772225ef15435177395' :"(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   'a4e70e911022ccc98ab8055a09222cf2' :"No core_watch found",
-  'a297b2e935563efded23802aaa1ca3d8' :"Delay for days",
-  '1139510b5c3ddc9486739bed9ebb16d9' :"Delay for minutes",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
   '5fb63579fc981698f97d55bfecb213ea' :"Copy",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
@@ -24,7 +23,6 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
-  'a62bff18adcc86e8ed1a3dbd3778afe4' :"Delay for hours",
   '314b26dabb519a609db698728284683f' :"Select Table"
  },
  _named_strings : {
@@ -477,24 +475,8 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'delay_days',
-      header : _this._strings['a297b2e935563efded23802aaa1ca3d8'] /* Delay for days */,
-      width : 100,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'delay_hours',
-      header : _this._strings['a62bff18adcc86e8ed1a3dbd3778afe4'] /* Delay for hours */,
-      width : 100,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'delay_minutes',
-      header : _this._strings['1139510b5c3ddc9486739bed9ebb16d9'] /* Delay for minutes */,
+      dataIndex : 'no_minutes',
+      header : _this._strings['8f497c1a3d15af9e0c215019f26b887d'] /* Delay */,
       width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'

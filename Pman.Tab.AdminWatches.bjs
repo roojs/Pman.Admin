@@ -419,24 +419,8 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "delay_days",
-       "header" : "Delay for days",
-       "width" : 100,
-       "xtype" : "ColumnModel"
-      },
-      {
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "delay_hours",
-       "header" : "Delay for hours",
-       "width" : 100,
-       "xtype" : "ColumnModel"
-      },
-      {
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "delay_minutes",
-       "header" : "Delay for minutes",
+       "dataIndex" : "no_minutes",
+       "header" : "Delay",
        "width" : 100,
        "xtype" : "ColumnModel"
       },
@@ -502,7 +486,6 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminWatches.bjs",
  "permname" : "",
  "strings" : {
-  "1139510b5c3ddc9486739bed9ebb16d9" : "Delay for minutes",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "1a86349be7851cf03d6fe959b94ed6fb" : "Watch ID",
   "314b26dabb519a609db698728284683f" : "Select Table",
@@ -512,9 +495,8 @@
   "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   "5fb63579fc981698f97d55bfecb213ea" : "Copy",
   "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
-  "a297b2e935563efded23802aaa1ca3d8" : "Delay for days",
+  "8f497c1a3d15af9e0c215019f26b887d" : "Delay",
   "a4e70e911022ccc98ab8055a09222cf2" : "No core_watch found",
-  "a62bff18adcc86e8ed1a3dbd3778afe4" : "Delay for hours",
   "a8929eb5c1553d3f70497f862d25d0ce" : "Select Action",
   "b548a2ee926c118cc3211c5d8bb92a40" : "Who get's notified",
   "c122d95a9c28f9a54baef2c7784bb038" : "Watch Event",
