@@ -19,7 +19,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
   '56abc507eda6d3226af192bf9b0e5d1f' :"What happens",
   '83b9a425d6b152330823ab8357f441ae' :"Dtstart",
   'ac2c474467a60fa4e2c88158a6d2abf9' :"Freq day",
-  '40bed7cf9b3d4bb3a3d7a7e3eb18c5eb' :"Person",
+  'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ffde0d71e2b678e619e4a642d0b22a6' :"Freq hour",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete"
  },
@@ -301,17 +301,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
     colModel : [
      {
       xtype : 'ColumnModel',
-      dataIndex : 'person_id_name',
-      header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person */,
-      renderer : function(v,x,r) { 
-          return String.format('{0} <a href="mailto:{1}">{1}</a>', v,r.data.person_id_email); 
-      },
-      width : 75,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
       dataIndex : 'dtstart',
       header : _this._strings['83b9a425d6b152330823ab8357f441ae'] /* Dtstart */,
       renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
@@ -349,7 +338,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
      {
       xtype : 'ColumnModel',
       dataIndex : 'person_id_name',
-      header : _this._strings['40bed7cf9b3d4bb3a3d7a7e3eb18c5eb'] /* Person */,
+      header : _this._strings['b548a2ee926c118cc3211c5d8bb92a40'] /* Who get's notified */,
       renderer : function(v,x,r) { 
           return String.format('{0} <a href="mailto:{1}">{1}</a>', v,r.data.person_id_email); 
       },
