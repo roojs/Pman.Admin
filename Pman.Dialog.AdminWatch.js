@@ -176,7 +176,11 @@ Pman.Dialog.AdminWatch = {
                      &&
                      _this.form.findField('person_id').getValue() * 1
                  ) {
-                     o.params._watchable_events_table = _this.form.findField('ontable').getValue();
+                     var medium = _this.form.findField('medium').getValue();
+                     Roo.log(medium.split(':'));
+                     Roo.log(medium.split('::'));
+                     Roo.log(medium.split(':::'));
+                     
                  }
              }
            },
