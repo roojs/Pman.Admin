@@ -246,7 +246,7 @@ Pman.Dialog.AdminWatch = {
           listeners : {
            select : function (combo, record, index)
             {
-            
+                _this.form.findField('medium').setValue('');
             }
           },
           xns : Roo.form,
