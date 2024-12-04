@@ -177,10 +177,17 @@ Pman.Dialog.AdminWatch = {
                      _this.form.findField('person_id').getValue() * 1
                  ) {
                      var medium = _this.form.findField('medium').getValue();
-                     Roo.log(medium.split(':'));
-                     Roo.log(medium.split('::'));
-                     Roo.log(medium.split(':::'));
-                     
+                     var ar;
+                     if(medium.includes('::')) {
+                         ar = medium.split('::');
+                     }
+                     else if(medium.includes(':')) {
+                         ar = medium.split(':');
+                     }
+                     else {
+                         return;
+                     }
+                     $
                  }
              }
            },
