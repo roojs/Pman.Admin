@@ -225,7 +225,7 @@ Pman.Dialog.AdminWatch = {
                  o.params._watchable_actions = 1;
                  // if empty onid
                  if(!(_this.form.findField('onid').getValue() * 1)) {
-                     // action should be static
+                     // only allow static action
                      o.params._watchable_static_action = 1;
                  }
              }
