@@ -22,8 +22,9 @@
          "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
          "Boolean useIso" : true,
-         "Number width" : 75,
+         "Number width" : 100,
          "String fieldLabel" : "From",
+         "String format" : "Y-m-d",
          "String name" : "dtstart_day",
          "xtype" : "DateField"
         },
@@ -31,8 +32,9 @@
          "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
          "Boolean useIso" : true,
-         "Number width" : 75,
+         "Number width" : 100,
          "String fieldLabel" : "Until",
+         "String format" : "Y-m-d",
          "String name" : "dtend_day",
          "xtype" : "DateField"
         },
