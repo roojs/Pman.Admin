@@ -257,6 +257,11 @@ Pman.Dialog.AdminNotifyRecur = {
         ],
         items  : [
          {
+          xtype : 'DateField',
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
           xtype : 'NumberField',
           allowDecimals : false,
           fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
