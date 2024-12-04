@@ -232,7 +232,7 @@ Pman.Dialog.AdminWatch = {
                  // if empty onid
                  if(!(_this.form.findField('onid').getValue() * 1)) {
                      // only allow static action
-                     o.params._watchable_static_action = 1;
+                     o.params._watchable_static_actions = 1;
                  }
              }
            },
