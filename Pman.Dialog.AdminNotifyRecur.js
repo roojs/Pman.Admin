@@ -28,7 +28,7 @@ Pman.Dialog.AdminNotifyRecur = {
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'dtstart_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
   'freq_day_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ ,
-  'dtend_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
+  'dtend_fieldLabel' : '3728af837fe70019577ddb0ed7125ee5' /* Until */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -148,44 +148,6 @@ Pman.Dialog.AdminNotifyRecur = {
         colModel : [
          {
           xtype : 'ColumnModel',
-          dataIndex : 'dtstart',
-          header : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
-          renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
-          width : 75,
-          xns : Roo.grid,
-          '|xns' : 'Roo.grid',
-          editor : {
-           xtype : 'GridEditor',
-           xns : Roo.grid,
-           '|xns' : 'Roo.grid',
-           field : {
-            xtype : 'DateField',
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           }
-          }
-         },
-         {
-          xtype : 'ColumnModel',
-          dataIndex : 'dtend',
-          header : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
-          renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
-          width : 75,
-          xns : Roo.grid,
-          '|xns' : 'Roo.grid',
-          editor : {
-           xtype : 'GridEditor',
-           xns : Roo.grid,
-           '|xns' : 'Roo.grid',
-           field : {
-            xtype : 'DateField',
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           }
-          }
-         },
-         {
-          xtype : 'ColumnModel',
           dataIndex : 'freq_day',
           header : _this._strings['157e432ec303efd7d537b653cb255ccc'] /* on day(s) */,
           renderer : function(v,x,r) { 
@@ -268,7 +230,7 @@ Pman.Dialog.AdminNotifyRecur = {
          },
          {
           xtype : 'DateField',
-          fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
+          fieldLabel : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
           name : 'dtend',
           width : 75,
           xns : Roo.form,
