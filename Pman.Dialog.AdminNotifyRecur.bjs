@@ -68,14 +68,6 @@
           }
          ],
          "listWidth" : 300,
-         "listeners" : {
-          "select" : [
-           "function (combo, record, index)",
-           "{",
-           "",
-           "}"
-          ]
-         },
          "name" : "medium",
          "triggerAction" : "all",
          "valueField" : "action",
