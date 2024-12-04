@@ -104,62 +104,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Boolean alwaysQuery" : true,
-         "allowBlank" : true,
-         "displayField" : "action",
-         "fieldLabel" : "Do this action",
-         "items" : [
-          {
-           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
-           "$ xns" : "Roo.data",
-           "* prop" : "store",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/core_watch'",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy",
-             "method" : "GET",
-             "xtype" : "HttpProxy"
-            },
-            {
-             "$ fields" : "[\"action\"]",
-             "$ xns" : "Roo.data",
-             "* prop" : "reader",
-             "id" : "action",
-             "root" : "data",
-             "totalProperty" : "total",
-             "xtype" : "JsonReader"
-            }
-           ],
-           "listeners" : {
-            "|beforeload" : [
-             "function (_self, o){",
-             "    o.params = o.params || {};",
-             "    o.params._watchable_actions = 1;",
-             "    if(",
-             "        _this.form.findField('ontable').getValue()",
-             "        &&",
-             "        _this.form.findField('person_id').getValue() * 1",
-             "    ) {",
-             "        o.params._watchable_actions_table = _this.form.findField('ontable').getValue();",
-             "    }",
-             "}",
-             ""
-            ]
-           },
-           "remoteSort" : true,
-           "xtype" : "Store"
-          }
-         ],
-         "listWidth" : 300,
-         "name" : "medium",
-         "triggerAction" : "all",
-         "valueField" : "action",
-         "width" : 300,
-         "xtype" : "ComboBox"
-        },
-        {
-         "$ xns" : "Roo.form",
          "allowBlank" : true,
          "displayField" : "name",
          "editable" : true,
@@ -215,6 +159,62 @@
          "triggerAction" : "all",
          "typeAhead" : true,
          "valueField" : "id",
+         "width" : 300,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean alwaysQuery" : true,
+         "allowBlank" : true,
+         "displayField" : "action",
+         "fieldLabel" : "Do this action",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_watch'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[\"action\"]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "action",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    o.params._watchable_actions = 1;",
+             "    if(",
+             "        _this.form.findField('ontable').getValue()",
+             "        &&",
+             "        _this.form.findField('person_id').getValue() * 1",
+             "    ) {",
+             "        o.params._watchable_actions_table = _this.form.findField('ontable').getValue();",
+             "    }",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 300,
+         "name" : "medium",
+         "triggerAction" : "all",
+         "valueField" : "action",
          "width" : 300,
          "xtype" : "ComboBox"
         },
