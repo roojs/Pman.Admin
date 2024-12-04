@@ -14,7 +14,6 @@ Pman.Dialog.AdminNotifyRecur = {
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
-  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
@@ -23,7 +22,6 @@ Pman.Dialog.AdminNotifyRecur = {
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
-  'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -245,13 +243,6 @@ Pman.Dialog.AdminNotifyRecur = {
             '|xns' : 'Roo.data'
            }
           }
-         },
-         {
-          xtype : 'Checkbox',
-          fieldLabel : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
-          name : 'active',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',

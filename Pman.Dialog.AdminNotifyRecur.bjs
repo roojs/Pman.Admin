@@ -136,12 +136,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "fieldLabel" : "Active",
-         "name" : "active",
-         "xtype" : "Checkbox"
-        },
-        {
-         "$ xns" : "Roo.form",
          "String name" : "ontable",
          "xtype" : "Hidden"
         },
@@ -238,7 +232,6 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminNotifyRecur",
  "named_strings" : {
-  "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
@@ -253,7 +246,6 @@
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
-  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e80cc078107aba9b2c3c5fe1c5758b47" : "Edit / Create Recurrent Notifications",
