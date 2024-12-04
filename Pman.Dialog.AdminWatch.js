@@ -10,7 +10,6 @@ Pman.Dialog.AdminWatch = {
   'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
   'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
-  '640fd0cc0ffa0316ae087652871f4486' :"minutes",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
@@ -28,7 +27,6 @@ Pman.Dialog.AdminWatch = {
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
-  'delay_minutes_fieldLabel' : '640fd0cc0ffa0316ae087652871f4486' /* minutes */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'delay_hours_fieldLabel' : '73cdddd7730abfc13a55efb9f5685a3b' /* hours */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
@@ -324,7 +322,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 30,
+            hideLabels : true,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',
@@ -348,7 +346,7 @@ Pman.Dialog.AdminWatch = {
             items  : [
              {
               xtype : 'ComboBox',
-              displayField : 'hour',
+              displayField : 'unit',
               editable : false,
               fieldLabel : _this._strings['73cdddd7730abfc13a55efb9f5685a3b'] /* hours */,
               listWidth : 50,
@@ -369,42 +367,6 @@ Pman.Dialog.AdminWatch = {
                    return data;
                })(),
                fields : ['hour'],
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
-              }
-             }
-            ]
-           },
-           {
-            xtype : 'Column',
-            labelWidth : 45,
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'ComboBox',
-              displayField : 'minute',
-              editable : false,
-              fieldLabel : _this._strings['640fd0cc0ffa0316ae087652871f4486'] /* minutes */,
-              listWidth : 50,
-              mode : 'local',
-              name : 'delay_minutes',
-              triggerAction : 'all',
-              valueField : 'minute',
-              width : 50,
-              xns : Roo.form,
-              '|xns' : 'Roo.form',
-              store : {
-               xtype : 'SimpleStore',
-               data : (function() {
-                   var data = [];
-                   for(var i = 0; i < 60; i ++) {
-                       data.push([i]);
-                   }
-                   return data;
-               })(),
-               fields : ['minute'],
                xns : Roo.data,
                '|xns' : 'Roo.data'
               }

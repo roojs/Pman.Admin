@@ -209,7 +209,7 @@
           },
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 30,
+           "Boolean hideLabels" : true,
            "Number/String width" : 100,
            "items" : [
             {
@@ -232,7 +232,7 @@
              "Boolean editable" : false,
              "Number listWidth" : 50,
              "Number width" : 50,
-             "String displayField" : "hour",
+             "String displayField" : "unit",
              "String fieldLabel" : "hours",
              "String mode" : "local",
              "String name" : "delay_hours",
@@ -248,44 +248,6 @@
                 "(function() {",
                 "    var data = [];",
                 "    for(var i = 0; i < 12; i ++) {",
-                "        data.push([i]);",
-                "    }",
-                "    return data;",
-                "})()"
-               ]
-              }
-             ],
-             "xtype" : "ComboBox"
-            }
-           ],
-           "xtype" : "Column"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Number labelWidth" : 45,
-           "Number/String width" : 100,
-           "items" : [
-            {
-             "$ xns" : "Roo.form",
-             "Boolean editable" : false,
-             "Number listWidth" : 50,
-             "Number width" : 50,
-             "String displayField" : "minute",
-             "String fieldLabel" : "minutes",
-             "String mode" : "local",
-             "String name" : "delay_minutes",
-             "String triggerAction" : "all",
-             "String valueField" : "minute",
-             "items" : [
-              {
-               "$ Array fields" : "['minute']",
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "xtype" : "SimpleStore",
-               "| data" : [
-                "(function() {",
-                "    var data = [];",
-                "    for(var i = 0; i < 60; i ++) {",
                 "        data.push([i]);",
                 "    }",
                 "    return data;",
@@ -407,7 +369,6 @@
  "named_strings" : {
   "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
   "delay_hours_fieldLabel" : "73cdddd7730abfc13a55efb9f5685a3b",
-  "delay_minutes_fieldLabel" : "640fd0cc0ffa0316ae087652871f4486",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
@@ -424,7 +385,6 @@
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
-  "640fd0cc0ffa0316ae087652871f4486" : "minutes",
   "73cdddd7730abfc13a55efb9f5685a3b" : "hours",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
