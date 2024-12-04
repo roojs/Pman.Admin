@@ -180,7 +180,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
              if (!_this.dialog) {
                   return;
               }
-             _this.dialog.show( { id : 0 } , function() {
+             Pman.Dialog.AdminNotifyRecur.show( { id : 0 } , function() {
                  _this.grid.footer.onClick('first');
             }); 
          }
