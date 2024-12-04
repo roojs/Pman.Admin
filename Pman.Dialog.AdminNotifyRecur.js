@@ -237,6 +237,36 @@ Pman.Dialog.AdminNotifyRecur = {
           '|xns' : 'Roo.form'
          },
          {
+          xtype : 'ComboCheck',
+          allowBlank : false,
+          displayField : 'title',
+          editable : false,
+          fieldLabel : _this._strings['59716c97497eb9694541f7c3d37b1a4d'] /* Country */,
+          hiddenName : 'freq_day',
+          listWidth : 300,
+          mode : 'local',
+          name : 'freq_day_name',
+          pageSize : 40,
+          triggerAction : 'all',
+          valueField : 'code',
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'SimpleStore',
+           data : (function() { 
+               var ret = [];
+               Roo.each(Date.dayNames, function(d) {
+                   ret.push([ d.substring(0,3).toUpperCase(), d ]);
+               });
+               return ret;
+           })(),
+           fields : ['code', 'title'],
+           sortInfo : { field : 'title', direction: 'ASC' },
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
+         },
+         {
           xtype : 'NumberField',
           allowDecimals : false,
           fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,

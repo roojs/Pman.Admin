@@ -33,6 +33,39 @@
          "xtype" : "DateField"
         },
         {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "displayField" : "title",
+         "editable" : false,
+         "fieldLabel" : "Country",
+         "hiddenName" : "freq_day",
+         "items" : [
+          {
+           "$ fields" : "['code', 'title']",
+           "$ sortInfo" : "{ field : 'title', direction: 'ASC' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "xtype" : "SimpleStore",
+           "| data" : [
+            "(function() { ",
+            "    var ret = [];",
+            "    Roo.each(Date.dayNames, function(d) {",
+            "        ret.push([ d.substring(0,3).toUpperCase(), d ]);",
+            "    });",
+            "    return ret;",
+            "})()"
+           ]
+          }
+         ],
+         "listWidth" : 300,
+         "mode" : "local",
+         "name" : "freq_day_name",
+         "pageSize" : 40,
+         "triggerAction" : "all",
+         "valueField" : "code",
+         "xtype" : "ComboCheck"
+        },
+        {
          "$ renderer" : [
           "function(v,x,r) { ",
           "    ",
