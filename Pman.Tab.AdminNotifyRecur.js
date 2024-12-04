@@ -177,9 +177,6 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
        listeners : {
         click : function()
          {
-             if (!_this.dialog) {
-                  return;
-              }
              Pman.Dialog.AdminNotifyRecur.show( { id : 0 } , function() {
                  _this.grid.footer.onClick('first');
             }); 
