@@ -233,7 +233,6 @@
              "Number listWidth" : 50,
              "Number width" : 50,
              "String displayField" : "unit",
-             "String fieldLabel" : "hours",
              "String mode" : "local",
              "String name" : "delay_hours",
              "String triggerAction" : "all",
@@ -245,13 +244,11 @@
                "* prop" : "store",
                "xtype" : "SimpleStore",
                "| data" : [
-                "(function() {",
-                "    var data = [];",
-                "    for(var i = 0; i < 12; i ++) {",
-                "        data.push([i]);",
-                "    }",
-                "    return data;",
-                "})()"
+                "[",
+                "    ['day'],",
+                "    ['hour'],",
+                "    ['minute']",
+                "]"
                ]
               }
              ],
@@ -368,7 +365,6 @@
  "name" : "Pman.Dialog.AdminWatch",
  "named_strings" : {
   "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
-  "delay_hours_fieldLabel" : "73cdddd7730abfc13a55efb9f5685a3b",
   "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
@@ -385,7 +381,6 @@
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
-  "73cdddd7730abfc13a55efb9f5685a3b" : "hours",
   "75c5929bbdd5b4e3fb09d3d3a4e73a04" : "Edit / Create core_watch",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",

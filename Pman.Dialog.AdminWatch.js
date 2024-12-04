@@ -16,7 +16,6 @@ Pman.Dialog.AdminWatch = {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '75c5929bbdd5b4e3fb09d3d3a4e73a04' :"Edit / Create core_watch",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
-  '73cdddd7730abfc13a55efb9f5685a3b' :"hours",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
@@ -28,7 +27,6 @@ Pman.Dialog.AdminWatch = {
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
   'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
-  'delay_hours_fieldLabel' : '73cdddd7730abfc13a55efb9f5685a3b' /* hours */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -348,7 +346,6 @@ Pman.Dialog.AdminWatch = {
               xtype : 'ComboBox',
               displayField : 'unit',
               editable : false,
-              fieldLabel : _this._strings['73cdddd7730abfc13a55efb9f5685a3b'] /* hours */,
               listWidth : 50,
               mode : 'local',
               name : 'delay_hours',
@@ -359,13 +356,11 @@ Pman.Dialog.AdminWatch = {
               '|xns' : 'Roo.form',
               store : {
                xtype : 'SimpleStore',
-               data : (function() {
-                   var data = [];
-                   for(var i = 0; i < 12; i ++) {
-                       data.push([i]);
-                   }
-                   return data;
-               })(),
+               data : [
+                   ['day'],
+                   ['hour'],
+                   ['minute']
+               ],
                fields : ['unit'],
                xns : Roo.data,
                '|xns' : 'Roo.data'
