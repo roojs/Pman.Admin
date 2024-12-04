@@ -202,7 +202,7 @@ Pman.Dialog.AdminWatch = {
           listeners : {
            change : function (_self, newValue, oldValue)
             {
-            
+                _this.form.findField('medium').setValue('');
             }
           },
           xns : Roo.form,

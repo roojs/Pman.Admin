@@ -83,7 +83,7 @@
           "change" : [
            "function (_self, newValue, oldValue)",
            "{",
-           "",
+           "    _this.form.findField('medium').setValue('');",
            "}"
           ]
          },
