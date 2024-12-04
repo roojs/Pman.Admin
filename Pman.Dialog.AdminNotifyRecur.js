@@ -25,11 +25,11 @@ Pman.Dialog.AdminNotifyRecur = {
   'medium_fieldLabel' : 'c66ff5dd15feb3cb2e414df869721b9a' /* Do this action */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
-  'dtend_day_fieldLabel' : '3728af837fe70019577ddb0ed7125ee5' /* Until */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
+  'dt_start_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
   'freq_hour_name_fieldLabel' : '663747a4d13b0c3fa242dac0e6f242fd' /* At Hour(s) */ ,
-  'dtstart_day_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
   'freq_day_name_fieldLabel' : '9c26aac21b2c6584fc83fd67dd7c5884' /* On Day(s) */ ,
+  'dtend_fieldLabel' : '3728af837fe70019577ddb0ed7125ee5' /* Until */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -152,7 +152,7 @@ Pman.Dialog.AdminNotifyRecur = {
           allowBlank : false,
           fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
           format : 'Y-m-d',
-          name : 'dtstart_day',
+          name : 'dt_start',
           width : 100,
           xns : Roo.form,
           '|xns' : 'Roo.form'
@@ -162,7 +162,7 @@ Pman.Dialog.AdminNotifyRecur = {
           allowBlank : false,
           fieldLabel : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
           format : 'Y-m-d',
-          name : 'dtend_day',
+          name : 'dtend',
           width : 100,
           xns : Roo.form,
           '|xns' : 'Roo.form'
