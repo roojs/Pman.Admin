@@ -7,11 +7,10 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminNotifyRecur = {
 
  _strings : {
-  'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
   'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
-  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
+  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
@@ -25,7 +24,6 @@ Pman.Dialog.AdminNotifyRecur = {
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
-  'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -111,7 +109,7 @@ Pman.Dialog.AdminNotifyRecur = {
         xtype : 'Form',
         method : 'POST',
         style : 'margin:10px;',
-        url : baseURL + '/Roo/core_watch.php',
+        url : baseURL + '/Roo/core_notify_recur.php',
         listeners : {
          actioncomplete : function(_self,action)
           {
@@ -144,55 +142,6 @@ Pman.Dialog.AdminNotifyRecur = {
         xns : Roo.form,
         '|xns' : 'Roo.form',
         items  : [
-         {
-          xtype : 'ComboBox',
-          allowBlank : true,
-          displayField : 'action',
-          fieldLabel : _this._strings['e675e43625096ce5f316055dfd1df7ea'] /* When this occurs */,
-          listWidth : 300,
-          name : 'event',
-          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
-          triggerAction : 'all',
-          valueField : 'action',
-          width : 300,
-          listeners : {
-           select : function (combo, record, index)
-            {
-                _this.form.findField('ontable').setValue(record.data.table);
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'action' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-                 o.params._watchable_events = 1;
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_watch',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : ["table", "action"],
-            id : 'action',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
-         },
          {
           xtype : 'NumberField',
           allowDecimals : false,

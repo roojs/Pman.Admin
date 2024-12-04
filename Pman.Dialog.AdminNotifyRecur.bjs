@@ -15,66 +15,9 @@
      "$ xns" : "Roo",
      "items" : [
       {
-       "$ url" : "baseURL + '/Roo/core_watch.php'",
+       "$ url" : "baseURL + '/Roo/core_notify_recur.php'",
        "$ xns" : "Roo.form",
        "items" : [
-        {
-         "$ xns" : "Roo.form",
-         "allowBlank" : true,
-         "displayField" : "action",
-         "fieldLabel" : "When this occurs",
-         "items" : [
-          {
-           "$ sortInfo" : "{ direction : 'ASC', field: 'action' }",
-           "$ xns" : "Roo.data",
-           "* prop" : "store",
-           "items" : [
-            {
-             "$ url" : "baseURL + '/Roo/core_watch'",
-             "$ xns" : "Roo.data",
-             "* prop" : "proxy",
-             "method" : "GET",
-             "xtype" : "HttpProxy"
-            },
-            {
-             "$ fields" : "[\"table\", \"action\"]",
-             "$ xns" : "Roo.data",
-             "* prop" : "reader",
-             "id" : "action",
-             "root" : "data",
-             "totalProperty" : "total",
-             "xtype" : "JsonReader"
-            }
-           ],
-           "listeners" : {
-            "|beforeload" : [
-             "function (_self, o){",
-             "    o.params = o.params || {};",
-             "    o.params._watchable_events = 1;",
-             "}",
-             ""
-            ]
-           },
-           "remoteSort" : true,
-           "xtype" : "Store"
-          }
-         ],
-         "listWidth" : 300,
-         "listeners" : {
-          "select" : [
-           "function (combo, record, index)",
-           "{",
-           "    _this.form.findField('ontable').setValue(record.data.table);",
-           "}"
-          ]
-         },
-         "name" : "event",
-         "string tpl" : "<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>",
-         "triggerAction" : "all",
-         "valueField" : "action",
-         "width" : 300,
-         "xtype" : "ComboBox"
-        },
         {
          "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
@@ -365,7 +308,6 @@
  "name" : "Pman.Dialog.AdminNotifyRecur",
  "named_strings" : {
   "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
-  "event_fieldLabel" : "e675e43625096ce5f316055dfd1df7ea",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",
   "person_id_name_emptyText" : "340c2ee497b85d5954b01c64de7f44f6",
@@ -383,7 +325,6 @@
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
-  "e675e43625096ce5f316055dfd1df7ea" : "When this occurs",
   "e80cc078107aba9b2c3c5fe1c5758b47" : "Edit / Create Recurrent Notifications",
   "ea221a6fb492303155561b1ce1ae0f6c" : "Notify this person",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
