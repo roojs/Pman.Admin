@@ -350,12 +350,6 @@ Pman.Dialog.AdminNotifyRecur = {
          },
          {
           xtype : 'Hidden',
-          name : 'ontable',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
           name : 'id',
           xns : Roo.form,
           '|xns' : 'Roo.form'
