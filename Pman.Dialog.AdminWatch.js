@@ -187,7 +187,7 @@ Pman.Dialog.AdminWatch = {
                      else {
                          return;
                      }
-                     $
+                     o.params._watchable_events_table = ar[0];
                  }
              }
            },
