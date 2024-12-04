@@ -361,7 +361,7 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'onid',
       header : _this._strings['d8d80ec41fc8cca7569ac2d2937bd97b'] /* Affects */,
-      renderer : function(v,x,r) { return String.format('{1}:{0}', v,r.data.ontable); },
+      renderer : function(v,x,r) { return String.format('{0}', v); },
       width : 75,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
