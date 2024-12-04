@@ -60,7 +60,7 @@ Pman.Dialog.AdminNotifyRecur = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 300,
+    height : 270,
     modal : true,
     resizable : false,
     title : _this._strings['e80cc078107aba9b2c3c5fe1c5758b47'] /* Edit / Create Recurrent Notifications */,
