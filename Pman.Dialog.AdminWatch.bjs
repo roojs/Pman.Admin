@@ -216,7 +216,7 @@
              "$ xns" : "Roo.form",
              "Boolean allowDecimals" : false,
              "name" : "delay_value",
-             "width" : 100,
+             "width" : 75,
              "xtype" : "NumberField"
             }
            ],
@@ -224,14 +224,14 @@
           },
           {
            "$ xns" : "Roo.form",
-           "Number labelWidth" : 30,
+           "Boolean hideLabels" : true,
            "Number/String width" : 100,
            "items" : [
             {
              "$ xns" : "Roo.form",
              "Boolean editable" : false,
-             "Number listWidth" : 50,
-             "Number width" : 50,
+             "Number listWidth" : 75,
+             "Number width" : 75,
              "String displayField" : "unit",
              "String mode" : "local",
              "String name" : "delay_hours",

@@ -329,7 +329,7 @@ Pman.Dialog.AdminWatch = {
               xtype : 'NumberField',
               allowDecimals : false,
               name : 'delay_value',
-              width : 100,
+              width : 75,
               xns : Roo.form,
               '|xns' : 'Roo.form'
              }
@@ -337,7 +337,7 @@ Pman.Dialog.AdminWatch = {
            },
            {
             xtype : 'Column',
-            labelWidth : 30,
+            hideLabels : true,
             width : 100,
             xns : Roo.form,
             '|xns' : 'Roo.form',
@@ -346,12 +346,12 @@ Pman.Dialog.AdminWatch = {
               xtype : 'ComboBox',
               displayField : 'unit',
               editable : false,
-              listWidth : 50,
+              listWidth : 75,
               mode : 'local',
               name : 'delay_hours',
               triggerAction : 'all',
               valueField : 'unit',
-              width : 50,
+              width : 75,
               xns : Roo.form,
               '|xns' : 'Roo.form',
               store : {
