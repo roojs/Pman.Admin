@@ -223,6 +223,13 @@ Pman.Dialog.AdminWatch = {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  o.params._watchable_actions = 1;
+                 if(
+                     _this.form.findField('ontable').getValue()
+                     &&
+                     _this.form.findField('person_id').getValue() * 1
+                 ) {
+                     o.params._watchable_actions_table = _this.form.findField('ontable').getValue();
+                 }
              }
            },
            xns : Roo.data,
