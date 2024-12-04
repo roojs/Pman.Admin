@@ -228,6 +228,12 @@ Pman.Dialog.AdminNotifyRecur = {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  o.params._watchable_actions = 1;
+                 if(_this.form.findField('onid').getValue() * 1) {
+                     o.params._watchable_instance_actions = 1;
+                 }
+                 else {
+                     o.params._watchable_static_actions = 1;
+                 }
              }
            },
            xns : Roo.data,
