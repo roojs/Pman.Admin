@@ -8,11 +8,12 @@ Pman.Dialog.AdminNotifyRecur = {
 
  _strings : {
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
-  'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
-  'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
   '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
+  'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
+  'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '5da618e8e4b89c66fe86e32cdafde142' :"From",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
@@ -138,6 +139,27 @@ Pman.Dialog.AdminNotifyRecur = {
         },
         xns : Roo.form,
         '|xns' : 'Roo.form',
+        colModel : [
+         {
+          xtype : 'ColumnModel',
+          dataIndex : 'dtstart',
+          header : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
+          renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
+          width : 75,
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          editor : {
+           xtype : 'GridEditor',
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid',
+           field : {
+            xtype : 'DateField',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           }
+          }
+         }
+        ],
         items  : [
          {
           xtype : 'NumberField',

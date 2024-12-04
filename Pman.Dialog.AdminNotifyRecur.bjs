@@ -19,6 +19,29 @@
        "$ xns" : "Roo.form",
        "items" : [
         {
+         "$ renderer" : "function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "dtstart",
+         "header" : "From",
+         "items" : [
+          {
+           "$ xns" : "Roo.grid",
+           "* prop" : "editor",
+           "items" : [
+            {
+             "$ xns" : "Roo.form",
+             "* prop" : "field",
+             "xtype" : "DateField"
+            }
+           ],
+           "xtype" : "GridEditor"
+          }
+         ],
+         "width" : 75,
+         "xtype" : "ColumnModel"
+        },
+        {
          "$ xns" : "Roo.form",
          "Boolean allowDecimals" : false,
          "fieldLabel" : "on this ID (optional)",
@@ -260,6 +283,7 @@
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "340c2ee497b85d5954b01c64de7f44f6" : "Select Person",
   "34861b5a124462e93a8eedf91a3559bd" : "on this ID (optional)",
+  "5da618e8e4b89c66fe86e32cdafde142" : "From",
   "c66ff5dd15feb3cb2e414df869721b9a" : "Do this action",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "e80cc078107aba9b2c3c5fe1c5758b47" : "Edit / Create Recurrent Notifications",
