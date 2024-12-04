@@ -172,7 +172,7 @@ Pman.Dialog.AdminWatch = {
                  o.params = o.params || {};
                  o.params._watchable_events = 1;
                  if(
-                     !_this.form.findField('ontable').getValue()
+                     _this.form.findField('medium').getValue()
                      &&
                      _this.form.findField('person_id').getValue() * 1
                  ) {
