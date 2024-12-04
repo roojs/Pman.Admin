@@ -21,6 +21,7 @@
         {
          "$ xns" : "Roo.form",
          "Number width" : 75,
+         "String fieldLabel" : "From",
          "String name" : "dtstart",
          "xtype" : "DateField"
         },
@@ -380,6 +381,7 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminNotifyRecur",
  "named_strings" : {
+  "dtstart_fieldLabel" : "5da618e8e4b89c66fe86e32cdafde142",
   "freq_day_name_fieldLabel" : "59716c97497eb9694541f7c3d37b1a4d",
   "medium_fieldLabel" : "c66ff5dd15feb3cb2e414df869721b9a",
   "onid_fieldLabel" : "34861b5a124462e93a8eedf91a3559bd",

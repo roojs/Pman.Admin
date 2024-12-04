@@ -26,6 +26,7 @@ Pman.Dialog.AdminNotifyRecur = {
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
+  'dtstart_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
   'freq_day_name_fieldLabel' : '59716c97497eb9694541f7c3d37b1a4d' /* Country */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
@@ -258,6 +259,7 @@ Pman.Dialog.AdminNotifyRecur = {
         items  : [
          {
           xtype : 'DateField',
+          fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
           name : 'dtstart',
           width : 75,
           xns : Roo.form,
