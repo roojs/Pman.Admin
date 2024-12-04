@@ -158,6 +158,12 @@ Pman.Dialog.AdminNotifyRecur = {
           triggerAction : 'all',
           valueField : 'action',
           width : 300,
+          listeners : {
+           select : function (combo, record, index)
+            {
+            
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
