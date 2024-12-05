@@ -173,7 +173,11 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
        listeners : {
         click : function()
          {
-             Pman.Dialog.AdminNotifyRecur.show( { id : 0 } , function() {
+             Pman.Dialog.AdminNotifyRecur.show( {
+                 id : 0,
+                 dtstart_day : (new Date()).format('Y-m-d'),
+                 dtend_day: '2100-01-01',
+             } , function() {
                  _this.grid.footer.onClick('first');
             }); 
          }
