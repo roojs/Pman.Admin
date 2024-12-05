@@ -1,0 +1,13 @@
+{
+    "name" : "Pman.Admin",
+    "xtype" : "Roo",
+    "fn" : "932f992814080ce6c796347e5408060c",
+    "runhtml" : "<script type=\"text/javascript\" src=\"/Pman.Core/widgets/SecurePass.js\"></script>\n\n<script type=\"text/javascript\">\nbaseURL = '';\nrootURL = '';\nPman = { Dialog : {} , Tab: {} };\n</script>",
+    "rootURL" : "http://localhost/",
+    "base_template" : "",
+    "html_gen" : "",
+    "DBTYPE" : "",
+    "DBNAME" : "",
+    "DBUSERNAME" : "",
+    "DBPASSWORD" : ""
+}

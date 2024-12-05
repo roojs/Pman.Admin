@@ -288,6 +288,36 @@
          "xtype" : "Button"
         },
         {
+         "$ xns" : "Roo.Toolbar",
+         "String text" : "Copy",
+         "listeners" : {
+          "click" : [
+           "function (_self, e)",
+           "{",
+           "    var s = _this.grid.getSelectionModel().getSelections();",
+           "    if (!s.length || (s.length > 1))  {",
+           "        Roo.MessageBox.alert(\"Error\", s.length ? \"Select only one Row\" : \"Select a Row\");",
+           "        return;",
+           "    }",
+           "    ",
+           "    new Pman.Request({",
+           "        url : baseURL + '/Roo/Core_watch',",
+           "        method : 'POST',",
+           "        params: {",
+           "            _copy: s[0].data.id",
+           "        },",
+           "        mask : 'copying',",
+           "        success: function()",
+           "        {",
+           "            _this.grid.footer.onClick('first');",
+           "        }",
+           "    });",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
          "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
          "$ xns" : "Roo.Toolbar",
          "cls" : "x-btn-text-icon",
@@ -385,6 +415,28 @@
        "header" : "Active",
        "width" : 75,
        "xtype" : "ColumnModel"
+      },
+      {
+       "$ Function renderer" : [
+        "function(v, x, r) {",
+        "    if(!(v * 1)) {",
+        "        return '';",
+        "    }",
+        "    return String.format('{0} {1}', r.data.delay_value, r.data.delay_unit);",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "no_minutes",
+       "header" : "Delay",
+       "width" : 100,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ xns" : "Roo.grid",
+       "* prop" : "sm",
+       "singleSelect" : true,
+       "xtype" : "RowSelectionModel"
       }
      ],
      "listeners" : {
@@ -449,7 +501,9 @@
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
   "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
+  "5fb63579fc981698f97d55bfecb213ea" : "Copy",
   "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
+  "8f497c1a3d15af9e0c215019f26b887d" : "Delay",
   "a4e70e911022ccc98ab8055a09222cf2" : "No core_watch found",
   "a8929eb5c1553d3f70497f862d25d0ce" : "Select Action",
   "b548a2ee926c118cc3211c5d8bb92a40" : "Who get's notified",

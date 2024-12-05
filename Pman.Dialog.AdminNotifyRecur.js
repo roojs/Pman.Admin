@@ -4,19 +4,20 @@
 
 Roo.namespace('Pman.Dialog');
 
-Pman.Dialog.AdminWatch = {
+Pman.Dialog.AdminNotifyRecur = {
 
  _strings : {
-  'e675e43625096ce5f316055dfd1df7ea' :"When this occurs",
+  '3728af837fe70019577ddb0ed7125ee5' :"Until",
   'c66ff5dd15feb3cb2e414df869721b9a' :"Do this action",
-  'f08758b0c1d06ae425a00e4166b5d8a5' :"Delay action for:",
-  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
+  'e80cc078107aba9b2c3c5fe1c5758b47' :"Edit / Create Recurrent Notifications",
+  '663747a4d13b0c3fa242dac0e6f242fd' :"At Hour(s)",
   'ea221a6fb492303155561b1ce1ae0f6c' :"Notify this person",
+  '34861b5a124462e93a8eedf91a3559bd' :"on this ID (optional)",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '75c5929bbdd5b4e3fb09d3d3a4e73a04' :"Edit / Create core_watch",
+  '5da618e8e4b89c66fe86e32cdafde142' :"From",
+  '9c26aac21b2c6584fc83fd67dd7c5884' :"On Day(s)",
   '340c2ee497b85d5954b01c64de7f44f6' :"Select Person",
-  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
@@ -24,9 +25,11 @@ Pman.Dialog.AdminWatch = {
   'medium_fieldLabel' : 'c66ff5dd15feb3cb2e414df869721b9a' /* Do this action */ ,
   'person_id_name_emptyText' : '340c2ee497b85d5954b01c64de7f44f6' /* Select Person */ ,
   'person_id_name_fieldLabel' : 'ea221a6fb492303155561b1ce1ae0f6c' /* Notify this person */ ,
+  'dtend_day_fieldLabel' : '3728af837fe70019577ddb0ed7125ee5' /* Until */ ,
   'onid_fieldLabel' : '34861b5a124462e93a8eedf91a3559bd' /* on this ID (optional) */ ,
-  'event_fieldLabel' : 'e675e43625096ce5f316055dfd1df7ea' /* When this occurs */ ,
-  'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
+  'freq_hour_name_fieldLabel' : '663747a4d13b0c3fa242dac0e6f242fd' /* At Hour(s) */ ,
+  'dtstart_day_fieldLabel' : '5da618e8e4b89c66fe86e32cdafde142' /* From */ ,
+  'freq_day_name_fieldLabel' : '9c26aac21b2c6584fc83fd67dd7c5884' /* On Day(s) */ ,
   'person_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -57,10 +60,10 @@ Pman.Dialog.AdminWatch = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 250,
+    height : 270,
     modal : true,
     resizable : false,
-    title : _this._strings['75c5929bbdd5b4e3fb09d3d3a4e73a04'] /* Edit / Create core_watch */,
+    title : _this._strings['e80cc078107aba9b2c3c5fe1c5758b47'] /* Edit / Create Recurrent Notifications */,
     width : 500,
     xns : Roo,
     '|xns' : 'Roo',
@@ -111,7 +114,7 @@ Pman.Dialog.AdminWatch = {
         xtype : 'Form',
         method : 'POST',
         style : 'margin:10px;',
-        url : baseURL + '/Roo/core_watch.php',
+        url : baseURL + '/Roo/core_notify_recur.php',
         listeners : {
          actioncomplete : function(_self,action)
           {
@@ -145,85 +148,93 @@ Pman.Dialog.AdminWatch = {
         '|xns' : 'Roo.form',
         items  : [
          {
-          xtype : 'ComboBox',
+          xtype : 'DateField',
           allowBlank : false,
-          alwaysQuery : true,
-          displayField : 'action',
-          fieldLabel : _this._strings['e675e43625096ce5f316055dfd1df7ea'] /* When this occurs */,
-          listWidth : 300,
-          name : 'event',
-          tpl : '<div class=\"x-grid-cell-text x-btn button\">{table}:{action} </div>',
-          triggerAction : 'all',
-          valueField : 'action',
-          width : 300,
-          listeners : {
-           select : function (combo, record, index)
-            {
-                _this.form.findField('ontable').setValue(record.data.table);
-            }
-          },
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          store : {
-           xtype : 'Store',
-           remoteSort : true,
-           sortInfo : { direction : 'ASC', field: 'action' },
-           listeners : {
-            beforeload : function (_self, o){
-                 o.params = o.params || {};
-                 o.params._watchable_events = 1;
-                 if(
-                     _this.form.findField('medium').getValue()
-                     &&
-                     _this.form.findField('person_id').getValue() * 1
-                 ) {
-                     var medium = _this.form.findField('medium').getValue();
-                     var ar;
-                     if(medium.includes('::')) {
-                         ar = medium.split('::');
-                     }
-                     else if(medium.includes(':')) {
-                         ar = medium.split(':');
-                     }
-                     else {
-                         return;
-                     }
-                     o.params._watchable_events_table = ar[0];
-                 }
-             }
-           },
-           xns : Roo.data,
-           '|xns' : 'Roo.data',
-           proxy : {
-            xtype : 'HttpProxy',
-            method : 'GET',
-            url : baseURL + '/Roo/core_watch',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           },
-           reader : {
-            xtype : 'JsonReader',
-            fields : ["table", "action"],
-            id : 'action',
-            root : 'data',
-            totalProperty : 'total',
-            xns : Roo.data,
-            '|xns' : 'Roo.data'
-           }
-          }
-         },
-         {
-          xtype : 'NumberField',
-          allowDecimals : false,
-          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
-          name : 'onid',
-          width : 75,
+          fieldLabel : _this._strings['5da618e8e4b89c66fe86e32cdafde142'] /* From */,
+          format : 'Y-m-d',
+          name : 'dtstart_day',
+          width : 100,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
          {
+          xtype : 'DateField',
+          allowBlank : false,
+          fieldLabel : _this._strings['3728af837fe70019577ddb0ed7125ee5'] /* Until */,
+          format : 'Y-m-d',
+          name : 'dtend_day',
+          width : 100,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'ComboCheck',
+          allowBlank : false,
+          displayField : 'title',
+          editable : false,
+          fieldLabel : _this._strings['9c26aac21b2c6584fc83fd67dd7c5884'] /* On Day(s) */,
+          hiddenName : 'freq_day',
+          listWidth : 300,
+          mode : 'local',
+          name : 'freq_day_name',
+          pageSize : 40,
+          triggerAction : 'all',
+          valueField : 'code',
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'SimpleStore',
+           data : (function() { 
+               var ret = [];
+               Roo.each(Date.dayNames, function(d) {
+                   ret.push([ d.substring(0,3).toUpperCase(), d ]);
+               });
+               return ret;
+           })(),
+           fields : ['code', 'title'],
+           sortInfo : { field : 'title', direction: 'ASC' },
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
+         },
+         {
+          xtype : 'ComboCheck',
+          allowBlank : false,
+          displayField : 'title',
+          editable : false,
+          fieldLabel : _this._strings['663747a4d13b0c3fa242dac0e6f242fd'] /* At Hour(s) */,
+          hiddenName : 'freq_hour',
+          listWidth : 300,
+          mode : 'local',
+          name : 'freq_hour_name',
+          pageSize : 40,
+          triggerAction : 'all',
+          valueField : 'code',
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'SimpleStore',
+           data : (function() { 
+               var ret = [];
+               for (var i = 5; i < 25; i++) {
+                   var h = i < 10 ? ('0' + i) : i;
+                   var mer = i < 12 || i > 23 ? 'am' : 'pm';
+                   var dh = i < 13 ? i : i-12;
+                   
+                   ret.push([ h+':00', dh+':00' + mer ]);
+                   ret.push([ h+':30', dh+':30' + mer ]);        
+               }
+               return ret;
+           })(),
+           fields : ['code', 'title'],
+           sortInfo : { field : 'title', direction: 'ASC' },
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
+         },
+         {
           xtype : 'ComboBox',
-          allowBlank : true,
+          allowBlank : false,
           displayField : 'name',
           editable : true,
           emptyText : _this._strings['340c2ee497b85d5954b01c64de7f44f6'] /* Select Person */,
@@ -243,12 +254,6 @@ Pman.Dialog.AdminWatch = {
           typeAhead : true,
           valueField : 'id',
           width : 300,
-          listeners : {
-           select : function (combo, record, index)
-            {
-                _this.form.findField('medium').setValue('');
-            }
-          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
@@ -302,12 +307,11 @@ Pman.Dialog.AdminWatch = {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  o.params._watchable_actions = 1;
-                 if(
-                     _this.form.findField('ontable').getValue()
-                     &&
-                     _this.form.findField('person_id').getValue() * 1
-                 ) {
-                     o.params._watchable_actions_table = _this.form.findField('ontable').getValue();
+                 if(_this.form.findField('onid').getValue() * 1) {
+                     o.params._watchable_instance_actions = 1;
+                 }
+                 else {
+                     o.params._watchable_static_actions = 1;
                  }
              }
            },
@@ -332,87 +336,17 @@ Pman.Dialog.AdminWatch = {
           }
          },
          {
-          xtype : 'Row',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          items  : [
-           {
-            xtype : 'Column',
-            style : 'margin-top:3px;',
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'TextItem',
-              html : _this._strings['f08758b0c1d06ae425a00e4166b5d8a5'] /* Delay action for: */,
-              xns : Roo.form,
-              '|xns' : 'Roo.form'
-             }
-            ]
-           },
-           {
-            xtype : 'Column',
-            hideLabels : true,
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'NumberField',
-              allowDecimals : false,
-              name : 'delay_value',
-              width : 75,
-              xns : Roo.form,
-              '|xns' : 'Roo.form'
-             }
-            ]
-           },
-           {
-            xtype : 'Column',
-            hideLabels : true,
-            width : 100,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'ComboBox',
-              displayField : 'unit',
-              editable : false,
-              listWidth : 75,
-              mode : 'local',
-              name : 'delay_unit',
-              triggerAction : 'all',
-              valueField : 'unit',
-              width : 75,
-              xns : Roo.form,
-              '|xns' : 'Roo.form',
-              store : {
-               xtype : 'SimpleStore',
-               data : [
-                   ['days'],
-                   ['hours'],
-                   ['minutes']
-               ],
-               fields : ['unit'],
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
-              }
-             }
-            ]
-           }
-          ]
-         },
-         {
-          xtype : 'Checkbox',
-          fieldLabel : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
-          name : 'active',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
-          name : 'ontable',
+          xtype : 'NumberField',
+          allowDecimals : false,
+          fieldLabel : _this._strings['34861b5a124462e93a8eedf91a3559bd'] /* on this ID (optional) */,
+          name : 'onid',
+          width : 75,
+          listeners : {
+           change : function (_self, newValue, oldValue)
+            {
+                _this.form.findField('medium').setValue('');
+            }
+          },
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

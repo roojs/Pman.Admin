@@ -9,6 +9,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
  _strings : {
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '1a86349be7851cf03d6fe959b94ed6fb' :"Watch ID",
+  '8f497c1a3d15af9e0c215019f26b887d' :"Delay",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'c4523f19258f444b936df7f96f57c7b9' :"Watch Table",
   '498f79c4c5bbde77f1bceb6c86fd0f6d' :"Show",
@@ -16,6 +17,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   '5e97bbccf01aa772225ef15435177395' :"(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   'a4e70e911022ccc98ab8055a09222cf2' :"No core_watch found",
   'a8929eb5c1553d3f70497f862d25d0ce' :"Select Action",
+  '5fb63579fc981698f97d55bfecb213ea' :"Copy",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
@@ -208,6 +210,35 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       },
       {
        xtype : 'Button',
+       text : _this._strings['5fb63579fc981698f97d55bfecb213ea'] /* Copy */,
+       listeners : {
+        click : function (_self, e)
+         {
+             var s = _this.grid.getSelectionModel().getSelections();
+             if (!s.length || (s.length > 1))  {
+                 Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                 return;
+             }
+             
+             new Pman.Request({
+                 url : baseURL + '/Roo/Core_watch',
+                 method : 'POST',
+                 params: {
+                     _copy: s[0].data.id
+                 },
+                 mask : 'copying',
+                 success: function()
+                 {
+                     _this.grid.footer.onClick('first');
+                 }
+             });
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
        cls : 'x-btn-text-icon',
        icon : rootURL + '/Pman/templates/images/trash.gif',
        text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
@@ -359,6 +390,12 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       '|xns' : 'Roo.data'
      }
     },
+    sm : {
+     xtype : 'RowSelectionModel',
+     singleSelect : true,
+     xns : Roo.grid,
+     '|xns' : 'Roo.grid'
+    },
     colModel : [
      {
       xtype : 'ColumnModel',
@@ -433,6 +470,20 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
       header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
       renderer : function(v) { return String.format('{0}', v); },
       width : 75,
+      xns : Roo.grid,
+      '|xns' : 'Roo.grid'
+     },
+     {
+      xtype : 'ColumnModel',
+      dataIndex : 'no_minutes',
+      header : _this._strings['8f497c1a3d15af9e0c215019f26b887d'] /* Delay */,
+      renderer : function(v, x, r) {
+          if(!(v * 1)) {
+              return '';
+          }
+          return String.format('{0} {1}', r.data.delay_value, r.data.delay_unit);
+      },
+      width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      }
