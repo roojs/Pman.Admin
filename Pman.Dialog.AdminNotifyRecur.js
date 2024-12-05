@@ -264,6 +264,7 @@ Pman.Dialog.AdminNotifyRecur = {
             beforeload : function (_self, o){
                  o.params = o.params || {};
                  // set more here
+                 o.params.active = 1;
              }
            },
            xns : Roo.data,
