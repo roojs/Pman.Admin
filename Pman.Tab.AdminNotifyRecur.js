@@ -177,6 +177,8 @@ Pman.Tab.AdminNotifyRecur = new Roo.XComponent({
                  id : 0,
                  dtstart_day : (new Date()).format('Y-m-d'),
                  dtend_day: '2100-01-01',
+                 person_id: Pman.Login.authUser.id,
+                 person_id_name: Pman.Login.authUser.name
              } , function() {
                  _this.grid.footer.onClick('first');
             }); 
