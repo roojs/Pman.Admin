@@ -43,11 +43,12 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
-   xtype : 'NestedLayoutPanel',
+   xtype : 'NestedLayout',
+   background : true,
    region : 'center',
    title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
-   xns : Roo,
-   '|xns' : 'Roo',
+   xns : Roo.panel,
+   '|xns' : 'Roo.panel',
    layout : {
     xtype : 'BorderLayout',
     xns : Roo,
@@ -66,8 +67,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
     },
     items  : [
      {
-      xtype : 'GridPanel',
-      background : false,
+      xtype : 'Grid',
+      background : true,
       region : 'west',
       tableName : 'core_enum',
       title : _this._strings['2df80d5febcde0c10a66818488622b7c'] /* Pulldown Options */,
@@ -79,8 +80,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             //}
         }
       },
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       grid : {
        xtype : 'EditorGrid',
        autoExpandColumn : 'display_name',
@@ -295,8 +296,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
       }
      },
      {
-      xtype : 'GridPanel',
-      background : false,
+      xtype : 'Grid',
+      background : true,
       fitToframe : true,
       region : 'center',
       tableName : 'core_enum',
@@ -309,8 +310,8 @@ Pman.Tab.AdminEnum = new Roo.XComponent({
             }
         }
       },
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       grid : {
        xtype : 'EditorGrid',
        autoExpandColumn : 'display_name',

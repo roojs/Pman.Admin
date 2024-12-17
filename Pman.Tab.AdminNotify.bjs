@@ -1,8 +1,9 @@
 {
+ "gen_extended" : false,
  "items" : [
   {
-   "$ xns" : "Roo",
-   "Boolean background" : false,
+   "$ xns" : "Roo.panel",
+   "Boolean background" : true,
    "String region" : "center",
    "String title" : "Current Notifications",
    "items" : [
@@ -28,7 +29,7 @@
       },
       {
        "$ xns" : "Roo",
-       "bool background" : false,
+       "bool background" : true,
        "fitContainer" : true,
        "fitToframe" : true,
        "items" : [
@@ -738,13 +739,12 @@
      "}"
     ]
    },
-   "xtype" : "NestedLayoutPanel"
+   "xtype" : "NestedLayout"
   }
  ],
  "modOrder" : "001",
  "name" : "Pman.Tab.AdminNotify",
  "parent" : "Pman.Tab.AdminWatchNotify",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminNotify.bjs",
  "permname" : "",
  "strings" : {
   "0f6d01b16d57911731aa44b94dbfefcc" : "Act when",

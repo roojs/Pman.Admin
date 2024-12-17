@@ -43,8 +43,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
    var _this = this;
    var MODULE = this;
    return {
-   xtype : 'NestedLayoutPanel',
-   background : false,
+   xtype : 'NestedLayout',
+   background : true,
    region : 'center',
    title : _this._strings['bf1cb7e2a337a5e2ebf614009cbce9cc'] /* Current Notifications */,
    listeners : {
@@ -53,8 +53,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
          _this.nest = this;
      }
    },
-   xns : Roo,
-   '|xns' : 'Roo',
+   xns : Roo.panel,
+   '|xns' : 'Roo.panel',
    layout : {
     xtype : 'BorderLayout',
     xns : Roo,
@@ -78,7 +78,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     items  : [
      {
       xtype : 'GridPanel',
-      background : false,
+      background : true,
       fitContainer : true,
       fitToframe : true,
       region : 'center',

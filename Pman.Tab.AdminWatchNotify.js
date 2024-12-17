@@ -17,26 +17,26 @@ Pman.Tab.AdminWatchNotify = new Roo.XComponent({
   name     : "Notifications",
   disabled : false, 
   permname : '', 
-  _tree : function()
+  _tree : function(_data)
   {
    var _this = this;
    var MODULE = this;
    return {
-   background : false,
+   xtype : 'NestedLayout',
+   background : true,
    region : 'center',
    title : _this._strings['a274f4d4670213a9045ce258c6c56b80'] /* Notifications */,
-   xns : Roo,
-   '|xns' : 'Roo',
-   xtype : 'NestedLayoutPanel',
+   xns : Roo.panel,
+   '|xns' : 'Roo.panel',
    layout : {
+    xtype : 'BorderLayout',
     xns : Roo,
     '|xns' : 'Roo',
-    xtype : 'BorderLayout',
     center : {
+     xtype : 'LayoutRegion',
      tabPosition : 'top',
      xns : Roo,
-     '|xns' : 'Roo',
-     xtype : 'LayoutRegion'
+     '|xns' : 'Roo'
     }
    }
   };  }
