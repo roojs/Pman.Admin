@@ -120,6 +120,7 @@ Pman.Dialog.AdminWatch = {
                  if (_this.data.id) {
                      this.load({ method: 'GET', params: { '_id' : _this.data.id }});
                  }
+                 this.form.findField('delay_unit').setValue('minutes');
                  return;
               }
               if (action.type == 'load') {
