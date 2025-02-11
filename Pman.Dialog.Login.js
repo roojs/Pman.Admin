@@ -182,6 +182,26 @@ Pman.Dialog.Login = {
            rendered : function (form)
             {
                 _this.form = form;
+                 if (_this.has_image) {
+                    return;
+                }
+                _this.has_image = true;
+                
+                   var img = typeof(appLogo) != 'undefined'  && appLogo.length ? appLogo :
+                        rootURL + '/Pman/'+appNameShort + '/templates/images/logo.gif' ;
+                 
+                
+                _this.form.el.createChild({
+                        tag: 'img', 
+                        src: img,
+                        style: 'margin-bottom: 10px;'
+                    },
+                    _this.form.el.dom.firstChild 
+                ).on('error', function() {
+                    this.dom.style.visibility = 'hidden';
+                        this.dom.style.height = '10px';
+                    });
+            }
             }
           },
           xns : Roo.form,
