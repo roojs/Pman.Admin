@@ -172,9 +172,7 @@ Pman.Dialog.Login = {
                       //Roo.get('loading').show();
                       Roo.get('loading-mask').show();
                   }
-                  if (Pman.onload) { 
-                      Pman.onload(); // need on reload?
-                  }
+                  
                   if (_this.callback) {
                       _this.callback();
                    
