@@ -113,7 +113,7 @@ Pman.Dialog.Login = {
       listeners : {
        click : function (_self, e)
         {
-            _this.el.mask("Logging in");
+            _this.dialog.el.mask("Logging in");
             _this.form.doAction('submit' );
         }
       },
@@ -135,20 +135,31 @@ Pman.Dialog.Login = {
         xtype : 'Form',
         labelWidth : 100,
         method : 'POST',
+        resizeToLogo : function() {
+            var sz = Roo.get(_this.form.el.query('img')[0]).getSize();
+            if (!sz) {
+                this.resizeToLogo.defer(1000,this);
+                return;
+            }
+            var w = Roo.lib.Dom.getViewWidth() - 100;
+            var h = Roo.lib.Dom.getViewHeight() - 100;
+            _this.dialog.resizeTo(Math.max(350, Math.min(sz.width + 30, w)),Math.min(sz.height+200, h));
+            _this.dialog.center();
+        },
         url : baseURL + '/Core/Auth/Login',
         listeners : {
          actioncomplete : function (_self, act)
           {
-              
-              if (act.type == '??') {
+              Roo.log(act);
+              if (act.type == "submit") {
                    
-                  Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );
-                  Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );
+                  Roo.state.Manager.set('Pman.Login.username.'+appNameShort, this.findField('username').getValue() );
+                  Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  this.findField('lang').getValue() );
           
                   // session expired && login as another user => reload
                   if(
                       Pman.Login.oldAuthUser && 
-                      Pman.Login.oldAuthUser.email != _this.form.findField('username').getValue()
+                      Pman.Login.oldAuthUser.email != _this.findField('username').getValue()
                   ) {
                       window.onbeforeunload = function() { };
                       document.location = baseURL + '?ts=' + Math.random();
@@ -168,6 +179,37 @@ Pman.Dialog.Login = {
                       _this.callback();
                    
                   }
+                  return;
+              }
+              if (act.type == 'setdata') {
+                  
+                  if (Roo.get('loading')) {
+                      Roo.get('loading').remove();
+                  }
+                  if (Roo.get('loading-mask')) {
+                      Roo.get('loading-mask').hide();
+                  }
+                  // why would we not want it to be modal?
+                  _this.dialog.el.unmask();
+                   this.resizeToLogo.defer(500,this);
+                   if (!Roo.state.Manager.getProvider().expires) { 
+                      Roo.state.Manager.setProvider(new Roo.state.CookieProvider());
+                  }
+                   
+                   
+                  this.setValues({
+                      'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),
+                      'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en')
+                  });
+                  
+                  Pman.Login.switchLang(Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, ''));
+                  if (this.findField('username').getValue().length > 0 ){
+                      this.findField('password').focus();
+                  } else {
+                     this.findField('username').focus();
+                  }
+                  
+                  return;
               }
           },
          actionfailed : function (_self, act)
@@ -175,7 +217,7 @@ Pman.Dialog.Login = {
            //act.result.errors // invalid form element list...
               //act.result.errorMsg// invalid form element list...
               
-              _this.el.unmask();
+              _this.dialog.el.unmask();
               var msg = act.result.errorMsg || act.result.message;
               msg = msg ||   "Login failed - communication error - try again.";
               Roo.MessageBox.alert("Error",  msg); 
@@ -271,6 +313,13 @@ Pman.Dialog.Login = {
           xtype : 'Hidden',
           name : 'window_id',
           value : Pman.Login.window_id,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Hidden',
+          name : 'app_id',
+          value : appNameShort,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
