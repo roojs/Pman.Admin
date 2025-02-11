@@ -158,6 +158,10 @@
            "Mixed value" : 0,
            "String name" : "logout_other_windows",
            "xtype" : "Hidden"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "xtype" : "ComboBox"
           }
          ],
          "listeners" : {
