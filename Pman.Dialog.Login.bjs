@@ -145,7 +145,7 @@
               ]
              },
              "xtype" : "ComboBox"
-            }
+            },
           {
            "$ Mixed value" : "Pman.Login.window_id",
            "$ xns" : "Roo.form",
