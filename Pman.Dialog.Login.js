@@ -118,167 +118,167 @@ Pman.Dialog.Login = {
         }
       },
       xns : Roo,
-      '|xns' : 'Roo',
+      '|xns' : 'Roo'
+     }
+    ],
+    items  : [
+     {
+      xtype : 'Content',
+      autoCreate : true,
+      fitToFrame : true,
+      region : 'center',
+      style : 'margin: 10px',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       items  : [
        {
-        xtype : 'Content',
-        autoCreate : true,
-        fitToFrame : true,
-        region : 'center',
-        style : 'margin: 10px',
-        xns : Roo.panel,
-        '|xns' : 'Roo.panel',
+        xtype : 'Form',
+        labelWidth : 100,
+        method : 'POST',
+        url : baseURL + '/Core/Auth/Login',
+        listeners : {
+         actioncomplete : function (_self, act)
+          {
+              
+              Roo.log(act);
+               
+              Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );
+              Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );
+          
+              // session expired && login as another user => reload
+              if(
+                  Pman.Login.oldAuthUser && 
+                  Pman.Login.oldAuthUser.email != _this.form.findField('username').getValue()
+              ) {
+                  window.onbeforeunload = function() { };
+                  document.location = baseURL + '?ts=' + Math.random();
+              }
+          
+              Pman.Login.fillAuth(act.result.data);
+                
+              _this.dialog.hide();
+              if (Roo.get('loading-mask')) {
+                  //Roo.get('loading').show();
+                  Roo.get('loading-mask').show();
+              }
+              if (Pman.onload) { 
+                  Pman.onload();
+              }
+              if (Pman.Login.callback) {
+                  Pman.Login.callback();
+               
+              }
+          },
+         actionfailed : function (_self, act)
+          {
+           //act.result.errors // invalid form element list...
+              //act.result.errorMsg// invalid form element list...
+              
+              _this.el.unmask();
+              var msg = act.result.errorMsg || act.result.message;
+              msg = msg ||   "Login failed - communication error - try again.";
+              Roo.MessageBox.alert("Error",  msg); 
+          },
+         rendered : function (form)
+          {
+              _this.form = form;
+               if (_this.has_image) {
+                  return;
+              }
+              _this.has_image = true;
+              
+                 var img = typeof(appLogo) != 'undefined'  && appLogo.length ? appLogo :
+                      rootURL + '/Pman/'+appNameShort + '/templates/images/logo.gif' ;
+               
+              
+              _this.form.el.createChild({
+                      tag: 'img', 
+                      src: img,
+                      style: 'margin-bottom: 10px;'
+                  },
+                  _this.form.el.dom.firstChild 
+              ).on('error', function() {
+                  this.dom.style.visibility = 'hidden';
+                      this.dom.style.height = '10px';
+                  });
+          }
+        },
+        xns : Roo.form,
+        '|xns' : 'Roo.form',
         items  : [
          {
-          xtype : 'Form',
-          labelWidth : 100,
-          method : 'POST',
-          url : baseURL + '/Core/Auth/Login',
+          xtype : 'TextField',
+          fieldLabel : _this._strings['643a860f992333b8600ea264aca7c4fc'] /* Email Address */,
+          name : 'username',
+          width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Password',
+          fieldLabel : _this._strings['dc647eb65e6711e155375218212b3964'] /* Password */,
+          name : 'password',
+          width : 200,
           listeners : {
-           actioncomplete : function (_self, act)
+           specialkey : function (_self, ev)
             {
-                
-                Roo.log(act);
-                 
-                Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );
-                Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );
-            
-                // session expired && login as another user => reload
-                if(
-                    Pman.Login.oldAuthUser && 
-                    Pman.Login.oldAuthUser.email != _this.form.findField('username').getValue()
-                ) {
-                    window.onbeforeunload = function() { };
-                    document.location = baseURL + '?ts=' + Math.random();
+                if (ev.keyCode == 13) {
+                    _this.dialog.el.mask("Logging in");
+                    _this.form.doAction('submit');
                 }
-            
-                Pman.Login.fillAuth(act.result.data);
-                  
-                _this.dialog.hide();
-                if (Roo.get('loading-mask')) {
-                    //Roo.get('loading').show();
-                    Roo.get('loading-mask').show();
-                }
-                if (Pman.onload) { 
-                    Pman.onload();
-                }
-                if (Pman.Login.callback) {
-                    Pman.Login.callback();
-                 
-                }
-            },
-           actionfailed : function (_self, act)
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'ComboBox',
+          displayField : 'ldisp',
+          editable : false,
+          emptyText : _this._strings['5da1e201cb7f08519d07290abf226cfb'] /* Select a Language... */,
+          fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
+          hiddenName : 'lang',
+          mode : 'local',
+          name : 'langdisp',
+          triggerAction : 'all',
+          typeAhead : false,
+          valueField : 'lang',
+          width : 200,
+          listeners : {
+           select : function (combo, rec, index)
             {
-             //act.result.errors // invalid form element list...
-                //act.result.errorMsg// invalid form element list...
-                
-                _this.el.unmask();
-                var msg = act.result.errorMsg || act.result.message;
-                msg = msg ||   "Login failed - communication error - try again.";
-                Roo.MessageBox.alert("Error",  msg); 
-            },
-           rendered : function (form)
-            {
-                _this.form = form;
-                 if (_this.has_image) {
-                    return;
-                }
-                _this.has_image = true;
-                
-                   var img = typeof(appLogo) != 'undefined'  && appLogo.length ? appLogo :
-                        rootURL + '/Pman/'+appNameShort + '/templates/images/logo.gif' ;
-                 
-                
-                _this.form.el.createChild({
-                        tag: 'img', 
-                        src: img,
-                        style: 'margin-bottom: 10px;'
-                    },
-                    _this.form.el.dom.firstChild 
-                ).on('error', function() {
-                    this.dom.style.visibility = 'hidden';
-                        this.dom.style.height = '10px';
-                    });
+                Pman.Login.switchLang(rec.data.lang);
             }
           },
           xns : Roo.form,
           '|xns' : 'Roo.form',
-          items  : [
-           {
-            xtype : 'TextField',
-            fieldLabel : _this._strings['643a860f992333b8600ea264aca7c4fc'] /* Email Address */,
-            name : 'username',
-            width : 200,
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           },
-           {
-            xtype : 'Password',
-            fieldLabel : _this._strings['dc647eb65e6711e155375218212b3964'] /* Password */,
-            name : 'password',
-            width : 200,
-            listeners : {
-             specialkey : function (_self, ev)
-              {
-                  if (ev.keyCode == 13) {
-                      _this.dialog.el.mask("Logging in");
-                      _this.form.doAction('submit');
-                  }
-              }
-            },
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           },
-           {
-            xtype : 'ComboBox',
-            displayField : 'ldisp',
-            editable : false,
-            emptyText : _this._strings['5da1e201cb7f08519d07290abf226cfb'] /* Select a Language... */,
-            fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
-            hiddenName : 'lang',
-            mode : 'local',
-            name : 'langdisp',
-            triggerAction : 'all',
-            typeAhead : false,
-            valueField : 'lang',
-            width : 200,
-            listeners : {
-             select : function (combo, rec, index)
-              {
-                  Pman.Login.switchLang(rec.data.lang);
-              }
-            },
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            store : {
-             xtype : 'SimpleStore',
-             data : [
-                 [ 'en', 'English' ],
-                 [ 'zh_HK' , '\u7E41\u4E2D' ],
-                 [ 'zh_CN', '\u7C21\u4E2D' ]
-             ],
-             fields : [
-             'lang', 'ldisp'
-             ],
-             xns : Roo.data,
-             '|xns' : 'Roo.data'
-            }
-           },
-           {
-            xtype : 'Hidden',
-            name : 'window_id',
-            value : Pman.Login.window_id,
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           },
-           {
-            xtype : 'Hidden',
-            name : 'logout_other_windows',
-            value : 0,
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           }
-          ]
+          store : {
+           xtype : 'SimpleStore',
+           data : [
+               [ 'en', 'English' ],
+               [ 'zh_HK' , '\u7E41\u4E2D' ],
+               [ 'zh_CN', '\u7C21\u4E2D' ]
+           ],
+           fields : [
+           'lang', 'ldisp'
+           ],
+           xns : Roo.data,
+           '|xns' : 'Roo.data'
+          }
+         },
+         {
+          xtype : 'Hidden',
+          name : 'window_id',
+          value : Pman.Login.window_id,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Hidden',
+          name : 'logout_other_windows',
+          value : 0,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          }
         ]
        }

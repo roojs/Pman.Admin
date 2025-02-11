@@ -66,180 +66,6 @@
      "$ xns" : "Roo",
      "* prop" : "buttons[]",
      "String text" : "Login",
-     "items" : [
-      {
-       "$ xns" : "Roo.panel",
-       "Boolean autoCreate" : true,
-       "Boolean fitToFrame" : true,
-       "String region" : "center",
-       "String style" : "margin: 10px",
-       "items" : [
-        {
-         "$ String url" : "baseURL + '/Core/Auth/Login'",
-         "$ xns" : "Roo.form",
-         "Number labelWidth" : 100,
-         "String method" : "POST",
-         "items" : [
-          {
-           "$ xns" : "Roo.form",
-           "Number width" : 200,
-           "String fieldLabel" : "Email Address",
-           "String name" : "username",
-           "xtype" : "TextField"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Number width" : 200,
-           "String fieldLabel" : "Password",
-           "String name" : "password",
-           "listeners" : {
-            "specialkey" : [
-             "function (_self, ev)",
-             "{",
-             "    if (ev.keyCode == 13) {",
-             "        _this.dialog.el.mask(\"Logging in\");",
-             "        _this.form.doAction('submit');",
-             "    }",
-             "}"
-            ]
-           },
-           "xtype" : "Password"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Boolean editable" : false,
-           "Boolean typeAhead" : false,
-           "Number width" : 200,
-           "String displayField" : "ldisp",
-           "String emptyText" : "Select a Language...",
-           "String fieldLabel" : "Language",
-           "String hiddenName" : "lang",
-           "String mode" : "local",
-           "String name" : "langdisp",
-           "String triggerAction" : "all",
-           "String valueField" : "lang",
-           "items" : [
-            {
-             "$ Array data" : [
-              "[",
-              "    [ 'en', 'English' ],",
-              "    [ 'zh_HK' , '\\u7E41\\u4E2D' ],",
-              "    [ 'zh_CN', '\\u7C21\\u4E2D' ]",
-              "]"
-             ],
-             "$ Array fields" : [
-              "[",
-              "'lang', 'ldisp'",
-              "]"
-             ],
-             "$ xns" : "Roo.data",
-             "* prop" : "store",
-             "xtype" : "SimpleStore"
-            }
-           ],
-           "listeners" : {
-            "select" : [
-             "function (combo, rec, index)",
-             "{",
-             "    Pman.Login.switchLang(rec.data.lang);",
-             "}"
-            ]
-           },
-           "xtype" : "ComboBox"
-          },
-          {
-           "$ Mixed value" : "Pman.Login.window_id",
-           "$ xns" : "Roo.form",
-           "String name" : "window_id",
-           "xtype" : "Hidden"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "Mixed value" : 0,
-           "String name" : "logout_other_windows",
-           "xtype" : "Hidden"
-          }
-         ],
-         "listeners" : {
-          "actioncomplete" : [
-           "function (_self, act)",
-           "{",
-           "    ",
-           "    Roo.log(act);",
-           "     ",
-           "    Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );",
-           "    Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );",
-           "",
-           "    // session expired && login as another user => reload",
-           "    if(",
-           "        Pman.Login.oldAuthUser && ",
-           "        Pman.Login.oldAuthUser.email != _this.form.findField('username').getValue()",
-           "    ) {",
-           "        window.onbeforeunload = function() { };",
-           "        document.location = baseURL + '?ts=' + Math.random();",
-           "    }",
-           "",
-           "    Pman.Login.fillAuth(act.result.data);",
-           "      ",
-           "    _this.dialog.hide();",
-           "    if (Roo.get('loading-mask')) {",
-           "        //Roo.get('loading').show();",
-           "        Roo.get('loading-mask').show();",
-           "    }",
-           "    if (Pman.onload) { ",
-           "        Pman.onload();",
-           "    }",
-           "    if (Pman.Login.callback) {",
-           "        Pman.Login.callback();",
-           "     ",
-           "    }",
-           "}"
-          ],
-          "actionfailed" : [
-           "function (_self, act)",
-           "{",
-           " //act.result.errors // invalid form element list...",
-           "    //act.result.errorMsg// invalid form element list...",
-           "    ",
-           "    _this.el.unmask();",
-           "    var msg = act.result.errorMsg || act.result.message;",
-           "    msg = msg ||   \"Login failed - communication error - try again.\";",
-           "    Roo.MessageBox.alert(\"Error\",  msg); ",
-           "}"
-          ],
-          "rendered" : [
-           "function (form)",
-           "{",
-           "    _this.form = form;",
-           "     if (_this.has_image) {",
-           "        return;",
-           "    }",
-           "    _this.has_image = true;",
-           "    ",
-           "       var img = typeof(appLogo) != 'undefined'  && appLogo.length ? appLogo :",
-           "            rootURL + '/Pman/'+appNameShort + '/templates/images/logo.gif' ;",
-           "     ",
-           "    ",
-           "    _this.form.el.createChild({",
-           "            tag: 'img', ",
-           "            src: img,",
-           "            style: 'margin-bottom: 10px;'",
-           "        },",
-           "        _this.form.el.dom.firstChild ",
-           "    ).on('error', function() {",
-           "        this.dom.style.visibility = 'hidden';",
-           "            this.dom.style.height = '10px';",
-           "        });",
-           "}",
-           " "
-          ]
-         },
-         "xtype" : "Form"
-        }
-       ],
-       "xtype" : "Content"
-      }
-     ],
      "listeners" : {
       "click" : [
        "function (_self, e)",
@@ -250,6 +76,178 @@
       ]
      },
      "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo.panel",
+     "Boolean autoCreate" : true,
+     "Boolean fitToFrame" : true,
+     "String region" : "center",
+     "String style" : "margin: 10px",
+     "items" : [
+      {
+       "$ String url" : "baseURL + '/Core/Auth/Login'",
+       "$ xns" : "Roo.form",
+       "Number labelWidth" : 100,
+       "String method" : "POST",
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "Number width" : 200,
+         "String fieldLabel" : "Email Address",
+         "String name" : "username",
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Number width" : 200,
+         "String fieldLabel" : "Password",
+         "String name" : "password",
+         "listeners" : {
+          "specialkey" : [
+           "function (_self, ev)",
+           "{",
+           "    if (ev.keyCode == 13) {",
+           "        _this.dialog.el.mask(\"Logging in\");",
+           "        _this.form.doAction('submit');",
+           "    }",
+           "}"
+          ]
+         },
+         "xtype" : "Password"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean editable" : false,
+         "Boolean typeAhead" : false,
+         "Number width" : 200,
+         "String displayField" : "ldisp",
+         "String emptyText" : "Select a Language...",
+         "String fieldLabel" : "Language",
+         "String hiddenName" : "lang",
+         "String mode" : "local",
+         "String name" : "langdisp",
+         "String triggerAction" : "all",
+         "String valueField" : "lang",
+         "items" : [
+          {
+           "$ Array data" : [
+            "[",
+            "    [ 'en', 'English' ],",
+            "    [ 'zh_HK' , '\\u7E41\\u4E2D' ],",
+            "    [ 'zh_CN', '\\u7C21\\u4E2D' ]",
+            "]"
+           ],
+           "$ Array fields" : [
+            "[",
+            "'lang', 'ldisp'",
+            "]"
+           ],
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "xtype" : "SimpleStore"
+          }
+         ],
+         "listeners" : {
+          "select" : [
+           "function (combo, rec, index)",
+           "{",
+           "    Pman.Login.switchLang(rec.data.lang);",
+           "}"
+          ]
+         },
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ Mixed value" : "Pman.Login.window_id",
+         "$ xns" : "Roo.form",
+         "String name" : "window_id",
+         "xtype" : "Hidden"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Mixed value" : 0,
+         "String name" : "logout_other_windows",
+         "xtype" : "Hidden"
+        }
+       ],
+       "listeners" : {
+        "actioncomplete" : [
+         "function (_self, act)",
+         "{",
+         "    ",
+         "    Roo.log(act);",
+         "     ",
+         "    Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );",
+         "    Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );",
+         "",
+         "    // session expired && login as another user => reload",
+         "    if(",
+         "        Pman.Login.oldAuthUser && ",
+         "        Pman.Login.oldAuthUser.email != _this.form.findField('username').getValue()",
+         "    ) {",
+         "        window.onbeforeunload = function() { };",
+         "        document.location = baseURL + '?ts=' + Math.random();",
+         "    }",
+         "",
+         "    Pman.Login.fillAuth(act.result.data);",
+         "      ",
+         "    _this.dialog.hide();",
+         "    if (Roo.get('loading-mask')) {",
+         "        //Roo.get('loading').show();",
+         "        Roo.get('loading-mask').show();",
+         "    }",
+         "    if (Pman.onload) { ",
+         "        Pman.onload();",
+         "    }",
+         "    if (Pman.Login.callback) {",
+         "        Pman.Login.callback();",
+         "     ",
+         "    }",
+         "}"
+        ],
+        "actionfailed" : [
+         "function (_self, act)",
+         "{",
+         " //act.result.errors // invalid form element list...",
+         "    //act.result.errorMsg// invalid form element list...",
+         "    ",
+         "    _this.el.unmask();",
+         "    var msg = act.result.errorMsg || act.result.message;",
+         "    msg = msg ||   \"Login failed - communication error - try again.\";",
+         "    Roo.MessageBox.alert(\"Error\",  msg); ",
+         "}"
+        ],
+        "rendered" : [
+         "function (form)",
+         "{",
+         "    _this.form = form;",
+         "     if (_this.has_image) {",
+         "        return;",
+         "    }",
+         "    _this.has_image = true;",
+         "    ",
+         "       var img = typeof(appLogo) != 'undefined'  && appLogo.length ? appLogo :",
+         "            rootURL + '/Pman/'+appNameShort + '/templates/images/logo.gif' ;",
+         "     ",
+         "    ",
+         "    _this.form.el.createChild({",
+         "            tag: 'img', ",
+         "            src: img,",
+         "            style: 'margin-bottom: 10px;'",
+         "        },",
+         "        _this.form.el.dom.firstChild ",
+         "    ).on('error', function() {",
+         "        this.dom.style.visibility = 'hidden';",
+         "            this.dom.style.height = '10px';",
+         "        });",
+         "}",
+         " "
+        ]
+       },
+       "xtype" : "Form"
+      }
+     ],
+     "xtype" : "Content"
     }
    ],
    "xtype" : "LayoutDialog"
