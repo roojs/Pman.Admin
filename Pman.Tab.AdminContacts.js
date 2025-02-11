@@ -308,10 +308,10 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
              }
              
              new Pman.Request({
-                 url : baseURL + '/Login.php',
+                 url : baseURL + '/Core/Auth/Switch',
                  method : 'GET',
                  params : {
-                     'switch' : s[0].data.id
+                     user_id : s[0].data.id
                  },
                  success : function (){
                      document.location = baseURL + '?ts=' + Math.random();

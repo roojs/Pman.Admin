@@ -1,4 +1,5 @@
 {
+ "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -347,10 +348,10 @@
            "    }",
            "    ",
            "    new Pman.Request({",
-           "        url : baseURL + '/Login.php',",
+           "        url : baseURL + '/Core/Auth/Switch',",
            "        method : 'GET',",
            "        params : {",
-           "            'switch' : s[0].data.id",
+           "            user_id : s[0].data.id",
            "        },",
            "        success : function (){",
            "            document.location = baseURL + '?ts=' + Math.random();",
@@ -646,7 +647,6 @@
   "company_name_qtip" : "9675747b5ab12d05f18518761e68a533"
  },
  "parent" : "Pman.Tab.AdminContactsManager",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Tab.AdminContacts.bjs",
  "permname" : "Core.Person",
  "strings" : {
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
