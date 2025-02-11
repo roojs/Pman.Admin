@@ -122,6 +122,8 @@ Pman.Dialog.Login = {
       items  : [
        {
         xtype : 'Content',
+        autoCreate : true,
+        fitToFrame : true,
         region : 'center',
         style : 'margin: 10px',
         xns : Roo.panel,

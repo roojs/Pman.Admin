@@ -69,6 +69,8 @@
      "items" : [
       {
        "$ xns" : "Roo.panel",
+       "Boolean autoCreate" : true,
+       "Boolean fitToFrame" : true,
        "String region" : "center",
        "String style" : "margin: 10px",
        "items" : [
