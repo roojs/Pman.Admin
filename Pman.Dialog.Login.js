@@ -62,6 +62,7 @@ Pman.Dialog.Login = {
     listeners : {
      show : function (_self)
       {
+         }
     },
     xns : Roo,
     '|xns' : 'Roo',
@@ -201,7 +202,6 @@ Pman.Dialog.Login = {
                     this.dom.style.visibility = 'hidden';
                         this.dom.style.height = '10px';
                     });
-            }
             }
           },
           xns : Roo.form,

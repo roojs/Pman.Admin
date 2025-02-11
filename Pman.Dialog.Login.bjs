@@ -231,7 +231,7 @@
            "            this.dom.style.height = '10px';",
            "        });",
            "}",
-           "}"
+           " "
           ]
          },
          "xtype" : "Form"
@@ -256,7 +256,7 @@
     "show" : [
      "function (_self)",
      "{",
-     "   "
+     "   }"
     ]
    },
    "xtype" : "LayoutDialog"
