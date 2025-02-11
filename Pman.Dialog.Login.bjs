@@ -90,8 +90,21 @@
            "Number width" : 200,
            "String fieldLabel" : "Password",
            "String name" : "password",
-           "items" : [
-            {
+          
+           "listeners" : {
+            "specialkey" : [
+             "function (_self, ev)",
+             "{",
+             "    if (ev.keyCode == 13) {",
+             "        _this.dialog.el.mask(\"Logging in\");",
+             "        _this.form.doAction('submit');",
+             "    }",
+             "}"
+            ]
+           },
+           "xtype" : "Password"
+          },
+          {
              "$ xns" : "Roo.form",
              "Boolean editable" : false,
              "Boolean typeAhead" : false,
@@ -133,20 +146,6 @@
              },
              "xtype" : "ComboBox"
             }
-           ],
-           "listeners" : {
-            "specialkey" : [
-             "function (_self, ev)",
-             "{",
-             "    if (ev.keyCode == 13) {",
-             "        _this.dialog.el.mask(\"Logging in\");",
-             "        _this.form.doAction('submit');",
-             "    }",
-             "}"
-            ]
-           },
-           "xtype" : "Password"
-          },
           {
            "$ Mixed value" : "Pman.Login.window_id",
            "$ xns" : "Roo.form",
