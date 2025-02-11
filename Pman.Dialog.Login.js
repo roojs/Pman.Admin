@@ -59,11 +59,6 @@ Pman.Dialog.Login = {
     shadow : true,
     title : _this._strings['99dea78007133396a7b8ed70578ac6ae'] /* Login */,
     width : 350,
-    listeners : {
-     show : function (_self)
-      {
-         }
-    },
     xns : Roo,
     '|xns' : 'Roo',
     center : {
