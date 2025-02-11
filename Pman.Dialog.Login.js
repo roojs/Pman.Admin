@@ -277,11 +277,6 @@ Pman.Dialog.Login = {
             value : 0,
             xns : Roo.form,
             '|xns' : 'Roo.form'
-           },
-           {
-            xtype : 'ComboBox',
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
            }
           ]
          }
