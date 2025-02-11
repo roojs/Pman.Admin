@@ -137,7 +137,7 @@ Pman.Dialog.Login = {
             {
                 
                 Roo.log(act);
-                
+                 
                 Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );
                 Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );
             
@@ -225,44 +225,42 @@ Pman.Dialog.Login = {
               }
             },
             xns : Roo.form,
-            '|xns' : 'Roo.form',
-            items  : [
-             {
-              xtype : 'ComboBox',
-              displayField : 'ldisp',
-              editable : false,
-              emptyText : _this._strings['5da1e201cb7f08519d07290abf226cfb'] /* Select a Language... */,
-              fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
-              hiddenName : 'lang',
-              mode : 'local',
-              name : 'langdisp',
-              triggerAction : 'all',
-              typeAhead : false,
-              valueField : 'lang',
-              width : 200,
-              listeners : {
-               select : function (combo, rec, index)
-                {
-                    Pman.Login.switchLang(rec.data.lang);
-                }
-              },
-              xns : Roo.form,
-              '|xns' : 'Roo.form',
-              store : {
-               xtype : 'SimpleStore',
-               data : [
-                   [ 'en', 'English' ],
-                   [ 'zh_HK' , '\u7E41\u4E2D' ],
-                   [ 'zh_CN', '\u7C21\u4E2D' ]
-               ],
-               fields : [
-               'lang', 'ldisp'
-               ],
-               xns : Roo.data,
-               '|xns' : 'Roo.data'
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'ComboBox',
+            displayField : 'ldisp',
+            editable : false,
+            emptyText : _this._strings['5da1e201cb7f08519d07290abf226cfb'] /* Select a Language... */,
+            fieldLabel : _this._strings['4994a8ffeba4ac3140beb89e8d41f174'] /* Language */,
+            hiddenName : 'lang',
+            mode : 'local',
+            name : 'langdisp',
+            triggerAction : 'all',
+            typeAhead : false,
+            valueField : 'lang',
+            width : 200,
+            listeners : {
+             select : function (combo, rec, index)
+              {
+                  Pman.Login.switchLang(rec.data.lang);
               }
-             }
-            ]
+            },
+            xns : Roo.form,
+            '|xns' : 'Roo.form',
+            store : {
+             xtype : 'SimpleStore',
+             data : [
+                 [ 'en', 'English' ],
+                 [ 'zh_HK' , '\u7E41\u4E2D' ],
+                 [ 'zh_CN', '\u7C21\u4E2D' ]
+             ],
+             fields : [
+             'lang', 'ldisp'
+             ],
+             xns : Roo.data,
+             '|xns' : 'Roo.data'
+            }
            },
            {
             xtype : 'Hidden',

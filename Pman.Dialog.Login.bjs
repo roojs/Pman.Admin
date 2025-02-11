@@ -90,7 +90,6 @@
            "Number width" : 200,
            "String fieldLabel" : "Password",
            "String name" : "password",
-          
            "listeners" : {
             "specialkey" : [
              "function (_self, ev)",
@@ -105,47 +104,47 @@
            "xtype" : "Password"
           },
           {
-             "$ xns" : "Roo.form",
-             "Boolean editable" : false,
-             "Boolean typeAhead" : false,
-             "Number width" : 200,
-             "String displayField" : "ldisp",
-             "String emptyText" : "Select a Language...",
-             "String fieldLabel" : "Language",
-             "String hiddenName" : "lang",
-             "String mode" : "local",
-             "String name" : "langdisp",
-             "String triggerAction" : "all",
-             "String valueField" : "lang",
-             "items" : [
-              {
-               "$ Array data" : [
-                "[",
-                "    [ 'en', 'English' ],",
-                "    [ 'zh_HK' , '\\u7E41\\u4E2D' ],",
-                "    [ 'zh_CN', '\\u7C21\\u4E2D' ]",
-                "]"
-               ],
-               "$ Array fields" : [
-                "[",
-                "'lang', 'ldisp'",
-                "]"
-               ],
-               "$ xns" : "Roo.data",
-               "* prop" : "store",
-               "xtype" : "SimpleStore"
-              }
+           "$ xns" : "Roo.form",
+           "Boolean editable" : false,
+           "Boolean typeAhead" : false,
+           "Number width" : 200,
+           "String displayField" : "ldisp",
+           "String emptyText" : "Select a Language...",
+           "String fieldLabel" : "Language",
+           "String hiddenName" : "lang",
+           "String mode" : "local",
+           "String name" : "langdisp",
+           "String triggerAction" : "all",
+           "String valueField" : "lang",
+           "items" : [
+            {
+             "$ Array data" : [
+              "[",
+              "    [ 'en', 'English' ],",
+              "    [ 'zh_HK' , '\\u7E41\\u4E2D' ],",
+              "    [ 'zh_CN', '\\u7C21\\u4E2D' ]",
+              "]"
              ],
-             "listeners" : {
-              "select" : [
-               "function (combo, rec, index)",
-               "{",
-               "    Pman.Login.switchLang(rec.data.lang);",
-               "}"
-              ]
-             },
-             "xtype" : "ComboBox"
-            },
+             "$ Array fields" : [
+              "[",
+              "'lang', 'ldisp'",
+              "]"
+             ],
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "xtype" : "SimpleStore"
+            }
+           ],
+           "listeners" : {
+            "select" : [
+             "function (combo, rec, index)",
+             "{",
+             "    Pman.Login.switchLang(rec.data.lang);",
+             "}"
+            ]
+           },
+           "xtype" : "ComboBox"
+          },
           {
            "$ Mixed value" : "Pman.Login.window_id",
            "$ xns" : "Roo.form",
@@ -165,7 +164,7 @@
            "{",
            "    ",
            "    Roo.log(act);",
-           "    ",
+           "     ",
            "    Roo.state.Manager.set('Pman.Login.username.'+appNameShort,  Pman.Login.form.findField('username').getValue() );",
            "    Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  Pman.Login.form.findField('lang').getValue() );",
            "",
