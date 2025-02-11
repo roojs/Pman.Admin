@@ -165,8 +165,7 @@ Pman.Dialog.Login = {
                       document.location = baseURL + '?ts=' + Math.random();
                   }
           
-                  Pman.Login.fillAuth(act.result.data);
-                    
+                 
                   _this.dialog.hide();
                   if (Roo.get('loading-mask')) {
                       //Roo.get('loading').show();
@@ -174,7 +173,7 @@ Pman.Dialog.Login = {
                   }
                   
                   if (_this.callback) {
-                      _this.callback();
+                      _this.callback(act.result);
                    
                   }
                   return;
