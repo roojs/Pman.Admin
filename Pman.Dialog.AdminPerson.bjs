@@ -665,7 +665,7 @@
    ],
    "resizable" : false,
    "title" : "Edit / Create Staff Details",
-   "width" : 450,
+   "width" : 650,
    "xtype" : "LayoutDialog"
   }
  ],
