@@ -297,14 +297,6 @@
      "xtype" : "Content"
     }
    ],
-   "listeners" : {
-    "show" : [
-     "function (_self)",
-     "{",
-     "",
-     "}"
-    ]
-   },
    "xtype" : "LayoutDialog"
   }
  ],
