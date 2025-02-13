@@ -479,7 +479,7 @@
              "        "
             ]
            },
-           "text" : "Delete",
+           "text" : "Force Logout of U",
            "xtype" : "Button"
           }
          ],
@@ -662,6 +662,7 @@
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
+  "e229451d3c8e0fd7dd163e0a0103cf04" : "Force Logout of U",
   "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
   "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",

@@ -30,7 +30,8 @@ Pman.Dialog.AdminPerson = {
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  'e229451d3c8e0fd7dd163e0a0103cf04' :"Force Logout of U"
  },
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
@@ -568,7 +569,7 @@ Pman.Dialog.AdminPerson = {
           xtype : 'Button',
           cls : 'x-btn-text-icon',
           icon : rootURL + '/Pman/templates/images/trash.gif',
-          text : _this._strings['f2a6c498fb90ee345d997f888fce3b18'] /* Delete */,
+          text : _this._strings['e229451d3c8e0fd7dd163e0a0103cf04'] /* Force Logout of U */,
           listeners : {
            click : function()
             {
