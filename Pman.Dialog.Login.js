@@ -196,7 +196,8 @@ Pman.Dialog.Login = {
                    
                   this.setValues({
                       'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),
-                      'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en')
+                      'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en'),
+                      'window_id' : Pman.Login.window_id
                   });
                   
                   Pman.Login.switchLang(Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, ''));
