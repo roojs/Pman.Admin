@@ -540,15 +540,6 @@ Pman.Dialog.AdminPerson = {
              if (_this.sespanel.active) {
                 this.footer.onClick('first');
              }
-         },
-        rowdblclick : function (_self, rowIndex, e)
-         {
-             if (!_this.dialog) {
-                  return;
-              }
-             _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
-                 _this.grid.footer.onClick('refresh');
-             }); 
          }
        },
        xns : Roo.grid,
