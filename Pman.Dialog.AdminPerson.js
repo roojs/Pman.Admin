@@ -573,7 +573,18 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            click : function()
             {
-                 Pman.genericDelete(_this, 'core_person_settings'); 
+                  new Pman.Request({
+                    method : 'POST',
+                    url : baseURL + '/Roo/Core_person_server',
+                    params : {
+                        status : 'KILL',
+                        person_id : _this.data.id
+                    },
+                    success : function()
+                    {
+                        _this.segrid.footer.onClick('refresh');
+                    }
+                });
             }
           },
           xns : Roo.Toolbar,
