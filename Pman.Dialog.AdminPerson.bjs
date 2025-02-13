@@ -479,7 +479,7 @@
              "        "
             ]
            },
-           "text" : "Force Logout of U",
+           "text" : "Force Logout of User",
            "xtype" : "Button"
           }
          ],
@@ -650,6 +650,7 @@
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
   "689202409e48743b914713f96d93947c" : "Value",
+  "6b446bfa60f46e619a691f253177ec9a" : "Force Logout of User",
   "7573b7fd7836c9118dbfb69f3abf3858" : "Change / Set Password",
   "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
   "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
@@ -662,7 +663,6 @@
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
-  "e229451d3c8e0fd7dd163e0a0103cf04" : "Force Logout of U",
   "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
   "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
