@@ -32,7 +32,8 @@ Pman.Dialog.AdminPerson = {
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
   '6b446bfa60f46e619a691f253177ec9a' :"Force Logout of User",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address"
  },
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
@@ -649,8 +650,8 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'description',
-         header : _this._strings['b5a7adde1af5c87d7fd797b6245c2a39'] /* Description */,
+         dataIndex : 'ip',
+         header : _this._strings['5b8c99dad1893a85076709b2d3c2d2d0'] /* IP Address */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 150,
@@ -659,7 +660,7 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'data',
+         dataIndex : 'lo',
          header : _this._strings['689202409e48743b914713f96d93947c'] /* Value */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
