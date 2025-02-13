@@ -411,7 +411,7 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "grid",
-       "autoExpandColumn" : "data",
+       "autoExpandColumn" : "user_agent",
        "items" : [
         {
          "$ sortInfo" : "{ field : 'last_access_dt', direction: 'DESC' }",
