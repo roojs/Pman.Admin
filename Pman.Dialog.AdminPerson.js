@@ -79,9 +79,10 @@ Pman.Dialog.AdminPerson = {
     xns : Roo,
     '|xns' : 'Roo',
     center : {
-     xtype : 'LayoutRegion',
-     xns : Roo,
-     '|xns' : 'Roo'
+     xtype : 'Region',
+     tabPosition : 'top',
+     xns : Roo.layout,
+     '|xns' : 'Roo.layout'
     },
     buttons : [
      {
@@ -256,7 +257,7 @@ Pman.Dialog.AdminPerson = {
             {
                     var coid = _this.form.findField('company_id').getValue();
                     if (coid < 1 ) {
-                        Ext.MessageBox.alert("Error", "Select An Company First");
+                        Roo.MessageBox.alert("Error", "Select An Company First");
                         return false;
                     }
             }
