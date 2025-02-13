@@ -158,7 +158,6 @@
          "xtype" : "ComboBox"
         },
         {
-         "$ Mixed value" : "Pman.Login.window_id",
          "$ xns" : "Roo.form",
          "String name" : "window_id",
          "xtype" : "Hidden"
@@ -298,6 +297,14 @@
      "xtype" : "Content"
     }
    ],
+   "listeners" : {
+    "show" : [
+     "function (_self)",
+     "{",
+     "",
+     "}"
+    ]
+   },
    "xtype" : "LayoutDialog"
   }
  ],
