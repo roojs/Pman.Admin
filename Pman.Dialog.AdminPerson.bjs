@@ -537,8 +537,8 @@
          ],
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "login_dt",
-         "header" : "Logged in",
+         "dataIndex" : "last_access_dt",
+         "header" : "Last Access",
          "sortable" : true,
          "width" : 80,
          "xtype" : "ColumnModel"
@@ -671,6 +671,7 @@
   "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
   "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
   "8c5e39fcbdc7303f11a578a76e32f7f5" : "Logged in",
+  "91d522fe68c9ac8ac16026371421018f" : "Last Access",
   "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
   "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
   "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",

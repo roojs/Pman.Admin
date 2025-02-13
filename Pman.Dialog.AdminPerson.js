@@ -13,6 +13,7 @@ Pman.Dialog.AdminPerson = {
   'e498749f3c42246d50b15c81c101d988' :"Application",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
+  '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '3544848f820b9d94a3f3871a382cf138' :"New password",
@@ -661,8 +662,8 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'login_dt',
-         header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
+         dataIndex : 'last_access_dt',
+         header : _this._strings['91d522fe68c9ac8ac16026371421018f'] /* Last Access */,
          renderer : function(v) { 
              return String.format('{0}', v ? v.format("d/M H:i")  : ''); 
          },
