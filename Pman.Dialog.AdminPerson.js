@@ -627,18 +627,6 @@ Pman.Dialog.AdminPerson = {
          '|xns' : 'Roo.data'
         }
        },
-       sm : {
-        xtype : 'RowSelectionModel',
-        singleSelect : true,
-        listeners : {
-         afterselectionchange : function (_self)
-          {
-              // load project members.
-          }
-        },
-        xns : Roo.grid,
-        '|xns' : 'Roo.grid'
-       },
        colModel : [
         {
          xtype : 'ColumnModel',
@@ -664,7 +652,19 @@ Pman.Dialog.AdminPerson = {
          dataIndex : 'login_dt',
          header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
          renderer : function(v) { 
-             return String.format('{0}', v ? v.format("d/M H:i"); 
+             return String.format('{0}', v ? v.format("d/M H:i")  : ''); 
+         },
+         sortable : true,
+         width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'login_dt',
+         header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
+         renderer : function(v) { 
+             return String.format('{0}', v ? v.format("d/M H:i")  : ''); 
          },
          sortable : true,
          width : 80,
