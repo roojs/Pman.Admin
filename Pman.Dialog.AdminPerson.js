@@ -663,9 +663,11 @@ Pman.Dialog.AdminPerson = {
          xtype : 'ColumnModel',
          dataIndex : 'login_dt',
          header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v) { 
+             return String.format('{0}', v ? v.format("d/M H:i"); 
+         },
          sortable : true,
-         width : 200,
+         width : 80,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
