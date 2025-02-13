@@ -12,6 +12,7 @@ Pman.Dialog.AdminPerson = {
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   'e498749f3c42246d50b15c81c101d988' :"Application",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
+  'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
@@ -26,6 +27,7 @@ Pman.Dialog.AdminPerson = {
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
+  'ef15fd2f45e6bb5ce57587895ba64f93' :"Browser",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -669,6 +671,26 @@ Pman.Dialog.AdminPerson = {
          },
          sortable : true,
          width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'status',
+         header : _this._strings['ec53a8c4f07baed5d8825072c89799be'] /* Status */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'user_agent',
+         header : _this._strings['ef15fd2f45e6bb5ce57587895ba64f93'] /* Browser */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
