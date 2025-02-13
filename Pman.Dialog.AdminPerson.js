@@ -582,7 +582,7 @@ Pman.Dialog.AdminPerson = {
             {
                   new Pman.Request({
                     method : 'POST',
-                    url : baseURL + '/Roo/Core_person_server',
+                    url : baseURL + '/Roo/Core_person_window',
                     params : {
                         status : 'KILL',
                         person_id : _this.data.id
