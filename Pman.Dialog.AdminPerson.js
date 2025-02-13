@@ -21,6 +21,7 @@ Pman.Dialog.AdminPerson = {
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
+  'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -515,7 +516,7 @@ Pman.Dialog.AdminPerson = {
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      title : _this._strings['e4709a73a287a5f033f5b1b5142cb74d'] /* System Settings */,
+      title : _this._strings['db6c58b8634d4607cdcb13bb181ea2ff'] /* User Sessions */,
       listeners : {
        activate : function() {
             _this.panel = this;
