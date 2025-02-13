@@ -10,6 +10,7 @@ Pman.Dialog.AdminPerson = {
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
+  'e498749f3c42246d50b15c81c101d988' :"Application",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
@@ -639,8 +640,8 @@ Pman.Dialog.AdminPerson = {
        colModel : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'scope',
-         header : _this._strings['e55f75a29310d7b60f7ac1d390c8ae42'] /* Module */,
+         dataIndex : 'app_id',
+         header : _this._strings['e498749f3c42246d50b15c81c101d988'] /* Application */,
          sortable : true,
          width : 120,
          xns : Roo.grid,

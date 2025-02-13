@@ -499,8 +499,8 @@
         {
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "scope",
-         "header" : "Module",
+         "dataIndex" : "app_id",
+         "header" : "Application",
          "sortable" : true,
          "width" : 120,
          "xtype" : "ColumnModel"
@@ -675,6 +675,7 @@
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
   "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
+  "e498749f3c42246d50b15c81c101d988" : "Application",
   "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
