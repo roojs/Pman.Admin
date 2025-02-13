@@ -230,7 +230,7 @@
       }
      ],
      "region" : "center",
-     "xtype" : "Grid"
+     "xtype" : "Content"
     },
     {
      "$ xns" : "Roo.panel",

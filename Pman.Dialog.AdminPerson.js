@@ -151,7 +151,7 @@ Pman.Dialog.AdminPerson = {
     ],
     items  : [
      {
-      xtype : 'Grid',
+      xtype : 'Content',
       region : 'center',
       title : _this._strings['a5da1d5de4f3a80e2acf5227283c630d'] /* Staff Details */,
       xns : Roo.panel,
