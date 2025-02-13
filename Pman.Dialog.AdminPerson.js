@@ -537,7 +537,7 @@ Pman.Dialog.AdminPerson = {
          {
              _this.grid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
-             if (_this.panel.active) {
+             if (_this.sespanel.active) {
                 this.footer.onClick('first');
              }
          },
