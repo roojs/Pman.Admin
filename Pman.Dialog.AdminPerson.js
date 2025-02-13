@@ -19,6 +19,7 @@ Pman.Dialog.AdminPerson = {
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '3544848f820b9d94a3f3871a382cf138' :"New password",
   '689202409e48743b914713f96d93947c' :"Value",
+  'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
   '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
@@ -646,7 +647,7 @@ Pman.Dialog.AdminPerson = {
          header : _this._strings['5b8c99dad1893a85076709b2d3c2d2d0'] /* IP Address */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
-         width : 150,
+         width : 80,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
@@ -680,7 +681,17 @@ Pman.Dialog.AdminPerson = {
          header : _this._strings['ec53a8c4f07baed5d8825072c89799be'] /* Status */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
-         width : 150,
+         width : 40,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'window_id',
+         header : _this._strings['f4a52a00bee9faf2bc6183e0ac12ba12'] /* Session WID */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 80,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },

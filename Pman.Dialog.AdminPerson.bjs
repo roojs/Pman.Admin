@@ -512,7 +512,7 @@
          "dataIndex" : "ip",
          "header" : "IP Address",
          "sortable" : true,
-         "width" : 150,
+         "width" : 80,
          "xtype" : "ColumnModel"
         },
         {
@@ -550,7 +550,17 @@
          "dataIndex" : "status",
          "header" : "Status",
          "sortable" : true,
-         "width" : 150,
+         "width" : 40,
+         "xtype" : "ColumnModel"
+        },
+        {
+         "$ renderer" : "function(v) { return String.format('{0}', v); }",
+         "$ xns" : "Roo.grid",
+         "* prop" : "colModel[]",
+         "dataIndex" : "window_id",
+         "header" : "Session WID",
+         "sortable" : true,
+         "width" : 80,
          "xtype" : "ColumnModel"
         },
         {
@@ -707,7 +717,8 @@
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "ec53a8c4f07baed5d8825072c89799be" : "Status",
   "ef15fd2f45e6bb5ce57587895ba64f93" : "Browser",
-  "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
+  "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+  "f4a52a00bee9faf2bc6183e0ac12ba12" : "Session WID"
  },
  "title" : ""
 }
