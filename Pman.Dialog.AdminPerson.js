@@ -528,10 +528,10 @@ Pman.Dialog.AdminPerson = {
       title : _this._strings['db6c58b8634d4607cdcb13bb181ea2ff'] /* User Sessions */,
       listeners : {
        activate : function() {
-            _this.panel = this;
+            _this.sespanel = this;
          
-            if (_this.grid) {
-                _this.grid.footer.onClick('first');
+            if (_this.sesgrid) {
+                _this.sesgrid.footer.onClick('first');
             }
         }
       },
@@ -544,7 +544,7 @@ Pman.Dialog.AdminPerson = {
        listeners : {
         render : function() 
          {
-             _this.grid = this; 
+             _this.sesgrid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
              if (_this.sespanel.active) {
                 this.footer.onClick('first');
@@ -589,7 +589,7 @@ Pman.Dialog.AdminPerson = {
                     },
                     success : function()
                     {
-                        _this.segrid.footer.onClick('refresh');
+                        _this.sesgrid.footer.onClick('refresh');
                     }
                 });
             }
