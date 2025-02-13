@@ -519,8 +519,8 @@
          "$ renderer" : "function(v) { return String.format('{0}', v); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "lo",
-         "header" : "Value",
+         "dataIndex" : "login_dt",
+         "header" : "Logged in",
          "sortable" : true,
          "width" : 200,
          "xtype" : "ColumnModel"
@@ -666,6 +666,7 @@
   "7573b7fd7836c9118dbfb69f3abf3858" : "Change / Set Password",
   "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
   "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
+  "8c5e39fcbdc7303f11a578a76e32f7f5" : "Logged in",
   "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
   "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
   "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",

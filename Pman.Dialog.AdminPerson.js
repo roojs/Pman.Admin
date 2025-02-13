@@ -24,6 +24,7 @@ Pman.Dialog.AdminPerson = {
   '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
+  '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -660,8 +661,8 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lo',
-         header : _this._strings['689202409e48743b914713f96d93947c'] /* Value */,
+         dataIndex : 'login_dt',
+         header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 200,
