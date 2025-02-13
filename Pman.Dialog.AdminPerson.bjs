@@ -414,12 +414,12 @@
        "autoExpandColumn" : "data",
        "items" : [
         {
-         "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
+         "$ sortInfo" : "{ field : 'last_access_dt', direction: 'DESC' }",
          "$ xns" : "Roo.data",
          "* prop" : "dataSource",
          "items" : [
           {
-           "$ url" : "baseURL + '/Roo/core_person_settings'",
+           "$ url" : "baseURL + '/Roo/core_person_window'",
            "$ xns" : "Roo.data",
            "* prop" : "proxy",
            "method" : "GET",
@@ -453,7 +453,7 @@
          "$ xns" : "Roo",
          "* prop" : "footer",
          "displayInfo" : true,
-         "displayMsg" : "Displaying Settings  {0} - {1} of {2}",
+         "displayMsg" : "Displaying Sessions  {0} - {1} of {2}",
          "emptyMsg" : "No Settings Found",
          "pageSize" : 25,
          "xtype" : "PagingToolbar"
@@ -642,6 +642,7 @@
  "parent" : "",
  "permname" : "",
  "strings" : {
+  "0e6c5b4e85b8cc4a30d236ebe9ccc9b8" : "Displaying Sessions  {0} - {1} of {2}",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",

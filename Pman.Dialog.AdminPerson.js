@@ -20,6 +20,7 @@ Pman.Dialog.AdminPerson = {
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   '49ee3087348e8d44e1feda1917443987' :"Name",
@@ -547,7 +548,7 @@ Pman.Dialog.AdminPerson = {
        footer : {
         xtype : 'PagingToolbar',
         displayInfo : true,
-        displayMsg : _this._strings['7e17f8478e121357b78646ca5b5d5ac9'] /* Displaying Settings  {0} - {1} of {2} */,
+        displayMsg : _this._strings['0e6c5b4e85b8cc4a30d236ebe9ccc9b8'] /* Displaying Sessions  {0} - {1} of {2} */,
         emptyMsg : _this._strings['662de0725ac8055bff7edae51fbf3c78'] /* No Settings Found */,
         pageSize : 25,
         xns : Roo,
@@ -582,7 +583,7 @@ Pman.Dialog.AdminPerson = {
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'name', direction: 'ASC' },
+        sortInfo : { field : 'last_access_dt', direction: 'DESC' },
         listeners : {
          beforeload : function (_self, o)
           {
@@ -598,7 +599,7 @@ Pman.Dialog.AdminPerson = {
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/core_person_settings',
+         url : baseURL + '/Roo/core_person_window',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
