@@ -1,0 +1,304 @@
+{
+ "gen_extended" : false,
+ "items" : [
+  {
+   "$ xns" : "Roo.panel",
+   "Boolean background" : true,
+   "Boolean fitContainer" : true,
+   "Boolean fitToFrame" : true,
+   "String region" : "center",
+   "String title" : "User Sessions",
+   "items" : [
+    {
+     "$ xns" : "Roo.grid",
+     "* prop" : "grid",
+     "autoExpandColumn" : "user_agent",
+     "items" : [
+      {
+       "$ sortInfo" : "{ field : 'last_access_dt', direction: 'DESC' }",
+       "$ xns" : "Roo.data",
+       "* prop" : "dataSource",
+       "items" : [
+        {
+         "$ url" : "baseURL + '/Roo/core_person_window'",
+         "$ xns" : "Roo.data",
+         "* prop" : "proxy",
+         "method" : "GET",
+         "xtype" : "HttpProxy"
+        },
+        {
+         "$ xns" : "Roo.data",
+         "* prop" : "reader",
+         "id" : "id",
+         "root" : "data",
+         "totalProperty" : "total",
+         "xtype" : "JsonReader"
+        }
+       ],
+       "listeners" : {
+        "beforeload" : [
+         "function (_self, o)",
+         "{",
+         "  ",
+         "    o.params = o.params ? o.params : {};",
+         "    o.params['search[name]'] =_this.searchBox.getValue();",
+         "    o.params._with_person_data  =1",
+         "   ",
+         "}"
+        ]
+       },
+       "remoteSort" : true,
+       "xtype" : "Store"
+      },
+      {
+       "$ xns" : "Roo",
+       "* prop" : "footer",
+       "displayInfo" : true,
+       "displayMsg" : "Displaying Sessions  {0} - {1} of {2}",
+       "emptyMsg" : "No Settings Found",
+       "pageSize" : 25,
+       "xtype" : "PagingToolbar"
+      },
+      {
+       "$ xns" : "Roo",
+       "* prop" : "toolbar",
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "String emptyText" : "Search for",
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.searchBox = this;",
+           "}"
+          ],
+          "specialkey" : [
+           "function (_self, e)",
+           "{",
+           "_this.sesgrid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "TextField"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-icon",
+         "listeners" : {
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "_this.sesgrid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-icon",
+         "listeners" : {
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "    _this.searchBox.setValue('');",
+           "    ",
+           "    _this.sesgrid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
+         "$ xns" : "Roo.Toolbar",
+         "xtype" : "Fill"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/trash.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-text-icon",
+         "listeners" : {
+          "|click" : [
+           "function()",
+           "{",
+           "    var s = _this.sesgrid.sm.getSelected(); ",
+           "    if (!s) {",
+           "        Roo.MessageBox.alert(\"Error\", \"Select a user to logout\");",
+           "        return;",
+           "    }",
+           "    ",
+           "    new Pman.Request({",
+           "        method : 'POST',",
+           "        url : baseURL + '/Roo/Core_person_window',",
+           "        params : {",
+           "            status : 'KILL',",
+           "            person_id : s.data.person_id",
+           "        },",
+           "        success : function()",
+           "        {",
+           "            _this.sesgrid.footer.onClick('refresh');",
+           "        }",
+           "    });",
+           "}",
+           ""
+          ]
+         },
+         "text" : "Force Logout of User",
+         "xtype" : "Button"
+        }
+       ],
+       "xtype" : "Toolbar"
+      },
+      {
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "app_id",
+       "header" : "Application",
+       "sortable" : true,
+       "width" : 120,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "ip",
+       "header" : "IP Address",
+       "sortable" : true,
+       "width" : 80,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : [
+        "function(v,x,r) { ",
+        "",
+        "    return String.format('{0} - <u style=\"color:blue\">{1}</u>', v,r.data.person_id_email); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "person_id_name",
+       "header" : "Who",
+       "sortable" : true,
+       "width" : 200,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : [
+        "function(v) { ",
+        "    return String.format('{0}', v ? v.format(\"d/M H:i\")  : ''); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "login_dt",
+       "header" : "Logged in",
+       "sortable" : true,
+       "width" : 80,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : [
+        "function(v) { ",
+        "    return String.format('{0}', v ? v.format(\"d/M H:i\")  : ''); ",
+        "}"
+       ],
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "last_access_dt",
+       "header" : "Last Access",
+       "sortable" : true,
+       "width" : 80,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "status",
+       "header" : "Status",
+       "sortable" : true,
+       "width" : 40,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "window_id",
+       "header" : "Session WID",
+       "sortable" : true,
+       "width" : 80,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "user_agent",
+       "header" : "Browser",
+       "sortable" : true,
+       "width" : 150,
+       "xtype" : "ColumnModel"
+      },
+      {
+       "$ xns" : "Roo.grid",
+       "* prop" : "sm",
+       "Boolean singleSelect" : true,
+       "xtype" : "RowSelectionModel"
+      }
+     ],
+     "listeners" : {
+      "|render" : [
+       "function() ",
+       "{",
+       "    _this.sesgrid = this; ",
+       "    //_this.dialog = Pman.Dialog.FILL_IN",
+       "    if (_this.sespanel.active) {",
+       "       this.footer.onClick('first');",
+       "    }",
+       "}"
+      ]
+     },
+     "loadMask" : true,
+     "xtype" : "Grid"
+    }
+   ],
+   "listeners" : {
+    "activate" : [
+     "function (_self)",
+     "{",
+     "    _this.sespanel = this;",
+     "     if (_this.sesgrid) {",
+     "        _this.sesgrid.footer.onClick('first');",
+     "    }",
+     "}"
+    ]
+   },
+   "xtype" : "Grid"
+  }
+ ],
+ "modOrder" : "800",
+ "name" : "Pman.Tab.AdminSession",
+ "parent" : "Pman.Tab.AdminLogs",
+ "permname" : "Admin.Logs",
+ "strings" : {
+  "0e6c5b4e85b8cc4a30d236ebe9ccc9b8" : "Displaying Sessions  {0} - {1} of {2}",
+  "4ee972120bcda675f75222c87cb9d356" : "Who",
+  "5b8c99dad1893a85076709b2d3c2d2d0" : "IP Address",
+  "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
+  "6b446bfa60f46e619a691f253177ec9a" : "Force Logout of User",
+  "8c5e39fcbdc7303f11a578a76e32f7f5" : "Logged in",
+  "91d522fe68c9ac8ac16026371421018f" : "Last Access",
+  "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
+  "e3d388b2c43e5ba0905702620ae2abc1" : "Search for",
+  "e498749f3c42246d50b15c81c101d988" : "Application",
+  "ec53a8c4f07baed5d8825072c89799be" : "Status",
+  "ef15fd2f45e6bb5ce57587895ba64f93" : "Browser",
+  "f4a52a00bee9faf2bc6183e0ac12ba12" : "Session WID"
+ },
+ "title" : "Sessions"
+}
