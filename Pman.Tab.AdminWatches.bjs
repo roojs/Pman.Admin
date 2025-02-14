@@ -148,6 +148,10 @@
          "        if (_this.requestArgs) { ",
          "            Roo.apply(options.params, _this.requestArgs);",
          "        }",
+         "    // show only active watches",
+         "    if(!_this.activeToggle.pressed) {",
+         "        options.params.active = 1;",
+         "    } ",
          "        ",
          "}"
         ]
@@ -166,12 +170,12 @@
          "$ xns" : "Roo.Toolbar",
          "Boolean enableToggle" : true,
          "Boolean pressed" : false,
-         "String text" : "Show Deleted",
+         "String text" : "Show Inactive",
          "listeners" : {
           "render" : [
            "function (_self)",
            "{",
-           "    _this.deletedToggle = this;",
+           "    _this.activeToggle = this;",
            "}"
           ],
           "toggle" : [
@@ -527,6 +531,7 @@
   "498f79c4c5bbde77f1bceb6c86fd0f6d" : "Show",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
+  "5bc3fd20294c17c9803942958fd7f26d" : "Show Inactive",
   "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   "5fb63579fc981698f97d55bfecb213ea" : "Copy",
   "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
@@ -536,7 +541,6 @@
   "b548a2ee926c118cc3211c5d8bb92a40" : "Who get's notified",
   "c122d95a9c28f9a54baef2c7784bb038" : "Watch Event",
   "c4523f19258f444b936df7f96f57c7b9" : "Watch Table",
-  "c8043f5cd3d28cb76c548338497b06ab" : "Show Deleted",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
  },

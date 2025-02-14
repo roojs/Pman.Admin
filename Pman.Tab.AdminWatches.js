@@ -10,7 +10,6 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '1a86349be7851cf03d6fe959b94ed6fb' :"Watch ID",
   '8f497c1a3d15af9e0c215019f26b887d' :"Delay",
-  'c8043f5cd3d28cb76c548338497b06ab' :"Show Deleted",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'c4523f19258f444b936df7f96f57c7b9' :"Watch Table",
   '498f79c4c5bbde77f1bceb6c86fd0f6d' :"Show",
@@ -21,6 +20,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   '5fb63579fc981698f97d55bfecb213ea' :"Copy",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
+  '5bc3fd20294c17c9803942958fd7f26d' :"Show Inactive",
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
@@ -100,11 +100,11 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
        xtype : 'Button',
        enableToggle : true,
        pressed : false,
-       text : _this._strings['c8043f5cd3d28cb76c548338497b06ab'] /* Show Deleted */,
+       text : _this._strings['5bc3fd20294c17c9803942958fd7f26d'] /* Show Inactive */,
        listeners : {
         render : function (_self)
          {
-             _this.deletedToggle = this;
+             _this.activeToggle = this;
          },
         toggle : function (_self, pressed)
          {
@@ -292,6 +292,10 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                if (_this.requestArgs) { 
                    Roo.apply(options.params, _this.requestArgs);
                }
+           // show only active watches
+           if(!_this.activeToggle.pressed) {
+               options.params.active = 1;
+           } 
                
        }
      },
