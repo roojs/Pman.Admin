@@ -109,7 +109,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
         toggle : function (_self, pressed)
          {
              (function()  { 
-                 _self.setText(!pressed ? 'Show Deleted' : 'Hide Deleted');
+                 _self.setText(!pressed ? 'Show Active' : 'Hide Active');
                  _this.grid.footer.onClick('first'); 
              }).defer(100);
           
