@@ -158,7 +158,6 @@
          "xtype" : "ComboBox"
         },
         {
-         "$ Mixed value" : "Pman.Login.window_id",
          "$ xns" : "Roo.form",
          "String name" : "window_id",
          "xtype" : "Hidden"
@@ -226,7 +225,8 @@
          "         ",
          "        this.setValues({",
          "            'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),",
-         "            'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en')",
+         "            'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en'),",
+         "            'window_id' : Pman.Login.window_id",
          "        });",
          "        ",
          "        Pman.Login.switchLang(Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, ''));",

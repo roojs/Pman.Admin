@@ -10,17 +10,25 @@ Pman.Dialog.AdminPerson = {
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
+  'e498749f3c42246d50b15c81c101d988' :"Application",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
+  'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
+  '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '3544848f820b9d94a3f3871a382cf138' :"New password",
   '689202409e48743b914713f96d93947c' :"Value",
+  'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
   '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
   'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
+  'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
+  '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
+  'ef15fd2f45e6bb5ce57587895ba64f93' :"Browser",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -28,7 +36,9 @@ Pman.Dialog.AdminPerson = {
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  '6b446bfa60f46e619a691f253177ec9a' :"Force Logout of User",
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address"
  },
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
@@ -75,13 +85,14 @@ Pman.Dialog.AdminPerson = {
     modal : true,
     resizable : false,
     title : _this._strings['2b0d7f748b64304e6657207cb03cd8f2'] /* Edit / Create Staff Details */,
-    width : 450,
+    width : 650,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
-     xtype : 'LayoutRegion',
-     xns : Roo,
-     '|xns' : 'Roo'
+     xtype : 'Region',
+     tabPosition : 'top',
+     xns : Roo.layout,
+     '|xns' : 'Roo.layout'
     },
     buttons : [
      {
@@ -140,11 +151,11 @@ Pman.Dialog.AdminPerson = {
     ],
     items  : [
      {
-      xtype : 'ContentPanel',
+      xtype : 'Content',
       region : 'center',
       title : _this._strings['a5da1d5de4f3a80e2acf5227283c630d'] /* Staff Details */,
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       items  : [
        {
         xtype : 'Form',
@@ -256,7 +267,7 @@ Pman.Dialog.AdminPerson = {
             {
                     var coid = _this.form.findField('company_id').getValue();
                     if (coid < 1 ) {
-                        Ext.MessageBox.alert("Error", "Select An Company First");
+                        Roo.MessageBox.alert("Error", "Select An Company First");
                         return false;
                     }
             }
@@ -354,7 +365,7 @@ Pman.Dialog.AdminPerson = {
       ]
      },
      {
-      xtype : 'GridPanel',
+      xtype : 'Grid',
       background : true,
       fitContainer : true,
       fitToframe : true,
@@ -369,8 +380,8 @@ Pman.Dialog.AdminPerson = {
             }
         }
       },
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       grid : {
        xtype : 'Grid',
        autoExpandColumn : 'data',
@@ -502,6 +513,195 @@ Pman.Dialog.AdminPerson = {
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
+     },
+     {
+      xtype : 'Grid',
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      title : _this._strings['db6c58b8634d4607cdcb13bb181ea2ff'] /* User Sessions */,
+      listeners : {
+       activate : function() {
+            _this.sespanel = this;
+         
+            if (_this.sesgrid) {
+                _this.sesgrid.footer.onClick('first');
+            }
+        }
+      },
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'user_agent',
+       loadMask : true,
+       listeners : {
+        render : function() 
+         {
+             _this.sesgrid = this; 
+             //_this.dialog = Pman.Dialog.FILL_IN
+             if (_this.sespanel.active) {
+                this.footer.onClick('first');
+             }
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       footer : {
+        xtype : 'PagingToolbar',
+        displayInfo : true,
+        displayMsg : _this._strings['0e6c5b4e85b8cc4a30d236ebe9ccc9b8'] /* Displaying Sessions  {0} - {1} of {2} */,
+        emptyMsg : _this._strings['662de0725ac8055bff7edae51fbf3c78'] /* No Settings Found */,
+        pageSize : 25,
+        xns : Roo,
+        '|xns' : 'Roo'
+       },
+       toolbar : {
+        xtype : 'Toolbar',
+        xns : Roo,
+        '|xns' : 'Roo',
+        items  : [
+         {
+          xtype : 'Fill',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-text-icon',
+          icon : rootURL + '/Pman/templates/images/trash.gif',
+          text : _this._strings['6b446bfa60f46e619a691f253177ec9a'] /* Force Logout of User */,
+          listeners : {
+           click : function()
+            {
+                  new Pman.Request({
+                    method : 'POST',
+                    url : baseURL + '/Roo/Core_person_window',
+                    params : {
+                        status : 'KILL',
+                        person_id : _this.data.id
+                    },
+                    success : function()
+                    {
+                        _this.sesgrid.footer.onClick('refresh');
+                    }
+                });
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         }
+        ]
+       },
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'last_access_dt', direction: 'DESC' },
+        listeners : {
+         beforeload : function (_self, o)
+          {
+            
+              o.params = o.params ? o.params : {};
+              o.params.person_id =  _this.form.findField('id').getValue();
+              
+             
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/core_person_window',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       colModel : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'app_id',
+         header : _this._strings['e498749f3c42246d50b15c81c101d988'] /* Application */,
+         sortable : true,
+         width : 120,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'ip',
+         header : _this._strings['5b8c99dad1893a85076709b2d3c2d2d0'] /* IP Address */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'login_dt',
+         header : _this._strings['8c5e39fcbdc7303f11a578a76e32f7f5'] /* Logged in */,
+         renderer : function(v) { 
+             return String.format('{0}', v ? v.format("d/M H:i")  : ''); 
+         },
+         sortable : true,
+         width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'last_access_dt',
+         header : _this._strings['91d522fe68c9ac8ac16026371421018f'] /* Last Access */,
+         renderer : function(v) { 
+             return String.format('{0}', v ? v.format("d/M H:i")  : ''); 
+         },
+         sortable : true,
+         width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'status',
+         header : _this._strings['ec53a8c4f07baed5d8825072c89799be'] /* Status */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 40,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'window_id',
+         header : _this._strings['f4a52a00bee9faf2bc6183e0ac12ba12'] /* Session WID */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 80,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'user_agent',
+         header : _this._strings['ef15fd2f45e6bb5ce57587895ba64f93'] /* Browser */,
+         renderer : function(v) { return String.format('{0}', v); },
+         sortable : true,
+         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
