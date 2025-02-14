@@ -10,6 +10,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '1a86349be7851cf03d6fe959b94ed6fb' :"Watch ID",
   '8f497c1a3d15af9e0c215019f26b887d' :"Delay",
+  'c8043f5cd3d28cb76c548338497b06ab' :"Show Deleted",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'c4523f19258f444b936df7f96f57c7b9' :"Watch Table",
   '498f79c4c5bbde77f1bceb6c86fd0f6d' :"Show",
@@ -93,7 +94,31 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      emptyMsg : _this._strings['a4e70e911022ccc98ab8055a09222cf2'] /* No core_watch found */,
      pageSize : 25,
      xns : Roo,
-     '|xns' : 'Roo'
+     '|xns' : 'Roo',
+     items  : [
+      {
+       xtype : 'Button',
+       enableToggle : true,
+       pressed : false,
+       text : _this._strings['c8043f5cd3d28cb76c548338497b06ab'] /* Show Deleted */,
+       listeners : {
+        render : function (_self)
+         {
+             _this.deletedToggle = this;
+         },
+        toggle : function (_self, pressed)
+         {
+             (function()  { 
+                 _self.setText(!pressed ? 'Show Deleted' : 'Hide Deleted');
+                 _this.grid.footer.onClick('first'); 
+             }).defer(100);
+          
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      }
+     ]
     },
     toolbar : {
      xtype : 'Toolbar',

@@ -161,6 +161,33 @@
        "displayInfo" : true,
        "displayMsg" : "Displaying core_watch{0} - {1} of {2}",
        "emptyMsg" : "No core_watch found",
+       "items" : [
+        {
+         "$ xns" : "Roo.Toolbar",
+         "Boolean enableToggle" : true,
+         "Boolean pressed" : false,
+         "String text" : "Show Deleted",
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.deletedToggle = this;",
+           "}"
+          ],
+          "toggle" : [
+           "function (_self, pressed)",
+           "{",
+           "    (function()  { ",
+           "        _self.setText(!pressed ? 'Show Deleted' : 'Hide Deleted');",
+           "        _this.grid.footer.onClick('first'); ",
+           "    }).defer(100);",
+           " ",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        }
+       ],
        "pageSize" : 25,
        "xtype" : "PagingToolbar"
       },
@@ -509,6 +536,7 @@
   "b548a2ee926c118cc3211c5d8bb92a40" : "Who get's notified",
   "c122d95a9c28f9a54baef2c7784bb038" : "Watch Event",
   "c4523f19258f444b936df7f96f57c7b9" : "Watch Table",
+  "c8043f5cd3d28cb76c548338497b06ab" : "Show Deleted",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
  },
