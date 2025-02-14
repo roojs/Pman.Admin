@@ -404,9 +404,9 @@
     },
     {
      "$ xns" : "Roo.panel",
+     "Boolean fitToFrame" : true,
      "background" : true,
      "fitContainer" : true,
-     "fitToframe" : true,
      "items" : [
       {
        "$ xns" : "Roo.grid",
@@ -595,7 +595,8 @@
        "function() {",
        "    _this.sespanel = this;",
        " ",
-       "    if (_this.sesgrid) {",
+       "   ",
+       " if (_this.sesgrid) {",
        "        _this.sesgrid.footer.onClick('first');",
        "    }",
        "}"

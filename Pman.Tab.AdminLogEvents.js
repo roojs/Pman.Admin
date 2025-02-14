@@ -94,7 +94,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
       '|xns' : 'Roo'
      },
      {
-      xtype : 'GridPanel',
+      xtype : 'Grid',
       background : false,
       fitContainer : true,
       fitToframe : true,
@@ -109,8 +109,8 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
             }
         }
       },
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       grid : {
        xtype : 'Grid',
        autoExpandColumn : 'remarks',

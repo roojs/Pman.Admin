@@ -523,14 +523,15 @@ Pman.Dialog.AdminPerson = {
       xtype : 'Grid',
       background : true,
       fitContainer : true,
-      fitToframe : true,
+      fitToFrame : true,
       region : 'center',
       title : _this._strings['db6c58b8634d4607cdcb13bb181ea2ff'] /* User Sessions */,
       listeners : {
        activate : function() {
             _this.sespanel = this;
          
-            if (_this.sesgrid) {
+           
+         if (_this.sesgrid) {
                 _this.sesgrid.footer.onClick('first');
             }
         }
