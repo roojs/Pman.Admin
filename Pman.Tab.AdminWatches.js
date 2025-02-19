@@ -20,6 +20,7 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
   '5fb63579fc981698f97d55bfecb213ea' :"Copy",
   'b548a2ee926c118cc3211c5d8bb92a40' :"Who get's notified",
   '6ceb94ff48a58bd6d612b1f031d2c2ca' :"Displaying core_watch{0} - {1} of {2}",
+  '5bc3fd20294c17c9803942958fd7f26d' :"Show Inactive",
   'c122d95a9c28f9a54baef2c7784bb038' :"Watch Event",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
@@ -93,7 +94,31 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
      emptyMsg : _this._strings['a4e70e911022ccc98ab8055a09222cf2'] /* No core_watch found */,
      pageSize : 25,
      xns : Roo,
-     '|xns' : 'Roo'
+     '|xns' : 'Roo',
+     items  : [
+      {
+       xtype : 'Button',
+       enableToggle : true,
+       pressed : false,
+       text : _this._strings['5bc3fd20294c17c9803942958fd7f26d'] /* Show Inactive */,
+       listeners : {
+        render : function (_self)
+         {
+             _this.activeToggle = this;
+         },
+        toggle : function (_self, pressed)
+         {
+             (function()  { 
+                 _self.setText(!pressed ? 'Show Inactive' : 'Hide Inctive');
+                 _this.grid.footer.onClick('first'); 
+             }).defer(100);
+          
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      }
+     ]
     },
     toolbar : {
      xtype : 'Toolbar',
@@ -267,6 +292,10 @@ Pman.Tab.AdminWatches = new Roo.XComponent({
                if (_this.requestArgs) { 
                    Roo.apply(options.params, _this.requestArgs);
                }
+           // show only active watches
+           if(!_this.activeToggle.pressed) {
+               options.params.active = 1;
+           } 
                
        }
      },

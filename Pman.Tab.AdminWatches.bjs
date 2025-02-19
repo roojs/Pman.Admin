@@ -148,6 +148,10 @@
          "        if (_this.requestArgs) { ",
          "            Roo.apply(options.params, _this.requestArgs);",
          "        }",
+         "    // show only active watches",
+         "    if(!_this.activeToggle.pressed) {",
+         "        options.params.active = 1;",
+         "    } ",
          "        ",
          "}"
         ]
@@ -161,6 +165,33 @@
        "displayInfo" : true,
        "displayMsg" : "Displaying core_watch{0} - {1} of {2}",
        "emptyMsg" : "No core_watch found",
+       "items" : [
+        {
+         "$ xns" : "Roo.Toolbar",
+         "Boolean enableToggle" : true,
+         "Boolean pressed" : false,
+         "String text" : "Show Inactive",
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.activeToggle = this;",
+           "}"
+          ],
+          "toggle" : [
+           "function (_self, pressed)",
+           "{",
+           "    (function()  { ",
+           "        _self.setText(!pressed ? 'Show Inactive' : 'Hide Inctive');",
+           "        _this.grid.footer.onClick('first'); ",
+           "    }).defer(100);",
+           " ",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        }
+       ],
        "pageSize" : 25,
        "xtype" : "PagingToolbar"
       },
@@ -500,6 +531,7 @@
   "498f79c4c5bbde77f1bceb6c86fd0f6d" : "Show",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "56abc507eda6d3226af192bf9b0e5d1f" : "What happens",
+  "5bc3fd20294c17c9803942958fd7f26d" : "Show Inactive",
   "5e97bbccf01aa772225ef15435177395" : "(function() {Roo.log('title') ;Roo.log(_this); return _this.title || \"Watches\"; })()",
   "5fb63579fc981698f97d55bfecb213ea" : "Copy",
   "6ceb94ff48a58bd6d612b1f031d2c2ca" : "Displaying core_watch{0} - {1} of {2}",
