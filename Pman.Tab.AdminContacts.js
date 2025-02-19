@@ -311,7 +311,8 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                  url : baseURL + '/Core/Auth/Switch',
                  method : 'GET',
                  params : {
-                     user_id : s[0].data.id
+                     user_id : s[0].data.id,
+                     window_id : Pman.Login.window_id
                  },
                  success : function (){
                      document.location = baseURL + '?ts=' + Math.random();
