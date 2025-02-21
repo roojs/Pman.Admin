@@ -159,7 +159,7 @@ Pman.Dialog.Login = {
                   // session expired && login as another user => reload
                   if(
                       Pman.Login.oldAuthUser && 
-                      Pman.Login.oldAuthUser.email != _this.findField('username').getValue()
+                      Pman.Login.oldAuthUser.email != this.findField('username').getValue()
                   ) {
                       window.onbeforeunload = function() { };
                       document.location = baseURL + '?ts=' + Math.random();
