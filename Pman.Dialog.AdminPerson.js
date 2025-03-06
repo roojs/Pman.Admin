@@ -772,6 +772,10 @@ Pman.Dialog.AdminPerson = {
              _this.groupGrid = this;
              
              _this.groupGrid.dataSource.load();
+         },
+        rowclass : function (gridview, rowcfg)
+         {
+         
          }
        },
        xns : Roo.grid,

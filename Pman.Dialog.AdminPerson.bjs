@@ -865,6 +865,12 @@
          "    */",
          "}"
         ],
+        "rowclass" : [
+         "function (gridview, rowcfg)",
+         "{",
+         "",
+         "}"
+        ],
         "|render" : [
          "function() ",
          "{",
