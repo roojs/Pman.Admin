@@ -825,7 +825,7 @@ Pman.Dialog.AdminPerson = {
             },
            render : function (_self)
             {
-              _this.beatfilter = _self;
+              _this.groupSearch = _self;
             }
           },
           xns : Roo.form,
