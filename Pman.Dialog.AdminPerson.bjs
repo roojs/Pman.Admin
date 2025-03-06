@@ -726,70 +726,6 @@
           {
            "$ xns" : "Roo.Toolbar",
            "xtype" : "Fill"
-          },
-          {
-           "$ xns" : "Roo.Toolbar",
-           "listeners" : {
-            "click" : [
-             "function (_self, e)",
-             "{",
-             "    ",
-             "    ",
-             "    _this.beatgrid.ds.each(function(rec) {",
-             "            rec.set('member', 0);",
-             "            rec.commit();",
-             "           ",
-             "    ",
-             "",
-             "    });",
-             "",
-             "}"
-            ]
-           },
-           "text" : "Reset",
-           "xtype" : "Button"
-          },
-          {
-           "$ xns" : "Roo.Toolbar",
-           "listeners" : {
-            "click" : [
-             "function (_self, e)",
-             "{",
-             "    ",
-             "     // determine if we need to show it..",
-             "     var val =_this.beatfilter.getValue().toLowerCase();",
-             "     var re = false;",
-             "     if (val.length) {",
-             "         re = new RegExp(val);",
-             "        ",
-             "     }",
-             "     ",
-             "    ",
-             "    ",
-             "    _this.beatgrid.ds.each(function(rec) {",
-             "        if (!re) {        ",
-             "            rec.set('member',  1);",
-             "            rec.commit();",
-             "            return;",
-             "        }",
-             "         var hg = rec.data.hgroup.toLowerCase();",
-             "         var n = rec.data.name.toLowerCase();",
-             "          if (!hg.match(re) && !n.match(re)) {",
-             "            return; // do not select it..",
-             "         }",
-             "    ",
-             "          rec.set('member',  1);",
-             "        rec.commit();",
-             "           ",
-             "    ",
-             "",
-             "    });",
-             "",
-             "}"
-            ]
-           },
-           "text" : "Select All",
-           "xtype" : "Button"
           }
          ],
          "xtype" : "Toolbar"
@@ -1027,11 +963,9 @@
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "3544848f820b9d94a3f3871a382cf138" : "New password",
-  "45e96c0a422ce8a1a6ec1bd5eb9625c6" : "Select All",
   "47acf620062218fa3d0cf65f34904ad6" : "Beats",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
-  "526d688f37a86d3c3f27d0c5016eb71d" : "Reset",
   "5b8c99dad1893a85076709b2d3c2d2d0" : "IP Address",
   "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
   "689202409e48743b914713f96d93947c" : "Value",

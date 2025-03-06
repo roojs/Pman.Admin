@@ -25,7 +25,6 @@ Pman.Dialog.AdminPerson = {
   'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
-  '526d688f37a86d3c3f27d0c5016eb71d' :"Reset",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -34,7 +33,6 @@ Pman.Dialog.AdminPerson = {
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
-  '45e96c0a422ce8a1a6ec1bd5eb9625c6' :"Select All",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
   '6b446bfa60f46e619a691f253177ec9a' :"Force Logout of User",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
@@ -850,68 +848,6 @@ Pman.Dialog.AdminPerson = {
          },
          {
           xtype : 'Fill',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Button',
-          text : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'] /* Reset */,
-          listeners : {
-           click : function (_self, e)
-            {
-                
-                
-                _this.beatgrid.ds.each(function(rec) {
-                        rec.set('member', 0);
-                        rec.commit();
-                       
-                
-            
-                });
-            
-            }
-          },
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Button',
-          text : _this._strings['45e96c0a422ce8a1a6ec1bd5eb9625c6'] /* Select All */,
-          listeners : {
-           click : function (_self, e)
-            {
-                
-                 // determine if we need to show it..
-                 var val =_this.beatfilter.getValue().toLowerCase();
-                 var re = false;
-                 if (val.length) {
-                     re = new RegExp(val);
-                    
-                 }
-                 
-                
-                
-                _this.beatgrid.ds.each(function(rec) {
-                    if (!re) {        
-                        rec.set('member',  1);
-                        rec.commit();
-                        return;
-                    }
-                     var hg = rec.data.hgroup.toLowerCase();
-                     var n = rec.data.name.toLowerCase();
-                      if (!hg.match(re) && !n.match(re)) {
-                        return; // do not select it..
-                     }
-                
-                      rec.set('member',  1);
-                    rec.commit();
-                       
-                
-            
-                });
-            
-            }
-          },
           xns : Roo.Toolbar,
           '|xns' : 'Roo.Toolbar'
          }
