@@ -11,17 +11,21 @@ Pman.Dialog.AdminPerson = {
   '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address",
   '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
   'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
+  'e0626222614bdee31951d84c64e5e9ff' :"Select",
   '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
+  'c9289663240146eaa1ec2d9838b0875a' :"News Beat",
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
   'e498749f3c42246d50b15c81c101d988' :"Application",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
+  '47acf620062218fa3d0cf65f34904ad6' :"Beats",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
+  '526d688f37a86d3c3f27d0c5016eb71d' :"Reset",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -30,6 +34,7 @@ Pman.Dialog.AdminPerson = {
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
+  '45e96c0a422ce8a1a6ec1bd5eb9625c6' :"Select All",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
   '6b446bfa60f46e619a691f253177ec9a' :"Force Logout of User",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
@@ -715,6 +720,309 @@ Pman.Dialog.AdminPerson = {
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
+     },
+     {
+      xtype : 'GridPanel',
+      background : false,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      showHide : function() {
+          _this.dialog.layout.getRegion('center').hidePanel(this);
+          var pt = _this.form.getValues().package_type;
+          if (pt != 'specialist') {
+              return;
+          }
+          _this.dialog.layout.getRegion('center').unhidePanel(this);
+          _this.beatgrid.ds.load({});
+          
+          
+      },
+      tableName : 'pressrelease_category',
+      title : _this._strings['47acf620062218fa3d0cf65f34904ad6'] /* Beats */,
+      listeners : {
+       render : function (_self)
+        {
+            _this.beatsPanel = this;
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'name',
+       loadMask : true,
+       listeners : {
+        cellclick : function (_self, ri, ci , e)
+         {
+            if (ci != 0) {return; }
+            
+             var rec = this.ds.getAt(ri);
+             rec.set('member', (rec.data.member * 1) ? 0 : 1);
+             rec.commit();
+         
+             
+             var cfg = [];
+             
+             _this.beatgrid.ds.each(function(r) {
+                 if (r.data.member*1 < 1) {
+                     return;
+                 }
+                 cfg.push(r.data.id);
+             });
+         
+             _this.form.findField('beats').setValue( cfg.join(','));
+         },
+        render : function() 
+         {
+             _this.beatgrid = this;
+         },
+        rowclass : function (gridview, rowcfg)
+         {
+              //Roo.log(rowcfg);
+              // determine if we need to show it..
+              var val=_this.beatfilter.getValue().toLowerCase();
+              rowcfg.rowClass= '';
+              if (!val.length) {
+                 return; // always show..
+              }
+              var match = false;
+              var hg = rowcfg.record.data.hgroup.toLowerCase();
+              var n = rowcfg.record.data.name.toLowerCase();     
+              var re = new RegExp(val);
+              
+              if (hg.match(re) || n.match(re)) {
+                 return; // display it..
+              }
+              //Roo.log('display none');
+              if (rowcfg.record.data.member * 1 > 0) {
+                // return;
+              }
+              rowcfg.rowClass = 'display-none';
+              
+              
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       toolbar : {
+        xtype : 'Toolbar',
+        xns : Roo,
+        '|xns' : 'Roo',
+        items  : [
+         {
+          xtype : 'TextField',
+          width : 100,
+          listeners : {
+           keyup : function (_self, e)
+            {
+                   _this.beatgrid.view.refresh(true);
+                
+            
+            },
+           render : function (_self)
+            {
+              _this.beatfilter = _self;
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-icon',
+          icon : rootURL + '/Pman/templates/images/edit-clear.gif',
+          listeners : {
+           click : function (_self, e)
+            {
+                _this.beatfilter.setValue('');
+                 _this.beatgrid.view.refresh(true);
+                
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Fill',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          text : _this._strings['526d688f37a86d3c3f27d0c5016eb71d'] /* Reset */,
+          listeners : {
+           click : function (_self, e)
+            {
+                
+                
+                _this.beatgrid.ds.each(function(rec) {
+                        rec.set('member', 0);
+                        rec.commit();
+                       
+                
+            
+                });
+            
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Button',
+          text : _this._strings['45e96c0a422ce8a1a6ec1bd5eb9625c6'] /* Select All */,
+          listeners : {
+           click : function (_self, e)
+            {
+                
+                 // determine if we need to show it..
+                 var val =_this.beatfilter.getValue().toLowerCase();
+                 var re = false;
+                 if (val.length) {
+                     re = new RegExp(val);
+                    
+                 }
+                 
+                
+                
+                _this.beatgrid.ds.each(function(rec) {
+                    if (!re) {        
+                        rec.set('member',  1);
+                        rec.commit();
+                        return;
+                    }
+                     var hg = rec.data.hgroup.toLowerCase();
+                     var n = rec.data.name.toLowerCase();
+                      if (!hg.match(re) && !n.match(re)) {
+                        return; // do not select it..
+                     }
+                
+                      rec.set('member',  1);
+                    rec.commit();
+                       
+                
+            
+                });
+            
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         }
+        ]
+       },
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'hgroup,name', direction: 'ASC' },
+        listeners : {
+         beforeload : function (_self, options)
+          {
+              options.params = options.params || {};
+              options.params.parent_id_name = 'News Beat';
+              
+              options.params['!hgroup'] = '';
+              options.params['is_journalist_db'] = 1;
+              options.params['query[with_empty_member]'] = 1; // this sets member=0 (blank list..)
+              
+              
+            
+              options.params.limit = 999;
+          },
+         load : function (_self, records, options)
+          {
+              var beatsField = _this.form.findField('beats');
+              // beat list is loaded..
+              
+              // if no beat is available => clear beats field
+              if (!records.length) {
+                 
+                  beatsField.setValue('');
+                  return;
+              }
+              
+              
+              
+             
+              var beats = beatsField.getValue();    
+          
+              if (beats.length) {
+          
+                  var crecs = beats.split(',');
+                  
+                  var avail = [];
+                  
+                  // tick the available beats 
+                  Roo.each(records, function(r) {
+                  
+                      if ( crecs.indexOf(''+r.data.id) > -1) {
+                          r.set('member', 1);
+                      }
+                      avail.push(''+r.data.id);
+                      
+                  });
+                  
+                  // remove the unavailable beats from beats field
+                  var crec_new = [];
+                  Roo.each(crecs, function(r) {
+                      if (avail.indexOf(r) > -1) {
+                          crec_new.push(r);
+                      }
+                  });
+                
+                  beatsField.setValue( crec_new.join(','));
+                  
+                  
+              }
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/pressrelease_category.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         fields : [
+         
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       colModel : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'member',
+         header : _this._strings['e0626222614bdee31951d84c64e5e9ff'] /* Select */,
+         renderer : function(v) {  
+             var state = v> 0 ?  '-checked' : '';
+         
+             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                         
+          },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'name',
+         header : _this._strings['c9289663240146eaa1ec2d9838b0875a'] /* News Beat */,
+         renderer : function(v,x,r) { return String.format('{0}', (r.data.hgroup ? r.data.hgroup + ' : ' : '') + v); },
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
