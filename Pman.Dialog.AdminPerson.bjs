@@ -889,7 +889,7 @@
      },
      "region" : "center",
      "tableName" : "core_group",
-     "title" : "Beats",
+     "title" : "Groups",
      "xtype" : "GridPanel"
     }
    ],
@@ -925,7 +925,6 @@
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "3544848f820b9d94a3f3871a382cf138" : "New password",
-  "47acf620062218fa3d0cf65f34904ad6" : "Beats",
   "49ee3087348e8d44e1feda1917443987" : "Name",
   "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "5b8c99dad1893a85076709b2d3c2d2d0" : "IP Address",
@@ -937,6 +936,7 @@
   "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
   "8c5e39fcbdc7303f11a578a76e32f7f5" : "Logged in",
   "91d522fe68c9ac8ac16026371421018f" : "Last Access",
+  "a37ede293936e29279ed543129451ec3" : "Groups",
   "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
   "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
   "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",

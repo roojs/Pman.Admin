@@ -20,11 +20,11 @@ Pman.Dialog.AdminPerson = {
   '03937134cedab9078be39a77ee3a48a0' :"Group",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
-  '47acf620062218fa3d0cf65f34904ad6' :"Beats",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
+  'a37ede293936e29279ed543129451ec3' :"Groups",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
@@ -731,7 +731,7 @@ Pman.Dialog.AdminPerson = {
       fitToframe : true,
       region : 'center',
       tableName : 'core_group',
-      title : _this._strings['47acf620062218fa3d0cf65f34904ad6'] /* Beats */,
+      title : _this._strings['a37ede293936e29279ed543129451ec3'] /* Groups */,
       listeners : {
        render : function (_self)
         {
