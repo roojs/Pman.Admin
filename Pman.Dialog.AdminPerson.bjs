@@ -1,5 +1,4 @@
 {
- "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -130,6 +129,27 @@
          "valueField" : "id",
          "width" : 250,
          "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean checked" : true,
+         "String fieldLabel" : "Secure passwords",
+         "String inputValue" : 1,
+         "String name" : "secure_password",
+         "String valueOff" : 0,
+         "listeners" : {
+          "check" : [
+           "function (_self, checked)",
+           "{",
+           "    this.form.findField('passwd1').insecure = false;",
+           "        ",
+           "    if(!checked){",
+           "        this.form.findField('passwd1').insecure = true;",
+           "    }",
+           "}"
+          ]
+         },
+         "xtype" : "Checkbox"
         },
         {
          "$ xns" : "Roo.form",
@@ -686,6 +706,7 @@
   "secure_password_fieldLabel" : "abb1d799e06329cb0c38276ea918300b"
  },
  "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminPerson.bjs",
  "permname" : "",
  "strings" : {
   "0e6c5b4e85b8cc4a30d236ebe9ccc9b8" : "Displaying Sessions  {0} - {1} of {2}",

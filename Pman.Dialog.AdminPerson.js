@@ -8,8 +8,8 @@ Pman.Dialog.AdminPerson = {
 
  _strings : {
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
-  '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
+  '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   'e498749f3c42246d50b15c81c101d988' :"Application",
   '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
   'ec53a8c4f07baed5d8825072c89799be' :"Status",
@@ -304,6 +304,26 @@ Pman.Dialog.AdminPerson = {
             '|xns' : 'Roo.data'
            }
           }
+         },
+         {
+          xtype : 'Checkbox',
+          checked : true,
+          fieldLabel : _this._strings['abb1d799e06329cb0c38276ea918300b'] /* Secure passwords */,
+          inputValue : 1,
+          name : 'secure_password',
+          valueOff : 0,
+          listeners : {
+           check : function (_self, checked)
+            {
+                this.form.findField('passwd1').insecure = false;
+                    
+                if(!checked){
+                    this.form.findField('passwd1').insecure = true;
+                }
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',
