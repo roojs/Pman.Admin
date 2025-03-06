@@ -800,7 +800,7 @@
          "* prop" : "dataSource",
          "items" : [
           {
-           "$ url" : "baseURL + '/Roo/pressrelease_category.php'",
+           "$ url" : "baseURL + '/Roo/core_group.php'",
            "$ xns" : "Roo.data",
            "* prop" : "proxy",
            "method" : "GET",
