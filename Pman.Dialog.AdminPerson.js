@@ -742,7 +742,7 @@ Pman.Dialog.AdminPerson = {
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'display_name',
+       autoExpandColumn : 'name',
        loadMask : true,
        listeners : {
         cellclick : function (_self, ri, ci , e)
@@ -824,7 +824,7 @@ Pman.Dialog.AdminPerson = {
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'display_name', direction: 'ASC' },
+        sortInfo : { field : 'name', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {
@@ -918,7 +918,7 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'display_name',
+         dataIndex : 'name',
          header : _this._strings['03937134cedab9078be39a77ee3a48a0'] /* Group */,
          renderer : function(v,x,r) { return String.format('{0}', v ? v : ''); },
          xns : Roo.grid,

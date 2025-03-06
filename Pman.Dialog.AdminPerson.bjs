@@ -680,7 +680,7 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "grid",
-       "autoExpandColumn" : "display_name",
+       "autoExpandColumn" : "name",
        "items" : [
         {
          "$ xns" : "Roo",
@@ -731,7 +731,7 @@
          "xtype" : "Toolbar"
         },
         {
-         "$ sortInfo" : "{ field : 'display_name', direction: 'ASC' }",
+         "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
          "$ xns" : "Roo.data",
          "* prop" : "dataSource",
          "items" : [
@@ -838,7 +838,7 @@
          "$ renderer" : "function(v,x,r) { return String.format('{0}', v ? v : ''); }",
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "display_name",
+         "dataIndex" : "name",
          "header" : "Group",
          "xtype" : "ColumnModel"
         }
