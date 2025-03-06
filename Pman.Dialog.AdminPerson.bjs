@@ -692,9 +692,7 @@
             "keyup" : [
              "function (_self, e)",
              "{",
-             "       _this.groupGrid.view.refresh(true);",
-             "    ",
-             "",
+             "    _this.groupGrid.view.refresh(true);",
              "}"
             ],
             "render" : [
@@ -717,8 +715,6 @@
              "{",
              "    _this.groupSearch.setValue('');",
              "    _this.groupGrid.view.refresh(true);",
-             "     ",
-             "    ",
              "}"
             ]
            },

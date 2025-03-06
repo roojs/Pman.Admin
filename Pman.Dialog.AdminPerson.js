@@ -787,9 +787,7 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            keyup : function (_self, e)
             {
-                   _this.groupGrid.view.refresh(true);
-                
-            
+                _this.groupGrid.view.refresh(true);
             },
            render : function (_self)
             {
@@ -808,8 +806,6 @@ Pman.Dialog.AdminPerson = {
             {
                 _this.groupSearch.setValue('');
                 _this.groupGrid.view.refresh(true);
-                 
-                
             }
           },
           xns : Roo.Toolbar,
