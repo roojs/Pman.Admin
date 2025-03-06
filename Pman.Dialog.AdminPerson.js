@@ -770,6 +770,8 @@ Pman.Dialog.AdminPerson = {
         render : function() 
          {
              _this.groupGrid = this;
+             
+             _this.groupGrid.dataSource.load();
          }
        },
        xns : Roo.grid,
