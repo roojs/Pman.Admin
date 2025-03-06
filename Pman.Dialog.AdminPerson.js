@@ -920,7 +920,7 @@ Pman.Dialog.AdminPerson = {
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'hgroup,name', direction: 'ASC' },
+        sortInfo : { field : 'display_name', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, options)
           {

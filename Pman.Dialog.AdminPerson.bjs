@@ -795,7 +795,7 @@
          "xtype" : "Toolbar"
         },
         {
-         "$ sortInfo" : "{ field : 'hgroup,name', direction: 'ASC' }",
+         "$ sortInfo" : "{ field : 'display_name', direction: 'ASC' }",
          "$ xns" : "Roo.data",
          "* prop" : "dataSource",
          "items" : [
