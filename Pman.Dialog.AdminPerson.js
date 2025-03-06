@@ -7,38 +7,47 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminPerson = {
 
  _strings : {
-  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
-  '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
-  'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
-  'e498749f3c42246d50b15c81c101d988' :"Application",
-  '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
-  'ec53a8c4f07baed5d8825072c89799be' :"Status",
-  '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
-  '91d522fe68c9ac8ac16026371421018f' :"Last Access",
-  'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
-  '1243daf593fa297e07ab03bf06d925af' :"Searching...",
-  '3544848f820b9d94a3f3871a382cf138' :"New password",
-  '689202409e48743b914713f96d93947c' :"Value",
-  'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
-  '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
-  'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
-  '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
-  'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
-  'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
-  'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
-  '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
-  'ef15fd2f45e6bb5ce57587895ba64f93' :"Browser",
-  '49ee3087348e8d44e1feda1917443987' :"Name",
-  'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
-  'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
-  '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
+  '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address",
+  '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
+  '231bc72756b5e6de492aaaa1577f61b1' :"Remarks",
+  'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
+  'e0626222614bdee31951d84c64e5e9ff' :"Select",
+  '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
+  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
+  '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
+  '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
+  'e498749f3c42246d50b15c81c101d988' :"Application",
+  '03937134cedab9078be39a77ee3a48a0' :"Group",
+  '1243daf593fa297e07ab03bf06d925af' :"Searching...",
+  'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
+  '49ee3087348e8d44e1feda1917443987' :"Name",
+  'ec53a8c4f07baed5d8825072c89799be' :"Status",
+  '91d522fe68c9ac8ac16026371421018f' :"Last Access",
+  '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
+  'a37ede293936e29279ed543129451ec3' :"Groups",
+  'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
+  'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
+  '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
+  'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
+  'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
+  '4ee972120bcda675f75222c87cb9d356' :"Who",
+  'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
+  '6be4aa550791c310e098cd6c234af7d8' :"Event when",
   '6b446bfa60f46e619a691f253177ec9a' :"Force Logout of User",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
-  '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address"
+  'ef15fd2f45e6bb5ce57587895ba64f93' :"Browser",
+  '3544848f820b9d94a3f3871a382cf138' :"New password",
+  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
+  'e4709a73a287a5f033f5b1b5142cb74d' :"System Settings",
+  '004bf6c9a40003140292e97330236c53' :"Action",
+  'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
+  '689202409e48743b914713f96d93947c' :"Value",
+  '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
+  'ce0be71e33226e4c1db2bcea5959f16b' :"Log"
  },
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
@@ -50,6 +59,7 @@ Pman.Dialog.AdminPerson = {
   'passwd1_fieldLabel' : '3544848f820b9d94a3f3871a382cf138' /* New password */ ,
   'office_id_name_fieldLabel' : 'be5f40c0d2692cf4e9f8be8d389737a5' /* Department / Office */ ,
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ ,
   'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ 
  },
@@ -178,6 +188,7 @@ Pman.Dialog.AdminPerson = {
               }
               if (action.type == 'load') {
                   _this.dialog.el.unmask();
+                  _this.groupGrid.dataSource.load();
                   return;
               }
               if (action.type =='submit') {
@@ -304,6 +315,16 @@ Pman.Dialog.AdminPerson = {
             '|xns' : 'Roo.data'
            }
           }
+         },
+         {
+          xtype : 'Checkbox',
+          checked : true,
+          fieldLabel : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
+          inputValue : 1,
+          name : 'active',
+          valueOff : 0,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',
@@ -703,6 +724,666 @@ Pman.Dialog.AdminPerson = {
          renderer : function(v) { return String.format('{0}', v); },
          sortable : true,
          width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
+     },
+     {
+      xtype : 'GridPanel',
+      background : false,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'core_group',
+      title : _this._strings['a37ede293936e29279ed543129451ec3'] /* Groups */,
+      listeners : {
+       render : function (_self)
+        {
+            _this.gruopPanel = this;
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'name',
+       loadMask : true,
+       listeners : {
+        cellclick : function (_self, ri, ci , e)
+         {
+             if (ci != 0) {return; }
+             
+             var rec = this.ds.getAt(ri);
+             
+             rec.set('is_in_group', (rec.get('is_in_group') * 1) ? 0 : 1);
+             rec.commit();
+         },
+        render : function() 
+         {
+             _this.groupGrid = this;
+         },
+        rowclass : function (gridview, rowcfg)
+         {
+             rowcfg.rowClass = '';
+             
+             var filter = _this.groupFilter.getValue().toLowerCase();
+             
+             if(!filter.length) {
+                 return; // display
+             }
+             
+             if(rowcfg.record.data.name.toLowerCase().match(new RegExp(filter))) {
+                 return; // display
+             }
+             
+             rowcfg.rowClass = 'display-none';
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       toolbar : {
+        xtype : 'Toolbar',
+        xns : Roo,
+        '|xns' : 'Roo',
+        items  : [
+         {
+          xtype : 'TextField',
+          width : 100,
+          listeners : {
+           keyup : function (_self, e)
+            {
+                _this.groupGrid.view.refresh(true);
+            },
+           render : function (_self)
+            {
+              _this.groupFilter = _self;
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'Button',
+          cls : 'x-btn-icon',
+          icon : rootURL + '/Pman/templates/images/edit-clear.gif',
+          listeners : {
+           click : function (_self, e)
+            {
+                _this.groupFilter.setValue('');
+                _this.groupGrid.view.refresh(true);
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         },
+         {
+          xtype : 'Fill',
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         }
+        ]
+       },
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'name', direction: 'ASC' },
+        listeners : {
+         beforeload : function (_self, options)
+          {
+              options.params = options.params || {};
+              options.params.limit = 999;
+              options.params._is_in_group = _this.form.findField('id').getValue();
+          },
+         load : function (_self, records, options)
+          {
+              /*
+              var beatsField = _this.form.findField('beats');
+              // beat list is loaded..
+              
+              // if no beat is available => clear beats field
+              if (!records.length) {
+                 
+                  beatsField.setValue('');
+                  return;
+              }
+              
+              
+              
+             
+              var beats = beatsField.getValue();    
+          
+              if (beats.length) {
+          
+                  var crecs = beats.split(',');
+                  
+                  var avail = [];
+                  
+                  // tick the available beats 
+                  Roo.each(records, function(r) {
+                  
+                      if ( crecs.indexOf(''+r.data.id) > -1) {
+                          r.set('member', 1);
+                      }
+                      avail.push(''+r.data.id);
+                      
+                  });
+                  
+                  // remove the unavailable beats from beats field
+                  var crec_new = [];
+                  Roo.each(crecs, function(r) {
+                      if (avail.indexOf(r) > -1) {
+                          crec_new.push(r);
+                      }
+                  });
+                
+                  beatsField.setValue( crec_new.join(','));
+                  
+                  
+              }
+              */
+          },
+         update : function (_self, record, operation)
+          {
+              if (operation !=  Roo.data.Record.COMMIT) {
+                  return;
+              }
+              new Pman.Request({
+                  url: baseURL + '/Core/GroupMembers.php',
+                  params: {
+                      action : record.data.is_in_group * 1 ? 'add' : 'sub',
+                      group_id: record.data.id,
+                      user_ids : _this.form.findField('id').getValue()
+                  },  
+                  method: 'POST',  
+                  success : function(res) {
+                      _self.load();
+                  }
+              });
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/core_group.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         fields : [
+         
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       colModel : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'is_in_group',
+         header : _this._strings['e0626222614bdee31951d84c64e5e9ff'] /* Select */,
+         renderer : function(v) {  
+             var state = v> 0 ?  '-checked' : '';
+         
+             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+                         
+          },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'name',
+         header : _this._strings['03937134cedab9078be39a77ee3a48a0'] /* Group */,
+         renderer : function(v,x,r) { return String.format('{0}', v ? v : ''); },
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
+     },
+     {
+      xtype : 'GridPanel',
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'Events',
+      title : _this._strings['ce0be71e33226e4c1db2bcea5959f16b'] /* Log */,
+      listeners : {
+       activate : function() {
+            _this.logPanel = this;
+            if (_this.logGrid) {
+                _this.logGrid.ds.load({});
+            }
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'remarks',
+       loadMask : true,
+       listeners : {
+        celldblclick : function (_self, rowIndex, columnIndex, e)
+         {
+             r = _self.ds.getAt(rowIndex);
+             if(r.data.id) {
+                 window.open(baseURL + '/Admin/EventView/' + r.data.id + '.html');
+             }
+             
+         },
+        render : function() 
+         {
+             _this.logGrid = this; 
+             //_this.dialog = Pman.Dialog.FILL_IN
+             if (_this.logPanel.active) {
+                _this.logGrid.ds.load({});
+             }
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'id', direction: 'DESC' },
+        listeners : {
+         beforeload : function (_self, options)
+          {
+              options.params =     options.params || {};
+              options.params.on_table = 'core_person';
+              options.params.on_id = _this.form.findField('id').getValue() * 1;
+              if (!options.params.on_id) {
+                  return false;
+              }
+                  
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/Events.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         fields : [
+             {
+                 'name': 'id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_name',
+                 'type': 'string'
+             },
+             {
+                 'name': 'event_when',
+                 'type': 'date',
+                 'dateFormat': 'Y-m-d'
+             },
+             {
+                 'name': 'action',
+                 'type': 'string'
+             },
+             {
+                 'name': 'ipaddr',
+                 'type': 'string'
+             },
+             {
+                 'name': 'on_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'on_table',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'remarks',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_office_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_name',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_phone',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_fax',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_email',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_company_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_role',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_active',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_remarks',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_passwd',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_owner_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_lang',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_no_reset_sent',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_action_type',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_project_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_deleted_by',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_deleted_dt',
+                 'type': 'date'
+             }
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       colModel : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'event_when',
+         header : _this._strings['6be4aa550791c310e098cd6c234af7d8'] /* Event when */,
+         renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'person_id_name',
+         header : _this._strings['4ee972120bcda675f75222c87cb9d356'] /* Who */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'action',
+         header : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 100,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'remarks',
+         header : _this._strings['231bc72756b5e6de492aaaa1577f61b1'] /* Remarks */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
+     },
+     {
+      xtype : 'GridPanel',
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'Events',
+      title : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
+      listeners : {
+       activate : function() {
+            _this.actionPanel = this;
+            if (_this.actionGrid) {
+                _this.actionGrid.ds.load({});
+            }
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'remarks',
+       loadMask : true,
+       listeners : {
+        celldblclick : function (_self, rowIndex, columnIndex, e)
+         {
+             r = _self.ds.getAt(rowIndex);
+             if(r.data.id) {
+                 window.open(baseURL + '/Admin/EventView/' + r.data.id + '.html');
+             }
+             
+         },
+        render : function() 
+         {
+             _this.actionGrid = this; 
+             //_this.dialog = Pman.Dialog.FILL_IN
+             if (_this.actionPanel.active) {
+                _this.actionGrid.ds.load({});
+             }
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'id', direction: 'DESC' },
+        listeners : {
+         beforeload : function (_self, options)
+          {
+              options.params =     options.params || {};
+              options.params.person_id = _this.form.findField('id').getValue() * 1;
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/Events.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         fields : [
+             {
+                 'name': 'id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_name',
+                 'type': 'string'
+             },
+             {
+                 'name': 'event_when',
+                 'type': 'date',
+                 'dateFormat': 'Y-m-d'
+             },
+             {
+                 'name': 'action',
+                 'type': 'string'
+             },
+             {
+                 'name': 'ipaddr',
+                 'type': 'string'
+             },
+             {
+                 'name': 'on_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'on_table',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'remarks',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_office_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_name',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_phone',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_fax',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_email',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_company_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_role',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_active',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_remarks',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_passwd',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_owner_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_lang',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_no_reset_sent',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_action_type',
+                 'type': 'string'
+             },
+             {
+                 'name': 'person_id_project_id',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_deleted_by',
+                 'type': 'int'
+             },
+             {
+                 'name': 'person_id_deleted_dt',
+                 'type': 'date'
+             }
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       colModel : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'event_when',
+         header : _this._strings['6be4aa550791c310e098cd6c234af7d8'] /* Event when */,
+         renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y') : ''); },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'action',
+         header : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 100,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'remarks',
+         header : _this._strings['231bc72756b5e6de492aaaa1577f61b1'] /* Remarks */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 200,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
