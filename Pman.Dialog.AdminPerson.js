@@ -917,7 +917,7 @@ Pman.Dialog.AdminPerson = {
        colModel : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'member',
+         dataIndex : 'is_in_group',
          header : _this._strings['e0626222614bdee31951d84c64e5e9ff'] /* Select */,
          renderer : function(v) {  
              var state = v> 0 ?  '-checked' : '';

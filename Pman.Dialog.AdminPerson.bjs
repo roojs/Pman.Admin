@@ -828,7 +828,7 @@
          ],
          "$ xns" : "Roo.grid",
          "* prop" : "colModel[]",
-         "dataIndex" : "member",
+         "dataIndex" : "is_in_group",
          "header" : "Select",
          "width" : 75,
          "xtype" : "ColumnModel"
