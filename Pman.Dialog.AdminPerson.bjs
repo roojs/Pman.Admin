@@ -883,7 +883,7 @@
       "render" : [
        "function (_self)",
        "{",
-       "    _this.beatsPanel = this;",
+       "    _this.gruopPanel = this;",
        "}"
       ]
      },

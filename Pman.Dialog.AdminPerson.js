@@ -735,7 +735,7 @@ Pman.Dialog.AdminPerson = {
       listeners : {
        render : function (_self)
         {
-            _this.beatsPanel = this;
+            _this.gruopPanel = this;
         }
       },
       xns : Roo,
