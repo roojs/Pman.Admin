@@ -819,7 +819,7 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            keyup : function (_self, e)
             {
-                   _this.beatgrid.view.refresh(true);
+                   _this.groupGrid.view.refresh(true);
                 
             
             },
