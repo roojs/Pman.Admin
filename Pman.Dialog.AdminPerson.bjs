@@ -1144,9 +1144,9 @@
      "listeners" : {
       "|activate" : [
        "function() {",
-       "    _this.hpanel = this;",
-       "    if (_this.hgrid) {",
-       "        _this.hgrid.ds.load({});",
+       "    _this.logPanel = this;",
+       "    if (_this.logGrid) {",
+       "        _this.logGrid.ds.load({});",
        "    }",
        "}"
       ]

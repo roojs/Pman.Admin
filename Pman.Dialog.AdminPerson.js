@@ -960,9 +960,9 @@ Pman.Dialog.AdminPerson = {
       title : _this._strings['ce0be71e33226e4c1db2bcea5959f16b'] /* Log */,
       listeners : {
        activate : function() {
-            _this.hpanel = this;
-            if (_this.hgrid) {
-                _this.hgrid.ds.load({});
+            _this.logPanel = this;
+            if (_this.logGrid) {
+                _this.logGrid.ds.load({});
             }
         }
       },
