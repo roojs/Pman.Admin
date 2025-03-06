@@ -890,20 +890,7 @@
      "region" : "center",
      "tableName" : "core_group",
      "title" : "Beats",
-     "xtype" : "GridPanel",
-     "| showHide" : [
-      "function() {",
-      "    _this.dialog.layout.getRegion('center').hidePanel(this);",
-      "    var pt = _this.form.getValues().package_type;",
-      "    if (pt != 'specialist') {",
-      "        return;",
-      "    }",
-      "    _this.dialog.layout.getRegion('center').unhidePanel(this);",
-      "    _this.beatgrid.ds.load({});",
-      "    ",
-      "    ",
-      "}"
-     ]
+     "xtype" : "GridPanel"
     }
    ],
    "resizable" : false,

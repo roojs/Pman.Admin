@@ -730,17 +730,6 @@ Pman.Dialog.AdminPerson = {
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      showHide : function() {
-          _this.dialog.layout.getRegion('center').hidePanel(this);
-          var pt = _this.form.getValues().package_type;
-          if (pt != 'specialist') {
-              return;
-          }
-          _this.dialog.layout.getRegion('center').unhidePanel(this);
-          _this.beatgrid.ds.load({});
-          
-          
-      },
       tableName : 'core_group',
       title : _this._strings['47acf620062218fa3d0cf65f34904ad6'] /* Beats */,
       listeners : {
