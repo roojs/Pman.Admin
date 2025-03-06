@@ -1227,12 +1227,7 @@ Pman.Dialog.AdminPerson = {
          beforeload : function (_self, options)
           {
               options.params =     options.params || {};
-              options.params.on_table = 'core_person';
-              options.params.on_id = _this.form.findField('id').getValue() * 1;
-              if (!options.params.on_id) {
-                  return false;
-              }
-                  
+              options.params.person_id = _this.form.findField('id').getValue() * 1;
           }
         },
         xns : Roo.data,
