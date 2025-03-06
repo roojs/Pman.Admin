@@ -698,7 +698,7 @@
             "render" : [
              "function (_self)",
              "{",
-             "  _this.groupSearch = _self;",
+             "  _this.groupFilter = _self;",
              "}"
             ]
            },
@@ -713,7 +713,7 @@
             "|click" : [
              "function (_self, e)",
              "{",
-             "    _this.groupSearch.setValue('');",
+             "    _this.groupFilter.setValue('');",
              "    _this.groupGrid.view.refresh(true);",
              "}"
             ]
@@ -888,6 +888,8 @@
          "        // return;",
          "    }",
          "    rowcfg.rowClass = 'display-none';",
+         "    ",
+         "    var search",
          "}"
         ],
         "|render" : [

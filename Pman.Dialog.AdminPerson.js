@@ -795,6 +795,8 @@ Pman.Dialog.AdminPerson = {
                  // return;
              }
              rowcfg.rowClass = 'display-none';
+             
+             var search
          }
        },
        xns : Roo.grid,
@@ -814,7 +816,7 @@ Pman.Dialog.AdminPerson = {
             },
            render : function (_self)
             {
-              _this.groupSearch = _self;
+              _this.groupFilter = _self;
             }
           },
           xns : Roo.form,
@@ -827,7 +829,7 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            click : function (_self, e)
             {
-                _this.groupSearch.setValue('');
+                _this.groupFilter.setValue('');
                 _this.groupGrid.view.refresh(true);
             }
           },
