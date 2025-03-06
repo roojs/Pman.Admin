@@ -1020,7 +1020,7 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'name',
+         dataIndex : 'display_name',
          header : _this._strings['c9289663240146eaa1ec2d9838b0875a'] /* News Beat */,
          renderer : function(v,x,r) { return String.format('{0}', (r.data.hgroup ? r.data.hgroup + ' : ' : '') + v); },
          xns : Roo.grid,
