@@ -806,8 +806,9 @@ Pman.Dialog.AdminPerson = {
           listeners : {
            click : function (_self, e)
             {
-                _this.beatfilter.setValue('');
-                 _this.beatgrid.view.refresh(true);
+                _this.groupSearch.setValue('');
+                _this.groupGrid.view.refresh(true);
+                 
                 
             }
           },
