@@ -1187,9 +1187,9 @@ Pman.Dialog.AdminPerson = {
       title : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
       listeners : {
        activate : function() {
-            _this.hpanel = this;
-            if (_this.hgrid) {
-                _this.hgrid.ds.load({});
+            _this.actionPanel = this;
+            if (_this.actionGrid) {
+                _this.actionGrid.ds.load({});
             }
         }
       },

@@ -1370,9 +1370,9 @@
      "listeners" : {
       "|activate" : [
        "function() {",
-       "    _this.hpanel = this;",
-       "    if (_this.hgrid) {",
-       "        _this.hgrid.ds.load({});",
+       "    _this.actionPanel = this;",
+       "    if (_this.actionGrid) {",
+       "        _this.actionGrid.ds.load({});",
        "    }",
        "}"
       ]
