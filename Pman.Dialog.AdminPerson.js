@@ -929,6 +929,7 @@ Pman.Dialog.AdminPerson = {
           },
          load : function (_self, records, options)
           {
+              /*
               var beatsField = _this.form.findField('beats');
               // beat list is loaded..
               
@@ -972,6 +973,7 @@ Pman.Dialog.AdminPerson = {
                   
                   
               }
+              */
           }
         },
         xns : Roo.data,
