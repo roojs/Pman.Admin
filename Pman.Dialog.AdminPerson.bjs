@@ -865,6 +865,13 @@
          "",
          "    _this.form.findField('beats').setValue( cfg.join(','));",
          "    */",
+         "    ",
+         "    if (ci != 0) {return; }",
+         "    ",
+         "    var rec = this.ds.getAt(ri);",
+         "    ",
+         "    rec.set('is_in_group', (rec.get('is_in_group') * 1) ? 0 : 1);",
+         "    rec.commit();",
          "}"
         ],
         "rowclass" : [
