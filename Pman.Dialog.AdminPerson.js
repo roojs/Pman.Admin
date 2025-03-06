@@ -925,14 +925,6 @@ Pman.Dialog.AdminPerson = {
          beforeload : function (_self, options)
           {
               options.params = options.params || {};
-              options.params.parent_id_name = 'News Beat';
-              
-              options.params['!hgroup'] = '';
-              options.params['is_journalist_db'] = 1;
-              options.params['query[with_empty_member]'] = 1; // this sets member=0 (blank list..)
-              
-              
-            
               options.params.limit = 999;
           },
          load : function (_self, records, options)
