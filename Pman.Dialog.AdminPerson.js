@@ -741,7 +741,7 @@ Pman.Dialog.AdminPerson = {
           
           
       },
-      tableName : 'pressrelease_category',
+      tableName : 'core_group',
       title : _this._strings['47acf620062218fa3d0cf65f34904ad6'] /* Beats */,
       listeners : {
        render : function (_self)
@@ -758,6 +758,7 @@ Pman.Dialog.AdminPerson = {
        listeners : {
         cellclick : function (_self, ri, ci , e)
          {
+             /*
             if (ci != 0) {return; }
             
              var rec = this.ds.getAt(ri);
@@ -775,6 +776,7 @@ Pman.Dialog.AdminPerson = {
              });
          
              _this.form.findField('beats').setValue( cfg.join(','));
+             */
          },
         render : function() 
          {

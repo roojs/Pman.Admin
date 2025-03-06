@@ -847,6 +847,7 @@
         "cellclick" : [
          "function (_self, ri, ci , e)",
          "{",
+         "    /*",
          "   if (ci != 0) {return; }",
          "   ",
          "    var rec = this.ds.getAt(ri);",
@@ -864,6 +865,7 @@
          "    });",
          "",
          "    _this.form.findField('beats').setValue( cfg.join(','));",
+         "    */",
          "}"
         ],
         "|render" : [
@@ -886,7 +888,7 @@
       ]
      },
      "region" : "center",
-     "tableName" : "pressrelease_category",
+     "tableName" : "core_group",
      "title" : "Beats",
      "xtype" : "GridPanel",
      "| showHide" : [
