@@ -748,26 +748,6 @@ Pman.Dialog.AdminPerson = {
        listeners : {
         cellclick : function (_self, ri, ci , e)
          {
-             /*
-            if (ci != 0) {return; }
-            
-             var rec = this.ds.getAt(ri);
-             rec.set('member', (rec.data.member * 1) ? 0 : 1);
-             rec.commit();
-         
-             
-             var cfg = [];
-             
-             _this.beatgrid.ds.each(function(r) {
-                 if (r.data.member*1 < 1) {
-                     return;
-                 }
-                 cfg.push(r.data.id);
-             });
-         
-             _this.form.findField('beats').setValue( cfg.join(','));
-             */
-             
              if (ci != 0) {return; }
              
              var rec = this.ds.getAt(ri);
@@ -898,6 +878,40 @@ Pman.Dialog.AdminPerson = {
                   
               }
               */
+          },
+         update : function (_self, record, operation)
+          {
+              if (operation !=  Roo.data.Record.COMMIT) {
+                  return;
+              }
+              new Pman.Request({
+                  url: baseURL + '/Core/GroupMembers.php',
+                  params: {
+                      action : record.data.is_in_group * 1 ? 'add' : 'sub',
+                      group_id: record.data.id,
+                      user_ids : _this.form.findField('id').getValue()
+                      
+                  },  
+                  method: 'POST',  
+                  success : function(res) {
+                      
+                      var data = res.data;
+                      //refreshPager();
+                      // 
+                      // do we need to do anything??
+                      if (isFromGroup) {
+                          Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
+                      }
+                  }, 
+                  
+                  failure: function() {
+                      //Ext.get(document.body).unmask();
+                      //if (cb) {
+                      //    cb.call(false);
+                      //}
+                       
+                  }
+              });
           }
         },
         xns : Roo.data,
