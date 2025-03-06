@@ -894,22 +894,7 @@ Pman.Dialog.AdminPerson = {
                   },  
                   method: 'POST',  
                   success : function(res) {
-                      
-                      var data = res.data;
-                      //refreshPager();
-                      // 
-                      // do we need to do anything??
-                      if (isFromGroup) {
-                          Pman.Tab.AdminContacts.grid.footer.onClick('refresh');
-                      }
-                  }, 
-                  
-                  failure: function() {
-                      //Ext.get(document.body).unmask();
-                      //if (cb) {
-                      //    cb.call(false);
-                      //}
-                       
+                      _self.load();
                   }
               });
           }
