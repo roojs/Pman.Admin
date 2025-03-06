@@ -13,11 +13,11 @@ Pman.Dialog.AdminPerson = {
   'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
   'e0626222614bdee31951d84c64e5e9ff' :"Select",
   '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
-  'c9289663240146eaa1ec2d9838b0875a' :"News Beat",
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
   'e498749f3c42246d50b15c81c101d988' :"Application",
+  '03937134cedab9078be39a77ee3a48a0' :"Group",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
   '47acf620062218fa3d0cf65f34904ad6' :"Beats",
@@ -1021,8 +1021,8 @@ Pman.Dialog.AdminPerson = {
         {
          xtype : 'ColumnModel',
          dataIndex : 'display_name',
-         header : _this._strings['c9289663240146eaa1ec2d9838b0875a'] /* News Beat */,
-         renderer : function(v,x,r) { return String.format('{0}', (r.data.hgroup ? r.data.hgroup + ' : ' : '') + v); },
+         header : _this._strings['03937134cedab9078be39a77ee3a48a0'] /* Group */,
+         renderer : function(v,x,r) { return String.format('{0}', v ? v : ''); },
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
