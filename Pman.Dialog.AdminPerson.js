@@ -183,6 +183,7 @@ Pman.Dialog.AdminPerson = {
               }
               if (action.type == 'load') {
                   _this.dialog.el.unmask();
+                  _this.groupGrid.dataSource.load();
                   return;
               }
               if (action.type =='submit') {
@@ -770,8 +771,6 @@ Pman.Dialog.AdminPerson = {
         render : function() 
          {
              _this.groupGrid = this;
-             
-             _this.groupGrid.dataSource.load();
          },
         rowclass : function (gridview, rowcfg)
          {
