@@ -34,7 +34,6 @@ Pman.Dialog.AdminPerson = {
   'abb1d799e06329cb0c38276ea918300b' :"Secure passwords",
   '4ee972120bcda675f75222c87cb9d356' :"Who",
   'db6c58b8634d4607cdcb13bb181ea2ff' :"User Sessions",
-  '16d2b386b2034b9488996466aaae0b57' :"History",
   'e55f75a29310d7b60f7ac1d390c8ae42' :"Module",
   'b5a7adde1af5c87d7fd797b6245c2a39' :"Description",
   '6be4aa550791c310e098cd6c234af7d8' :"Event when",
@@ -47,7 +46,8 @@ Pman.Dialog.AdminPerson = {
   '004bf6c9a40003140292e97330236c53' :"Action",
   'be5f40c0d2692cf4e9f8be8d389737a5' :"Department / Office",
   '689202409e48743b914713f96d93947c' :"Value",
-  '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details"
+  '2b0d7f748b64304e6657207cb03cd8f2' :"Edit / Create Staff Details",
+  'ce0be71e33226e4c1db2bcea5959f16b' :"Log"
  },
  _named_strings : {
   'secure_password_fieldLabel' : 'abb1d799e06329cb0c38276ea918300b' /* Secure passwords */ ,
@@ -957,7 +957,7 @@ Pman.Dialog.AdminPerson = {
       fitToframe : true,
       region : 'center',
       tableName : 'Events',
-      title : _this._strings['16d2b386b2034b9488996466aaae0b57'] /* History */,
+      title : _this._strings['ce0be71e33226e4c1db2bcea5959f16b'] /* Log */,
       listeners : {
        activate : function() {
             _this.hpanel = this;

@@ -1153,7 +1153,7 @@
      },
      "region" : "center",
      "tableName" : "Events",
-     "title" : "History",
+     "title" : "Log",
      "xtype" : "GridPanel"
     }
    ],
@@ -1187,7 +1187,6 @@
   "03937134cedab9078be39a77ee3a48a0" : "Group",
   "0e6c5b4e85b8cc4a30d236ebe9ccc9b8" : "Displaying Sessions  {0} - {1} of {2}",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
-  "16d2b386b2034b9488996466aaae0b57" : "History",
   "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
   "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
@@ -1213,6 +1212,7 @@
   "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
   "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "ce0be71e33226e4c1db2bcea5959f16b" : "Log",
   "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
   "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
   "e0626222614bdee31951d84c64e5e9ff" : "Select",
