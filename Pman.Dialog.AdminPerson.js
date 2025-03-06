@@ -842,7 +842,7 @@ Pman.Dialog.AdminPerson = {
           {
               options.params = options.params || {};
               options.params.limit = 999;
-              options.params._is_in_group = 1;
+              options.params._is_in_group = _this.form.findField('id').getValue();
           },
          load : function (_self, records, options)
           {
