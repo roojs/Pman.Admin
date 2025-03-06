@@ -843,6 +843,7 @@ Pman.Dialog.AdminPerson = {
           {
               options.params = options.params || {};
               options.params.limit = 999;
+              options.params.is_in_group = 
           },
          load : function (_self, records, options)
           {
