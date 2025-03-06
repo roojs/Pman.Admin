@@ -133,9 +133,9 @@
         {
          "$ xns" : "Roo.form",
          "Boolean checked" : true,
-         "String fieldLabel" : "Secure passwords",
+         "String fieldLabel" : "Active",
          "String inputValue" : 1,
-         "String name" : "secure_password",
+         "String name" : "active",
          "String valueOff" : 0,
          "listeners" : {
           "check" : [
@@ -693,6 +693,7 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminPerson",
  "named_strings" : {
+  "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
   "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
   "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
   "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
@@ -715,6 +716,7 @@
   "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
   "3544848f820b9d94a3f3871a382cf138" : "New password",
   "49ee3087348e8d44e1feda1917443987" : "Name",
+  "4d3d769b812b6faa6b76e1a8abaece2d" : "Active",
   "5b8c99dad1893a85076709b2d3c2d2d0" : "IP Address",
   "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
   "689202409e48743b914713f96d93947c" : "Value",
