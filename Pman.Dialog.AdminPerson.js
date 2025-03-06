@@ -1371,15 +1371,6 @@ Pman.Dialog.AdminPerson = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'person_id_name',
-         header : _this._strings['4ee972120bcda675f75222c87cb9d356'] /* Who */,
-         renderer : function(v) { return String.format('{0}', v); },
-         width : 200,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
          dataIndex : 'action',
          header : _this._strings['004bf6c9a40003140292e97330236c53'] /* Action */,
          renderer : function(v) { return String.format('{0}', v); },
