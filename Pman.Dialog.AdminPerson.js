@@ -753,7 +753,7 @@ Pman.Dialog.AdminPerson = {
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'name',
+       autoExpandColumn : 'display_name',
        loadMask : true,
        listeners : {
         cellclick : function (_self, ri, ci , e)
@@ -778,7 +778,7 @@ Pman.Dialog.AdminPerson = {
          },
         render : function() 
          {
-             _this.beatgrid = this;
+             _this.groupGrid = this;
          },
         rowclass : function (gridview, rowcfg)
          {

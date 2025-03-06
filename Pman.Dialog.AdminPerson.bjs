@@ -680,7 +680,7 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "grid",
-       "autoExpandColumn" : "name",
+       "autoExpandColumn" : "display_name",
        "items" : [
         {
          "$ xns" : "Roo",
@@ -896,7 +896,7 @@
         "|render" : [
          "function() ",
          "{",
-         "    _this.beatgrid = this;",
+         "    _this.groupGrid = this;",
          "}"
         ]
        },
