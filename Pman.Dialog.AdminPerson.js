@@ -983,10 +983,10 @@ Pman.Dialog.AdminPerson = {
          },
         render : function() 
          {
-             _this.hgrid = this; 
+             _this.logGrid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
-             if (_this.hpanel.active) {
-                _this.hgrid.ds.load({});
+             if (_this.logPanel.active) {
+                _this.logGrid.ds.load({});
              }
          }
        },
