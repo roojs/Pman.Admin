@@ -77,7 +77,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
     },
     items  : [
      {
-      xtype : 'GridPanel',
+      xtype : 'Grid',
       background : true,
       fitContainer : true,
       fitToframe : true,
@@ -93,8 +93,8 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
             
         }
       },
-      xns : Roo,
-      '|xns' : 'Roo',
+      xns : Roo.panel,
+      '|xns' : 'Roo.panel',
       grid : {
        xtype : 'Grid',
        autoExpandColumn : 'person_id_name',

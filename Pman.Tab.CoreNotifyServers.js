@@ -174,6 +174,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
+         timeout : 12000,
          url : baseURL + '/Roo/core_notify_server',
          xns : Roo.data,
          '|xns' : 'Roo.data'

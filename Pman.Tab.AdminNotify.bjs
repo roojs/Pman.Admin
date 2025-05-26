@@ -28,7 +28,7 @@
        "xtype" : "LayoutRegion"
       },
       {
-       "$ xns" : "Roo",
+       "$ xns" : "Roo.panel",
        "bool background" : true,
        "fitContainer" : true,
        "fitToframe" : true,
@@ -711,7 +711,7 @@
        "region" : "center",
        "tableName" : "core_notify",
        "title" : "Current Notifications",
-       "xtype" : "GridPanel"
+       "xtype" : "Grid"
       },
       {
        "$ xns" : "Roo",

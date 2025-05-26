@@ -83,6 +83,7 @@
              "$ url" : "baseURL + '/Roo/core_notify_server'",
              "$ xns" : "Roo.data",
              "* prop" : "proxy",
+             "Number timeout" : 12000,
              "method" : "GET",
              "xtype" : "HttpProxy"
             },
