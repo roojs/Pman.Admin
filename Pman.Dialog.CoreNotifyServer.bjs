@@ -1,4 +1,5 @@
 {
+ "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -21,9 +22,9 @@
         {
          "$ xns" : "Roo.form",
          "allowBlank" : false,
-         "fieldLabel" : "Hostname",
+         "fieldLabel" : "Hostname (FQDN)",
          "name" : "hostname",
-         "width" : 200,
+         "width" : 380,
          "xtype" : "TextField"
         },
         {
@@ -148,7 +149,7 @@
    "modal" : true,
    "resizable" : false,
    "title" : "Add / Edit Server",
-   "width" : 500,
+   "width" : 600,
    "xtype" : "LayoutDialog"
   }
  ],
@@ -156,19 +157,18 @@
  "name" : "Pman.Dialog.CoreNotifyServer",
  "named_strings" : {
   "helo_fieldLabel" : "2059e6f007c7ec60d08be149f4196c0c",
-  "hostname_fieldLabel" : "c8f4b8c435b3d99a66e1b91bec60737c",
+  "hostname_fieldLabel" : "cf1dd00b38e7d5932e3ab7a377460dc5",
   "is_active_fieldLabel" : "e253f01e45700c07327115a5e6d677bf",
   "poolname_fieldLabel" : "7e240928383acb93e5066a6149430337"
  },
  "parent" : "",
- "path" : "/home/alan/gitlive/Pman.Admin/Pman.Dialog.CoreNotifyServer.bjs",
  "permname" : "",
  "strings" : {
   "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
   "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
   "7e240928383acb93e5066a6149430337" : "Pool Name",
-  "c8f4b8c435b3d99a66e1b91bec60737c" : "Hostname",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",
   "e253f01e45700c07327115a5e6d677bf" : "Is Active?",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },

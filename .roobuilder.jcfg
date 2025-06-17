@@ -1,6 +1,6 @@
 {
     "xtype" : "Roo",
-    "runhtml" : "<script type=\"text/javascript\" src=\"/Pman.Core/widgets/SecurePass.js\"></script>\n\n<script type=\"text/javascript\">\nbaseURL = '';\nrootURL = '';\nPman = { Dialog : {} , Tab: {} };\n</script>",
+    "runhtml" : "<script type=\"text/javascript\" src=\"/Pman.Core/widgets/SecurePass.js\"></script>\n\n<script type=\"text/javascript\">\nbaseURL = '';\nrootURL = '';\nPman = { Dialog : {} , Tab: {} };\nappNameShort = \"test\";\n</script>",
     "rootURL" : "http://localhost/",
     "base_template" : "roo.builder.html",
     "html_gen" : "",

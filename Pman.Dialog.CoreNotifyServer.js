@@ -12,11 +12,11 @@ Pman.Dialog.CoreNotifyServer = {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
   'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
-  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname",
+  'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'hostname_fieldLabel' : 'c8f4b8c435b3d99a66e1b91bec60737c' /* Hostname */ ,
+  'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
   'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'poolname_fieldLabel' : '7e240928383acb93e5066a6149430337' /* Pool Name */ ,
   'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ 
@@ -53,7 +53,7 @@ Pman.Dialog.CoreNotifyServer = {
     modal : true,
     resizable : false,
     title : _this._strings['7082f08d3a32017e44122c3c708ce06a'] /* Add / Edit Server */,
-    width : 500,
+    width : 600,
     xns : Roo,
     '|xns' : 'Roo',
     center : {
@@ -151,9 +151,9 @@ Pman.Dialog.CoreNotifyServer = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
+          fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
           name : 'hostname',
-          width : 200,
+          width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

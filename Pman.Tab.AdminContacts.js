@@ -397,7 +397,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
        listeners : {
         click : function()
          {
-              Pman.genericDelete(_this, 'Person'); 
+              Pman.genericDelete(_this, 'core_person'); 
          }
        },
        xns : Roo.Toolbar,
@@ -478,7 +478,7 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
            // only used to change active status.
            
            new Pman.Request({
-               url : baseURL + '/Roo/Person.php',
+               url : baseURL + '/Roo/core_person',
                method :'POST',
                params : {
                    id : record.data.id,
