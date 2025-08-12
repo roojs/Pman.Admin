@@ -17,9 +17,9 @@ Pman.Dialog.AdminDomain = {
  },
  _named_strings : {
   'mx_updated_fieldLabel' : '842c51ab0d597b4c7c61066fecf42b44' /* MX last updated */ ,
-  'is_ns_valid_fieldLabel' : '9cc2ca7ec6a2fbd9e6fcd460ffe8636e' /* Has NS records */ ,
   'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
-  'no_nx_dt_fieldLabel' : '3d91ccb6d9d67c975443fc1293acd44b' /* No nx record since */ 
+  'no_nx_dt_fieldLabel' : '3d91ccb6d9d67c975443fc1293acd44b' /* No nx record since */ ,
+  'is_mx_valid_fieldLabel' : '9cc2ca7ec6a2fbd9e6fcd460ffe8636e' /* Has NS records */ 
  },
 
  dialog : false,
@@ -186,7 +186,7 @@ Pman.Dialog.AdminDomain = {
          {
           xtype : 'Checkbox',
           fieldLabel : _this._strings['9cc2ca7ec6a2fbd9e6fcd460ffe8636e'] /* Has NS records */,
-          name : 'is_ns_valid',
+          name : 'is_mx_valid',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
