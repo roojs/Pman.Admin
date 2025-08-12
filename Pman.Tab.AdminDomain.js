@@ -37,7 +37,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
    title : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
    listeners : {
     activate : function() {
-         _this.match_panel = this;
+         _this.domainPanel = this;
      }
    },
    xns : Roo.panel,

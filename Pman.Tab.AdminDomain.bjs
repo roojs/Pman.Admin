@@ -174,7 +174,7 @@
    "listeners" : {
     "|activate" : [
      "function() {",
-     "    _this.match_panel = this;",
+     "    _this.domainPanel = this;",
      "}"
     ]
    },
