@@ -198,12 +198,6 @@ Pman.Dialog.AdminDomain = {
           name : 'id',
           xns : Roo.form,
           '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Hidden',
-          name : 'match_regex',
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
          }
         ]
        }

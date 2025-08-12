@@ -57,11 +57,6 @@
          "$ xns" : "Roo.form",
          "name" : "id",
          "xtype" : "Hidden"
-        },
-        {
-         "$ xns" : "Roo.form",
-         "name" : "match_regex",
-         "xtype" : "Hidden"
         }
        ],
        "listeners" : {
