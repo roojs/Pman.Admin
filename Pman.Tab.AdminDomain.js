@@ -97,13 +97,15 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        listeners : {
         click : function()
          {
-             var el = _this.match_grid.getSelections();
+             var el = _this.domainGrid.getSelections();
              
              if(el.length < 1){
                  Roo.MessageBox.alert('Error', 'Please select the match first');
                  return;
              }
+             /*
              Pman.Dialog.MailRejectMatch.show({ id: el[0].id });
+             */
          }
        },
        xns : Roo.Toolbar,
