@@ -49,12 +49,6 @@
         },
         {
          "$ xns" : "Roo.form",
-         "fieldLabel" : "Matches flagged as failed",
-         "name" : "is_failure",
-         "xtype" : "Checkbox"
-        },
-        {
-         "$ xns" : "Roo.form",
          "name" : "id",
          "xtype" : "Hidden"
         }
@@ -137,17 +131,6 @@
       "|click" : [
        "function()",
        "{",
-       "    var str = _this.form.findField('matches').getValue().trim().split(\"\\n\");",
-       "",
-       "    var r = [];",
-       "    Roo.each(str, function(v){",
-       "        if(!v){",
-       "            return;",
-       "        }",
-       "        var a = v.trim();",
-       "        r.push(a);",
-       "    });",
-       "    _this.form.findField('match_regex').setValue(r.join(\"\\n\"));",
        "    _this.dialog.el.mask(\"Saving\");",
        "    _this.form.doAction('submit');",
        "    ",
@@ -168,7 +151,6 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminDomain",
  "named_strings" : {
-  "is_failure_fieldLabel" : "20fb05af6ceff723f80826fdc916081b",
   "matches_fieldLabel" : "62903ec64f0871efe265cae3cef19190",
   "name_fieldLabel" : "d17c3b8fc5e4cddd032079b2e585cc15"
  },
@@ -176,7 +158,6 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
  "permname" : "",
  "strings" : {
-  "20fb05af6ceff723f80826fdc916081b" : "Matches flagged as failed",
   "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
   "62903ec64f0871efe265cae3cef19190" : "Match Regex (one line for one regex)",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",

@@ -80,17 +80,6 @@ Pman.Dialog.AdminDomain = {
       listeners : {
        click : function()
         {
-            var str = _this.form.findField('matches').getValue().trim().split("\n");
-        
-            var r = [];
-            Roo.each(str, function(v){
-                if(!v){
-                    return;
-                }
-                var a = v.trim();
-                r.push(a);
-            });
-            _this.form.findField('match_regex').setValue(r.join("\n"));
             _this.dialog.el.mask("Saving");
             _this.form.doAction('submit');
             
