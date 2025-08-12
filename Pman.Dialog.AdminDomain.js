@@ -12,6 +12,7 @@ Pman.Dialog.AdminDomain = {
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
+  '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '289fe65c57825256edde389f99a1f05c' :"Has MX record"
  },
@@ -64,6 +65,41 @@ Pman.Dialog.AdminDomain = {
      '|xns' : 'Roo'
     },
     buttons : [
+     {
+      xtype : 'Button',
+      text : _this._strings['81c34401de67bbc904ea581fe1922c7b'] /* Update Mx */,
+      listeners : {
+       click : function (_self, e)
+        {
+            var id = _this.form.findField("id").getValue();
+            
+            if(!(id * 1)) {
+                Roo.MessageBox.alert('Error', 'Please save first');
+                return;
+            }
+            
+            new Pman.Request({
+               url : baseURL + '/Roo/core_domain.php',
+               method : 'POST',
+               mask: "Updating",
+               params : {
+                   id : id,
+                   _update_mx : 1
+               }, 
+               success : function(res) {
+                    if(!res.data.length){
+                        return;
+                    }
+                    if(_this.data.id){
+                        _this.form.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                    }
+               }
+           });
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
+     },
      {
       xtype : 'Button',
       text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
