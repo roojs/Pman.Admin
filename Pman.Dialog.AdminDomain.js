@@ -99,16 +99,12 @@ Pman.Dialog.AdminDomain = {
         labelWidth : 180,
         method : 'POST',
         style : 'margin: 5px',
-        url : baseURL + '/Roo/Mail_reject_match.php',
+        url : baseURL + '/Roo/Core_domain.php',
         listeners : {
          actioncomplete : function (_self, action)
           {
             if (action.type == 'setdata') {
                  //_this.dialog.el.mask("Loading");
-                 
-                  if(_this.data.table == 'crm_smtp_reject_match') {
-                      _self.url = baseURL + '/Roo/crm_smtp_reject_match.php';
-                  }
                   
                  this.load({ method: 'GET', params: { '_id' : _this.data.id }});
                  return;
