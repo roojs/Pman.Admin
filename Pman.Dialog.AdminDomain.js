@@ -7,17 +7,13 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminDomain = {
 
  _strings : {
-  'd17c3b8fc5e4cddd032079b2e585cc15' :"Name (Move to this folder)",
-  '20fb05af6ceff723f80826fdc916081b' :"Matches flagged as failed",
-  '62903ec64f0871efe265cae3cef19190' :"Match Regex (one line for one regex)",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
+  'eae639a70006feff484a39363c977e24' :"Domain",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'is_failure_fieldLabel' : '20fb05af6ceff723f80826fdc916081b' /* Matches flagged as failed */ ,
-  'matches_fieldLabel' : '62903ec64f0871efe265cae3cef19190' /* Match Regex (one line for one regex) */ ,
-  'name_fieldLabel' : 'd17c3b8fc5e4cddd032079b2e585cc15' /* Name (Move to this folder) */ 
+  'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ 
  },
 
  dialog : false,
@@ -151,34 +147,9 @@ Pman.Dialog.AdminDomain = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['d17c3b8fc5e4cddd032079b2e585cc15'] /* Name (Move to this folder) */,
-          name : 'name',
+          fieldLabel : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+          name : 'domain',
           width : 250,
-          xns : Roo.form,
-          '|xns' : 'Roo.form'
-         },
-         {
-          xtype : 'Row',
-          labelAlign : 'top',
-          xns : Roo.form,
-          '|xns' : 'Roo.form',
-          items  : [
-           {
-            xtype : 'TextArea',
-            allowBlank : false,
-            fieldLabel : _this._strings['62903ec64f0871efe265cae3cef19190'] /* Match Regex (one line for one regex) */,
-            height : 180,
-            name : 'matches',
-            width : 450,
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           }
-          ]
-         },
-         {
-          xtype : 'Checkbox',
-          fieldLabel : _this._strings['20fb05af6ceff723f80826fdc916081b'] /* Matches flagged as failed */,
-          name : 'is_failure',
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

@@ -27,25 +27,9 @@
          "$ xns" : "Roo.form",
          "Boolean allowBlank" : false,
          "Number width" : 250,
-         "String fieldLabel" : "Name (Move to this folder)",
-         "String name" : "name",
+         "String fieldLabel" : "Domain",
+         "String name" : "domain",
          "xtype" : "TextField"
-        },
-        {
-         "$ xns" : "Roo.form",
-         "items" : [
-          {
-           "$ xns" : "Roo.form",
-           "Boolean allowBlank" : false,
-           "fieldLabel" : "Match Regex (one line for one regex)",
-           "height" : 180,
-           "name" : "matches",
-           "width" : 450,
-           "xtype" : "TextArea"
-          }
-         ],
-         "labelAlign" : "top",
-         "xtype" : "Row"
         },
         {
          "$ xns" : "Roo.form",
@@ -151,18 +135,16 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminDomain",
  "named_strings" : {
-  "matches_fieldLabel" : "62903ec64f0871efe265cae3cef19190",
-  "name_fieldLabel" : "d17c3b8fc5e4cddd032079b2e585cc15"
+  "domain_fieldLabel" : "eae639a70006feff484a39363c977e24"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
  "permname" : "",
  "strings" : {
   "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
-  "62903ec64f0871efe265cae3cef19190" : "Match Regex (one line for one regex)",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
-  "d17c3b8fc5e4cddd032079b2e585cc15" : "Name (Move to this folder)",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "eae639a70006feff484a39363c977e24" : "Domain"
  },
  "title" : ""
 }
