@@ -18,6 +18,60 @@
        "items" : [
         {
          "$ xns" : "Roo.Toolbar",
+         "text" : "Search",
+         "xtype" : "TextItem"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.searchBox = _self;",
+           "}"
+          ],
+          "specialkey" : [
+           "function (_self, e)",
+           "{",
+           "  if (e.getKey() == 13) {",
+           "    _this.grid.footer.onClick('first');",
+           "  }",
+           "}"
+          ]
+         },
+         "xtype" : "TextField"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-icon",
+         "listeners" : {
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "_this.grid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
+         "$ icon" : "rootURL + '/Pman/templates/images/edit-clear.gif'",
+         "$ xns" : "Roo.Toolbar",
+         "cls" : "x-btn-icon",
+         "listeners" : {
+          "|click" : [
+           "function (_self, e)",
+           "{",
+           "    _this.searchBox.setValue('');",
+           "    _this.grid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "xtype" : "Button"
+        },
+        {
+         "$ xns" : "Roo.Toolbar",
          "listeners" : {
           "|click" : [
            "function()",
@@ -174,6 +228,7 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminDomain.bjs",
  "permname" : "",
  "strings" : {
+  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "eae639a70006feff484a39363c977e24" : "Domain",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",

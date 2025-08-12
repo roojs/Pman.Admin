@@ -8,6 +8,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
 
  _strings : {
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete"
@@ -74,6 +75,56 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      xns : Roo,
      '|xns' : 'Roo',
      items  : [
+      {
+       xtype : 'TextItem',
+       text : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'TextField',
+       listeners : {
+        render : function (_self)
+         {
+             _this.searchBox = _self;
+         },
+        specialkey : function (_self, e)
+         {
+           if (e.getKey() == 13) {
+             _this.grid.footer.onClick('first');
+           }
+         }
+       },
+       xns : Roo.form,
+       '|xns' : 'Roo.form'
+      },
+      {
+       xtype : 'Button',
+       cls : 'x-btn-icon',
+       icon : rootURL + '/Pman/templates/images/search.gif',
+       listeners : {
+        click : function (_self, e)
+         {
+         _this.grid.footer.onClick('first');
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
+       cls : 'x-btn-icon',
+       icon : rootURL + '/Pman/templates/images/edit-clear.gif',
+       listeners : {
+        click : function (_self, e)
+         {
+             _this.searchBox.setValue('');
+             _this.grid.footer.onClick('first');
+         }
+       },
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar'
+      },
       {
        xtype : 'Button',
        text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
