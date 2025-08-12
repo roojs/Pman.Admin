@@ -7,17 +7,17 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminDomain = {
 
  _strings : {
+  '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save",
-  'd1eb30ba40d7253f19ea8ce00ba9cfb1' :"No ns records since",
-  'd271991130d7ebd6f189adcfcb893d75' :"NS last updated"
+  '3d91ccb6d9d67c975443fc1293acd44b' :"No nx record since",
+  'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
+  'mx_updated_fieldLabel' : '842c51ab0d597b4c7c61066fecf42b44' /* MX last updated */ ,
   'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
-  'no_ns_dt_fieldLabel' : 'd1eb30ba40d7253f19ea8ce00ba9cfb1' /* No ns records since */ ,
-  'ns_updated_fieldLabel' : 'd271991130d7ebd6f189adcfcb893d75' /* NS last updated */ 
+  'no_nx_dt_fieldLabel' : '3d91ccb6d9d67c975443fc1293acd44b' /* No nx record since */ 
  },
 
  dialog : false,
@@ -151,8 +151,8 @@ Pman.Dialog.AdminDomain = {
          },
          {
           xtype : 'DisplayField',
-          fieldLabel : _this._strings['d1eb30ba40d7253f19ea8ce00ba9cfb1'] /* No ns records since */,
-          name : 'no_ns_dt',
+          fieldLabel : _this._strings['3d91ccb6d9d67c975443fc1293acd44b'] /* No nx record since */,
+          name : 'no_nx_dt',
           valueRenderer : function()
           {
               if(!_this.form) {
@@ -175,8 +175,8 @@ Pman.Dialog.AdminDomain = {
          },
          {
           xtype : 'DisplayField',
-          fieldLabel : _this._strings['d271991130d7ebd6f189adcfcb893d75'] /* NS last updated */,
-          name : 'ns_updated',
+          fieldLabel : _this._strings['842c51ab0d597b4c7c61066fecf42b44'] /* MX last updated */,
+          name : 'mx_updated',
           width : 900,
           xns : Roo.form,
           '|xns' : 'Roo.form'
