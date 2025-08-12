@@ -5,7 +5,7 @@
    "background" : true,
    "closable" : false,
    "collapsible" : false,
-   "height" : 200,
+   "height" : 175,
    "items" : [
     {
      "$ xns" : "Roo",
