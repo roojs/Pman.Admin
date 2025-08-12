@@ -49,8 +49,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     listeners : {
      render : function() 
       {
-          _this.match_grid = this; 
-          if (_this.match_panel.active) {
+          _this.domainGrid = this; 
+          if (_this.domainPanel.active) {
              this.footer.onClick('first');
           }
       },
