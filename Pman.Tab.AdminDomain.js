@@ -139,7 +139,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      proxy : {
       xtype : 'HttpProxy',
       method : 'GET',
-      url : baseURL + '/Roo/Mail_reject_match.php',
+      url : baseURL + '/Roo/Core_domain.php',
       xns : Roo.data,
       '|xns' : 'Roo.data'
      },

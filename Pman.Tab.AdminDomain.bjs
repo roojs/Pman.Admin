@@ -81,7 +81,7 @@
        "* prop" : "dataSource",
        "items" : [
         {
-         "$ url" : "baseURL + '/Roo/Mail_reject_match.php'",
+         "$ url" : "baseURL + '/Roo/Core_domain.php'",
          "$ xns" : "Roo.data",
          "* prop" : "proxy",
          "method" : "GET",
