@@ -8,7 +8,6 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
 
  _strings : {
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
-  '86f600672d32a7be1dd6cb035ac61577' :"Regex",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete"
@@ -173,22 +172,6 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
       width : 200,
-      xns : Roo.grid,
-      '|xns' : 'Roo.grid'
-     },
-     {
-      xtype : 'ColumnModel',
-      dataIndex : 'match_regex',
-      header : _this._strings['86f600672d32a7be1dd6cb035ac61577'] /* Regex */,
-      renderer : function(v) { 
-          var ar = v.split("\n");
-          if (ar.length > 5) {
-              ar = ar.slice(0,5);
-              ar.push("....");
-          }
-          return ar.join("<br>");
-      },
-      sortable : true,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      }

@@ -130,24 +130,6 @@
        "sortable" : true,
        "width" : 200,
        "xtype" : "ColumnModel"
-      },
-      {
-       "$ renderer" : [
-        "function(v) { ",
-        "    var ar = v.split(\"\\n\");",
-        "    if (ar.length > 5) {",
-        "        ar = ar.slice(0,5);",
-        "        ar.push(\"....\");",
-        "    }",
-        "    return ar.join(\"<br>\");",
-        "}"
-       ],
-       "$ xns" : "Roo.grid",
-       "* prop" : "colModel[]",
-       "dataIndex" : "match_regex",
-       "header" : "Regex",
-       "sortable" : true,
-       "xtype" : "ColumnModel"
       }
      ],
      "listeners" : {
@@ -197,7 +179,6 @@
  "permname" : "",
  "strings" : {
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
-  "86f600672d32a7be1dd6cb035ac61577" : "Regex",
   "eae639a70006feff484a39363c977e24" : "Domain",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"
