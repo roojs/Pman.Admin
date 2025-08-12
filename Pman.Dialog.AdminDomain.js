@@ -110,10 +110,6 @@ Pman.Dialog.AdminDomain = {
                  return;
               }
               if (action.type == 'load') {
-                  Roo.log(action);
-                  var str = action.result.data.match_regex.replace(/\|/g,"\n");
-                  
-                  _this.form.findField('matches').setValue(str);
                   _this.dialog.el.unmask();
                   return;
               }
