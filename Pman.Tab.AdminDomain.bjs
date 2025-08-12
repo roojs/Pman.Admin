@@ -22,9 +22,7 @@
           "|click" : [
            "function()",
            "{",
-           "    /*",
-           "    Pman.Dialog.MailRejectMatch.show({ id:0 });",
-           "    */",
+           "    Pman.Dialog.AdminDomain.show({ id:0 });",
            "}",
            "        "
           ]
