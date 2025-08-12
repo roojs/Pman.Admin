@@ -105,7 +105,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        listeners : {
         click : function (_self, e)
          {
-         _this.grid.footer.onClick('first');
+         _this.domainGrid.footer.onClick('first');
          }
        },
        xns : Roo.Toolbar,

@@ -49,7 +49,7 @@
           "|click" : [
            "function (_self, e)",
            "{",
-           "_this.grid.footer.onClick('first');",
+           "_this.domainGrid.footer.onClick('first');",
            "}"
           ]
          },
