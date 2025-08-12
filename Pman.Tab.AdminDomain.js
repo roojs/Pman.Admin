@@ -179,6 +179,13 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      xtype : 'Store',
      remoteSort : true,
      sortInfo : { field : 'domain', direction: 'ASC' },
+     listeners : {
+      beforeload : function (_self, options)
+       {
+           options.params = options.params || {};
+           options.params['query[domain]'] = _this.searchBox.getValue();
+       }
+     },
      xns : Roo.data,
      '|xns' : 'Roo.data',
      proxy : {

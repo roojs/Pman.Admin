@@ -116,8 +116,7 @@
            "function()",
            "{",
            "    Pman.Delete.simple(_this.domainPanel, 'core_domain');",
-           "}",
-           "        "
+           "}"
           ]
          },
          "text" : "Delete",
@@ -163,6 +162,15 @@
          "xtype" : "JsonReader"
         }
        ],
+       "listeners" : {
+        "beforeload" : [
+         "function (_self, options)",
+         "{",
+         "    options.params = options.params || {};",
+         "    options.params['query[domain]'] = _this.searchBox.getValue();",
+         "}"
+        ]
+       },
        "remoteSort" : true,
        "xtype" : "Store"
       },
