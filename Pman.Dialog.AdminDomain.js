@@ -11,11 +11,13 @@ Pman.Dialog.AdminDomain = {
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
-  'd1eb30ba40d7253f19ea8ce00ba9cfb1' :"No ns records since"
+  'd1eb30ba40d7253f19ea8ce00ba9cfb1' :"No ns records since",
+  'd271991130d7ebd6f189adcfcb893d75' :"NS last updated"
  },
  _named_strings : {
+  'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
   'no_ns_dt_fieldLabel' : 'd1eb30ba40d7253f19ea8ce00ba9cfb1' /* No ns records since */ ,
-  'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ 
+  'ns_updated_fieldLabel' : 'd271991130d7ebd6f189adcfcb893d75' /* NS last updated */ 
  },
 
  dialog : false,
@@ -167,6 +169,14 @@ Pman.Dialog.AdminDomain = {
               
               return String.format("<span style='color:red;'>{0}</span>", ret);
           },
+          width : 900,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'DisplayField',
+          fieldLabel : _this._strings['d271991130d7ebd6f189adcfcb893d75'] /* NS last updated */,
+          name : 'ns_updated',
           width : 900,
           xns : Roo.form,
           '|xns' : 'Roo.form'

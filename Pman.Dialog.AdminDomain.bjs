@@ -58,6 +58,13 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Number width" : 900,
+         "String fieldLabel" : "NS last updated",
+         "String name" : "ns_updated",
+         "xtype" : "DisplayField"
+        },
+        {
+         "$ xns" : "Roo.form",
          "name" : "id",
          "xtype" : "Hidden"
         }
@@ -153,7 +160,8 @@
  "name" : "Pman.Dialog.AdminDomain",
  "named_strings" : {
   "domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
-  "no_ns_dt_fieldLabel" : "d1eb30ba40d7253f19ea8ce00ba9cfb1"
+  "no_ns_dt_fieldLabel" : "d1eb30ba40d7253f19ea8ce00ba9cfb1",
+  "ns_updated_fieldLabel" : "d271991130d7ebd6f189adcfcb893d75"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
@@ -162,6 +170,7 @@
   "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "d1eb30ba40d7253f19ea8ce00ba9cfb1" : "No ns records since",
+  "d271991130d7ebd6f189adcfcb893d75" : "NS last updated",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "eae639a70006feff484a39363c977e24" : "Domain"
  },
