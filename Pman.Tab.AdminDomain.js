@@ -98,9 +98,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
                  Roo.MessageBox.alert('Error', 'Please select the match first');
                  return;
              }
-             /*
-             Pman.Dialog.MailRejectMatch.show({ id: el[0].id });
-             */
+             Pman.Dialog.AdminDomain.show({ id: el[0].id });
+         
          }
        },
        xns : Roo.Toolbar,
