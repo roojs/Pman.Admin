@@ -119,7 +119,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         click : function (_self, e)
          {
              _this.searchBox.setValue('');
-             _this.grid.footer.onClick('first');
+             _this.domainGrid.footer.onClick('first');
          }
        },
        xns : Roo.Toolbar,
