@@ -83,7 +83,9 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        listeners : {
         click : function()
          {
+             /*
              Pman.Dialog.MailRejectMatch.show({ id:0 });
+             */
          }
        },
        xns : Roo.Toolbar,
