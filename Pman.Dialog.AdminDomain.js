@@ -11,15 +11,15 @@ Pman.Dialog.AdminDomain = {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
-  '9cc2ca7ec6a2fbd9e6fcd460ffe8636e' :"Has NS records",
-  '3d91ccb6d9d67c975443fc1293acd44b' :"No nx record since",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  '289fe65c57825256edde389f99a1f05c' :"Has MX record"
  },
  _named_strings : {
   'mx_updated_fieldLabel' : '842c51ab0d597b4c7c61066fecf42b44' /* MX last updated */ ,
+  'no_mx_dt_fieldLabel' : 'b331a153086a91e775f24c00de1f77d9' /* No mx record since */ ,
   'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
-  'no_nx_dt_fieldLabel' : '3d91ccb6d9d67c975443fc1293acd44b' /* No nx record since */ ,
-  'is_mx_valid_fieldLabel' : '9cc2ca7ec6a2fbd9e6fcd460ffe8636e' /* Has NS records */ 
+  'is_mx_valid_fieldLabel' : '289fe65c57825256edde389f99a1f05c' /* Has MX record */ 
  },
 
  dialog : false,
@@ -153,8 +153,8 @@ Pman.Dialog.AdminDomain = {
          },
          {
           xtype : 'DisplayField',
-          fieldLabel : _this._strings['3d91ccb6d9d67c975443fc1293acd44b'] /* No nx record since */,
-          name : 'no_nx_dt',
+          fieldLabel : _this._strings['b331a153086a91e775f24c00de1f77d9'] /* No mx record since */,
+          name : 'no_mx_dt',
           valueRenderer : function()
           {
               if(!_this.form) {
@@ -185,7 +185,7 @@ Pman.Dialog.AdminDomain = {
          },
          {
           xtype : 'Checkbox',
-          fieldLabel : _this._strings['9cc2ca7ec6a2fbd9e6fcd460ffe8636e'] /* Has NS records */,
+          fieldLabel : _this._strings['289fe65c57825256edde389f99a1f05c'] /* Has MX record */,
           name : 'is_mx_valid',
           xns : Roo.form,
           '|xns' : 'Roo.form'
