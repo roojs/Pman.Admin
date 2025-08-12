@@ -91,7 +91,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         specialkey : function (_self, e)
          {
            if (e.getKey() == 13) {
-             _this.grid.footer.onClick('first');
+             _this.domainGrid.footer.onClick('first');
            }
          }
        },
