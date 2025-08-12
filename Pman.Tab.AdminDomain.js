@@ -133,7 +133,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     dataSource : {
      xtype : 'Store',
      remoteSort : true,
-     sortInfo : { field : 'name', direction: 'ASC' },
+     sortInfo : { field : 'domain', direction: 'ASC' },
      xns : Roo.data,
      '|xns' : 'Roo.data',
      proxy : {

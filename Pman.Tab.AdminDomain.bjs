@@ -76,7 +76,7 @@
        "xtype" : "Toolbar"
       },
       {
-       "$ sortInfo" : "{ field : 'name', direction: 'ASC' }",
+       "$ sortInfo" : "{ field : 'domain', direction: 'ASC' }",
        "$ xns" : "Roo.data",
        "* prop" : "dataSource",
        "items" : [
