@@ -55,11 +55,10 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      rowdblclick : function (_self, rowIndex, e)
       {
          var el = _this.domainGrid.ds.getAt(rowIndex);
-         /*
-         Pman.Dialog.MailRejectMatch.show({ id: el.id }, function() {
-              _this.match_grid.footer.onClick('first');
+      
+         Pman.Dialog.AdminDomain.show({ id: el.id }, function() {
+              _this.domainGrid.footer.onClick('first');
             });
-          */
       }
     },
     xns : Roo.grid,
