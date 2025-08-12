@@ -44,7 +44,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
    '|xns' : 'Roo.panel',
    grid : {
     xtype : 'Grid',
-    autoExpandColumn : 'match_regex',
+    autoExpandColumn : 'domain',
     loadMask : true,
     listeners : {
      render : function() 
@@ -56,10 +56,12 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       },
      rowdblclick : function (_self, rowIndex, e)
       {
-         var el = _this.match_grid.ds.getAt(rowIndex);
+         var el = _this.domainGrid.ds.getAt(rowIndex);
+         /*
          Pman.Dialog.MailRejectMatch.show({ id: el.id }, function() {
               _this.match_grid.footer.onClick('first');
             });
+          */
       }
     },
     xns : Roo.grid,
