@@ -1,9 +1,192 @@
 {
- "items" : [],
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "background" : true,
+   "closable" : false,
+   "collapsible" : false,
+   "height" : 340,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "titlebar" : false,
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "background" : true,
+     "fitToFrame" : true,
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/Mail_reject_match.php'",
+       "$ xns" : "Roo.form",
+       "Number labelWidth" : 180,
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "Boolean allowBlank" : false,
+         "Number width" : 250,
+         "String fieldLabel" : "Name (Move to this folder)",
+         "String name" : "name",
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "$ xns" : "Roo.form",
+           "Boolean allowBlank" : false,
+           "fieldLabel" : "Match Regex (one line for one regex)",
+           "height" : 180,
+           "name" : "matches",
+           "width" : 450,
+           "xtype" : "TextArea"
+          }
+         ],
+         "labelAlign" : "top",
+         "xtype" : "Row"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "fieldLabel" : "Matches flagged as failed",
+         "name" : "is_failure",
+         "xtype" : "Checkbox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "name" : "id",
+         "xtype" : "Hidden"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "name" : "match_regex",
+         "xtype" : "Hidden"
+        }
+       ],
+       "listeners" : {
+        "|actioncomplete" : [
+         "function (_self, action)",
+         "{",
+         "  if (action.type == 'setdata') {",
+         "       //_this.dialog.el.mask(\"Loading\");",
+         "       ",
+         "        if(_this.data.table == 'crm_smtp_reject_match') {",
+         "            _self.url = baseURL + '/Roo/crm_smtp_reject_match.php';",
+         "        }",
+         "        ",
+         "       this.load({ method: 'GET', params: { '_id' : _this.data.id }});",
+         "       return;",
+         "    }",
+         "    if (action.type == 'load') {",
+         "        Roo.log(action);",
+         "        var str = action.result.data.match_regex.replace(/\\|/g,\"\\n\");",
+         "        ",
+         "        _this.form.findField('matches').setValue(str);",
+         "        _this.dialog.el.unmask();",
+         "        return;",
+         "    }",
+         "    if (action.type == 'submit' ) {",
+         "        _this.dialog.el.unmask();",
+         "        _this.dialog.hide();",
+         "",
+         "        if (_this.callback) {",
+         "           _this.callback.call(_this, _this.form.getValues());",
+         "        }",
+         "        _this.form.reset();",
+         "    }",
+         "}",
+         ""
+        ],
+        "|actionfailed" : [
+         "function (_self, action)",
+         "{",
+         "    _this.dialog.el.unmask(); ",
+         "   ",
+         "}",
+         ""
+        ],
+        "|rendered" : [
+         "function (form)",
+         "{",
+         "   _this.form = form;",
+         "}"
+        ]
+       },
+       "method" : "POST",
+       "style" : "margin: 5px",
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "|click" : [
+       "function() {",
+       "    _this.form.reset();",
+       "    _this.dialog.hide();",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "|click" : [
+       "function()",
+       "{",
+       "    var str = _this.form.findField('matches').getValue().trim().split(\"\\n\");",
+       "",
+       "    var r = [];",
+       "    Roo.each(str, function(v){",
+       "        if(!v){",
+       "            return;",
+       "        }",
+       "        var a = v.trim();",
+       "        r.push(a);",
+       "    });",
+       "    _this.form.findField('match_regex').setValue(r.join(\"\\n\"));",
+       "    _this.dialog.el.mask(\"Saving\");",
+       "    _this.form.doAction('submit');",
+       "    ",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "title" : "Add / Edit Core Domain",
+   "width" : 500,
+   "xtype" : "LayoutDialog"
+  }
+ ],
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminDomain",
+ "named_strings" : {
+  "is_failure_fieldLabel" : "20fb05af6ceff723f80826fdc916081b",
+  "matches_fieldLabel" : "62903ec64f0871efe265cae3cef19190",
+  "name_fieldLabel" : "d17c3b8fc5e4cddd032079b2e585cc15"
+ },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
  "permname" : "",
+ "strings" : {
+  "20fb05af6ceff723f80826fdc916081b" : "Matches flagged as failed",
+  "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
+  "62903ec64f0871efe265cae3cef19190" : "Match Regex (one line for one regex)",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "d17c3b8fc5e4cddd032079b2e585cc15" : "Name (Move to this folder)",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+ },
  "title" : ""
 }
