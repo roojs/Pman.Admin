@@ -10,9 +10,11 @@ Pman.Dialog.AdminDomain = {
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
-  'c9cc8cce247e49bae79f15173ce97354' :"Save"
+  'c9cc8cce247e49bae79f15173ce97354' :"Save",
+  'd1eb30ba40d7253f19ea8ce00ba9cfb1' :"No ns records since"
  },
  _named_strings : {
+  'no_ns_dt_fieldLabel' : 'd1eb30ba40d7253f19ea8ce00ba9cfb1' /* No ns records since */ ,
   'domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ 
  },
 
@@ -142,6 +144,30 @@ Pman.Dialog.AdminDomain = {
           fieldLabel : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
           name : 'domain',
           width : 250,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'DisplayField',
+          fieldLabel : _this._strings['d1eb30ba40d7253f19ea8ce00ba9cfb1'] /* No ns records since */,
+          name : 'no_ns_dt',
+          valueRenderer : function()
+          {
+              if(!_this.form) {
+                  return '';
+              }
+              
+              var no_ns_dt = _this.form.findField('no_ns_dt').value;
+              
+              var ret = no_ns_dt instanceof Date ? no_ns_dt.format('Y-m-d H:i:s') : no_ns_dt;
+              
+              if(ret == '1000-01-01 00:00:00') {
+                  return 'N/A'
+              }
+              
+              return String.format("<span style='color:red;'>{0}</span>", ret);
+          },
+          width : 900,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

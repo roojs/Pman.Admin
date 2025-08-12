@@ -32,6 +32,31 @@
          "xtype" : "TextField"
         },
         {
+         "$ Function valueRenderer" : [
+          "function()",
+          "{",
+          "    if(!_this.form) {",
+          "        return '';",
+          "    }",
+          "    ",
+          "    var no_ns_dt = _this.form.findField('no_ns_dt').value;",
+          "    ",
+          "    var ret = no_ns_dt instanceof Date ? no_ns_dt.format('Y-m-d H:i:s') : no_ns_dt;",
+          "    ",
+          "    if(ret == '1000-01-01 00:00:00') {",
+          "        return 'N/A'",
+          "    }",
+          "    ",
+          "    return String.format(\"<span style='color:red;'>{0}</span>\", ret);",
+          "}"
+         ],
+         "$ xns" : "Roo.form",
+         "Number width" : 900,
+         "String fieldLabel" : "No ns records since",
+         "String name" : "no_ns_dt",
+         "xtype" : "DisplayField"
+        },
+        {
          "$ xns" : "Roo.form",
          "name" : "id",
          "xtype" : "Hidden"
@@ -127,7 +152,8 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.AdminDomain",
  "named_strings" : {
-  "domain_fieldLabel" : "eae639a70006feff484a39363c977e24"
+  "domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
+  "no_ns_dt_fieldLabel" : "d1eb30ba40d7253f19ea8ce00ba9cfb1"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
@@ -135,6 +161,7 @@
  "strings" : {
   "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "d1eb30ba40d7253f19ea8ce00ba9cfb1" : "No ns records since",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "eae639a70006feff484a39363c977e24" : "Domain"
  },
