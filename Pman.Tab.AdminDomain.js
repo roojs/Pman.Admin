@@ -122,7 +122,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        listeners : {
         click : function()
          {
-             Pman.Delete.simple(_this.match_panel, 'mail_reject_match');
+             Pman.Delete.simple(_this.domainPanel, 'core_domain');
          }
        },
        xns : Roo.Toolbar,
