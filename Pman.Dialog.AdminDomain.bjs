@@ -1,0 +1,224 @@
+{
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "background" : true,
+   "closable" : false,
+   "collapsible" : false,
+   "height" : 175,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "titlebar" : false,
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "background" : true,
+     "fitToFrame" : true,
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/Core_domain.php'",
+       "$ xns" : "Roo.form",
+       "Number labelWidth" : 180,
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "Boolean allowBlank" : false,
+         "Number width" : 250,
+         "String fieldLabel" : "Domain",
+         "String name" : "domain",
+         "xtype" : "TextField"
+        },
+        {
+         "$ Function valueRenderer" : [
+          "function()",
+          "{",
+          "    if(!_this.form) {",
+          "        return '';",
+          "    }",
+          "    ",
+          "    var no_mx_dt = _this.form.findField('no_mx_dt').value;",
+          "    ",
+          "    var ret = no_mx_dt instanceof Date ? no_mx_dt.format('Y-m-d H:i:s') : no_mx_dt;",
+          "    ",
+          "    if(ret == '1000-01-01 00:00:00') {",
+          "        return 'N/A'",
+          "    }",
+          "    ",
+          "    return String.format(\"<span style='color:red;'>{0}</span>\", ret);",
+          "}"
+         ],
+         "$ xns" : "Roo.form",
+         "Number width" : 900,
+         "String fieldLabel" : "No mx record since",
+         "String name" : "no_mx_dt",
+         "xtype" : "DisplayField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Number width" : 900,
+         "String fieldLabel" : "MX last updated",
+         "String name" : "mx_updated",
+         "xtype" : "DisplayField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "fieldLabel" : "Has MX record",
+         "name" : "is_mx_valid",
+         "xtype" : "Checkbox"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "name" : "id",
+         "xtype" : "Hidden"
+        }
+       ],
+       "listeners" : {
+        "|actioncomplete" : [
+         "function (_self, action)",
+         "{",
+         "  if (action.type == 'setdata') {",
+         "       //_this.dialog.el.mask(\"Loading\");",
+         "        ",
+         "       this.load({ method: 'GET', params: { '_id' : _this.data.id }});",
+         "       return;",
+         "    }",
+         "    if (action.type == 'load') {",
+         "        _this.dialog.el.unmask();",
+         "        return;",
+         "    }",
+         "    if (action.type == 'submit' ) {",
+         "        _this.dialog.el.unmask();",
+         "        _this.dialog.hide();",
+         "",
+         "        if (_this.callback) {",
+         "           _this.callback.call(_this, _this.form.getValues());",
+         "        }",
+         "        _this.form.reset();",
+         "    }",
+         "}",
+         ""
+        ],
+        "|actionfailed" : [
+         "function (_self, action)",
+         "{",
+         "    _this.dialog.el.unmask(); ",
+         "   ",
+         "}",
+         ""
+        ],
+        "|rendered" : [
+         "function (form)",
+         "{",
+         "   _this.form = form;",
+         "}"
+        ]
+       },
+       "method" : "POST",
+       "style" : "margin: 5px",
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "String text" : "Update Mx",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    var id = _this.form.findField(\"id\").getValue();",
+       "    ",
+       "    if(!(id * 1)) {",
+       "        Roo.MessageBox.alert('Error', 'Please save first');",
+       "        return;",
+       "    }",
+       "    ",
+       "    new Pman.Request({",
+       "       url : baseURL + '/Roo/core_domain.php',",
+       "       method : 'POST',",
+       "       mask: \"Updating\",",
+       "       params : {",
+       "           id : id,",
+       "           _update_mx : 1",
+       "       }, ",
+       "       success : function(res) {",
+       "            if(!res.data.length){",
+       "                return;",
+       "            }",
+       "            if(_this.data.id){",
+       "                _this.form.load({ method: 'GET', params: { '_id' : _this.data.id }});",
+       "            }",
+       "       }",
+       "   });",
+       "}"
+      ]
+     },
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "|click" : [
+       "function() {",
+       "    _this.form.reset();",
+       "    _this.dialog.hide();",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "|click" : [
+       "function()",
+       "{",
+       "    _this.dialog.el.mask(\"Saving\");",
+       "    _this.form.doAction('submit');",
+       "    ",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "title" : "Add / Edit Core Domain",
+   "width" : 500,
+   "xtype" : "LayoutDialog"
+  }
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.AdminDomain",
+ "named_strings" : {
+  "domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
+  "is_mx_valid_fieldLabel" : "289fe65c57825256edde389f99a1f05c",
+  "mx_updated_fieldLabel" : "842c51ab0d597b4c7c61066fecf42b44",
+  "no_mx_dt_fieldLabel" : "b331a153086a91e775f24c00de1f77d9"
+ },
+ "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminDomain.bjs",
+ "permname" : "",
+ "strings" : {
+  "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
+  "289fe65c57825256edde389f99a1f05c" : "Has MX record",
+  "81c34401de67bbc904ea581fe1922c7b" : "Update Mx",
+  "842c51ab0d597b4c7c61066fecf42b44" : "MX last updated",
+  "b331a153086a91e775f24c00de1f77d9" : "No mx record since",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "eae639a70006feff484a39363c977e24" : "Domain"
+ },
+ "title" : ""
+}
