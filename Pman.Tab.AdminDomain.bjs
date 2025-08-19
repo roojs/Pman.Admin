@@ -277,7 +277,7 @@
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "No. of references",
-       "header" : "MX Last Updated",
+       "header" : "No. of references",
        "sortable" : true,
        "width" : 120,
        "xtype" : "ColumnModel"
@@ -329,6 +329,7 @@
  "permname" : "",
  "strings" : {
   "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
+  "6aa48f150b0d29138ab848a1d4e6792c" : "No. of references",
   "79ebd90228ae192321ca47951612dea5" : "Displaying email domains {0} - {1} of {2}",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "8f00afba26677da2da0b00ec8daf22bd" : "Email Domains",

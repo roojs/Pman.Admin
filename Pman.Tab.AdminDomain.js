@@ -14,6 +14,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   '996d8bde90930fead44cf1d6989e532a' :"No email domain found",
   '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
   'eae639a70006feff484a39363c977e24' :"Domain",
+  '6aa48f150b0d29138ab848a1d4e6792c' :"No. of references",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '9732d2a193579388e6d9138368554966' :"MX Last Updated"
@@ -302,7 +303,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      {
       xtype : 'ColumnModel',
       dataIndex : 'No. of references',
-      header : _this._strings['9732d2a193579388e6d9138368554966'] /* MX Last Updated */,
+      header : _this._strings['6aa48f150b0d29138ab848a1d4e6792c'] /* No. of references */,
       renderer : function(v) {
           return String.format('{0}', v ? v.format("Y-m-d H:i:s")  : ''); 
       },
