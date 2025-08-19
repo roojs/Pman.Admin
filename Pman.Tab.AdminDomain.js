@@ -139,7 +139,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        listeners : {
         render : function (_self)
          {
-             _this.errorSel = _self;
+             _this.statusSel = _self;
          },
         select : function (combo, record, index)
          {
