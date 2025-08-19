@@ -234,7 +234,9 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'mx_updated',
       header : _this._strings['9732d2a193579388e6d9138368554966'] /* MX Last Updated */,
-      renderer : function(v) { return String.format('{0}', v); },
+      renderer : function(v) {
+          return String.format('{0}', v ? v.format("d M Y")  : ''); 
+      },
       sortable : true,
       width : 200,
       xns : Roo.grid,
