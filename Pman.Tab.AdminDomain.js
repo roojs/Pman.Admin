@@ -10,6 +10,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
@@ -35,7 +36,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
    fitToframe : true,
    region : 'center',
    tableName : 'core_domain',
-   title : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+   title : _this._strings['8f00afba26677da2da0b00ec8daf22bd'] /* Email Domains */,
    listeners : {
     activate : function() {
          _this.domainPanel = this;

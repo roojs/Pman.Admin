@@ -300,7 +300,7 @@
    },
    "region" : "center",
    "tableName" : "core_domain",
-   "title" : "Domain",
+   "title" : "Email Domains",
    "xtype" : "Grid"
   }
  ],
@@ -312,6 +312,7 @@
  "strings" : {
   "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
+  "8f00afba26677da2da0b00ec8daf22bd" : "Email Domains",
   "9732d2a193579388e6d9138368554966" : "MX Last Updated",
   "a181a603769c1f98ad927e7367c7aa51" : "all",
   "eae639a70006feff484a39363c977e24" : "Domain",
