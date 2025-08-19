@@ -305,10 +305,10 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       dataIndex : 'No. of references',
       header : _this._strings['6aa48f150b0d29138ab848a1d4e6792c'] /* No. of references */,
       renderer : function(v) {
-          return String.format('{0}', v ? v.format("Y-m-d H:i:s")  : ''); 
+          return String.format('{0}', v); 
       },
       sortable : true,
-      width : 120,
+      width : 50,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      }
