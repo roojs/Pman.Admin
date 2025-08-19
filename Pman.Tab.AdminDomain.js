@@ -269,6 +269,10 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
               r.data.mx_updated.format('Y-m-d H:i:s') !== '1000-01-01 00:00:00'
           ) {
               format = "<span style='color:red;'>{0}</span>";
+              var noMxDt = r.data.no_mx_dt.format('Y-m-d H:i:s'); 
+              if(noMxDt !== '1000-01-01 00:00:00') {
+                  format = "<span style='color:red;' qtip ='No MX since " + noMxDt + "'>{0}</span>";
+              }
           }
           return String.format(format, v);
       },
