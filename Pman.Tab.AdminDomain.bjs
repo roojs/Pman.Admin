@@ -202,7 +202,7 @@
        "dataIndex" : "mx_updated",
        "header" : "MX Last Updated",
        "sortable" : true,
-       "width" : 100,
+       "width" : 120,
        "xtype" : "ColumnModel"
       }
      ],
