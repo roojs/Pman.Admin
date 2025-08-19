@@ -10,6 +10,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  'e3a17139bb26678a324baa72b69b96d4' :"Displaying pressrelease_entry{0} - {1} of {2}",
   '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
@@ -69,6 +70,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     '|xns' : 'Roo.grid',
     footer : {
      xtype : 'PagingToolbar',
+     displayMsg : _this._strings['e3a17139bb26678a324baa72b69b96d4'] /* Displaying pressrelease_entry{0} - {1} of {2} */,
      pageSize : 50,
      xns : Roo,
      '|xns' : 'Roo'
