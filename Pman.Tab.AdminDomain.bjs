@@ -221,6 +221,7 @@
       {
        "$ xns" : "Roo",
        "* prop" : "footer",
+       "Boolean displayInfo" : true,
        "String displayMsg" : "Displaying email domains {0} - {1} of {2}",
        "String emptyMsg" : "No email domain found",
        "pageSize" : 50,

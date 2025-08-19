@@ -71,6 +71,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     '|xns' : 'Roo.grid',
     footer : {
      xtype : 'PagingToolbar',
+     displayInfo : true,
      displayMsg : _this._strings['79ebd90228ae192321ca47951612dea5'] /* Displaying email domains {0} - {1} of {2} */,
      emptyMsg : _this._strings['996d8bde90930fead44cf1d6989e532a'] /* No email domain found */,
      pageSize : 50,
