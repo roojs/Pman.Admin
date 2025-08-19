@@ -196,7 +196,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         data : [
              [ 'all', 'All' ],
              [ 'with_references', "Has References" ],
-             [ 'without_reference', "Ni References" ]
+             [ 'without_reference', "No Reference" ]
         ],
         fields : [ 'key', 'value'],
         xns : Roo.data,

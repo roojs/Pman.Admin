@@ -124,7 +124,7 @@
             "[",
             "     [ 'all', 'All' ],",
             "     [ 'with_references', \"Has References\" ],",
-            "     [ 'without_reference', \"Ni References\" ]",
+            "     [ 'without_reference', \"No Reference\" ]",
             "]"
            ],
            "$ fields" : "[ 'key', 'value']",
