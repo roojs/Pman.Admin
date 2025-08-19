@@ -1,5 +1,4 @@
 {
- "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -648,6 +647,7 @@
   "company_name_qtip" : "9675747b5ab12d05f18518761e68a533"
  },
  "parent" : "Pman.Tab.AdminContactsManager",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminContacts.bjs",
  "permname" : "Core.Person",
  "strings" : {
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
