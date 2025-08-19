@@ -11,11 +11,11 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '79ebd90228ae192321ca47951612dea5' :"Displaying email domains {0} - {1} of {2}",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  '996d8bde90930fead44cf1d6989e532a' :"No email domain found",
   '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
-  'af5f9d53f913d51041bc869fe8ac8f3f' :"No core_domain found",
   '9732d2a193579388e6d9138368554966' :"MX Last Updated"
  },
 
@@ -72,7 +72,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     footer : {
      xtype : 'PagingToolbar',
      displayMsg : _this._strings['79ebd90228ae192321ca47951612dea5'] /* Displaying email domains {0} - {1} of {2} */,
-     emptyMsg : _this._strings['af5f9d53f913d51041bc869fe8ac8f3f'] /* No core_domain found */,
+     emptyMsg : _this._strings['996d8bde90930fead44cf1d6989e532a'] /* No email domain found */,
      pageSize : 50,
      xns : Roo,
      '|xns' : 'Roo'
