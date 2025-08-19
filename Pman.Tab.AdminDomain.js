@@ -224,8 +224,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       xtype : 'ColumnModel',
       dataIndex : 'domain',
       header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
-      renderer : function(v) {
-          Roo.log(v);
+      renderer : function(v, x, r) {
+          Roo.log(r);
           return String.format('{0}', v);
       },
       sortable : true,
