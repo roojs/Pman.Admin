@@ -152,11 +152,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         xtype : 'SimpleStore',
         data : [
             
-             [ 'BEE-CRASHED', 'BEE CRASHED' ],
-             [ 'DNS-ERROR', "DNS ERROR" ],
-             [ 'REDIRECTED', "REDIRECTED" ],
-             [ 'CLOUDFLARE-ERROR', "CLOUDFLARE ERROR" ],
-             [ 'START-PAGE-FAIL', "START PAGE FAIL" ]
+             [ 'all', 'All' ],
+             [ 'invalid-mx', "Invalid MX" ]
         ],
         fields : [ 'key', 'value'],
         xns : Roo.data,
