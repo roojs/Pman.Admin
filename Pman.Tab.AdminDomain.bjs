@@ -72,7 +72,7 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Number width" : 75,
+         "Number width" : 100,
          "allowBlank" : true,
          "displayField" : "value",
          "editable" : false,

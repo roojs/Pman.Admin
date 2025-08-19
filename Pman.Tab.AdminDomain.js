@@ -136,7 +136,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        triggerAction : 'all',
        value : _this._strings['a181a603769c1f98ad927e7367c7aa51'] /* all */,
        valueField : 'key',
-       width : 75,
+       width : 100,
        listeners : {
         render : function (_self)
          {
