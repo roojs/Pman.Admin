@@ -228,6 +228,16 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
       width : 200,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
+     },
+     {
+      xtype : 'ColumnModel',
+      dataIndex : 'domain',
+      header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+      renderer : function(v) { return String.format('{0}', v); },
+      sortable : true,
+      width : 200,
+      xns : Roo.grid,
+      '|xns' : 'Roo.grid'
      }
     ]
    }

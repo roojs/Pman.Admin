@@ -189,6 +189,16 @@
        "sortable" : true,
        "width" : 200,
        "xtype" : "ColumnModel"
+      },
+      {
+       "$ renderer" : "function(v) { return String.format('{0}', v); }",
+       "$ xns" : "Roo.grid",
+       "* prop" : "colModel[]",
+       "dataIndex" : "domain",
+       "header" : "Domain",
+       "sortable" : true,
+       "width" : 200,
+       "xtype" : "ColumnModel"
       }
      ],
      "listeners" : {
