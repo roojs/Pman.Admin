@@ -9,9 +9,9 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
  _strings : {
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
-  'd41d8cd98f00b204e9800998ecf8427e' :"",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'eae639a70006feff484a39363c977e24' :"Domain",
+  'a181a603769c1f98ad927e7367c7aa51' :"all",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '9732d2a193579388e6d9138368554966' :"MX Last Updated"
  },
@@ -134,7 +134,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        editable : false,
        mode : 'local',
        triggerAction : 'all',
-       value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
+       value : _this._strings['a181a603769c1f98ad927e7367c7aa51'] /* all */,
        valueField : 'key',
        listeners : {
         render : function (_self)
@@ -143,7 +143,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
          },
         select : function (combo, record, index)
          {
-             _this.grid.footer.onClick('first');
+             _this.domainGrid.footer.onClick('first');
          }
        },
        xns : Roo.form,
