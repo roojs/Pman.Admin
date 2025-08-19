@@ -219,8 +219,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        {
            options.params = options.params || {};
            options.params['query[domain]'] = _this.searchBox.getValue();
-           if(_this.statusSel.getValue() == 'invalid') {
-               options.params['mx_status'] = 'invalid';
+           if(_this.statusSel.getValue() == 'invalid-mx') {
+               options.params['_status'] = 'invalid-mx';
            }
        }
      },
