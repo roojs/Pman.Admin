@@ -11,7 +11,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'eae639a70006feff484a39363c977e24' :"Domain",
-  'f2a6c498fb90ee345d997f888fce3b18' :"Delete"
+  'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
+  '9732d2a193579388e6d9138368554966' :"MX Last Updated"
  },
 
   part     :  ["Admin", "Domain" ],
@@ -231,8 +232,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'MX Last Updated',
-      header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+      dataIndex : 'mx_updated',
+      header : _this._strings['9732d2a193579388e6d9138368554966'] /* MX Last Updated */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
       width : 200,
