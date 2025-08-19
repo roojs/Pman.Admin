@@ -208,6 +208,9 @@
          "{",
          "    options.params = options.params || {};",
          "    options.params['query[domain]'] = _this.searchBox.getValue();",
+         "    if(_this.statusSel.getValue() == 'invalid') {",
+         "        options.params['mx_status'] = 'invalid';",
+         "    }",
          "}"
         ]
        },
