@@ -178,7 +178,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        triggerAction : 'all',
        value : _this._strings['a181a603769c1f98ad927e7367c7aa51'] /* all */,
        valueField : 'key',
-       width : 100,
+       width : 125,
        listeners : {
         render : function (_self)
          {
@@ -194,10 +194,9 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        store : {
         xtype : 'SimpleStore',
         data : [
-            
              [ 'all', 'All' ],
-             [ 'valid_mx', "Valid MX" ],
-             [ 'invalid_mx', "Invalid MX" ]
+             [ 'with_references', "With References" ],
+             [ 'without_reference', "Without References" ]
         ],
         fields : [ 'key', 'value'],
         xns : Roo.data,
