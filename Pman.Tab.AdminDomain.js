@@ -263,7 +263,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
            options.params = options.params || {};
            options.params['query[domain]'] = _this.searchBox.getValue();
            options.params['_status'] = _this.statusSel.getValue();
-           options.params['_reference'] = _this.referenceSel.getValue();
+           options_params['_with_reference_count'] = 1;
+           options.params['_reference_status'] = _this.referenceSel.getValue();
        }
      },
      xns : Roo.data,
