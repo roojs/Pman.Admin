@@ -277,7 +277,7 @@
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
        "dataIndex" : "No. of references",
-       "header" : "No. of references",
+       "header" : "person_reference_count",
        "sortable" : true,
        "width" : 50,
        "xtype" : "ColumnModel"
@@ -329,11 +329,11 @@
  "permname" : "",
  "strings" : {
   "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
-  "6aa48f150b0d29138ab848a1d4e6792c" : "No. of references",
   "79ebd90228ae192321ca47951612dea5" : "Displaying email domains {0} - {1} of {2}",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "8f00afba26677da2da0b00ec8daf22bd" : "Email Domains",
   "9732d2a193579388e6d9138368554966" : "MX Last Updated",
+  "983a3b195d18af597a81bbd42f6c4bd2" : "person_reference_count",
   "996d8bde90930fead44cf1d6989e532a" : "No email domain found",
   "a181a603769c1f98ad927e7367c7aa51" : "all",
   "eae639a70006feff484a39363c977e24" : "Domain",
