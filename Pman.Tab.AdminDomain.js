@@ -9,9 +9,10 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
  _strings : {
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  '79ebd90228ae192321ca47951612dea5' :"Displaying email domains {0} - {1} of {2}",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
-  'e3a17139bb26678a324baa72b69b96d4' :"Displaying pressrelease_entry{0} - {1} of {2}",
   '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
+  'd12f84918a626e02bfb2a2cc8c8c3daa' :"No pressrelease_entry found",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
@@ -70,7 +71,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     '|xns' : 'Roo.grid',
     footer : {
      xtype : 'PagingToolbar',
-     displayMsg : _this._strings['e3a17139bb26678a324baa72b69b96d4'] /* Displaying pressrelease_entry{0} - {1} of {2} */,
+     displayMsg : _this._strings['79ebd90228ae192321ca47951612dea5'] /* Displaying email domains {0} - {1} of {2} */,
+     emptyMsg : _this._strings['d12f84918a626e02bfb2a2cc8c8c3daa'] /* No pressrelease_entry found */,
      pageSize : 50,
      xns : Roo,
      '|xns' : 'Roo'
