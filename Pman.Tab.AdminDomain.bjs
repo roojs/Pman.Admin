@@ -113,6 +113,48 @@
          "xtype" : "ComboBox"
         },
         {
+         "$ xns" : "Roo.form",
+         "Number width" : 100,
+         "allowBlank" : true,
+         "displayField" : "value",
+         "editable" : false,
+         "items" : [
+          {
+           "$ data" : [
+            "[",
+            "    ",
+            "     [ 'all', 'All' ],",
+            "     [ 'valid_mx', \"Valid MX\" ],",
+            "     [ 'invalid_mx', \"Invalid MX\" ]",
+            "]"
+           ],
+           "$ fields" : "[ 'key', 'value']",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "xtype" : "SimpleStore"
+          }
+         ],
+         "listeners" : {
+          "|render" : [
+           "function (_self)",
+           "{",
+           "    _this.statusSel = _self;",
+           "}"
+          ],
+          "|select" : [
+           "function (combo, record, index)",
+           "{",
+           "    _this.domainGrid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "mode" : "local",
+         "triggerAction" : "all",
+         "value" : "all",
+         "valueField" : "key",
+         "xtype" : "ComboBox"
+        },
+        {
          "$ xns" : "Roo.Toolbar",
          "listeners" : {
           "|click" : [

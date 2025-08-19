@@ -170,6 +170,41 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        }
       },
       {
+       xtype : 'ComboBox',
+       allowBlank : true,
+       displayField : 'value',
+       editable : false,
+       mode : 'local',
+       triggerAction : 'all',
+       value : _this._strings['a181a603769c1f98ad927e7367c7aa51'] /* all */,
+       valueField : 'key',
+       width : 100,
+       listeners : {
+        render : function (_self)
+         {
+             _this.statusSel = _self;
+         },
+        select : function (combo, record, index)
+         {
+             _this.domainGrid.footer.onClick('first');
+         }
+       },
+       xns : Roo.form,
+       '|xns' : 'Roo.form',
+       store : {
+        xtype : 'SimpleStore',
+        data : [
+            
+             [ 'all', 'All' ],
+             [ 'valid_mx', "Valid MX" ],
+             [ 'invalid_mx', "Invalid MX" ]
+        ],
+        fields : [ 'key', 'value'],
+        xns : Roo.data,
+        '|xns' : 'Roo.data'
+       }
+      },
+      {
        xtype : 'Button',
        text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
        listeners : {
