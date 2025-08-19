@@ -231,7 +231,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'domain',
+      dataIndex : 'MX Last Updated',
       header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
       renderer : function(v) { return String.format('{0}', v); },
       sortable : true,
