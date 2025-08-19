@@ -221,7 +221,7 @@
       {
        "$ xns" : "Roo",
        "* prop" : "footer",
-       "pageSize" : 25,
+       "pageSize" : 50,
        "xtype" : "PagingToolbar"
       },
       {

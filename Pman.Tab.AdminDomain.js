@@ -68,7 +68,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     '|xns' : 'Roo.grid',
     footer : {
      xtype : 'PagingToolbar',
-     pageSize : 25,
+     pageSize : 50,
      xns : Roo,
      '|xns' : 'Roo'
     },
