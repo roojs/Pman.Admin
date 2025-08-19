@@ -316,10 +316,6 @@ Pman.Tab.AdminContacts = new Roo.XComponent({
                  },
                  success : function (){
                      document.location = baseURL + '?ts=' + Math.random();
-                 },
-                 failure : function (d){
-                     Roo.log(d);
-                     Roo.MessageBox.alert("Error", d);
                  }
              });
          }
