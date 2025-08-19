@@ -161,7 +161,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         data : [
             
              [ 'all', 'All' ],
-             [ 'invalid-mx', "Invalid MX" ]
+             [ 'valid_mx', "Valid MX" ],
+             [ 'invalid_mx', "Invalid MX" ]
         ],
         fields : [ 'key', 'value'],
         xns : Roo.data,
