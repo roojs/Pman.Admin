@@ -279,7 +279,7 @@
        "dataIndex" : "person_reference_count",
        "header" : "No. of references",
        "sortable" : true,
-       "width" : 50,
+       "width" : 100,
        "xtype" : "ColumnModel"
       }
      ],

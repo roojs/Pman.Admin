@@ -308,7 +308,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
           return String.format('{0}', v); 
       },
       sortable : true,
-      width : 50,
+      width : 100,
       xns : Roo.grid,
       '|xns' : 'Roo.grid'
      }
