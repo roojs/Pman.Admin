@@ -276,7 +276,7 @@
        ],
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "mx_updated",
+       "dataIndex" : "No. of references",
        "header" : "MX Last Updated",
        "sortable" : true,
        "width" : 120,
