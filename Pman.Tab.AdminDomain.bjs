@@ -71,6 +71,49 @@
          "xtype" : "Button"
         },
         {
+         "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "displayField" : "value",
+         "editable" : false,
+         "items" : [
+          {
+           "$ data" : [
+            "[",
+            "    ",
+            "     [ 'BEE-CRASHED', 'BEE CRASHED' ],",
+            "     [ 'DNS-ERROR', \"DNS ERROR\" ],",
+            "     [ 'REDIRECTED', \"REDIRECTED\" ],",
+            "     [ 'CLOUDFLARE-ERROR', \"CLOUDFLARE ERROR\" ],",
+            "     [ 'START-PAGE-FAIL', \"START PAGE FAIL\" ]",
+            "]"
+           ],
+           "$ fields" : "[ 'key', 'value']",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "xtype" : "SimpleStore"
+          }
+         ],
+         "listeners" : {
+          "|render" : [
+           "function (_self)",
+           "{",
+           "    _this.errorSel = _self;",
+           "}"
+          ],
+          "|select" : [
+           "function (combo, record, index)",
+           "{",
+           "    _this.grid.footer.onClick('first');",
+           "}"
+          ]
+         },
+         "mode" : "local",
+         "triggerAction" : "all",
+         "value" : "",
+         "valueField" : "key",
+         "xtype" : "ComboBox"
+        },
+        {
          "$ xns" : "Roo.Toolbar",
          "listeners" : {
           "|click" : [
@@ -263,6 +306,7 @@
   "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
   "7dce122004969d56ae2e0245cb754d35" : "Edit",
   "9732d2a193579388e6d9138368554966" : "MX Last Updated",
+  "d41d8cd98f00b204e9800998ecf8427e" : "",
   "eae639a70006feff484a39363c977e24" : "Domain",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "f2a6c498fb90ee345d997f888fce3b18" : "Delete"

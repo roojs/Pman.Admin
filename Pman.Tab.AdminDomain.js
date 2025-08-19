@@ -7,8 +7,9 @@ Roo.namespace('Pman.Tab');
 Pman.Tab.AdminDomain = new Roo.XComponent({
 
  _strings : {
-  'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
+  'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  'd41d8cd98f00b204e9800998ecf8427e' :"",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
@@ -125,6 +126,42 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        },
        xns : Roo.Toolbar,
        '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'ComboBox',
+       allowBlank : true,
+       displayField : 'value',
+       editable : false,
+       mode : 'local',
+       triggerAction : 'all',
+       value : _this._strings['d41d8cd98f00b204e9800998ecf8427e'] /*  */,
+       valueField : 'key',
+       listeners : {
+        render : function (_self)
+         {
+             _this.errorSel = _self;
+         },
+        select : function (combo, record, index)
+         {
+             _this.grid.footer.onClick('first');
+         }
+       },
+       xns : Roo.form,
+       '|xns' : 'Roo.form',
+       store : {
+        xtype : 'SimpleStore',
+        data : [
+            
+             [ 'BEE-CRASHED', 'BEE CRASHED' ],
+             [ 'DNS-ERROR', "DNS ERROR" ],
+             [ 'REDIRECTED', "REDIRECTED" ],
+             [ 'CLOUDFLARE-ERROR', "CLOUDFLARE ERROR" ],
+             [ 'START-PAGE-FAIL', "START PAGE FAIL" ]
+        ],
+        fields : [ 'key', 'value'],
+        xns : Roo.data,
+        '|xns' : 'Roo.data'
+       }
       },
       {
        xtype : 'Button',
