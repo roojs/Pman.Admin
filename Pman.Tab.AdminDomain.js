@@ -195,8 +195,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
         xtype : 'SimpleStore',
         data : [
              [ 'all', 'All' ],
-             [ 'with_references', "With References" ],
-             [ 'without_reference', "Without References" ]
+             [ 'with_references', "Has References" ],
+             [ 'without_reference', "Ni References" ]
         ],
         fields : [ 'key', 'value'],
         xns : Roo.data,
