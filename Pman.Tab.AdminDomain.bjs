@@ -186,7 +186,7 @@
         "    var format = \"{0}\";",
         "    var noMxDt = r.data.no_mx_dt.format('Y-m-d H:i:s');",
         "    if(noMxDt !== '1000-01-01 00:00:00') {",
-        "        format = \"<span style='color:red;' qtip='No MX since\" + noMxDt + \"'>{0}</span>\";",
+        "        format = \"<span style='color:red;' qtip='No MX since \" + noMxDt + \"'>{0}</span>\";",
         "    }",
         "    return String.format(format, v);",
         "}"
