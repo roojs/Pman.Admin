@@ -207,7 +207,7 @@ class Pman_Admin_Import_Core_templatestr extends Pman
         $rows = array();
         $head = false;
         $blank = 0;
-        while (false !== ($row = fgetcsv($fh))) {
+        while (false !== ($row = fgetcsv($fh,null,",",'"',"\\"))) {
              
             if ($head === false) {
                 
