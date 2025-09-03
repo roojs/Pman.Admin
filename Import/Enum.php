@@ -67,7 +67,7 @@ class Pman_Admin_Import_Enum extends Pman_Roo
         $cols = false;
         $rows = array();
         
-        while(false !== ($n = fgetcsv($fh,10000, ',', '"'))) {
+        while(false !== ($n = fgetcsv($fh,null,",",'"',"\\"))) {
             if(!array_filter($n)){ // empty row
                 continue;
             }
