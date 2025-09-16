@@ -7,12 +7,19 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminDomain = {
 
  _strings : {
+  '77587239bf4c54ea493c7033e1dbf636' :"Last Name",
   '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
+  '21b7a2c1122e2bf4613bae1ef33e27c8' :"Journalists",
+  '6e53f65896ebebcd73fdafb389a7ecb9' :"Displaying Pages  {0} - {1} of {2}",
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
+  '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
+  '6bd6beac1da76b2d2a9c3b7914ba034c' :"Publication",
   '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
+  'bc910f8bdf70f29374f496f05be0330c' :"First Name",
+  '02a3a357710cc2a5dfdfb74ed012fb59' :"Url",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '289fe65c57825256edde389f99a1f05c' :"Has MX record"
  },
@@ -235,6 +242,142 @@ Pman.Dialog.AdminDomain = {
         ]
        }
       ]
+     },
+     {
+      xtype : 'GridPanel',
+      background : true,
+      fitContainer : true,
+      fitToframe : true,
+      region : 'center',
+      tableName : 'pressrelease_contact',
+      title : _this._strings['21b7a2c1122e2bf4613bae1ef33e27c8'] /* Journalists */,
+      listeners : {
+       activate : function() {
+            _this.journalist_panel = this;
+            if (_this.journalist_grid) {
+                _this.journalist_grid.footer.onClick('first');
+            }
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo',
+      grid : {
+       xtype : 'Grid',
+       autoExpandColumn : 'url',
+       loadMask : true,
+       listeners : {
+        render : function() 
+         {
+             _this.journalist_grid = this;
+             if (_this.journalist_panel.active) {
+                this.footer.onClick('first')
+             }
+         },
+        rowdblclick : function (_self, rowIndex, e)
+         {
+             var rec = _self.getDataSource().getAt(rowIndex);
+             Roo.log(rec);
+             Pman.Dialog.PressReleaseContact.show({id: rec.data.id}, function() {
+                 _self.footer.onClick('first');
+             });
+         }
+       },
+       xns : Roo.grid,
+       '|xns' : 'Roo.grid',
+       footer : {
+        xtype : 'PagingToolbar',
+        displayInfo : true,
+        displayMsg : _this._strings['6e53f65896ebebcd73fdafb389a7ecb9'] /* Displaying Pages  {0} - {1} of {2} */,
+        emptyMsg : _this._strings['3386fe0e5dfeb5c43e53bbce80f31f5a'] /* No Pages found */,
+        pageSize : 25,
+        xns : Roo,
+        '|xns' : 'Roo'
+       },
+       dataSource : {
+        xtype : 'Store',
+        remoteSort : true,
+        sortInfo : { field : 'email', direction: 'ASC' },
+        listeners : {
+         beforeload : function (_self, o)
+          {
+              o.params = o.params || {};
+              
+              var domain_id = _this.form.findField('id').getValue();
+              
+              if(domain_id < 1){
+                  this.removeAll();
+                  return false;
+              }
+              
+              
+              o.params.url_domain_id = domain_id;
+          }
+        },
+        xns : Roo.data,
+        '|xns' : 'Roo.data',
+        proxy : {
+         xtype : 'HttpProxy',
+         method : 'GET',
+         url : baseURL + '/Roo/Pressrelease_contact.php',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        },
+        reader : {
+         xtype : 'JsonReader',
+         fields : [
+             {
+                 'name': 'id',
+                 'type': 'int'
+             }
+         ],
+         id : 'id',
+         root : 'data',
+         totalProperty : 'total',
+         xns : Roo.data,
+         '|xns' : 'Roo.data'
+        }
+       },
+       cm : [
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'firstname',
+         header : _this._strings['bc910f8bdf70f29374f496f05be0330c'] /* First Name */,
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         sortable : true,
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'lastname',
+         header : _this._strings['77587239bf4c54ea493c7033e1dbf636'] /* Last Name */,
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         width : 75,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'publication_name',
+         header : _this._strings['6bd6beac1da76b2d2a9c3b7914ba034c'] /* Publication */,
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         sortable : true,
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'url',
+         header : _this._strings['02a3a357710cc2a5dfdfb74ed012fb59'] /* Url */,
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        }
+       ]
+      }
      }
     ]
    });
