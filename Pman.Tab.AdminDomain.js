@@ -314,7 +314,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
                                 batchDeleteStart + " / " + total + " domains deleted");
                                 if(batchDeleteStart >= total) {
                                     Roo.MessageBox.hide();
-                                    _this.grid.footer.onClick('first');
+                                    _this.domainGrid.footer.onClick('first');
                                     return;
                                 }
                                 fetchBatch();
