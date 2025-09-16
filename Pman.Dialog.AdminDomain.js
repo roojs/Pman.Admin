@@ -9,10 +9,10 @@ Pman.Dialog.AdminDomain = {
  _strings : {
   '77587239bf4c54ea493c7033e1dbf636' :"Last Name",
   '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
+  'd95867deadfe690e40f42068d6b59df8' :"References",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '22e6e4a2e35eb478f37738da66480192' :"Add / Edit Core Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
-  '21b7a2c1122e2bf4613bae1ef33e27c8' :"Journalists",
   '6e53f65896ebebcd73fdafb389a7ecb9' :"Displaying Pages  {0} - {1} of {2}",
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
   '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
@@ -250,7 +250,7 @@ Pman.Dialog.AdminDomain = {
       fitToframe : true,
       region : 'center',
       tableName : 'pressrelease_contact',
-      title : _this._strings['21b7a2c1122e2bf4613bae1ef33e27c8'] /* Journalists */,
+      title : _this._strings['d95867deadfe690e40f42068d6b59df8'] /* References */,
       listeners : {
        activate : function() {
             _this.journalist_panel = this;
