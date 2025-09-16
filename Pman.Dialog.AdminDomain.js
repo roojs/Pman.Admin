@@ -308,8 +308,7 @@ Pman.Dialog.AdminDomain = {
                   return false;
               }
               
-              
-              o.params.url_domain_id = domain_id;
+              o.params['_email_domain_id'] = domain_id;
           }
         },
         xns : Roo.data,
