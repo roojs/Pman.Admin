@@ -349,7 +349,7 @@ Pman.Dialog.AdminDomain = {
          xtype : 'ColumnModel',
          dataIndex : 'firstname',
          header : _this._strings['bc910f8bdf70f29374f496f05be0330c'] /* First Name */,
-         renderer : function(v) { Roo.log(v); return String.format('{0}', v ? v : ''); },
+         renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
          width : 75,
          xns : Roo.grid,
