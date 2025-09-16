@@ -311,7 +311,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
                     
                     var deleteBatch = function() {
                         new Pman.Request({
-                            url : baseURL + '/Roo/clipping_domain',
+                            url : baseURL + '/Roo/core_domain',
                             method : 'POST',
                             params : {
                                 '_delete_ids' : ids.join(',')
