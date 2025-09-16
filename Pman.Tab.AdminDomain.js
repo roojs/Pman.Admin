@@ -288,7 +288,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
                         //params['start'] = batchDeleteStart;
                         
                         new Pman.Request({
-                            url : baseURL + '/Roo/clipping_domain',
+                            url : baseURL + '/Roo/core_domain',
                             method : 'GET',
                             params : params,
                             success : function(res)
