@@ -248,15 +248,6 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        '|xns' : 'Roo.Toolbar',
        menu : {
         xtype : 'Menu',
-        listeners : {
-         beforeshow : function (_self)
-          {
-              _this.deleteAllMatch.hide();
-              if(_this.statusSel.getValue() == 'unused') {
-                  _this.deleteAllMatch.show();
-              }
-          }
-        },
         xns : Roo.menu,
         '|xns' : 'Roo.menu',
         items  : [

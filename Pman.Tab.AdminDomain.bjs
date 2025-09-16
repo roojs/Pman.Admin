@@ -286,17 +286,6 @@
              "xtype" : "Item"
             }
            ],
-           "listeners" : {
-            "beforeshow" : [
-             "function (_self)",
-             "{",
-             "    _this.deleteAllMatch.hide();",
-             "    if(_this.statusSel.getValue() == 'unused') {",
-             "        _this.deleteAllMatch.show();",
-             "    }",
-             "}"
-            ]
-           },
            "xtype" : "Menu"
           }
          ],
