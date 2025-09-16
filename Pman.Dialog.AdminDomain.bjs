@@ -332,6 +332,14 @@
      "xtype" : "Button"
     }
    ],
+   "listeners" : {
+    "show" : [
+     "function (_self)",
+     "{",
+     "    _self.layout.getRegion('center').showPanel(0);",
+     "}"
+    ]
+   },
    "modal" : true,
    "resizable" : false,
    "title" : "Add / Edit Core Domain",

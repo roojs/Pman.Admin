@@ -63,6 +63,12 @@ Pman.Dialog.AdminDomain = {
     resizable : false,
     title : _this._strings['22e6e4a2e35eb478f37738da66480192'] /* Add / Edit Core Domain */,
     width : 500,
+    listeners : {
+     show : function (_self)
+      {
+          _self.layout.getRegion('center').showPanel(0);
+      }
+    },
     xns : Roo,
     '|xns' : 'Roo',
     center : {
