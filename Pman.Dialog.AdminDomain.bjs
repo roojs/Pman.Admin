@@ -5,11 +5,12 @@
    "background" : true,
    "closable" : false,
    "collapsible" : false,
-   "height" : 175,
+   "height" : 275,
    "items" : [
     {
      "$ xns" : "Roo",
      "* prop" : "center",
+     "String tabPosition" : "top",
      "xtype" : "LayoutRegion"
     },
     {

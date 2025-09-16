@@ -57,7 +57,7 @@ Pman.Dialog.AdminDomain = {
     background : true,
     closable : false,
     collapsible : false,
-    height : 175,
+    height : 275,
     modal : true,
     resizable : false,
     title : _this._strings['22e6e4a2e35eb478f37738da66480192'] /* Add / Edit Core Domain */,
@@ -66,6 +66,7 @@ Pman.Dialog.AdminDomain = {
     '|xns' : 'Roo',
     center : {
      xtype : 'LayoutRegion',
+     tabPosition : 'top',
      xns : Roo,
      '|xns' : 'Roo'
     },
