@@ -10,7 +10,6 @@
     {
      "$ xns" : "Roo",
      "* prop" : "center",
-     "titlebar" : false,
      "xtype" : "LayoutRegion"
     },
     {

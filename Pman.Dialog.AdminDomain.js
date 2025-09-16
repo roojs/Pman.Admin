@@ -66,7 +66,6 @@ Pman.Dialog.AdminDomain = {
     '|xns' : 'Roo',
     center : {
      xtype : 'LayoutRegion',
-     titlebar : false,
      xns : Roo,
      '|xns' : 'Roo'
     },
