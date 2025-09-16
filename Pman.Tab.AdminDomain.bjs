@@ -369,7 +369,12 @@
         ]
        },
        "remoteSort" : true,
-       "xtype" : "Store"
+       "xtype" : "Store",
+       "| setLoadParams" : [
+        "function() {",
+        "",
+        "}"
+       ]
       },
       {
        "$ xns" : "Roo",
