@@ -425,7 +425,7 @@
        ],
        "$ xns" : "Roo.grid",
        "* prop" : "colModel[]",
-       "dataIndex" : "person_reference_count",
+       "dataIndex" : "reference_count",
        "header" : "No. of references",
        "sortable" : true,
        "width" : 100,

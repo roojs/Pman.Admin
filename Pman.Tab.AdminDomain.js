@@ -440,7 +440,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      },
      {
       xtype : 'ColumnModel',
-      dataIndex : 'person_reference_count',
+      dataIndex : 'reference_count',
       header : _this._strings['6aa48f150b0d29138ab848a1d4e6792c'] /* No. of references */,
       renderer : function(v) {
           return String.format('{0}', v); 
