@@ -275,9 +275,11 @@ Pman.Dialog.AdminDomain = {
         rowdblclick : function (_self, rowIndex, e)
          {
              var rec = _self.getDataSource().getAt(rowIndex);
+             /*
              Pman.Dialog.PressReleaseContact.show({id: rec.data.id}, function() {
                  _self.footer.onClick('first');
              });
+             */
          }
        },
        xns : Roo.grid,
