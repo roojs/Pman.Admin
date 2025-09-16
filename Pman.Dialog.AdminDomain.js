@@ -339,6 +339,18 @@ Pman.Dialog.AdminDomain = {
              {
                  'name': 'id',
                  'type': 'int'
+             },
+             {
+                 'name': 'firstname',
+                 'type': 'string'
+             },
+             {
+                 'name': 'lastname',
+                 'type': 'string'
+             },
+             {
+                 'name': 'email',
+                 'type': 'string'
              }
          ],
          id : 'id',
