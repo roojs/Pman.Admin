@@ -11,8 +11,10 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '79ebd90228ae192321ca47951612dea5' :"Displaying email domains {0} - {1} of {2}",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
+  '24e7d4799ecdbe08c291691323305006' :"Delete All Match",
   '996d8bde90930fead44cf1d6989e532a' :"No email domain found",
   '8f00afba26677da2da0b00ec8daf22bd' :"Email Domains",
+  'b18d852fa0d2465fe38b05b96dd5b736' :"Bulk Update",
   'eae639a70006feff484a39363c977e24' :"Domain",
   '6aa48f150b0d29138ab848a1d4e6792c' :"No. of references",
   'a181a603769c1f98ad927e7367c7aa51' :"all",
@@ -238,6 +240,111 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
        xtype : 'Fill',
        xns : Roo.Toolbar,
        '|xns' : 'Roo.Toolbar'
+      },
+      {
+       xtype : 'Button',
+       text : _this._strings['b18d852fa0d2465fe38b05b96dd5b736'] /* Bulk Update */,
+       xns : Roo.Toolbar,
+       '|xns' : 'Roo.Toolbar',
+       menu : {
+        xtype : 'Menu',
+        listeners : {
+         beforeshow : function (_self)
+          {
+              _this.deleteAllMatch.hide();
+              if(_this.statusSel.getValue() == 'unused') {
+                  _this.deleteAllMatch.show();
+              }
+          }
+        },
+        xns : Roo.menu,
+        '|xns' : 'Roo.menu',
+        items  : [
+         {
+          xtype : 'Item',
+          text : _this._strings['24e7d4799ecdbe08c291691323305006'] /* Delete All Match */,
+          listeners : {
+           click : function (_self, e)
+            {
+                Roo.MessageBox.confirm("Confirm", "Are you sure you want to delete all matching domains?", function(r) {
+                    if (r!='yes') {
+                        return;
+                    }
+                    
+                    var batchDeleteStart = 0;
+                    var batchDeleteLimit = 25;
+                    
+                    params = {
+                        '_columns' : 'id',
+                        'limit' : batchDeleteLimit
+                    };
+                    
+                    params = _this.grid.ds.setLoadParams(params);
+                    
+                    var ids = [];
+                    var total = 0;
+                    
+                    var fetchBatch = function() {
+                        //params['start'] = batchDeleteStart;
+                        
+                        new Pman.Request({
+                            url : baseURL + '/Roo/clipping_domain',
+                            method : 'GET',
+                            params : params,
+                            success : function(res)
+                            {
+                                ids = [];
+                                Roo.each(res.data, function(domain) {
+                                    ids.push(domain.id);
+                                });
+                                if (total == 0) {
+                                    total = res.total;
+                                }
+                                if(res.total == 0) {
+                                    Roo.MessageBox.alert('Error', 'No matching domain');
+                                    return;
+                                }
+                                deleteBatch();
+                            }
+                        });
+                    }
+                    
+                    var deleteBatch = function() {
+                        new Pman.Request({
+                            url : baseURL + '/Roo/clipping_domain',
+                            method : 'POST',
+                            params : {
+                                '_delete_ids' : ids.join(',')
+                            },
+                            success : function(res)
+                            {
+                                batchDeleteStart += batchDeleteLimit;
+                                Roo.MessageBox.updateProgress(batchDeleteStart / total,
+                                batchDeleteStart + " / " + total + " domains deleted");
+                                if(batchDeleteStart >= total) {
+                                    Roo.MessageBox.hide();
+                                    _this.grid.footer.onClick('first');
+                                    return;
+                                }
+                                fetchBatch();
+                            }
+                        });
+                    };
+                    
+                    Roo.MessageBox.progress("Deleting matching domains", "Starting");
+                    fetchBatch();
+                });
+            },
+           render : function (_self)
+            {
+                _this.deleteAllMatch = this;
+            }
+          },
+          xns : Roo.menu,
+          '|xns' : 'Roo.menu'
+         }
+        ]
+       }
       },
       {
        xtype : 'Button',
