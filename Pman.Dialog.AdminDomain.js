@@ -8,6 +8,7 @@ Pman.Dialog.AdminDomain = {
 
  _strings : {
   '77587239bf4c54ea493c7033e1dbf636' :"Last Name",
+  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
   'd95867deadfe690e40f42068d6b59df8' :"References",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
@@ -18,7 +19,6 @@ Pman.Dialog.AdminDomain = {
   '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
   '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
   'bc910f8bdf70f29374f496f05be0330c' :"First Name",
-  '02a3a357710cc2a5dfdfb74ed012fb59' :"Url",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '289fe65c57825256edde389f99a1f05c' :"Has MX record"
  },
@@ -356,8 +356,8 @@ Pman.Dialog.AdminDomain = {
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'url',
-         header : _this._strings['02a3a357710cc2a5dfdfb74ed012fb59'] /* Url */,
+         dataIndex : 'email',
+         header : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          width : 150,
          xns : Roo.grid,
