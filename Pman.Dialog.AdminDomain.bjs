@@ -15,6 +15,7 @@
     },
     {
      "$ xns" : "Roo",
+     "String title" : "Details",
      "background" : true,
      "fitToFrame" : true,
      "items" : [
@@ -353,6 +354,7 @@
   "22e6e4a2e35eb478f37738da66480192" : "Add / Edit Core Domain",
   "289fe65c57825256edde389f99a1f05c" : "Has MX record",
   "3386fe0e5dfeb5c43e53bbce80f31f5a" : "No Pages found",
+  "3ec365dd533ddb7ef3d1c111186ce872" : "Details",
   "6e53f65896ebebcd73fdafb389a7ecb9" : "Displaying Pages  {0} - {1} of {2}",
   "77587239bf4c54ea493c7033e1dbf636" : "Last Name",
   "81c34401de67bbc904ea581fe1922c7b" : "Update Mx",
