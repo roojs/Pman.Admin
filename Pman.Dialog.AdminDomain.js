@@ -262,7 +262,7 @@ Pman.Dialog.AdminDomain = {
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'url',
+       autoExpandColumn : 'email',
        loadMask : true,
        listeners : {
         render : function() 
