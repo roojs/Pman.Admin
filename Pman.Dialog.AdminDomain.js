@@ -321,7 +321,7 @@ Pman.Dialog.AdminDomain = {
           },
          load : function (_self, records, options)
           {
-          
+              Roo.log(records);
           }
         },
         xns : Roo.data,

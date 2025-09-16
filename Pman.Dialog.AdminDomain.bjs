@@ -193,7 +193,7 @@
           "load" : [
            "function (_self, records, options)",
            "{",
-           "",
+           "    Roo.log(records);",
            "}"
           ]
          },
