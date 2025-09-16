@@ -150,7 +150,7 @@
          "* prop" : "dataSource",
          "items" : [
           {
-           "$ url" : "baseURL + '/Roo/Pressrelease_contact.php'",
+           "$ url" : "baseURL + '/Roo/Core_domain.php'",
            "$ xns" : "Roo.data",
            "* prop" : "proxy",
            "method" : "GET",

@@ -317,7 +317,7 @@ Pman.Dialog.AdminDomain = {
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/Pressrelease_contact.php',
+         url : baseURL + '/Roo/Core_domain.php',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
