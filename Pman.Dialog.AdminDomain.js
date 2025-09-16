@@ -318,6 +318,10 @@ Pman.Dialog.AdminDomain = {
               }
               
               o.params['_get_references'] = domain_id;
+          },
+         load : function (_self, records, options)
+          {
+          
           }
         },
         xns : Roo.data,
