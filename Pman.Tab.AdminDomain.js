@@ -367,7 +367,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      listeners : {
       beforeload : function (_self, options)
        {
-           options.params = _self.setLoadParams(option.params);
+           options.params = _self.setLoadParams(options.params);
        }
      },
      xns : Roo.data,
