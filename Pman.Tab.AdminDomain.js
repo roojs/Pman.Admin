@@ -363,8 +363,8 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
     dataSource : {
      xtype : 'Store',
      remoteSort : true,
-     setLoadParams : function() {
-     
+     setLoadParams : function(params) {
+         return params
      },
      sortInfo : { field : 'domain', direction: 'ASC' },
      listeners : {
