@@ -270,7 +270,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
                         'limit' : batchDeleteLimit
                     };
                     
-                    params = _this.grid.dataSource.setLoadParams(params);
+                    params = _this.domainGrid.dataSource.setLoadParams(params);
                     
                     var ids = [];
                     var total = 0;
