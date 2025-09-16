@@ -376,11 +376,7 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      listeners : {
       beforeload : function (_self, options)
        {
-           options.params = options.params || {};
-           options.params['query[domain]'] = _this.searchBox.getValue();
-           options.params['_status'] = _this.statusSel.getValue();
-           options.params['_with_reference_count'] = 1;
-           options.params['_reference_status'] = _this.referenceSel.getValue();
+           options.params = _self.setLoadParams(option.params);
        }
      },
      xns : Roo.data,
