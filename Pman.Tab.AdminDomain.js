@@ -364,7 +364,13 @@ Pman.Tab.AdminDomain = new Roo.XComponent({
      xtype : 'Store',
      remoteSort : true,
      setLoadParams : function(params) {
-         return params
+         params = params || {};
+         params['query[domain]'] = _this.searchBox.getValue();
+         params['_status'] = _this.statusSel.getValue();
+         params['_with_reference_count'] = 1;
+         params['_reference_status'] = _this.referenceSel.getValue();
+         
+         return params;
      },
      sortInfo : { field : 'domain', direction: 'ASC' },
      listeners : {

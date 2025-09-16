@@ -372,7 +372,13 @@
        "xtype" : "Store",
        "| setLoadParams" : [
         "function(params) {",
-        "    return params",
+        "    params = params || {};",
+        "    params['query[domain]'] = _this.searchBox.getValue();",
+        "    params['_status'] = _this.statusSel.getValue();",
+        "    params['_with_reference_count'] = 1;",
+        "    params['_reference_status'] = _this.referenceSel.getValue();",
+        "    ",
+        "    return params;",
         "}"
        ]
       },
