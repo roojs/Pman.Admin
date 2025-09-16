@@ -16,7 +16,6 @@ Pman.Dialog.AdminDomain = {
   '6e53f65896ebebcd73fdafb389a7ecb9' :"Displaying Pages  {0} - {1} of {2}",
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
   '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
-  '6bd6beac1da76b2d2a9c3b7914ba034c' :"Publication",
   '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
   'bc910f8bdf70f29374f496f05be0330c' :"First Name",
   '02a3a357710cc2a5dfdfb74ed012fb59' :"Url",
@@ -249,7 +248,7 @@ Pman.Dialog.AdminDomain = {
       fitContainer : true,
       fitToframe : true,
       region : 'center',
-      tableName : 'pressrelease_contact',
+      tableName : 'core_domain',
       title : _this._strings['d95867deadfe690e40f42068d6b59df8'] /* References */,
       listeners : {
        activate : function() {
@@ -352,16 +351,6 @@ Pman.Dialog.AdminDomain = {
          header : _this._strings['77587239bf4c54ea493c7033e1dbf636'] /* Last Name */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          width : 75,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'publication_name',
-         header : _this._strings['6bd6beac1da76b2d2a9c3b7914ba034c'] /* Publication */,
-         renderer : function(v) { return String.format('{0}', v ? v : ''); },
-         sortable : true,
-         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
