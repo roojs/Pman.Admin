@@ -8,9 +8,9 @@ Pman.Dialog.AdminDomain = {
 
  _strings : {
   '77587239bf4c54ea493c7033e1dbf636' :"Last Name",
-  'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
   'd95867deadfe690e40f42068d6b59df8' :"References",
+  '51c45b795d5d18a3e4e0c37e8b20a141' :"Table",
   '3ec365dd533ddb7ef3d1c111186ce872' :"Details",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'eae639a70006feff484a39363c977e24' :"Domain",
@@ -19,7 +19,6 @@ Pman.Dialog.AdminDomain = {
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
   '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
   '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
-  'bc910f8bdf70f29374f496f05be0330c' :"First Name",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '289fe65c57825256edde389f99a1f05c' :"Has MX record"
  },
@@ -354,8 +353,8 @@ Pman.Dialog.AdminDomain = {
        cm : [
         {
          xtype : 'ColumnModel',
-         dataIndex : 'firstname',
-         header : _this._strings['bc910f8bdf70f29374f496f05be0330c'] /* First Name */,
+         dataIndex : 'tbl',
+         header : _this._strings['51c45b795d5d18a3e4e0c37e8b20a141'] /* Table */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
          width : 75,
@@ -368,15 +367,6 @@ Pman.Dialog.AdminDomain = {
          header : _this._strings['77587239bf4c54ea493c7033e1dbf636'] /* Last Name */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          width : 75,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'email',
-         header : _this._strings['ce8ae9da5b7cd6c3df2929543a9af92d'] /* Email */,
-         renderer : function(v) { return String.format('{0}', v ? v : ''); },
-         width : 150,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
