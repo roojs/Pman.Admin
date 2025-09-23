@@ -259,9 +259,9 @@ Pman.Dialog.AdminDomain = {
       title : _this._strings['d95867deadfe690e40f42068d6b59df8'] /* References */,
       listeners : {
        activate : function() {
-            _this.journalist_panel = this;
-            if (_this.journalist_grid) {
-                _this.journalist_grid.footer.onClick('first');
+            _this.referencePanel = this;
+            if (_this.referenceGrid) {
+                _this.referenceGrid.footer.onClick('first');
             }
         }
       },
