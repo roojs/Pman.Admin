@@ -294,7 +294,7 @@ Pman.Dialog.AdminDomain = {
        dataSource : {
         xtype : 'Store',
         remoteSort : true,
-        sortInfo : { field : 'email', direction: 'ASC' },
+        sortInfo : { field : 'tbl', direction: 'ASC' },
         listeners : {
          beforeload : function (_self, o)
           {

@@ -146,7 +146,7 @@
          "xtype" : "PagingToolbar"
         },
         {
-         "$ sortInfo" : "{ field : 'email', direction: 'ASC' }",
+         "$ sortInfo" : "{ field : 'tbl', direction: 'ASC' }",
          "$ xns" : "Roo.data",
          "* prop" : "dataSource",
          "items" : [
