@@ -336,20 +336,12 @@ Pman.Dialog.AdminDomain = {
          xtype : 'JsonReader',
          fields : [
              {
-                 'name': 'id',
+                 'name': 'tbl',
+                 'type': 'string'
+             },
+             {
+                 'name': 'count',
                  'type': 'int'
-             },
-             {
-                 'name': 'firstname',
-                 'type': 'string'
-             },
-             {
-                 'name': 'lastname',
-                 'type': 'string'
-             },
-             {
-                 'name': 'email',
-                 'type': 'string'
              }
          ],
          id : 'id',
