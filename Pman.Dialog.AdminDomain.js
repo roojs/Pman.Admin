@@ -7,7 +7,6 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminDomain = {
 
  _strings : {
-  '77587239bf4c54ea493c7033e1dbf636' :"Last Name",
   '842c51ab0d597b4c7c61066fecf42b44' :"MX last updated",
   'd95867deadfe690e40f42068d6b59df8' :"References",
   '51c45b795d5d18a3e4e0c37e8b20a141' :"Table",
@@ -18,6 +17,7 @@ Pman.Dialog.AdminDomain = {
   '6e53f65896ebebcd73fdafb389a7ecb9' :"Displaying Pages  {0} - {1} of {2}",
   'b331a153086a91e775f24c00de1f77d9' :"No mx record since",
   '3386fe0e5dfeb5c43e53bbce80f31f5a' :"No Pages found",
+  'e93f994f01c537c4e2f7d8528c3eb5e9' :"Count",
   '81c34401de67bbc904ea581fe1922c7b' :"Update Mx",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   '289fe65c57825256edde389f99a1f05c' :"Has MX record"
@@ -269,7 +269,7 @@ Pman.Dialog.AdminDomain = {
       '|xns' : 'Roo',
       grid : {
        xtype : 'Grid',
-       autoExpandColumn : 'email',
+       autoExpandColumn : 'tbl',
        loadMask : true,
        listeners : {
         render : function() 
@@ -278,14 +278,6 @@ Pman.Dialog.AdminDomain = {
              if (_this.journalist_panel.active) {
                 this.footer.onClick('first')
              }
-         },
-        rowdblclick : function (_self, rowIndex, e)
-         {
-             var rec = _self.getDataSource().getAt(rowIndex);
-             Roo.log(_this);
-             Pman.Dialog.PressReleaseContact.show({id: rec.data.id}, function() {
-                 _self.footer.onClick('first');
-             });
          }
        },
        xns : Roo.grid,
@@ -357,14 +349,13 @@ Pman.Dialog.AdminDomain = {
          header : _this._strings['51c45b795d5d18a3e4e0c37e8b20a141'] /* Table */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          sortable : true,
-         width : 75,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         },
         {
          xtype : 'ColumnModel',
-         dataIndex : 'lastname',
-         header : _this._strings['77587239bf4c54ea493c7033e1dbf636'] /* Last Name */,
+         dataIndex : 'count',
+         header : _this._strings['e93f994f01c537c4e2f7d8528c3eb5e9'] /* Count */,
          renderer : function(v) { return String.format('{0}', v ? v : ''); },
          width : 75,
          xns : Roo.grid,

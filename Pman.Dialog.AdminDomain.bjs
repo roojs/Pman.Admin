@@ -134,7 +134,7 @@
       {
        "$ xns" : "Roo.grid",
        "* prop" : "grid",
-       "autoExpandColumn" : "email",
+       "autoExpandColumn" : "tbl",
        "items" : [
         {
          "$ xns" : "Roo",
@@ -211,30 +211,19 @@
          "Boolean sortable" : true,
          "dataIndex" : "tbl",
          "header" : "Table",
-         "width" : 75,
          "xtype" : "ColumnModel"
         },
         {
          "$ renderer" : "function(v) { return String.format('{0}', v ? v : ''); }",
          "$ xns" : "Roo.grid",
          "* prop" : "cm[]",
-         "dataIndex" : "lastname",
-         "header" : "Last Name",
+         "dataIndex" : "count",
+         "header" : "Count",
          "width" : 75,
          "xtype" : "ColumnModel"
         }
        ],
        "listeners" : {
-        "rowdblclick" : [
-         "function (_self, rowIndex, e)",
-         "{",
-         "    var rec = _self.getDataSource().getAt(rowIndex);",
-         "    Roo.log(_this);",
-         "    Pman.Dialog.PressReleaseContact.show({id: rec.data.id}, function() {",
-         "        _self.footer.onClick('first');",
-         "    });",
-         "}"
-        ],
         "|render" : [
          "function() ",
          "{",
@@ -365,12 +354,12 @@
   "3ec365dd533ddb7ef3d1c111186ce872" : "Details",
   "51c45b795d5d18a3e4e0c37e8b20a141" : "Table",
   "6e53f65896ebebcd73fdafb389a7ecb9" : "Displaying Pages  {0} - {1} of {2}",
-  "77587239bf4c54ea493c7033e1dbf636" : "Last Name",
   "81c34401de67bbc904ea581fe1922c7b" : "Update Mx",
   "842c51ab0d597b4c7c61066fecf42b44" : "MX last updated",
   "b331a153086a91e775f24c00de1f77d9" : "No mx record since",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "d95867deadfe690e40f42068d6b59df8" : "References",
+  "e93f994f01c537c4e2f7d8528c3eb5e9" : "Count",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "eae639a70006feff484a39363c977e24" : "Domain"
  },
