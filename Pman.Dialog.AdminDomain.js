@@ -274,8 +274,8 @@ Pman.Dialog.AdminDomain = {
        listeners : {
         render : function() 
          {
-             _this.journalist_grid = this;
-             if (_this.journalist_panel.active) {
+             _this.referenceGrid = this;
+             if (_this.referencePanel.active) {
                 this.footer.onClick('first')
              }
          }
