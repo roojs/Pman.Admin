@@ -43,292 +43,6 @@
           },
           {
            "$ xns" : "Roo",
-           "* prop" : "south",
-           "height" : 60,
-           "xtype" : "LayoutRegion"
-          },
-          {
-           "$ xns" : "Roo",
-           "autoScroll" : true,
-           "fitContainer" : true,
-           "fitToFrame" : true,
-           "items" : [
-            {
-             "$ xns" : "Roo",
-             "* prop" : "toolbar",
-             "items" : [
-              {
-               "$ xns" : "Roo.Toolbar",
-               "xtype" : "Fill"
-              },
-              {
-               "$ xns" : "Roo.Toolbar",
-               "listeners" : {
-                "click" : [
-                 "function (_self, e)",
-                 "{",
-                 "    if (!_this.imageView.getSelectedNodes().length) {",
-                 "     Roo.MessageBox.alert(\"Error\", \"Select an Image\");",
-                 "     return;",
-                 "   }",
-                 "   var id  = _this.imageView.getNodeData(_this.imageView.getSelectedNodes()[0]).id;",
-                 "   _this.imageView.el.mask('Deleting');",
-                 "   ",
-                 "   Roo.Ajax.request({",
-                 "      url : baseURL + '/Roo/Images.php',",
-                 "      params : {",
-                 "         _delete : id",
-                 "      },",
-                 "      method : 'POST',",
-                 "      success : function() {",
-                 "          _this.imageView.loadImages();",
-                 "      },",
-                 "      failure : function() {",
-                 "           _this.imageView.el.unmask();",
-                 "           Roo.MessageBox.alert(\"Error\", \"Error deleting image\");",
-                 "           return;",
-                 "      }",
-                 "  });",
-                 " }"
-                ]
-               },
-               "text" : "Delete Selected File or  Image",
-               "xtype" : "Button"
-              }
-             ],
-             "xtype" : "Toolbar"
-            },
-            {
-             "$ loadImages" : [
-              "function() {",
-              "    var imgbase = typeof(publicBaseURL) != 'undefined' ? publicBaseURL : rootURL + '/crm.php';",
-              "",
-              "     this.load({",
-              "        url : baseURL + '/Roo/Images.php',",
-              "        method : 'GET',",
-              "        params : {",
-              "           ontable : 'crm_person',",
-              "           onid : _this.viewPerson.id,",
-              "           'query[imagesize]' : '150x150',",
-              "           'query[imageBaseURL]' : imgbase,",
-              "           limit : 150",
-              "        },",
-              "        text : 'Loading'",
-              "   });",
-              "   ",
-              "}",
-              ""
-             ],
-             "$ xns" : "Roo",
-             "items" : [
-              {
-               "$ html" : [
-                "'<div class=\"thumb-wrap\"> ' + ",
-                "  '<div class=\"thumb\"><img  src=\"{url_thumb}\" class=\"thumb-img\"></div>' + ",
-                "  '<div class=\"thumblabel\" qtip=\"{linkurl}\">{title}<br/>{linkurl}</div>' + ",
-                "'</div>'"
-               ],
-               "$ xns" : "Roo",
-               "* prop" : "tpl",
-               "xtype" : "Template"
-              }
-             ],
-             "jsonRoot" : "data",
-             "listeners" : {
-              "beforerender" : [
-               "function (_self, data)",
-               "{",
-               "   _this.imageView = _self;",
-               "   ",
-               "   if (this.stylesheet) {",
-               "      return;",
-               "   }",
-               "   this.el.addClass('thumb-browser');",
-               "",
-               "   ",
-               "   this.stylesheet = Roo.util.CSS.createStyleSheet(",
-               "        {",
-               "          '.thumb-browser .thumb-wrap' : {",
-               "                border:'3px solid #EEE',",
-               "                'float':'left',",
-               "                height:'190px',",
-               "                margin:'2px',",
-               "                'padding-left':'5px',",
-               "                'padding-top':'5px',",
-               "                width:'160px'",
-               "            },",
-               "            '.thumb-browser .x-view-selected' : {",
-               "              border:'3px solid #333'",
-               "          ",
-               "            },",
-               "            '.thumblabel' : {",
-               "                'font-size': '11px',",
-               "                'font-family' : 'tahoma, verdana, helvetica',",
-               "                'max-width': '153px',",
-               "                    'overflow': 'hidden',",
-               "                    'white-space': 'nowrap'",
-               "            }",
-               "",
-               "        }, Roo.id()",
-               "        );",
-               "   ",
-               "}"
-              ],
-              "dblclick" : [
-               "function (_self, index, node, e)",
-               "{",
-               "       ",
-               "       if (!node) {",
-               "        return;",
-               "        }",
-               "       var snode = false;",
-               "       try {",
-               "            snode =  _this.imageView.getNodeData(node);",
-               "        } catch (e) {}",
-               "        ",
-               "         ",
-               "        if (!snode) {",
-               "            return;",
-               "        }",
-               "        new Pman.Download({",
-               "            url : baseURL + '/Images/Download/' + snode.id + '/'  + snode.shorten_name",
-               "          }); ",
-               "}"
-              ],
-              "selectionchange" : [
-               "function (_self, selections)",
-               "{",
-               "     ",
-               "     var snode = false;",
-               "     if (selections && selections.length) {",
-               "        try {",
-               "           var snode =  _this.imageView.getNodeData(selections[0]);",
-               "        } catch (e) {}",
-               "    }",
-               "     ",
-               "    if (!snode) {",
-               "         _this.imagePanel.layout.getRegion('east').hide();",
-               "        return;",
-               "    }",
-               "    _this.imagePanel.layout.getRegion('east').show();    ",
-               " ",
-               "    _this.imageForm.setValues(snode);",
-               "}"
-              ]
-             },
-             "singleSelect" : true,
-             "xtype" : "JsonView"
-            }
-           ],
-           "region" : "center",
-           "xtype" : "ContentPanel"
-          },
-          {
-           "$ xns" : "Roo",
-           "items" : [
-            {
-             "$ progressUrl" : "baseURL  + '/Core/UploadProgress.php'",
-             "$ url" : "baseURL + '/Roo/Images.php'",
-             "$ xns" : "Roo.form",
-             "fileUpload" : true,
-             "items" : [
-              {
-               "$ xns" : "Roo.form",
-               "items" : [
-                {
-                 "$ xns" : "Roo.form",
-                 "Number/String width" : 600,
-                 "items" : [
-                  {
-                   "$ xns" : "Roo.form",
-                   "allowBlank" : false,
-                   "fieldLabel" : "Upload Image or File",
-                   "inputType" : "file",
-                   "listeners" : {
-                    "change" : [
-                     "function (_self, newValue, oldValue)",
-                     "{",
-                     "    ",
-                     "}"
-                    ]
-                   },
-                   "name" : "imageUpload",
-                   "width" : 250,
-                   "xtype" : "TextField"
-                  },
-                  {
-                   "$ xns" : "Roo.form",
-                   "name" : "onid",
-                   "xtype" : "Hidden"
-                  },
-                  {
-                   "$ xns" : "Roo.form",
-                   "name" : "ontable",
-                   "value" : "crm_person",
-                   "xtype" : "Hidden"
-                  }
-                 ],
-                 "xtype" : "Column"
-                }
-               ],
-               "xtype" : "Row"
-              }
-             ],
-             "labelWidth" : 200,
-             "listeners" : {
-              "actioncomplete" : [
-               "function (_self, action)",
-               "{",
-               "// only action this will handle is submit?",
-               "// should test for errors..",
-               "    if (action.failureType) {",
-               "        _this.uploadForm.el.unmask();",
-               "        _this.uploadSending = false;",
-               "        Roo.MessageBox.alert(\"Error\", \"Upload Failed\");",
-               "        return false;",
-               "    ",
-               "    }",
-               "      ",
-               "    ",
-               "    if (action.type =='submit') {",
-               "         _this.uploadForm.reset();",
-               "           _this.uploadSending = false;",
-               "          _this.uploadForm.el.unmask();         ",
-               "          _this.imageView.loadImages();",
-               "         return;",
-               "    }",
-               "     ",
-               "}"
-              ],
-              "actionfailed" : [
-               "function (_self, action)",
-               "{",
-               "",
-               "   _this.uploadForm.el.unmask();",
-               "   _this.uploadForm.reset();",
-               "    _this.uploadSending = false;",
-               "    Roo.MessageBox.alert(\"Error\", \"Upload Failed\");",
-               "    _this.imageView.loadImages();",
-               "    ",
-               "  ",
-               "}"
-              ],
-              "rendered" : [
-               "function (form)",
-               "{",
-               "  _this.uploadForm = form;",
-               "}"
-              ]
-             },
-             "style" : "margin: 10px;",
-             "xtype" : "Form"
-            }
-           ],
-           "region" : "south",
-           "xtype" : "ContentPanel"
-          },
-          {
-           "$ xns" : "Roo",
            "items" : [
             {
              "$ url" : "baseURL + '/Roo/Images.php'",
@@ -909,13 +623,11 @@
  "name" : "Pman.Tab.CoreNotifyServers",
  "named_strings" : {
   "filesize_fieldLabel" : "b18c29b8470190a02813415a04a2191f",
-  "imageUpload_fieldLabel" : "ea72bacd2fdfa818907bb9559e6905a1",
   "imgtype_emptyText" : "8535bcc0f05358a583bb432bbadf7e0d",
   "imgtype_fieldLabel" : "8e16a71b3d8217eb80b39b7d8dec4296",
   "imgtype_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "imgtype_qtip" : "471ddaf9e80da04dd5a3a54daa0239b0",
   "mimetype_fieldLabel" : "529701d5ccccf8a1c604c27f48ce7d82",
-  "ontable_value" : "1d05bbecb1dd9127ccc9a5efaf492a2c",
   "title_fieldLabel" : "b78a3223503896721cca1303f776159b"
  },
  "parent" : "Pman.Tab.AdminWatchNotify",
@@ -925,7 +637,6 @@
   "1063e38cb53d94d386f21227fcd84717" : "Remove",
   "1203cd27e4d1ab6f1296728c021d9c1a" : "Is Active",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
-  "1d05bbecb1dd9127ccc9a5efaf492a2c" : "crm_person",
   "2023301a71db57f37d50da7d045b881a" : "Displaying Servers {0} - {1} of {2}",
   "2ddb157d4780e8883fbde96f354c57d2" : "Displaying Blacklists {0} - {1} of {2}",
   "471ddaf9e80da04dd5a3a54daa0239b0" : "Select Image Type",
@@ -944,10 +655,8 @@
   "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
   "c5dd93dd1011986763b5925e0af25e08" : "No Blacklists found",
   "c8f4b8c435b3d99a66e1b91bec60737c" : "Hostname",
-  "c9d03748d1a54666b5c7a5187109301b" : "Delete Selected File or  Image",
   "def36b726efed529b13ba240dd331a12" : "Pool",
   "e3974584afa867d8619253bc669d6197" : "Notify Servers",
-  "ea72bacd2fdfa818907bb9559e6905a1" : "Upload Image or File",
   "eae639a70006feff484a39363c977e24" : "Domain",
   "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
   "f29ddbfb905eb2593fdcdfb243f9af85" : "Added"
