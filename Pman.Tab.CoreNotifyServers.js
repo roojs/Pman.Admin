@@ -8,7 +8,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
 
  _strings : {
   'ac659513b2353187192e88c5d1988228' :"Servers",
-  '11f7b456ca765e9f556f653090045ae7' :"Images / PDF",
   '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
@@ -88,7 +87,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
      {
       xtype : 'NestedLayoutPanel',
       region : 'center',
-      title : _this._strings['11f7b456ca765e9f556f653090045ae7'] /* Images / PDF */,
+      title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
       listeners : {
        activate : function (_self)
         {
