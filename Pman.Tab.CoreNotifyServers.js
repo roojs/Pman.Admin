@@ -298,9 +298,9 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
           listeners : {
            render : function() 
             {
-                _this.sgrid = this; 
+                _this.ipv6Grid = this; 
                 //_this.dialog = Pman.Dialog.FILL_IN
-                if (_this.spanel.active) {
+                if (_this.ipv6Panel.active) {
                    this.footer.onClick('first');
                 }
             }
