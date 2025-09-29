@@ -403,7 +403,7 @@
            },
            "region" : "center",
            "tableName" : "core_notify_server_ipv6",
-           "title" : "IPV6",
+           "title" : "Address",
            "xtype" : "GridPanel"
           }
          ],
@@ -567,7 +567,6 @@
   "1203cd27e4d1ab6f1296728c021d9c1a" : "Is Active",
   "2023301a71db57f37d50da7d045b881a" : "Displaying Servers {0} - {1} of {2}",
   "2ddb157d4780e8883fbde96f354c57d2" : "Displaying Blacklists {0} - {1} of {2}",
-  "3fbcd320695e3a01273994471d09cc36" : "IPV6",
   "774ff60df30a64fad1d29f6c2daa8691" : "No Servers found",
   "825bd435c12978e8492330c2a0d823db" : "Helo",
   "902b0d55fddef6f8d651fe1035b7d4bd" : "Error",
@@ -576,6 +575,7 @@
   "be6838286e448ad65c5b55d690e2c38b" : "In Queue",
   "c348b06d2667edd048ded3c1b1878cc1" : "Recurrent Notifications",
   "c5dd93dd1011986763b5925e0af25e08" : "No Blacklists found",
+  "dd7bf230fde8d4836917806aff6a6b27" : "Address",
   "def36b726efed529b13ba240dd331a12" : "Pool",
   "e3974584afa867d8619253bc669d6197" : "Notify Servers",
   "eae639a70006feff484a39363c977e24" : "Domain",

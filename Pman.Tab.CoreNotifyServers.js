@@ -19,13 +19,13 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   '1203cd27e4d1ab6f1296728c021d9c1a' :"Is Active",
   'def36b726efed529b13ba240dd331a12' :"Pool",
   'be6838286e448ad65c5b55d690e2c38b' :"In Queue",
-  '3fbcd320695e3a01273994471d09cc36' :"IPV6",
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
-  'ffbaae475d62dafea56ae75770f64595' :"Hostnamee"
+  'ffbaae475d62dafea56ae75770f64595' :"Hostnamee",
+  'dd7bf230fde8d4836917806aff6a6b27' :"Address"
  },
 
   part     :  ["Admin", "CoreNotifyServers" ],
@@ -280,7 +280,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          fitToframe : true,
          region : 'center',
          tableName : 'core_notify_server_ipv6',
-         title : _this._strings['3fbcd320695e3a01273994471d09cc36'] /* IPV6 */,
+         title : _this._strings['dd7bf230fde8d4836917806aff6a6b27'] /* Address */,
          listeners : {
           activate : function() {
                _this.ipv6Panel = this;
