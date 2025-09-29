@@ -37,7 +37,6 @@
           {
            "$ xns" : "Roo",
            "* prop" : "east",
-           "hidden" : true,
            "width" : 200,
            "xtype" : "LayoutRegion"
           },

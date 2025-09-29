@@ -79,7 +79,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
        },
        east : {
         xtype : 'LayoutRegion',
-        hidden : true,
         width : 200,
         xns : Roo,
         '|xns' : 'Roo'
