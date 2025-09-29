@@ -450,7 +450,7 @@
             ]
            },
            "region" : "center",
-           "tableName" : "core_notify_server",
+           "tableName" : "core_notify_server_ipv6",
            "title" : "IPV6",
            "xtype" : "GridPanel"
           }

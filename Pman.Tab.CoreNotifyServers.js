@@ -279,7 +279,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          fitContainer : true,
          fitToframe : true,
          region : 'center',
-         tableName : 'core_notify_server',
+         tableName : 'core_notify_server_ipv6',
          title : _this._strings['3fbcd320695e3a01273994471d09cc36'] /* IPV6 */,
          listeners : {
           activate : function() {
