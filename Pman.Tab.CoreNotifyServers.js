@@ -24,6 +24,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   'eae639a70006feff484a39363c977e24' :"Domain",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
+  '497d1a7e59727da9c824e3a3c3aed250' :"IPV6 Address",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
   'ffbaae475d62dafea56ae75770f64595' :"Hostnamee"
  },
@@ -354,21 +355,8 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
           colModel : [
            {
             xtype : 'ColumnModel',
-            dataIndex : 'is_active',
-            header : _this._strings['1203cd27e4d1ab6f1296728c021d9c1a'] /* Is Active */,
-            renderer : function(v) {
-                var state = v> 0 ?  '-checked' : '';
-            
-                return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
-            },
-            width : 100,
-            xns : Roo.grid,
-            '|xns' : 'Roo.grid'
-           },
-           {
-            xtype : 'ColumnModel',
-            dataIndex : 'hostname',
-            header : _this._strings['ffbaae475d62dafea56ae75770f64595'] /* Hostnamee */,
+            dataIndex : 'ipv6_addr',
+            header : _this._strings['497d1a7e59727da9c824e3a3c3aed250'] /* IPV6 Address */,
             width : 150,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
