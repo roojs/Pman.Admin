@@ -363,38 +363,9 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            },
            {
             xtype : 'ColumnModel',
-            dataIndex : 'domain_id_domainname',
+            dataIndex : 'domain_id_domain',
             header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
             width : 150,
-            xns : Roo.grid,
-            '|xns' : 'Roo.grid'
-           },
-           {
-            xtype : 'ColumnModel',
-            dataIndex : 'poolname',
-            header : _this._strings['def36b726efed529b13ba240dd331a12'] /* Pool */,
-            width : 150,
-            xns : Roo.grid,
-            '|xns' : 'Roo.grid'
-           },
-           {
-            xtype : 'ColumnModel',
-            dataIndex : 'in_queue',
-            header : _this._strings['be6838286e448ad65c5b55d690e2c38b'] /* In Queue */,
-            renderer : function(v,x,r) {
-            
-                return r.data.in_queue || 0;
-            },
-            width : 150,
-            xns : Roo.grid,
-            '|xns' : 'Roo.grid'
-           },
-           {
-            xtype : 'ColumnModel',
-            dataIndex : 'last_send',
-            header : _this._strings['b26686c0a708faee42861d8b905e882e'] /* Last Sent */,
-            renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y  H:i:s') : ''); },
-            width : 120,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
            }
