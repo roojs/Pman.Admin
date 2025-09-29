@@ -256,7 +256,7 @@
             {
              "$ xns" : "Roo.grid",
              "* prop" : "grid",
-             "autoExpandColumn" : "ipv6_addr",
+             "autoExpandColumn" : "domain",
              "items" : [
               {
                "$ xns" : "Roo",
