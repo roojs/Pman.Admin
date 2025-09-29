@@ -136,7 +136,7 @@
            "$ xns" : "Roo.grid",
            "* prop" : "colModel[]",
            "dataIndex" : "hostname",
-           "header" : "Hostname",
+           "header" : "HostName",
            "width" : 150,
            "xtype" : "ColumnModel"
           },
