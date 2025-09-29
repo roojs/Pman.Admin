@@ -283,9 +283,9 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          title : _this._strings['dd7bf230fde8d4836917806aff6a6b27'] /* Address */,
          listeners : {
           activate : function() {
-               _this.ipv6Panel = this;
-               if (_this.ipv6Grid) {
-                   _this.ipv6Grid.footer.onClick('first');
+               _this.addressPanel = this;
+               if (_this.addressGrid) {
+                   _this.addressGrid.footer.onClick('first');
                }
            }
          },
@@ -298,7 +298,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
           listeners : {
            render : function() 
             {
-                _this.ipv6Grid = this; 
+                _this.addressGrid = this; 
                 //_this.dialog = Pman.Dialog.FILL_IN
                 if (_this.ipv6Panel.active) {
                    this.footer.onClick('first');
