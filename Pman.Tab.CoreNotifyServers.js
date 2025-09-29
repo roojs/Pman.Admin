@@ -300,7 +300,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             {
                 _this.addressGrid = this; 
                 //_this.dialog = Pman.Dialog.FILL_IN
-                if (_this.ipv6Panel.active) {
+                if (_this.addressPanel.active) {
                    this.footer.onClick('first');
                 }
             }
