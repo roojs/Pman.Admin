@@ -124,7 +124,7 @@
                 "load" : [
                  "function (_self, records, options)",
                  "{",
-                 "",
+                 "    _this.ipv6Grid.footer.onClick('first');",
                  "}"
                 ]
                },
