@@ -332,13 +332,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            xtype : 'Store',
            remoteSort : true,
            sortInfo : { field : 'hostname', direction: 'ASC' },
-           listeners : {
-            beforeload : function (_self, options)
-             {
-                options.params._with_queue_size  =1 ;
-                 
-             }
-           },
            xns : Roo.data,
            '|xns' : 'Roo.data',
            proxy : {

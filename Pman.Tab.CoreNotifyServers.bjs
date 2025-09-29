@@ -291,15 +291,6 @@
                  "xtype" : "JsonReader"
                 }
                ],
-               "listeners" : {
-                "beforeload" : [
-                 "function (_self, options)",
-                 "{",
-                 "   options.params._with_queue_size  =1 ;",
-                 "    ",
-                 "}"
-                ]
-               },
                "remoteSort" : true,
                "xtype" : "Store"
               },
