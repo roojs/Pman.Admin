@@ -37,7 +37,7 @@
           {
            "$ xns" : "Roo",
            "* prop" : "east",
-           "width" : 200,
+           "width" : 650,
            "xtype" : "LayoutRegion"
           },
           {
@@ -124,6 +124,7 @@
                 "load" : [
                  "function (_self, records, options)",
                  "{",
+                 "    Roo.log(_this);",
                  "    _this.ipv6Grid.footer.onClick('first');",
                  "}"
                 ]
@@ -352,7 +353,7 @@
              "}"
             ]
            },
-           "region" : "center",
+           "region" : "east",
            "tableName" : "core_notify_server_ipv6",
            "title" : "IPV6",
            "xtype" : "GridPanel"

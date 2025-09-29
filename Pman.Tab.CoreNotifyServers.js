@@ -81,7 +81,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
        },
        east : {
         xtype : 'LayoutRegion',
-        width : 200,
+        width : 650,
         xns : Roo,
         '|xns' : 'Roo'
        },
@@ -194,6 +194,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              },
             load : function (_self, records, options)
              {
+                 Roo.log(_this);
                  _this.ipv6Grid.footer.onClick('first');
              }
            },
@@ -283,7 +284,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          background : true,
          fitContainer : true,
          fitToframe : true,
-         region : 'center',
+         region : 'east',
          tableName : 'core_notify_server_ipv6',
          title : _this._strings['3fbcd320695e3a01273994471d09cc36'] /* IPV6 */,
          listeners : {
