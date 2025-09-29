@@ -363,8 +363,8 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            },
            {
             xtype : 'ColumnModel',
-            dataIndex : 'helo',
-            header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
+            dataIndex : 'domain_id_domainname',
+            header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
             width : 150,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'

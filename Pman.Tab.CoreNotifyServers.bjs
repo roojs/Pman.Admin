@@ -314,8 +314,8 @@
               {
                "$ xns" : "Roo.grid",
                "* prop" : "colModel[]",
-               "dataIndex" : "helo",
-               "header" : "Helo",
+               "dataIndex" : "domain_id_domainname",
+               "header" : "Domain",
                "width" : 150,
                "xtype" : "ColumnModel"
               },
