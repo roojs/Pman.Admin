@@ -264,22 +264,6 @@
                "items" : [
                 {
                  "$ xns" : "Roo.Toolbar",
-                 "String text" : "Add",
-                 "listeners" : {
-                  "click" : [
-                   "function() ",
-                   "{",
-                   "    Pman.Dialog.CoreNotifyServer.show(",
-                   "         {}, function() {",
-                   "        _this.sgrid.footer.onClick('first');",
-                   "    }); ",
-                   "}"
-                  ]
-                 },
-                 "xtype" : "Button"
-                },
-                {
-                 "$ xns" : "Roo.Toolbar",
                  "xtype" : "Fill"
                 },
                 {
@@ -442,9 +426,9 @@
            "listeners" : {
             "|activate" : [
              "function() {",
-             "    _this.spanel = this;",
-             "    if (_this.sgrid) {",
-             "        _this.sgrid.footer.onClick('first');",
+             "    _this.ipv6Panel = this;",
+             "    if (_this.ipv6Grid) {",
+             "        _this.ipv6Grid.footer.onClick('first');",
              "    }",
              "}"
             ]
