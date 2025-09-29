@@ -281,7 +281,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
         },
         {
          xtype : 'GridPanel',
-         background : true,
+         background : false,
          fitContainer : true,
          fitToframe : true,
          region : 'east',
