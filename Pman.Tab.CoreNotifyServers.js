@@ -19,6 +19,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   '1203cd27e4d1ab6f1296728c021d9c1a' :"Is Active",
   'def36b726efed529b13ba240dd331a12' :"Pool",
   'be6838286e448ad65c5b55d690e2c38b' :"In Queue",
+  '3fbcd320695e3a01273994471d09cc36' :"IPV6",
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
@@ -279,7 +280,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          fitToframe : true,
          region : 'center',
          tableName : 'core_notify_server',
-         title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
+         title : _this._strings['3fbcd320695e3a01273994471d09cc36'] /* IPV6 */,
          listeners : {
           activate : function() {
                _this.spanel = this;

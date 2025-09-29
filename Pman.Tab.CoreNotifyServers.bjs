@@ -451,7 +451,7 @@
            },
            "region" : "center",
            "tableName" : "core_notify_server",
-           "title" : "Servers",
+           "title" : "IPV6",
            "xtype" : "GridPanel"
           }
          ],
@@ -615,6 +615,7 @@
   "1203cd27e4d1ab6f1296728c021d9c1a" : "Is Active",
   "2023301a71db57f37d50da7d045b881a" : "Displaying Servers {0} - {1} of {2}",
   "2ddb157d4780e8883fbde96f354c57d2" : "Displaying Blacklists {0} - {1} of {2}",
+  "3fbcd320695e3a01273994471d09cc36" : "IPV6",
   "774ff60df30a64fad1d29f6c2daa8691" : "No Servers found",
   "825bd435c12978e8492330c2a0d823db" : "Helo",
   "902b0d55fddef6f8d651fe1035b7d4bd" : "Error",
