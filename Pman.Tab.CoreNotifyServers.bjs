@@ -275,7 +275,7 @@
                "* prop" : "dataSource",
                "items" : [
                 {
-                 "$ url" : "baseURL + '/Roo/core_notify_server'",
+                 "$ url" : "baseURL + '/Roo/core_notify_server_ipv6'",
                  "$ xns" : "Roo.data",
                  "* prop" : "proxy",
                  "Number timeout" : 120000,
