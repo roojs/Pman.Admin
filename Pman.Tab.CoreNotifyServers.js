@@ -339,18 +339,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              xtype : 'Fill',
              xns : Roo.Toolbar,
              '|xns' : 'Roo.Toolbar'
-            },
-            {
-             xtype : 'Button',
-             text : _this._strings['1063e38cb53d94d386f21227fcd84717'] /* Remove */,
-             listeners : {
-              click : function (_self, e)
-               {
-                      Pman.genericDelete(_this.spanel, 'core_notify_server');
-               }
-             },
-             xns : Roo.Toolbar,
-             '|xns' : 'Roo.Toolbar'
             }
            ]
           },

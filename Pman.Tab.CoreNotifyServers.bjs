@@ -265,19 +265,6 @@
                 {
                  "$ xns" : "Roo.Toolbar",
                  "xtype" : "Fill"
-                },
-                {
-                 "$ xns" : "Roo.Toolbar",
-                 "String text" : "Remove",
-                 "listeners" : {
-                  "click" : [
-                   "function (_self, e)",
-                   "{",
-                   "       Pman.genericDelete(_this.spanel, 'core_notify_server');",
-                   "}"
-                  ]
-                 },
-                 "xtype" : "Button"
                 }
                ],
                "xtype" : "Toolbar"
