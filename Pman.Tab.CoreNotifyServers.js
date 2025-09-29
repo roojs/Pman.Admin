@@ -191,6 +191,10 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              {
                 options.params._with_queue_size  =1 ;
                  
+             },
+            load : function (_self, records, options)
+             {
+             
              }
            },
            xns : Roo.data,
