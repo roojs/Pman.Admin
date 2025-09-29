@@ -24,7 +24,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
-  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname"
+  'ffbaae475d62dafea56ae75770f64595' :"Hostnamee"
  },
 
   part     :  ["Admin", "CoreNotifyServers" ],
@@ -228,7 +228,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            {
             xtype : 'ColumnModel',
             dataIndex : 'hostname',
-            header : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
+            header : _this._strings['ffbaae475d62dafea56ae75770f64595'] /* Hostnamee */,
             width : 150,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
