@@ -256,7 +256,7 @@
             {
              "$ xns" : "Roo.grid",
              "* prop" : "grid",
-             "autoExpandColumn" : "hostname",
+             "autoExpandColumn" : "ipv6_addr",
              "items" : [
               {
                "$ xns" : "Roo",
@@ -376,14 +376,6 @@
               }
              ],
              "listeners" : {
-              "rowclick" : [
-               "function (_self, rowIndex, e)",
-               "{",
-               "    (function() { ",
-               "        _this.bgrid.footer.onClick('first');",
-               "    }).defer(100);",
-               "}"
-              ],
               "|render" : [
                "function() ",
                "{",
@@ -393,17 +385,6 @@
                "       this.footer.onClick('first');",
                "    }",
                "}"
-              ],
-              "|rowdblclick" : [
-               "function (_self, rowIndex, e)",
-               "{",
-               "    ",
-               "    Pman.Dialog.CoreNotifyServer.show(",
-               "         this.getDataSource().getAt(rowIndex).data, function() {",
-               "        _this.sgrid.footer.onClick('first');",
-               "    }); ",
-               "}",
-               ""
               ]
              },
              "loadMask" : true,

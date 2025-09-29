@@ -293,7 +293,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          '|xns' : 'Roo',
          grid : {
           xtype : 'Grid',
-          autoExpandColumn : 'hostname',
+          autoExpandColumn : 'ipv6_addr',
           loadMask : true,
           listeners : {
            render : function() 
@@ -303,20 +303,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                 if (_this.spanel.active) {
                    this.footer.onClick('first');
                 }
-            },
-           rowclick : function (_self, rowIndex, e)
-            {
-                (function() { 
-                    _this.bgrid.footer.onClick('first');
-                }).defer(100);
-            },
-           rowdblclick : function (_self, rowIndex, e)
-            {
-                
-                Pman.Dialog.CoreNotifyServer.show(
-                     this.getDataSource().getAt(rowIndex).data, function() {
-                    _this.sgrid.footer.onClick('first');
-                }); 
             }
           },
           xns : Roo.grid,
