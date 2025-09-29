@@ -273,10 +273,192 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          }
         },
         {
-         xtype : 'ContentPanel',
-         region : 'east',
+         xtype : 'GridPanel',
+         background : true,
+         fitContainer : true,
+         fitToframe : true,
+         region : 'center',
+         tableName : 'core_notify_server',
+         title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
+         listeners : {
+          activate : function() {
+               _this.spanel = this;
+               if (_this.sgrid) {
+                   _this.sgrid.footer.onClick('first');
+               }
+           }
+         },
          xns : Roo,
-         '|xns' : 'Roo'
+         '|xns' : 'Roo',
+         grid : {
+          xtype : 'Grid',
+          autoExpandColumn : 'hostname',
+          loadMask : true,
+          listeners : {
+           render : function() 
+            {
+                _this.sgrid = this; 
+                //_this.dialog = Pman.Dialog.FILL_IN
+                if (_this.spanel.active) {
+                   this.footer.onClick('first');
+                }
+            },
+           rowclick : function (_self, rowIndex, e)
+            {
+                (function() { 
+                    _this.bgrid.footer.onClick('first');
+                }).defer(100);
+            },
+           rowdblclick : function (_self, rowIndex, e)
+            {
+                
+                Pman.Dialog.CoreNotifyServer.show(
+                     this.getDataSource().getAt(rowIndex).data, function() {
+                    _this.sgrid.footer.onClick('first');
+                }); 
+            }
+          },
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          footer : {
+           xtype : 'PagingToolbar',
+           displayInfo : true,
+           displayMsg : _this._strings['2023301a71db57f37d50da7d045b881a'] /* Displaying Servers {0} - {1} of {2} */,
+           emptyMsg : _this._strings['774ff60df30a64fad1d29f6c2daa8691'] /* No Servers found */,
+           pageSize : 25,
+           xns : Roo,
+           '|xns' : 'Roo'
+          },
+          toolbar : {
+           xtype : 'Toolbar',
+           xns : Roo,
+           '|xns' : 'Roo',
+           items  : [
+            {
+             xtype : 'Button',
+             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+             listeners : {
+              click : function() 
+               {
+                   Pman.Dialog.CoreNotifyServer.show(
+                        {}, function() {
+                       _this.sgrid.footer.onClick('first');
+                   }); 
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
+             xtype : 'Fill',
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
+             xtype : 'Button',
+             text : _this._strings['1063e38cb53d94d386f21227fcd84717'] /* Remove */,
+             listeners : {
+              click : function (_self, e)
+               {
+                      Pman.genericDelete(_this.spanel, 'core_notify_server');
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            }
+           ]
+          },
+          dataSource : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { field : 'hostname', direction: 'ASC' },
+           listeners : {
+            beforeload : function (_self, options)
+             {
+                options.params._with_queue_size  =1 ;
+                 
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            timeout : 120000,
+            url : baseURL + '/Roo/core_notify_server',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          },
+          colModel : [
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'is_active',
+            header : _this._strings['1203cd27e4d1ab6f1296728c021d9c1a'] /* Is Active */,
+            renderer : function(v) {
+                var state = v> 0 ?  '-checked' : '';
+            
+                return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+            },
+            width : 100,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'hostname',
+            header : _this._strings['ffbaae475d62dafea56ae75770f64595'] /* Hostnamee */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'helo',
+            header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'poolname',
+            header : _this._strings['def36b726efed529b13ba240dd331a12'] /* Pool */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'in_queue',
+            header : _this._strings['be6838286e448ad65c5b55d690e2c38b'] /* In Queue */,
+            renderer : function(v,x,r) {
+            
+                return r.data.in_queue || 0;
+            },
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'last_send',
+            header : _this._strings['b26686c0a708faee42861d8b905e882e'] /* Last Sent */,
+            renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y  H:i:s') : ''); },
+            width : 120,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           }
+          ]
+         }
         }
        ]
       }
