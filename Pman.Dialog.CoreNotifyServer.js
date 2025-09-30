@@ -62,7 +62,7 @@ Pman.Dialog.CoreNotifyServer = {
     xtype : 'LayoutDialog',
     closable : true,
     collapsible : false,
-    height : 200,
+    height : 300,
     modal : true,
     resizable : false,
     title : _this._strings['7082f08d3a32017e44122c3c708ce06a'] /* Add / Edit Server */,
