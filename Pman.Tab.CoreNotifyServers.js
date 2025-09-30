@@ -378,7 +378,11 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                      
                  }
                  
-                 _this.ipv6Grid.sm.
+                 var sel = _this.sgrid.sm.getSelected();
+                 if (!sel) {
+                     Roo.MessageBox.alert("Error", "Select a server first");
+                     return;
+                 }
              }
            },
            xns : Roo.data,

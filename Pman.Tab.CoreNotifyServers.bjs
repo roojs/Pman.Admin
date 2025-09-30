@@ -347,7 +347,11 @@
                  "        ",
                  "    }",
                  "    ",
-                 "    _this.ipv6Grid.sm.",
+                 "    var sel = _this.sgrid.sm.getSelected();",
+                 "    if (!sel) {",
+                 "        Roo.MessageBox.alert(\"Error\", \"Select a server first\");",
+                 "        return;",
+                 "    }",
                  "}"
                 ]
                },
