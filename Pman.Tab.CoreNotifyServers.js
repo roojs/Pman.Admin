@@ -9,6 +9,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
  _strings : {
   'ac659513b2353187192e88c5d1988228' :"Servers",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
   '774ff60df30a64fad1d29f6c2daa8691' :"No Servers found",
@@ -319,6 +320,25 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            xns : Roo,
            '|xns' : 'Roo',
            items  : [
+            {
+             xtype : 'TextField',
+             emptyText : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
+             queryParam : 'query[search]',
+             listeners : {
+              render : function (_self)
+               {
+                   _this.ipv6SearchBox = _self;
+               },
+              specialkey : function (_self, e)
+               {
+                    if (e.getKey() == 13) {
+                       _this.ipv6Grid.footer.onClick('first');
+                    }
+               }
+             },
+             xns : Roo.form,
+             '|xns' : 'Roo.form'
+            },
             {
              xtype : 'Fill',
              xns : Roo.Toolbar,

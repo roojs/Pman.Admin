@@ -269,6 +269,28 @@
                "* prop" : "toolbar",
                "items" : [
                 {
+                 "$ xns" : "Roo.form",
+                 "emptyText" : "Search",
+                 "listeners" : {
+                  "render" : [
+                   "function (_self)",
+                   "{",
+                   "    _this.ipv6SearchBox = _self;",
+                   "}"
+                  ],
+                  "specialkey" : [
+                   "function (_self, e)",
+                   "{",
+                   "     if (e.getKey() == 13) {",
+                   "        _this.ipv6Grid.footer.onClick('first');",
+                   "     }",
+                   "}"
+                  ]
+                 },
+                 "queryParam" : "query[search]",
+                 "xtype" : "TextField"
+                },
+                {
                  "$ xns" : "Roo.Toolbar",
                  "xtype" : "Fill"
                 }
@@ -509,6 +531,7 @@
  "strings" : {
   "1063e38cb53d94d386f21227fcd84717" : "Remove",
   "1203cd27e4d1ab6f1296728c021d9c1a" : "Is Active",
+  "13348442cc6a27032d2b4aa28b75a5d3" : "Search",
   "2023301a71db57f37d50da7d045b881a" : "Displaying Servers {0} - {1} of {2}",
   "2ddb157d4780e8883fbde96f354c57d2" : "Displaying Blacklists {0} - {1} of {2}",
   "3fbcd320695e3a01273994471d09cc36" : "IPV6",
