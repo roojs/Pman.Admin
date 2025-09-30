@@ -196,6 +196,12 @@
                "header" : "Last Sent",
                "width" : 120,
                "xtype" : "ColumnModel"
+              },
+              {
+               "$ xns" : "Roo.grid",
+               "* prop" : "sm",
+               "Boolean singleSelect" : false,
+               "xtype" : "RowSelectionModel"
               }
              ],
              "listeners" : {
