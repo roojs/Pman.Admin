@@ -375,7 +375,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                  
                  var s = _this.sgrid.getSelectionModel().getSelected();
                  if (s) {
-                     options.params['server_id'] = r.data.id;
+                     options.params['server_id'] = s.data.id;
                  }
              }
            },
