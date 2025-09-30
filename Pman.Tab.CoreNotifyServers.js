@@ -123,6 +123,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             {
                 (function() { 
                     _this.bgrid.footer.onClick('first');
+                    _this.ipv6Grid.footer.onClick('first');
                 }).defer(100);
             },
            rowdblclick : function (_self, rowIndex, e)
@@ -193,10 +194,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              {
                 options.params._with_queue_size  =1 ;
                  
-             },
-            load : function (_self, records, options)
-             {
-                 _this.ipv6Grid.footer.onClick('first');
              }
            },
            xns : Roo.data,
