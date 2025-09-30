@@ -287,7 +287,6 @@
                    "}"
                   ]
                  },
-                 "queryParam" : "query[search]",
                  "xtype" : "TextField"
                 },
                 {
@@ -319,6 +318,14 @@
                  "xtype" : "JsonReader"
                 }
                ],
+               "listeners" : {
+                "beforeload" : [
+                 "function (_self, options)",
+                 "{",
+                 "",
+                 "}"
+                ]
+               },
                "remoteSort" : true,
                "xtype" : "Store"
               },

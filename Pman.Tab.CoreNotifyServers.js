@@ -323,7 +323,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             {
              xtype : 'TextField',
              emptyText : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
-             queryParam : 'query[search]',
              listeners : {
               render : function (_self)
                {
@@ -350,6 +349,12 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            xtype : 'Store',
            remoteSort : true,
            sortInfo : { field : 'hostname', direction: 'ASC' },
+           listeners : {
+            beforeload : function (_self, options)
+             {
+             
+             }
+           },
            xns : Roo.data,
            '|xns' : 'Roo.data',
            proxy : {
