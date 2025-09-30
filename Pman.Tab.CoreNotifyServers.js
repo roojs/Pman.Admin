@@ -378,7 +378,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                      
                  }
                  
-                 _this.ipv6Grid.
+                 _this.ipv6Grid.sm.
              }
            },
            xns : Roo.data,

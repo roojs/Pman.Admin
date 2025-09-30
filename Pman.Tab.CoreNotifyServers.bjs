@@ -347,7 +347,7 @@
                  "        ",
                  "    }",
                  "    ",
-                 "    _this.ipv6Grid.",
+                 "    _this.ipv6Grid.sm.",
                  "}"
                 ]
                },
