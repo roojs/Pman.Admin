@@ -10,21 +10,29 @@ Pman.Dialog.CoreNotifyServer = {
   '7082f08d3a32017e44122c3c708ce06a' :"Add / Edit Server",
   'bf09196dbed1aa01793da7b19a053bb2' :"IPV6 PTR",
   '1ec99f063957c4efae5af6b76ad81fd2' :"IPV6 Range To",
+  '023a5dfa857c4aa0156e6685231a1dbd' :"Select Type",
+  '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
+  '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
   'a0591fd32b96fb0f6dcbefb0a93abc1e' :"IPV6 Range From",
   'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
   'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
+  'a1fa27779242b4902f7ae3bdd5c6d508' :"Type",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
   'ipv6_range_to_fieldLabel' : '1ec99f063957c4efae5af6b76ad81fd2' /* IPV6 Range To */ ,
   'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
+  'comptype_id_display_name_emptyText' : '023a5dfa857c4aa0156e6685231a1dbd' /* Select Type */ ,
+  'comptype_id_display_name_fieldLabel' : 'a1fa27779242b4902f7ae3bdd5c6d508' /* Type */ ,
+  'comptype_id_display_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'poolname_fieldLabel' : '7e240928383acb93e5066a6149430337' /* Pool Name */ ,
   'ipv6_ptr_fieldLabel' : 'bf09196dbed1aa01793da7b19a053bb2' /* IPV6 PTR */ ,
   'ipv6_range_from_fieldLabel' : 'a0591fd32b96fb0f6dcbefb0a93abc1e' /* IPV6 Range From */ ,
+  'comptype_id_display_name_qtip' : '8535bcc0f05358a583bb432bbadf7e0d' /* Select type */ ,
   'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ 
  },
 
@@ -204,6 +212,68 @@ Pman.Dialog.CoreNotifyServer = {
           width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'ComboBox',
+          allowBlank : false,
+          alwaysQuery : true,
+          displayField : 'display_name',
+          emptyText : _this._strings['023a5dfa857c4aa0156e6685231a1dbd'] /* Select Type */,
+          fieldLabel : _this._strings['a1fa27779242b4902f7ae3bdd5c6d508'] /* Type */,
+          forceSelection : true,
+          hiddenName : 'comptype_id',
+          listWidth : 250,
+          loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
+          minChars : 2,
+          name : 'comptype_id_display_name',
+          pageSize : 20,
+          qtip : _this._strings['8535bcc0f05358a583bb432bbadf7e0d'] /* Select type */,
+          queryParam : 'query[name]',
+          selectOnFocus : true,
+          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> : {display_name}</div>',
+          triggerAction : 'all',
+          typeAhead : false,
+          valueField : 'id',
+          width : 200,
+          listeners : {
+           render : function (_self)
+            {
+                _this.etypeCombo = _self;
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          store : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { direction : 'ASC', field: 'id' },
+           listeners : {
+            beforeload : function (_self, o){
+                 o.params = o.params || {};
+                 // set more here
+                 //o.params['query[empty_etype]'] = 1;
+                 o.params.etype = 'COMPTYPE';
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            url : baseURL + '/Roo/core_enum.php',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            fields : [{"name":"id","type":"int"},{"name":"name","type":"string"}],
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          }
          },
          {
           xtype : 'Checkbox',

@@ -65,6 +65,76 @@
         },
         {
          "$ xns" : "Roo.form",
+         "Boolean allowBlank" : false,
+         "alwaysQuery" : true,
+         "displayField" : "display_name",
+         "emptyText" : "Select Type",
+         "fieldLabel" : "Type",
+         "forceSelection" : true,
+         "hiddenName" : "comptype_id",
+         "items" : [
+          {
+           "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+           "$ xns" : "Roo.data",
+           "* prop" : "store",
+           "items" : [
+            {
+             "$ url" : "baseURL + '/Roo/core_enum.php'",
+             "$ xns" : "Roo.data",
+             "* prop" : "proxy",
+             "method" : "GET",
+             "xtype" : "HttpProxy"
+            },
+            {
+             "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+             "$ xns" : "Roo.data",
+             "* prop" : "reader",
+             "id" : "id",
+             "root" : "data",
+             "totalProperty" : "total",
+             "xtype" : "JsonReader"
+            }
+           ],
+           "listeners" : {
+            "|beforeload" : [
+             "function (_self, o){",
+             "    o.params = o.params || {};",
+             "    // set more here",
+             "    //o.params['query[empty_etype]'] = 1;",
+             "    o.params.etype = 'COMPTYPE';",
+             "}",
+             ""
+            ]
+           },
+           "remoteSort" : true,
+           "xtype" : "Store"
+          }
+         ],
+         "listWidth" : 250,
+         "listeners" : {
+          "render" : [
+           "function (_self)",
+           "{",
+           "    _this.etypeCombo = _self;",
+           "}"
+          ]
+         },
+         "loadingText" : "Searching...",
+         "minChars" : 2,
+         "name" : "comptype_id_display_name",
+         "pageSize" : 20,
+         "qtip" : "Select type",
+         "queryParam" : "query[name]",
+         "selectOnFocus" : true,
+         "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> : {display_name}</div>",
+         "triggerAction" : "all",
+         "typeAhead" : false,
+         "valueField" : "id",
+         "width" : 200,
+         "xtype" : "ComboBox"
+        },
+        {
+         "$ xns" : "Roo.form",
          "String fieldLabel" : "Is Active?",
          "String name" : "is_active",
          "xtype" : "Checkbox"
@@ -176,6 +246,10 @@
  "modOrder" : "001",
  "name" : "Pman.Dialog.CoreNotifyServer",
  "named_strings" : {
+  "comptype_id_display_name_emptyText" : "023a5dfa857c4aa0156e6685231a1dbd",
+  "comptype_id_display_name_fieldLabel" : "a1fa27779242b4902f7ae3bdd5c6d508",
+  "comptype_id_display_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "comptype_id_display_name_qtip" : "8535bcc0f05358a583bb432bbadf7e0d",
   "helo_fieldLabel" : "2059e6f007c7ec60d08be149f4196c0c",
   "hostname_fieldLabel" : "cf1dd00b38e7d5932e3ab7a377460dc5",
   "ipv6_ptr_fieldLabel" : "bf09196dbed1aa01793da7b19a053bb2",
@@ -188,11 +262,15 @@
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.CoreNotifyServer.bjs",
  "permname" : "",
  "strings" : {
+  "023a5dfa857c4aa0156e6685231a1dbd" : "Select Type",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "1ec99f063957c4efae5af6b76ad81fd2" : "IPV6 Range To",
   "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
   "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
   "7e240928383acb93e5066a6149430337" : "Pool Name",
+  "8535bcc0f05358a583bb432bbadf7e0d" : "Select type",
   "a0591fd32b96fb0f6dcbefb0a93abc1e" : "IPV6 Range From",
+  "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
   "bf09196dbed1aa01793da7b19a053bb2" : "IPV6 PTR",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",
