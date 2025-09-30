@@ -371,17 +371,11 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              {
                  if(_this.ipv6SearchBox.getValue()) {
                      options.params['search[domain]'] = _this.ipv6SearchBox.getValue();
-                     
-                     Roo.each(_this.domainGrid.ds.getRange(), r => {
-                         options.params['domain_id'] = r.data.id;
-                     });
-                     
                  }
                  
-                 var sel = _this.sgrid.sm.getSelected();
-                 if (!sel) {
-                     Roo.MessageBox.alert("Error", "Select a server first");
-                     return;
+                 var s = _this.sgrid.sm.getSelectionModel();
+                 if (s) {
+                     options.params['server_id'] = r.data.id;
                  }
              }
            },
