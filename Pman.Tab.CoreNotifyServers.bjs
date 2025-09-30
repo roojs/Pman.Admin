@@ -372,12 +372,6 @@
                "header" : "Domain",
                "width" : 150,
                "xtype" : "ColumnModel"
-              },
-              {
-               "$ xns" : "Roo.grid",
-               "* prop" : "sm",
-               "Boolean singleSelect" : false,
-               "xtype" : "RowSelectionModel"
               }
              ],
              "listeners" : {

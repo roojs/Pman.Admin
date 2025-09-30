@@ -394,12 +394,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             '|xns' : 'Roo.data'
            }
           },
-          sm : {
-           xtype : 'RowSelectionModel',
-           singleSelect : false,
-           xns : Roo.grid,
-           '|xns' : 'Roo.grid'
-          },
           colModel : [
            {
             xtype : 'ColumnModel',
