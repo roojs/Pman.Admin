@@ -323,7 +323,7 @@
                  "function (_self, options)",
                  "{",
                  "    if(_this.ipv6SearchBox.getValue()) {",
-                 "        options.params['_search'] = _this.ipv6SearchBox.getValue();",
+                 "        options.params['search[domani]'] = _this.ipv6SearchBox.getValue();",
                  "    }",
                  "}"
                 ]
