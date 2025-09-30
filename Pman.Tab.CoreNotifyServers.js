@@ -297,7 +297,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          '|xns' : 'Roo',
          grid : {
           xtype : 'Grid',
-          autoExpandColumn : 'domain',
+          autoExpandColumn : 'domain_id_domain',
           loadMask : true,
           listeners : {
            render : function() 

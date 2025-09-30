@@ -263,7 +263,7 @@
             {
              "$ xns" : "Roo.grid",
              "* prop" : "grid",
-             "autoExpandColumn" : "domain",
+             "autoExpandColumn" : "domain_id_domain",
              "items" : [
               {
                "$ xns" : "Roo",
