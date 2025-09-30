@@ -352,7 +352,9 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            listeners : {
             beforeload : function (_self, options)
              {
-             
+                 if(_this.ipv6SearchBox.getValue()) {
+                     options.params['_bad_domain_search'] = _this.ipv6SearchBox.getValue();
+                 }
              }
            },
            xns : Roo.data,
