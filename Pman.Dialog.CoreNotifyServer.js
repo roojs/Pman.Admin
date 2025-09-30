@@ -228,7 +228,7 @@ Pman.Dialog.CoreNotifyServer = {
           qtip : _this._strings['893a004d1a309cf58c923bc29ee7d1f0'] /* Select IPv6 Sender */,
           queryParam : 'query[name]',
           selectOnFocus : true,
-          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> : {display_name}</div>',
+          tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{email}</b></div>',
           triggerAction : 'all',
           typeAhead : false,
           valueField : 'id',
