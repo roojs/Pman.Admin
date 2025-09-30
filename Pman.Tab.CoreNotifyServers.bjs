@@ -385,6 +385,12 @@
               }
              ],
              "listeners" : {
+              "rowclick" : [
+               "function (_self, rowIndex, e)",
+               "{",
+               "",
+               "}"
+              ],
               "|render" : [
                "function() ",
                "{",
