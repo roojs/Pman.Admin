@@ -398,6 +398,12 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             '|xns' : 'Roo.data'
            }
           },
+          sm : {
+           xtype : 'RowSelectionModel',
+           singleSelect : false,
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid'
+          },
           colModel : [
            {
             xtype : 'ColumnModel',
@@ -498,7 +504,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
               opts.params.server_id =    _this.sgrid.getSelectionModel().getSelected().data.id;
               
               if(_this.ipv6Grid.getSelectionModel().getSelected()) {
-                  opts.params.
+                  opts.params.domain_id = _this.ipv6Grid.getSelectionModel().getSelected().data.id;
               }
           }
         },

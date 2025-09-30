@@ -376,6 +376,12 @@
                "header" : "Domain",
                "width" : 150,
                "xtype" : "ColumnModel"
+              },
+              {
+               "$ xns" : "Roo.grid",
+               "* prop" : "sm",
+               "Boolean singleSelect" : false,
+               "xtype" : "RowSelectionModel"
               }
              ],
              "listeners" : {
@@ -477,7 +483,7 @@
              "    opts.params.server_id =    _this.sgrid.getSelectionModel().getSelected().data.id;",
              "    ",
              "    if(_this.ipv6Grid.getSelectionModel().getSelected()) {",
-             "        opts.params.",
+             "        opts.params.domain_id = _this.ipv6Grid.getSelectionModel().getSelected().data.id;",
              "    }",
              "}"
             ]
