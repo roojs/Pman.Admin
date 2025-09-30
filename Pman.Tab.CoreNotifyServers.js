@@ -301,10 +301,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            render : function() 
             {
                 _this.ipv6Grid = this; 
-                //_this.dialog = Pman.Dialog.FILL_IN
-                if (_this.ipv6Panel.active) {
-                   this.footer.onClick('first');
-                }
             }
           },
           xns : Roo.grid,
