@@ -65,9 +65,8 @@
         },
         {
          "$ xns" : "Roo.form",
-         "Boolean allowBlank" : false,
          "alwaysQuery" : true,
-         "displayField" : "display_name",
+         "displayField" : "email",
          "emptyText" : "Select Type",
          "fieldLabel" : "Type",
          "forceSelection" : true,
@@ -99,9 +98,6 @@
             "|beforeload" : [
              "function (_self, o){",
              "    o.params = o.params || {};",
-             "    // set more here",
-             "    //o.params['query[empty_etype]'] = 1;",
-             "    o.params.etype = 'COMPTYPE';",
              "}",
              ""
             ]
@@ -111,14 +107,6 @@
           }
          ],
          "listWidth" : 250,
-         "listeners" : {
-          "render" : [
-           "function (_self)",
-           "{",
-           "    _this.etypeCombo = _self;",
-           "}"
-          ]
-         },
          "loadingText" : "Searching...",
          "minChars" : 2,
          "name" : "comptype_id_display_name",

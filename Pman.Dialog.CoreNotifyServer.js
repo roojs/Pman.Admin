@@ -215,9 +215,8 @@ Pman.Dialog.CoreNotifyServer = {
          },
          {
           xtype : 'ComboBox',
-          allowBlank : false,
           alwaysQuery : true,
-          displayField : 'display_name',
+          displayField : 'email',
           emptyText : _this._strings['023a5dfa857c4aa0156e6685231a1dbd'] /* Select Type */,
           fieldLabel : _this._strings['a1fa27779242b4902f7ae3bdd5c6d508'] /* Type */,
           forceSelection : true,
@@ -235,12 +234,6 @@ Pman.Dialog.CoreNotifyServer = {
           typeAhead : false,
           valueField : 'id',
           width : 200,
-          listeners : {
-           render : function (_self)
-            {
-                _this.etypeCombo = _self;
-            }
-          },
           xns : Roo.form,
           '|xns' : 'Roo.form',
           store : {
@@ -250,9 +243,6 @@ Pman.Dialog.CoreNotifyServer = {
            listeners : {
             beforeload : function (_self, o){
                  o.params = o.params || {};
-                 // set more here
-                 //o.params['query[empty_etype]'] = 1;
-                 o.params.etype = 'COMPTYPE';
              }
            },
            xns : Roo.data,
