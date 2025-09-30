@@ -20,6 +20,7 @@ Pman.Dialog.CoreNotifyServer = {
   'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
   'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'poolname_fieldLabel' : '7e240928383acb93e5066a6149430337' /* Pool Name */ ,
+  'ipv6_ptr_fieldLabel' : 'bf09196dbed1aa01793da7b19a053bb2' /* IPV6 PTR */ ,
   'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ 
  },
 
@@ -180,7 +181,7 @@ Pman.Dialog.CoreNotifyServer = {
           xtype : 'TextField',
           allowBlank : false,
           fieldLabel : _this._strings['bf09196dbed1aa01793da7b19a053bb2'] /* IPV6 PTR */,
-          name : 'hostname',
+          name : 'ipv6_ptr',
           width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
