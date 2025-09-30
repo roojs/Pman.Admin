@@ -353,7 +353,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             beforeload : function (_self, options)
              {
                  if(_this.ipv6SearchBox.getValue()) {
-                     options.params['search[domani]'] = _this.ipv6SearchBox.getValue();
+                     options.params['search[domain]'] = _this.ipv6SearchBox.getValue();
                  }
              }
            },
