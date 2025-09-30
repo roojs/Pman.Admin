@@ -475,6 +475,10 @@
              "    }",
              "    ",
              "    opts.params.server_id =    _this.sgrid.getSelectionModel().getSelected().data.id;",
+             "    ",
+             "    if(_this.ipv6Grid.getSelectionModel().getSelected()) {",
+             "        opts.params.",
+             "    }",
              "}"
             ]
            },

@@ -496,6 +496,10 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
               }
               
               opts.params.server_id =    _this.sgrid.getSelectionModel().getSelected().data.id;
+              
+              if(_this.ipv6Grid.getSelectionModel().getSelected()) {
+                  opts.params.
+              }
           }
         },
         xns : Roo.data,
