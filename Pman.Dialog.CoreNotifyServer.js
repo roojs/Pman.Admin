@@ -9,6 +9,7 @@ Pman.Dialog.CoreNotifyServer = {
  _strings : {
   '7082f08d3a32017e44122c3c708ce06a' :"Add / Edit Server",
   'bf09196dbed1aa01793da7b19a053bb2' :"IPV6 PTR",
+  '1ec99f063957c4efae5af6b76ad81fd2' :"IPV6 Range To",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
@@ -18,10 +19,12 @@ Pman.Dialog.CoreNotifyServer = {
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
+  'ipv6_range_to_fieldLabel' : '1ec99f063957c4efae5af6b76ad81fd2' /* IPV6 Range To */ ,
   'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
   'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'poolname_fieldLabel' : '7e240928383acb93e5066a6149430337' /* Pool Name */ ,
   'ipv6_ptr_fieldLabel' : 'bf09196dbed1aa01793da7b19a053bb2' /* IPV6 PTR */ ,
+  'ipv6_range_from_fieldLabel' : 'a0591fd32b96fb0f6dcbefb0a93abc1e' /* IPV6 Range From */ ,
   'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ 
  },
 
@@ -180,7 +183,6 @@ Pman.Dialog.CoreNotifyServer = {
          },
          {
           xtype : 'TextField',
-          allowBlank : false,
           fieldLabel : _this._strings['bf09196dbed1aa01793da7b19a053bb2'] /* IPV6 PTR */,
           name : 'ipv6_ptr',
           width : 380,
@@ -189,18 +191,16 @@ Pman.Dialog.CoreNotifyServer = {
          },
          {
           xtype : 'TextField',
-          allowBlank : false,
           fieldLabel : _this._strings['a0591fd32b96fb0f6dcbefb0a93abc1e'] /* IPV6 Range From */,
-          name : 'hostname',
+          name : 'ipv6_range_from',
           width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
          {
           xtype : 'TextField',
-          allowBlank : false,
-          fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
-          name : 'hostname',
+          fieldLabel : _this._strings['1ec99f063957c4efae5af6b76ad81fd2'] /* IPV6 Range To */,
+          name : 'ipv6_range_to',
           width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
