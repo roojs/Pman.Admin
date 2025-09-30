@@ -8,6 +8,7 @@ Pman.Dialog.CoreNotifyServer = {
 
  _strings : {
   '7082f08d3a32017e44122c3c708ce06a' :"Add / Edit Server",
+  'bf09196dbed1aa01793da7b19a053bb2' :"IPV6 PTR",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
@@ -172,6 +173,33 @@ Pman.Dialog.CoreNotifyServer = {
           fieldLabel : _this._strings['7e240928383acb93e5066a6149430337'] /* Pool Name */,
           name : 'poolname',
           width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['bf09196dbed1aa01793da7b19a053bb2'] /* IPV6 PTR */,
+          name : 'hostname',
+          width : 380,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
+          name : 'hostname',
+          width : 380,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : false,
+          fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
+          name : 'hostname',
+          width : 380,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },

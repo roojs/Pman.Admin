@@ -1,5 +1,4 @@
 {
- "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -41,6 +40,30 @@
          "fieldLabel" : "Pool Name",
          "name" : "poolname",
          "width" : 200,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "IPV6 PTR",
+         "name" : "hostname",
+         "width" : 380,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "Hostname (FQDN)",
+         "name" : "hostname",
+         "width" : 380,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "allowBlank" : false,
+         "fieldLabel" : "Hostname (FQDN)",
+         "name" : "hostname",
+         "width" : 380,
          "xtype" : "TextField"
         },
         {
@@ -162,11 +185,13 @@
   "poolname_fieldLabel" : "7e240928383acb93e5066a6149430337"
  },
  "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.CoreNotifyServer.bjs",
  "permname" : "",
  "strings" : {
   "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
   "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
   "7e240928383acb93e5066a6149430337" : "Pool Name",
+  "bf09196dbed1aa01793da7b19a053bb2" : "IPV6 PTR",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",
   "e253f01e45700c07327115a5e6d677bf" : "Is Active?",
