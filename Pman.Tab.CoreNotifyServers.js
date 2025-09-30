@@ -82,6 +82,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
        },
        east : {
         xtype : 'LayoutRegion',
+        split : true,
         width : 650,
         xns : Roo,
         '|xns' : 'Roo'
@@ -337,6 +338,19 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              },
              xns : Roo.form,
              '|xns' : 'Roo.form'
+            },
+            {
+             xtype : 'Button',
+             cls : 'x-btn-icon',
+             icon : rootURL + '/Pman/templates/images/search.gif',
+             listeners : {
+              click : function (_self, e)
+               {
+                   _this.ipv6Grid.footer.onClick('first');
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
             },
             {
              xtype : 'Fill',

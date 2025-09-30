@@ -37,6 +37,7 @@
           {
            "$ xns" : "Roo",
            "* prop" : "east",
+           "Boolean split" : true,
            "width" : 650,
            "xtype" : "LayoutRegion"
           },
@@ -288,6 +289,20 @@
                   ]
                  },
                  "xtype" : "TextField"
+                },
+                {
+                 "$ icon" : "rootURL + '/Pman/templates/images/search.gif'",
+                 "$ xns" : "Roo.Toolbar",
+                 "cls" : "x-btn-icon",
+                 "listeners" : {
+                  "|click" : [
+                   "function (_self, e)",
+                   "{",
+                   "    _this.ipv6Grid.footer.onClick('first');",
+                   "}"
+                  ]
+                 },
+                 "xtype" : "Button"
                 },
                 {
                  "$ xns" : "Roo.Toolbar",
