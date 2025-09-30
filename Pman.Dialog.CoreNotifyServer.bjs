@@ -53,7 +53,7 @@
         {
          "$ xns" : "Roo.form",
          "allowBlank" : false,
-         "fieldLabel" : "Hostname (FQDN)",
+         "fieldLabel" : "IPV6 Range From",
          "name" : "hostname",
          "width" : 380,
          "xtype" : "TextField"
@@ -192,6 +192,7 @@
   "2059e6f007c7ec60d08be149f4196c0c" : "Helo Name",
   "7082f08d3a32017e44122c3c708ce06a" : "Add / Edit Server",
   "7e240928383acb93e5066a6149430337" : "Pool Name",
+  "a0591fd32b96fb0f6dcbefb0a93abc1e" : "IPV6 Range From",
   "bf09196dbed1aa01793da7b19a053bb2" : "IPV6 PTR",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",

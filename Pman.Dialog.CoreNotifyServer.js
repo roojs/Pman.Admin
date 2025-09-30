@@ -12,6 +12,7 @@ Pman.Dialog.CoreNotifyServer = {
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
+  'a0591fd32b96fb0f6dcbefb0a93abc1e' :"IPV6 Range From",
   'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
   'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
@@ -189,7 +190,7 @@ Pman.Dialog.CoreNotifyServer = {
          {
           xtype : 'TextField',
           allowBlank : false,
-          fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
+          fieldLabel : _this._strings['a0591fd32b96fb0f6dcbefb0a93abc1e'] /* IPV6 Range From */,
           name : 'hostname',
           width : 380,
           xns : Roo.form,
