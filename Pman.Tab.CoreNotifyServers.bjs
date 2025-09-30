@@ -334,7 +334,14 @@
                  "{",
                  "    if(_this.ipv6SearchBox.getValue()) {",
                  "        options.params['search[domain]'] = _this.ipv6SearchBox.getValue();",
+                 "        ",
+                 "        Roo.each(_this.domainGrid.ds.getRange(), r => {",
+                 "            options.params['domain_id'] = r.data.id;",
+                 "        });",
+                 "        ",
                  "    }",
+                 "    ",
+                 "    _this.ipv6Grid.",
                  "}"
                 ]
                },
@@ -365,6 +372,12 @@
                "header" : "Domain",
                "width" : 150,
                "xtype" : "ColumnModel"
+              },
+              {
+               "$ xns" : "Roo.grid",
+               "* prop" : "sm",
+               "Boolean singleSelect" : false,
+               "xtype" : "RowSelectionModel"
               }
              ],
              "listeners" : {

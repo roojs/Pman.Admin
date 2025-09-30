@@ -365,7 +365,14 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              {
                  if(_this.ipv6SearchBox.getValue()) {
                      options.params['search[domain]'] = _this.ipv6SearchBox.getValue();
+                     
+                     Roo.each(_this.domainGrid.ds.getRange(), r => {
+                         options.params['domain_id'] = r.data.id;
+                     });
+                     
                  }
+                 
+                 _this.ipv6Grid.
              }
            },
            xns : Roo.data,
@@ -386,6 +393,12 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             xns : Roo.data,
             '|xns' : 'Roo.data'
            }
+          },
+          sm : {
+           xtype : 'RowSelectionModel',
+           singleSelect : false,
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid'
           },
           colModel : [
            {
