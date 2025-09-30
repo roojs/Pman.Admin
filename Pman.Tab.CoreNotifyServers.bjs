@@ -256,6 +256,7 @@
           },
           {
            "$ xns" : "Roo",
+           "Boolean background" : true,
            "fitContainer" : true,
            "fitToframe" : true,
            "items" : [
