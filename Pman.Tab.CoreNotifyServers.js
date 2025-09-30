@@ -309,7 +309,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             },
            rowclick : function (_self, rowIndex, e)
             {
-            
+                _this.bgrid.footer.onClick('first');
             }
           },
           xns : Roo.grid,

@@ -388,7 +388,7 @@
               "rowclick" : [
                "function (_self, rowIndex, e)",
                "{",
-               "",
+               "    _this.bgrid.footer.onClick('first');",
                "}"
               ],
               "|render" : [
