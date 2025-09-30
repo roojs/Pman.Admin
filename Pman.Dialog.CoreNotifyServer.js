@@ -260,7 +260,7 @@ Pman.Dialog.CoreNotifyServer = {
            proxy : {
             xtype : 'HttpProxy',
             method : 'GET',
-            url : baseURL + '/Roo/core_enum.php',
+            url : baseURL + '/Roo/core_notify_sender.php',
             xns : Roo.data,
             '|xns' : 'Roo.data'
            },
