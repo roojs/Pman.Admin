@@ -9,6 +9,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
  _strings : {
   'ac659513b2353187192e88c5d1988228' :"Servers",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
+  '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
   '774ff60df30a64fad1d29f6c2daa8691' :"No Servers found",
@@ -19,12 +20,14 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   '1203cd27e4d1ab6f1296728c021d9c1a' :"Is Active",
   'def36b726efed529b13ba240dd331a12' :"Pool",
   'be6838286e448ad65c5b55d690e2c38b' :"In Queue",
+  '3fbcd320695e3a01273994471d09cc36' :"IPV6",
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
+  '497d1a7e59727da9c824e3a3c3aed250' :"IPV6 Address",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
-  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname"
+  'ffbaae475d62dafea56ae75770f64595' :"Hostnamee"
  },
 
   part     :  ["Admin", "CoreNotifyServers" ],
@@ -63,189 +66,367 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
     },
     items  : [
      {
-      xtype : 'GridPanel',
-      background : true,
-      fitContainer : true,
-      fitToframe : true,
+      xtype : 'NestedLayoutPanel',
       region : 'center',
-      tableName : 'core_notify_server',
       title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
-      listeners : {
-       activate : function() {
-            _this.spanel = this;
-            if (_this.sgrid) {
-                _this.sgrid.footer.onClick('first');
-            }
-        }
-      },
       xns : Roo,
       '|xns' : 'Roo',
-      grid : {
-       xtype : 'Grid',
-       autoExpandColumn : 'hostname',
-       loadMask : true,
-       listeners : {
-        render : function() 
-         {
-             _this.sgrid = this; 
-             //_this.dialog = Pman.Dialog.FILL_IN
-             if (_this.spanel.active) {
-                this.footer.onClick('first');
-             }
-         },
-        rowclick : function (_self, rowIndex, e)
-         {
-             (function() { 
-                 _this.bgrid.footer.onClick('first');
-             }).defer(100);
-         },
-        rowdblclick : function (_self, rowIndex, e)
-         {
-             
-             Pman.Dialog.CoreNotifyServer.show(
-                  this.getDataSource().getAt(rowIndex).data, function() {
-                 _this.sgrid.footer.onClick('first');
-             }); 
-         }
-       },
-       xns : Roo.grid,
-       '|xns' : 'Roo.grid',
-       footer : {
-        xtype : 'PagingToolbar',
-        displayInfo : true,
-        displayMsg : _this._strings['2023301a71db57f37d50da7d045b881a'] /* Displaying Servers {0} - {1} of {2} */,
-        emptyMsg : _this._strings['774ff60df30a64fad1d29f6c2daa8691'] /* No Servers found */,
-        pageSize : 25,
+      layout : {
+       xtype : 'BorderLayout',
+       xns : Roo,
+       '|xns' : 'Roo',
+       center : {
+        xtype : 'LayoutRegion',
         xns : Roo,
         '|xns' : 'Roo'
        },
-       toolbar : {
-        xtype : 'Toolbar',
+       east : {
+        xtype : 'LayoutRegion',
+        split : true,
+        width : 650,
         xns : Roo,
-        '|xns' : 'Roo',
-        items  : [
-         {
-          xtype : 'Button',
-          text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+        '|xns' : 'Roo'
+       },
+       items  : [
+        {
+         xtype : 'GridPanel',
+         background : true,
+         fitContainer : true,
+         fitToframe : true,
+         region : 'center',
+         tableName : 'core_notify_server',
+         title : _this._strings['ac659513b2353187192e88c5d1988228'] /* Servers */,
+         listeners : {
+          activate : function() {
+               _this.spanel = this;
+               if (_this.sgrid) {
+                   _this.sgrid.footer.onClick('first');
+               }
+           }
+         },
+         xns : Roo,
+         '|xns' : 'Roo',
+         grid : {
+          xtype : 'Grid',
+          autoExpandColumn : 'hostname',
+          loadMask : true,
           listeners : {
-           click : function() 
+           render : function() 
             {
+                _this.sgrid = this; 
+                //_this.dialog = Pman.Dialog.FILL_IN
+                if (_this.spanel.active) {
+                   this.footer.onClick('first');
+                }
+            },
+           rowclick : function (_self, rowIndex, e)
+            {
+                (function() { 
+                    _this.bgrid.footer.onClick('first');
+                    _this.ipv6Grid.footer.onClick('first');
+                }).defer(100);
+            },
+           rowdblclick : function (_self, rowIndex, e)
+            {
+                
                 Pman.Dialog.CoreNotifyServer.show(
-                     {}, function() {
+                     this.getDataSource().getAt(rowIndex).data, function() {
                     _this.sgrid.footer.onClick('first');
                 }); 
             }
           },
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Fill',
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
-         },
-         {
-          xtype : 'Button',
-          text : _this._strings['1063e38cb53d94d386f21227fcd84717'] /* Remove */,
-          listeners : {
-           click : function (_self, e)
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          footer : {
+           xtype : 'PagingToolbar',
+           displayInfo : true,
+           displayMsg : _this._strings['2023301a71db57f37d50da7d045b881a'] /* Displaying Servers {0} - {1} of {2} */,
+           emptyMsg : _this._strings['774ff60df30a64fad1d29f6c2daa8691'] /* No Servers found */,
+           pageSize : 25,
+           xns : Roo,
+           '|xns' : 'Roo'
+          },
+          toolbar : {
+           xtype : 'Toolbar',
+           xns : Roo,
+           '|xns' : 'Roo',
+           items  : [
             {
-                   Pman.genericDelete(_this.spanel, 'core_notify_server');
+             xtype : 'Button',
+             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+             listeners : {
+              click : function() 
+               {
+                   Pman.Dialog.CoreNotifyServer.show(
+                        {}, function() {
+                       _this.sgrid.footer.onClick('first');
+                   }); 
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
+             xtype : 'Fill',
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
+             xtype : 'Button',
+             text : _this._strings['1063e38cb53d94d386f21227fcd84717'] /* Remove */,
+             listeners : {
+              click : function (_self, e)
+               {
+                      Pman.genericDelete(_this.spanel, 'core_notify_server');
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            }
+           ]
+          },
+          dataSource : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { field : 'hostname', direction: 'ASC' },
+           listeners : {
+            beforeload : function (_self, options)
+             {
+                options.params._with_queue_size  =1 ;
+                 
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            timeout : 120000,
+            url : baseURL + '/Roo/core_notify_server',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          },
+          sm : {
+           xtype : 'RowSelectionModel',
+           singleSelect : false,
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid'
+          },
+          colModel : [
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'is_active',
+            header : _this._strings['1203cd27e4d1ab6f1296728c021d9c1a'] /* Is Active */,
+            renderer : function(v) {
+                var state = v> 0 ?  '-checked' : '';
+            
+                return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+            },
+            width : 100,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'hostname',
+            header : _this._strings['ffbaae475d62dafea56ae75770f64595'] /* Hostnamee */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'helo',
+            header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'poolname',
+            header : _this._strings['def36b726efed529b13ba240dd331a12'] /* Pool */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'in_queue',
+            header : _this._strings['be6838286e448ad65c5b55d690e2c38b'] /* In Queue */,
+            renderer : function(v,x,r) {
+            
+                return r.data.in_queue || 0;
+            },
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'last_send',
+            header : _this._strings['b26686c0a708faee42861d8b905e882e'] /* Last Sent */,
+            renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y  H:i:s') : ''); },
+            width : 120,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           }
+          ]
+         }
+        },
+        {
+         xtype : 'GridPanel',
+         background : true,
+         fitContainer : true,
+         fitToframe : true,
+         region : 'east',
+         tableName : 'core_notify_server_ipv6',
+         title : _this._strings['3fbcd320695e3a01273994471d09cc36'] /* IPV6 */,
+         listeners : {
+          activate : function() {
+               _this.ipv6Panel = this;
+           }
+         },
+         xns : Roo,
+         '|xns' : 'Roo',
+         grid : {
+          xtype : 'Grid',
+          autoExpandColumn : 'domain_id_domain',
+          loadMask : true,
+          listeners : {
+           render : function() 
+            {
+                _this.ipv6Grid = this; 
+            },
+           rowclick : function (_self, rowIndex, e)
+            {
+                _this.bgrid.footer.onClick('first');
             }
           },
-          xns : Roo.Toolbar,
-          '|xns' : 'Roo.Toolbar'
+          xns : Roo.grid,
+          '|xns' : 'Roo.grid',
+          footer : {
+           xtype : 'PagingToolbar',
+           displayInfo : true,
+           displayMsg : _this._strings['2023301a71db57f37d50da7d045b881a'] /* Displaying Servers {0} - {1} of {2} */,
+           emptyMsg : _this._strings['774ff60df30a64fad1d29f6c2daa8691'] /* No Servers found */,
+           pageSize : 25,
+           xns : Roo,
+           '|xns' : 'Roo'
+          },
+          toolbar : {
+           xtype : 'Toolbar',
+           xns : Roo,
+           '|xns' : 'Roo',
+           items  : [
+            {
+             xtype : 'TextField',
+             emptyText : _this._strings['13348442cc6a27032d2b4aa28b75a5d3'] /* Search */,
+             listeners : {
+              render : function (_self)
+               {
+                   _this.ipv6SearchBox = _self;
+               },
+              specialkey : function (_self, e)
+               {
+                    if (e.getKey() == 13) {
+                       _this.ipv6Grid.footer.onClick('first');
+                    }
+               }
+             },
+             xns : Roo.form,
+             '|xns' : 'Roo.form'
+            },
+            {
+             xtype : 'Button',
+             cls : 'x-btn-icon',
+             icon : rootURL + '/Pman/templates/images/search.gif',
+             listeners : {
+              click : function (_self, e)
+               {
+                   _this.ipv6Grid.footer.onClick('first');
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
+             xtype : 'Fill',
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            }
+           ]
+          },
+          dataSource : {
+           xtype : 'Store',
+           remoteSort : true,
+           sortInfo : { field : 'hostname', direction: 'ASC' },
+           listeners : {
+            beforeload : function (_self, options)
+             {
+                 if(_this.ipv6SearchBox.getValue()) {
+                     options.params['search[domain]'] = _this.ipv6SearchBox.getValue();
+                 }
+                 
+                 var s = _this.sgrid.getSelectionModel().getSelected();
+                 if (s) {
+                     options.params['server_id'] = s.data.id;
+                 }
+             }
+           },
+           xns : Roo.data,
+           '|xns' : 'Roo.data',
+           proxy : {
+            xtype : 'HttpProxy',
+            method : 'GET',
+            timeout : 120000,
+            url : baseURL + '/Roo/core_notify_server_ipv6',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           },
+           reader : {
+            xtype : 'JsonReader',
+            id : 'id',
+            root : 'data',
+            totalProperty : 'total',
+            xns : Roo.data,
+            '|xns' : 'Roo.data'
+           }
+          },
+          sm : {
+           xtype : 'RowSelectionModel',
+           singleSelect : false,
+           xns : Roo.grid,
+           '|xns' : 'Roo.grid'
+          },
+          colModel : [
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'ipv6_addr',
+            header : _this._strings['497d1a7e59727da9c824e3a3c3aed250'] /* IPV6 Address */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'domain_id_domain',
+            header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
+            width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           }
+          ]
          }
-        ]
-       },
-       dataSource : {
-        xtype : 'Store',
-        remoteSort : true,
-        sortInfo : { field : 'hostname', direction: 'ASC' },
-        listeners : {
-         beforeload : function (_self, options)
-          {
-             options.params._with_queue_size  =1 ;
-              
-          }
-        },
-        xns : Roo.data,
-        '|xns' : 'Roo.data',
-        proxy : {
-         xtype : 'HttpProxy',
-         method : 'GET',
-         timeout : 120000,
-         url : baseURL + '/Roo/core_notify_server',
-         xns : Roo.data,
-         '|xns' : 'Roo.data'
-        },
-        reader : {
-         xtype : 'JsonReader',
-         id : 'id',
-         root : 'data',
-         totalProperty : 'total',
-         xns : Roo.data,
-         '|xns' : 'Roo.data'
-        }
-       },
-       colModel : [
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'is_active',
-         header : _this._strings['1203cd27e4d1ab6f1296728c021d9c1a'] /* Is Active */,
-         renderer : function(v) {
-             var state = v> 0 ?  '-checked' : '';
-         
-             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
-         },
-         width : 100,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'hostname',
-         header : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'helo',
-         header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'poolname',
-         header : _this._strings['def36b726efed529b13ba240dd331a12'] /* Pool */,
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'in_queue',
-         header : _this._strings['be6838286e448ad65c5b55d690e2c38b'] /* In Queue */,
-         renderer : function(v,x,r) {
-         
-             return r.data.in_queue || 0;
-         },
-         width : 150,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
-        },
-        {
-         xtype : 'ColumnModel',
-         dataIndex : 'last_send',
-         header : _this._strings['b26686c0a708faee42861d8b905e882e'] /* Last Sent */,
-         renderer : function(v) { return String.format('{0}', v ? v.format('d/M/Y  H:i:s') : ''); },
-         width : 120,
-         xns : Roo.grid,
-         '|xns' : 'Roo.grid'
         }
        ]
       }
@@ -325,6 +506,10 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
               }
               
               opts.params.server_id =    _this.sgrid.getSelectionModel().getSelected().data.id;
+              
+              if(_this.ipv6Grid.getSelectionModel().getSelected()) {
+                  opts.params.domain_id = _this.ipv6Grid.getSelectionModel().getSelected().data.domain_id;
+              }
           }
         },
         xns : Roo.data,
