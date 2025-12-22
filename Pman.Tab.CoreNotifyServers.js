@@ -376,11 +376,6 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                  if(_this.ipv6SearchBox.getValue()) {
                      options.params['search[domain]'] = _this.ipv6SearchBox.getValue();
                  }
-                 
-                 var s = _this.sgrid.getSelectionModel().getSelected();
-                 if (s) {
-                     options.params['server_id'] = s.data.id;
-                 }
              }
            },
            xns : Roo.data,
