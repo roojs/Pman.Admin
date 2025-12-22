@@ -38,7 +38,7 @@
            "$ xns" : "Roo",
            "* prop" : "east",
            "Boolean split" : true,
-           "width" : 650,
+           "width" : 850,
            "xtype" : "LayoutRegion"
           },
           {
@@ -370,6 +370,14 @@
                "dataIndex" : "domain_id_domain",
                "header" : "Domain",
                "width" : 150,
+               "xtype" : "ColumnModel"
+              },
+              {
+               "$ xns" : "Roo.grid",
+               "* prop" : "colModel[]",
+               "dataIndex" : "allocation_reason",
+               "header" : "Reason",
+               "width" : 200,
                "xtype" : "ColumnModel"
               },
               {

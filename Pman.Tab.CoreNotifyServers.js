@@ -23,6 +23,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   '3fbcd320695e3a01273994471d09cc36' :"IPV6",
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
+  'fffcb4d1e12c96b2f571f77ad25878b8' :"Reason",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
   '497d1a7e59727da9c824e3a3c3aed250' :"IPV6 Address",
@@ -83,7 +84,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
        east : {
         xtype : 'LayoutRegion',
         split : true,
-        width : 650,
+        width : 850,
         xns : Roo,
         '|xns' : 'Roo'
        },
@@ -417,6 +418,14 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             dataIndex : 'domain_id_domain',
             header : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
             width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'allocation_reason',
+            header : _this._strings['fffcb4d1e12c96b2f571f77ad25878b8'] /* Reason */,
+            width : 200,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
            }
