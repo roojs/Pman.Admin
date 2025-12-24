@@ -14,15 +14,15 @@ Pman.Dialog.AdminAddIpv6 = {
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '1814dfa23ca67a5b93237922728b52e3' :"Company Type",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
+  '70c8913c048813c3c137b593cef5a75a' :"Allocation reason",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
   'comptype_id_display_name_emptyText' : '023a5dfa857c4aa0156e6685231a1dbd' /* Select Type */ ,
   'comptype_id_display_name_fieldLabel' : '1814dfa23ca67a5b93237922728b52e3' /* Company Type */ ,
   'comptype_id_display_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
   'comptype_id_display_name_qtip' : '8535bcc0f05358a583bb432bbadf7e0d' /* Select type */ ,
+  'allocation_reason_fieldLabel' : '70c8913c048813c3c137b593cef5a75a' /* Allocation reason */ ,
   'ipv6_addr_fieldLabel' : '681ecbfa9647e806effd6d73a57c33f5' /* IPv6 address */ 
  },
 
@@ -239,8 +239,8 @@ Pman.Dialog.AdminAddIpv6 = {
            {
             xtype : 'TextField',
             allowBlank : false,
-            fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
-            name : 'hostname',
+            fieldLabel : _this._strings['70c8913c048813c3c137b593cef5a75a'] /* Allocation reason */,
+            name : 'allocation_reason',
             width : 380,
             xns : Roo.form,
             '|xns' : 'Roo.form'
