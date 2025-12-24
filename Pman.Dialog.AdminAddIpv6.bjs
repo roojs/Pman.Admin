@@ -56,7 +56,7 @@
                "xtype" : "HttpProxy"
               },
               {
-               "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+               "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"domain\",\"type\":\"string\"}]",
                "$ xns" : "Roo.data",
                "* prop" : "reader",
                "id" : "id",
