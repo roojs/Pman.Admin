@@ -122,11 +122,6 @@ Pman.Dialog.AdminAddIpv6 = {
          actioncomplete : function(f, act) {
               _this.dialog.el.unmask();
               if(act.type == 'setdata'){
-                  _this.form.findField('owner_id').hide();
-                  // show if the user has change owner perm
-                  if (Pman.hasPerm('Crm.ChangeOwner','S')) {
-                      _this.form.findField('owner_id').show();
-                  }
                   return;
               }
              
