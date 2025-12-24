@@ -368,7 +368,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
                {
                    Pman.Dialog.AdminAddIpv6.show(
                         {}, function() {
-                       _this.sgrid.footer.onClick('first');
+                       _this.ipv6Grid.footer.onClick('first');
                    }); 
                }
              },
