@@ -10,22 +10,17 @@ Pman.Dialog.AdminAddIpv6 = {
   '023a5dfa857c4aa0156e6685231a1dbd' :"Select Type",
   '8d8dc49a5d1a8ab581b46c94f70882de' :"Add Ipv6",
   '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
-  '21ec484b4de76650a90d349763586b01' :"Select Owner",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '1814dfa23ca67a5b93237922728b52e3' :"Company Type",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '96fdac283668b2490c859ef6ea97c86e' :"Owner of this record",
-  'a2fa78bdc038a0a1df5caff2ac1ad945' :"Who owns this record",
+  'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
   'comptype_id_display_name_emptyText' : '023a5dfa857c4aa0156e6685231a1dbd' /* Select Type */ ,
   'comptype_id_display_name_fieldLabel' : '1814dfa23ca67a5b93237922728b52e3' /* Company Type */ ,
   'comptype_id_display_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'owner_id_name_emptyText' : '21ec484b4de76650a90d349763586b01' /* Select Owner */ ,
-  'owner_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'owner_id_name_fieldLabel' : '96fdac283668b2490c859ef6ea97c86e' /* Owner of this record */ ,
-  'owner_id_name_qtip' : 'a2fa78bdc038a0a1df5caff2ac1ad945' /* Who owns this record */ ,
+  'hostname_fieldLabel' : 'cf1dd00b38e7d5932e3ab7a377460dc5' /* Hostname (FQDN) */ ,
   'comptype_id_display_name_qtip' : '8535bcc0f05358a583bb432bbadf7e0d' /* Select type */ 
  },
 
@@ -225,82 +220,17 @@ Pman.Dialog.AdminAddIpv6 = {
             }
            },
            {
-            xtype : 'ComboBox',
-            actionMode : 'fieldEl',
-            allowBlank : true,
-            alwaysQuery : true,
-            displayField : 'name',
-            editable : false,
-            emptyText : _this._strings['21ec484b4de76650a90d349763586b01'] /* Select Owner */,
-            fieldLabel : _this._strings['96fdac283668b2490c859ef6ea97c86e'] /* Owner of this record */,
-            forceSelection : true,
-            hiddenName : 'owner_id',
-            listWidth : 400,
-            loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
-            minChars : 1,
-            name : 'owner_id_name',
-            pageSize : 20,
-            qtip : _this._strings['a2fa78bdc038a0a1df5caff2ac1ad945'] /* Who owns this record */,
-            queryParam : 'search[name]',
-            selectOnFocus : true,
-            tpl : '<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> {email}</div>',
-            triggerAction : 'all',
-            typeAhead : false,
-            valueField : 'id',
-            width : 200,
-            xns : Roo.form,
-            '|xns' : 'Roo.form',
-            store : {
-             xtype : 'Store',
-             remoteSort : true,
-             sortInfo : { direction : 'ASC', field: 'name' },
-             listeners : {
-              beforeload : function (_self, o){
-                   o.params = o.params || {};
-                   // set more here
-                   o.params['query[is_owner]'] = 1;
-                   o.params.active  = 1;
-                   o.params['_can_own_contacts'] = 1;
-               },
-              load : function (_self, records, options)
-               {
-                   var ownerRecord = false;
-                   Roo.each(records, function(r, i)  {
-                       if(r.id == Pman.Login.authUserId) {
-                           ownerRecord = r;
-                       }
-                   });
-                   
-                   if(ownerRecord !== false) {
-                       _self.remove(ownerRecord);
-                       _self.insert(0, ownerRecord);
-                       ownerRecord.set('name', 'Me: ' + ownerRecord.get('name'));
-                   }
-                   
-               }
-             },
-             xns : Roo.data,
-             '|xns' : 'Roo.data',
-             proxy : {
-              xtype : 'HttpProxy',
-              method : 'GET',
-              url : baseURL + '/Roo/core_person',
-              xns : Roo.data,
-              '|xns' : 'Roo.data'
-             },
-             reader : {
-              xtype : 'JsonReader',
-              id : 'id',
-              root : 'data',
-              totalProperty : 'total',
-              xns : Roo.data,
-              '|xns' : 'Roo.data'
-             }
-            }
-           },
-           {
             xtype : 'Hidden',
             name : '_company_ids',
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'TextField',
+            allowBlank : false,
+            fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
+            name : 'hostname',
+            width : 380,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            },

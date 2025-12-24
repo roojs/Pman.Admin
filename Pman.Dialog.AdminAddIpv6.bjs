@@ -107,90 +107,16 @@
           },
           {
            "$ xns" : "Roo.form",
-           "String actionMode" : "fieldEl",
-           "allowBlank" : true,
-           "alwaysQuery" : true,
-           "bool editable" : false,
-           "displayField" : "name",
-           "emptyText" : "Select Owner",
-           "fieldLabel" : "Owner of this record",
-           "forceSelection" : true,
-           "hiddenName" : "owner_id",
-           "items" : [
-            {
-             "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
-             "$ xns" : "Roo.data",
-             "* prop" : "store",
-             "items" : [
-              {
-               "$ url" : "baseURL + '/Roo/core_person'",
-               "$ xns" : "Roo.data",
-               "* prop" : "proxy",
-               "method" : "GET",
-               "xtype" : "HttpProxy"
-              },
-              {
-               "$ xns" : "Roo.data",
-               "* prop" : "reader",
-               "id" : "id",
-               "root" : "data",
-               "totalProperty" : "total",
-               "xtype" : "JsonReader"
-              }
-             ],
-             "listeners" : {
-              "load" : [
-               "function (_self, records, options)",
-               "{",
-               "    var ownerRecord = false;",
-               "    Roo.each(records, function(r, i)  {",
-               "        if(r.id == Pman.Login.authUserId) {",
-               "            ownerRecord = r;",
-               "        }",
-               "    });",
-               "    ",
-               "    if(ownerRecord !== false) {",
-               "        _self.remove(ownerRecord);",
-               "        _self.insert(0, ownerRecord);",
-               "        ownerRecord.set('name', 'Me: ' + ownerRecord.get('name'));",
-               "    }",
-               "    ",
-               "}"
-              ],
-              "|beforeload" : [
-               "function (_self, o){",
-               "    o.params = o.params || {};",
-               "    // set more here",
-               "    o.params['query[is_owner]'] = 1;",
-               "    o.params.active  = 1;",
-               "    o.params['_can_own_contacts'] = 1;",
-               "}",
-               ""
-              ]
-             },
-             "remoteSort" : true,
-             "xtype" : "Store"
-            }
-           ],
-           "listWidth" : 400,
-           "loadingText" : "Searching...",
-           "minChars" : 1,
-           "name" : "owner_id_name",
-           "pageSize" : 20,
-           "qtip" : "Who owns this record",
-           "queryParam" : "search[name]",
-           "selectOnFocus" : true,
-           "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> {email}</div>",
-           "triggerAction" : "all",
-           "typeAhead" : false,
-           "valueField" : "id",
-           "width" : 200,
-           "xtype" : "ComboBox"
+           "String name" : "_company_ids",
+           "xtype" : "Hidden"
           },
           {
            "$ xns" : "Roo.form",
-           "String name" : "_company_ids",
-           "xtype" : "Hidden"
+           "allowBlank" : false,
+           "fieldLabel" : "Hostname (FQDN)",
+           "name" : "hostname",
+           "width" : 380,
+           "xtype" : "TextField"
           },
           {
            "$ xns" : "Roo.form",
@@ -292,10 +218,7 @@
   "comptype_id_display_name_fieldLabel" : "1814dfa23ca67a5b93237922728b52e3",
   "comptype_id_display_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "comptype_id_display_name_qtip" : "8535bcc0f05358a583bb432bbadf7e0d",
-  "owner_id_name_emptyText" : "21ec484b4de76650a90d349763586b01",
-  "owner_id_name_fieldLabel" : "96fdac283668b2490c859ef6ea97c86e",
-  "owner_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
-  "owner_id_name_qtip" : "a2fa78bdc038a0a1df5caff2ac1ad945"
+  "hostname_fieldLabel" : "cf1dd00b38e7d5932e3ab7a377460dc5"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
@@ -304,12 +227,10 @@
   "023a5dfa857c4aa0156e6685231a1dbd" : "Select Type",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
   "1814dfa23ca67a5b93237922728b52e3" : "Company Type",
-  "21ec484b4de76650a90d349763586b01" : "Select Owner",
   "8535bcc0f05358a583bb432bbadf7e0d" : "Select type",
   "8d8dc49a5d1a8ab581b46c94f70882de" : "Add Ipv6",
-  "96fdac283668b2490c859ef6ea97c86e" : "Owner of this record",
-  "a2fa78bdc038a0a1df5caff2ac1ad945" : "Who owns this record",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },
  "title" : ""
