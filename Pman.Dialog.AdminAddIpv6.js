@@ -221,7 +221,7 @@ Pman.Dialog.AdminAddIpv6 = {
             allowBlank : false,
             fieldLabel : _this._strings['681ecbfa9647e806effd6d73a57c33f5'] /* IPv6 address */,
             name : 'ipv6_addr',
-            width : 380,
+            width : 320,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            },
@@ -230,7 +230,7 @@ Pman.Dialog.AdminAddIpv6 = {
             allowBlank : false,
             fieldLabel : _this._strings['70c8913c048813c3c137b593cef5a75a'] /* Allocation reason */,
             name : 'allocation_reason',
-            width : 380,
+            width : 320,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }

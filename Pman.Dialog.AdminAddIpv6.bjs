@@ -105,7 +105,7 @@
            "allowBlank" : false,
            "fieldLabel" : "IPv6 address",
            "name" : "ipv6_addr",
-           "width" : 380,
+           "width" : 320,
            "xtype" : "TextField"
           },
           {
@@ -113,7 +113,7 @@
            "allowBlank" : false,
            "fieldLabel" : "Allocation reason",
            "name" : "allocation_reason",
-           "width" : 380,
+           "width" : 320,
            "xtype" : "TextField"
           }
          ],
