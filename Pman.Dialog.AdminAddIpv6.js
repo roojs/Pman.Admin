@@ -7,22 +7,22 @@ Roo.namespace('Pman.Dialog');
 Pman.Dialog.AdminAddIpv6 = {
 
  _strings : {
-  '023a5dfa857c4aa0156e6685231a1dbd' :"Select Type",
   '8d8dc49a5d1a8ab581b46c94f70882de' :"Add Ipv6",
   '681ecbfa9647e806effd6d73a57c33f5' :"IPv6 address",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
-  '1814dfa23ca67a5b93237922728b52e3' :"Company Type",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  'b307273bc0a7b15dbdaf547e7b7c3782' :"Select Domain",
+  'eae639a70006feff484a39363c977e24' :"Domain",
   '3426b2cb01ebac796514393b541455e2' :"Select domain",
   '70c8913c048813c3c137b593cef5a75a' :"Allocation reason",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
  _named_strings : {
-  'comptype_id_display_name_emptyText' : '023a5dfa857c4aa0156e6685231a1dbd' /* Select Type */ ,
-  'comptype_id_display_name_fieldLabel' : '1814dfa23ca67a5b93237922728b52e3' /* Company Type */ ,
-  'comptype_id_display_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'comptype_id_display_name_qtip' : '3426b2cb01ebac796514393b541455e2' /* Select domain */ ,
+  'domain_id_domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
+  'domain_id_domain_qtip' : '3426b2cb01ebac796514393b541455e2' /* Select domain */ ,
+  'domain_id_domain_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'allocation_reason_fieldLabel' : '70c8913c048813c3c137b593cef5a75a' /* Allocation reason */ ,
+  'domain_id_domain_emptyText' : 'b307273bc0a7b15dbdaf547e7b7c3782' /* Select Domain */ ,
   'ipv6_addr_fieldLabel' : '681ecbfa9647e806effd6d73a57c33f5' /* IPv6 address */ 
  },
 
@@ -160,16 +160,16 @@ Pman.Dialog.AdminAddIpv6 = {
             xtype : 'ComboBox',
             allowBlank : true,
             alwaysQuery : true,
-            displayField : 'display_name',
+            displayField : 'domain',
             editable : true,
-            emptyText : _this._strings['023a5dfa857c4aa0156e6685231a1dbd'] /* Select Type */,
-            fieldLabel : _this._strings['1814dfa23ca67a5b93237922728b52e3'] /* Company Type */,
+            emptyText : _this._strings['b307273bc0a7b15dbdaf547e7b7c3782'] /* Select Domain */,
+            fieldLabel : _this._strings['eae639a70006feff484a39363c977e24'] /* Domain */,
             forceSelection : true,
-            hiddenName : 'comptype_id',
+            hiddenName : 'domain_id',
             listWidth : 400,
             loadingText : _this._strings['1243daf593fa297e07ab03bf06d925af'] /* Searching... */,
             minChars : 2,
-            name : 'comptype_id_display_name',
+            name : 'domain_id_domain',
             pageSize : 20,
             qtip : _this._strings['3426b2cb01ebac796514393b541455e2'] /* Select domain */,
             queryParam : 'query[domain]',
@@ -182,7 +182,7 @@ Pman.Dialog.AdminAddIpv6 = {
             listeners : {
              render : function (_self)
               {
-                  _this.etypeCombo = _self;
+                  _this.domainCombo = _self;
               }
             },
             xns : Roo.form,

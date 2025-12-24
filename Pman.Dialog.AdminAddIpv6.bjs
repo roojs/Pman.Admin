@@ -36,12 +36,12 @@
            "$ xns" : "Roo.form",
            "allowBlank" : true,
            "alwaysQuery" : true,
-           "displayField" : "display_name",
+           "displayField" : "domain",
            "editable" : true,
-           "emptyText" : "Select Type",
-           "fieldLabel" : "Company Type",
+           "emptyText" : "Select Domain",
+           "fieldLabel" : "Domain",
            "forceSelection" : true,
-           "hiddenName" : "comptype_id",
+           "hiddenName" : "domain_id",
            "items" : [
             {
              "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
@@ -82,13 +82,13 @@
             "render" : [
              "function (_self)",
              "{",
-             "    _this.etypeCombo = _self;",
+             "    _this.domainCombo = _self;",
              "}"
             ]
            },
            "loadingText" : "Searching...",
            "minChars" : 2,
-           "name" : "comptype_id_display_name",
+           "name" : "domain_id_domain",
            "pageSize" : 20,
            "qtip" : "Select domain",
            "queryParam" : "query[domain]",
@@ -213,25 +213,25 @@
  "name" : "Pman.Dialog.AdminAddIpv6",
  "named_strings" : {
   "allocation_reason_fieldLabel" : "70c8913c048813c3c137b593cef5a75a",
-  "comptype_id_display_name_emptyText" : "023a5dfa857c4aa0156e6685231a1dbd",
-  "comptype_id_display_name_fieldLabel" : "1814dfa23ca67a5b93237922728b52e3",
-  "comptype_id_display_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
-  "comptype_id_display_name_qtip" : "3426b2cb01ebac796514393b541455e2",
+  "domain_id_domain_emptyText" : "b307273bc0a7b15dbdaf547e7b7c3782",
+  "domain_id_domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
+  "domain_id_domain_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "domain_id_domain_qtip" : "3426b2cb01ebac796514393b541455e2",
   "ipv6_addr_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
  "permname" : "",
  "strings" : {
-  "023a5dfa857c4aa0156e6685231a1dbd" : "Select Type",
   "1243daf593fa297e07ab03bf06d925af" : "Searching...",
-  "1814dfa23ca67a5b93237922728b52e3" : "Company Type",
   "3426b2cb01ebac796514393b541455e2" : "Select domain",
   "681ecbfa9647e806effd6d73a57c33f5" : "IPv6 address",
   "70c8913c048813c3c137b593cef5a75a" : "Allocation reason",
   "8d8dc49a5d1a8ab581b46c94f70882de" : "Add Ipv6",
+  "b307273bc0a7b15dbdaf547e7b7c3782" : "Select Domain",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "eae639a70006feff484a39363c977e24" : "Domain"
  },
  "title" : ""
 }
