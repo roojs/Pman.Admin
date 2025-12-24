@@ -8,12 +8,12 @@ Pman.Dialog.AdminAddIpv6 = {
 
  _strings : {
   '023a5dfa857c4aa0156e6685231a1dbd' :"Select Type",
+  '8d8dc49a5d1a8ab581b46c94f70882de' :"Add Ipv6",
   '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
   '21ec484b4de76650a90d349763586b01' :"Select Owner",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '1814dfa23ca67a5b93237922728b52e3' :"Company Type",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
-  '887950755a62e33c26209bdcbdc1d3d3' :"Bulk Change",
   '96fdac283668b2490c859ef6ea97c86e' :"Owner of this record",
   'a2fa78bdc038a0a1df5caff2ac1ad945' :"Who owns this record",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
@@ -62,7 +62,7 @@ Pman.Dialog.AdminAddIpv6 = {
     modal : true,
     resizable : false,
     shadow : true,
-    title : _this._strings['887950755a62e33c26209bdcbdc1d3d3'] /* Bulk Change */,
+    title : _this._strings['8d8dc49a5d1a8ab581b46c94f70882de'] /* Add Ipv6 */,
     width : 550,
     xns : Roo,
     '|xns' : 'Roo',
