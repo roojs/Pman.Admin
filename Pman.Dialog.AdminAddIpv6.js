@@ -222,12 +222,6 @@ Pman.Dialog.AdminAddIpv6 = {
             }
            },
            {
-            xtype : 'Hidden',
-            name : '_company_ids',
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           },
-           {
             xtype : 'TextField',
             allowBlank : false,
             fieldLabel : _this._strings['681ecbfa9647e806effd6d73a57c33f5'] /* IPv6 address */,

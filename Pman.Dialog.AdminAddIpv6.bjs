@@ -107,11 +107,6 @@
           },
           {
            "$ xns" : "Roo.form",
-           "String name" : "_company_ids",
-           "xtype" : "Hidden"
-          },
-          {
-           "$ xns" : "Roo.form",
            "allowBlank" : false,
            "fieldLabel" : "IPv6 address",
            "name" : "ipv6_addr",
