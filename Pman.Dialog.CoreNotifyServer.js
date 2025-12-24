@@ -11,7 +11,6 @@ Pman.Dialog.CoreNotifyServer = {
   '893a004d1a309cf58c923bc29ee7d1f0' :"Select IPv6 Sender",
   '84e7b3bd5efecf08543209c9ad04e46c' :"IPv6 PTR",
   'a74ce90b6e079667cd93f2df7dc59684' :"IPv6 Range From",
-  'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
@@ -281,21 +280,6 @@ Pman.Dialog.CoreNotifyServer = {
         ]
        }
       ]
-     },
-     {
-      xtype : 'Button',
-      text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
-      listeners : {
-       click : function() 
-        {
-            Pman.Dialog.CoreNotifyServer.show(
-                 {}, function() {
-                _this.sgrid.footer.onClick('first');
-            }); 
-        }
-      },
-      xns : Roo.Toolbar,
-      '|xns' : 'Roo.Toolbar'
      }
     ]
    });

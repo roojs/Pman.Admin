@@ -208,22 +208,6 @@
      "xtype" : "Button"
     },
     {
-     "$ xns" : "Roo.Toolbar",
-     "String text" : "Add",
-     "listeners" : {
-      "click" : [
-       "function() ",
-       "{",
-       "    Pman.Dialog.CoreNotifyServer.show(",
-       "         {}, function() {",
-       "        _this.sgrid.footer.onClick('first');",
-       "    }); ",
-       "}"
-      ]
-     },
-     "xtype" : "Button"
-    },
-    {
      "$ xns" : "Roo",
      "* prop" : "buttons[]",
      "listeners" : {
@@ -278,8 +262,7 @@
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
   "cf1dd00b38e7d5932e3ab7a377460dc5" : "Hostname (FQDN)",
   "e253f01e45700c07327115a5e6d677bf" : "Is Active?",
-  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
-  "ec211f7c20af43e742bf2570c3cb84f9" : "Add"
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
  },
  "title" : ""
 }
