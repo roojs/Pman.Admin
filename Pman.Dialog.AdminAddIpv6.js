@@ -114,7 +114,7 @@ Pman.Dialog.AdminAddIpv6 = {
         xtype : 'Form',
         fileUpload : false,
         labelWidth : 160,
-        url : baseURL + '/Roo/crm_person',
+        url : baseURL + '/Roo/core_notify_server_ipv6',
         listeners : {
          actioncomplete : function(f, act) {
               _this.dialog.el.unmask();
@@ -231,12 +231,6 @@ Pman.Dialog.AdminAddIpv6 = {
             fieldLabel : _this._strings['70c8913c048813c3c137b593cef5a75a'] /* Allocation reason */,
             name : 'allocation_reason',
             width : 380,
-            xns : Roo.form,
-            '|xns' : 'Roo.form'
-           },
-           {
-            xtype : 'Hidden',
-            name : '_person_ids',
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }

@@ -25,7 +25,7 @@
      "fitToFrame" : true,
      "items" : [
       {
-       "$ url" : "baseURL + '/Roo/crm_person'",
+       "$ url" : "baseURL + '/Roo/core_notify_server_ipv6'",
        "$ xns" : "Roo.form",
        "fileUpload" : false,
        "items" : [
@@ -115,11 +115,6 @@
            "name" : "allocation_reason",
            "width" : 380,
            "xtype" : "TextField"
-          },
-          {
-           "$ xns" : "Roo.form",
-           "String name" : "_person_ids",
-           "xtype" : "Hidden"
           }
          ],
          "width" : 500,
