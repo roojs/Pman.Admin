@@ -361,6 +361,21 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              '|xns' : 'Roo.Toolbar'
             },
             {
+             xtype : 'Button',
+             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+             listeners : {
+              click : function() 
+               {
+                   Pman.Dialog.CoreNotifyServer.show(
+                        {}, function() {
+                       _this.sgrid.footer.onClick('first');
+                   }); 
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
              xtype : 'Fill',
              xns : Roo.Toolbar,
              '|xns' : 'Roo.Toolbar'
