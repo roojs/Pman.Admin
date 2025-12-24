@@ -1,0 +1,321 @@
+{
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "autoCreate" : true,
+   "closable" : false,
+   "collapsible" : false,
+   "draggable" : true,
+   "height" : 150,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "alwaysShowTabs" : false,
+     "autoScroll" : true,
+     "closeOnTab" : true,
+     "hideTabs" : true,
+     "titlebar" : false,
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "autoCreate" : true,
+     "background" : true,
+     "fitToFrame" : true,
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/crm_person'",
+       "$ xns" : "Roo.form",
+       "fileUpload" : false,
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "$ xns" : "Roo.form",
+           "allowBlank" : true,
+           "alwaysQuery" : true,
+           "displayField" : "display_name",
+           "editable" : true,
+           "emptyText" : "Select Type",
+           "fieldLabel" : "Company Type",
+           "forceSelection" : true,
+           "hiddenName" : "comptype_id",
+           "items" : [
+            {
+             "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ url" : "baseURL + '/Roo/core_enum.php'",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy",
+               "method" : "GET",
+               "xtype" : "HttpProxy"
+              },
+              {
+               "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"}]",
+               "$ xns" : "Roo.data",
+               "* prop" : "reader",
+               "id" : "id",
+               "root" : "data",
+               "totalProperty" : "total",
+               "xtype" : "JsonReader"
+              }
+             ],
+             "listeners" : {
+              "|beforeload" : [
+               "function (_self, o){",
+               "    o.params = o.params || {};",
+               "    // set more here",
+               "    //o.params['query[empty_etype]'] = 1;",
+               "    o.params.etype = 'COMPTYPE';",
+               "       o.params.active = 1;",
+               "    o.params['!name'] = 'OWNER';",
+               "}",
+               ""
+              ]
+             },
+             "remoteSort" : true,
+             "xtype" : "Store"
+            }
+           ],
+           "listWidth" : 400,
+           "listeners" : {
+            "render" : [
+             "function (_self)",
+             "{",
+             "    _this.etypeCombo = _self;",
+             "}"
+            ]
+           },
+           "loadingText" : "Searching...",
+           "minChars" : 2,
+           "name" : "comptype_id_display_name",
+           "pageSize" : 20,
+           "qtip" : "Select type",
+           "queryParam" : "search[display_name]",
+           "selectOnFocus" : true,
+           "tpl" : "<div class=\"x-grid-cell-text x-btn button\">  {display_name}</div>",
+           "triggerAction" : "all",
+           "typeAhead" : false,
+           "valueField" : "id",
+           "width" : 197,
+           "xtype" : "ComboBox"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "String actionMode" : "fieldEl",
+           "allowBlank" : true,
+           "alwaysQuery" : true,
+           "bool editable" : false,
+           "displayField" : "name",
+           "emptyText" : "Select Owner",
+           "fieldLabel" : "Owner of this record",
+           "forceSelection" : true,
+           "hiddenName" : "owner_id",
+           "items" : [
+            {
+             "$ sortInfo" : "{ direction : 'ASC', field: 'name' }",
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ url" : "baseURL + '/Roo/core_person'",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy",
+               "method" : "GET",
+               "xtype" : "HttpProxy"
+              },
+              {
+               "$ xns" : "Roo.data",
+               "* prop" : "reader",
+               "id" : "id",
+               "root" : "data",
+               "totalProperty" : "total",
+               "xtype" : "JsonReader"
+              }
+             ],
+             "listeners" : {
+              "load" : [
+               "function (_self, records, options)",
+               "{",
+               "    var ownerRecord = false;",
+               "    Roo.each(records, function(r, i)  {",
+               "        if(r.id == Pman.Login.authUserId) {",
+               "            ownerRecord = r;",
+               "        }",
+               "    });",
+               "    ",
+               "    if(ownerRecord !== false) {",
+               "        _self.remove(ownerRecord);",
+               "        _self.insert(0, ownerRecord);",
+               "        ownerRecord.set('name', 'Me: ' + ownerRecord.get('name'));",
+               "    }",
+               "    ",
+               "}"
+              ],
+              "|beforeload" : [
+               "function (_self, o){",
+               "    o.params = o.params || {};",
+               "    // set more here",
+               "    o.params['query[is_owner]'] = 1;",
+               "    o.params.active  = 1;",
+               "    o.params['_can_own_contacts'] = 1;",
+               "}",
+               ""
+              ]
+             },
+             "remoteSort" : true,
+             "xtype" : "Store"
+            }
+           ],
+           "listWidth" : 400,
+           "loadingText" : "Searching...",
+           "minChars" : 1,
+           "name" : "owner_id_name",
+           "pageSize" : 20,
+           "qtip" : "Who owns this record",
+           "queryParam" : "search[name]",
+           "selectOnFocus" : true,
+           "tpl" : "<div class=\"x-grid-cell-text x-btn button\"><b>{name}</b> {email}</div>",
+           "triggerAction" : "all",
+           "typeAhead" : false,
+           "valueField" : "id",
+           "width" : 200,
+           "xtype" : "ComboBox"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "String name" : "_company_ids",
+           "xtype" : "Hidden"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "String name" : "_person_ids",
+           "xtype" : "Hidden"
+          }
+         ],
+         "width" : 500,
+         "xtype" : "Column"
+        }
+       ],
+       "labelWidth" : 160,
+       "listeners" : {
+        "actioncomplete" : [
+         "function(f, act) {",
+         "    _this.dialog.el.unmask();",
+         "    if(act.type == 'setdata'){",
+         "        _this.form.findField('owner_id').hide();",
+         "        // show if the user has change owner perm",
+         "        if (Pman.hasPerm('Crm.ChangeOwner','S')) {",
+         "            _this.form.findField('owner_id').show();",
+         "        }",
+         "        return;",
+         "    }",
+         "   ",
+         "    if (act.type == 'load') {",
+         "        return;",
+         "    }",
+         "    ",
+         "    ",
+         "    if (act.type == 'submit') {",
+         "        _this.dialog.hide();",
+         "       ",
+         "        if (_this.callback) {",
+         "            _this.callback.call(this, act.result.data);",
+         "        }",
+         "        return; ",
+         "    }",
+         "}"
+        ],
+        "actionfailed" : [
+         "function(f, act) {",
+         "    _this.dialog.el.unmask();",
+         "    // error msg???",
+         "    Pman.standardActionFailed(f,act);",
+         "              ",
+         "}"
+        ],
+        "rendered" : [
+         "function (form)",
+         "{",
+         "    _this.form = form;",
+         "}"
+        ]
+       },
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    _this.dialog.hide();",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    _this.dialog.el.mask(\"Saving\");",
+       "    _this.form.doAction(\"submit\");",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "shadow" : true,
+   "title" : "Bulk Change",
+   "width" : 550,
+   "xtype" : "LayoutDialog"
+  }
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.AdminAddIpv6",
+ "named_strings" : {
+  "comptype_id_display_name_emptyText" : "023a5dfa857c4aa0156e6685231a1dbd",
+  "comptype_id_display_name_fieldLabel" : "1814dfa23ca67a5b93237922728b52e3",
+  "comptype_id_display_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "comptype_id_display_name_qtip" : "8535bcc0f05358a583bb432bbadf7e0d",
+  "owner_id_name_emptyText" : "21ec484b4de76650a90d349763586b01",
+  "owner_id_name_fieldLabel" : "96fdac283668b2490c859ef6ea97c86e",
+  "owner_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "owner_id_name_qtip" : "a2fa78bdc038a0a1df5caff2ac1ad945"
+ },
+ "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
+ "permname" : "",
+ "strings" : {
+  "023a5dfa857c4aa0156e6685231a1dbd" : "Select Type",
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "1814dfa23ca67a5b93237922728b52e3" : "Company Type",
+  "21ec484b4de76650a90d349763586b01" : "Select Owner",
+  "8535bcc0f05358a583bb432bbadf7e0d" : "Select type",
+  "887950755a62e33c26209bdcbdc1d3d3" : "Bulk Change",
+  "96fdac283668b2490c859ef6ea97c86e" : "Owner of this record",
+  "a2fa78bdc038a0a1df5caff2ac1ad945" : "Who owns this record",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel"
+ },
+ "title" : ""
+}
