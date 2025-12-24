@@ -366,7 +366,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              listeners : {
               click : function() 
                {
-                   Pman.Dialog.CoreNotifyServer.show(
+                   Pman.Dialog.AdminAddIpv6.show(
                         {}, function() {
                        _this.sgrid.footer.onClick('first');
                    }); 
