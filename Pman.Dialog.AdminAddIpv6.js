@@ -174,7 +174,7 @@ Pman.Dialog.AdminAddIpv6 = {
             qtip : _this._strings['8535bcc0f05358a583bb432bbadf7e0d'] /* Select type */,
             queryParam : 'search[display_name]',
             selectOnFocus : true,
-            tpl : '<div class=\"x-grid-cell-text x-btn button\">  {display_name}</div>',
+            tpl : '<div class=\"x-grid-cell-text x-btn button\">{domain}</div>',
             triggerAction : 'all',
             typeAhead : false,
             valueField : 'id',
