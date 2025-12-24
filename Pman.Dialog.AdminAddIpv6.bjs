@@ -34,7 +34,7 @@
          "items" : [
           {
            "$ xns" : "Roo.form",
-           "allowBlank" : true,
+           "allowBlank" : false,
            "alwaysQuery" : true,
            "displayField" : "domain",
            "editable" : true,

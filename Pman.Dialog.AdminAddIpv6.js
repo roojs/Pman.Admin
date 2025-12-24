@@ -158,7 +158,7 @@ Pman.Dialog.AdminAddIpv6 = {
           items  : [
            {
             xtype : 'ComboBox',
-            allowBlank : true,
+            allowBlank : false,
             alwaysQuery : true,
             displayField : 'domain',
             editable : true,
