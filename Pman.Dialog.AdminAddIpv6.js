@@ -55,7 +55,7 @@ Pman.Dialog.AdminAddIpv6 = {
     closable : false,
     collapsible : false,
     draggable : true,
-    height : 150,
+    height : 200,
     modal : true,
     resizable : false,
     shadow : true,

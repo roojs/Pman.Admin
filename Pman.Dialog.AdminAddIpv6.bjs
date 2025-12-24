@@ -6,7 +6,7 @@
    "closable" : false,
    "collapsible" : false,
    "draggable" : true,
-   "height" : 150,
+   "height" : 200,
    "items" : [
     {
      "$ xns" : "Roo",
