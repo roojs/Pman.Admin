@@ -194,11 +194,6 @@ Pman.Dialog.AdminAddIpv6 = {
              listeners : {
               beforeload : function (_self, o){
                    o.params = o.params || {};
-                   // set more here
-                   //o.params['query[empty_etype]'] = 1;
-                   o.params.etype = 'COMPTYPE';
-                      o.params.active = 1;
-                   o.params['!name'] = 'OWNER';
                }
              },
              xns : Roo.data,
