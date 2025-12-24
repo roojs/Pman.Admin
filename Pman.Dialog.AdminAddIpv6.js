@@ -9,11 +9,11 @@ Pman.Dialog.AdminAddIpv6 = {
  _strings : {
   '023a5dfa857c4aa0156e6685231a1dbd' :"Select Type",
   '8d8dc49a5d1a8ab581b46c94f70882de' :"Add Ipv6",
-  '8535bcc0f05358a583bb432bbadf7e0d' :"Select type",
   '681ecbfa9647e806effd6d73a57c33f5' :"IPv6 address",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '1814dfa23ca67a5b93237922728b52e3' :"Company Type",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  '3426b2cb01ebac796514393b541455e2' :"Select domain",
   '70c8913c048813c3c137b593cef5a75a' :"Allocation reason",
   'c9cc8cce247e49bae79f15173ce97354' :"Save"
  },
@@ -21,7 +21,7 @@ Pman.Dialog.AdminAddIpv6 = {
   'comptype_id_display_name_emptyText' : '023a5dfa857c4aa0156e6685231a1dbd' /* Select Type */ ,
   'comptype_id_display_name_fieldLabel' : '1814dfa23ca67a5b93237922728b52e3' /* Company Type */ ,
   'comptype_id_display_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
-  'comptype_id_display_name_qtip' : '8535bcc0f05358a583bb432bbadf7e0d' /* Select type */ ,
+  'comptype_id_display_name_qtip' : '3426b2cb01ebac796514393b541455e2' /* Select domain */ ,
   'allocation_reason_fieldLabel' : '70c8913c048813c3c137b593cef5a75a' /* Allocation reason */ ,
   'ipv6_addr_fieldLabel' : '681ecbfa9647e806effd6d73a57c33f5' /* IPv6 address */ 
  },
@@ -171,8 +171,8 @@ Pman.Dialog.AdminAddIpv6 = {
             minChars : 2,
             name : 'comptype_id_display_name',
             pageSize : 20,
-            qtip : _this._strings['8535bcc0f05358a583bb432bbadf7e0d'] /* Select type */,
-            queryParam : 'search[display_name]',
+            qtip : _this._strings['3426b2cb01ebac796514393b541455e2'] /* Select domain */,
+            queryParam : 'query[domain]',
             selectOnFocus : true,
             tpl : '<div class=\"x-grid-cell-text x-btn button\">{domain}</div>',
             triggerAction : 'all',
