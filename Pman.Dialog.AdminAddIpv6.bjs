@@ -120,6 +120,14 @@
           },
           {
            "$ xns" : "Roo.form",
+           "allowBlank" : false,
+           "fieldLabel" : "Hostname (FQDN)",
+           "name" : "hostname",
+           "width" : 380,
+           "xtype" : "TextField"
+          },
+          {
+           "$ xns" : "Roo.form",
            "String name" : "_person_ids",
            "xtype" : "Hidden"
           }

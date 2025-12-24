@@ -235,6 +235,15 @@ Pman.Dialog.AdminAddIpv6 = {
             '|xns' : 'Roo.form'
            },
            {
+            xtype : 'TextField',
+            allowBlank : false,
+            fieldLabel : _this._strings['cf1dd00b38e7d5932e3ab7a377460dc5'] /* Hostname (FQDN) */,
+            name : 'hostname',
+            width : 380,
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
             xtype : 'Hidden',
             name : '_person_ids',
             xns : Roo.form,
