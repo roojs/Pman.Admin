@@ -11,6 +11,7 @@ Pman.Dialog.AdminAddIpv6 = {
   '681ecbfa9647e806effd6d73a57c33f5' :"IPv6 address",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
+  'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
   'b307273bc0a7b15dbdaf547e7b7c3782' :"Select Domain",
   'eae639a70006feff484a39363c977e24' :"Domain",
   '3426b2cb01ebac796514393b541455e2' :"Select domain",
@@ -19,6 +20,7 @@ Pman.Dialog.AdminAddIpv6 = {
  },
  _named_strings : {
   'domain_id_domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
+  'is_active_fieldLabel' : 'e253f01e45700c07327115a5e6d677bf' /* Is Active? */ ,
   'domain_id_domain_qtip' : '3426b2cb01ebac796514393b541455e2' /* Select domain */ ,
   'domain_id_domain_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'allocation_reason_fieldLabel' : '70c8913c048813c3c137b593cef5a75a' /* Allocation reason */ ,
@@ -231,6 +233,13 @@ Pman.Dialog.AdminAddIpv6 = {
             fieldLabel : _this._strings['70c8913c048813c3c137b593cef5a75a'] /* Allocation reason */,
             name : 'allocation_reason',
             width : 320,
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'Checkbox',
+            fieldLabel : _this._strings['e253f01e45700c07327115a5e6d677bf'] /* Is Active? */,
+            name : 'is_active',
             xns : Roo.form,
             '|xns' : 'Roo.form'
            }

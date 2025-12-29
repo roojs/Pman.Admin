@@ -115,6 +115,12 @@
            "name" : "allocation_reason",
            "width" : 320,
            "xtype" : "TextField"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "String fieldLabel" : "Is Active?",
+           "String name" : "is_active",
+           "xtype" : "Checkbox"
           }
          ],
          "width" : 500,
@@ -212,7 +218,8 @@
   "domain_id_domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
   "domain_id_domain_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "domain_id_domain_qtip" : "3426b2cb01ebac796514393b541455e2",
-  "ipv6_addr_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5"
+  "ipv6_addr_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5",
+  "is_active_fieldLabel" : "e253f01e45700c07327115a5e6d677bf"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
@@ -225,6 +232,7 @@
   "8d8dc49a5d1a8ab581b46c94f70882de" : "Add Ipv6",
   "b307273bc0a7b15dbdaf547e7b7c3782" : "Select Domain",
   "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "e253f01e45700c07327115a5e6d677bf" : "Is Active?",
   "ea4788705e6873b424c65e91c2846b19" : "Cancel",
   "eae639a70006feff484a39363c977e24" : "Domain"
  },
