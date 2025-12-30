@@ -20,12 +20,12 @@ Pman.Dialog.AdminAddIpv6 = {
  },
  _named_strings : {
   'domain_id_domain_fieldLabel' : 'eae639a70006feff484a39363c977e24' /* Domain */ ,
+  'ipv6_addr_str_fieldLabel' : '681ecbfa9647e806effd6d73a57c33f5' /* IPv6 address */ ,
   'domain_id_domain_qtip' : '3426b2cb01ebac796514393b541455e2' /* Select domain */ ,
   'domain_id_domain_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'allocation_reason_fieldLabel' : '70c8913c048813c3c137b593cef5a75a' /* Allocation reason */ ,
   'has_reverse_ptr_fieldLabel' : '95db44937976e393a5580a151252267b' /* Has reverse pointer? */ ,
-  'domain_id_domain_emptyText' : 'b307273bc0a7b15dbdaf547e7b7c3782' /* Select Domain */ ,
-  'ipv6_addr_fieldLabel' : '681ecbfa9647e806effd6d73a57c33f5' /* IPv6 address */ 
+  'domain_id_domain_emptyText' : 'b307273bc0a7b15dbdaf547e7b7c3782' /* Select Domain */ 
  },
 
  dialog : false,
@@ -222,7 +222,7 @@ Pman.Dialog.AdminAddIpv6 = {
             xtype : 'TextField',
             allowBlank : false,
             fieldLabel : _this._strings['681ecbfa9647e806effd6d73a57c33f5'] /* IPv6 address */,
-            name : 'ipv6_addr',
+            name : 'ipv6_addr_str',
             width : 320,
             xns : Roo.form,
             '|xns' : 'Roo.form'

@@ -104,7 +104,7 @@
            "$ xns" : "Roo.form",
            "allowBlank" : false,
            "fieldLabel" : "IPv6 address",
-           "name" : "ipv6_addr",
+           "name" : "ipv6_addr_str",
            "width" : 320,
            "xtype" : "TextField"
           },
@@ -219,7 +219,7 @@
   "domain_id_domain_loadingText" : "1243daf593fa297e07ab03bf06d925af",
   "domain_id_domain_qtip" : "3426b2cb01ebac796514393b541455e2",
   "has_reverse_ptr_fieldLabel" : "95db44937976e393a5580a151252267b",
-  "ipv6_addr_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5"
+  "ipv6_addr_str_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5"
  },
  "parent" : "",
  "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
