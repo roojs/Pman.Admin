@@ -375,7 +375,7 @@
               {
                "$ xns" : "Roo.grid",
                "* prop" : "colModel[]",
-               "dataIndex" : "ipv6_addr",
+               "dataIndex" : "ipv6_addr_str",
                "header" : "IPV6 Address",
                "width" : 150,
                "xtype" : "ColumnModel"

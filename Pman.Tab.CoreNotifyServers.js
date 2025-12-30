@@ -422,7 +422,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
           colModel : [
            {
             xtype : 'ColumnModel',
-            dataIndex : 'ipv6_addr',
+            dataIndex : 'ipv6_addr_str',
             header : _this._strings['497d1a7e59727da9c824e3a3c3aed250'] /* IPV6 Address */,
             width : 150,
             xns : Roo.grid,
