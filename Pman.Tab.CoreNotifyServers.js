@@ -21,12 +21,12 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   'def36b726efed529b13ba240dd331a12' :"Pool",
   'be6838286e448ad65c5b55d690e2c38b' :"In Queue",
   '3fbcd320695e3a01273994471d09cc36' :"IPV6",
+  '50410abc1b35c7ad72305fbf4dad61cf' :"IPV6 Addresss",
   '902b0d55fddef6f8d651fe1035b7d4bd' :"Error",
   'eae639a70006feff484a39363c977e24' :"Domain",
   'fffcb4d1e12c96b2f571f77ad25878b8' :"Reason",
   'e3974584afa867d8619253bc669d6197' :"Notify Servers",
   '825bd435c12978e8492330c2a0d823db' :"Helo",
-  '497d1a7e59727da9c824e3a3c3aed250' :"IPV6 Address",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
   'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname"
  },
@@ -423,7 +423,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            {
             xtype : 'ColumnModel',
             dataIndex : 'ipv6_addr_str',
-            header : _this._strings['497d1a7e59727da9c824e3a3c3aed250'] /* IPV6 Address */,
+            header : _this._strings['50410abc1b35c7ad72305fbf4dad61cf'] /* IPV6 Addresss */,
             width : 150,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
