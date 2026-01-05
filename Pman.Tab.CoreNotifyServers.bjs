@@ -264,7 +264,7 @@
             {
              "$ xns" : "Roo.grid",
              "* prop" : "grid",
-             "autoExpandColumn" : "domain_id_domain",
+             "autoExpandColumn" : "allocation_reason",
              "items" : [
               {
                "$ xns" : "Roo",
