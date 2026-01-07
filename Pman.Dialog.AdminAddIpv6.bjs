@@ -1,0 +1,240 @@
+{
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "autoCreate" : true,
+   "closable" : false,
+   "collapsible" : false,
+   "draggable" : true,
+   "height" : 200,
+   "items" : [
+    {
+     "$ xns" : "Roo",
+     "* prop" : "center",
+     "alwaysShowTabs" : false,
+     "autoScroll" : true,
+     "closeOnTab" : true,
+     "hideTabs" : true,
+     "titlebar" : false,
+     "xtype" : "LayoutRegion"
+    },
+    {
+     "$ xns" : "Roo",
+     "autoCreate" : true,
+     "background" : true,
+     "fitToFrame" : true,
+     "items" : [
+      {
+       "$ url" : "baseURL + '/Roo/core_notify_server_ipv6'",
+       "$ xns" : "Roo.form",
+       "fileUpload" : false,
+       "items" : [
+        {
+         "$ xns" : "Roo.form",
+         "items" : [
+          {
+           "$ xns" : "Roo.form",
+           "allowBlank" : false,
+           "alwaysQuery" : true,
+           "displayField" : "domain",
+           "editable" : true,
+           "emptyText" : "Select Domain",
+           "fieldLabel" : "Domain",
+           "forceSelection" : true,
+           "hiddenName" : "domain_id",
+           "items" : [
+            {
+             "$ sortInfo" : "{ direction : 'ASC', field: 'id' }",
+             "$ xns" : "Roo.data",
+             "* prop" : "store",
+             "items" : [
+              {
+               "$ url" : "baseURL + '/Roo/core_domain.php'",
+               "$ xns" : "Roo.data",
+               "* prop" : "proxy",
+               "method" : "GET",
+               "xtype" : "HttpProxy"
+              },
+              {
+               "$ fields" : "[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"domain\",\"type\":\"string\"}]",
+               "$ xns" : "Roo.data",
+               "* prop" : "reader",
+               "id" : "id",
+               "root" : "data",
+               "totalProperty" : "total",
+               "xtype" : "JsonReader"
+              }
+             ],
+             "listeners" : {
+              "|beforeload" : [
+               "function (_self, o){",
+               "    o.params = o.params || {};",
+               "}",
+               ""
+              ]
+             },
+             "remoteSort" : true,
+             "xtype" : "Store"
+            }
+           ],
+           "listWidth" : 400,
+           "listeners" : {
+            "render" : [
+             "function (_self)",
+             "{",
+             "    _this.domainCombo = _self;",
+             "}"
+            ]
+           },
+           "loadingText" : "Searching...",
+           "minChars" : 2,
+           "name" : "domain_id_domain",
+           "pageSize" : 20,
+           "qtip" : "Select domain",
+           "queryParam" : "query[domain]",
+           "selectOnFocus" : true,
+           "tpl" : "<div class=\"x-grid-cell-text x-btn button\">{domain}</div>",
+           "triggerAction" : "all",
+           "typeAhead" : false,
+           "valueField" : "id",
+           "width" : 197,
+           "xtype" : "ComboBox"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "allowBlank" : false,
+           "fieldLabel" : "IPv6 address",
+           "name" : "ipv6_addr_str",
+           "width" : 320,
+           "xtype" : "TextField"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "allowBlank" : false,
+           "fieldLabel" : "Allocation reason",
+           "name" : "allocation_reason",
+           "width" : 320,
+           "xtype" : "TextField"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "String fieldLabel" : "Has reverse pointer?",
+           "String name" : "has_reverse_ptr",
+           "xtype" : "Checkbox"
+          }
+         ],
+         "width" : 500,
+         "xtype" : "Column"
+        }
+       ],
+       "labelWidth" : 160,
+       "listeners" : {
+        "actioncomplete" : [
+         "function(f, act) {",
+         "    _this.dialog.el.unmask();",
+         "    if(act.type == 'setdata'){",
+         "        return;",
+         "    }",
+         "   ",
+         "    if (act.type == 'load') {",
+         "        return;",
+         "    }",
+         "    ",
+         "    ",
+         "    if (act.type == 'submit') {",
+         "        _this.dialog.hide();",
+         "       ",
+         "        if (_this.callback) {",
+         "            _this.callback.call(this, act.result.data);",
+         "        }",
+         "        return; ",
+         "    }",
+         "}"
+        ],
+        "actionfailed" : [
+         "function(f, act) {",
+         "    _this.dialog.el.unmask();",
+         "    // error msg???",
+         "    Pman.standardActionFailed(f,act);",
+         "              ",
+         "}"
+        ],
+        "rendered" : [
+         "function (form)",
+         "{",
+         "    _this.form = form;",
+         "}"
+        ]
+       },
+       "xtype" : "Form"
+      }
+     ],
+     "region" : "center",
+     "xtype" : "ContentPanel"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    _this.dialog.hide();",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function (_self, e)",
+       "{",
+       "    _this.dialog.el.mask(\"Saving\");",
+       "    _this.form.doAction(\"submit\");",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    }
+   ],
+   "modal" : true,
+   "resizable" : false,
+   "shadow" : true,
+   "title" : "Add Ipv6",
+   "width" : 550,
+   "xtype" : "LayoutDialog"
+  }
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.AdminAddIpv6",
+ "named_strings" : {
+  "allocation_reason_fieldLabel" : "70c8913c048813c3c137b593cef5a75a",
+  "domain_id_domain_emptyText" : "b307273bc0a7b15dbdaf547e7b7c3782",
+  "domain_id_domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
+  "domain_id_domain_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+  "domain_id_domain_qtip" : "3426b2cb01ebac796514393b541455e2",
+  "has_reverse_ptr_fieldLabel" : "95db44937976e393a5580a151252267b",
+  "ipv6_addr_str_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5"
+ },
+ "parent" : "",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Dialog.AdminAddIpv6.bjs",
+ "permname" : "",
+ "strings" : {
+  "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+  "3426b2cb01ebac796514393b541455e2" : "Select domain",
+  "681ecbfa9647e806effd6d73a57c33f5" : "IPv6 address",
+  "70c8913c048813c3c137b593cef5a75a" : "Allocation reason",
+  "8d8dc49a5d1a8ab581b46c94f70882de" : "Add Ipv6",
+  "95db44937976e393a5580a151252267b" : "Has reverse pointer?",
+  "b307273bc0a7b15dbdaf547e7b7c3782" : "Select Domain",
+  "c9cc8cce247e49bae79f15173ce97354" : "Save",
+  "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+  "eae639a70006feff484a39363c977e24" : "Domain"
+ },
+ "title" : ""
+}

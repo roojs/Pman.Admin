@@ -28,7 +28,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   '825bd435c12978e8492330c2a0d823db' :"Helo",
   '497d1a7e59727da9c824e3a3c3aed250' :"IPV6 Address",
   '1063e38cb53d94d386f21227fcd84717' :"Remove",
-  'ffbaae475d62dafea56ae75770f64595' :"Hostnamee"
+  'c8f4b8c435b3d99a66e1b91bec60737c' :"Hostname"
  },
 
   part     :  ["Admin", "CoreNotifyServers" ],
@@ -239,7 +239,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
            {
             xtype : 'ColumnModel',
             dataIndex : 'hostname',
-            header : _this._strings['ffbaae475d62dafea56ae75770f64595'] /* Hostnamee */,
+            header : _this._strings['c8f4b8c435b3d99a66e1b91bec60737c'] /* Hostname */,
             width : 150,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
@@ -301,7 +301,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
          '|xns' : 'Roo',
          grid : {
           xtype : 'Grid',
-          autoExpandColumn : 'domain_id_domain',
+          autoExpandColumn : 'allocation_reason',
           loadMask : true,
           listeners : {
            render : function() 
@@ -361,6 +361,21 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
              '|xns' : 'Roo.Toolbar'
             },
             {
+             xtype : 'Button',
+             text : _this._strings['ec211f7c20af43e742bf2570c3cb84f9'] /* Add */,
+             listeners : {
+              click : function() 
+               {
+                   Pman.Dialog.AdminAddIpv6.show(
+                        {}, function() {
+                       _this.ipv6Grid.footer.onClick('first');
+                   }); 
+               }
+             },
+             xns : Roo.Toolbar,
+             '|xns' : 'Roo.Toolbar'
+            },
+            {
              xtype : 'Fill',
              xns : Roo.Toolbar,
              '|xns' : 'Roo.Toolbar'
@@ -407,7 +422,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
           colModel : [
            {
             xtype : 'ColumnModel',
-            dataIndex : 'ipv6_addr',
+            dataIndex : 'ipv6_addr_str',
             header : _this._strings['497d1a7e59727da9c824e3a3c3aed250'] /* IPV6 Address */,
             width : 150,
             xns : Roo.grid,
