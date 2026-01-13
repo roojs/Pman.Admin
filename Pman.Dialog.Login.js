@@ -281,6 +281,12 @@ Pman.Dialog.Login = {
           hiddenName : 'lang',
           mode : 'local',
           name : 'langdisp',
+          tpl : {
+           xtype : 'DomTemplate',
+           html : '<div class="x-combo-list-item">{ldisp}</div>',
+           xns : Roo,
+           '|xns' : 'Roo'
+          },
           triggerAction : 'all',
           typeAhead : false,
           valueField : 'lang',
