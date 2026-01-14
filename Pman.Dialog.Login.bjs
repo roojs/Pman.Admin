@@ -126,10 +126,6 @@
          "String hiddenName" : "lang",
          "String mode" : "local",
          "String name" : "langdisp",
-         "$ xns" : "Roo",
-         "* prop" : "tpl",
-         "string html" : "<div class=\"x-combo-list-item\">{ldisp}</div>",
-         "xtype" : "DomTemplate",
          "String triggerAction" : "all",
          "String valueField" : "lang",
          "items" : [
@@ -149,6 +145,12 @@
            "$ xns" : "Roo.data",
            "* prop" : "store",
            "xtype" : "SimpleStore"
+          },
+          {
+           "$ xns" : "Roo",
+           "* prop" : "tpl",
+           "string html" : "<div class=\"x-combo-list-item\">{ldisp}</div>",
+           "xtype" : "ReplaceTemplate"
           }
          ],
          "listeners" : {

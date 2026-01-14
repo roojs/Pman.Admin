@@ -12,6 +12,7 @@ Pman.Dialog.Login = {
   '9ec54ec336b65da6179cf750de33ecd7' :"Forgot Password",
   'cfcd208495d565ef66e7dff9f98764da' :"0",
   'dc647eb65e6711e155375218212b3964' :"Password",
+  '42d15cbad8e0268cbad01372c7e7542e' :"<div class=\"x-combo-list-item\">{ldisp}</div>",
   '643a860f992333b8600ea264aca7c4fc' :"Email Address",
   '5da1e201cb7f08519d07290abf226cfb' :"Select a Language..."
  },
@@ -281,12 +282,6 @@ Pman.Dialog.Login = {
           hiddenName : 'lang',
           mode : 'local',
           name : 'langdisp',
-          tpl : {
-           xtype : 'DomTemplate',
-           html : '<div class="x-combo-list-item">{ldisp}</div>',
-           xns : Roo,
-           '|xns' : 'Roo'
-          },
           triggerAction : 'all',
           typeAhead : false,
           valueField : 'lang',
@@ -311,6 +306,12 @@ Pman.Dialog.Login = {
            ],
            xns : Roo.data,
            '|xns' : 'Roo.data'
+          },
+          tpl : {
+           xtype : 'ReplaceTemplate',
+           html : _this._strings['42d15cbad8e0268cbad01372c7e7542e'] /* <div class="x-combo-list-item">{ldisp}</div> */,
+           xns : Roo,
+           '|xns' : 'Roo'
           }
          },
          {
