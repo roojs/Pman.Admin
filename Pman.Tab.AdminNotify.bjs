@@ -1,5 +1,4 @@
 {
- "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo.panel",
@@ -688,7 +687,7 @@
            "    _this.grid = this; ",
            "    //_this.dialog = Pman.Dialog.FILL_IN",
            "    if (_this.panel.active) {",
-           "       this.footer.onClick('first');",
+           "       //this.footer.onClick('first');",
            "    }",
            "}"
           ]
@@ -745,6 +744,7 @@
  "modOrder" : "001",
  "name" : "Pman.Tab.AdminNotify",
  "parent" : "Pman.Tab.AdminWatchNotify",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminNotify.bjs",
  "permname" : "",
  "strings" : {
   "0f6d01b16d57911731aa44b94dbfefcc" : "Act when",
