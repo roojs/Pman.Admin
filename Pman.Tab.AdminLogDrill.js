@@ -30,6 +30,14 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
   'b5fe0746885b906c8ed9b7cc06023c35' :"#Affected",
   '90e4ac2e5a22e53df63b6b186d8727ba' :"No Events found"
  },
+ _named_strings : {
+  'on_table_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'on_table_emptyText' : '679308a758de538c5f39c4c6cdba6593' /* Select Affects */ ,
+  'action_emptyText' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'action_qtip' : 'a8929eb5c1553d3f70497f862d25d0ce' /* Select Action */ ,
+  'action_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
+  'on_table_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
+ },
 
   part     :  ["Admin", "LogDrill" ],
   order    : '003-Pman.Tab.AdminLogDrill',
@@ -140,6 +148,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
              }
              o.params._distinct = 'action';
              o.params._columns ='action';
+             o.params['_exclude_columns']='core_person.*';
          }
        },
        xns : Roo.data,
@@ -319,6 +328,7 @@ Pman.Tab.AdminLogDrill = new Roo.XComponent({
              }
              o.params._distinct = 'on_table';
              o.params._columns ='on_table';
+             o.params['_exclude_columns']='core_person.*';
          }
        },
        xns : Roo.data,

@@ -1,5 +1,4 @@
 {
- "gen_extended" : false,
  "items" : [
   {
    "$ xns" : "Roo",
@@ -491,6 +490,7 @@
                  "    }",
                  "    o.params._distinct = 'action';",
                  "    o.params._columns ='action';",
+                 "    o.params['_exclude_columns']='core_person.*';",
                  "}"
                 ]
                },
@@ -567,6 +567,7 @@
                  "    }",
                  "    o.params._distinct = 'on_table';",
                  "    o.params._columns ='on_table';",
+                 "    o.params['_exclude_columns']='core_person.*';",
                  "}"
                 ]
                },
@@ -817,6 +818,7 @@
   "person_table_qtip" : "037fd50b0e85bb65995ca7125d06c7cd"
  },
  "parent" : "Pman.Tab.AdminLogs",
+ "path" : "/home/leon/gitlive/web.MediaOutreach/Pman/Admin/Pman.Tab.AdminLogEvents.bjs",
  "permname" : "Admin.Logs",
  "strings" : {
   "004bf6c9a40003140292e97330236c53" : "Action",

@@ -105,7 +105,7 @@ Pman.Tab.AdminNotify = new Roo.XComponent({
              _this.grid = this; 
              //_this.dialog = Pman.Dialog.FILL_IN
              if (_this.panel.active) {
-                this.footer.onClick('first');
+                //this.footer.onClick('first');
              }
          }
        },

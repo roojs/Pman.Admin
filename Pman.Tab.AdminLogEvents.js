@@ -462,6 +462,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                  }
                  o.params._distinct = 'action';
                  o.params._columns ='action';
+                 o.params['_exclude_columns']='core_person.*';
              }
            },
            xns : Roo.data,
@@ -533,6 +534,7 @@ Pman.Tab.AdminLogEvents = new Roo.XComponent({
                  }
                  o.params._distinct = 'on_table';
                  o.params._columns ='on_table';
+                 o.params['_exclude_columns']='core_person.*';
              }
            },
            xns : Roo.data,
