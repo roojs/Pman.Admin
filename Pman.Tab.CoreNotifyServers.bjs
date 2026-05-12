@@ -169,6 +169,15 @@
               {
                "$ xns" : "Roo.grid",
                "* prop" : "colModel[]",
+               "dataIndex" : "interface",
+               "header" : "Network Interface",
+               "sortable" : true,
+               "width" : 140,
+               "xtype" : "ColumnModel"
+              },
+              {
+               "$ xns" : "Roo.grid",
+               "* prop" : "colModel[]",
                "dataIndex" : "poolname",
                "header" : "Pool",
                "width" : 150,

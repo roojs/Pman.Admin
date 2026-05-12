@@ -44,6 +44,15 @@
         },
         {
          "$ xns" : "Roo.form",
+         "allowBlank" : true,
+         "emptyText" : "leave empty for default interface",
+         "fieldLabel" : "Network Interface",
+         "name" : "interface",
+         "width" : 280,
+         "xtype" : "TextField"
+        },
+        {
+         "$ xns" : "Roo.form",
          "fieldLabel" : "IPv6 PTR",
          "name" : "ipv6_ptr",
          "width" : 380,
