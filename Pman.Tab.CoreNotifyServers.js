@@ -11,6 +11,7 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
   '2ddb157d4780e8883fbde96f354c57d2' :"Displaying Blacklists {0} - {1} of {2}",
+  'fbebc6739678d32573bdcc8e7d9712a2' :"Network Interface",
   'c348b06d2667edd048ded3c1b1878cc1' :"Recurrent Notifications",
   '774ff60df30a64fad1d29f6c2daa8691' :"No Servers found",
   '2023301a71db57f37d50da7d045b881a' :"Displaying Servers {0} - {1} of {2}",
@@ -249,6 +250,15 @@ Pman.Tab.CoreNotifyServers = new Roo.XComponent({
             dataIndex : 'helo',
             header : _this._strings['825bd435c12978e8492330c2a0d823db'] /* Helo */,
             width : 150,
+            xns : Roo.grid,
+            '|xns' : 'Roo.grid'
+           },
+           {
+            xtype : 'ColumnModel',
+            dataIndex : 'interface',
+            header : _this._strings['fbebc6739678d32573bdcc8e7d9712a2'] /* Network Interface */,
+            sortable : true,
+            width : 140,
             xns : Roo.grid,
             '|xns' : 'Roo.grid'
            },

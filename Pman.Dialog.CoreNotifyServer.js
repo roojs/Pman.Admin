@@ -11,12 +11,14 @@ Pman.Dialog.CoreNotifyServer = {
   '893a004d1a309cf58c923bc29ee7d1f0' :"Select IPv6 Sender",
   '84e7b3bd5efecf08543209c9ad04e46c' :"IPv6 PTR",
   'a74ce90b6e079667cd93f2df7dc59684' :"IPv6 Range From",
+  'fbebc6739678d32573bdcc8e7d9712a2' :"Network Interface",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   '7e240928383acb93e5066a6149430337' :"Pool Name",
   'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '2059e6f007c7ec60d08be149f4196c0c' :"Helo Name",
   'e253f01e45700c07327115a5e6d677bf' :"Is Active?",
   'cf1dd00b38e7d5932e3ab7a377460dc5' :"Hostname (FQDN)",
+  'a17c33fb5a0f9902977b8cdabb9fc268' :"leave empty for default interface",
   'a8431c09cedf0138053cdbbc5a652906' :"IPv6 Sender",
   'c9cc8cce247e49bae79f15173ce97354' :"Save",
   'b9acd37bb15ccc51548858ba7618bf0b' :"IPv6 Range To"
@@ -29,9 +31,11 @@ Pman.Dialog.CoreNotifyServer = {
   'ipv6_range_to_str_fieldLabel' : 'b9acd37bb15ccc51548858ba7618bf0b' /* IPv6 Range To */ ,
   'ipv6_sender_id_email_fieldLabel' : 'a8431c09cedf0138053cdbbc5a652906' /* IPv6 Sender */ ,
   'ipv6_sender_id_email_qtip' : '893a004d1a309cf58c923bc29ee7d1f0' /* Select IPv6 Sender */ ,
+  'interface_fieldLabel' : 'fbebc6739678d32573bdcc8e7d9712a2' /* Network Interface */ ,
   'ipv6_range_from_str_fieldLabel' : 'a74ce90b6e079667cd93f2df7dc59684' /* IPv6 Range From */ ,
   'helo_fieldLabel' : '2059e6f007c7ec60d08be149f4196c0c' /* Helo Name */ ,
   'ipv6_sender_id_email_emptyText' : '893a004d1a309cf58c923bc29ee7d1f0' /* Select IPv6 Sender */ ,
+  'interface_emptyText' : 'a17c33fb5a0f9902977b8cdabb9fc268' /* leave empty for default interface */ ,
   'ipv6_sender_id_email_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ 
  },
 
@@ -185,6 +189,16 @@ Pman.Dialog.CoreNotifyServer = {
           fieldLabel : _this._strings['7e240928383acb93e5066a6149430337'] /* Pool Name */,
           name : 'poolname',
           width : 200,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'TextField',
+          allowBlank : true,
+          emptyText : _this._strings['a17c33fb5a0f9902977b8cdabb9fc268'] /* leave empty for default interface */,
+          fieldLabel : _this._strings['fbebc6739678d32573bdcc8e7d9712a2'] /* Network Interface */,
+          name : 'interface',
+          width : 280,
           xns : Roo.form,
           '|xns' : 'Roo.form'
          },
