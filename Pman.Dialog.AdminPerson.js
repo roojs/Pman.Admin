@@ -168,9 +168,8 @@ Pman.Dialog.AdminPerson = {
           {
               if (action.type == 'setdata') {
                   var reg = _this.dialog.layout.getRegion('center');
-                  reg.showPanel(0);
                   if (_this.data.id * 1 > 0) {
-                      for (var i = 5; i > 0; i--) {
+                      for (var i = 5; i >= 0; i--) {
                           reg.showPanel(i);
                       }
                       _this.saveBtn.setText('Save');
@@ -180,12 +179,14 @@ Pman.Dialog.AdminPerson = {
                   for (var i = 5; i > 0; i--) {
                       reg.hidePanel(i);
                   }
+                  reg.showPanel(0);
                   _this.saveBtn.setText('Next');
                   this.findField('company_id').setValue(Pman.Login.authUser.company_id);
                   return;
               }
               if (action.type == 'load') {
                   _this.dialog.el.unmask();
+                  _this.dialog.layout.getRegion('center').showPanel(0);
                   _this.groupGrid.dataSource.load();
                   return;
               }
@@ -194,7 +195,7 @@ Pman.Dialog.AdminPerson = {
                   if (_this.form.findField('id').getValue() * 1 < 1) {
                       _this.form.findField('id').setValue(action.result.data.id);
                       _this.data = action.result.data;
-                      for (var i = 5; i > 0; i--) {
+                      for (var i = 5; i >= 0; i--) {
                           _this.dialog.layout.getRegion('center').showPanel(i);
                       }
                       _this.saveBtn.setText('Save');
