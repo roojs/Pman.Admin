@@ -9,6 +9,7 @@ Pman.Dialog.AdminPerson = {
  _strings : {
   'f2a6c498fb90ee345d997f888fce3b18' :"Delete",
   '5b8c99dad1893a85076709b2d3c2d2d0' :"IP Address",
+  '2871afea416378d2772937c4d67d6c2c' :"Generate password",
   '8a25a3ae30ab6e8ceb5b8c4009a3336f' :"Role / Position",
   '231bc72756b5e6de492aaaa1577f61b1' :"Remarks",
   'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
@@ -123,36 +124,25 @@ Pman.Dialog.AdminPerson = {
       listeners : {
        click : function (_self, e)
         {
-            // do some checks?
-             if (_this.form.findField('passwd1')) {
-                
-                var p1 = _this.form.findField('passwd1').getValue();
-                var p2 = _this.form.findField('passwd2').getValue();
-                
-                if (_this.sendAfterSave && !p1.length) {
-                    Roo.MessageBox.alert("Error", "You must create a password to send introduction mail");
-                    return;
-                }
-                
-                if (Pman.Login.authUser.id < 0 && !p1.length) {
-                    Roo.MessageBox.alert("Error", "You must create a password for the admin account");
-                    return;
-                }
-                
-                
-                if (p1.length || p2.length) {
-                    if (p1 != p2) {
-                        Roo.MessageBox.alert("Error", "Passwords do not match");
-                        return;
-                    }
-                }
-                
-            
+            var p1 = _this.form.findField('passwd1').getValue();
+            var p2 = _this.form.findField('passwd2').getValue();
+            if (_this.sendAfterSave && !p1.length) {
+                Roo.MessageBox.alert("Error", "You must create a password to send introduction mail");
+                return;
             }
-            
-         
+            if (Pman.Login.authUser.id < 0 && !p1.length) {
+                Roo.MessageBox.alert("Error", "You must create a password for the admin account");
+                return;
+            }
+            if ((p1.length || p2.length) && p1 != p2) {
+                Roo.MessageBox.alert("Error", "Passwords do not match");
+                return;
+            }
             _this.form.doAction("submit");
         
+        },
+       render : function (_self) {
+            _this.saveBtn = _self;
         }
       },
       xns : Roo,
@@ -177,14 +167,22 @@ Pman.Dialog.AdminPerson = {
          actioncomplete : function(_self,action)
           {
               if (action.type == 'setdata') {
-                  _this.dialog.layout.getRegion('center').showPanel(0);
-                 //_this.dialog.el.mask("Loading");
-                 if ( _this.data.id* 1 > 0) { 
+                  var reg = _this.dialog.layout.getRegion('center');
+                  reg.showPanel(0);
+                  if (_this.data.id * 1 > 0) {
+                      for (var i = 5; i > 0; i--) {
+                          reg.showPanel(i);
+                      }
+                      _this.saveBtn.setText('Save');
                       this.load({ method: 'GET', params: { '_id' : _this.data.id }});
                       return;
                   }
+                  for (var i = 5; i > 0; i--) {
+                      reg.hidePanel(i);
+                  }
+                  _this.saveBtn.setText('Next');
                   this.findField('company_id').setValue(Pman.Login.authUser.company_id);
-                 return;
+                  return;
               }
               if (action.type == 'load') {
                   _this.dialog.el.unmask();
@@ -192,15 +190,23 @@ Pman.Dialog.AdminPerson = {
                   return;
               }
               if (action.type =='submit') {
-              
                   _this.dialog.el.unmask();
+                  if (_this.form.findField('id').getValue() * 1 < 1) {
+                      _this.form.findField('id').setValue(action.result.data.id);
+                      _this.data = action.result.data;
+                      for (var i = 5; i > 0; i--) {
+                          _this.dialog.layout.getRegion('center').showPanel(i);
+                      }
+                      _this.saveBtn.setText('Save');
+                      _this.groupGrid.dataSource.load();
+                      return;
+                  }
                   _this.dialog.hide();
-              
-                   if (_this.callback) {
+                  if (_this.callback) {
                       _this.callback.call(_this, _this.form.getValues());
-                   }
-                   _this.form.reset();
-                   return;
+                  }
+                  _this.form.reset();
+                  return;
               }
           },
          rendered : function (form)
@@ -341,19 +347,41 @@ Pman.Dialog.AdminPerson = {
           '|xns' : 'Roo.form',
           items  : [
            {
-            xtype : 'SecurePass',
+            xtype : 'Button',
+            style : 'margin-left:205px;margin-bottom:8px;',
+            text : _this._strings['2871afea416378d2772937c4d67d6c2c'] /* Generate password */,
+            listeners : {
+             click : function (_self, e)
+              {
+                  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@-#$';
+                  var pwd = Array.from(crypto.getRandomValues(new Uint32Array(16)))
+                      .map(x => chars[x % chars.length])
+                      .join('');
+                  _this.form.findField('passwd1').setValue(pwd);
+                  _this.form.findField('passwd2').setValue(pwd);
+                  if (_this.form.findField('passwd1').el.attr('type') == 'password') {
+                      _this.form.findField('passwd1').onToggleClick();
+                  }
+                  if (_this.form.findField('passwd2').el.attr('type') == 'password') {
+                      _this.form.findField('passwd2').onToggleClick();
+                  }
+              }
+            },
+            xns : Roo,
+            '|xns' : 'Roo'
+           },
+           {
+            xtype : 'Password',
             fieldLabel : _this._strings['3544848f820b9d94a3f3871a382cf138'] /* New password */,
-            inputType : 'password',
             name : 'passwd1',
             width : 150,
             xns : Roo.form,
             '|xns' : 'Roo.form'
            },
            {
-            xtype : 'TextField',
+            xtype : 'Password',
             allowBlank : true,
             fieldLabel : _this._strings['315fce99b77b7f392bf68d5eb14f88c7'] /* Password (type again to confirm) */,
-            inputType : 'password',
             name : 'passwd2',
             width : 150,
             xns : Roo.form,
