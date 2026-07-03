@@ -14,12 +14,16 @@ Pman.Dialog.Login = {
   'dc647eb65e6711e155375218212b3964' :"Password",
   '42d15cbad8e0268cbad01372c7e7542e' :"<div class=\"x-combo-list-item\">{ldisp}</div>",
   '643a860f992333b8600ea264aca7c4fc' :"Email Address",
+  '6bbb9271dfc330d58f5d1d9b146436c7' :"Save email address",
+  '878530871f0db73f004f5bd6591eeb76' :"Remember me",
   '5da1e201cb7f08519d07290abf226cfb' :"Select a Language..."
  },
  _named_strings : {
   'logout_other_windows_value' : 'cfcd208495d565ef66e7dff9f98764da' /* 0 */ ,
   'password_fieldLabel' : 'dc647eb65e6711e155375218212b3964' /* Password */ ,
   'langdisp_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ ,
+  'remember_username_boxLabel' : '6bbb9271dfc330d58f5d1d9b146436c7' /* Save email address */ ,
+  'remember_username_fieldLabel' : '878530871f0db73f004f5bd6591eeb76' /* Remember me */ ,
   'username_fieldLabel' : '643a860f992333b8600ea264aca7c4fc' /* Email Address */ ,
   'langdisp_emptyText' : '5da1e201cb7f08519d07290abf226cfb' /* Select a Language... */ 
  },
@@ -52,7 +56,7 @@ Pman.Dialog.Login = {
     closable : false,
     collapsible : false,
     draggable : false,
-    height : 230,
+    height : 260,
     minHeight : 180,
     minWidth : 200,
     modal : true,
@@ -154,8 +158,15 @@ Pman.Dialog.Login = {
               Roo.log(act);
               if (act.type == "submit") {
                    
-                  Roo.state.Manager.set('Pman.Login.username.'+appNameShort, this.findField('username').getValue() );
+                  var rememberOn = this.findField('remember_username').getValue() != '0';
                   Roo.state.Manager.set('Pman.Login.lang.'+appNameShort,  this.findField('lang').getValue() );
+                  if (rememberOn) {
+                      Roo.state.Manager.set('Pman.Login.username.'+appNameShort, this.findField('username').getValue() );
+                      Roo.state.Manager.clear('Pman.Login.rememberUsername.'+appNameShort);
+                  } else {
+                      Roo.state.Manager.set('Pman.Login.rememberUsername.'+appNameShort, '0');
+                      Roo.state.Manager.clear('Pman.Login.username.'+appNameShort);
+                  }
           
                   // session expired && login as another user => reload
                   if(
@@ -195,10 +206,12 @@ Pman.Dialog.Login = {
                   }
                    
                    
+                  var rememberOff = Roo.state.Manager.get('Pman.Login.rememberUsername.'+appNameShort) === '0';
                   this.setValues({
                       'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),
                       'lang' : Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, 'en'),
-                      'window_id' : Pman.Login.window_id
+                      'window_id' : Pman.Login.window_id,
+                      'remember_username' : rememberOff ? '0' : '1'
                   });
                   
                   Pman.Login.switchLang(Roo.state.Manager.get('Pman.Login.lang.'+appNameShort, ''));
@@ -313,6 +326,17 @@ Pman.Dialog.Login = {
            xns : Roo,
            '|xns' : 'Roo'
           }
+         },
+         {
+          xtype : 'Checkbox',
+          boxLabel : _this._strings['6bbb9271dfc330d58f5d1d9b146436c7'] /* Save email address */,
+          checked : true,
+          fieldLabel : _this._strings['878530871f0db73f004f5bd6591eeb76'] /* Remember me */,
+          inputValue : 1,
+          name : 'remember_username',
+          valueOff : 0,
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
          },
          {
           xtype : 'Hidden',
