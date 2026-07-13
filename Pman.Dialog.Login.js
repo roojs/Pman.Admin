@@ -8,24 +8,24 @@ Pman.Dialog.Login = {
 
  _strings : {
   '4994a8ffeba4ac3140beb89e8d41f174' :"Language",
+  '878530871f0db73f004f5bd6591eeb76' :"Remember me",
   '99dea78007133396a7b8ed70578ac6ae' :"Login",
   '9ec54ec336b65da6179cf750de33ecd7' :"Forgot Password",
+  '6bbb9271dfc330d58f5d1d9b146436c7' :"Save email address",
   'cfcd208495d565ef66e7dff9f98764da' :"0",
   'dc647eb65e6711e155375218212b3964' :"Password",
   '42d15cbad8e0268cbad01372c7e7542e' :"<div class=\"x-combo-list-item\">{ldisp}</div>",
   '643a860f992333b8600ea264aca7c4fc' :"Email Address",
-  '6bbb9271dfc330d58f5d1d9b146436c7' :"Save email address",
-  '878530871f0db73f004f5bd6591eeb76' :"Remember me",
   '5da1e201cb7f08519d07290abf226cfb' :"Select a Language..."
  },
  _named_strings : {
   'logout_other_windows_value' : 'cfcd208495d565ef66e7dff9f98764da' /* 0 */ ,
+  'remember_username_boxLabel' : '6bbb9271dfc330d58f5d1d9b146436c7' /* Save email address */ ,
   'password_fieldLabel' : 'dc647eb65e6711e155375218212b3964' /* Password */ ,
   'langdisp_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ ,
-  'remember_username_boxLabel' : '6bbb9271dfc330d58f5d1d9b146436c7' /* Save email address */ ,
-  'remember_username_fieldLabel' : '878530871f0db73f004f5bd6591eeb76' /* Remember me */ ,
   'username_fieldLabel' : '643a860f992333b8600ea264aca7c4fc' /* Email Address */ ,
-  'langdisp_emptyText' : '5da1e201cb7f08519d07290abf226cfb' /* Select a Language... */ 
+  'langdisp_emptyText' : '5da1e201cb7f08519d07290abf226cfb' /* Select a Language... */ ,
+  'remember_username_fieldLabel' : '878530871f0db73f004f5bd6591eeb76' /* Remember me */ 
  },
 
  dialog : false,
@@ -64,6 +64,12 @@ Pman.Dialog.Login = {
     shadow : true,
     title : _this._strings['99dea78007133396a7b8ed70578ac6ae'] /* Login */,
     width : 350,
+    listeners : {
+     show : function()
+      {
+          this.setTitle('Log into ' + appName);
+      }
+    },
     xns : Roo,
     '|xns' : 'Roo',
     center : {
