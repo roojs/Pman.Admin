@@ -8,11 +8,14 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
 
  _strings : {
   '54e1d44609e3abed11f6e1eb6ae54988' :"Projects",
+  '0c908588520b3ef787bce443fc2b507c' :"Slug",
   '8115b8afd5b2953d9fa63eb0db9559fc' :"No Projects found",
   'ec211f7c20af43e742bf2570c3cb84f9' :"Add",
   '13348442cc6a27032d2b4aa28b75a5d3' :"Search",
+  '189f63f277cd73395561651753563065' :"Tags",
   '7dce122004969d56ae2e0245cb754d35' :"Edit",
   '577d7068826de925ea2aec01dbadf5e4' :"Client",
+  '46fa564bb1eed5cd3992cac85e8f094b' :"Screenshots",
   '917d465e9a9e8b16a8da50a1ca8156ca' :"Show:",
   '0f111c111475c934057e6f8bb8314d56' :"Non-Projects",
   '03f4a47830f97377a35321051685071e' :"Closed",
@@ -21,6 +24,7 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
   'a1fa27779242b4902f7ae3bdd5c6d508' :"Type",
   'ca0dbad92a874b2f69b549293387925e' :"Code",
   '49ee3087348e8d44e1feda1917443987' :"Name",
+  '4d3d769b812b6faa6b76e1a8abaece2d' :"Active",
   '93573647a6041adaabd942e88cc29e23' :"Projects / Members"
  },
 
@@ -136,7 +140,29 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
         emptyMsg : _this._strings['8115b8afd5b2953d9fa63eb0db9559fc'] /* No Projects found */,
         pageSize : 25,
         xns : Roo,
-        '|xns' : 'Roo'
+        '|xns' : 'Roo',
+        items  : [
+         {
+          xtype : 'Button',
+          enableToggle : true,
+          text : _this._strings['46fa564bb1eed5cd3992cac85e8f094b'] /* Screenshots */,
+          listeners : {
+           toggle : function (_self, pressed)
+            {
+                var cm = _this.grid.getColumnModel();
+                var i;
+                for (i = 0; i < cm.getColumnCount(); i++) {
+                    if (cm.getDataIndex(i) == 'screenshot_id') {
+                        cm.setHidden(i, !pressed);
+                        break;
+                    }
+                }
+            }
+          },
+          xns : Roo.Toolbar,
+          '|xns' : 'Roo.Toolbar'
+         }
+        ]
        },
        toolbar : {
         xtype : 'Toolbar',
@@ -334,6 +360,8 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
                   return false;
               }  
               o.params = o.params ? o.params : {};
+              o.params._with_cms_tags = 1;
+              o.params._with_screenshot = 1;
               o.params['query[project_search]'] = _this.searchBox.getValue();
               o.params['query[project_filter]'] = _this.grid.filter;
           }
@@ -343,7 +371,7 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
         proxy : {
          xtype : 'HttpProxy',
          method : 'GET',
-         url : baseURL + '/Roo/core_project.php',
+         url : baseURL + '/Roo/core_project',
          xns : Roo.data,
          '|xns' : 'Roo.data'
         },
@@ -774,9 +802,61 @@ Pman.Tab.AdminProjectManager = new Roo.XComponent({
          xtype : 'ColumnModel',
          dataIndex : 'name',
          header : _this._strings['49ee3087348e8d44e1feda1917443987'] /* Name */,
-         renderer : function(v) { return String.format('{0}', v); },
+         renderer : function(v, x, r) {
+             var name = v || '';
+             if (r.data.cms_name && r.data.cms_name != name) {
+                 name = name + ' - ' + r.data.cms_name;
+             }
+             return String.format('{0}', Roo.util.Format.htmlEncode(name));
+         },
          sortable : true,
          width : 200,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'cms_active',
+         header : _this._strings['4d3d769b812b6faa6b76e1a8abaece2d'] /* Active */,
+         renderer : function(v) {
+             var state = v > 0 ? '-checked' : '';
+             return '<img class="x-grid-check-icon' + state + '" src="' + Roo.BLANK_IMAGE_URL + '"/>';
+         },
+         sortable : true,
+         width : 25,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'cms_slug',
+         header : _this._strings['0c908588520b3ef787bce443fc2b507c'] /* Slug */,
+         renderer : function(v) { return String.format('{0}', v); },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'cms_tags',
+         header : _this._strings['189f63f277cd73395561651753563065'] /* Tags */,
+         renderer : function(v) { return v || ''; },
+         width : 150,
+         xns : Roo.grid,
+         '|xns' : 'Roo.grid'
+        },
+        {
+         xtype : 'ColumnModel',
+         dataIndex : 'screenshot_id',
+         header : _this._strings['46fa564bb1eed5cd3992cac85e8f094b'] /* Screenshots */,
+         hidden : true,
+         renderer : function(v) {
+             if (!v) {
+                 return '';
+             }
+             return String.format('<img src="{0}/Images/Thumb/40/{1}" width="40">', baseURL, v);
+         },
+         width : 50,
          xns : Roo.grid,
          '|xns' : 'Roo.grid'
         }
