@@ -1,0 +1,74 @@
+{
+  "name" : "Pman.Tab.AdminCompanies",
+  "parent" : "Pman.Tab.Admin",
+  "modOrder" : "030",
+  "permname" : "Admin.Companies",
+  "title" : "Pman.Tab.AdminCompanies",
+  "strings" : {
+    "edefbda3a2bdd979e42d8944b7325b79" : "Companies",
+    "7dce122004969d56ae2e0245cb754d35" : "Edit",
+    "2e006b735fbd916d8ab26978ae6714d4" : "Tel",
+    "9810aa2b9f44401be4bf73188ef2b67d" : "Fax",
+    "ec211f7c20af43e742bf2570c3cb84f9" : "Add",
+    "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+    "155ca6a755e25c15ad7ce45e2f638f10" : "Displaying Companies{0} - {1} of {2}",
+    "9c9745a343efeacc9efe9b7222b27afb" : "Ref#",
+    "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+    "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+    "a1fa27779242b4902f7ae3bdd5c6d508" : "Type",
+    "68be4837f6c739877233e527a996dd00" : "Merge",
+    "49ee3087348e8d44e1feda1917443987" : "Name",
+    "dd7bf230fde8d4836917806aff6a6b27" : "Address",
+    "fc6f97505d89fe9277965c126744647a" : "No Companies found"
+  },
+  "named-strings" : {  },
+  "forms" : [],
+  "grids" : [
+    {
+      "table" : "companies",
+      "cols" : [
+        {
+          "dataIndex" : "comptype_id_display_name",
+          "header" : "Type",
+          "width" : "90"
+        },
+        {
+          "dataIndex" : "code",
+          "header" : "Ref#",
+          "width" : "50"
+        },
+        {
+          "dataIndex" : "name",
+          "header" : "Name",
+          "width" : "200"
+        },
+        {
+          "dataIndex" : "tel",
+          "header" : "Tel",
+          "width" : "100"
+        },
+        {
+          "dataIndex" : "fax",
+          "header" : "Fax",
+          "width" : "100"
+        },
+        {
+          "dataIndex" : "email",
+          "header" : "Email",
+          "width" : "100"
+        },
+        {
+          "dataIndex" : "address",
+          "header" : "Address",
+          "width" : "200"
+        },
+        {
+          "dataIndex" : "remarks",
+          "header" : "Remarks",
+          "width" : "200"
+        }
+      ]
+    }
+  ],
+  "tabs" : []
+}

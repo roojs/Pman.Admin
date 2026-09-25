@@ -1,0 +1,65 @@
+{
+  "name" : "Pman.Dialog.AdminAddIpv6",
+  "parent" : "",
+  "modOrder" : "001",
+  "permname" : "",
+  "title" : "Add Ipv6",
+  "strings" : {
+    "3426b2cb01ebac796514393b541455e2" : "Select domain",
+    "681ecbfa9647e806effd6d73a57c33f5" : "IPv6 address",
+    "8d8dc49a5d1a8ab581b46c94f70882de" : "Add Ipv6",
+    "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+    "70c8913c048813c3c137b593cef5a75a" : "Allocation reason",
+    "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+    "eae639a70006feff484a39363c977e24" : "Domain",
+    "95db44937976e393a5580a151252267b" : "Has reverse pointer?",
+    "c9cc8cce247e49bae79f15173ce97354" : "Save",
+    "b307273bc0a7b15dbdaf547e7b7c3782" : "Select Domain"
+  },
+  "named-strings" : {
+    "domain_id_domain_fieldLabel" : "eae639a70006feff484a39363c977e24",
+    "ipv6_addr_str_fieldLabel" : "681ecbfa9647e806effd6d73a57c33f5",
+    "domain_id_domain_qtip" : "3426b2cb01ebac796514393b541455e2",
+    "domain_id_domain_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+    "allocation_reason_fieldLabel" : "70c8913c048813c3c137b593cef5a75a",
+    "has_reverse_ptr_fieldLabel" : "95db44937976e393a5580a151252267b",
+    "domain_id_domain_emptyText" : "b307273bc0a7b15dbdaf547e7b7c3782"
+  },
+  "forms" : [
+    {
+      "table" : "core_notify_server_ipv6",
+      "lookups" : [
+        "core_domain"
+      ],
+      "fields" : [
+        {
+          "name" : "domain_id",
+          "label" : "Domain",
+          "xtype" : "ComboBox"
+        },
+        {
+          "name" : "domain_id_domain",
+          "label" : "Domain",
+          "xtype" : "ComboBox"
+        },
+        {
+          "name" : "ipv6_addr_str",
+          "label" : "IPv6 address",
+          "xtype" : "TextField"
+        },
+        {
+          "name" : "allocation_reason",
+          "label" : "Allocation reason",
+          "xtype" : "TextField"
+        },
+        {
+          "name" : "has_reverse_ptr",
+          "label" : "Has reverse pointer?",
+          "xtype" : "Checkbox"
+        }
+      ]
+    }
+  ],
+  "grids" : [],
+  "tabs" : []
+}

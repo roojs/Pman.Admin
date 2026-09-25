@@ -1,0 +1,156 @@
+vbp-version = 1;
+name = Pman.Dialog.AdminAddIpv6;
+modOrder = 001;
+
+Roo.LayoutDialog {
+  autoCreate = true;
+  closable = false;
+  collapsible = false;
+  draggable = true;
+  height = 200;
+  center = Roo.LayoutRegion {
+    alwaysShowTabs = false;
+    autoScroll = true;
+    closeOnTab = true;
+    hideTabs = true;
+    titlebar = false;
+  }
+  [
+    Roo.ContentPanel {
+      autoCreate = true;
+      background = true;
+      fitToFrame = true;
+      [
+        Roo.form.Form {
+          url = baseURL + '/Roo/core_notify_server_ipv6';
+          fileUpload = false;
+          [
+            Roo.form.Column {
+              [
+                Roo.form.ComboBox {
+                  allowBlank = false;
+                  alwaysQuery = true;
+                  displayField = "domain";
+                  editable = true;
+                  emptyText = "Select Domain";
+                  fieldLabel = "Domain";
+                  forceSelection = true;
+                  hiddenName = "domain_id";
+                  store = Roo.data.Store {
+                    sortInfo = @{ direction : 'ASC', field: 'id' };
+                    proxy = Roo.data.HttpProxy {
+                      url = baseURL + '/Roo/core_domain.php';
+                      method = "GET";
+                    }
+                    reader = Roo.data.JsonReader {
+                      fields = @[{"name":"id","type":"int"},{"name":"domain","type":"string"}];
+                      id = "id";
+                      root = "data";
+                      totalProperty = "total";
+                    }
+                    listeners [
+                      beforeload function (_self, o) {
+                            o.params = o.params || {};
+                      }
+                    ]
+                    remoteSort = true;
+                  }
+                  listWidth = 400;
+                  listeners [
+                    render function (_self) {
+                          _this.domainCombo = _self;
+                    }
+                  ]
+                  loadingText = "Searching...";
+                  minChars = 2;
+                  name = "domain_id_domain";
+                  pageSize = 20;
+                  qtip = "Select domain";
+                  queryParam = "query[domain]";
+                  selectOnFocus = true;
+                  tpl = '<div class="x-grid-cell-text x-btn button">{domain}</div>';
+                  triggerAction = "all";
+                  typeAhead = false;
+                  valueField = "id";
+                  width = 197;
+                },
+                Roo.form.TextField {
+                  allowBlank = false;
+                  fieldLabel = "IPv6 address";
+                  name = "ipv6_addr_str";
+                  width = 320;
+                },
+                Roo.form.TextField {
+                  allowBlank = false;
+                  fieldLabel = "Allocation reason";
+                  name = "allocation_reason";
+                  width = 320;
+                },
+                Roo.form.Checkbox {
+                  String fieldLabel = "Has reverse pointer?";
+                  String name = "has_reverse_ptr";
+                }
+              ]
+              width = 500;
+            }
+          ]
+          labelWidth = 160;
+          listeners [
+            actioncomplete function(f, act) {
+                  _this.dialog.el.unmask();
+                  if(act.type == 'setdata'){
+                      return;
+                  }
+                 
+                  if (act.type == 'load') {
+                      return;
+                  }
+                  
+                  
+                  if (act.type == 'submit') {
+                      _this.dialog.hide();
+                     
+                      if (_this.callback) {
+                          _this.callback.call(this, act.result.data);
+                      }
+                      return; 
+                  }
+            },
+            actionfailed function(f, act) {
+                  _this.dialog.el.unmask();
+                  // error msg???
+                  Pman.standardActionFailed(f,act);
+                            
+            },
+            rendered function (form) {
+                  _this.form = form;
+            }
+          ]
+        }
+      ]
+      region = "center";
+    }
+  ]
+  buttons[] = Roo.Button {
+    listeners [
+      click function (_self, e) {
+            _this.dialog.hide();
+      }
+    ]
+    text = "Cancel";
+  }
+  buttons[] = Roo.Button {
+    listeners [
+      click function (_self, e) {
+            _this.dialog.el.mask("Saving");
+            _this.form.doAction("submit");
+      }
+    ]
+    text = "Save";
+  }
+  modal = true;
+  resizable = false;
+  shadow = true;
+  title = "Add Ipv6";
+  width = 550;
+}

@@ -1,0 +1,544 @@
+vbp-version = 1;
+name = Pman.Tab.AdminCompanies;
+parent = Pman.Tab.Admin;
+title = Pman.Tab.AdminCompanies;
+permname = Admin.Companies;
+modOrder = 030;
+
+Roo.NestedLayoutPanel {
+  region = "center";
+  title = "Companies";
+  Boolean background = true;
+  layout = Roo.BorderLayout {
+    Object listeners;
+    center = Roo.LayoutRegion {}
+    south = Roo.LayoutRegion {
+      split = true;
+      height = 150;
+      titlebar = true;
+    }
+    [
+      Roo.GridPanel {
+        listeners [
+          activate function() {
+                _this.panel = this;
+                if (_this.grid) {
+                    _this.grid.footer.onClick('first');
+                }
+          }
+        ]
+        fitToframe = true;
+        background = true;
+        region = "center";
+        title = "Companies";
+        fitContainer = true;
+        tableName = "Companies";
+        grid = Roo.grid.Grid {
+          listeners [
+            rowdblclick function (_self, rowIndex, e) {
+                  if (!_this.dialog) {
+                      return;
+                      }
+                  _this.dialog.show( this.getDataSource().getAt(rowIndex).data, function() {
+                      _this.grid.footer.onClick('first');
+                  }); 
+                  
+                  
+            },
+            render function() {
+                  _this.grid = this; 
+                   _this.dialog = Pman.Dialog.Companies;
+                  if (_this.panel.active) {
+                     this.footer.onClick('first');
+                  }
+            },
+            rowclick function (_self, rowIndex, e) {
+                try { Pman.Tab.AdminOffice.grid.footer.onClick('refresh'); } catch(e) {}
+            }
+          ]
+          autoExpandColumn = "name";
+          loadMask = true;
+          dataSource = Roo.data.Store {
+            listeners [
+              beforeload function (_self, o) {
+                   o.params = o.params || {};
+                   try {
+                       o.params['search[name]'] = _this.searchBox.getValue();
+                   } catch(e) { return false; }
+              },
+              load function (_self, records, options) {
+                   try {
+                        Pman.Tab.AdminOffice.grid.footer.onClick('refresh');
+                    } catch (e) {}
+              }
+            ]
+            remoteSort = true;
+            sortInfo = @{ field : 'name', direction: 'ASC' };
+            proxy = Roo.data.HttpProxy {
+              listeners [
+                load function (This, o, arg) {
+                   
+                }
+              ]
+              url = baseURL + '/Roo/core_company';
+              method = "GET";
+            }
+            reader = Roo.data.JsonReader {
+              id = "id";
+              root = "data";
+              fields = @[
+    {
+        'name': 'code',
+        'type': 'string'
+    },
+    {
+        'name': 'name',
+        'type': 'string'
+    },
+    {
+        'name': 'remarks',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id',
+        'type': 'int'
+    },
+    {
+        'name': 'address',
+        'type': 'string'
+    },
+    {
+        'name': 'tel',
+        'type': 'string'
+    },
+    {
+        'name': 'fax',
+        'type': 'string'
+    },
+    {
+        'name': 'email',
+        'type': 'string'
+    },
+    {
+        'name': 'id',
+        'type': 'int'
+    },
+    {
+        'name': 'isOwner',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id',
+        'type': 'int'
+    },
+    {
+        'name': 'background_color',
+        'type': 'string'
+    },
+    {
+        'name': 'comptype',
+        'type': 'string'
+    },
+    {
+        'name': 'url',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id',
+        'type': 'int'
+    },
+    {
+        'name': 'created_by',
+        'type': 'int'
+    },
+    {
+        'name': 'created_dt',
+        'type': 'date',
+        'dateFormat': 'Y-m-d'
+    },
+    {
+        'name': 'updated_by',
+        'type': 'int'
+    },
+    {
+        'name': 'updated_dt',
+        'type': 'date',
+        'dateFormat': 'Y-m-d'
+    },
+    {
+        'name': 'passwd',
+        'type': 'string'
+    },
+    {
+        'name': 'dispatch_port',
+        'type': 'string'
+    },
+    {
+        'name': 'province',
+        'type': 'string'
+    },
+    {
+        'name': 'country',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_id',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_filename',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_ontable',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_onid',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_mimetype',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_width',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_height',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_filesize',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_displayorder',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_language',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_parent_image_id',
+        'type': 'int'
+    },
+    {
+        'name': 'logo_id_created',
+        'type': 'date'
+    },
+    {
+        'name': 'logo_id_imgtype',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_linkurl',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_descript',
+        'type': 'string'
+    },
+    {
+        'name': 'logo_id_title',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_id',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_office_id',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_name',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_phone',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_fax',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_email',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_company_id',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_role',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_active',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_remarks',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_passwd',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_owner_id',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_lang',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_no_reset_sent',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_action_type',
+        'type': 'string'
+    },
+    {
+        'name': 'owner_id_project_id',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_deleted_by',
+        'type': 'int'
+    },
+    {
+        'name': 'owner_id_deleted_dt',
+        'type': 'date'
+    },
+    {
+        'name': 'main_office_id_id',
+        'type': 'int'
+    },
+    {
+        'name': 'main_office_id_company_id',
+        'type': 'int'
+    },
+    {
+        'name': 'main_office_id_name',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id_address',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id_phone',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id_fax',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id_email',
+        'type': 'string'
+    },
+    {
+        'name': 'main_office_id_role',
+        'type': 'string'
+    }
+];
+              totalProperty = "total";
+            }
+          }
+          footer = Roo.PagingToolbar {
+            pageSize = 25;
+            emptyMsg = "No Companies found";
+            displayInfo = true;
+            displayMsg = "Displaying Companies{0} - {1} of {2}";
+          }
+          toolbar = Roo.Toolbar {
+            [
+              Roo.form.TextField {
+                listeners [
+                  specialkey function (_self, e) {
+                     if (e.getKey() == 13) {
+                         _this.grid.footer.onClick( 'first' );
+                      }
+                  },
+                  show function (_self) {
+                  },
+                  render function (_self) {
+                    _this.searchBox = _self;
+                  }
+                ]
+              },
+              Roo.Toolbar.Button {
+                listeners [
+                  click function (_self, e) {
+                    _this.grid.footer.onClick('first');
+                  }
+                ]
+                cls = "x-btn-icon";
+                icon = rootURL + '/Pman/templates/images/search.gif';
+              },
+              Roo.Toolbar.Button {
+                listeners [
+                  click function (_self, e) {
+                        _this.searchBox.setValue('');
+                        _this.grid.footer.onClick('first');
+                  }
+                ]
+                cls = "x-btn-icon";
+                icon = rootURL + '/Pman/templates/images/edit-clear.gif';
+              },
+              Roo.Toolbar.Fill {},
+              Roo.Toolbar.Button {
+                listeners [
+                  click function() {
+                        var s = _this.grid.getSelectionModel().getSelections();
+                        
+                        if (!s.length || (s.length > 1))  {
+                            Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                            return;
+                        }
+                        
+                        Pman.Dialog.AdminCompanyMerge.show(s[0].data, function() {
+                            _this.grid.footer.onClick('first');
+                        }); 
+                        
+                  }
+                ]
+                text = "Merge";
+                cls = "x-btn-text-icon";
+                icon = Roo.rootURL + 'images/default/tree/leaf.gif';
+              },
+              Roo.Toolbar.Separator {},
+              Roo.Toolbar.Button {
+                listeners [
+                  click function() {
+                        if (!_this.dialog) {
+                            return;
+                            }
+                        _this.dialog.show( { id : 0 } , function() {
+                            _this.grid.footer.onClick('first');
+                       }); 
+                  }
+                ]
+                text = "Add";
+                cls = "x-btn-text-icon";
+                icon = Roo.rootURL + 'images/default/dd/drop-add.gif';
+              },
+              Roo.Toolbar.Button {
+                listeners [
+                  click function() {
+                        var s = _this.grid.getSelectionModel().getSelections();
+                        if (!s.length || (s.length > 1))  {
+                            Roo.MessageBox.alert("Error", s.length ? "Select only one Row" : "Select a Row");
+                            return;
+                        }
+                        if (!_this.dialog) {
+                            return;
+                        }
+                        _this.dialog.show(s[0].data, function() {
+                            _this.grid.footer.onClick('first');
+                        }); 
+                        
+                  }
+                ]
+                text = "Edit";
+                cls = "x-btn-text-icon";
+                icon = Roo.rootURL + 'images/default/tree/leaf.gif';
+              },
+              Roo.Toolbar.Button {
+                listeners [
+                  click function() {
+                        Pman.genericDelete(_this, 'core_company'); 
+                  }
+                ]
+                text = "Delete";
+                cls = "x-btn-text-icon";
+                icon = rootURL + '/Pman/templates/images/trash.gif';
+              }
+            ]
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            sortable = true;
+            header = "Type";
+            width = 90;
+            renderer = function (v,x ,r) {
+                  //return Pman.Dialog.Companies.comptypeListToString(r.data.isOwner ? 'OWNER' : v);
+                  return v;
+            };
+            dataIndex = "comptype_id_display_name";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            sortable = true;
+            header = "Ref#";
+            width = 50;
+            renderer = function(v) {
+               return String.format('{0}', v); 
+            };
+            dataIndex = "code";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            sortable = true;
+            header = "Name";
+            width = 200;
+            renderer = function(v,x,r) {
+                  return String.format(r.data.comptype == 'OWNER' ? '<B>{0}</B>' : '{0}',v);    
+            };
+            dataIndex = "name";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            width = 100;
+            header = "Tel";
+            renderer = function(v) {
+               return String.format('{0}', v); 
+            };
+            dataIndex = "tel";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            width = 100;
+            header = "Fax";
+            renderer = function(v) {
+               return String.format('{0}', v); 
+            };
+            dataIndex = "fax";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            sortable = true;
+            header = "Email";
+            width = 100;
+            renderer = function (v) {
+                      return (v.length && v.indexOf('@') > 0 ) ? 
+                          String.format('<a href="mailto:{0}">{0}</a>',v) : v;
+                          
+                  
+            };
+            dataIndex = "email";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            sortable = true;
+            header = "Address";
+            width = 200;
+            renderer = function(v) {
+               return String.format('{0}', v); 
+            };
+            dataIndex = "address";
+          }
+          colModel[] = Roo.grid.ColumnModel {
+            header = "Remarks";
+            width = 200;
+            renderer = function(v) {
+               return String.format('{0}', v); 
+            };
+            dataIndex = "remarks";
+          }
+        }
+      }
+    ]
+  }
+}

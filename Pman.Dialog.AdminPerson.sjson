@@ -1,0 +1,311 @@
+{
+  "format" : 2,
+  "name" : "Pman.Dialog.AdminPerson",
+  "parent" : "",
+  "modOrder" : "001",
+  "permname" : "",
+  "title" : "",
+  "strings" : {
+    "7573b7fd7836c9118dbfb69f3abf3858" : "Change / Set Password",
+    "be5f40c0d2692cf4e9f8be8d389737a5" : "Department / Office",
+    "91d522fe68c9ac8ac16026371421018f" : "Last Access",
+    "6b446bfa60f46e619a691f253177ec9a" : "Force Logout of User",
+    "e4709a73a287a5f033f5b1b5142cb74d" : "System Settings",
+    "e498749f3c42246d50b15c81c101d988" : "Application",
+    "ce0be71e33226e4c1db2bcea5959f16b" : "Log",
+    "662de0725ac8055bff7edae51fbf3c78" : "No Settings Found",
+    "4ee972120bcda675f75222c87cb9d356" : "Who",
+    "abb1d799e06329cb0c38276ea918300b" : "Secure passwords",
+    "7e17f8478e121357b78646ca5b5d5ac9" : "Displaying Settings  {0} - {1} of {2}",
+    "e0626222614bdee31951d84c64e5e9ff" : "Select",
+    "ec53a8c4f07baed5d8825072c89799be" : "Status",
+    "2871afea416378d2772937c4d67d6c2c" : "Generate password",
+    "db6c58b8634d4607cdcb13bb181ea2ff" : "User Sessions",
+    "004bf6c9a40003140292e97330236c53" : "Action",
+    "b5a7adde1af5c87d7fd797b6245c2a39" : "Description",
+    "315fce99b77b7f392bf68d5eb14f88c7" : "Password (type again to confirm)",
+    "1243daf593fa297e07ab03bf06d925af" : "Searching...",
+    "3544848f820b9d94a3f3871a382cf138" : "New password",
+    "a5da1d5de4f3a80e2acf5227283c630d" : "Staff Details",
+    "6be4aa550791c310e098cd6c234af7d8" : "Event when",
+    "8c5e39fcbdc7303f11a578a76e32f7f5" : "Logged in",
+    "0e6c5b4e85b8cc4a30d236ebe9ccc9b8" : "Displaying Sessions  {0} - {1} of {2}",
+    "03937134cedab9078be39a77ee3a48a0" : "Group",
+    "ef15fd2f45e6bb5ce57587895ba64f93" : "Browser",
+    "5b8c99dad1893a85076709b2d3c2d2d0" : "IP Address",
+    "231bc72756b5e6de492aaaa1577f61b1" : "Remarks",
+    "bcc254b55c4a1babdf1dcb82c207506b" : "Phone",
+    "f2a6c498fb90ee345d997f888fce3b18" : "Delete",
+    "49ee3087348e8d44e1feda1917443987" : "Name",
+    "ea4788705e6873b424c65e91c2846b19" : "Cancel",
+    "c373dd4bd4ba0b5d3e0c7522c5629880" : "Select Office",
+    "689202409e48743b914713f96d93947c" : "Value",
+    "8a25a3ae30ab6e8ceb5b8c4009a3336f" : "Role / Position",
+    "e55f75a29310d7b60f7ac1d390c8ae42" : "Module",
+    "2b0d7f748b64304e6657207cb03cd8f2" : "Edit / Create Staff Details",
+    "c9cc8cce247e49bae79f15173ce97354" : "Save",
+    "ce8ae9da5b7cd6c3df2929543a9af92d" : "Email",
+    "f4a52a00bee9faf2bc6183e0ac12ba12" : "Session WID",
+    "a37ede293936e29279ed543129451ec3" : "Groups",
+    "4d3d769b812b6faa6b76e1a8abaece2d" : "Active"
+  },
+  "named-strings" : {
+    "secure_password_fieldLabel" : "abb1d799e06329cb0c38276ea918300b",
+    "role_fieldLabel" : "8a25a3ae30ab6e8ceb5b8c4009a3336f",
+    "name_fieldLabel" : "49ee3087348e8d44e1feda1917443987",
+    "office_id_name_emptyText" : "be5f40c0d2692cf4e9f8be8d389737a5",
+    "passwd2_fieldLabel" : "315fce99b77b7f392bf68d5eb14f88c7",
+    "phone_fieldLabel" : "bcc254b55c4a1babdf1dcb82c207506b",
+    "passwd1_fieldLabel" : "3544848f820b9d94a3f3871a382cf138",
+    "office_id_name_fieldLabel" : "be5f40c0d2692cf4e9f8be8d389737a5",
+    "office_id_name_loadingText" : "1243daf593fa297e07ab03bf06d925af",
+    "active_fieldLabel" : "4d3d769b812b6faa6b76e1a8abaece2d",
+    "email_fieldLabel" : "ce8ae9da5b7cd6c3df2929543a9af92d",
+    "office_id_name_qtip" : "c373dd4bd4ba0b5d3e0c7522c5629880"
+  },
+  "forms" : [],
+  "grids" : [],
+  "tabs" : [
+    {
+      "path" : "/",
+      "title" : "Staff Details",
+      "xtype" : "form",
+      "forms" : [
+        {
+          "table" : "core_person",
+          "lookups" : [
+            "core_office"
+          ],
+          "fields" : [
+            {
+              "name" : "name",
+              "label" : "Name",
+              "xtype" : "TextField"
+            },
+            {
+              "name" : "email",
+              "label" : "Email",
+              "xtype" : "TextField"
+            },
+            {
+              "name" : "role",
+              "label" : "Role / Position",
+              "xtype" : "TextField"
+            },
+            {
+              "name" : "phone",
+              "label" : "Phone",
+              "xtype" : "TextField"
+            },
+            {
+              "name" : "company_id",
+              "label" : "company_id",
+              "xtype" : "Hidden"
+            },
+            {
+              "name" : "office_id",
+              "label" : "Department / Office",
+              "xtype" : "ComboBox"
+            },
+            {
+              "name" : "office_id_name",
+              "label" : "Department / Office",
+              "xtype" : "ComboBox"
+            },
+            {
+              "name" : "active",
+              "label" : "Active",
+              "xtype" : "Checkbox"
+            },
+            {
+              "name" : "id",
+              "label" : "id",
+              "xtype" : "Hidden"
+            },
+            {
+              "name" : "group_ids",
+              "label" : "group_ids",
+              "xtype" : "Hidden"
+            },
+            {
+              "name" : "passwd1",
+              "label" : "New password",
+              "xtype" : "Password"
+            },
+            {
+              "name" : "passwd2",
+              "label" : "Password (type again to confirm)",
+              "xtype" : "Password"
+            },
+            {
+              "name" : "secure_password",
+              "label" : "Secure passwords",
+              "xtype" : "Checkbox"
+            }
+          ]
+        }
+      ],
+      "grids" : []
+    },
+    {
+      "path" : "/system-settings",
+      "title" : "System Settings",
+      "xtype" : "grid",
+      "forms" : [],
+      "grids" : [
+        {
+          "table" : "core_person_settings",
+          "cols" : [
+            {
+              "dataIndex" : "scope",
+              "header" : "Module",
+              "width" : "120"
+            },
+            {
+              "dataIndex" : "description",
+              "header" : "Description",
+              "width" : "150"
+            },
+            {
+              "dataIndex" : "data",
+              "header" : "Value",
+              "width" : "200"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path" : "/user-sessions",
+      "title" : "User Sessions",
+      "xtype" : "grid",
+      "forms" : [],
+      "grids" : [
+        {
+          "table" : "core_person_window",
+          "cols" : [
+            {
+              "dataIndex" : "app_id",
+              "header" : "Application",
+              "width" : "120"
+            },
+            {
+              "dataIndex" : "ip",
+              "header" : "IP Address",
+              "width" : "80"
+            },
+            {
+              "dataIndex" : "login_dt",
+              "header" : "Logged in",
+              "width" : "80"
+            },
+            {
+              "dataIndex" : "last_access_dt",
+              "header" : "Last Access",
+              "width" : "80"
+            },
+            {
+              "dataIndex" : "status",
+              "header" : "Status",
+              "width" : "40"
+            },
+            {
+              "dataIndex" : "window_id",
+              "header" : "Session WID",
+              "width" : "80"
+            },
+            {
+              "dataIndex" : "user_agent",
+              "header" : "Browser",
+              "width" : "150"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path" : "/groups",
+      "title" : "Groups",
+      "xtype" : "grid",
+      "forms" : [],
+      "grids" : [
+        {
+          "table" : "core_group",
+          "cols" : [
+            {
+              "dataIndex" : "is_in_group",
+              "header" : "Select",
+              "width" : "75"
+            },
+            {
+              "dataIndex" : "name",
+              "header" : "Name",
+              "width" : ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path" : "/log",
+      "title" : "Log",
+      "xtype" : "grid",
+      "forms" : [],
+      "grids" : [
+        {
+          "table" : "events",
+          "cols" : [
+            {
+              "dataIndex" : "event_when",
+              "header" : "Event when",
+              "width" : "75"
+            },
+            {
+              "dataIndex" : "person_id_name",
+              "header" : "Who",
+              "width" : "200"
+            },
+            {
+              "dataIndex" : "action",
+              "header" : "Action",
+              "width" : "100"
+            },
+            {
+              "dataIndex" : "remarks",
+              "header" : "Remarks",
+              "width" : "200"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path" : "/action",
+      "title" : "Action",
+      "xtype" : "grid",
+      "forms" : [],
+      "grids" : [
+        {
+          "table" : "events",
+          "cols" : [
+            {
+              "dataIndex" : "event_when",
+              "header" : "Event when",
+              "width" : "75"
+            },
+            {
+              "dataIndex" : "action",
+              "header" : "Action",
+              "width" : "100"
+            },
+            {
+              "dataIndex" : "remarks",
+              "header" : "Remarks",
+              "width" : "200"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
