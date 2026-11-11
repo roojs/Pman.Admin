@@ -14,7 +14,9 @@ Pman.Dialog.Login = {
   '6bbb9271dfc330d58f5d1d9b146436c7' :"Save email address",
   'cfcd208495d565ef66e7dff9f98764da' :"0",
   'dc647eb65e6711e155375218212b3964' :"Password",
+  '16f6c60cf0b840982bc1f595ac1641cb' :"Enter your code",
   '42d15cbad8e0268cbad01372c7e7542e' :"<div class=\"x-combo-list-item\">{ldisp}</div>",
+  '5ee88e8eeb383acf2244b5ac824a7876' :"Use your authenticator app to find a code, and enter it here.",
   '643a860f992333b8600ea264aca7c4fc' :"Email Address",
   '5da1e201cb7f08519d07290abf226cfb' :"Select a Language..."
  },
@@ -24,6 +26,7 @@ Pman.Dialog.Login = {
   'password_fieldLabel' : 'dc647eb65e6711e155375218212b3964' /* Password */ ,
   'langdisp_fieldLabel' : '4994a8ffeba4ac3140beb89e8d41f174' /* Language */ ,
   'username_fieldLabel' : '643a860f992333b8600ea264aca7c4fc' /* Email Address */ ,
+  'oath_password_fieldLabel' : '16f6c60cf0b840982bc1f595ac1641cb' /* Enter your code */ ,
   'langdisp_emptyText' : '5da1e201cb7f08519d07290abf226cfb' /* Select a Language... */ ,
   'remember_username_fieldLabel' : '878530871f0db73f004f5bd6591eeb76' /* Remember me */ 
  },
@@ -124,6 +127,13 @@ Pman.Dialog.Login = {
       listeners : {
        click : function (_self, e)
         {
+            if (_this.loginLocked) {
+                return;
+            }
+            var code = _this.form.findField('oath_password');
+            if (_this.codeStep && !code.getValue()) {
+                return;
+            }
             _this.dialog.el.mask("Logging in");
             _this.form.doAction('submit' );
         }
@@ -212,6 +222,16 @@ Pman.Dialog.Login = {
                   }
                    
                    
+                  _this.codeStep = false;
+                  _this.loginLocked = false;
+                  _this.loginCodeBlock.hide();
+                  _this.loginCodeNote.el.update('Use your authenticator app to find a code, and enter it here.');
+                  var codeField = this.findField('oath_password');
+                  codeField.setValue('');
+                  codeField.el.dom.readOnly = false;
+                  this.findField('username').el.dom.readOnly = false;
+                  this.findField('password').el.dom.readOnly = false;
+                  _this.dialog.buttons[1].enable();
                   var rememberOff = Roo.state.Manager.get('Pman.Login.rememberUsername.'+appNameShort) === '0';
                   this.setValues({
                       'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),
@@ -236,6 +256,32 @@ Pman.Dialog.Login = {
               //act.result.errorMsg// invalid form element list...
               
               _this.dialog.el.unmask();
+              var codeName = act.result.code || '';
+              if (codeName.indexOf('LOGIN-2FA-LOCK') !== -1) {
+                  _this.loginLocked = true;
+                  _this.form.findField('oath_password').setValue('');
+                  _this.form.findField('username').el.dom.readOnly = true;
+                  _this.form.findField('password').el.dom.readOnly = true;
+                  _this.form.findField('oath_password').el.dom.readOnly = true;
+                  _this.dialog.buttons[1].disable();
+                  Roo.MessageBox.alert("Error", act.result.errorMsg || "Too many tries. Reload the page to start again.");
+                  return;
+              }
+              if (codeName.indexOf('LOGIN-2FA') !== -1) {
+                  _this.codeStep = true;
+                  _this.form.findField('username').el.dom.readOnly = true;
+                  _this.form.findField('password').el.dom.readOnly = true;
+                  _this.loginCodeBlock.show();
+                  if (codeName.indexOf('LOGIN-2FA-EMAIL') !== -1) {
+                      _this.loginCodeNote.el.update('We have sent a login code to your email. Check your email and enter the code from there.');
+                  }
+                  _this.form.findField('oath_password').focus();
+                  return;
+              }
+              if (_this.codeStep) {
+                  _this.form.findField('oath_password').setValue('');
+                  _this.form.findField('oath_password').focus();
+              }
               var msg = act.result.errorMsg || act.result.message;
               msg = msg ||   "Login failed - communication error - try again.";
               Roo.MessageBox.alert("Error",  msg); 
@@ -284,6 +330,13 @@ Pman.Dialog.Login = {
            specialkey : function (_self, ev)
             {
                 if (ev.keyCode == 13) {
+                    if (_this.loginLocked) {
+                        return;
+                    }
+                    var code = _this.form.findField('oath_password');
+                    if (_this.codeStep && !code.getValue()) {
+                        return;
+                    }
                     _this.dialog.el.mask("Logging in");
                     _this.form.doAction('submit');
                 }
@@ -291,6 +344,70 @@ Pman.Dialog.Login = {
           },
           xns : Roo.form,
           '|xns' : 'Roo.form'
+         },
+         {
+          xtype : 'FieldSet',
+          hidden : true,
+          labelWidth : 120,
+          style : 'margin-top: 8px;',
+          listeners : {
+           render : function()
+            {
+                _this.loginCodeBlock = this;
+            }
+          },
+          xns : Roo.form,
+          '|xns' : 'Roo.form',
+          items  : [
+           {
+            xtype : 'TextItem',
+            html : _this._strings['5ee88e8eeb383acf2244b5ac824a7876'] /* Use your authenticator app to find a code, and enter it here. */,
+            listeners : {
+             render : function()
+              {
+                  _this.loginCodeNote = this;
+              }
+            },
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'TextField',
+            fieldLabel : _this._strings['16f6c60cf0b840982bc1f595ac1641cb'] /* Enter your code */,
+            name : 'oath_password',
+            width : 120,
+            listeners : {
+             keyup : function (_self, ev)
+              {
+                  if (_self.getValue().length != 6) {
+                      return;
+                  }
+                  if (_this.loginLocked) {
+                      return;
+                  }
+                  _this.dialog.el.mask("Logging in");
+                  _this.form.doAction('submit');
+              },
+             specialkey : function (_self, ev)
+              {
+                  if (ev.keyCode != 13) {
+                      return;
+                  }
+                  if (_this.loginLocked) {
+                      return;
+                  }
+                  var code = _this.form.findField('oath_password');
+                  if (_this.codeStep && !code.getValue()) {
+                      return;
+                  }
+                  _this.dialog.el.mask("Logging in");
+                  _this.form.doAction('submit');
+              }
+            },
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           }
+          ]
          },
          {
           xtype : 'ComboBox',

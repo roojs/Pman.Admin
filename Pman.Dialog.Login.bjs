@@ -78,6 +78,13 @@
       "click" : [
        "function (_self, e)",
        "{",
+       "    if (_this.loginLocked) {",
+       "        return;",
+       "    }",
+       "    var code = _this.form.findField('oath_password');",
+       "    if (_this.codeStep && !code.getValue()) {",
+       "        return;",
+       "    }",
        "    _this.dialog.el.mask(\"Logging in\");",
        "    _this.form.doAction('submit' );",
        "}"
@@ -115,6 +122,13 @@
            "function (_self, ev)",
            "{",
            "    if (ev.keyCode == 13) {",
+           "        if (_this.loginLocked) {",
+           "            return;",
+           "        }",
+           "        var code = _this.form.findField('oath_password');",
+           "        if (_this.codeStep && !code.getValue()) {",
+           "            return;",
+           "        }",
            "        _this.dialog.el.mask(\"Logging in\");",
            "        _this.form.doAction('submit');",
            "    }",
@@ -122,6 +136,75 @@
           ]
          },
          "xtype" : "Password"
+        },
+        {
+         "$ xns" : "Roo.form",
+         "Boolean hidden" : true,
+         "Number labelWidth" : 120,
+         "String/Object/Function style" : "margin-top: 8px;",
+         "items" : [
+          {
+           "$ xns" : "Roo.form",
+           "String html" : "Use your authenticator app to find a code, and enter it here.",
+           "listeners" : {
+            "render" : [
+             "function()",
+             "{",
+             "    _this.loginCodeNote = this;",
+             "}"
+            ]
+           },
+           "xtype" : "TextItem"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "Number width" : 120,
+           "String fieldLabel" : "Enter your code",
+           "String name" : "oath_password",
+           "listeners" : {
+            "keyup" : [
+             "function (_self, ev)",
+             "{",
+             "    if (_self.getValue().length != 6) {",
+             "        return;",
+             "    }",
+             "    if (_this.loginLocked) {",
+             "        return;",
+             "    }",
+             "    _this.dialog.el.mask(\"Logging in\");",
+             "    _this.form.doAction('submit');",
+             "}"
+            ],
+            "specialkey" : [
+             "function (_self, ev)",
+             "{",
+             "    if (ev.keyCode != 13) {",
+             "        return;",
+             "    }",
+             "    if (_this.loginLocked) {",
+             "        return;",
+             "    }",
+             "    var code = _this.form.findField('oath_password');",
+             "    if (_this.codeStep && !code.getValue()) {",
+             "        return;",
+             "    }",
+             "    _this.dialog.el.mask(\"Logging in\");",
+             "    _this.form.doAction('submit');",
+             "}"
+            ]
+           },
+           "xtype" : "TextField"
+          }
+         ],
+         "listeners" : {
+          "render" : [
+           "function()",
+           "{",
+           "    _this.loginCodeBlock = this;",
+           "}"
+          ]
+         },
+         "xtype" : "FieldSet"
         },
         {
          "$ xns" : "Roo.form",
@@ -254,6 +337,16 @@
          "        }",
          "         ",
          "         ",
+         "        _this.codeStep = false;",
+         "        _this.loginLocked = false;",
+         "        _this.loginCodeBlock.hide();",
+         "        _this.loginCodeNote.el.update('Use your authenticator app to find a code, and enter it here.');",
+         "        var codeField = this.findField('oath_password');",
+         "        codeField.setValue('');",
+         "        codeField.el.dom.readOnly = false;",
+         "        this.findField('username').el.dom.readOnly = false;",
+         "        this.findField('password').el.dom.readOnly = false;",
+         "        _this.dialog.buttons[1].enable();",
          "        var rememberOff = Roo.state.Manager.get('Pman.Login.rememberUsername.'+appNameShort) === '0';",
          "        this.setValues({",
          "            'username' : Roo.state.Manager.get('Pman.Login.username.'+appNameShort, ''),",
@@ -280,6 +373,32 @@
          "    //act.result.errorMsg// invalid form element list...",
          "    ",
          "    _this.dialog.el.unmask();",
+         "    var codeName = act.result.code || '';",
+         "    if (codeName.indexOf('LOGIN-2FA-LOCK') !== -1) {",
+         "        _this.loginLocked = true;",
+         "        _this.form.findField('oath_password').setValue('');",
+         "        _this.form.findField('username').el.dom.readOnly = true;",
+         "        _this.form.findField('password').el.dom.readOnly = true;",
+         "        _this.form.findField('oath_password').el.dom.readOnly = true;",
+         "        _this.dialog.buttons[1].disable();",
+         "        Roo.MessageBox.alert(\"Error\", act.result.errorMsg || \"Too many tries. Reload the page to start again.\");",
+         "        return;",
+         "    }",
+         "    if (codeName.indexOf('LOGIN-2FA') !== -1) {",
+         "        _this.codeStep = true;",
+         "        _this.form.findField('username').el.dom.readOnly = true;",
+         "        _this.form.findField('password').el.dom.readOnly = true;",
+         "        _this.loginCodeBlock.show();",
+         "        if (codeName.indexOf('LOGIN-2FA-EMAIL') !== -1) {",
+         "            _this.loginCodeNote.el.update('We have sent a login code to your email. Check your email and enter the code from there.');",
+         "        }",
+         "        _this.form.findField('oath_password').focus();",
+         "        return;",
+         "    }",
+         "    if (_this.codeStep) {",
+         "        _this.form.findField('oath_password').setValue('');",
+         "        _this.form.findField('oath_password').focus();",
+         "    }",
          "    var msg = act.result.errorMsg || act.result.message;",
          "    msg = msg ||   \"Login failed - communication error - try again.\";",
          "    Roo.MessageBox.alert(\"Error\",  msg); ",
