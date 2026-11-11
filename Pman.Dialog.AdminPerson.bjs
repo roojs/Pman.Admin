@@ -5,7 +5,7 @@
    "Boolean modal" : true,
    "closable" : false,
    "collapsible" : false,
-   "height" : 400,
+   "height" : 450,
    "items" : [
     {
      "$ xns" : "Roo.layout",
@@ -215,6 +215,45 @@
             ]
            },
            "xtype" : "Checkbox"
+          },
+          {
+           "$ xns" : "Roo.form",
+           "Boolean checked" : true,
+           "Boolean hidden" : true,
+           "String actionMode" : "fieldEl",
+           "String fieldLabel" : "Two-factor authentication",
+           "String inputValue" : 1,
+           "String name" : "oath_on",
+           "String valueOff" : 0,
+           "listeners" : {
+            "check" : [
+             "function (_self, checked)",
+             "{",
+             "    if (checked) {",
+             "        return;",
+             "    }",
+             "    Roo.MessageBox.confirm('Confirm', 'Turn off two-factor authentication for this person?', function(btn) {",
+             "        if (btn != 'yes') {",
+             "            _self.setChecked(true, false);",
+             "            return;",
+             "        }",
+             "        new Pman.Request({",
+             "            url: baseURL + '/Roo/core_person',",
+             "            method: 'GET',",
+             "            params: {",
+             "                oath_key_disable: 1,",
+             "                id: _this.form.findField('id').getValue()",
+             "            },",
+             "            success: function() {",
+             "                _self.hide();",
+             "                _this.oathSetupBtn.show();",
+             "            }",
+             "        });",
+             "    });",
+             "}"
+            ]
+           },
+           "xtype" : "Checkbox"
           }
          ],
          "xtype" : "FieldSet"
@@ -240,12 +279,22 @@
          "        reg.showPanel(0);",
          "        _this.saveBtn.setText('Next');",
          "        this.findField('company_id').setValue(Pman.Login.authUser.company_id);",
+         "        this.findField('oath_on').hide();",
+         "        _this.oathSetupBtn.hide();",
          "        return;",
          "    }",
          "    if (action.type == 'load') {",
          "        _this.dialog.el.unmask();",
          "        _this.dialog.layout.getRegion('center').showPanel(0);",
          "        _this.groupGrid.dataSource.load();",
+         "        if (action.result.data.length_oath_key > 0) {",
+         "            this.findField('oath_on').show();",
+         "            this.findField('oath_on').setChecked(true, false);",
+         "            _this.oathSetupBtn.hide();",
+         "        } else {",
+         "            this.findField('oath_on').hide();",
+         "            _this.oathSetupBtn.show();",
+         "        }",
          "        return;",
          "    }",
          "    if (action.type =='submit') {",
@@ -258,6 +307,7 @@
          "            }",
          "            _this.saveBtn.setText('Save');",
          "            _this.groupGrid.dataSource.load();",
+         "            _this.oathSetupBtn.show();",
          "            return;",
          "        }",
          "        _this.dialog.hide();",
@@ -659,6 +709,38 @@
      "region" : "center",
      "title" : "User Sessions",
      "xtype" : "Grid"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "Boolean hidden" : true,
+     "listeners" : {
+      "|render" : [
+       "function (_self) {",
+       "    _this.oathSetupBtn = _self;",
+       "}"
+      ],
+      "click" : [
+       "function ()",
+       "{",
+       "    var id = _this.form.findField('id').getValue();",
+       "    if (id * 1 < 1) {",
+       "        Roo.MessageBox.alert('Error', 'Save this person before setting up two-factor authentication.');",
+       "        return;",
+       "    }",
+       "    Pman.Dialog.AdminOathSetup.show({ id: id }, function(enabled) {",
+       "        if (!enabled) {",
+       "            return;",
+       "        }",
+       "        _this.form.findField('oath_on').show();",
+       "        _this.form.findField('oath_on').setChecked(true, false);",
+       "        _this.oathSetupBtn.hide();",
+       "    });",
+       "}"
+      ]
+     },
+     "text" : "Set up 2FA",
+     "xtype" : "Button"
     },
     {
      "$ xns" : "Roo",

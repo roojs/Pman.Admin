@@ -15,6 +15,7 @@ Pman.Dialog.AdminPerson = {
   'f4a52a00bee9faf2bc6183e0ac12ba12' :"Session WID",
   'e0626222614bdee31951d84c64e5e9ff' :"Select",
   '0e6c5b4e85b8cc4a30d236ebe9ccc9b8' :"Displaying Sessions  {0} - {1} of {2}",
+  '43a3eb219fd7c2f359f5b7e7e3242c53' :"Set up 2FA",
   'ce8ae9da5b7cd6c3df2929543a9af92d' :"Email",
   '662de0725ac8055bff7edae51fbf3c78' :"No Settings Found",
   '8c5e39fcbdc7303f11a578a76e32f7f5' :"Logged in",
@@ -22,13 +23,14 @@ Pman.Dialog.AdminPerson = {
   '03937134cedab9078be39a77ee3a48a0' :"Group",
   '1243daf593fa297e07ab03bf06d925af' :"Searching...",
   'bcc254b55c4a1babdf1dcb82c207506b' :"Phone",
+  '8b10281154afa6312e3e8448c14f7134' :"Two-factor authentication",
   '49ee3087348e8d44e1feda1917443987' :"Name",
   'ec53a8c4f07baed5d8825072c89799be' :"Status",
   '91d522fe68c9ac8ac16026371421018f' :"Last Access",
   '7573b7fd7836c9118dbfb69f3abf3858' :"Change / Set Password",
   'a37ede293936e29279ed543129451ec3' :"Groups",
-  'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   '7e17f8478e121357b78646ca5b5d5ac9' :"Displaying Settings  {0} - {1} of {2}",
+  'ea4788705e6873b424c65e91c2846b19' :"Cancel",
   'c373dd4bd4ba0b5d3e0c7522c5629880' :"Select Office",
   '315fce99b77b7f392bf68d5eb14f88c7' :"Password (type again to confirm)",
   'a5da1d5de4f3a80e2acf5227283c630d' :"Staff Details",
@@ -62,7 +64,8 @@ Pman.Dialog.AdminPerson = {
   'office_id_name_loadingText' : '1243daf593fa297e07ab03bf06d925af' /* Searching... */ ,
   'active_fieldLabel' : '4d3d769b812b6faa6b76e1a8abaece2d' /* Active */ ,
   'email_fieldLabel' : 'ce8ae9da5b7cd6c3df2929543a9af92d' /* Email */ ,
-  'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ 
+  'office_id_name_qtip' : 'c373dd4bd4ba0b5d3e0c7522c5629880' /* Select Office */ ,
+  'oath_on_fieldLabel' : '8b10281154afa6312e3e8448c14f7134' /* Two-factor authentication */ 
  },
 
  dialog : false,
@@ -92,7 +95,7 @@ Pman.Dialog.AdminPerson = {
     xtype : 'LayoutDialog',
     closable : false,
     collapsible : false,
-    height : 400,
+    height : 450,
     modal : true,
     resizable : false,
     title : _this._strings['2b0d7f748b64304e6657207cb03cd8f2'] /* Edit / Create Staff Details */,
@@ -106,6 +109,34 @@ Pman.Dialog.AdminPerson = {
      '|xns' : 'Roo.layout'
     },
     buttons : [
+     {
+      xtype : 'Button',
+      hidden : true,
+      text : _this._strings['43a3eb219fd7c2f359f5b7e7e3242c53'] /* Set up 2FA */,
+      listeners : {
+       click : function ()
+        {
+            var id = _this.form.findField('id').getValue();
+            if (id * 1 < 1) {
+                Roo.MessageBox.alert('Error', 'Save this person before setting up two-factor authentication.');
+                return;
+            }
+            Pman.Dialog.AdminOathSetup.show({ id: id }, function(enabled) {
+                if (!enabled) {
+                    return;
+                }
+                _this.form.findField('oath_on').show();
+                _this.form.findField('oath_on').setChecked(true, false);
+                _this.oathSetupBtn.hide();
+            });
+        },
+       render : function (_self) {
+            _this.oathSetupBtn = _self;
+        }
+      },
+      xns : Roo,
+      '|xns' : 'Roo'
+     },
      {
       xtype : 'Button',
       text : _this._strings['ea4788705e6873b424c65e91c2846b19'] /* Cancel */,
@@ -137,6 +168,15 @@ Pman.Dialog.AdminPerson = {
             if ((p1.length || p2.length) && p1 != p2) {
                 Roo.MessageBox.alert("Error", "Passwords do not match");
                 return;
+            }
+            if (_this.groupGrid) {
+                var ids = [];
+                _this.groupGrid.dataSource.each(function(r) {
+                    if (r.data.is_in_group * 1) {
+                        ids.push(r.data.id);
+                    }
+                });
+                _this.form.findField('group_ids').setValue(ids.join(','));
             }
             _this.form.doAction("submit");
         
@@ -173,7 +213,7 @@ Pman.Dialog.AdminPerson = {
                           reg.showPanel(i);
                       }
                       _this.saveBtn.setText('Save');
-                      this.load({ method: 'GET', params: { '_id' : _this.data.id }});
+                      this.load({ method: 'GET', params: { '_id' : _this.data.id, '_with_group_ids' : 1 }});
                       return;
                   }
                   for (var i = 5; i > 0; i--) {
@@ -182,12 +222,22 @@ Pman.Dialog.AdminPerson = {
                   reg.showPanel(0);
                   _this.saveBtn.setText('Next');
                   this.findField('company_id').setValue(Pman.Login.authUser.company_id);
+                  this.findField('oath_on').hide();
+                  _this.oathSetupBtn.hide();
                   return;
               }
               if (action.type == 'load') {
                   _this.dialog.el.unmask();
                   _this.dialog.layout.getRegion('center').showPanel(0);
                   _this.groupGrid.dataSource.load();
+                  if (action.result.data.length_oath_key > 0) {
+                      this.findField('oath_on').show();
+                      this.findField('oath_on').setChecked(true, false);
+                      _this.oathSetupBtn.hide();
+                  } else {
+                      this.findField('oath_on').hide();
+                      _this.oathSetupBtn.show();
+                  }
                   return;
               }
               if (action.type =='submit') {
@@ -200,6 +250,7 @@ Pman.Dialog.AdminPerson = {
                       }
                       _this.saveBtn.setText('Save');
                       _this.groupGrid.dataSource.load();
+                      _this.oathSetupBtn.show();
                       return;
                   }
                   _this.dialog.hide();
@@ -340,6 +391,12 @@ Pman.Dialog.AdminPerson = {
           '|xns' : 'Roo.form'
          },
          {
+          xtype : 'Hidden',
+          name : 'group_ids',
+          xns : Roo.form,
+          '|xns' : 'Roo.form'
+         },
+         {
           xtype : 'FieldSet',
           labelWidth : 200,
           legend : _this._strings['7573b7fd7836c9118dbfb69f3abf3858'] /* Change / Set Password */,
@@ -403,6 +460,44 @@ Pman.Dialog.AdminPerson = {
                   if(!checked){
                       this.form.findField('passwd1').insecure = true;
                   }
+              }
+            },
+            xns : Roo.form,
+            '|xns' : 'Roo.form'
+           },
+           {
+            xtype : 'Checkbox',
+            actionMode : 'fieldEl',
+            checked : true,
+            fieldLabel : _this._strings['8b10281154afa6312e3e8448c14f7134'] /* Two-factor authentication */,
+            hidden : true,
+            inputValue : 1,
+            name : 'oath_on',
+            valueOff : 0,
+            listeners : {
+             check : function (_self, checked)
+              {
+                  if (checked) {
+                      return;
+                  }
+                  Roo.MessageBox.confirm('Confirm', 'Turn off two-factor authentication for this person?', function(btn) {
+                      if (btn != 'yes') {
+                          _self.setChecked(true, false);
+                          return;
+                      }
+                      new Pman.Request({
+                          url: baseURL + '/Roo/core_person',
+                          method: 'GET',
+                          params: {
+                              oath_key_disable: 1,
+                              id: _this.form.findField('id').getValue()
+                          },
+                          success: function() {
+                              _self.hide();
+                              _this.oathSetupBtn.show();
+                          }
+                      });
+                  });
               }
             },
             xns : Roo.form,
@@ -785,9 +880,15 @@ Pman.Dialog.AdminPerson = {
              if (ci != 0) {return; }
              
              var rec = this.ds.getAt(ri);
-             
              rec.set('is_in_group', (rec.get('is_in_group') * 1) ? 0 : 1);
              rec.commit();
+             var ids = [];
+             _this.groupGrid.dataSource.each(function(r) {
+                 if (r.data.is_in_group * 1) {
+                     ids.push(r.data.id);
+                 }
+             });
+             _this.form.findField('group_ids').setValue(ids.join(','));
          },
         render : function() 
          {
@@ -867,67 +968,14 @@ Pman.Dialog.AdminPerson = {
           },
          load : function (_self, records, options)
           {
-              /*
-              var beatsField = _this.form.findField('beats');
-              // beat list is loaded..
-              
-              // if no beat is available => clear beats field
-              if (!records.length) {
-                 
-                  beatsField.setValue('');
+              var groupIds = _this.form.findField('group_ids').getValue();
+              if (!groupIds.length) {
                   return;
               }
-              
-              
-              
-             
-              var beats = beatsField.getValue();    
-          
-              if (beats.length) {
-          
-                  var crecs = beats.split(',');
-                  
-                  var avail = [];
-                  
-                  // tick the available beats 
-                  Roo.each(records, function(r) {
-                  
-                      if ( crecs.indexOf(''+r.data.id) > -1) {
-                          r.set('member', 1);
-                      }
-                      avail.push(''+r.data.id);
-                      
-                  });
-                  
-                  // remove the unavailable beats from beats field
-                  var crec_new = [];
-                  Roo.each(crecs, function(r) {
-                      if (avail.indexOf(r) > -1) {
-                          crec_new.push(r);
-                      }
-                  });
-                
-                  beatsField.setValue( crec_new.join(','));
-                  
-                  
-              }
-              */
-          },
-         update : function (_self, record, operation)
-          {
-              if (operation !=  Roo.data.Record.COMMIT) {
-                  return;
-              }
-              new Pman.Request({
-                  url: baseURL + '/Core/GroupMembers.php',
-                  params: {
-                      action : record.data.is_in_group * 1 ? 'add' : 'sub',
-                      group_id: record.data.id,
-                      user_ids : _this.form.findField('id').getValue()
-                  },  
-                  method: 'POST',  
-                  success : function(res) {
-                      _self.load();
+              var selected = groupIds.split(',');
+              Roo.each(records, function(r) {
+                  if (selected.indexOf('' + r.data.id) > -1) {
+                      r.set('is_in_group', 1);
                   }
               });
           }

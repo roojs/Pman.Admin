@@ -17,6 +17,7 @@ Pman.Dialog.Login = {
   '16f6c60cf0b840982bc1f595ac1641cb' :"Enter your code",
   '42d15cbad8e0268cbad01372c7e7542e' :"<div class=\"x-combo-list-item\">{ldisp}</div>",
   '5ee88e8eeb383acf2244b5ac824a7876' :"Use your authenticator app to find a code, and enter it here.",
+  '8b10281154afa6312e3e8448c14f7134' :"Two-factor authentication",
   '643a860f992333b8600ea264aca7c4fc' :"Email Address",
   '5da1e201cb7f08519d07290abf226cfb' :"Select a Language..."
  },
@@ -224,6 +225,11 @@ Pman.Dialog.Login = {
                    
                   _this.codeStep = false;
                   _this.loginLocked = false;
+                  if (!_this.loginCodeBlock.hidden) {
+                      var back = _this.dialog.size || _this.dialog.el.getSize();
+                      _this.dialog.resizeTo(back.width, back.height - 150);
+                      _this.dialog.center();
+                  }
                   _this.loginCodeBlock.hide();
                   _this.loginCodeNote.el.update('Use your authenticator app to find a code, and enter it here.');
                   var codeField = this.findField('oath_password');
@@ -271,6 +277,11 @@ Pman.Dialog.Login = {
                   _this.codeStep = true;
                   _this.form.findField('username').el.dom.readOnly = true;
                   _this.form.findField('password').el.dom.readOnly = true;
+                  if (_this.loginCodeBlock.hidden) {
+                      var taller = _this.dialog.size || _this.dialog.el.getSize();
+                      _this.dialog.resizeTo(taller.width, taller.height + 150);
+                      _this.dialog.center();
+                  }
                   _this.loginCodeBlock.show();
                   if (codeName.indexOf('LOGIN-2FA-EMAIL') !== -1) {
                       _this.loginCodeNote.el.update('We have sent a login code to your email. Check your email and enter the code from there.');
@@ -349,6 +360,7 @@ Pman.Dialog.Login = {
           xtype : 'FieldSet',
           hidden : true,
           labelWidth : 120,
+          legend : _this._strings['8b10281154afa6312e3e8448c14f7134'] /* Two-factor authentication */,
           style : 'margin-top: 8px;',
           listeners : {
            render : function()

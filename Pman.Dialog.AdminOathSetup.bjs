@@ -1,0 +1,180 @@
+{
+ "items" : [
+  {
+   "$ xns" : "Roo",
+   "Boolean closable" : false,
+   "Boolean modal" : true,
+   "height" : 570,
+   "listeners" : {
+    "hide" : [
+     "function ()",
+     "{",
+     "    if (_this.callback) {",
+     "        _this.callback.call(_this, _this.enabled);",
+     "    }",
+     "}"
+    ],
+    "show" : [
+     "function ()",
+     "{",
+     "    _this.enabled = false;",
+     "    new Pman.Request({",
+     "        url: baseURL + '/Roo/core_person',",
+     "        method: 'GET',",
+     "        mask: 'Please wait',",
+     "        params: {",
+     "            _to_qr_code: 1,",
+     "            id: _this.data.id",
+     "        },",
+     "        success: function(res) {",
+     "            _this.qr.el.update('<img src=\"' + res.data.image + '\" style=\"width:360px;height:360px;\">');",
+     "        }",
+     "    });",
+     "}"
+    ]
+   },
+   "items" : [
+    {
+     "$ xns" : "Roo.layout",
+     "* prop" : "center",
+     "xtype" : "Region"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function ()",
+       "{",
+       "    new Pman.Request({",
+       "        url: baseURL + '/Roo/core_person',",
+       "        method: 'GET',",
+       "        mask: 'Please wait',",
+       "        params: {",
+       "            force_oath_key_store: 1,",
+       "            id: _this.data.id",
+       "        },",
+       "        success: function() {",
+       "            _this.enabled = true;",
+       "            _this.dialog.hide();",
+       "        }",
+       "    });",
+       "}"
+      ]
+     },
+     "text" : "User will use email",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function ()",
+       "{",
+       "    new Pman.Request({",
+       "        url: baseURL + '/Roo/core_person',",
+       "        method: 'GET',",
+       "        params: {",
+       "            oath_key_discard: 1,",
+       "            id: _this.data.id",
+       "        },",
+       "        success: function() {",
+       "            _this.enabled = false;",
+       "            _this.dialog.hide();",
+       "        }",
+       "    });",
+       "}"
+      ]
+     },
+     "text" : "Cancel",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo",
+     "* prop" : "buttons[]",
+     "listeners" : {
+      "click" : [
+       "function ()",
+       "{",
+       "    Roo.MessageBox.prompt('Code', 'Enter the code from the authenticator app.', function(btn, text) {",
+       "        if (btn != 'ok' || !text) {",
+       "            return;",
+       "        }",
+       "        new Pman.Request({",
+       "            url: baseURL + '/Roo/core_person',",
+       "            method: 'GET',",
+       "            mask: 'Please wait',",
+       "            params: {",
+       "                two_factor_auth_code: text,",
+       "                id: _this.data.id",
+       "            },",
+       "            success: function() {",
+       "                _this.enabled = true;",
+       "                _this.dialog.hide();",
+       "            },",
+       "            failure: function() {",
+       "                Roo.MessageBox.alert('Error', 'That code did not match. Enter the current code from the app.');",
+       "            }",
+       "        });",
+       "    });",
+       "}"
+      ]
+     },
+     "text" : "Save",
+     "xtype" : "Button"
+    },
+    {
+     "$ xns" : "Roo.panel",
+     "Boolean autoCreate" : true,
+     "Boolean fitToFrame" : true,
+     "String region" : "center",
+     "String style" : "margin: 10px",
+     "items" : [
+      {
+       "$ xns" : "Roo.form",
+       "items" : [
+      {
+       "$ xns" : "Roo.form",
+       "String html" : "",
+       "listeners" : {
+        "render" : [
+         "function ()",
+         "{",
+         "    _this.qr = this;",
+         "}"
+        ]
+       },
+       "xtype" : "TextItem"
+      },
+      {
+       "$ xns" : "Roo.form",
+       "String html" : "Install Google Authenticator and scan this code so you can generate numbers. You can select below to use email.",
+       "style" : "margin-top: 8px;",
+       "xtype" : "TextItem"
+      }
+     ],
+     "listeners" : {
+      "|rendered" : [
+       "function (form)",
+       "{",
+       "    _this.form = form;",
+       "}"
+      ]
+     },
+     "xtype" : "Form"
+      }
+     ],
+     "xtype" : "Content"
+    }
+   ],
+   "title" : "Set up two-factor authentication",
+   "width" : 420,
+   "xtype" : "LayoutDialog"
+  }
+ ],
+ "modOrder" : "001",
+ "name" : "Pman.Dialog.AdminOathSetup",
+ "parent" : "",
+ "title" : "Set up two-factor authentication"
+}
